@@ -64,7 +64,6 @@ namespace Slingshot {
             this.set_type_hint (Gdk.WindowTypeHint.POPUP_MENU);
             this.set_keep_above (true);
             this.resizable = true;
-            this.set_has_resize_grip (true);
             
             // Have the window in the right place
             this.move (5, 0); 
@@ -102,7 +101,25 @@ namespace Slingshot {
             
             // Make icon grid and populate
             grid = new Widgets.Grid (3, 5);
-            container.pack_start (grid, true, true, 0);
+            container.pack_start (Utils.set_padding (grid, 0, 18, 0, 18), true, true, 0);
+
+            for (int r = 0; r < this.grid.n_rows; r++) {
+
+                for (int c = 0; c < this.grid.n_columns; c++) {
+
+                    var item = new AppIcon (this.icon_size);
+                    item.change_app ("Test name", "Description");
+                    this.children.append (item);
+
+                    item.button_press_event.connect ( () => { item.grab_focus (); return true; } );
+                    item.enter_notify_event.connect ( () => { item.grab_focus (); return true; } );
+                    item.leave_notify_event.connect ( () => { this.searchbar.grab_focus (); return true; } );
+
+                    this.grid.attach (item, c, c + 1, r, r + 1, Gtk.AttachOptions.EXPAND, Gtk.AttachOptions.EXPAND, 0, 0);
+
+
+                }
+            }
 
             //this.populate_grid ();
             //update_grid (apps);
@@ -119,12 +136,14 @@ namespace Slingshot {
 
             // Find number of pages and populate
             this.update_pages (this.apps);
-            if (this.total_pages >  1) {
+            /*if (this.total_pages >  1) {
                 pages_wrapper.pack_start (this.pages, true, false, 0);
                 for (int p = 1; p <= this.total_pages; p++) {
                     this.pages.append (p.to_string ());
                 }
-            }
+            }*/
+            pages.append ("1");
+            pages.append ("2");
             this.pages.set_active (0);
 
             this.add (Utils.set_padding (wrapper, 15, 15, 15, 15));
@@ -141,6 +160,11 @@ namespace Slingshot {
             this.draw.connect (this.draw_background);
             searchbar.changed.connect (this.search);            
 
+            //set up app monitor
+            //refreshes when apps are added/removed
+            this.monitor = new Backend.AppMonitor();
+            this.monitor.changed.connect (this.refresh_apps);
+
         }
 
         private bool draw_background (Context cr) {
@@ -150,8 +174,6 @@ namespace Slingshot {
 
             double radius = 5.0;
             double offset = 2.0;
-
-            //cairo_set_source_pixbuf (cr, background, 0, 0);
 
 		    cr.move_to (0 + radius, 15 + offset);
             cr.line_to (20.0, 15.0 + offset);
@@ -165,13 +187,14 @@ namespace Slingshot {
                          radius, Math.PI * 0.5, Math.PI);
 		    cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
-            cr.set_source_rgba (0.2, 0.2, 0.2, 0.9);
+            cr.set_source_rgba (0.1, 0.1, 0.1, 0.95);
             cr.fill_preserve ();
 
             cr.set_source_rgba (93.0, 93.0, 93.0, 0.5);
             cr.set_line_width (1.5);
             cr.stroke ();
             
+            //cairo_set_source_pixbuf (cr, background, 0, 0);
             //cr.paint ();
 
             return false;
