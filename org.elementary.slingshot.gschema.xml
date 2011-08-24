@@ -1,0 +1,9 @@
+<schemalist>
+	<schema path="/apps/slingshot/" id="org.elementary.Slingshot" gettext-domain="slingshot">
+		<key name="history" type="as">
+			<default>['']</default>
+			<summary>List of the recent search queries.</summary>
+			<description>This is description.</description>
+		</key>
+	</schema>
+</schemalist>
