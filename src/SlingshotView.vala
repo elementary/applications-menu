@@ -61,8 +61,13 @@ namespace Slingshot {
             this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
-            this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
+            this.set_type_hint (Gdk.WindowTypeHint.POPUP_MENU);
             this.set_keep_above (true);
+            this.resizable = true;
+            this.set_has_resize_grip (true);
+            
+            // Have the window in the right place
+            this.move (5, 0); 
 
             setup_ui ();
             connect_signals ();
@@ -91,7 +96,7 @@ namespace Slingshot {
             searchbar = new Searchbar (_("Start typing to search"));
             
             top.pack_start (lefttop_widget, true, true, 15);
-            top.pack_start (searchbar, false, true, 15);
+            top.pack_start (searchbar, false, true, 0);
 
             container.pack_start (top, false, true, 15);
             
@@ -140,8 +145,34 @@ namespace Slingshot {
 
         private bool draw_background (Context cr) {
 
-            cairo_set_source_pixbuf (cr, background, 0, 0);
-            cr.paint ();
+            Allocation size;
+            get_allocation (out size);
+
+            double radius = 5.0;
+            double offset = 2.0;
+
+            //cairo_set_source_pixbuf (cr, background, 0, 0);
+
+		    cr.move_to (0 + radius, 15 + offset);
+            cr.line_to (20.0, 15.0 + offset);
+            cr.line_to (35.0, 0.0 + offset);
+            cr.line_to (50.0, 15.0 + offset);
+		    cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset, 
+                         radius, Math.PI * 1.5, Math.PI * 2);
+		    cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset, 
+                         radius, 0, Math.PI * 0.5);
+		    cr.arc (0 + radius + offset, 0 + size.height - radius - offset, 
+                         radius, Math.PI * 0.5, Math.PI);
+		    cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
+
+            cr.set_source_rgba (0.2, 0.2, 0.2, 0.9);
+            cr.fill_preserve ();
+
+            cr.set_source_rgba (93.0, 93.0, 93.0, 0.5);
+            cr.set_line_width (1.5);
+            cr.stroke ();
+            
+            //cr.paint ();
 
             return false;
 
