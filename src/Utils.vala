@@ -1,6 +1,6 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 //  
-//  Copyright (C) 2011 Sassy Developers
+//  Copyright (C) 2011 Slingshot Developers
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -76,60 +76,17 @@ namespace Slingshot {
             
         }
 
-        public static ToolItem add_spacer () {
-			
-			var spacer = new ToolItem ();
-			spacer.set_expand (true);
-			
-			return spacer;
-			
-		}
-
         public static string get_font_name () {
 
             var settings = new GLib.Settings ("org.gnome.desktop.interface");
             string font_name = settings.get_string ("font-name");
 
+            // Return the font-name without the size
             return font_name [0:font_name.length - 2];
 
         }
 
-
-        /*
-        public static Slingshot.Frontend.Color average_color (Gdk.Pixbuf source) {
-			    double rTotal = 0;
-			    double gTotal = 0;
-			    double bTotal = 0;
-			
-			    uchar* dataPtr = source.get_pixels ();
-			    double pixels = source.height * source.rowstride / source.n_channels;
-			
-			    for (int i = 0; i < pixels; i++) {
-				    uchar r = dataPtr [0];
-				    uchar g = dataPtr [1];
-				    uchar b = dataPtr [2];
-				
-				    uchar max = (uchar) Math.fmax (r, Math.fmax (g, b));
-				    uchar min = (uchar) Math.fmin (r, Math.fmin (g, b));
-				    double delta = max - min;
-				
-				    double sat = delta == 0 ? 0 : delta / max;
-				    double score = 0.2 + 0.8 * sat;
-				
-				    rTotal += r * score;
-				    gTotal += g * score;
-				    bTotal += b * score;
-				
-				    dataPtr += source.n_channels;
-			    }
-			
-			    return Slingshot.Frontend.Color (rTotal / uint8.MAX / pixels,
-							     gTotal / uint8.MAX / pixels,
-							     bTotal / uint8.MAX / pixels,
-							     1).set_val (0.8).multiply_sat (1.15);
-		    }*/
-		
-		}
+    }	
 	
 }
 		
