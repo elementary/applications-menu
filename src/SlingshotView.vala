@@ -52,7 +52,7 @@ namespace Slingshot {
             try {
                 background = new Pixbuf.from_file (Build.PKGDATADIR + "/style/images/background.png");
             } catch {
-                error (_("Could not load background, please check your installation."));
+                warning (_("Could not load background, please check your installation."));
             }
 
             set_size_request (660, 570);

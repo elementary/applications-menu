@@ -90,7 +90,7 @@ namespace Slingshot {
             var settings = new GLib.Settings ("org.gnome.desktop.interface");
             string font_name = settings.get_string ("font-name");
 
-            return font_name;
+            return font_name [0:font_name.length - 2];
 
         }
 
