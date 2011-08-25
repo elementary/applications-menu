@@ -55,16 +55,18 @@ namespace Slingshot {
                 error (_("Could not load background, please check your installation."));
             }
 
-            set_size_request (661, 568);
+            set_size_request (660, 570);
+            read_settings ();
 
             // Window properties
             this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
-            this.set_type_hint (Gdk.WindowTypeHint.POPUP_MENU);
+            this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
             this.set_keep_above (true);
             this.resizable = true;
-            
+            this.app_paintable = true;
+
             // Have the window in the right place
             this.move (5, 0); 
 
@@ -98,9 +100,13 @@ namespace Slingshot {
             top.pack_start (searchbar, false, true, 0);
 
             container.pack_start (top, false, true, 15);
+
+            // Get the current size of the view
+            int width, height;
+            get_size (out width, out height);
             
             // Make icon grid and populate
-            grid = new Widgets.Grid (3, 5);
+            grid = new Widgets.Grid (height / 180, width / 128);
             container.pack_start (Utils.set_padding (grid, 0, 18, 0, 18), true, true, 0);
 
             for (int r = 0; r < this.grid.n_rows; r++) {
@@ -165,20 +171,28 @@ namespace Slingshot {
             this.monitor = new Backend.AppMonitor();
             this.monitor.changed.connect (this.refresh_apps);
 
+            // Auto-update settings when changed
+            Slingshot.settings.changed.connect (read_settings);
+
         }
 
         private bool draw_background (Context cr) {
 
             Allocation size;
             get_allocation (out size);
-
-            double radius = 5.0;
+            
+            // Some (configurable?) values
+            double radius = 6.0;
             double offset = 2.0;
 
+            cr.set_antialias (Antialias.SUBPIXEL);
+
 		    cr.move_to (0 + radius, 15 + offset);
+            // Create the little triangle
             cr.line_to (20.0, 15.0 + offset);
             cr.line_to (35.0, 0.0 + offset);
             cr.line_to (50.0, 15.0 + offset);
+            // Create the rounded square
 		    cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset, 
                          radius, Math.PI * 1.5, Math.PI * 2);
 		    cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset, 
@@ -190,8 +204,22 @@ namespace Slingshot {
             cr.set_source_rgba (0.1, 0.1, 0.1, 0.95);
             cr.fill_preserve ();
 
-            cr.set_source_rgba (93.0, 93.0, 93.0, 0.5);
-            cr.set_line_width (1.5);
+            // Add a little vertical gradient
+            var linear_stroke = new Cairo.Pattern.linear (0, 0, 0, size.height);
+	        linear_stroke.add_color_stop_rgba (0.0,  1.0, 1.0, 1.0, 0.0);
+	        linear_stroke.add_color_stop_rgba (0.5,  1.0, 1.0, 1.0, 0.0);
+	        linear_stroke.add_color_stop_rgba (1.0,  0.9, 0.9, 0.9, 0.2);
+            cr.set_source (linear_stroke);
+            cr.fill_preserve ();
+
+            // Paint a little black border
+            cr.set_source_rgba (0.0, 0.0, 0.0, 1.0);
+            cr.set_line_width (2.0);
+            //cr.stroke_preserve ();
+
+            // Paint a little lighter border
+            cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
+            cr.set_line_width (1.0);
             cr.stroke ();
             
             //cairo_set_source_pixbuf (cr, background, 0, 0);
@@ -334,6 +362,14 @@ namespace Slingshot {
             }
 
         }
+
+        private void read_settings () {
+
+            default_width = Slingshot.settings.width;
+            default_height = Slingshot.settings.height;
+
+        }
+
     }
 
 }

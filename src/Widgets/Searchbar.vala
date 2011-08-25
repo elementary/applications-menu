@@ -162,7 +162,7 @@ namespace Slingshot.Widgets {
 
             // Draw bottom white border
             Utils.draw_rounded_rectangle (context, 3, -0.5, size);
-            var linear_stroke = new Cairo.Pattern.linear(0, 0, 0, size.height + 2);
+            var linear_stroke = new Cairo.Pattern.linear (0, 0, 0, size.height);
 	        linear_stroke.add_color_stop_rgba (0.0,  1.0, 1.0, 1.0, 0.0);
 	        linear_stroke.add_color_stop_rgba (0.85,  1.0, 1.0, 1.0, 0.0);
 	        linear_stroke.add_color_stop_rgba (1.0,  1.0, 1.0, 1.0, 0.4);
@@ -175,8 +175,8 @@ namespace Slingshot.Widgets {
             // Draw background gradient
             var linear_fill = new Cairo.Pattern.linear (0, 0, 0, size.height);
 	        linear_fill.add_color_stop_rgb (0.0, 0.8, 0.8, 0.8);
-	        linear_fill.add_color_stop_rgb (0.9, 1.0, 1.0, 1.0);
-	        linear_fill.add_color_stop_rgb (1.0, 0.9, 0.9, 0.9);
+	        linear_fill.add_color_stop_rgb (0.5, 1.0, 1.0, 1.0);
+	        linear_fill.add_color_stop_rgb (1.0, 1.0, 1.0, 0.9);
             context.set_source (linear_fill);
             context.fill_preserve ();
             

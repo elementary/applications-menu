@@ -1,9 +1,14 @@
 <schemalist>
-	<schema path="/apps/slingshot/" id="org.elementary.Slingshot" gettext-domain="slingshot">
-		<key name="history" type="as">
-			<default>['']</default>
-			<summary>List of the recent search queries.</summary>
-			<description>This is description.</description>
-		</key>
+	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.Slingshot" gettext-domain="slingshot">
+        <key name="width" type="i">
+            <default>660</default>
+            <summary>The default width</summary>
+            <description>This value needs to be greater than 660 to be effective.</description>
+        </key>
+        <key name="height" type="i">
+            <default>570</default>
+            <summary>The default height</summary>
+            <description>This value needs to be greater than 568 to be effective.</description>
+        </key>
 	</schema>
 </schemalist>

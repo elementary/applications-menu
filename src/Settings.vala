@@ -22,10 +22,11 @@ namespace Slingshot {
 
     public class Settings : Granite.Services.Settings {
 
-        public string[] history { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
 
         public Settings () {
-            base ("org.elementary.Slingshot");
+            base ("desktop.pantheon.Slingshot");
         }
 
     }
