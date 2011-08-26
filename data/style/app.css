@@ -15,4 +15,16 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-@import url("app.css");
+@define-color trasparent rgba (0, 0, 0, 0.4);
+@define-color bg_color rgba (138, 13, 13, 0.8);
+
+/* App Styles */
+
+.app {
+    background-color: @trasparent;
+}
+
+.app:focused {
+    background-color: shade(@bg_color, 0.7);
+    border-radius: 5;
+}

@@ -15,6 +15,7 @@ set (VERSION_INFO "Testing")
 # Files
 
 file (GLOB imagefiles "${CMAKE_CURRENT_SOURCE_DIR}/data/style/images/*")
+file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
 
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/vala)
 
@@ -51,7 +52,7 @@ vala_precompile (VALA_C
     src/SlingshotView.vala
     src/Settings.vala
     src/Utils.vala
-    src/Widgets/AppIcon.vala
+    src/Widgets/App.vala
     src/Widgets/Grid.vala
 PACKAGES
 	${SLINGSHOT_DEPS}
@@ -68,6 +69,7 @@ add_executable (slingshot ${VALA_C})
 # Installation
 install (TARGETS slingshot RUNTIME DESTINATION bin)
 install (FILES ${imagefiles} DESTINATION ${PKGDATADIR}/style/images)
+install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 
 
 #

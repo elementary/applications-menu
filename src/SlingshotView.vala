@@ -31,7 +31,7 @@ namespace Slingshot {
         public EventBox wrapper;
         public EventBox lefttop_widget;
         public SearchBar searchbar;
-        public GLib.List<AppIcon> children = new GLib.List<AppIcon> ();
+        //public GLib.List<AppIcon> children = new GLib.List<AppIcon> ();
         public Widgets.Grid grid;
 
         private int icon_size = 64;
@@ -94,9 +94,8 @@ namespace Slingshot {
 
                 for (int c = 0; c < this.grid.n_columns; c++) {
 
-                    var item = new AppIcon (this.icon_size);
-                    item.change_app ("Test name", "Description");
-                    this.children.append (item);
+                    var item = new App ();
+                    //this.children.append (item);
 
                     item.button_press_event.connect ( () => { item.grab_focus (); return true; } );
                     item.enter_notify_event.connect ( () => { item.grab_focus (); return true; } );
