@@ -15,37 +15,40 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-@define-color bg_color rgba (138, 13, 13, 0.8);
+@define-color bg_color rgba(190, 190, 190, 1.0);
+@define-color bg_selected rgba(189, 189, 189, 0.5);
+@define-color bg_hover rgba(87, 87, 87, 0.5);
 
-/* App Styles */
-
-.app {
-    engine:none;
-    background-image:none;
-    background-color:@trasparent;
-    border-width:0;
-    border-radius:5;
+.switcher {
+    background-color: @bg_color;
+    border-radius: 5;
+    border-width: 0;
+    color: #fff;
 }
 
-#app-name
-{
-    engine:none;
-    color:#fff;
-    background-image:none;
-    background-color:@trasparent;
+#switcher-button {
+    engine: none;
+    background-color: @trasparent;
+    background-image: none;
+    color: #fff;
     text-shadow: 0 1 alpha (shade (@bg_color, 1.25), 0.5);
-}
-
-.app:hover {
- transition: 200ms ease-in-out;
-    background-image: -gtk-gradient (linear,
-        left top,
-        left bottom,
-        from (alpha(@selected_bg_color, 0.8)),
-        to (alpha(@selected_bg_color, 0.0)));
-    background-color: #fff;
+    border-width: 0;
+    border-color: @trasparent;
     border-radius: 5;
 }
 
-.app:focus {
+#switcher-button:selected {
+    transition: 200ms ease-in-out;
+    background-color: @bg_selected;
+    border-radius: 5;
+    color: #fff;
+}
+
+#switcher-button:focus {
+}
+#switcher-button:hover {
+    transition: 200ms ease-in-out;
+    background-color: @bg_hover;
+    border-radius: 5;
+    color: #fff;
 }

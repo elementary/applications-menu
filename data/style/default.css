@@ -15,4 +15,13 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/* Define some colors */
+@define-color trasparent rgba (0, 0, 0, 0.0);
+
+*:focus {
+    border-style: solid;
+}
+
+/* Import other widgets styles */
 @import url("app.css");
+@import url("switcher.css");

@@ -22,15 +22,19 @@ using Cairo;
 
 namespace Slingshot.Widgets {
 
-    public class App : Button {
+    public class Switcher : HBox {
 
-        public Image app_icon;
-        public Label app_name;
-        private VBox layout;
+        public signal void active_changed (int active);
+
+        public new List<Button> children;
+        public int active = -1;
 
         private CssProvider style_provider;
 
-        public App () {
+        public Switcher () {
+
+            homogeneous = false;
+            spacing = 3;
             
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
@@ -46,28 +50,43 @@ namespace Slingshot.Widgets {
             can_focus = true;
 
             get_style_context ().add_provider (style_provider, 600);
-            get_style_context ().add_class ("app");
+            get_style_context ().add_class ("switcher");
 
-            app_icon = new Image.from_icon_name ("beatbox", IconSize.DIALOG);
-            app_icon.pixel_size = Slingshot.settings.icon_size;
-            app_icon.get_style_context ().add_provider (style_provider, 600);
-            app_icon.get_style_context ().add_class ("app-icon");
-
-            app_name = new Label ("Test app name");
-            app_name.halign = Align.CENTER;
-            //app_name.set_line_wrap (true); // Need a smarter way
-            app_name.get_style_context ().add_provider (style_provider, 600);
-            app_name.name = "app-name";
-
-            layout = new VBox (false, 5);
-
-            layout.pack_start (app_icon, false, true, 0);
-            layout.pack_end (app_name, false, true, 0);
-
-            add (Utils.set_padding (layout, 10, 10, 10, 10));
+            message ("Creating Switcher widget");
 
         }
 
-    }
+        public void append (string label) {
 
+            var button = new Button.with_label (label);
+            button.get_style_context ().add_provider (style_provider, 600);
+            button.name = "switcher-button";
+
+            children.append (button);
+
+            button.clicked.connect (() => {
+
+                int select = children.index (button);
+                set_active (select);
+
+            });
+
+            add (button);
+
+        }
+        
+        public void set_active (int new_active) {
+
+            if (new_active >= children.length ())
+                return;
+
+            if (active >= 0)
+                children.nth_data (active).set_state (StateType.NORMAL);
+
+            active_changed (new_active);
+            active = new_active;
+            children.nth_data (active).set_state (StateType.SELECTED);
+
+        }
+    }
 }

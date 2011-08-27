@@ -10,5 +10,10 @@
             <summary>The default height</summary>
             <description>This value needs to be greater than 568 to be effective.</description>
         </key>
+        <key name="icon-size" type="i">
+            <default>64</default>
+            <summary>The default icon size of apps</summary>
+            <description>This value manages the size of the icons in Slingshot.</description>
+        </key>
 	</schema>
 </schemalist>

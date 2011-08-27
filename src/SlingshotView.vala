@@ -29,12 +29,9 @@ namespace Slingshot {
     public class SlingshotView : CompositedWindow {
 
         public EventBox wrapper;
-        public EventBox lefttop_widget;
+        public Switcher category_switcher;
         public SearchBar searchbar;
-        //public GLib.List<AppIcon> children = new GLib.List<AppIcon> ();
         public Widgets.Grid grid;
-
-        private int icon_size = 64;
 
         public SlingshotView () {
 
@@ -47,7 +44,7 @@ namespace Slingshot {
             this.skip_taskbar_hint = true;
             this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
             this.set_keep_above (true);
-            this.resizable = true;
+            this.resizable = false;
             this.app_paintable = true;
 
             // Have the window in the right place
@@ -71,13 +68,16 @@ namespace Slingshot {
             // Add top bar
             var top = new HBox (false, 10);
 
-            // Fake placeholder widget
-            lefttop_widget = new EventBox ();
-            lefttop_widget.set_visible_window (false);
+            // Category Switcher widget
+            category_switcher = new Switcher ();
+            for (int i = 0; i < 5; i++)
+                category_switcher.append (@"All Apps $i");
+            category_switcher.set_active (0);
+
 
             searchbar = new SearchBar (_("Start typing to search"));
             
-            top.pack_start (lefttop_widget, true, true, 15);
+            top.pack_start (category_switcher, true, true, 15);
             top.pack_start (searchbar, false, true, 0);
 
             container.pack_start (top, false, true, 15);
@@ -95,14 +95,8 @@ namespace Slingshot {
                 for (int c = 0; c < this.grid.n_columns; c++) {
 
                     var item = new App ();
-                    //this.children.append (item);
-
-                    item.button_press_event.connect ( () => { item.grab_focus (); return true; } );
-                    item.enter_notify_event.connect ( () => { item.grab_focus (); return true; } );
-                    item.leave_notify_event.connect ( () => { this.lefttop_widget.grab_focus (); return true; } );
 
                     this.grid.attach (item, c, c + 1, r, r + 1, Gtk.AttachOptions.EXPAND, Gtk.AttachOptions.EXPAND, 0, 0);
-
 
                 }
             }
@@ -158,13 +152,13 @@ namespace Slingshot {
             cr.fill_preserve ();
 
             // Add a little vertical gradient
-            var linear_stroke = new Cairo.Pattern.linear (0, 0, 0, size.height);
+            /*var linear_stroke = new Cairo.Pattern.linear (0, 0, 0, size.height);
 	        linear_stroke.add_color_stop_rgba (0.0,  1.0, 1.0, 1.0, 0.0);
 	        linear_stroke.add_color_stop_rgba (0.5,  1.0, 1.0, 1.0, 0.0);
 	        linear_stroke.add_color_stop_rgba (1.0,  0.9, 0.9, 0.9, 0.2);
             cr.set_source (linear_stroke);
             cr.fill_preserve ();
-
+            */ // I don't like it anymore
 
             // Paint a little lighter border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);

@@ -24,6 +24,7 @@ namespace Slingshot {
 
         public int width { get; set; }
         public int height { get; set; }
+        public int icon_size { get; set; }
 
         public Settings () {
             base ("desktop.pantheon.Slingshot");
