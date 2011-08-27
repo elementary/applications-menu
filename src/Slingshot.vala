@@ -47,17 +47,16 @@ namespace Slingshot {
 		    translate_url = "https://translations.launchpad.net/slingshot";
 
 		    about_authors = {"Giulio Collura <random.cpp@gmail.com>"};
-
-        	//about_documenters = {"",""};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
                              "Daniel Foré <bunny@go-docky.com>"};
-		    //about_translators = "";
 
         }
 
         public Slingshot () {
 
             settings = new Settings ();
+            Services.Logger.initialize ("Scratch");
+            Services.Logger.DisplayLevel = Services.LogLevel.DEBUG;
 
         }
 
@@ -68,7 +67,7 @@ namespace Slingshot {
                 view.set_application (this);
                 view.show_all ();
             } else {
-                view.deiconify ();
+                view.show_slingshot ();
             }
         
         }

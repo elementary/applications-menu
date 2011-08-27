@@ -52,8 +52,6 @@ namespace Slingshot.Widgets {
             get_style_context ().add_provider (style_provider, 600);
             get_style_context ().add_class ("switcher");
 
-            message ("Creating Switcher widget");
-
         }
 
         public void append (string label) {

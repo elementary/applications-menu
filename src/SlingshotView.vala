@@ -21,8 +21,10 @@ using Gdk;
 using Gee;
 using Cairo;
 using Granite.Widgets;
+using GMenu;
 
 using Slingshot.Widgets;
+using Slingshot.Backend;
 
 namespace Slingshot {
 
@@ -32,6 +34,11 @@ namespace Slingshot {
         public Switcher category_switcher;
         public SearchBar searchbar;
         public Widgets.Grid grid;
+
+        private ArrayList<TreeDirectory> categories;
+        private HashMap<string, ArrayList<App>> apps;
+
+        private CssProvider style_provider;
 
         public SlingshotView () {
 
@@ -49,6 +56,22 @@ namespace Slingshot {
 
             // Have the window in the right place
             this.move (5, 0); 
+
+            categories = AppSystem.get_categories ();
+            apps = new HashMap<string, ArrayList<App>> ();
+
+            foreach (TreeDirectory cat in categories) {
+                apps.set (cat.get_name (), AppSystem.get_apps (cat));
+            }
+
+            style_provider = new CssProvider ();
+
+            try {
+                style_provider.load_from_path (Build.PKGDATADIR + "/style/default.css");
+            } catch (Error e) {
+                warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
+            }
+
 
             setup_ui ();
             connect_signals ();
@@ -70,14 +93,15 @@ namespace Slingshot {
 
             // Category Switcher widget
             category_switcher = new Switcher ();
-            for (int i = 0; i < 5; i++)
-                category_switcher.append (@"All Apps $i");
+            foreach (string cat in apps.keys) {
+                category_switcher.append (cat);
+            }
             category_switcher.set_active (0);
 
 
             searchbar = new SearchBar (_("Start typing to search"));
             
-            top.pack_start (category_switcher, true, true, 15);
+            //top.pack_start (category_switcher, true, true, 15);
             top.pack_start (searchbar, false, true, 0);
 
             container.pack_start (top, false, true, 15);
@@ -88,19 +112,19 @@ namespace Slingshot {
             
             // Make icon grid and populate
             grid = new Widgets.Grid (height / 180, width / 128);
-            container.pack_start (Utils.set_padding (grid, 0, 18, 0, 18), true, true, 0);
+            var scrolled_window = new ScrolledWindow (null, null);
+            scrolled_window.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
+            scrolled_window.add_with_viewport (grid);
+            scrolled_window.app_paintable = true;
+            scrolled_window.set_visual (get_screen ().get_rgba_visual());
+            scrolled_window.get_style_context ().add_provider (style_provider, 600);
+            scrolled_window.get_style_context ().add_class ("scrollwindow");
 
-            for (int r = 0; r < this.grid.n_rows; r++) {
+            scrolled_window.set_visual (get_screen ().get_rgba_visual());
 
-                for (int c = 0; c < this.grid.n_columns; c++) {
+            container.pack_start (Utils.set_padding (scrolled_window, 0, 18, 0, 18), true, true, 0);
 
-                    var item = new App ();
-
-                    this.grid.attach (item, c, c + 1, r, r + 1, Gtk.AttachOptions.EXPAND, Gtk.AttachOptions.EXPAND, 0, 0);
-
-                }
-            }
-            
+            populate_grid ();            
 
             this.add (Utils.set_padding (wrapper, 15, 15, 15, 15));
 
@@ -112,7 +136,6 @@ namespace Slingshot {
             
             this.focus_out_event.connect ( () => {
                 this.hide_slingshot(); 
-                Gtk.main_quit ();
                 return false; 
             });
             this.draw.connect (this.draw_background);
@@ -192,13 +215,50 @@ namespace Slingshot {
 
         private void hide_slingshot () {
 
-            iconify ();
+            hide ();
+
+        }
+
+        public void show_slingshot () {
+
+            deiconify ();
+            show_all ();
+            grab_focus ();
 
         }
 
         private void search () {
 
             message ("Performing searching...");
+
+        }
+
+        private void populate_grid () {
+
+            message ("Populating grid");
+            warning ("This function needs to be optimized");
+
+            uint r = 0, c = 0; // Row and column
+            uint max_r = grid.n_rows;
+            uint max_c = grid.n_columns;
+
+            foreach (ArrayList<App> entries in apps.values) {
+                foreach (App app in entries) {
+                    
+                    if (c == max_c) {
+                        c = 0;
+                        r++;
+                    }
+                    app.button_release_event.connect (() => {
+                        app.launch ();
+                        hide_slingshot ();
+                        return true;
+                    });
+                    grid.attach (app, c, c + 1, r, r + 1, 
+                            AttachOptions.EXPAND, AttachOptions.EXPAND, 0, 0);
+                    c++;
+                }
+            }
 
         }
 

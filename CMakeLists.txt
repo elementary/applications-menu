@@ -55,6 +55,7 @@ vala_precompile (VALA_C
     src/Widgets/App.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
+    src/Backend/AppSystem.vala
 PACKAGES
 	${SLINGSHOT_DEPS}
 CUSTOM_VAPIS

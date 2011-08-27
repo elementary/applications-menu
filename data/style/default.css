@@ -22,6 +22,12 @@
     border-style: solid;
 }
 
+.scrollwindow {
+    engine:none;
+    background-color: rgba(0, 0, 0, 1.0);
+    background-image:none;
+}
+
 /* Import other widgets styles */
 @import url("app.css");
 @import url("switcher.css");

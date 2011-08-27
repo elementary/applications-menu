@@ -24,22 +24,56 @@ namespace Slingshot.Backend {
 
     public class AppSystem : Object {
 
-        GMenu.Tree apps_tree;
-        HashTable entry_to_app;
+        public static ArrayList<TreeDirectory> get_categories () {
 
-        construct {
+            var apps_tree = GMenu.Tree.lookup ("applications.menu", TreeFlags.INCLUDE_NODISPLAY);
+            var root_tree = apps_tree.get_root_directory ();            
 
-            apps_tree = GMenu.Tree.lookup ("applications.menu", TreeFlags.INCLUDE_NODISPLAY);
+            var category_entries = new ArrayList<TreeDirectory> ();
+
+            foreach (TreeItem item in root_tree.get_contents ()) {
+                if (item.get_type () == TreeItemType.DIRECTORY)
+                    if (((TreeDirectory) item).get_menu_id () != "All Applications" &&
+                        ((TreeDirectory) item).get_is_nodisplay () == false)
+                        category_entries.add ((TreeDirectory) item);
+            }
+
+            return category_entries;
 
         }
 
-        public static void lookup_app (string id) {
+        public static ArrayList<Widgets.App> get_apps (TreeDirectory category) {
+
+            var apps = new ArrayList<Widgets.App> ();
+
+            foreach (TreeItem item in category.get_contents ()) {
+                Widgets.App app;
+                switch (item.get_type ()) {
+                    case TreeItemType.DIRECTORY:
+                        apps.add_all (get_apps ((TreeDirectory) item));
+                        break;
+                    case TreeItemType.ENTRY:
+                        if (is_entry ((TreeEntry) item)) {
+                            app = new Widgets.App ((TreeEntry) item);
+                            if (apps.contains (app) == false) {
+                                apps.add (app);
+                            }
+                        }
+                        break;
+                }
+            }
+            return apps;
 
         }
 
-        public static List get_all () {
+        private static bool is_entry (TreeEntry entry) {
 
-            ArrayList<App> apps = new ArrayList<App> ();
+            if (entry.get_is_excluded () == false && entry.get_launch_in_terminal () == false 
+                && entry.get_icon () != null && entry.get_is_nodisplay () == false) {
+                return true;
+            } else {
+                return false;
+            }
 
         }
 
