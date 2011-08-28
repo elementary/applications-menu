@@ -24,6 +24,7 @@ namespace Slingshot {
     public class Slingshot : Granite.Application {
 
         private SlingshotView view = null;
+        private bool silent = false;
 
         public static Settings settings { get; private set; default = null; }
 
@@ -54,9 +55,21 @@ namespace Slingshot {
 
         public Slingshot () {
 
+
             settings = new Settings ();
             Services.Logger.initialize ("Scratch");
             Services.Logger.DisplayLevel = Services.LogLevel.DEBUG;
+
+        }
+
+        protected override int command_line (ApplicationCommandLine command_line) {
+
+            if ("--silent" in command_line.get_arguments ())
+                silent = true;
+            else
+                silent = false;
+
+            return 0;
 
         }
 
@@ -65,7 +78,7 @@ namespace Slingshot {
             if (get_windows () == null) {
                 view = new SlingshotView ();
                 view.set_application (this);
-                view.show_all ();
+                    view.show_all ();
             } else {
                 view.show_slingshot ();
             }

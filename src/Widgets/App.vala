@@ -38,6 +38,7 @@ namespace Slingshot.Widgets {
             
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
+            set_size_request (130, 130);
             
             app_name = entry.get_display_name ();
             tooltip_text = entry.get_comment ();
