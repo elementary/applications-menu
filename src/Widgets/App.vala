@@ -42,7 +42,7 @@ namespace Slingshot.Widgets {
             set_size_request (130, 130);
             
             app_name = entry.get_display_name () ?? " ";
-            tooltip_text = entry.get_comment () ?? " ";
+            tooltip_text = entry.get_comment () ?? app_name;
             exec_name = entry.get_exec () ?? " ";
             desktop_id = entry.get_desktop_file_id ();
             icon_size = Slingshot.settings.icon_size;

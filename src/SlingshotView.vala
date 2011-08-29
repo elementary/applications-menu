@@ -30,12 +30,12 @@ namespace Slingshot {
 
     public class SlingshotView : CompositedWindow {
 
-        public EventBox wrapper;
-        public Switcher category_switcher;
+        public ComboBoxText category_switcher;
         public SearchBar searchbar;
         public Widgets.Grid grid;
         public Layout pages;
         public Switcher page_switcher;
+        public VBox grid_n_pages;
 
         private ArrayList<TreeDirectory> categories;
         private HashMap<string, ArrayList<App>> apps;
@@ -96,9 +96,9 @@ namespace Slingshot {
             var top = new HBox (false, 10);
 
             // Category Switcher widget
-            category_switcher = new Switcher ();
+            category_switcher = new ComboBoxText ();
             foreach (string cat in apps.keys) {
-                category_switcher.append (cat);
+                category_switcher.append (cat, cat);
             }
             category_switcher.set_active (0);
 
@@ -128,9 +128,12 @@ namespace Slingshot {
             grid.new_page.connect (page_switcher.append);
             populate_grid ();
 
+            grid_n_pages = new VBox (false, 0);
+            grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
+            grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 35, 15, 35), false, true, 0);
+
             container.pack_start (top, false, true, 15);
-            container.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
-            container.pack_start (page_switcher, false, true, 15);
+            container.pack_start (grid_n_pages, true, true, 0);
             this.add (Utils.set_padding (container, 15, 15, 1, 15));
 
         }

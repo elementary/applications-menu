@@ -25,17 +25,19 @@ add_definitions(-include config.h)
 
 # Slingshot
 
-set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;libgnome-menu;granite;")
+set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;libgnome-menu;granite;zeitgeist-1.0")
 
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
 pkg_check_modules (GIO REQUIRED "gio-2.0 >= 2.26.0")
 pkg_check_modules (GIOUNIX REQUIRED "gio-unix-2.0 >= 2.26.0")
+pkg_check_modules (JSON REQUIRED "json-glib-1.0")
 pkg_check_modules (GEE REQUIRED "gee-1.0")
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.0.8")
 pkg_check_modules (LIBGNOME REQUIRED "libgnome-menu")
 pkg_check_modules (LIBGRANITE REQUIRED "granite")
+pkg_check_modules (ZEITGEIST REQUIRED "zeitgeist-1.0")
 pkg_check_modules (DEPS REQUIRED ${SLINGSHOT_DEPS})
 
 add_definitions (${DEPS_CFLAGS})
@@ -55,7 +57,10 @@ vala_precompile (VALA_C
     src/Widgets/App.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
-    src/Backend/AppSystem.vala
+    src/Backend/AppSystem.vala    
+    src/Backend/Match.vala
+    src/Backend/RelevancyBackendZg.vala
+    src/Backend/RelevancyService.vala
 PACKAGES
 	${SLINGSHOT_DEPS}
 CUSTOM_VAPIS

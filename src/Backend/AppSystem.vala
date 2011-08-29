@@ -68,8 +68,8 @@ namespace Slingshot.Backend {
 
         private static bool is_entry (TreeEntry entry) {
 
-            if (entry.get_is_excluded () == false && entry.get_launch_in_terminal () == false 
-                && entry.get_icon () != null && entry.get_is_nodisplay () == false) {
+            if (entry.get_launch_in_terminal () == false 
+                && entry.get_is_nodisplay () == false) {
                 return true;
             } else {
                 return false;
