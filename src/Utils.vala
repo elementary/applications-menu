@@ -52,37 +52,15 @@ namespace Slingshot {
 		
         }
         
-        public static void truncate_text (Cairo.Context context, Gtk.Allocation size, uint padding, 
-                                          string input, out string truncated, 
-                                          out Cairo.TextExtents truncated_extents) {
-
-            Cairo.TextExtents extents;
-            truncated = input;
-            context.text_extents (input, out extents);
+        public static string truncate_text (string input, int icon_size) {
             
-            if (extents.width > (size.width - padding)) {
-            
-                while (extents.width > (size.width - padding)) {
-                    truncated = truncated.slice (0, (int)truncated.length - 1);
-                    context.text_extents (truncated, out extents);
-                }   
-                
-                truncated = truncated.slice (0, (int) truncated.length - 3); // make room for ...
-                truncated += "...";
-            
+            string new_text;
+            if (input.length > 24) {
+                new_text = input[0:24] + "...";
+                return new_text;
+            } else {
+                return input;
             }
-            
-            context.text_extents (truncated, out truncated_extents);
-            
-        }
-
-        public static string get_font_name () {
-
-            var settings = new GLib.Settings ("org.gnome.desktop.interface");
-            string font_name = settings.get_string ("font-name");
-
-            // Return the font-name without the size
-            return font_name [0:font_name.length - 2];
 
         }
 

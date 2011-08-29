@@ -46,7 +46,7 @@ namespace Slingshot {
 
         public SlingshotView () {
 
-            set_size_request (660, 570);
+            set_size_request (700, 580);
             read_settings ();
 
             // Window properties
@@ -89,7 +89,7 @@ namespace Slingshot {
             wrapper.set_visible_window (false);
 
             // Add container
-            var container = new VBox (false, 15);
+            var container = new VBox (false, 0);
             wrapper.add (container);
 
             // Add top bar
@@ -128,13 +128,12 @@ namespace Slingshot {
             container.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
 
             page_switcher = new Switcher ();
-            container.pack_start (page_switcher, false, false, 15);
+            page_switcher.append ("1");
+            container.pack_start (page_switcher, false, true, 15);
 
             populate_grid ();            
 
-            this.add (Utils.set_padding (wrapper, 15, 15, 15, 15));
-
-            this.show_all ();
+            this.add (Utils.set_padding (wrapper, 15, 15, 1, 15));
 
         }
 
@@ -208,7 +207,7 @@ namespace Slingshot {
                     return true;
 
                 case "Ctrl_L":
-                case "C":
+                case "c":
                     Gtk.main_quit ();
                     break;
 
@@ -243,6 +242,11 @@ namespace Slingshot {
         }
 
         public void hide_slingshot () {
+            
+            // Show the first page
+            pages.move (grid, 0, 0);
+            page_switcher.set_active (0);
+            current_position = 0;
 
             hide ();
 
@@ -256,21 +260,23 @@ namespace Slingshot {
 
         }
 
-        private void page_left () {
+        private void page_left (int step = 1) {
 
-            message ("%i pages.width = %i", current_position, (int) pages.height);
-
-            pages.move (grid, current_position + 400, 0);
-            current_position -= 400;
+            if (current_position < 0) {
+                pages.move (grid, current_position + 5*130*step, 0);
+                current_position += 5*130*step;
+            }
 
             page_switcher.set_active (page_switcher.active - 1);
 
         }
 
-        private void page_right () {
+        private void page_right (int step = 1) {
 
-            pages.move (grid, current_position - 400, 0);
-            current_position += 400;
+            if ((- current_position) < ((grid.n_columns - 5.8)*130)) {
+                pages.move (grid, current_position - 5*130*step, 0);
+                current_position -= 5*130*step;
+            }
 
             page_switcher.set_active (page_switcher.active + 1);
 
@@ -284,12 +290,12 @@ namespace Slingshot {
 
         private void populate_grid () {
 
-            message ("Populating grid");
+            debug ("Populating grid");
             warning ("This function needs to be optimized");
 
             uint r = 0, c = 0; // Row and column
             uint max_r = grid.n_rows;
-            uint max_c = grid.n_columns;
+            //uint max_c = grid.n_columns;
 
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
@@ -298,7 +304,7 @@ namespace Slingshot {
                         r = 0;
                         c++;
                         if ((c % 5) == 0)
-                            page_switcher.append ((c / 5).to_string ());
+                            page_switcher.append ((c / 5 + 1).to_string ());
                     }
                     app.button_release_event.connect (() => {
                         app.launch ();

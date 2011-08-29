@@ -55,6 +55,7 @@ namespace Slingshot {
 
         public Slingshot () {
 
+            set_flags (ApplicationFlags.HANDLES_OPEN);
 
             settings = new Settings ();
             Services.Logger.initialize ("Scratch");
@@ -62,14 +63,21 @@ namespace Slingshot {
 
         }
 
-        protected override int command_line (ApplicationCommandLine command_line) {
+        protected override void open (File[] files, string hint) {
 
-            if ("--silent" in command_line.get_arguments ())
-                silent = true;
-            else
-                silent = false;
+            foreach (File file in files) {
+                if (file.get_basename () == "--silent")
+                    silent = true;
+            }
 
-            return 0;
+            debug ("%s", silent.to_string());
+            
+            if (get_windows () == null) {
+                view = new SlingshotView ();
+                view.set_application (this);
+                if (!silent)
+                    view.show_all ();
+            }
 
         }
 
@@ -78,6 +86,7 @@ namespace Slingshot {
             if (get_windows () == null) {
                 view = new SlingshotView ();
                 view.set_application (this);
+                if (!silent)
                     view.show_all ();
             } else {
                 view.show_slingshot ();

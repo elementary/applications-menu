@@ -34,7 +34,7 @@ namespace Slingshot.Widgets {
         public Switcher () {
 
             homogeneous = false;
-            spacing = 3;
+            spacing = 2;
             
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
@@ -59,6 +59,7 @@ namespace Slingshot.Widgets {
             var button = new Button.with_label (label);
             button.get_style_context ().add_provider (style_provider, 600);
             button.name = "switcher-button";
+            button.width_request = 10;
 
             children.append (button);
 

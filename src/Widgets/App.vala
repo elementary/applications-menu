@@ -31,6 +31,7 @@ namespace Slingshot.Widgets {
         public string exec_name;
         public string app_name;
         public string desktop_id;
+        public int icon_size;
 
         private CssProvider style_provider;
 
@@ -44,6 +45,7 @@ namespace Slingshot.Widgets {
             tooltip_text = entry.get_comment ();
             exec_name = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
+            icon_size = Slingshot.settings.icon_size;
 
             style_provider = new CssProvider ();
 
@@ -59,17 +61,17 @@ namespace Slingshot.Widgets {
             get_style_context ().add_class ("app");
 
             app_icon = new Image.from_icon_name (entry.get_icon (), IconSize.DIALOG);
-            app_icon.pixel_size = Slingshot.settings.icon_size;
+            app_icon.pixel_size = icon_size;
             app_icon.get_style_context ().add_provider (style_provider, 600);
             app_icon.get_style_context ().add_class ("app-icon");
 
-            app_label = new Label (app_name);
+            app_label = new Label (Utils.truncate_text (app_name, icon_size));
             app_label.halign = Align.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
             app_label.get_style_context ().add_provider (style_provider, 600);
             app_label.name = "app-name";
 
-            layout = new VBox (false, 5);
+            layout = new VBox (false, 0);
 
             layout.pack_start (app_icon, false, true, 0);
             layout.pack_end (app_label, false, true, 0);
