@@ -58,7 +58,7 @@ namespace Slingshot {
             set_flags (ApplicationFlags.HANDLES_OPEN);
 
             settings = new Settings ();
-            Services.Logger.initialize ("Scratch");
+            Services.Logger.initialize ("Slingshot");
             Services.Logger.DisplayLevel = Services.LogLevel.DEBUG;
 
         }

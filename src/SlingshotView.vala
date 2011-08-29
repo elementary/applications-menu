@@ -39,6 +39,7 @@ namespace Slingshot {
 
         private ArrayList<TreeDirectory> categories;
         private HashMap<string, ArrayList<App>> apps;
+        private ArrayList<App> filtered;
 
         private int current_position = 0;
 
@@ -69,6 +70,8 @@ namespace Slingshot {
             foreach (TreeDirectory cat in categories) {
                 apps.set (cat.get_name (), AppSystem.get_apps (cat));
             }
+
+            filtered = new ArrayList<App> ();
 
             // Slingshot should have only one CssProvider
             style_provider = new CssProvider ();
@@ -122,6 +125,7 @@ namespace Slingshot {
             page_switcher.append ("1");
             
             // This function must be after creating the page switcher
+            grid.new_page.connect (page_switcher.append);
             populate_grid ();
 
             container.pack_start (top, false, true, 15);
@@ -138,7 +142,8 @@ namespace Slingshot {
                 return false; 
             });
             this.draw.connect (this.draw_background);
-            searchbar.changed.connect (this.search);
+            searchbar.activate.connect (this.search);
+
 
             page_switcher.active_changed.connect (() => {
 
@@ -165,7 +170,7 @@ namespace Slingshot {
 
             cr.set_antialias (Antialias.SUBPIXEL);
 
-		    cr.move_to (0 + radius, 15 + offset);
+            cr.move_to (0 + radius, 15 + offset);
             // Create the little triangle
             cr.line_to (20.0, 15.0 + offset);
             cr.line_to (35.0, 0.0 + offset);
@@ -182,7 +187,7 @@ namespace Slingshot {
             cr.set_source_rgba (0.1, 0.1, 0.1, 0.95);
             cr.fill_preserve ();
 
-            // Paint a little lighter border
+            // Paint a little white border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
             cr.set_line_width (1.0);
             cr.stroke ();
@@ -190,7 +195,6 @@ namespace Slingshot {
             return false;
 
         }
-
 
         public override bool key_press_event (Gdk.EventKey event) {
 
@@ -200,6 +204,7 @@ namespace Slingshot {
                     hide_slingshot ();
                     return true;
 
+                case "Ctrl_R":
                 case "Ctrl_L":
                 case "c":
                     Gtk.main_quit ();
@@ -273,39 +278,67 @@ namespace Slingshot {
 
         private void search () {
 
-            message ("Performing searching...");
+            debug ("Performing searching...");
+            var text = searchbar.text.down ();
+
+            /*if (text.length == 0) {
+                populate_grid ();
+                show_all ();
+                return;
+            }*/
+
+            this.filtered.clear ();
+
+            foreach (ArrayList<App> entries in apps.values) {
+                foreach (App app in entries) {
+                    if (text in app.app_name.down () 
+                         || text in app.tooltip_text.down ()
+                         || text in app.exec_name.down ()) {
+                    
+                        filtered.add (app);
+                        app.show ();
+                    } else {
+                        app.hide ();
+                    }
+                }
+            }
+            
+            show_filtered (filtered);
 
         }
 
         private void populate_grid () {
 
-            debug ("Populating grid");
-            warning ("This function needs to be optimized");
-
-            uint r = 0, c = 0; // Row and column
-            uint max_r = grid.n_rows;
-            //uint max_c = grid.n_columns;
-
+            warning ("populate_grid (): This function needs to be optimized");
+            
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
                     
-                    if (r == max_r) {
-                        r = 0;
-                        c++;
-                        if ((c % 5) == 0)
-                            page_switcher.append ((c / 5 + 1).to_string ());
-                    }
                     app.button_release_event.connect (() => {
                         app.launch ();
                         hide_slingshot ();
                         return true;
                     });
-                    grid.attach (app, c, c + 1, r, r + 1, 
-                            AttachOptions.EXPAND, AttachOptions.EXPAND, 0, 0);
-                    r++;
+
+                    grid.append (app);
+
                 }
             }
 
+            page_switcher.set_active (0);
+
+        }
+
+        private void show_filtered (ArrayList<App> app_list) {
+
+            page_switcher.clear_children ();
+            grid.clear ();
+
+            foreach (App app in app_list) {
+                grid.append (app);
+            }
+
+            show_all ();
             page_switcher.set_active (0);
 
         }

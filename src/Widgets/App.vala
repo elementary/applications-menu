@@ -41,9 +41,9 @@ namespace Slingshot.Widgets {
 			set_visual (get_screen ().get_rgba_visual());
             set_size_request (130, 130);
             
-            app_name = entry.get_display_name ();
-            tooltip_text = entry.get_comment ();
-            exec_name = entry.get_exec ();
+            app_name = entry.get_display_name () ?? " ";
+            tooltip_text = entry.get_comment () ?? " ";
+            exec_name = entry.get_exec () ?? " ";
             desktop_id = entry.get_desktop_file_id ();
             icon_size = Slingshot.settings.icon_size;
 
@@ -67,6 +67,7 @@ namespace Slingshot.Widgets {
 
             app_label = new Label (Utils.truncate_text (app_name, icon_size));
             app_label.halign = Align.CENTER;
+            app_label.justify = Justification.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
             app_label.get_style_context ().add_provider (style_provider, 600);
             app_label.name = "app-name";

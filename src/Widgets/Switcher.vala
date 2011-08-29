@@ -89,5 +89,17 @@ namespace Slingshot.Widgets {
             children.nth_data (active).set_state (StateType.SELECTED);
 
         }
+
+        public void clear_children () {
+
+            foreach (Button button in children) {
+                remove (button);
+                children.remove (button);
+            }
+
+            old_active = -1;
+            active = -1;
+
+        }
     }
 }
