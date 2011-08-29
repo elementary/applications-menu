@@ -50,11 +50,13 @@ namespace Slingshot {
             read_settings ();
 
             // Window properties
-            this.title = "Slingshot"; // Do I need this?
+            this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
             this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
             this.set_keep_above (true);
+
+            // No time to have slingshot resizable.
             this.resizable = false;
             this.app_paintable = true;
 
@@ -68,6 +70,7 @@ namespace Slingshot {
                 apps.set (cat.get_name (), AppSystem.get_apps (cat));
             }
 
+            // Slingshot should have only one CssProvider
             style_provider = new CssProvider ();
 
             try {
@@ -76,7 +79,6 @@ namespace Slingshot {
                 warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
             }
 
-
             setup_ui ();
             connect_signals ();
 
@@ -84,13 +86,8 @@ namespace Slingshot {
 
         private void setup_ui () {
             
-            // Add container wrapper
-            wrapper = new EventBox ();
-            wrapper.set_visible_window (false);
-
-            // Add container
+            // Create the base container
             var container = new VBox (false, 0);
-            wrapper.add (container);
 
             // Add top bar
             var top = new HBox (false, 10);
@@ -102,13 +99,10 @@ namespace Slingshot {
             }
             category_switcher.set_active (0);
 
-
             searchbar = new SearchBar (_("Start typing to search"));
             
             //top.pack_start (category_switcher, true, true, 15);
             top.pack_start (searchbar, false, true, 0);
-
-            container.pack_start (top, false, true, 15);
 
             // Get the current size of the view
             int width, height;
@@ -116,24 +110,24 @@ namespace Slingshot {
             
             // Make icon grid and populate
             grid = new Widgets.Grid (height / 180, width / 128);
+
+            // Create the layout which works like pages
             pages = new Layout (null, null);
             pages.put (grid, 0, 0);
-            pages.app_paintable = true;
-            pages.set_visual (get_screen ().get_rgba_visual());
             pages.get_style_context ().add_provider (style_provider, 600);
             pages.get_style_context ().add_class ("scrollwindow");
 
-            pages.set_visual (get_screen ().get_rgba_visual());
-
-            container.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
-
+            // Create the page switcher
             page_switcher = new Switcher ();
             page_switcher.append ("1");
+            
+            // This function must be after creating the page switcher
+            populate_grid ();
+
+            container.pack_start (top, false, true, 15);
+            container.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
             container.pack_start (page_switcher, false, true, 15);
-
-            populate_grid ();            
-
-            this.add (Utils.set_padding (wrapper, 15, 15, 1, 15));
+            this.add (Utils.set_padding (container, 15, 15, 1, 15));
 
         }
 
@@ -145,6 +139,15 @@ namespace Slingshot {
             });
             this.draw.connect (this.draw_background);
             searchbar.changed.connect (this.search);
+
+            page_switcher.active_changed.connect (() => {
+
+                if (page_switcher.active > page_switcher.old_active)
+                    this.page_right (page_switcher.active - page_switcher.old_active);
+                else
+                    this.page_left (page_switcher.old_active - page_switcher.active);
+
+            });
 
             // Auto-update settings when changed
             Slingshot.settings.changed.connect (read_settings);
@@ -168,25 +171,16 @@ namespace Slingshot {
             cr.line_to (35.0, 0.0 + offset);
             cr.line_to (50.0, 15.0 + offset);
             // Create the rounded square
-		    cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset, 
+            cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset, 
                          radius, Math.PI * 1.5, Math.PI * 2);
-		    cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset, 
+            cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset, 
                          radius, 0, Math.PI * 0.5);
-		    cr.arc (0 + radius + offset, 0 + size.height - radius - offset, 
+            cr.arc (0 + radius + offset, 0 + size.height - radius - offset, 
                          radius, Math.PI * 0.5, Math.PI);
-		    cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
+            cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
             cr.set_source_rgba (0.1, 0.1, 0.1, 0.95);
             cr.fill_preserve ();
-
-            // Add a little vertical gradient
-            /*var linear_stroke = new Cairo.Pattern.linear (0, 0, 0, size.height);
-	        linear_stroke.add_color_stop_rgba (0.0,  1.0, 1.0, 1.0, 0.0);
-	        linear_stroke.add_color_stop_rgba (0.5,  1.0, 1.0, 1.0, 0.0);
-	        linear_stroke.add_color_stop_rgba (1.0,  0.9, 0.9, 0.9, 0.2);
-            cr.set_source (linear_stroke);
-            cr.fill_preserve ();
-            */ // I don't like it anymore
 
             // Paint a little lighter border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
@@ -228,11 +222,11 @@ namespace Slingshot {
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
-                    page_left ();
+                    page_switcher.set_active (page_switcher.active - 1);
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
-                    page_right ();
+                    page_switcher.set_active (page_switcher.active + 1);
                     break;
 
             }
@@ -244,7 +238,6 @@ namespace Slingshot {
         public void hide_slingshot () {
             
             // Show the first page
-            pages.move (grid, 0, 0);
             page_switcher.set_active (0);
             current_position = 0;
 
@@ -267,8 +260,6 @@ namespace Slingshot {
                 current_position += 5*130*step;
             }
 
-            page_switcher.set_active (page_switcher.active - 1);
-
         }
 
         private void page_right (int step = 1) {
@@ -277,8 +268,6 @@ namespace Slingshot {
                 pages.move (grid, current_position - 5*130*step, 0);
                 current_position -= 5*130*step;
             }
-
-            page_switcher.set_active (page_switcher.active + 1);
 
         }
 

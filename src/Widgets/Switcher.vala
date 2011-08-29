@@ -28,6 +28,7 @@ namespace Slingshot.Widgets {
 
         public new List<Button> children;
         public int active = -1;
+        public int old_active = -1;
 
         private CssProvider style_provider;
 
@@ -82,8 +83,9 @@ namespace Slingshot.Widgets {
             if (active >= 0)
                 children.nth_data (active).set_state (StateType.NORMAL);
 
-            active_changed (new_active);
+            old_active = active;
             active = new_active;
+            active_changed (new_active);
             children.nth_data (active).set_state (StateType.SELECTED);
 
         }
