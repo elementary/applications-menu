@@ -42,19 +42,19 @@ namespace Slingshot.Backend {
 
         }
 
-        public static ArrayList<Widgets.App> get_apps (TreeDirectory category) {
+        public static ArrayList<App> get_apps (TreeDirectory category) {
 
-            var apps = new ArrayList<Widgets.App> ();
+            var apps = new ArrayList<App> ();
 
             foreach (TreeItem item in category.get_contents ()) {
-                Widgets.App app;
+                App app;
                 switch (item.get_type ()) {
                     case TreeItemType.DIRECTORY:
                         apps.add_all (get_apps ((TreeDirectory) item));
                         break;
                     case TreeItemType.ENTRY:
                         if (is_entry ((TreeEntry) item)) {
-                            app = new Widgets.App ((TreeEntry) item);
+                            app = new App ((TreeEntry) item);
                             if (apps.contains (app) == false) {
                                 apps.add (app);
                             }

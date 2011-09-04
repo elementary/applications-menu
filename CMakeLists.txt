@@ -40,12 +40,11 @@ vala_precompile (VALA_C
     src/SlingshotView.vala
     src/Settings.vala
     src/Utils.vala
-    src/Widgets/App.vala
+    src/Backend/AppSystem.vala    
+    src/Backend/App.vala
+    src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
-    src/Widgets/SearchItem.vala
-    src/Widgets/SearchView.vala
-    src/Backend/AppSystem.vala    
 PACKAGES
 	${SLINGSHOT_DEPS}
 CUSTOM_VAPIS

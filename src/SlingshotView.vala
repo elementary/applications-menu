@@ -37,7 +37,6 @@ namespace Slingshot {
         public Switcher page_switcher;
         public VBox grid_n_pages;
 
-        public SearchView search_view;
 
         private VBox container;
 
@@ -46,9 +45,6 @@ namespace Slingshot {
         private ArrayList<App> filtered;
 
         private int current_position = 0;
-        private bool search_on = false;
-
-        private CssProvider style_provider;
 
         public SlingshotView () {
 
@@ -78,15 +74,6 @@ namespace Slingshot {
 
             filtered = new ArrayList<App> ();
 
-            // Slingshot should have only one CssProvider
-            style_provider = new CssProvider ();
-
-            try {
-                style_provider.load_from_path (Build.PKGDATADIR + "/style/default.css");
-            } catch (Error e) {
-                warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
-            }
-
             setup_ui ();
             connect_signals ();
 
@@ -109,7 +96,8 @@ namespace Slingshot {
 
             searchbar = new SearchBar (_("Start typing to search"));
             
-            //top.pack_start (category_switcher, true, true, 15);
+            var button = new ToggleButton.with_label ("Toogle view");
+            top.pack_start (button, true, true, 15);
             top.pack_start (searchbar, false, true, 0);
 
             // Get the current size of the view
@@ -122,8 +110,6 @@ namespace Slingshot {
             // Create the layout which works like pages
             pages = new Layout (null, null);
             pages.put (grid, 0, 0);
-            //pages.get_style_context ().add_provider (style_provider, 600);
-            //pages.get_style_context ().add_class ("scrollwindow");
 
             // Create the page switcher
             page_switcher = new Switcher ();
@@ -137,11 +123,13 @@ namespace Slingshot {
             grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
             grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 35, 15, 35), false, true, 0);
 
-            search_view = new SearchView ();
 
             container.pack_start (top, false, true, 15);
             container.pack_start (grid_n_pages, true, true, 0);
             this.add (Utils.set_padding (container, 15, 15, 1, 15));
+
+            debug ("Ui setup completed");
+            button.toggled.connect (() => grid_n_pages.visible = !button.active);
 
         }
 
@@ -303,8 +291,20 @@ namespace Slingshot {
 
         private void search () {
 
-            debug ("The search algorithm still needs to be implemented");
             var text = searchbar.text.down ();
+
+            if (text.strip () == "")
+                return;
+
+            foreach (ArrayList<App> entries in apps.values) {
+                foreach (App app in entries) {
+                    
+                    if (text in app.name || text in app.description ||
+                        text in app.exec)
+                        message (app.name);
+
+                }
+            }
 
         }
 
@@ -314,32 +314,18 @@ namespace Slingshot {
             
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
-                    
-                    app.button_release_event.connect (() => {
-                        app.launch ();
-                        hide_slingshot ();
-                        return true;
-                    });
 
-                    grid.append (app);
+                    var app_entry = new AppEntry (app);
+                    
+                    app_entry.app_launched.connect (hide_slingshot);
+
+                    grid.append (app_entry);
 
                 }
             }
 
-            page_switcher.set_active (0);
+            debug ("Grid filled");
 
-        }
-
-        private void show_filtered (ArrayList<App> app_list) {
-
-            page_switcher.clear_children ();
-            grid.clear ();
-
-            foreach (App app in app_list) {
-                grid.append (app);
-            }
-
-            show_all ();
             page_switcher.set_active (0);
 
         }

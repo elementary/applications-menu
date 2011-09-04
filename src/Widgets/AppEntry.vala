@@ -22,7 +22,7 @@ using Cairo;
 
 namespace Slingshot.Widgets {
 
-    public class App : Button {
+    public class AppEntry : Button {
 
         public Image app_icon;
         public Label app_label;
@@ -35,16 +35,17 @@ namespace Slingshot.Widgets {
 
         private CssProvider style_provider;
 
-        public App (GMenu.TreeEntry entry) {
+        public signal void app_launched ();
+
+        public AppEntry (Backend.App app) {
             
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
             set_size_request (130, 130);
             
-            app_name = entry.get_display_name () ?? " ";
-            tooltip_text = entry.get_comment () ?? app_name;
-            exec_name = entry.get_exec () ?? " ";
-            desktop_id = entry.get_desktop_file_id ();
+            app_name = app.name;
+            tooltip_text = app.description;
+            exec_name = app.exec;
             icon_size = Slingshot.settings.icon_size;
 
             style_provider = new CssProvider ();
@@ -60,7 +61,7 @@ namespace Slingshot.Widgets {
             get_style_context ().add_provider (style_provider, 600);
             get_style_context ().add_class ("app");
 
-            app_icon = new Image.from_icon_name (entry.get_icon (), IconSize.DIALOG);
+            app_icon = new Image.from_icon_name (app.icon_name, IconSize.DIALOG);
             app_icon.pixel_size = icon_size;
             app_icon.get_style_context ().add_provider (style_provider, 600);
             app_icon.get_style_context ().add_class ("app-icon");
@@ -79,15 +80,11 @@ namespace Slingshot.Widgets {
 
             add (Utils.set_padding (layout, 10, 10, 10, 10));
 
-        }
-
-        public void launch () {
-
-            try {
-                new DesktopAppInfo (desktop_id).launch (null, null);
-            } catch (Error e) {
-                warning ("Failed to launch %s: %s", app_name, exec_name);
-            }
+            this.button_release_event.connect (() => {
+                app.launch ();
+                app_launched ();
+                return true;
+            });
 
         }
 
