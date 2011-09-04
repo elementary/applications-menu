@@ -20,9 +20,21 @@
 
 namespace Slingshot.Backend {
 
-    public interface Match : GLib.Object {
+    public enum MatchType
+    {
+        UNKNOWN = 0,
+        TEXT,
+        APPLICATION,
+        GENERIC_URI,
+        ACTION,
+        SEARCH,
+        CONTACT
+    }
 
-        public enum Score {
+    public interface Match: Object
+    {
+        public enum Score
+        {
             INCREMENT_MINOR = 2000,
             INCREMENT_SMALL = 5000,
             INCREMENT_MEDIUM = 10000,
@@ -40,33 +52,92 @@ namespace Slingshot.Backend {
             HIGHEST = 100000
         }
 
+        // properties
         public abstract string title { get; construct set; }
         public abstract string description { get; set; }
-        public abstract string icon_name { get; set; }
-        
+        public abstract string icon_name { get; construct set; }
+        public abstract bool has_thumbnail { get; construct set; }
+        public abstract string thumbnail_path { get; construct set; }
+        public abstract MatchType match_type { get; construct set; }
+
+        public virtual void execute (Match? match)
+        {
+            error ("execute () is not implemented");
+        }
+
+        public virtual void execute_with_target (Match? source, Match? target = null)
+        {
+            if (target == null) execute (source);
+            else error ("execute () is not implemented");
+        }
+
+        public virtual bool needs_target () {
+            return false;
+        }
+
+        public virtual QueryFlags target_flags ()
+        {
+            return QueryFlags.ALL;
+        }
+
+        public signal void executed ();
+    }
+
+    public interface ApplicationMatch: Match
+    {
         public abstract AppInfo? app_info { get; set; }
         public abstract bool needs_terminal { get; set; }
         public abstract string? filename { get; construct set; }
+    }
+
+    public interface UriMatch: Match
+    {
+        public abstract string uri { get; set; }
+        public abstract QueryFlags file_type { get; set; }
+        public abstract string mime_type { get; set; }
+    }
+
+    public interface ContactMatch: Match
+    {
+        public abstract void send_message (string message, bool present);
+        public abstract void open_chat ();
+    }
+
+    public interface ExtendedInfo: Match
+    {
+        public abstract string? extended_info { get; set; }
+    }
+
+    public enum TextOrigin
+    {
+        UNKNOWN,
+        CLIPBOARD
+    }
+
+    public interface TextMatch: Match
+    {
+        public abstract TextOrigin text_origin { get; set; }
+        public abstract string get_text ();
+    }
+
+    public interface SearchMatch: Match, SearchProvider
+    {
 
     }
 
-    public class AppMatch : Match, GLib.Object {
-
+    public class DefaultMatch: Object, Match
+    {
         public string title { get; construct set; }
         public string description { get; set; }
-        public string icon_name { get; set; }
-        
-        public AppInfo? app_info { get; set; }
-        public bool needs_terminal { get; set; }
-        public string? filename { get; construct set; }
-    
-        public AppMatch (string query_string) {
+        public string icon_name { get; construct set; }
+        public bool has_thumbnail { get; construct set; }
+        public string thumbnail_path { get; construct set; }
+        public MatchType match_type { get; construct set; }
 
-            Object (title: query_string, description: "", 
-                    icon_name: "unknown");
-
+        public DefaultMatch (string query_string)
+        {
+            Object (title: query_string, description: "", has_thumbnail: false,
+                    icon_name: "unknown", match_type: MatchType.UNKNOWN);
         }
-
     }
-
 }

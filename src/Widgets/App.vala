@@ -55,7 +55,7 @@ namespace Slingshot.Widgets {
                 warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
             }
 
-            can_focus = true;
+            //can_focus = true;
 
             get_style_context ().add_provider (style_provider, 600);
             get_style_context ().add_class ("app");

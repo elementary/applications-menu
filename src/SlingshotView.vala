@@ -37,11 +37,16 @@ namespace Slingshot {
         public Switcher page_switcher;
         public VBox grid_n_pages;
 
+        public SearchView search_view;
+
+        private VBox container;
+
         private ArrayList<TreeDirectory> categories;
         private HashMap<string, ArrayList<App>> apps;
         private ArrayList<App> filtered;
 
         private int current_position = 0;
+        private bool search_on = false;
 
         private CssProvider style_provider;
 
@@ -90,7 +95,7 @@ namespace Slingshot {
         private void setup_ui () {
             
             // Create the base container
-            var container = new VBox (false, 0);
+            container = new VBox (false, 0);
 
             // Add top bar
             var top = new HBox (false, 10);
@@ -117,8 +122,8 @@ namespace Slingshot {
             // Create the layout which works like pages
             pages = new Layout (null, null);
             pages.put (grid, 0, 0);
-            pages.get_style_context ().add_provider (style_provider, 600);
-            pages.get_style_context ().add_class ("scrollwindow");
+            //pages.get_style_context ().add_provider (style_provider, 600);
+            //pages.get_style_context ().add_class ("scrollwindow");
 
             // Create the page switcher
             page_switcher = new Switcher ();
@@ -131,6 +136,8 @@ namespace Slingshot {
             grid_n_pages = new VBox (false, 0);
             grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
             grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 35, 15, 35), false, true, 0);
+
+            search_view = new SearchView ();
 
             container.pack_start (top, false, true, 15);
             container.pack_start (grid_n_pages, true, true, 0);
@@ -145,8 +152,8 @@ namespace Slingshot {
                 return false; 
             });
             this.draw.connect (this.draw_background);
-            searchbar.activate.connect (this.search);
-
+            pages.draw.connect (this.draw_pages_background);
+            searchbar.changed.connect (this.search);
 
             page_switcher.active_changed.connect (() => {
 
@@ -174,9 +181,10 @@ namespace Slingshot {
             cr.set_antialias (Antialias.SUBPIXEL);
 
             cr.move_to (0 + radius, 15 + offset);
-            // Create the little triangle
+            // Create the little rounded triangle
             cr.line_to (20.0, 15.0 + offset);
-            cr.line_to (35.0, 0.0 + offset);
+            //cr.line_to (30.0, 0.0 + offset);
+            cr.arc (35.0, 0.0 + offset + radius, radius - 1.0, -2.0 * Math.PI / 2.7, -7.0 * Math.PI / 3.2);
             cr.line_to (50.0, 15.0 + offset);
             // Create the rounded square
             cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset, 
@@ -187,13 +195,27 @@ namespace Slingshot {
                          radius, Math.PI * 0.5, Math.PI);
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
-            cr.set_source_rgba (0.1, 0.1, 0.1, 0.95);
+            cr.set_source_rgba (0.1, 0.1, 0.1, 0.7);
             cr.fill_preserve ();
 
             // Paint a little white border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
             cr.set_line_width (1.0);
             cr.stroke ();
+
+            return false;
+
+        }
+
+        private bool draw_pages_background (Widget widget, Context cr) {
+
+            Allocation size;
+            widget.get_allocation (out size);
+
+            cr.rectangle (0, 0, size.width, size.height);
+
+            cr.set_source_rgba (0.1, 0.1, 0.1, 0.7);
+            cr.fill_preserve ();
 
             return false;
 
@@ -281,32 +303,8 @@ namespace Slingshot {
 
         private void search () {
 
-            debug ("Performing searching...");
+            debug ("The search algorithm still needs to be implemented");
             var text = searchbar.text.down ();
-
-            /*if (text.length == 0) {
-                populate_grid ();
-                show_all ();
-                return;
-            }*/
-
-            this.filtered.clear ();
-
-            foreach (ArrayList<App> entries in apps.values) {
-                foreach (App app in entries) {
-                    if (text in app.app_name.down () 
-                         || text in app.tooltip_text.down ()
-                         || text in app.exec_name.down ()) {
-                    
-                        filtered.add (app);
-                        app.show ();
-                    } else {
-                        app.hide ();
-                    }
-                }
-            }
-            
-            show_filtered (filtered);
 
         }
 

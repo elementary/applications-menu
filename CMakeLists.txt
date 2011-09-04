@@ -9,8 +9,9 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Slingshot is a lightweight app launcher for Elementary, written in Vala and utilizing GTK+ and Cairo.")
-set (VERSION "0.2")
+set (VERSION "0.3")
 set (VERSION_INFO "Testing")
+set (CMAKE_C_FLAGS "-ggdb")
 
 # Files
 
@@ -21,28 +22,13 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/vala)
 
 # Configure file
 configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
-add_definitions(-include config.h)
 
 # Slingshot
 
 set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;libgnome-menu;granite;zeitgeist-1.0")
 
 find_package (PkgConfig)
-pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
-pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
-pkg_check_modules (GIO REQUIRED "gio-2.0 >= 2.26.0")
-pkg_check_modules (GIOUNIX REQUIRED "gio-unix-2.0 >= 2.26.0")
-pkg_check_modules (JSON REQUIRED "json-glib-1.0")
-pkg_check_modules (GEE REQUIRED "gee-1.0")
-pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.0.8")
-pkg_check_modules (LIBGNOME REQUIRED "libgnome-menu")
-pkg_check_modules (LIBGRANITE REQUIRED "granite")
-pkg_check_modules (ZEITGEIST REQUIRED "zeitgeist-1.0")
 pkg_check_modules (DEPS REQUIRED ${SLINGSHOT_DEPS})
-
-add_definitions (${DEPS_CFLAGS})
-link_libraries (${DEPS_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS})
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
@@ -57,20 +43,21 @@ vala_precompile (VALA_C
     src/Widgets/App.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
+    src/Widgets/SearchItem.vala
+    src/Widgets/SearchView.vala
     src/Backend/AppSystem.vala    
-    src/Backend/Match.vala
-    src/Backend/RelevancyBackendZg.vala
-    src/Backend/RelevancyService.vala
 PACKAGES
 	${SLINGSHOT_DEPS}
 CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
 	--thread
-    --save-temps
 )
 
-add_definitions (${CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -g)
+add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)
+link_libraries (${DEPS_LIBRARIES})
+link_directories (${DEPS_LIBRARY_DIRS})
+
 add_executable (slingshot ${VALA_C})
 
 # Installation
