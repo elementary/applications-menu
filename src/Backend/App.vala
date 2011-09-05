@@ -25,6 +25,7 @@ namespace Slingshot.Backend {
         public string desktop_id { get; construct set; }
         public string exec { get; set; }
         public string icon_name { get; set; default = ""; }
+        public Gdk.Pixbuf icon { get; set; }
 
         public App (GMenu.TreeEntry entry) {
 
@@ -33,7 +34,11 @@ namespace Slingshot.Backend {
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
             icon_name = entry.get_icon ();
-
+            try {
+                icon = Slingshot.icon_theme.load_icon (icon_name, 64, Gtk.IconLookupFlags.FORCE_SIZE);
+            } catch (Error e) {
+                icon = new Gdk.Pixbuf.from_file ("/usr/share/icons/elementary/apps/64/application-default-icon.svg");
+            }
         }
 
         public void launch () {

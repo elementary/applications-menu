@@ -37,7 +37,6 @@ namespace Slingshot {
         public Switcher page_switcher;
         public VBox grid_n_pages;
 
-
         private VBox container;
 
         private ArrayList<TreeDirectory> categories;
@@ -47,6 +46,8 @@ namespace Slingshot {
         private int current_position = 0;
 
         public SlingshotView () {
+
+            Slingshot.icon_theme = IconTheme.get_default ();
 
             set_size_request (700, 580);
             read_settings ();
@@ -308,7 +309,7 @@ namespace Slingshot {
 
         }
 
-        private void populate_grid () {
+        public void populate_grid () {
 
             warning ("populate_grid (): This function needs to be optimized");
             
@@ -320,6 +321,8 @@ namespace Slingshot {
                     app_entry.app_launched.connect (hide_slingshot);
 
                     grid.append (app_entry);
+
+                    app_entry.show_all ();
 
                 }
             }

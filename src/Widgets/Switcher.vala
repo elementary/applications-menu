@@ -30,8 +30,6 @@ namespace Slingshot.Widgets {
         public int active = -1;
         public int old_active = -1;
 
-        private CssProvider style_provider;
-
         public Switcher () {
 
             homogeneous = false;
@@ -40,17 +38,9 @@ namespace Slingshot.Widgets {
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
 
-            style_provider = new CssProvider ();
-
-            try {
-                style_provider.load_from_path (Build.PKGDATADIR + "/style/default.css");
-            } catch (Error e) {
-                warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
-            }
-
             can_focus = true;
 
-            get_style_context ().add_provider (style_provider, 600);
+            get_style_context ().add_provider (Slingshot.style_provider, 600);
             get_style_context ().add_class ("switcher");
 
         }
@@ -58,7 +48,7 @@ namespace Slingshot.Widgets {
         public void append (string label) {
 
             var button = new Button.with_label (label);
-            button.get_style_context ().add_provider (style_provider, 600);
+            button.get_style_context ().add_provider (Slingshot.style_provider, 600);
             button.name = "switcher-button";
             button.width_request = 10;
 

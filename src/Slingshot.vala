@@ -27,6 +27,8 @@ namespace Slingshot {
         private bool silent = false;
 
         public static Settings settings { get; private set; default = null; }
+        public static CssProvider style_provider { get; private set; default = null; }
+        public static IconTheme icon_theme { get; set; default = null; }
 
         construct {
 
@@ -58,6 +60,14 @@ namespace Slingshot {
             set_flags (ApplicationFlags.HANDLES_OPEN);
 
             settings = new Settings ();
+            style_provider = new CssProvider ();
+
+            try {
+                style_provider.load_from_path (Build.PKGDATADIR + "/style/default.css");
+            } catch (Error e) {
+                warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
+            }
+
             Services.Logger.initialize ("Slingshot");
             Services.Logger.DisplayLevel = Services.LogLevel.DEBUG;
 
@@ -88,6 +98,7 @@ namespace Slingshot {
                 view.set_application (this);
                 if (!silent)
                     view.show_all ();
+                debug ("Slingshot showed");
             } else {
                 view.show_slingshot ();
             }

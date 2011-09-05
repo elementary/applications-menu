@@ -33,9 +33,9 @@ namespace Slingshot.Widgets {
         public string desktop_id;
         public int icon_size;
 
-        private CssProvider style_provider;
-
         public signal void app_launched ();
+
+        private Pixbuf icon;
 
         public AppEntry (Backend.App app) {
             
@@ -47,35 +47,28 @@ namespace Slingshot.Widgets {
             tooltip_text = app.description;
             exec_name = app.exec;
             icon_size = Slingshot.settings.icon_size;
-
-            style_provider = new CssProvider ();
-
-            try {
-                style_provider.load_from_path (Build.PKGDATADIR + "/style/default.css");
-            } catch (Error e) {
-                warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
-            }
+            icon = app.icon;
 
             //can_focus = true;
 
-            get_style_context ().add_provider (style_provider, 600);
+            get_style_context ().add_provider (Slingshot.style_provider, 600);
             get_style_context ().add_class ("app");
 
             app_icon = new Image.from_icon_name (app.icon_name, IconSize.DIALOG);
             app_icon.pixel_size = icon_size;
-            app_icon.get_style_context ().add_provider (style_provider, 600);
+            app_icon.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_icon.get_style_context ().add_class ("app-icon");
 
             app_label = new Label (Utils.truncate_text (app_name, icon_size));
             app_label.halign = Align.CENTER;
             app_label.justify = Justification.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
-            app_label.get_style_context ().add_provider (style_provider, 600);
+            app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_label.name = "app-name";
 
             layout = new VBox (false, 0);
 
-            layout.pack_start (app_icon, false, true, 0);
+            //layout.pack_start (app_icon, false, true, 0);
             layout.pack_end (app_label, false, true, 0);
 
             add (Utils.set_padding (layout, 10, 10, 10, 10));
@@ -85,6 +78,21 @@ namespace Slingshot.Widgets {
                 app_launched ();
                 return true;
             });
+
+        }
+
+        protected override bool draw (Context cr) {
+
+            Allocation size;
+            get_allocation (out size);
+
+            // Draw icon
+            cairo_set_source_pixbuf (cr, this.icon, ((this.icon.width - size.width) / -2.0), 10);
+            cr.paint ();
+
+            base.draw (cr);
+
+            return true;
 
         }
 
