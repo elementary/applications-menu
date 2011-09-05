@@ -72,6 +72,7 @@ namespace Slingshot {
             foreach (TreeDirectory cat in categories) {
                 apps.set (cat.get_name (), AppSystem.get_apps (cat));
             }
+            debug ("Apps loaded");
 
             filtered = new ArrayList<App> ();
 
@@ -107,10 +108,13 @@ namespace Slingshot {
             
             // Make icon grid and populate
             grid = new Widgets.Grid (height / 180, width / 128);
+            grid.row_spacing = 15;
 
             // Create the layout which works like pages
             pages = new Layout (null, null);
             pages.put (grid, 0, 0);
+            pages.get_style_context ().add_provider (Slingshot.style_provider, 600);
+            pages.get_style_context ().add_class ("page-view");            
 
             // Create the page switcher
             page_switcher = new Switcher ();
@@ -184,7 +188,7 @@ namespace Slingshot {
                          radius, Math.PI * 0.5, Math.PI);
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
-            cr.set_source_rgba (0.1, 0.1, 0.1, 0.7);
+            cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
             cr.fill_preserve ();
 
             // Paint a little white border
@@ -203,7 +207,7 @@ namespace Slingshot {
 
             cr.rectangle (0, 0, size.width, size.height);
 
-            cr.set_source_rgba (0.1, 0.1, 0.1, 0.7);
+            cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
             cr.fill_preserve ();
 
             return false;
@@ -311,8 +315,6 @@ namespace Slingshot {
 
         public void populate_grid () {
 
-            warning ("populate_grid (): This function needs to be optimized");
-            
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
 

@@ -20,18 +20,14 @@
 @define-color bg_hover rgba(87, 87, 87, 0.5);
 
 .switcher {
-    background-color: @bg_color;
     border-radius: 5;
     border-width: 0;
-    color: #fff;
 }
 
 #switcher-button {
     engine: none;
     background-color: @trasparent;
     background-image: none;
-    color: #fff;
-    text-shadow: 0 1 alpha (shade (@bg_color, 1.25), 0.5);
     border-width: 0;
     border-color: @trasparent;
     border-radius: 5;
@@ -41,7 +37,6 @@
     transition: 200ms ease-in-out;
     background-color: @bg_selected;
     border-radius: 5;
-    color: #fff;
 }
 
 #switcher-button:focus {
@@ -50,5 +45,4 @@
     transition: 200ms ease-in-out;
     background-color: @bg_hover;
     border-radius: 5;
-    color: #fff;
 }

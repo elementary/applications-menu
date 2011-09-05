@@ -24,8 +24,8 @@ namespace Slingshot.Widgets {
 
     public class AppEntry : Button {
 
-        public Image app_icon;
         public Label app_label;
+        private Pixbuf icon;
         private VBox layout;
 
         public string exec_name;
@@ -34,8 +34,6 @@ namespace Slingshot.Widgets {
         public int icon_size;
 
         public signal void app_launched ();
-
-        private Pixbuf icon;
 
         public AppEntry (Backend.App app) {
             
@@ -49,26 +47,18 @@ namespace Slingshot.Widgets {
             icon_size = Slingshot.settings.icon_size;
             icon = app.icon;
 
-            //can_focus = true;
-
             get_style_context ().add_provider (Slingshot.style_provider, 600);
             get_style_context ().add_class ("app");
-
-            app_icon = new Image.from_icon_name (app.icon_name, IconSize.DIALOG);
-            app_icon.pixel_size = icon_size;
-            app_icon.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            app_icon.get_style_context ().add_class ("app-icon");
 
             app_label = new Label (Utils.truncate_text (app_name, icon_size));
             app_label.halign = Align.CENTER;
             app_label.justify = Justification.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
             app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            app_label.name = "app-name";
+            app_label.get_style_context ().add_class ("app-name");
 
             layout = new VBox (false, 0);
 
-            //layout.pack_start (app_icon, false, true, 0);
             layout.pack_end (app_label, false, true, 0);
 
             add (Utils.set_padding (layout, 10, 10, 10, 10));
@@ -86,11 +76,11 @@ namespace Slingshot.Widgets {
             Allocation size;
             get_allocation (out size);
 
-            // Draw icon
-            cairo_set_source_pixbuf (cr, this.icon, ((this.icon.width - size.width) / -2.0), 10);
-            cr.paint ();
-
             base.draw (cr);
+
+            // Draw icon
+            cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
+            cr.paint ();
 
             return true;
 

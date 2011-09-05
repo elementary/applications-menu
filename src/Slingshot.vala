@@ -79,8 +79,6 @@ namespace Slingshot {
                 if (file.get_basename () == "--silent")
                     silent = true;
             }
-
-            debug ("%s", silent.to_string());
             
             if (get_windows () == null) {
                 view = new SlingshotView ();
@@ -98,7 +96,6 @@ namespace Slingshot {
                 view.set_application (this);
                 if (!silent)
                     view.show_all ();
-                debug ("Slingshot showed");
             } else {
                 view.show_slingshot ();
             }

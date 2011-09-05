@@ -17,15 +17,16 @@
 
 /* Define some colors */
 @define-color trasparent rgba (0, 0, 0, 0.0);
+@define-color shadow_color rgba (1, 1, 1, 0.8);
 
 *:focus {
     border-style: solid;
 }
 
-.scrollwindow {
-    engine:none;
-    background-color: rgba(0.1, 0.1, 0.1, 0.85);
-    background-image:none;
+.page-view {
+    engine: none;
+    background-color: @trasparent;
+    background-image: none;
 }
 
 /* Import other widgets styles */

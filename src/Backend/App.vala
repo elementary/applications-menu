@@ -34,10 +34,14 @@ namespace Slingshot.Backend {
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
             icon_name = entry.get_icon ();
+
+            // Is there a way to cache it?
             try {
-                icon = Slingshot.icon_theme.load_icon (icon_name, 64, Gtk.IconLookupFlags.FORCE_SIZE);
+                icon = Slingshot.icon_theme.load_icon (icon_name, Slingshot.settings.icon_size,
+                                                        Gtk.IconLookupFlags.FORCE_SIZE);
             } catch (Error e) {
-                icon = new Gdk.Pixbuf.from_file ("/usr/share/icons/elementary/apps/64/application-default-icon.svg");
+                icon = Slingshot.icon_theme.load_icon ("application-default-icon", Slingshot.settings.icon_size,
+                                                        Gtk.IconLookupFlags.FORCE_SIZE);
             }
         }
 
