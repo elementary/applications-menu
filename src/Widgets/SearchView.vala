@@ -80,6 +80,14 @@ namespace Slingshot.Widgets {
 
         }
 
+        public void hide_all () {
+
+            foreach (SearchItem app in items.values) {
+                app.hide ();
+            }
+            apps_showed = 0;
+        }
+
     }
 
 }

@@ -92,13 +92,6 @@ namespace Slingshot {
             // Add top bar
             var top = new HBox (false, 10);
 
-            // Category Switcher widget
-            category_switcher = new ComboBoxText ();
-            foreach (string cat in apps.keys) {
-                category_switcher.append (cat, cat);
-            }
-            category_switcher.set_active (0);
-
             searchbar = new SearchBar ("");
             top.pack_end (searchbar, false, false, 0);
             
@@ -148,8 +141,10 @@ namespace Slingshot {
                 this.hide_slingshot(); 
                 return false; 
             });
+
             this.draw.connect (this.draw_background);
             pages.draw.connect (this.draw_pages_background);
+            
             searchbar.changed.connect_after (this.search);
             search_view.app_launched.connect (hide_slingshot);
 
@@ -334,17 +329,28 @@ namespace Slingshot {
             pages.move (grid, 5*130, 0);
             pages.move (search_view, 0, 0);
             search_view_position = 0;
+            search_view.hide_all ();
+            filtered.clear ();
 
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
                     
                     if (text in app.name.down () ||
                         text in app.exec.down ())
-                        search_view.show_app (app);
+                        filtered.add (app);
                     else
-                        search_view.hide_app (app);
+                        filtered.remove (app);
 
                 }
+            }
+
+            filtered.sort ();
+            if (filtered.size > 20) {
+                foreach (App app in filtered[0:20])
+                    search_view.show_app (app);
+            } else {
+                foreach (App app in filtered)
+                    search_view.show_app (app);
             }
 
         }

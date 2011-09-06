@@ -29,7 +29,7 @@ namespace Slingshot.Backend {
 
         public App (GMenu.TreeEntry entry) {
 
-            name = entry.get_display_name ();
+            name = entry.get_display_name ().replace ("&", _("and"));
             description = entry.get_comment () ?? name;
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
