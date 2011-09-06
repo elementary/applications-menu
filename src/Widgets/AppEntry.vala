@@ -79,7 +79,7 @@ namespace Slingshot.Widgets {
             base.draw (cr);
 
             // Draw icon
-            cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
+            Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
             cr.paint ();
 
             return true;

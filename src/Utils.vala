@@ -55,8 +55,8 @@ namespace Slingshot {
         public static string truncate_text (string input, int icon_size) {
             
             string new_text;
-            if (input.length > 24) {
-                new_text = input[0:24] + "...";
+            if (input.length > icon_size / 3) {
+                new_text = input[0:icon_size / 3] + "...";
                 return new_text;
             } else {
                 return input;

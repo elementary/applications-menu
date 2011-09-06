@@ -11,7 +11,6 @@ set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Slingshot is a lightweight app launcher for Elementary, written in Vala and utilizing GTK+ and Cairo.")
 set (VERSION "0.3")
 set (VERSION_INFO "Testing")
-set (CMAKE_C_FLAGS "-ggdb")
 
 # Files
 
@@ -45,6 +44,8 @@ vala_precompile (VALA_C
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
+    src/Widgets/SearchView.vala
+    src/Widgets/SearchItem.vala
 PACKAGES
 	${SLINGSHOT_DEPS}
 CUSTOM_VAPIS

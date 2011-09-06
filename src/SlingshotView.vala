@@ -37,6 +37,8 @@ namespace Slingshot {
         public Switcher page_switcher;
         public VBox grid_n_pages;
 
+        public SearchView search_view;
+
         private VBox container;
 
         private ArrayList<TreeDirectory> categories;
@@ -44,6 +46,7 @@ namespace Slingshot {
         private ArrayList<App> filtered;
 
         private int current_position = 0;
+        private int search_view_position = 0;
 
         public SlingshotView () {
 
@@ -96,19 +99,16 @@ namespace Slingshot {
             }
             category_switcher.set_active (0);
 
-            searchbar = new SearchBar (_("Start typing to search"));
+            searchbar = new SearchBar ("");
+            top.pack_end (searchbar, false, false, 0);
             
-            var button = new ToggleButton.with_label ("Toogle view");
-            top.pack_start (button, true, true, 15);
-            top.pack_start (searchbar, false, true, 0);
-
             // Get the current size of the view
             int width, height;
             get_size (out width, out height);
             
             // Make icon grid and populate
             grid = new Widgets.Grid (height / 180, width / 128);
-            grid.row_spacing = 15;
+            grid.row_spacing = 20;
 
             // Create the layout which works like pages
             pages = new Layout (null, null);
@@ -125,16 +125,20 @@ namespace Slingshot {
             populate_grid ();
 
             grid_n_pages = new VBox (false, 0);
-            grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 0, 9), true, true, 0);
-            grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 35, 15, 35), false, true, 0);
+            grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 9, 9), true, true, 0);
+            grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 100, 15, 100), false, true, 0);
 
+            search_view = new SearchView ();
+            foreach (ArrayList<App> app_list in apps.values) {
+                search_view.add_apps (app_list);
+            }
+            pages.put (search_view, -5*130, 0);
 
             container.pack_start (top, false, true, 15);
             container.pack_start (grid_n_pages, true, true, 0);
             this.add (Utils.set_padding (container, 15, 15, 1, 15));
 
             debug ("Ui setup completed");
-            button.toggled.connect (() => grid_n_pages.visible = !button.active);
 
         }
 
@@ -146,7 +150,8 @@ namespace Slingshot {
             });
             this.draw.connect (this.draw_background);
             pages.draw.connect (this.draw_pages_background);
-            searchbar.changed.connect (this.search);
+            searchbar.changed.connect_after (this.search);
+            search_view.app_launched.connect (hide_slingshot);
 
             page_switcher.active_changed.connect (() => {
 
@@ -222,12 +227,6 @@ namespace Slingshot {
                     hide_slingshot ();
                     return true;
 
-                case "Ctrl_R":
-                case "Ctrl_L":
-                case "c":
-                    Gtk.main_quit ();
-                    break;
-
                 default:
                     if (!searchbar.has_focus)
                         searchbar.grab_focus ();
@@ -245,11 +244,17 @@ namespace Slingshot {
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
-                    page_switcher.set_active (page_switcher.active - 1);
+                    if (page_switcher.visible)
+                        page_switcher.set_active (page_switcher.active - 1);
+                    else
+                        search_view_up ();
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
-                    page_switcher.set_active (page_switcher.active + 1);
+                    if (page_switcher.visible)
+                        page_switcher.set_active (page_switcher.active + 1);
+                    else
+                        search_view_down ();
                     break;
 
             }
@@ -263,6 +268,7 @@ namespace Slingshot {
             // Show the first page
             page_switcher.set_active (0);
             current_position = 0;
+            searchbar.text = "";
 
             hide ();
 
@@ -294,19 +300,49 @@ namespace Slingshot {
 
         }
 
+        private void search_view_down () {
+            
+            if ((search_view_position) > -(search_view.apps_showed*130*3)) {
+                pages.move (search_view, 0, search_view_position - 2*74);
+                search_view_position -= 2*74;
+            }
+
+        }
+
+        private void search_view_up () {
+
+            if (search_view_position < 0) {
+                pages.move (search_view, 0, search_view_position + 2*74);
+                search_view_position += 2*74;
+            }
+
+        }
+
         private void search () {
 
             var text = searchbar.text.down ();
 
-            if (text.strip () == "")
+            if (text.strip () == "") {
+                pages.move (search_view, -130*5, 0);
+                page_switcher.show_all ();
+                page_switcher.set_active (0);
+                pages.move (grid, 0, 0);
                 return;
+            }
+
+            page_switcher.hide ();
+            pages.move (grid, 5*130, 0);
+            pages.move (search_view, 0, 0);
+            search_view_position = 0;
 
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
                     
-                    if (text in app.name || text in app.description ||
-                        text in app.exec)
-                        message (app.name);
+                    if (text in app.name.down () ||
+                        text in app.exec.down ())
+                        search_view.show_app (app);
+                    else
+                        search_view.hide_app (app);
 
                 }
             }
