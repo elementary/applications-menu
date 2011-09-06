@@ -9,7 +9,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Slingshot is a lightweight app launcher for Elementary, written in Vala and utilizing GTK+ and Cairo.")
-set (VERSION "0.3")
+set (VERSION "0.4")
 set (VERSION_INFO "Testing")
 
 # Files

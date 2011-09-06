@@ -125,7 +125,7 @@ namespace Slingshot {
             populate_grid ();
 
             grid_n_pages = new VBox (false, 0);
-            grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 9, 9), true, true, 0);
+            grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 24, 9), true, true, 0);
             grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 100, 15, 100), false, true, 0);
 
             search_view = new SearchView ();
@@ -302,7 +302,7 @@ namespace Slingshot {
 
         private void search_view_down () {
             
-            if ((search_view_position) > -(search_view.apps_showed*130*3)) {
+            if ((search_view_position) > -(search_view.apps_showed*74*6)) {
                 pages.move (search_view, 0, search_view_position - 2*74);
                 search_view_position -= 2*74;
             }

@@ -25,7 +25,6 @@ namespace Slingshot.Widgets {
 
         private Pixbuf icon;
         private Label app_label;
-        private Label description_label;
 
         public bool in_box = false;
 
@@ -41,22 +40,15 @@ namespace Slingshot.Widgets {
 
             icon = app.icon;
 
-            app_label = new Label (@"<b>$(app.name)</b>");
+            app_label = new Label (@"<b>$(app.name)</b>\n$(Utils.truncate_text (app.description, 200))");
             app_label.use_markup = true;
             app_label.xalign = 0.0f;
 
-            description_label = new Label (Utils.truncate_text (app.description, 200));
-            description_label.xalign = 0.0f;
-            app_label.set_line_wrap (true);
-
             app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_label.get_style_context ().add_class ("app-name");
-            description_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            description_label.get_style_context ().add_class ("app-name");            
 
             var vbox = new VBox (false, 3);
             vbox.pack_start (app_label, false, true, 0);
-            vbox.pack_start (description_label, false, false, 0);
 
             add (Utils.set_padding (vbox, 5, 0, 0, 78));
 
