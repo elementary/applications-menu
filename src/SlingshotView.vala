@@ -107,16 +107,16 @@ namespace Slingshot {
             pages = new Layout (null, null);
             pages.put (grid, 0, 0);
             pages.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            pages.get_style_context ().add_class ("page-view");            
+            pages.get_style_context ().add_class ("slingshot-layout");            
 
             // Create the page switcher
             page_switcher = new Switcher ();
-            page_switcher.append ("1");
             
             // This function must be after creating the page switcher
             grid.new_page.connect (page_switcher.append);
             populate_grid ();
 
+            // This vbox is absolutely useless
             grid_n_pages = new VBox (false, 0);
             grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 24, 9), true, true, 0);
             grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 100, 15, 100), false, true, 0);
@@ -296,7 +296,10 @@ namespace Slingshot {
         }
 
         private void search_view_down () {
-            
+
+            if (search_view.apps_showed < 7)
+                return;
+
             if ((search_view_position) > -(search_view.apps_showed*64)) {
                 pages.move (search_view, 0, search_view_position - 2*74);
                 search_view_position -= 2*74;
@@ -332,6 +335,7 @@ namespace Slingshot {
             search_view.hide_all ();
             filtered.clear ();
 
+            // There should be a real search engine, which can sort application
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
                     
@@ -357,6 +361,8 @@ namespace Slingshot {
         }
 
         public void populate_grid () {
+
+            page_switcher.append ("1");
 
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {

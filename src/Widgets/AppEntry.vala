@@ -69,6 +69,8 @@ namespace Slingshot.Widgets {
                 return true;
             });
 
+            app.icon_changed.connect (queue_draw);
+
         }
 
         protected override bool draw (Context cr) {

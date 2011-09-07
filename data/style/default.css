@@ -23,7 +23,8 @@
     border-style: solid;
 }
 
-.page-view {
+.slingshot-layout {
+    transition: 200ms ease-in-out;    
     engine: none;
     background-color: @trasparent;
     background-image: none;

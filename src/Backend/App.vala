@@ -27,6 +27,8 @@ namespace Slingshot.Backend {
         public string icon_name { get; set; default = ""; }
         public Gdk.Pixbuf icon { get; set; }
 
+        public signal void icon_changed ();
+
         public App (GMenu.TreeEntry entry) {
 
             name = entry.get_display_name ().replace ("&", _("and"));
@@ -35,7 +37,13 @@ namespace Slingshot.Backend {
             desktop_id = entry.get_desktop_file_id ();
             icon_name = entry.get_icon ();
 
-            // Is there a way to cache it?
+            update_icon ();
+            Slingshot.icon_theme.changed.connect (update_icon);
+
+        }
+
+        public void update_icon () {
+
             try {
                 icon = Slingshot.icon_theme.load_icon (icon_name, Slingshot.settings.icon_size,
                                                         Gtk.IconLookupFlags.FORCE_SIZE);
@@ -43,6 +51,9 @@ namespace Slingshot.Backend {
                 icon = Slingshot.icon_theme.load_icon ("application-default-icon", Slingshot.settings.icon_size,
                                                         Gtk.IconLookupFlags.FORCE_SIZE);
             }
+
+            icon_changed ();
+
         }
 
         public void launch () {
