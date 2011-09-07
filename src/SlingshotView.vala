@@ -63,7 +63,7 @@ namespace Slingshot {
             this.app_paintable = true;
 
             // Have the window in the right place
-            this.move (5, 0); 
+            this.move (5, 27); 
             set_size_request (700, 580);
             read_settings ();
 
@@ -272,6 +272,9 @@ namespace Slingshot {
         }
 
         public void show_slingshot () {
+
+            page_switcher.set_active (0);
+            searchbar.text = "";
 
             deiconify ();
             show_all ();

@@ -17,6 +17,7 @@ set (CMAKE_C_FLAGS "-ggdb")
 # Files
 
 file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
+file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applications.menu")
 
 # Configure file
 configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
@@ -63,7 +64,7 @@ add_executable (slingshot ${VALA_C})
 # Installation
 install (TARGETS slingshot RUNTIME DESTINATION bin)
 install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
-
+install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
 
 #
 # GSettings Schema

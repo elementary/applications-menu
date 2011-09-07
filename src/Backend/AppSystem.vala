@@ -26,7 +26,7 @@ namespace Slingshot.Backend {
 
         public static ArrayList<TreeDirectory> get_categories () {
 
-            var apps_tree = GMenu.Tree.lookup ("gnome-applications.menu", TreeFlags.INCLUDE_NODISPLAY);
+            var apps_tree = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_NODISPLAY);
             var root_tree = apps_tree.get_root_directory ();            
 
             var category_entries = new ArrayList<TreeDirectory> ();
