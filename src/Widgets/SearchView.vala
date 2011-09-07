@@ -60,9 +60,6 @@ namespace Slingshot.Widgets {
 
         public void show_app (App app) {
 
-            if (apps_showed > 10)
-                return;
-
             if (!(items[app].in_box)) {
                 pack_start (items[app], true, true, 0);
                 items[app].in_box = true;
@@ -84,6 +81,10 @@ namespace Slingshot.Widgets {
 
             foreach (SearchItem app in items.values) {
                 app.hide ();
+                if (app.in_box) {
+                    remove (app);
+                    app.in_box = false;
+                }
             }
             apps_showed = 0;
         }

@@ -297,7 +297,7 @@ namespace Slingshot {
 
         private void search_view_down () {
             
-            if ((search_view_position) > -(search_view.apps_showed*74*6)) {
+            if ((search_view_position) > -(search_view.apps_showed*64)) {
                 pages.move (search_view, 0, search_view_position - 2*74);
                 search_view_position -= 2*74;
             }
@@ -315,9 +315,9 @@ namespace Slingshot {
 
         private void search () {
 
-            var text = searchbar.text.down ();
+            var text = searchbar.text.down ().strip ();
 
-            if (text.strip () == "") {
+            if (text == "") {
                 pages.move (search_view, -130*5, 0);
                 page_switcher.show_all ();
                 page_switcher.set_active (0);
@@ -325,9 +325,9 @@ namespace Slingshot {
                 return;
             }
 
-            page_switcher.hide ();
-            pages.move (grid, 5*130, 0);
-            pages.move (search_view, 0, 0);
+            page_switcher.hide (); // Hide the switcher
+            pages.move (grid, 5*130, 0); // Move the grid away
+            pages.move (search_view, 0, 0); // Show the searchview
             search_view_position = 0;
             search_view.hide_all ();
             filtered.clear ();
@@ -336,7 +336,8 @@ namespace Slingshot {
                 foreach (App app in entries) {
                     
                     if (text in app.name.down () ||
-                        text in app.exec.down ())
+                        text in app.exec.down () ||
+                        text in app.description.down ())
                         filtered.add (app);
                     else
                         filtered.remove (app);
