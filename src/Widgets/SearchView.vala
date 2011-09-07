@@ -89,6 +89,29 @@ namespace Slingshot.Widgets {
             apps_showed = 0;
         }
 
+        public void add_command (string command) {
+
+            var app = new App.from_command (command);
+            var item = new SearchItem (app);
+
+            item.button_release_event.connect (() => {
+                app.launch_command ();
+                app_launched ();
+                return true;
+            });
+
+            items[app] = item;
+
+            if (!(items[app].in_box)) {
+                pack_start (items[app], true, true, 0);
+                items[app].in_box = true;
+            }
+
+            items[app].show_all ();
+            apps_showed++;
+            
+        }
+
     }
 
 }

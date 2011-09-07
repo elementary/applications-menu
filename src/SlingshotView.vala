@@ -358,6 +358,9 @@ namespace Slingshot {
                     search_view.show_app (app);
             }
 
+            if (filtered.size != 1)
+                search_view.add_command (text);
+
         }
 
         public void populate_grid () {

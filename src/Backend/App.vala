@@ -42,6 +42,18 @@ namespace Slingshot.Backend {
 
         }
 
+        public App.from_command (string command) {
+
+            name = command;
+            description = _("Run this command");
+            exec = command;
+            desktop_id = command;
+            icon_name = "system-run";
+
+            update_icon ();
+            
+        }
+
         public void update_icon () {
 
             try {
@@ -65,6 +77,17 @@ namespace Slingshot.Backend {
                 warning ("Failed to launch %s: %s", name, exec);
             }
         
+        }
+
+        public void launch_command () {
+
+            try {
+                debug (@"Launching command: $name");
+                Process.spawn_command_line_async (exec);
+            } catch (SpawnError e) {
+                warning ("Failed to launch command: %s", name);
+            }
+
         }
 
     }
