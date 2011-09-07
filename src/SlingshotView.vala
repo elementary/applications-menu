@@ -195,7 +195,7 @@ namespace Slingshot {
 
             // Paint a little white border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
-            cr.set_line_width (1.0);
+            cr.set_line_width (1.5);
             cr.stroke ();
 
             return false;
@@ -278,7 +278,7 @@ namespace Slingshot {
 
             deiconify ();
             show_all ();
-            grab_focus ();
+            searchbar.grab_focus ();
 
         }
 
