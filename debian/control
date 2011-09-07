@@ -12,9 +12,9 @@ Build-Depends: debhelper (>= 7.0.50~),
     libgnome-menu-dev
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/slingshot
-Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/slingshot
+Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/new-slingshot
 
-Package: scratch-launcher
+Package: slingshot-launcher
 Architecture: any
 Depends: ${shlibs:Depends}, 
     ${misc:Depends}
