@@ -12,6 +12,7 @@ set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Slingshot is a lightweight app launcher for Elementary, written in Vala and utilizing GTK+ and Cairo.")
 set (VERSION "0.4")
 set (VERSION_INFO "Testing")
+set (CMAKE_C_FLAGS "-ggdb")
 
 # Files
 
@@ -50,6 +51,7 @@ CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
 	--thread
+    -g
 )
 
 add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)

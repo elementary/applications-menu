@@ -28,7 +28,7 @@ using Slingshot.Backend;
 
 namespace Slingshot {
 
-    public class SlingshotView : CompositedWindow {
+    public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
         public ComboBoxText category_switcher;
         public SearchBar searchbar;
@@ -50,17 +50,13 @@ namespace Slingshot {
 
         public SlingshotView () {
 
-            Slingshot.icon_theme = IconTheme.get_default ();
-
-            set_size_request (700, 580);
-            read_settings ();
-
             // Window properties
             this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
             this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
             this.set_keep_above (true);
+            this.decorated = false;
 
             // No time to have slingshot resizable.
             this.resizable = false;
@@ -68,6 +64,12 @@ namespace Slingshot {
 
             // Have the window in the right place
             this.move (5, 0); 
+            set_size_request (700, 580);
+            read_settings ();
+
+            set_visual (get_screen ().get_rgba_visual());
+            get_style_context ().add_provider (Slingshot.style_provider, 600);
+            Slingshot.icon_theme = IconTheme.get_default ();
 
             categories = AppSystem.get_categories ();
             apps = new HashMap<string, ArrayList<App>> ();

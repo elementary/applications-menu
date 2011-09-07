@@ -19,6 +19,10 @@
 @define-color trasparent rgba (0, 0, 0, 0.0);
 @define-color shadow_color rgba (1, 1, 1, 0.8);
 
+* {
+    background-color: @trasparent;
+}
+
 *:focus {
     border-style: solid;
 }
