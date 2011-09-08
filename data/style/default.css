@@ -27,13 +27,6 @@
     border-style: solid;
 }
 
-.slingshot-layout {
-    transition: 200ms ease-in-out;    
-    engine: none;
-    background-color: @trasparent;
-    background-image: none;
-}
-
 /* Import other widgets styles */
 @import url("app.css");
 @import url("switcher.css");

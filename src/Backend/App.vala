@@ -45,7 +45,7 @@ namespace Slingshot.Backend {
         public App.from_command (string command) {
 
             name = command;
-            description = _("Run this command");
+            description = _("Run this command...");
             exec = command;
             desktop_id = command;
             icon_name = "system-run";

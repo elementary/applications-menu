@@ -21,9 +21,16 @@ using Slingshot.Backend;
 
 namespace Slingshot.Widgets {
 
+    private class SeparatorItem : HSeparator {
+        
+        public bool in_box;
+
+    }
+
     public class SearchView : VBox {
 
         private Gee.HashMap<App, SearchItem> items;
+        private SeparatorItem separator;
 
         public int active = -1;
         public int apps_showed = 0;
@@ -39,6 +46,7 @@ namespace Slingshot.Widgets {
             set_visual (get_screen ().get_rgba_visual ());
 
             items = new Gee.HashMap<App, SearchItem> ();
+            separator = new SeparatorItem ();
 
         }
 
@@ -60,6 +68,10 @@ namespace Slingshot.Widgets {
 
         public void show_app (App app) {
 
+            if (apps_showed == 1) {
+                show_separator ();
+            }
+
             if (!(items[app].in_box)) {
                 pack_start (items[app], true, true, 0);
                 items[app].in_box = true;
@@ -78,6 +90,8 @@ namespace Slingshot.Widgets {
         }
 
         public void hide_all () {
+
+            hide_separator ();
 
             foreach (SearchItem app in items.values) {
                 app.hide ();
@@ -110,6 +124,26 @@ namespace Slingshot.Widgets {
             items[app].show_all ();
             apps_showed++;
             
+        }
+
+        private void show_separator () {
+
+            if (!(separator.in_box)) {
+                pack_start (separator, true, true, 0);
+                separator.in_box = true;
+            }
+            separator.show_all ();
+
+        }
+
+        private void hide_separator () {
+
+            separator.hide ();
+            if (separator.in_box) {
+                remove (separator);
+                separator.in_box = false;
+            }
+        
         }
 
     }

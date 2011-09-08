@@ -20,20 +20,32 @@ using Gtk;
 
 namespace Slingshot.Widgets {
 
+    struct Page {
+        public uint rows;
+        public uint columns;
+        public uint number;
+    }
+
     public class Grid : Table {
 
         public signal void new_page (string page_num);
 
-        private int current_row = 0;
-        private int current_col = 0;
+        private uint current_row = 0;
+        private uint current_col = 0;
+        private Page page;
         private List<Widget> children;
 
         public Grid (int rows, int columns) {
             
             // Grid properties
-            this.n_columns = columns;
-            this.n_rows = rows;
             this.homogeneous = true;
+
+            row_spacing = 20;
+            column_spacing = 0;
+
+            page.rows = rows;
+            page.columns = columns;
+            page.number = 1;
 
             children = new List<Widget> ();
 
@@ -41,18 +53,29 @@ namespace Slingshot.Widgets {
 
         public void append (Widget widget) {
 
-            if (current_row == n_rows) {
-                current_row = 0;
-                current_col++;
-                if (current_col % 5 == 0)
-                    new_page ((current_col / 5 + 1).to_string ());
-            }
+            update_position ();
 
-            this.attach (widget, current_col, current_col + 1,
+            var col = current_col + page.columns * (page.number - 1);
+
+            this.attach (widget, col, col + 1,
                          current_row, current_row + 1, AttachOptions.EXPAND, AttachOptions.EXPAND,
                          0, 0);
             children.append (widget);
-            current_row++;
+            current_col++;
+
+        }
+
+        private void update_position () {
+
+            if (current_col == page.columns) {
+                current_col = 0;
+                current_row++;
+            }
+            if (current_row == page.rows) {
+                page.number++;
+                new_page (page.number.to_string ());
+                current_row = 0;
+            }
 
         }
 
@@ -65,6 +88,7 @@ namespace Slingshot.Widgets {
 
             current_row = 0;
             current_col = 0;
+            page.number = 1;
 
         }
 

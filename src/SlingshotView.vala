@@ -95,6 +95,7 @@ namespace Slingshot {
             var top = new HBox (false, 10);
 
             searchbar = new SearchBar ("");
+            searchbar.width_request = 250;
             top.pack_end (searchbar, false, false, 0);
             
             // Get the current size of the view
@@ -103,13 +104,11 @@ namespace Slingshot {
             
             // Make icon grid and populate
             grid = new Widgets.Grid (height / 180, width / 128);
-            grid.row_spacing = 20;
 
             // Create the layout which works like pages
             pages = new Layout (null, null);
             pages.put (grid, 0, 0);
             pages.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            pages.get_style_context ().add_class ("slingshot-layout");            
 
             // Create the page switcher
             page_switcher = new Switcher ();
