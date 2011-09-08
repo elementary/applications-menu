@@ -223,6 +223,16 @@ namespace Slingshot {
                     hide_slingshot ();
                     return true;
 
+                case "Return":
+                    if (!page_switcher.visible) {
+                        filtered[0].launch ();
+                        hide_slingshot ();
+                    }
+                    return true;
+
+                case "Down":
+                    break;
+
                 default:
                     if (!searchbar.has_focus)
                         searchbar.grab_focus ();

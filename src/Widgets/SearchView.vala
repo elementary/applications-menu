@@ -129,7 +129,7 @@ namespace Slingshot.Widgets {
         private void show_separator () {
 
             if (!(separator.in_box)) {
-                pack_start (separator, true, true, 0);
+                pack_start (separator, true, true, 20);
                 separator.in_box = true;
             }
             separator.show_all ();
