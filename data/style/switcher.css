@@ -46,3 +46,9 @@
     background-color: @bg_hover;
     border-radius: 5;
 }
+
+.category-switcher {
+
+    padding: 0;
+
+}

@@ -35,7 +35,7 @@ namespace Slingshot {
         public Widgets.Grid grid;
         public Layout pages;
         public Switcher page_switcher;
-        public VBox grid_n_pages;
+        public HBox bottom;
 
         public SearchView search_view;
 
@@ -96,6 +96,8 @@ namespace Slingshot {
             var top = new HBox (false, 10);
 
             category_switcher = new ComboBoxText ();
+            category_switcher.get_style_context ().add_provider (Slingshot.style_provider, 600);
+            category_switcher.get_style_context ().add_class ("category-switcher");
             category_switcher.append (ALL_APPLICATIONS, ALL_APPLICATIONS); 
             category_switcher.active = 0;
             foreach (string cat_name in apps.keys) {
@@ -125,10 +127,11 @@ namespace Slingshot {
             // Create the page switcher
             page_switcher = new Switcher ();
 
-            var bottom = new HBox (false, 0);
-            bottom.pack_start (new Label (""), true, true, 0);
+            // A bottom widget to keep the page switcher center
+            bottom = new HBox (false, 0);
+            bottom.pack_start (new Label (""), true, true, 0); // A fake label 
             bottom.pack_start (page_switcher, false, false, 10);
-            bottom.pack_start (new Label (""), true, true, 0);
+            bottom.pack_start (new Label (""), true, true, 0); // A fake label
             
             // This function must be after creating the page switcher
             grid.new_page.connect (page_switcher.append);
@@ -275,14 +278,14 @@ namespace Slingshot {
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
-                    if (page_switcher.visible)
+                    if (bottom.visible)
                         page_switcher.set_active (page_switcher.active - 1);
                     else
                         search_view_up ();
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
-                    if (page_switcher.visible)
+                    if (bottom.visible)
                         page_switcher.set_active (page_switcher.active + 1);
                     else
                         search_view_down ();
@@ -360,7 +363,7 @@ namespace Slingshot {
 
             if (show) {
 
-                page_switcher.hide (); // Hide the switcher
+                bottom.hide (); // Hide the switcher
                 category_switcher.hide ();
                 pages.move (grid, 5*130, 0); // Move the grid away
                 pages.move (search_view, 0, 0); // Show the searchview
@@ -368,7 +371,7 @@ namespace Slingshot {
             } else {
 
                 pages.move (search_view, -130*5, 0);
-                page_switcher.show_all ();
+                bottom.show_all ();
                 page_switcher.set_active (0);
                 category_switcher.active = 0;
                 category_switcher.show_all ();
