@@ -16,19 +16,44 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Granite.Services;
+using Gtk;
+using Gdk;
 
-namespace Slingshot {
+namespace Slingshot.Widgets {
 
-    public class Settings : Granite.Services.Settings {
+    public class ComboBox : Button {
 
-        public int width { get; set; }
-        public int height { get; set; }
-        public int icon_size { get; set; }
-        public bool show_category_filter { get; set; }
+        private Menu menu;
 
-        public Settings () {
-            base ("desktop.pantheon.slingshot");
+        public signal void item_clicked (string name);
+
+        public ComboBox () {
+
+            menu = new Menu ();
+
+            this.button_release_event.connect (() => {
+                menu.popup (null, null, null, 1, 0);
+                return false;
+            });
+
+        }
+
+        public Menu get_menu () {
+
+            return menu;
+
+        }
+
+        public void append (string name) {
+
+            var item = new MenuItem.with_label (name);
+            menu.append (item);
+
+            item.activate.connect (() => {
+                this.label = name;
+                item_clicked (name);
+            });
+
         }
 
     }

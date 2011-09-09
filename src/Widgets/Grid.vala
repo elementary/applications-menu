@@ -82,13 +82,18 @@ namespace Slingshot.Widgets {
         public void clear () {
 
             foreach (Widget widget in children) {
-                remove (widget);
-                children.remove (widget);
+                if (widget.get_parent () != null)                
+                    remove (widget);
+                widget.hide ();
             }
+
+            children = new List<Button> ();            
 
             current_row = 0;
             current_col = 0;
             page.number = 1;
+            n_rows = page.rows;
+            n_columns = page.columns;
 
         }
 

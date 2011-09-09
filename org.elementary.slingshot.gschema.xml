@@ -1,5 +1,5 @@
 <schemalist>
-	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.Slingshot" gettext-domain="slingshot">
+	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.slingshot" gettext-domain="slingshot">
         <key name="width" type="i">
             <default>660</default>
             <summary>The default width</summary>
@@ -14,6 +14,11 @@
             <default>64</default>
             <summary>The default icon size of apps</summary>
             <description>This value manages the size of the icons in Slingshot.</description>
+        </key>
+        <key name="show-category-filter" type="b">
+            <default>false</default>
+            <summary>Show the category switcher or not</summary>
+            <description>This value handles the category switcher.</description>
         </key>
 	</schema>
 </schemalist>

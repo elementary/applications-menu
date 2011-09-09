@@ -30,7 +30,7 @@ namespace Slingshot {
 
     public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
-        public ComboBoxText category_switcher;
+        public Widgets.ComboBox category_switcher;
         public SearchBar searchbar;
         public Widgets.Grid grid;
         public Layout pages;
@@ -94,8 +94,17 @@ namespace Slingshot {
             // Add top bar
             var top = new HBox (false, 10);
 
+            category_switcher = new Widgets.ComboBox ();
+            foreach (string cat_name in apps.keys) {
+                category_switcher.append (cat_name);
+            }
+
             searchbar = new SearchBar ("");
             searchbar.width_request = 250;
+
+            if (Slingshot.settings.show_category_filter) {
+                top.pack_start (category_switcher, false, false, 0);
+            }
             top.pack_end (searchbar, false, false, 0);
             
             // Get the current size of the view
@@ -379,7 +388,11 @@ namespace Slingshot {
 
         public void populate_grid () {
 
+            page_switcher.clear_children ();
+            grid.clear ();
+            
             page_switcher.append ("1");
+            page_switcher.set_active (0);
 
             foreach (ArrayList<App> entries in apps.values) {
                 foreach (App app in entries) {
@@ -395,9 +408,30 @@ namespace Slingshot {
                 }
             }
 
+            current_position = 0;
+
             debug ("Grid filled");
 
+        }
+
+        public void show_filtered (ArrayList<App> app_list) {
+
+            page_switcher.clear_children ();
+            grid.clear ();
+            
+            page_switcher.append ("1");
             page_switcher.set_active (0);
+
+            foreach (App app in app_list) {
+
+                var app_entry = new AppEntry (app);
+                app_entry.app_launched.connect (hide_slingshot);
+                grid.append (app_entry);
+                app_entry.show_all ();
+
+            }
+
+            current_position = 0;
 
         }
 

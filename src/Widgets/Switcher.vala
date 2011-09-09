@@ -49,8 +49,7 @@ namespace Slingshot.Widgets {
 
             var button = new Button.with_label (label);
             button.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            button.name = "switcher-button";
-            button.width_request = 10;
+            button.get_style_context ().add_class ("switcher-button");
 
             children.append (button);
 
@@ -62,6 +61,7 @@ namespace Slingshot.Widgets {
             });
 
             add (button);
+            button.show_all ();
 
         }
         
@@ -83,11 +83,14 @@ namespace Slingshot.Widgets {
         public void clear_children () {
 
             foreach (Button button in children) {
-                remove (button);
-                children.remove (button);
+                button.hide ();
+                if (button.get_parent () != null)
+                    remove (button);
             }
 
-            old_active = -1;
+            children = new List<Button> ();
+
+            old_active = 0;
             active = -1;
 
         }

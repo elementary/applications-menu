@@ -24,7 +24,7 @@
     border-width: 0;
 }
 
-#switcher-button {
+.switcher-button {
     engine: none;
     background-color: @trasparent;
     background-image: none;
@@ -33,15 +33,15 @@
     border-radius: 5;
 }
 
-#switcher-button:selected {
+.switcher-button:selected {
     transition: 200ms ease-in-out;
     background-color: @bg_selected;
     border-radius: 5;
 }
 
-#switcher-button:focus {
+.switcher-button:focus {
 }
-#switcher-button:hover {
+.switcher-button:hover {
     transition: 200ms ease-in-out;
     background-color: @bg_hover;
     border-radius: 5;
