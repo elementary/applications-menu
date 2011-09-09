@@ -26,7 +26,7 @@ namespace Slingshot.Widgets {
 
         public signal void active_changed (int active);
 
-        public new List<Button> children;
+        public List<unowned Button> children;
         public int active = -1;
         public int old_active = -1;
 
@@ -48,6 +48,7 @@ namespace Slingshot.Widgets {
         public void append (string label) {
 
             var button = new Button.with_label (label);
+            button.width_request = 30;
             button.get_style_context ().add_provider (Slingshot.style_provider, 600);
             button.get_style_context ().add_class ("switcher-button");
 

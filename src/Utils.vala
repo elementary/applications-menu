@@ -64,6 +64,61 @@ namespace Slingshot {
 
         }
 
+
+        /* Code from Gnome-Do */
+        public static void present_window (Gtk.Window window) {
+
+            // raise without grab
+            uint32 timestamp = Gtk.get_current_event_time();
+            window.present_with_time (timestamp);
+            window.get_window ().raise ();
+            window.get_window ().focus (timestamp);
+
+            // grab
+            int i = 0;
+            Timeout.add (100, ()=>{
+                    if (i >= 100)
+                    return false;
+                    ++i;
+                    return !try_grab_window (window);
+            });
+        }
+        /* Code from Gnome-Do */
+        public static void unpresent_window (Gtk.Window window) {
+
+            Gdk.DeviceManager dm = Gdk.Display.get_default ().get_device_manager ();
+            var device = dm.get_client_pointer ();
+
+            uint32 time = Gtk.get_current_event_time();
+
+            device.ungrab (time);
+            Gtk.grab_remove (window);
+
+        }
+        /* Code from Gnome-Do */
+        private static bool try_grab_window (Gtk.Window window) {
+
+            Gdk.DeviceManager dm = Gdk.Display.get_default ().get_device_manager ();
+            var device = dm.get_client_pointer ();
+
+            uint time = Gtk.get_current_event_time();
+            if (device.grab (window.get_window(),
+                        Gdk.GrabOwnership.WINDOW,
+                        true,
+                        Gdk.EventMask.BUTTON_PRESS_MASK |
+                        Gdk.EventMask.BUTTON_RELEASE_MASK |
+                        Gdk.EventMask.POINTER_MOTION_MASK,
+                        null,
+                        time) == Gdk.GrabStatus.SUCCESS)
+            {
+                    Gtk.grab_add (window);
+                    message ("Window grabbed");
+                    return true;
+            }
+            return false;
+        }
+
+
     }	
 	
 }

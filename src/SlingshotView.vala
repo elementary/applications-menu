@@ -47,6 +47,7 @@ namespace Slingshot {
 
         private int current_position = 0;
         private int search_view_position = 0;
+        private const string ALL_APPLICATIONS = _("All Applications");
 
         public SlingshotView () {
 
@@ -75,7 +76,7 @@ namespace Slingshot {
             apps = new HashMap<string, ArrayList<App>> ();
 
             foreach (TreeDirectory cat in categories) {
-                apps.set (cat.get_name (), AppSystem.get_apps (cat));
+                apps.set (cat.get_menu_id (), AppSystem.get_apps (cat));
             }
             debug ("Apps loaded");
 
@@ -95,7 +96,7 @@ namespace Slingshot {
             var top = new HBox (false, 10);
 
             category_switcher = new ComboBoxText ();
-            category_switcher.append (_("All Applications"), _("All Applications")); 
+            category_switcher.append (ALL_APPLICATIONS, ALL_APPLICATIONS); 
             category_switcher.active = 0;
             foreach (string cat_name in apps.keys) {
                 category_switcher.append (cat_name, cat_name);
@@ -123,15 +124,15 @@ namespace Slingshot {
 
             // Create the page switcher
             page_switcher = new Switcher ();
+
+            var bottom = new HBox (false, 0);
+            bottom.pack_start (new Label (""), true, true, 0);
+            bottom.pack_start (page_switcher, false, false, 10);
+            bottom.pack_start (new Label (""), true, true, 0);
             
             // This function must be after creating the page switcher
             grid.new_page.connect (page_switcher.append);
             populate_grid ();
-
-            // This vbox is absolutely useless
-            grid_n_pages = new VBox (false, 0);
-            grid_n_pages.pack_start (Utils.set_padding (pages, 0, 9, 24, 9), true, true, 0);
-            grid_n_pages.pack_start (Utils.set_padding (page_switcher, 0, 100, 15, 100), false, true, 0);
 
             search_view = new SearchView ();
             foreach (ArrayList<App> app_list in apps.values) {
@@ -140,7 +141,8 @@ namespace Slingshot {
             pages.put (search_view, -5*130, 0);
 
             container.pack_start (top, false, true, 15);
-            container.pack_start (grid_n_pages, true, true, 0);
+            container.pack_start (Utils.set_padding (pages, 0, 9, 24, 9), true, true, 0);
+            container.pack_start (Utils.set_padding (bottom, 0, 9, 15, 9), false, false, 0);
             this.add (Utils.set_padding (container, 15, 15, 1, 15));
 
             debug ("Ui setup completed");
@@ -160,6 +162,7 @@ namespace Slingshot {
             pages.draw.connect (this.draw_pages_background);
             
             searchbar.changed.connect_after (this.search);
+            searchbar.grab_focus ();
             search_view.app_launched.connect (hide_slingshot);
 
             page_switcher.active_changed.connect (() => {
@@ -173,7 +176,7 @@ namespace Slingshot {
 
             category_switcher.changed.connect (() => {
 
-                if (category_switcher.get_active_id () == _("All Applications"))
+                if (category_switcher.get_active_id () == ALL_APPLICATIONS)
                     populate_grid ();
                 else 
                     show_filtered (apps[category_switcher.get_active_id ()]);
@@ -294,24 +297,23 @@ namespace Slingshot {
         public void hide_slingshot () {
             
             // Show the first page
-            page_switcher.set_active (0);
-            category_switcher.active = 0;
-            current_position = 0;
             searchbar.text = "";
 
             hide ();
+
+            grab_remove ((Widget) this);
+			get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
 
         }
 
         public void show_slingshot () {
 
-            page_switcher.set_active (0);
-            category_switcher.active = 0;
-            searchbar.text = "";
+            show_search_view (false);
 
             deiconify ();
             show_all ();
             searchbar.grab_focus ();
+            //Utils.present_window (this);
 
         }
 
@@ -354,24 +356,39 @@ namespace Slingshot {
 
         }
 
-        private void search () {
+        private void show_search_view (bool show) {
 
-            var text = searchbar.text.down ().strip ();
+            if (show) {
 
-            if (text == "") {
+                page_switcher.hide (); // Hide the switcher
+                category_switcher.hide ();
+                pages.move (grid, 5*130, 0); // Move the grid away
+                pages.move (search_view, 0, 0); // Show the searchview
+            
+            } else {
+
                 pages.move (search_view, -130*5, 0);
                 page_switcher.show_all ();
                 page_switcher.set_active (0);
                 category_switcher.active = 0;
                 category_switcher.show_all ();
                 pages.move (grid, 0, 0);
+                current_position = 0;
+            
+            }
+
+        }
+
+        private void search () {
+
+            var text = searchbar.text.down ().strip ();
+
+            if (text == "") {
+                show_search_view (false);
                 return;
             }
 
-            page_switcher.hide (); // Hide the switcher
-            category_switcher.hide ();
-            pages.move (grid, 5*130, 0); // Move the grid away
-            pages.move (search_view, 0, 0); // Show the searchview
+            show_search_view (true);
             search_view_position = 0;
             search_view.hide_all ();
             filtered.clear ();
@@ -408,7 +425,9 @@ namespace Slingshot {
 
             page_switcher.clear_children ();
             grid.clear ();
-            
+
+            pages.move (grid, 0, 0);
+
             page_switcher.append ("1");
             page_switcher.set_active (0);
 
@@ -436,6 +455,8 @@ namespace Slingshot {
 
             page_switcher.clear_children ();
             grid.clear ();
+
+            pages.move (grid, 0, 0);
             
             page_switcher.append ("1");
             page_switcher.set_active (0);

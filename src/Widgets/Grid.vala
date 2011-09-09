@@ -33,7 +33,7 @@ namespace Slingshot.Widgets {
         private uint current_row = 0;
         private uint current_col = 0;
         private Page page;
-        private List<Widget> children;
+        private List<unowned Widget> children;
 
         public Grid (int rows, int columns) {
             
