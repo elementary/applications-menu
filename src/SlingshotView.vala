@@ -30,7 +30,7 @@ namespace Slingshot {
 
     public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
-        public Widgets.ComboBox category_switcher;
+        public ComboBoxText category_switcher;
         public SearchBar searchbar;
         public Widgets.Grid grid;
         public Layout pages;
@@ -94,9 +94,11 @@ namespace Slingshot {
             // Add top bar
             var top = new HBox (false, 10);
 
-            category_switcher = new Widgets.ComboBox ();
+            category_switcher = new ComboBoxText ();
+            category_switcher.append (_("All Applications"), _("All Applications")); 
+            category_switcher.active = 0;
             foreach (string cat_name in apps.keys) {
-                category_switcher.append (cat_name);
+                category_switcher.append (cat_name, cat_name);
             }
 
             searchbar = new SearchBar ("");
@@ -148,7 +150,9 @@ namespace Slingshot {
         private void connect_signals () {
             
             this.focus_out_event.connect ( () => {
-                this.hide_slingshot(); 
+                if (!(category_switcher.popup_shown)) {
+                    this.hide_slingshot();
+                }
                 return false; 
             });
 
@@ -164,6 +168,15 @@ namespace Slingshot {
                     this.page_right (page_switcher.active - page_switcher.old_active);
                 else
                     this.page_left (page_switcher.old_active - page_switcher.active);
+
+            });
+
+            category_switcher.changed.connect (() => {
+
+                if (category_switcher.get_active_id () == _("All Applications"))
+                    populate_grid ();
+                else 
+                    show_filtered (apps[category_switcher.get_active_id ()]);
 
             });
 
@@ -282,6 +295,7 @@ namespace Slingshot {
             
             // Show the first page
             page_switcher.set_active (0);
+            category_switcher.active = 0;
             current_position = 0;
             searchbar.text = "";
 
@@ -292,6 +306,7 @@ namespace Slingshot {
         public void show_slingshot () {
 
             page_switcher.set_active (0);
+            category_switcher.active = 0;
             searchbar.text = "";
 
             deiconify ();
@@ -347,11 +362,14 @@ namespace Slingshot {
                 pages.move (search_view, -130*5, 0);
                 page_switcher.show_all ();
                 page_switcher.set_active (0);
+                category_switcher.active = 0;
+                category_switcher.show_all ();
                 pages.move (grid, 0, 0);
                 return;
             }
 
             page_switcher.hide (); // Hide the switcher
+            category_switcher.hide ();
             pages.move (grid, 5*130, 0); // Move the grid away
             pages.move (search_view, 0, 0); // Show the searchview
             search_view_position = 0;

@@ -44,7 +44,6 @@ vala_precompile (VALA_C
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
-    src/Widgets/ComboBox.vala
     src/Widgets/SearchView.vala
     src/Widgets/SearchItem.vala
 PACKAGES
