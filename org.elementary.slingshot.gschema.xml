@@ -1,4 +1,11 @@
 <schemalist>
+    <enum id="background-color-enum">
+        <value nick="Black" value="0" />
+        <value nick="Grey" value="1" />
+        <value nick="Red" value="2" />
+        <value nick="Blue" value="3" />
+        <value nick="Green" value="4" />
+    </enum>
 	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.slingshot" gettext-domain="slingshot">
         <key name="width" type="i">
             <default>660</default>
@@ -19,6 +26,11 @@
             <default>false</default>
             <summary>Show the category switcher or not</summary>
             <description>This value handles the category switcher.</description>
+        </key>
+        <key name="background-color" enum="background-color-enum">
+            <default>"Black"</default>
+            <summary>The background color of Slingshot</summary>
+            <description>Choose your favourite background color.</description>
         </key>
 	</schema>
 </schemalist>

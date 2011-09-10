@@ -33,7 +33,7 @@ namespace Slingshot {
         public ComboBoxText category_switcher;
         public SearchBar searchbar;
         public Widgets.Grid grid;
-        public Layout pages;
+        public Layout pages = null;
         public Switcher page_switcher;
         public HBox bottom;
 
@@ -48,6 +48,8 @@ namespace Slingshot {
         private int current_position = 0;
         private int search_view_position = 0;
         private const string ALL_APPLICATIONS = _("All Applications");
+
+        private BackgroundColor bg_color;
 
         public SlingshotView () {
 
@@ -217,7 +219,23 @@ namespace Slingshot {
                          radius, Math.PI * 0.5, Math.PI);
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
-            cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
+            switch (bg_color) {
+                case BackgroundColor.BLACK:
+                    cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
+                    break;
+                case BackgroundColor.GREY:
+                    cr.set_source_rgba (0.3, 0.3, 0.3, 0.9);
+                    break;
+                case BackgroundColor.RED:
+                    cr.set_source_rgba (0.2, 0.1, 0.1, 0.9);
+                    break;
+                case BackgroundColor.BLUE:
+                    cr.set_source_rgba (0.1, 0.1, 0.2, 0.9);
+                    break;
+                case BackgroundColor.GREEN:
+                    cr.set_source_rgba (0.1, 0.2, 0.1, 0.9);
+                    break;
+            }
             cr.fill_preserve ();
 
             // Paint a little white border
@@ -236,7 +254,24 @@ namespace Slingshot {
 
             cr.rectangle (0, 0, size.width, size.height);
 
-            cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
+            switch (bg_color) {
+                case BackgroundColor.BLACK:
+                    cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
+                    break;
+                case BackgroundColor.GREY:
+                    cr.set_source_rgba (0.3, 0.3, 0.3, 0.9);
+                    break;
+                case BackgroundColor.RED:
+                    cr.set_source_rgba (0.2, 0.1, 0.1, 0.9);
+                    break;
+                case BackgroundColor.BLUE:
+                    cr.set_source_rgba (0.1, 0.1, 0.2, 0.9);
+                    break;
+                case BackgroundColor.GREEN:
+                    cr.set_source_rgba (0.1, 0.2, 0.1, 0.9);
+                    break;
+            }
+
             cr.fill_preserve ();
 
             return false;
@@ -481,6 +516,11 @@ namespace Slingshot {
 
             default_width = Slingshot.settings.width;
             default_height = Slingshot.settings.height;
+
+            bg_color = Slingshot.settings.background_color;
+            this.queue_draw ();
+            if (pages != null)
+                pages.queue_draw ();
 
         }
 
