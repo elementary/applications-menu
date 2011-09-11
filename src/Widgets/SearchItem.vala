@@ -27,6 +27,7 @@ namespace Slingshot.Widgets {
         private Label app_label;
 
         public bool in_box = false;
+        public signal void launch_app ();
 
         public SearchItem (Backend.App app) {
             
@@ -52,6 +53,8 @@ namespace Slingshot.Widgets {
             vbox.pack_start (app_label, false, true, 0);
 
             add (Utils.set_padding (vbox, 5, 0, 0, 78));
+
+            this.launch_app.connect (app.launch);
 
         }
 

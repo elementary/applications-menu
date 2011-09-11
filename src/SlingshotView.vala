@@ -219,23 +219,8 @@ namespace Slingshot {
                          radius, Math.PI * 0.5, Math.PI);
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
-            switch (bg_color) {
-                case BackgroundColor.BLACK:
-                    cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
-                    break;
-                case BackgroundColor.GREY:
-                    cr.set_source_rgba (0.3, 0.3, 0.3, 0.9);
-                    break;
-                case BackgroundColor.RED:
-                    cr.set_source_rgba (0.2, 0.1, 0.1, 0.9);
-                    break;
-                case BackgroundColor.BLUE:
-                    cr.set_source_rgba (0.1, 0.1, 0.2, 0.9);
-                    break;
-                case BackgroundColor.GREEN:
-                    cr.set_source_rgba (0.1, 0.2, 0.1, 0.9);
-                    break;
-            }
+            pick_background_color (cr);
+
             cr.fill_preserve ();
 
             // Paint a little white border
@@ -254,6 +239,16 @@ namespace Slingshot {
 
             cr.rectangle (0, 0, size.width, size.height);
 
+            pick_background_color (cr);
+
+            cr.fill_preserve ();
+
+            return false;
+
+        }
+
+        private void pick_background_color (Context cr) {
+
             switch (bg_color) {
                 case BackgroundColor.BLACK:
                     cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
@@ -272,10 +267,6 @@ namespace Slingshot {
                     break;
             }
 
-            cr.fill_preserve ();
-
-            return false;
-
         }
 
         public override bool key_press_event (Gdk.EventKey event) {
@@ -287,8 +278,8 @@ namespace Slingshot {
                     return true;
 
                 case "Return":
-                    if (!page_switcher.visible) {
-                        filtered[0].launch ();
+                    if (!bottom.visible) {
+                        search_view.launch_first ();
                         hide_slingshot ();
                     }
                     return true;
@@ -348,7 +339,6 @@ namespace Slingshot {
 
             show_search_view (false);
 
-            deiconify ();
             show_all ();
             searchbar.grab_focus ();
             //Utils.present_window (this);

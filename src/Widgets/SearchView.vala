@@ -80,6 +80,9 @@ namespace Slingshot.Widgets {
             items[app].show_all ();
             apps_showed++;
 
+            if (apps_showed == 1)
+                set_focus_child (items[app]);
+
         }
 
         public void hide_app (App app) {
@@ -109,7 +112,7 @@ namespace Slingshot.Widgets {
             var item = new SearchItem (app);
 
             item.button_release_event.connect (() => {
-                app.launch_command ();
+                app.launch ();
                 app_launched ();
                 return true;
             });
@@ -123,6 +126,10 @@ namespace Slingshot.Widgets {
 
             items[app].show_all ();
             apps_showed++;
+
+            if (apps_showed == 1)
+                set_focus_child (items[app]);
+            
             
         }
 
@@ -144,6 +151,12 @@ namespace Slingshot.Widgets {
                 separator.in_box = false;
             }
         
+        }
+
+        public void launch_first () {
+
+            ((SearchItem) get_focus_child ()).launch_app ();
+
         }
 
     }

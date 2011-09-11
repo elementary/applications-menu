@@ -27,6 +27,8 @@ namespace Slingshot.Backend {
         public string icon_name { get; set; default = ""; }
         public Gdk.Pixbuf icon { get; set; }
 
+        private bool is_command = false;
+
         public signal void icon_changed ();
 
         public App (GMenu.TreeEntry entry) {
@@ -50,6 +52,8 @@ namespace Slingshot.Backend {
             desktop_id = command;
             icon_name = "system-run";
 
+            is_command = true;
+
             update_icon ();
             
         }
@@ -71,23 +75,17 @@ namespace Slingshot.Backend {
         public void launch () {
 
             try {
-                new DesktopAppInfo (desktop_id).launch (null, null);
-                debug (@"Launching application: $name");
+                if (is_command) {
+                    debug (@"Launching command: $name");
+                    Process.spawn_command_line_async (exec);
+                } else {
+                    new DesktopAppInfo (desktop_id).launch (null, null);
+                    debug (@"Launching application: $name");
+                }
             } catch (Error e) {
                 warning ("Failed to launch %s: %s", name, exec);
             }
         
-        }
-
-        public void launch_command () {
-
-            try {
-                debug (@"Launching command: $name");
-                Process.spawn_command_line_async (exec);
-            } catch (SpawnError e) {
-                warning ("Failed to launch command: %s", name);
-            }
-
         }
 
     }
