@@ -55,17 +55,23 @@ namespace Slingshot.Widgets {
             foreach (App app in apps) {
                 var search_item = new SearchItem (app);
 
-                search_item.button_release_event.connect (() => {
-                    app.launch ();
-                    app_launched ();
-                    return true;
-                });
-                
-                items[app] = search_item;
+                append_app (app, search_item);
+
             }
 
         }
 
+        public void append_app (App app, SearchItem search_item) {
+
+            search_item.button_release_event.connect (() => {
+                app.launch ();
+                app_launched ();
+                return true;
+            });
+            
+            items[app] = search_item;
+        
+        }
         public void show_app (App app) {
 
             if (apps_showed == 1) {
@@ -75,13 +81,18 @@ namespace Slingshot.Widgets {
             if (!(items[app].in_box)) {
                 pack_start (items[app], true, true, 0);
                 items[app].in_box = true;
+                items[app].icon_size = 48;
+                items[app].queue_draw ();
             }
 
             items[app].show_all ();
             apps_showed++;
 
-            if (apps_showed == 1)
+            if (apps_showed == 1) {
                 set_focus_child (items[app]);
+                items[app].icon_size = 64;
+                items[app].queue_draw ();
+            }                
 
         }
 
@@ -111,32 +122,15 @@ namespace Slingshot.Widgets {
             var app = new App.from_command (command);
             var item = new SearchItem (app);
 
-            item.button_release_event.connect (() => {
-                app.launch ();
-                app_launched ();
-                return true;
-            });
+            append_app (app, item);
 
-            items[app] = item;
-
-            if (!(items[app].in_box)) {
-                pack_start (items[app], true, true, 0);
-                items[app].in_box = true;
-            }
-
-            items[app].show_all ();
-            apps_showed++;
-
-            if (apps_showed == 1)
-                set_focus_child (items[app]);
-            
-            
+            show_app (app);
         }
 
         private void show_separator () {
 
             if (!(separator.in_box)) {
-                pack_start (separator, true, true, 20);
+                pack_start (separator, true, true, 3);
                 separator.in_box = true;
             }
             separator.show_all ();

@@ -27,6 +27,7 @@ namespace Slingshot.Widgets {
         private Label app_label;
 
         public bool in_box = false;
+        public int icon_size = 64;
         public signal void launch_app ();
 
         public SearchItem (Backend.App app) {
@@ -34,7 +35,7 @@ namespace Slingshot.Widgets {
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
 
-            set_size_request (130*5, 74);
+            set_size_request (130*5, 58);
 
             get_style_context ().add_provider (Slingshot.style_provider, 600);
             get_style_context ().add_class ("app");            
@@ -65,8 +66,11 @@ namespace Slingshot.Widgets {
 
             base.draw (cr);
 
+            var scaled_icon = icon.scale_simple (icon_size, icon_size, Gdk.InterpType.BILINEAR);
+            height_request = icon_size + 10;
+
             // Draw icon
-            cairo_set_source_pixbuf (cr, icon, 10.0, 5);
+            cairo_set_source_pixbuf (cr, scaled_icon, 10.0, 5);
             cr.paint ();
 
             return true;
