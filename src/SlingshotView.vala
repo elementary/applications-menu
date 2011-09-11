@@ -50,6 +50,7 @@ namespace Slingshot {
         private const string ALL_APPLICATIONS = _("All Applications");
 
         private BackgroundColor bg_color;
+        private bool alt_active = false;
 
         public SlingshotView () {
 
@@ -283,6 +284,60 @@ namespace Slingshot {
                         hide_slingshot ();
                     }
                     return true;
+
+                case "Alt":
+                    message ("Alt pressed");
+                    break;
+
+                case "1":
+                case "KP_1":
+                    page_switcher.set_active (0);
+                    break;
+
+                case "2":
+                case "KP_2":
+                    page_switcher.set_active (1);
+                    break;
+
+                case "3":
+                case "KP_3":
+                    page_switcher.set_active (2);
+                    break;
+
+                case "4":
+                case "KP_4":
+                    page_switcher.set_active (3);
+                    break;
+
+                case "5":
+                case "KP_5":
+                    page_switcher.set_active (4);
+                    break;
+
+                case "6":
+                case "KP_6":
+                    page_switcher.set_active (5);
+                    break;
+
+                case "7":
+                case "KP_7":
+                    page_switcher.set_active (6);
+                    break;
+
+                case "8":
+                case "KP_8":
+                    page_switcher.set_active (7);
+                    break;
+
+                case "9":
+                case "KP_9":
+                    page_switcher.set_active (8);
+                    break;
+
+                case "0":
+                case "KP_0":
+                    page_switcher.set_active (9);
+                    break;
 
                 case "Down":
                     break;
