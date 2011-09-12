@@ -24,7 +24,7 @@ namespace Slingshot {
     public class Slingshot : Granite.Application {
 
         private SlingshotView view = null;
-        private bool silent = false;
+        public bool silent = false;
 
         public static Settings settings { get; private set; default = null; }
         public static CssProvider style_provider { get; private set; default = null; }
@@ -81,7 +81,7 @@ namespace Slingshot {
             }
             
             if (get_windows () == null) {
-                view = new SlingshotView (silent);
+                view = new SlingshotView (this);
                 view.set_application (this);
                 if (!silent)
                     view.show_all ();
@@ -92,7 +92,7 @@ namespace Slingshot {
         protected override void activate () {
 
             if (get_windows () == null) {
-                view = new SlingshotView (silent);
+                view = new SlingshotView (this);
                 view.set_application (this);
                 if (!silent)
                     view.show_all ();

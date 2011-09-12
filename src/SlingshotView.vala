@@ -52,7 +52,7 @@ namespace Slingshot {
 
         private BackgroundColor bg_color;
 
-        public SlingshotView (bool silent) {
+        public SlingshotView (Slingshot app) {
 
             // Window properties
             this.title = "Slingshot";
@@ -82,15 +82,12 @@ namespace Slingshot {
                 apps = app_system.get_apps.end (res);
                 setup_ui ();
                 connect_signals ();
-                if (!silent)
+                if (!app.silent)
                     show_all ();
             });
             debug ("Apps loaded");
 
             filtered = new ArrayList<App> ();
-
-            //setup_ui.begin ();
-            //connect_signals ();
 
         }
 
