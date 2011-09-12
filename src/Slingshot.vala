@@ -81,7 +81,7 @@ namespace Slingshot {
             }
             
             if (get_windows () == null) {
-                view = new SlingshotView ();
+                view = new SlingshotView (silent);
                 view.set_application (this);
                 if (!silent)
                     view.show_all ();
@@ -92,7 +92,7 @@ namespace Slingshot {
         protected override void activate () {
 
             if (get_windows () == null) {
-                view = new SlingshotView ();
+                view = new SlingshotView (silent);
                 view.set_application (this);
                 if (!silent)
                     view.show_all ();

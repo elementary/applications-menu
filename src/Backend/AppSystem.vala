@@ -19,53 +19,86 @@
 using GLib;
 using GMenu;
 using Gee;
+using Zeitgeist;
 
 namespace Slingshot.Backend {
 
     public class AppSystem : Object {
 
-        public static ArrayList<TreeDirectory> get_categories () {
+        private ArrayList<TreeDirectory> categories = null;
+        private HashMap<string, ArrayList<App>> apps = null;
+
+        private Zeitgeist.Log log;
+        private Zeitgeist.Index zg_index;
+        private RelevancyService rl_service;
+
+        private PtrArray zg_templates;
+
+        construct {
+
+            log = new Zeitgeist.Log ();
+            zg_index = new Zeitgeist.Index ();
+
+            rl_service = new RelevancyService ();
+
+            populate_zg_templates ();
+
+        }
+
+        private void populate_zg_templates () {
+
+            zg_templates = new PtrArray.sized (1);
+            var ev = new Zeitgeist.Event.full (ZG_ACCESS_EVENT, ZG_USER_ACTIVITY, 
+                                               "", new Subject.full ("application://*", 
+                                                                     "", "", "", "", "", ""));
+            zg_templates.add ((ev as Object).ref ());
+
+        }
+
+        public ArrayList<TreeDirectory> get_categories () {
 
             var apps_tree = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_NODISPLAY);
             var root_tree = apps_tree.get_root_directory ();            
 
-            var category_entries = new ArrayList<TreeDirectory> ();
+            if (categories == null) {
+                categories = new ArrayList<TreeDirectory> ();
 
-            foreach (TreeItem item in root_tree.get_contents ()) {
-                if (item.get_type () == TreeItemType.DIRECTORY)
-                    if (((TreeDirectory) item).get_is_nodisplay () == false)
-                        category_entries.add ((TreeDirectory) item);
+                foreach (TreeItem item in root_tree.get_contents ()) {
+                    if (item.get_type () == TreeItemType.DIRECTORY)
+                        if (((TreeDirectory) item).get_is_nodisplay () == false)
+                            categories.add ((TreeDirectory) item);
+                }
             }
 
-            return category_entries;
+            return categories;
 
         }
 
-        public static ArrayList<App> get_apps (TreeDirectory category) {
-
-            var apps = new ArrayList<App> ();
+        public async ArrayList<App> get_apps_by_category (TreeDirectory category) {
+            
+            var app_list = new ArrayList<App> ();
 
             foreach (TreeItem item in category.get_contents ()) {
                 App app;
                 switch (item.get_type ()) {
                     case TreeItemType.DIRECTORY:
-                        apps.add_all (get_apps ((TreeDirectory) item));
+                        app_list.add_all (yield get_apps_by_category ((TreeDirectory) item));
                         break;
                     case TreeItemType.ENTRY:
                         if (is_entry ((TreeEntry) item)) {
                             app = new App ((TreeEntry) item);
-                            if (apps.contains (app) == false) {
-                                apps.add (app);
+                            if (app_list.contains (app) == false) {
+                                app_list.add (app);
                             }
                         }
                         break;
                 }
             }
-            return apps;
+            return app_list;
 
         }
 
-        private static bool is_entry (TreeEntry entry) {
+        private bool is_entry (TreeEntry entry) {
 
             if (entry.get_launch_in_terminal () == false 
                 && entry.get_is_nodisplay () == false) {
@@ -73,6 +106,45 @@ namespace Slingshot.Backend {
             } else {
                 return false;
             }
+
+        }
+
+        public async HashMap<string, ArrayList<App>> get_apps () {
+
+            if (apps == null) {
+
+                apps = new HashMap<string, ArrayList<App>> ();
+                
+                foreach (TreeDirectory cat in categories) {
+                    apps.set (cat.get_menu_id (), yield get_apps_by_category (cat));
+                }
+
+            }
+
+            return apps;
+
+        }
+
+        private int sort_apps (App a, App b) {
+
+            return (int) (a.popularity*100 - b.popularity*100);
+
+        }
+
+        public SList<App> get_sorted_apps () {
+
+            var sorted_apps = new SList<App> ();
+
+            foreach (ArrayList<App> category in apps.values) {
+                foreach (App app in category) {
+                    app.popularity = rl_service.get_app_popularity (app.desktop_id);
+                    sorted_apps.append (app);
+                }
+            }
+            
+            sorted_apps.sort_with_data (sort_apps);
+            sorted_apps.reverse ();
+            return sorted_apps;
 
         }
 

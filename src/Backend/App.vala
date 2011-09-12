@@ -26,6 +26,7 @@ namespace Slingshot.Backend {
         public string exec { get; set; }
         public string icon_name { get; set; default = ""; }
         public Gdk.Pixbuf icon { get; set; }
+        public double popularity { get; set; }
 
         private bool is_command = false;
 

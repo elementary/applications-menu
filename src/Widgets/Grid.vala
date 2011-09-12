@@ -51,7 +51,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void append (Widget widget) {
+        public async void append (Widget widget) {
 
             update_position ();
 

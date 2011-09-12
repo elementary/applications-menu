@@ -41,6 +41,7 @@ namespace Slingshot {
 
         private VBox container;
 
+        private AppSystem app_system;
         private ArrayList<TreeDirectory> categories;
         private HashMap<string, ArrayList<App>> apps;
         private ArrayList<App> filtered;
@@ -50,9 +51,8 @@ namespace Slingshot {
         private const string ALL_APPLICATIONS = _("All Applications");
 
         private BackgroundColor bg_color;
-        private bool alt_active = false;
 
-        public SlingshotView () {
+        public SlingshotView (bool silent) {
 
             // Window properties
             this.title = "Slingshot";
@@ -75,23 +75,29 @@ namespace Slingshot {
             get_style_context ().add_provider (Slingshot.style_provider, 600);
             Slingshot.icon_theme = IconTheme.get_default ();
 
-            categories = AppSystem.get_categories ();
-            apps = new HashMap<string, ArrayList<App>> ();
+            app_system = new AppSystem ();
 
-            foreach (TreeDirectory cat in categories) {
-                apps.set (cat.get_menu_id (), AppSystem.get_apps (cat));
-            }
+            categories = app_system.get_categories ();
+            app_system.get_apps.begin ((obj, res) => {
+                apps = app_system.get_apps.end (res);
+                setup_ui ();
+                connect_signals ();
+                if (!silent)
+                    show_all ();
+            });
             debug ("Apps loaded");
 
             filtered = new ArrayList<App> ();
 
-            setup_ui ();
-            connect_signals ();
+            //setup_ui.begin ();
+            //connect_signals ();
 
         }
 
         private void setup_ui () {
-            
+
+            debug ("In setup_ui ()");
+
             // Create the base container
             container = new VBox (false, 0);
 
@@ -138,7 +144,7 @@ namespace Slingshot {
             
             // This function must be after creating the page switcher
             grid.new_page.connect (page_switcher.append);
-            populate_grid ();
+            populate_grid.begin ();
 
             search_view = new SearchView ();
             foreach (ArrayList<App> app_list in apps.values) {
@@ -249,6 +255,8 @@ namespace Slingshot {
         }
 
         private void pick_background_color (Context cr) {
+
+            // TODO: Add more colors
 
             switch (bg_color) {
                 case BackgroundColor.BLACK:
@@ -504,7 +512,7 @@ namespace Slingshot {
 
         }
 
-        public void populate_grid () {
+        public async void populate_grid () {
 
             page_switcher.clear_children ();
             grid.clear ();
@@ -514,23 +522,19 @@ namespace Slingshot {
             page_switcher.append ("1");
             page_switcher.set_active (0);
 
-            foreach (ArrayList<App> entries in apps.values) {
-                foreach (App app in entries) {
+            foreach (App app in app_system.get_sorted_apps ()) {
 
-                    var app_entry = new AppEntry (app);
-                    
-                    app_entry.app_launched.connect (hide_slingshot);
+                var app_entry = new AppEntry (app);
+                
+                app_entry.app_launched.connect (hide_slingshot);
 
-                    grid.append (app_entry);
+                yield grid.append (app_entry);
 
-                    app_entry.show_all ();
+                app_entry.show_all ();
 
-                }
             }
 
             current_position = 0;
-
-            debug ("Grid filled");
 
         }
 

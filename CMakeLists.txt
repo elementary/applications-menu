@@ -24,7 +24,7 @@ configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 # Slingshot
 
-set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;libgnome-menu;granite")
+set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;libgnome-menu;granite;zeitgeist-1.0")
 
 find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED ${SLINGSHOT_DEPS})
@@ -41,6 +41,7 @@ vala_precompile (VALA_C
     src/Utils.vala
     src/Backend/AppSystem.vala    
     src/Backend/App.vala
+    src/Backend/RelevancyService.vala
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
