@@ -19,6 +19,7 @@ Package: slingshot-launcher
 Architecture: any
 Depends: ${shlibs:Depends}, 
     ${misc:Depends}
+Conflicts: slingshot
 Description: Lightweight App Launcher for Elementary OS
  Slingshot is a lightweight app launcher for Pantheon, written in Vala
  and utilizing GTK+ and Cairo.

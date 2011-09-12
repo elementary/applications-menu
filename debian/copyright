@@ -1,15 +1,11 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: slingshot-launcher
-Source: <url://example.com>
 
 Files: *
-Copyright: <years> <put author's name and email here>
-           <years> <likewise for another author>
 License: GPL-3.0+
 
 Files: debian/*
 Copyright: 2011 Giulio Collura <random.cpp@gmail.com>
-License: GPL-3.0+
 
 License: GPL-3.0+
  This program is free software: you can redistribute it and/or modify
