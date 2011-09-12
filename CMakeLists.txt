@@ -10,7 +10,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Slingshot is a lightweight app launcher for Elementary, written in Vala and utilizing GTK+ and Cairo.")
-set (VERSION "0.4")
+set (VERSION "0.5")
 set (VERSION_INFO "Testing")
 set (CMAKE_C_FLAGS "-ggdb")
 
@@ -72,3 +72,6 @@ install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
 #
 include (GSettings)
 add_schema ("org.elementary.slingshot.gschema.xml")
+
+# Translations
+add_subdirectory (po)
