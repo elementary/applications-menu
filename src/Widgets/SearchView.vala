@@ -74,6 +74,10 @@ namespace Slingshot.Widgets {
         }
         public void show_app (App app) {
 
+            //Idle.add_full (Priority.HIGH_IDLE, show_app.callback);
+            //yield;
+            
+
             if (apps_showed == 1) {
                 show_separator ();
             }

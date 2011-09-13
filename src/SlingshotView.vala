@@ -229,7 +229,7 @@ namespace Slingshot {
 
             // Paint a little white border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
-            cr.set_line_width (1.5);
+            cr.set_line_width (0.5);
             cr.stroke ();
 
             return false;
@@ -270,6 +270,15 @@ namespace Slingshot {
                     break;
                 case BackgroundColor.GREEN:
                     cr.set_source_rgba (0.1, 0.2, 0.1, 0.9);
+                    break;
+                case BackgroundColor.ORANGE:
+                    cr.set_source_rgba (0.4, 0.2, 0.1, 0.9);
+                    break;
+                case BackgroundColor.GOLD:
+                    cr.set_source_rgba (0.5, 0.4, 0.0, 0.9);
+                    break;
+                case BackgroundColor.VIOLET:
+                    cr.set_source_rgba (0.2, 0.1, 0.2, 0.9);
                     break;
             }
 
@@ -428,9 +437,9 @@ namespace Slingshot {
             if (search_view.apps_showed < 7)
                 return;
 
-            if ((search_view_position) > -(search_view.apps_showed*64)) {
-                pages.move (search_view, 0, search_view_position - 2*74);
-                search_view_position -= 2*74;
+            if ((search_view_position) > -(search_view.apps_showed*48)) {
+                pages.move (search_view, 0, search_view_position - 2*48);
+                search_view_position -= 2*48;
             }
 
         }
@@ -438,8 +447,8 @@ namespace Slingshot {
         private void search_view_up () {
 
             if (search_view_position < 0) {
-                pages.move (search_view, 0, search_view_position + 2*74);
-                search_view_position += 2*74;
+                pages.move (search_view, 0, search_view_position + 2*48);
+                search_view_position += 2*48;
             }
 
         }
@@ -468,6 +477,9 @@ namespace Slingshot {
         }
 
         private void search () {
+
+            //Idle.add_full (Priority.HIGH_IDLE, get_apps_by_category.callback);
+            //yield;
 
             var text = searchbar.text.down ().strip ();
 

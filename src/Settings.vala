@@ -26,7 +26,10 @@ namespace Slingshot {
         GREY = 1,
         RED = 2,
         BLUE = 3,
-        GREEN = 4
+        GREEN = 4,
+        ORANGE = 5,
+        GOLD = 6,
+        VIOLET = 7
 
     }
 

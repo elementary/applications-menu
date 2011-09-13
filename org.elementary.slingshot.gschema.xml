@@ -5,6 +5,9 @@
         <value nick="Red" value="2" />
         <value nick="Blue" value="3" />
         <value nick="Green" value="4" />
+        <value nick="Orange" value="5" />
+        <value nick="Gold" value="6" />
+        <value nick="Violet" value="7" />
     </enum>
 	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.slingshot" gettext-domain="slingshot">
         <key name="width" type="i">

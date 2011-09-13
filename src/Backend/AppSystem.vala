@@ -75,6 +75,9 @@ namespace Slingshot.Backend {
         }
 
         public async ArrayList<App> get_apps_by_category (TreeDirectory category) {
+
+            Idle.add_full (Priority.HIGH_IDLE, get_apps_by_category.callback);
+            yield;
             
             var app_list = new ArrayList<App> ();
 
@@ -110,6 +113,9 @@ namespace Slingshot.Backend {
         }
 
         public async HashMap<string, ArrayList<App>> get_apps () {
+
+            Idle.add (get_apps.callback, Priority.HIGH);
+            yield;            
 
             if (apps == null) {
 
