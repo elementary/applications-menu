@@ -133,7 +133,7 @@ namespace Slingshot.Backend {
 
         private int sort_apps (App a, App b) {
 
-            return (int) (a.popularity*100 - b.popularity*100);
+            return (int) (b.popularity*1000 - a.popularity*1000);
 
         }
 
@@ -149,7 +149,6 @@ namespace Slingshot.Backend {
             }
             
             sorted_apps.sort_with_data (sort_apps);
-            sorted_apps.reverse ();
             return sorted_apps;
 
         }

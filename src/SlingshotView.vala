@@ -141,7 +141,7 @@ namespace Slingshot {
             
             // This function must be after creating the page switcher
             grid.new_page.connect (page_switcher.append);
-            populate_grid.begin ();
+            populate_grid ();
 
             search_view = new SearchView ();
             foreach (ArrayList<App> app_list in apps.values) {
@@ -417,8 +417,19 @@ namespace Slingshot {
         private void page_left (int step = 1) {
 
             if (current_position < 0) {
-                pages.move (grid, current_position + 5*130*step, 0);
-                current_position += 5*130*step;
+                int val = 0;
+                Timeout.add (1, () => {
+
+                    if (val >= 5*130*step) {
+                        current_position += 5*130*step;
+                        val = 0;
+                        return false;
+                    }
+                    pages.move (grid, current_position + val, 0);
+                    val += 20;
+                    return true;
+
+                });
             }
 
         }
@@ -426,8 +437,19 @@ namespace Slingshot {
         private void page_right (int step = 1) {
 
             if ((- current_position) < ((grid.n_columns - 5.8)*130)) {
-                pages.move (grid, current_position - 5*130*step, 0);
-                current_position -= 5*130*step;
+                int val = 0;
+                Timeout.add (1, () => {
+
+                    if (val >= 5*130*step) {
+                        current_position -= 5*130*step;
+                        val = 0;
+                        return false;
+                    }
+                    pages.move (grid, current_position - val, 0);
+                    val += 20;
+                    return true;
+                    
+                });
             }
 
         }
@@ -521,7 +543,7 @@ namespace Slingshot {
 
         }
 
-        public async void populate_grid () {
+        public void populate_grid () {
 
             page_switcher.clear_children ();
             grid.clear ();
@@ -537,7 +559,7 @@ namespace Slingshot {
                 
                 app_entry.app_launched.connect (hide_slingshot);
 
-                yield grid.append (app_entry);
+                grid.append (app_entry);
 
                 app_entry.show_all ();
 
