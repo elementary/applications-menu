@@ -419,7 +419,7 @@ namespace Slingshot {
             if (current_position < 0) {
                 int count = 0;
                 int val = 5*130*step / 10;
-                Timeout.add (1, () => {
+                Timeout.add (20 / step, () => {
 
                     if (count >= 5*130*step) {
                         count = 0;
@@ -440,7 +440,7 @@ namespace Slingshot {
             if ((- current_position) < ((grid.n_columns - 5.8)*130)) {
                 int count = 0;
                 int val = 5*130*step / 10;
-                Timeout.add (10, () => {
+                Timeout.add (20 / step, () => {
 
                     if (count >= 5*130*step) {
                         count = 0;
@@ -490,11 +490,11 @@ namespace Slingshot {
 
                 pages.move (search_view, -130*5, 0);
                 bottom.show_all ();
+                pages.move (grid, 0, 0);
+                current_position = 0;
                 page_switcher.set_active (0);
                 category_switcher.active = 0;
                 category_switcher.show_all ();
-                pages.move (grid, 0, 0);
-                current_position = 0;
             
             }
 
