@@ -54,11 +54,9 @@ namespace Slingshot.Widgets {
             app_label.halign = Align.CENTER;
             app_label.justify = Justification.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
+            app_label.set_ellipsize (Pango.EllipsizeMode.MIDDLE);
             app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_label.get_style_context ().add_class ("app-name");
-
-            if (app_label.get_allocated_width () >= 120)
-                app_label.wrap_mode = Pango.WrapMode.CHAR;
 
             layout = new VBox (false, 0);
 
@@ -77,6 +75,7 @@ namespace Slingshot.Widgets {
         }
 
         protected override bool draw (Context cr) {
+
 
             Allocation size;
             get_allocation (out size);
