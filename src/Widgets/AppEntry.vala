@@ -57,6 +57,9 @@ namespace Slingshot.Widgets {
             app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_label.get_style_context ().add_class ("app-name");
 
+            if (app_label.get_allocated_width () >= 120)
+                app_label.wrap_mode = Pango.WrapMode.CHAR;
+
             layout = new VBox (false, 0);
 
             layout.pack_end (app_label, false, true, 0);
