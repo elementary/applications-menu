@@ -417,16 +417,17 @@ namespace Slingshot {
         private void page_left (int step = 1) {
 
             if (current_position < 0) {
-                int val = 0;
+                int count = 0;
+                int val = 5*130*step / 10;
                 Timeout.add (1, () => {
 
-                    if (val >= 5*130*step) {
-                        current_position += 5*130*step;
-                        val = 0;
+                    if (count >= 5*130*step) {
+                        count = 0;
                         return false;
                     }
                     pages.move (grid, current_position + val, 0);
-                    val += 20;
+                    current_position += val;
+                    count += val;
                     return true;
 
                 });
@@ -437,16 +438,17 @@ namespace Slingshot {
         private void page_right (int step = 1) {
 
             if ((- current_position) < ((grid.n_columns - 5.8)*130)) {
-                int val = 0;
-                Timeout.add (1, () => {
+                int count = 0;
+                int val = 5*130*step / 10;
+                Timeout.add (10, () => {
 
-                    if (val >= 5*130*step) {
-                        current_position -= 5*130*step;
-                        val = 0;
+                    if (count >= 5*130*step) {
+                        count = 0;
                         return false;
                     }
                     pages.move (grid, current_position - val, 0);
-                    val += 20;
+                    current_position -= val;
+                    count += val;
                     return true;
                     
                 });
