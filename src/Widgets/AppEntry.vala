@@ -54,7 +54,8 @@ namespace Slingshot.Widgets {
             app_label.halign = Align.CENTER;
             app_label.justify = Justification.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
-            app_label.set_ellipsize (Pango.EllipsizeMode.MIDDLE);
+            app_label.set_single_line_mode (false);
+            app_label.set_ellipsize (Pango.EllipsizeMode.END);
             app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_label.get_style_context ().add_class ("app-name");
 
