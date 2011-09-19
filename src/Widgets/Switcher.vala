@@ -17,8 +17,6 @@
 //
 
 using Gtk;
-using Gdk;
-using Cairo;
 
 namespace Slingshot.Widgets {
 
@@ -26,38 +24,33 @@ namespace Slingshot.Widgets {
 
         public signal void active_changed (int active);
 
-        public List<unowned Button> children;
         public int active = -1;
         public int old_active = -1;
 
         public Switcher () {
 
-            homogeneous = false;
+            homogeneous = true;
             spacing = 2;
-            
+
             app_paintable = true;
-			set_visual (get_screen ().get_rgba_visual());
+            set_visual (get_screen ().get_rgba_visual());
 
             can_focus = true;
-
-            get_style_context ().add_provider (Slingshot.style_provider, 600);
-            get_style_context ().add_class ("switcher");
 
         }
 
         public void append (string label) {
 
-            var button = new Button.with_label (label);
+            var button = new ToggleButton.with_label (label);
             button.width_request = 30;
-            button.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            button.get_style_context ().add_class ("switcher-button");
+            button.can_focus = false;
+            button.get_style_context ().add_class ("switcher");
 
-            children.append (button);
+            button.button_press_event.connect (() => {
 
-            button.clicked.connect (() => {
-
-                int select = children.index (button);
+                int select = get_children ().index (button);
                 set_active (select);
+                return true;
 
             });
 
@@ -68,28 +61,26 @@ namespace Slingshot.Widgets {
         
         public void set_active (int new_active) {
 
-            if (new_active >= children.length ())
+            if (new_active >= get_children ().length () || active == new_active)
                 return;
 
             if (active >= 0)
-                children.nth_data (active).set_state (StateType.NORMAL);
+                ((ToggleButton) get_children ().nth_data (active)).set_active (false);
 
             old_active = active;
             active = new_active;
             active_changed (new_active);
-            children.nth_data (active).set_state (StateType.SELECTED);
+            ((ToggleButton) get_children ().nth_data (active)).set_active (true);
 
         }
 
         public void clear_children () {
 
-            foreach (Button button in children) {
+            foreach (weak Widget button in get_children ()) {
                 button.hide ();
                 if (button.get_parent () != null)
                     remove (button);
             }
-
-            children = new List<Button> ();
 
             old_active = 0;
             active = -1;

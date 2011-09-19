@@ -15,40 +15,22 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-@define-color bg_color rgba(190, 190, 190, 1.0);
-@define-color bg_selected rgba(189, 189, 189, 0.5);
-@define-color bg_hover rgba(87, 87, 87, 0.5);
+@define-color bg_selected rgba (189, 189, 189, 0.5);
+@define-color bg_hover rgba (87, 87, 87, 0.5);
 
 .switcher {
-    border-radius: 5;
-    border-width: 0;
-}
-
-.switcher-button {
     engine: none;
-    background-color: @trasparent;
+    background-color: @transparent;
     background-image: none;
     border-width: 0;
-    border-color: @trasparent;
+    border-color: @transparent;
     border-radius: 5;
 }
 
-.switcher-button:selected {
-    transition: 200ms ease-in-out;
+.switcher:active, .switcher:selected {
     background-color: @bg_selected;
-    border-radius: 5;
 }
 
-.switcher-button:focus {
-}
-.switcher-button:hover {
-    transition: 200ms ease-in-out;
-    background-color: @bg_hover;
-    border-radius: 5;
-}
-
-.category-switcher {
-
-    padding: 0;
-
+.switcher:hover {
+    background-color: mix (@bg_hover, @bg_selected, 0.9);
 }

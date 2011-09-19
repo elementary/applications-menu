@@ -33,7 +33,6 @@ namespace Slingshot.Widgets {
         private uint current_row = 0;
         private uint current_col = 0;
         private Page page;
-        private List<unowned Widget> children;
 
         public Grid (int rows, int columns) {
             
@@ -47,8 +46,6 @@ namespace Slingshot.Widgets {
             page.columns = columns;
             page.number = 1;
 
-            children = new List<Widget> ();
-
         }
 
         public async void append (Widget widget) {
@@ -60,7 +57,6 @@ namespace Slingshot.Widgets {
             this.attach (widget, col, col + 1,
                          current_row, current_row + 1, AttachOptions.EXPAND, AttachOptions.EXPAND,
                          0, 0);
-            children.append (widget);
             current_col++;
 
         }
@@ -81,19 +77,35 @@ namespace Slingshot.Widgets {
 
         public void clear () {
 
-            foreach (Widget widget in children) {
+            foreach (Widget widget in get_children ()) {
                 if (widget.get_parent () != null)                
                     remove (widget);
-                widget.hide ();
+                widget.destroy ();
             }
-
-            children = new List<Button> ();            
 
             current_row = 0;
             current_col = 0;
             page.number = 1;
             n_rows = page.rows;
             n_columns = page.columns;
+
+        }
+
+        public int get_page_columns () {
+
+            return (int) page.columns;
+
+        }
+
+        public int get_page_rows () {
+
+            return (int) page.rows;
+
+        }
+
+        public int get_n_pages () {
+
+            return (int) page.number;
 
         }
 

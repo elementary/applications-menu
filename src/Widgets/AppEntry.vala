@@ -47,7 +47,6 @@ namespace Slingshot.Widgets {
             icon_size = Slingshot.settings.icon_size;
             icon = app.icon;
 
-            get_style_context ().add_provider (Slingshot.style_provider, 600);
             get_style_context ().add_class ("app");
 
             app_label = new Label (Utils.truncate_text (app_name, icon_size));
@@ -56,8 +55,6 @@ namespace Slingshot.Widgets {
             app_label.set_line_wrap (true); // Need a smarter way
             app_label.set_single_line_mode (false);
             app_label.set_ellipsize (Pango.EllipsizeMode.END);
-            app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
-            app_label.get_style_context ().add_class ("app-name");
 
             layout = new VBox (false, 0);
 

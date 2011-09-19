@@ -37,7 +37,6 @@ namespace Slingshot.Widgets {
 
             set_size_request (130*5, 58);
 
-            get_style_context ().add_provider (Slingshot.style_provider, 600);
             get_style_context ().add_class ("app");            
 
             icon = app.icon;
@@ -47,7 +46,6 @@ namespace Slingshot.Widgets {
             app_label.use_markup = true;
             app_label.xalign = 0.0f;
 
-            app_label.get_style_context ().add_provider (Slingshot.style_provider, 600);
             app_label.get_style_context ().add_class ("app-name");
 
             var vbox = new VBox (false, 3);
@@ -70,7 +68,7 @@ namespace Slingshot.Widgets {
             height_request = icon_size + 10;
 
             // Draw icon
-            cairo_set_source_pixbuf (cr, scaled_icon, 10.0, 5);
+            cairo_set_source_pixbuf (cr, scaled_icon, 74 - icon_size, 5);
             cr.paint ();
 
             return true;

@@ -16,15 +16,43 @@
 */
 
 /* Define some colors */
-@define-color trasparent rgba (0, 0, 0, 0.0);
-@define-color shadow_color rgba (1, 1, 1, 0.8);
+@define-color transparent rgba (0, 0, 0, 0.0);
+@define-color shadow_color rgba (1, 1, 1, 0.9);
+@define-color inactive_color rgba (200, 200, 200, 0.8);
+
 
 * {
-    background-color: @trasparent;
+    -GtkWidget-wide-separators: true;
+    -GtkWidget-separator-width: 1;
+    -GtkWidget-separator-height: 1;
+
+    background-color: @transparent;
+    color: @inactive_color;
+    text-shadow: 0 1 shade (@shadow_color, 0.8);
 }
 
-*:focus {
-    border-style: solid;
+*:selected, *:active, *:hover {
+    transition: 200ms linear;
+    color: #fff;
+}
+
+.entry {
+    color: rgba (50, 50, 50, 1.0);
+}
+
+.tooltip GtkLabel {
+    color: white;
+}
+
+.modebutton {
+    engine: none;
+    padding: 1;
+    background-color: @transparent;
+    background-image: none;
+}
+
+.modebutton:active {
+    background-color: @bg_selected;
 }
 
 /* Import other widgets styles */

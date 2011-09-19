@@ -20,42 +20,24 @@
 .app {
     engine: none;
     background-image: none;
-    background-color: @trasparent;
+    background-color: @transparent;
     border-width: 0;
-    border-radius: 5;
+    border-radius: 3;
 }
 
-.app-name {
-    
+.app GtkLabel {
     color: #fff;
-    text-shadow: 0 1 alpha (shade (@shadow_color, 1.26), 0.6);
-    background-image: none;
-    background-color: @trasparent;
 }
 
 .app:hover {
-    transition: 200ms ease-in-out;
-    background-image: -gtk-gradient (linear,
-        left top,
-        left bottom,
-        from (alpha(@selected_bg_color, 0.2)),
-        to (alpha(@selected_bg_color, 0.0)));
+    background-image: -gtk-gradient (radial,
+        center center, 0,
+        center center, 1,
+        from (alpha (@selected_bg_color, 0.5)),
+        to (alpha (@selected_bg_color, 0.05)));
     background-color: #fff;
-    border-radius: 5;
-    border-color: @selected_bg_color;
-    border-width: 3;
-
-    -unico-focus-border-color: @transparent;
-    -unico-focus-outer-stroke-color: alpha (@selected_bg_color, 0.2);
-
-    -unico-border-gradient: -gtk-gradient (linear, left top, left bottom,
-                                           from (mix (shade (@selected_bg_color, 0.8), @bg_color, 0.3)),
-                                           to (mix (shade (@selected_bg_color, 0.64), @bg_color, 0.3)));
-    -unico-glow-color: mix (shade (@selected_bg_color, 1.5), @bg_color, 0.3);
-    -unico-inner-stroke-gradient: -gtk-gradient (linear, left top, left bottom,
-                                                 from (mix (shade (@selected_bg_color, 1.42), @bg_color, 0.3)),
-                                                 to (mix (shade (@selected_bg_color, 1.12), @bg_color, 0.3)));
-
+    border-color: shade (@selected_bg_color, 1.0);
+    border-width: 1;
 }
 
 .app:focus {

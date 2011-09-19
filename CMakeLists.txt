@@ -18,6 +18,7 @@ set (CMAKE_C_FLAGS "-ggdb")
 
 file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
 file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applications.menu")
+file (GLOB icons "${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16x16/actions/*")
 
 # Configure file
 configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
@@ -47,6 +48,8 @@ vala_precompile (VALA_C
     src/Widgets/Switcher.vala
     src/Widgets/SearchView.vala
     src/Widgets/SearchItem.vala
+    src/Widgets/Sidebar.vala
+    src/Widgets/CategoryView.vala
 PACKAGES
 	${SLINGSHOT_DEPS}
 CUSTOM_VAPIS
@@ -66,6 +69,11 @@ add_executable (slingshot ${VALA_C})
 install (TARGETS slingshot RUNTIME DESTINATION bin)
 install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
+install (FILES ${icons} DESTINATION ${DATADIR}/icons/hicolor/16x16/actions)
+
+# Update icon cache
+install (CODE "message (\"-- Update Gtk icon cache...\")")
+install (CODE "execute_process (COMMAND gtk-update-icon-cache -f -t ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor)")
 
 #
 # GSettings Schema
