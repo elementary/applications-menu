@@ -2,7 +2,7 @@ Source: slingshot-launcher
 Section: x11
 Priority: extra
 Maintainer: Giulio Collura <random.cpp@gmail.com>
-Build-Depends: debhelper (>= 7.0.50~), 
+Build-Depends: debhelper (>= 7), 
     cmake,
     pkg-config,
     valac (>= 0.12.0),
@@ -17,8 +17,8 @@ Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/new-slingshot
 
 Package: slingshot-launcher
 Architecture: any
-Depends: ${shlibs:Depends}, 
-    ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
 Conflicts: slingshot
 Description: Lightweight App Launcher for Elementary OS
  Slingshot is a lightweight app launcher for Pantheon, written in Vala

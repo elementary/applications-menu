@@ -44,7 +44,7 @@ namespace Slingshot.Widgets {
             connect_events ();
             category_switcher.select_first ();
 
-            set_size_request (5*130, view.grid.height_request);
+            set_size_request (view.columns*130, 130*5);
 
         }
 
@@ -62,13 +62,12 @@ namespace Slingshot.Widgets {
 
             layout = new Layout (null, null);
 
-            app_view = new Widgets.Grid (3, 4);
+            app_view = new Widgets.Grid (3, view.columns - 1);
             layout.put (app_view, 0, 0);
 
             container.pack_start (category_switcher, false, false, 0);
             container.pack_end (layout, true, true, 0);
 
-            category_switcher.set_size_request (130, 130*5);
             add (container);
 
         }

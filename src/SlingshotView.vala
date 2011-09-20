@@ -56,6 +56,11 @@ namespace Slingshot {
         private int current_position = 0;
         private int search_view_position = 0;
         private Modality modality;
+        public int columns {
+            get {
+                return grid.get_page_columns ();
+            }
+        }
 
         private BackgroundColor bg_color;
 
@@ -137,11 +142,11 @@ namespace Slingshot {
             foreach (ArrayList<App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
-            pages.put (search_view, -5*130, 0);
+            pages.put (search_view, -columns*130, 0);
 
             // Create the "CATEGORY_VIEW"
             category_view = new CategoryView (this);
-            pages.put (category_view, -5*130, 0);
+            pages.put (category_view, -columns*130, 0);
 
             // Create the page switcher
             page_switcher = new Switcher ();
@@ -423,10 +428,10 @@ namespace Slingshot {
 
             if (current_position < 0) {
                 int count = 0;
-                int val = 5*130*step / 10;
+                int val = columns*130*step / 10;
                 Timeout.add (20 / step, () => {
 
-                    if (count >= 5*130*step) {
+                    if (count >= columns*130*step) {
                         count = 0;
                         return false;
                     }
@@ -448,10 +453,10 @@ namespace Slingshot {
 
             if ((- current_position) < (grid.n_columns*130)) {
                 int count = 0;
-                int val = 5*130*step / 10;
+                int val = columns*130*step / 10;
                 Timeout.add (20 / step, () => {
 
-                    if (count >= 5*130*step) {
+                    if (count >= columns*130*step) {
                         count = 0;
                         return false;
                     }
@@ -492,8 +497,8 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
-                    pages.move (search_view, -130*5, 0);
-                    pages.move (category_view, 130*5, 0);
+                    pages.move (search_view, -130*columns, 0);
+                    pages.move (category_view, 130*columns, 0);
                     bottom.show_all ();
                     view_selector.show_all ();
                     view_selector.selected = 0;
@@ -506,16 +511,16 @@ namespace Slingshot {
                     view_selector.show_all ();
                     view_selector.selected = 1;
                     bottom.hide ();
-                    pages.move (grid, 5*130, 0);
-                    pages.move (search_view, -5*130, 0);
+                    pages.move (grid, columns*130, 0);
+                    pages.move (search_view, -columns*130, 0);
                     pages.move (category_view, 0, 0);
                     return;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
                     bottom.hide (); // Hide the switcher
-                    pages.move (grid, 5*130, 0); // Move the grid away
-                    pages.move (category_view, 5*130, 0);
+                    pages.move (grid, columns*130, 0); // Move the grid away
+                    pages.move (category_view, columns*130, 0);
                     pages.move (search_view, 0, 0); // Show the searchview
                     return;
             
