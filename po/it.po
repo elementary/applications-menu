@@ -7,18 +7,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-09-16 14:36+0200\n"
-"PO-Revision-Date: 2011-09-12 16:45+0000\n"
+"POT-Creation-Date: 2011-09-20 22:52+0200\n"
+"PO-Revision-Date: 2011-09-20 20:57+0000\n"
 "Last-Translator: Giulio Collura <random.cpp@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 04:35+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-21 04:42+0000\n"
+"X-Generator: Launchpad (build 13996)\n"
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:43
-msgid "Categories"
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:34
+msgid "All Applications"
+msgstr "Tutte le Applicazioni"
+
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:35
+msgid "Most used apps"
+msgstr ""
+
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:47
+msgid "<b>Bookmarks</b>"
+msgstr ""
+
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:50
+msgid "<b>Categories</b>"
 msgstr ""
 
 #: /home/random/Projects/slingshot/po/../src/Backend/App.vala:37
@@ -28,7 +40,3 @@ msgstr "e"
 #: /home/random/Projects/slingshot/po/../src/Backend/App.vala:51
 msgid "Run this command..."
 msgstr "Lancia questo comando..."
-
-#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:51
-msgid "All Applications"
-msgstr "Tutte le Applicazioni"
