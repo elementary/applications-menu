@@ -32,11 +32,6 @@ namespace Slingshot.Widgets {
 
         public SearchItem (Backend.App app) {
             
-            app_paintable = true;
-			set_visual (get_screen ().get_rgba_visual());
-
-            set_size_request (130*5, 58);
-
             get_style_context ().add_class ("app");            
 
             icon = app.icon;
@@ -45,8 +40,6 @@ namespace Slingshot.Widgets {
                                     @"$(Utils.truncate_text (app.description, 200))");
             app_label.use_markup = true;
             app_label.xalign = 0.0f;
-
-            app_label.get_style_context ().add_class ("app-name");
 
             var vbox = new VBox (false, 3);
             vbox.pack_start (app_label, false, true, 0);

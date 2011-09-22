@@ -36,12 +36,14 @@ namespace Slingshot {
 
     public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
+        // Widgets
         public SearchBar searchbar;
         public Layout view_manager = null;
         public Switcher page_switcher;
         public ModeButton view_selector;
         public HBox bottom;
 
+        // Views
         public Widgets.Grid grid_view;
         public SearchView search_view;
         public CategoryView category_view;
@@ -56,12 +58,22 @@ namespace Slingshot {
         private int current_position = 0;
         private int search_view_position = 0;
         private Modality modality;
+
+        // Sizes
         public int columns {
             get {
                 return grid_view.get_page_columns ();
             }
         }
+        public int rows {
+            get {
+                return grid_view.get_page_rows ();
+            }
+        }
+        private int default_columns;
+        private int default_rows;
 
+        // Background color
         private BackgroundColor bg_color;
 
         public SlingshotView (Slingshot app) {
@@ -80,8 +92,8 @@ namespace Slingshot {
 
             // Have the window in the right place
             this.move (5, 27);
-            set_size_request (700, 580);
-            read_settings ();
+            read_settings (true);
+            set_size_request (default_columns * 130 + 50, default_rows * 130 + 190);
 
             set_visual (get_screen ().get_rgba_visual());
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
@@ -134,11 +146,11 @@ namespace Slingshot {
             get_size (out width, out height);
 
             // Create the "NORMAL_VIEW"
-            grid_view = new Widgets.Grid (height / 180, width / 128);
+            grid_view = new Widgets.Grid (default_rows, default_columns);
             view_manager.put (grid_view, 0, 0);
 
             // Create the "SEARCH_VIEW"
-            search_view = new SearchView ();
+            search_view = new SearchView (this);
             foreach (ArrayList<App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
@@ -201,7 +213,7 @@ namespace Slingshot {
             });
 
             // Auto-update settings when changed
-            Slingshot.settings.changed.connect (read_settings);
+            Slingshot.settings.changed.connect (() => read_settings (false));
 
         }
 
@@ -369,8 +381,7 @@ namespace Slingshot {
 
             }
 
-            base.key_press_event (event);
-            return false;
+            return base.key_press_event (event);
 
         }
 
@@ -405,16 +416,15 @@ namespace Slingshot {
 
             hide ();
 
-            grab_remove ((Widget) this);
-			get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
+            // grab_remove ((Widget) this);
+			// get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
 
         }
 
         public void show_slingshot () {
 
-            set_modality (Modality.NORMAL_VIEW);
+            show ();
 
-            show_all ();
             searchbar.grab_focus ();
             //Utils.present_window (this);
 
@@ -472,7 +482,7 @@ namespace Slingshot {
 
         private void search_view_down () {
 
-            if (search_view.apps_showed < 7)
+            if (search_view.apps_showed < default_rows * 3)
                 return;
 
             if ((search_view_position) > -(search_view.apps_showed*48)) {
@@ -599,10 +609,12 @@ namespace Slingshot {
 
         }
 
-        private void read_settings () {
+        private void read_settings (bool first_start = false) {
 
-            default_width = Slingshot.settings.width;
-            default_height = Slingshot.settings.height;
+            if (first_start) {
+                default_columns = Slingshot.settings.columns;
+                default_rows = Slingshot.settings.rows;
+            }
 
             bg_color = Slingshot.settings.background_color;
             this.queue_draw ();

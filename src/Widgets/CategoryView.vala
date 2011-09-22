@@ -44,7 +44,7 @@ namespace Slingshot.Widgets {
             connect_events ();
             category_switcher.select_first ();
 
-            set_size_request (view.columns*130, 130*5);
+            set_size_request (view.columns*130, view.rows * 130 + 190);
 
         }
 
@@ -62,7 +62,7 @@ namespace Slingshot.Widgets {
 
             layout = new Layout (null, null);
 
-            app_view = new Widgets.Grid (3, view.columns - 1);
+            app_view = new Widgets.Grid (view.rows, view.columns - 1);
             layout.put (app_view, 0, 0);
 
             container.pack_start (category_switcher, false, false, 0);
@@ -130,6 +130,7 @@ namespace Slingshot.Widgets {
             app_view.clear ();
 
             if (category == MOST_USED_APPS) {
+
                 var apps = view.app_system.get_apps_by_popularity ();
                 for (int i = 0; i < 12; i++)
                     add_app (apps.nth_data (i));

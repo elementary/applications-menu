@@ -35,8 +35,8 @@ namespace Slingshot {
 
     public class Settings : Granite.Services.Settings {
 
-        public int width { get; set; }
-        public int height { get; set; }
+        public int columns { get; set; }
+        public int rows { get; set; }
         public int icon_size { get; set; }
         public bool show_category_filter { get; set; }
         public BackgroundColor background_color { get; set; }

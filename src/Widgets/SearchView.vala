@@ -37,13 +37,15 @@ namespace Slingshot.Widgets {
 
         public signal void app_launched ();
 
-        public SearchView () {
+        private SlingshotView view;
+
+        public SearchView (SlingshotView parent) {
 
             can_focus = true;
             homogeneous = false;
 
-            app_paintable = true;
-            set_visual (get_screen ().get_rgba_visual ());
+            this.view = parent;
+            width_request = view.columns * 130;
 
             items = new Gee.HashMap<App, SearchItem> ();
             separator = new SeparatorItem ();

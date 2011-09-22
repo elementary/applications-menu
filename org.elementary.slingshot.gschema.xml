@@ -10,15 +10,15 @@
         <value nick="Violet" value="7" />
     </enum>
 	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.slingshot" gettext-domain="slingshot">
-        <key name="width" type="i">
-            <default>660</default>
-            <summary>The default width</summary>
-            <description>This value needs to be greater than 660 to be effective.</description>
+        <key name="columns" type="i">
+            <default>5</default>
+            <summary>The default number of columns</summary>
+            <description>This value needs to be greater than 5 to be effective.</description>
         </key>
-        <key name="height" type="i">
-            <default>570</default>
-            <summary>The default height</summary>
-            <description>This value needs to be greater than 568 to be effective.</description>
+        <key name="rows" type="i">
+            <default>3</default>
+            <summary>The default number of rows</summary>
+            <description>This value needs to be greater than 3 to be effective.</description>
         </key>
         <key name="icon-size" type="i">
             <default>64</default>
