@@ -93,7 +93,7 @@ namespace Slingshot {
             // Have the window in the right place
             this.move (5, 27);
             read_settings (true);
-            set_size_request (default_columns * 130 + 50, default_rows * 130 + 190);
+            set_size_request (default_columns * 130 + 50, default_rows * 140 + 160);
 
             set_visual (get_screen ().get_rgba_visual());
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
