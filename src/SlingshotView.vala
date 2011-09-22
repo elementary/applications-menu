@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011 Giulio Collura
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -37,12 +37,12 @@ namespace Slingshot {
     public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
         public SearchBar searchbar;
-        public Widgets.Grid grid;
-        public Layout pages = null;
+        public Layout view_manager = null;
         public Switcher page_switcher;
         public ModeButton view_selector;
         public HBox bottom;
 
+        public Widgets.Grid grid_view;
         public SearchView search_view;
         public CategoryView category_view;
 
@@ -58,7 +58,7 @@ namespace Slingshot {
         private Modality modality;
         public int columns {
             get {
-                return grid.get_page_columns ();
+                return grid_view.get_page_columns ();
             }
         }
 
@@ -79,7 +79,7 @@ namespace Slingshot {
             this.app_paintable = true;
 
             // Have the window in the right place
-            this.move (5, 27); 
+            this.move (5, 27);
             set_size_request (700, 580);
             read_settings ();
 
@@ -126,39 +126,39 @@ namespace Slingshot {
             }
             top.pack_end (searchbar, false, false, 0);
 
-            // Create the layout which works like pages
-            pages = new Layout (null, null);
-            
+            // Create the layout which works like view_manager
+            view_manager = new Layout (null, null);
+
             // Get the current size of the view
             int width, height;
             get_size (out width, out height);
-            
+
             // Create the "NORMAL_VIEW"
-            grid = new Widgets.Grid (height / 180, width / 128);
-            pages.put (grid, 0, 0);
+            grid_view = new Widgets.Grid (height / 180, width / 128);
+            view_manager.put (grid_view, 0, 0);
 
             // Create the "SEARCH_VIEW"
             search_view = new SearchView ();
             foreach (ArrayList<App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
-            pages.put (search_view, -columns*130, 0);
+            view_manager.put (search_view, -columns*130, 0);
 
             // Create the "CATEGORY_VIEW"
             category_view = new CategoryView (this);
-            pages.put (category_view, -columns*130, 0);
+            view_manager.put (category_view, -columns*130, 0);
 
             // Create the page switcher
             page_switcher = new Switcher ();
 
             // A bottom widget to keep the page switcher center
             bottom = new HBox (false, 0);
-            bottom.pack_start (new Label (""), true, true, 0); // A fake label 
+            bottom.pack_start (new Label (""), true, true, 0); // A fake label
             bottom.pack_start (page_switcher, false, false, 10);
             bottom.pack_start (new Label (""), true, true, 0); // A fake label
 
             container.pack_start (top, false, true, 15);
-            container.pack_start (Utils.set_padding (pages, 0, 10, 24, 10), true, true, 0);
+            container.pack_start (Utils.set_padding (view_manager, 0, 10, 24, 10), true, true, 0);
             container.pack_start (Utils.set_padding (bottom, 0, 9, 15, 9), false, false, 0);
             this.add (Utils.set_padding (container, 15, 15, 1, 15));
 
@@ -168,22 +168,22 @@ namespace Slingshot {
         }
 
         private void connect_signals () {
-            
+
             this.focus_out_event.connect ( () => {
                 this.hide_slingshot();
-                return false; 
+                return false;
             });
 
-            this.draw.connect (this.draw_background);
-            pages.draw.connect (this.draw_pages_background);
-            
+            view_manager.draw.connect (this.draw_background);
+
             searchbar.changed.connect_after (this.search);
             searchbar.grab_focus ();
+
             search_view.app_launched.connect (hide_slingshot);
 
             // This function must be after creating the page switcher
-            grid.new_page.connect (page_switcher.append);
-            populate_grid ();
+            grid_view.new_page.connect (page_switcher.append);
+            populate_grid_view ();
 
             page_switcher.active_changed.connect (() => {
 
@@ -205,11 +205,11 @@ namespace Slingshot {
 
         }
 
-        private bool draw_background (Context cr) {
+        protected override bool draw (Context cr) {
 
             Allocation size;
             get_allocation (out size);
-            
+
             // Some (configurable?) values
             double radius = 6.0;
             double offset = 2.0;
@@ -223,11 +223,11 @@ namespace Slingshot {
             cr.arc (35.0, 0.0 + offset + radius, radius - 1.0, -2.0 * Math.PI / 2.7, -7.0 * Math.PI / 3.2);
             cr.line_to (50.0, 15.0 + offset);
             // Create the rounded square
-            cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset, 
+            cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset,
                          radius, Math.PI * 1.5, Math.PI * 2);
-            cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset, 
+            cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset,
                          radius, 0, Math.PI * 0.5);
-            cr.arc (0 + radius + offset, 0 + size.height - radius - offset, 
+            cr.arc (0 + radius + offset, 0 + size.height - radius - offset,
                          radius, Math.PI * 0.5, Math.PI);
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
 
@@ -240,11 +240,11 @@ namespace Slingshot {
             cr.set_line_width (0.5);
             cr.stroke ();
 
-            return false;
+            return base.draw (cr);
 
         }
 
-        public bool draw_pages_background (Widget widget, Context cr) {
+        public bool draw_background (Widget widget, Context cr) {
 
             Allocation size;
             widget.get_allocation (out size);
@@ -435,7 +435,7 @@ namespace Slingshot {
                         count = 0;
                         return false;
                     }
-                    pages.move (grid, current_position + val, 0);
+                    view_manager.move (grid_view, current_position + val, 0);
                     current_position += val;
                     count += val;
                     return true;
@@ -451,7 +451,7 @@ namespace Slingshot {
             if (modality != Modality.NORMAL_VIEW)
                 return;            
 
-            if ((- current_position) < (grid.n_columns*130)) {
+            if ((- current_position) < (grid_view.n_columns*130)) {
                 int count = 0;
                 int val = columns*130*step / 10;
                 Timeout.add (20 / step, () => {
@@ -460,7 +460,7 @@ namespace Slingshot {
                         count = 0;
                         return false;
                     }
-                    pages.move (grid, current_position - val, 0);
+                    view_manager.move (grid_view, current_position - val, 0);
                     current_position -= val;
                     count += val;
                     return true;
@@ -476,7 +476,7 @@ namespace Slingshot {
                 return;
 
             if ((search_view_position) > -(search_view.apps_showed*48)) {
-                pages.move (search_view, 0, search_view_position - 2*48);
+                view_manager.move (search_view, 0, search_view_position - 2*48);
                 search_view_position -= 2*48;
             }
 
@@ -485,7 +485,7 @@ namespace Slingshot {
         private void search_view_up () {
 
             if (search_view_position < 0) {
-                pages.move (search_view, 0, search_view_position + 2*48);
+                view_manager.move (search_view, 0, search_view_position + 2*48);
                 search_view_position += 2*48;
             }
 
@@ -497,12 +497,12 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
-                    pages.move (search_view, -130*columns, 0);
-                    pages.move (category_view, 130*columns, 0);
+                    view_manager.move (search_view, -130*columns, 0);
+                    view_manager.move (category_view, 130*columns, 0);
                     bottom.show_all ();
                     view_selector.show_all ();
                     view_selector.selected = 0;
-                    pages.move (grid, 0, 0);
+                    view_manager.move (grid_view, 0, 0);
                     current_position = 0;
                     page_switcher.set_active (0);
                     return;
@@ -511,17 +511,17 @@ namespace Slingshot {
                     view_selector.show_all ();
                     view_selector.selected = 1;
                     bottom.hide ();
-                    pages.move (grid, columns*130, 0);
-                    pages.move (search_view, -columns*130, 0);
-                    pages.move (category_view, 0, 0);
+                    view_manager.move (grid_view, columns*130, 0);
+                    view_manager.move (search_view, -columns*130, 0);
+                    view_manager.move (category_view, 0, 0);
                     return;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
                     bottom.hide (); // Hide the switcher
-                    pages.move (grid, columns*130, 0); // Move the grid away
-                    pages.move (category_view, columns*130, 0);
-                    pages.move (search_view, 0, 0); // Show the searchview
+                    view_manager.move (grid_view, columns*130, 0); // Move the grid_view away
+                    view_manager.move (category_view, columns*130, 0);
+                    view_manager.move (search_view, 0, 0); // Show the searchview
                     return;
             
             }
@@ -573,12 +573,12 @@ namespace Slingshot {
 
         }
 
-        public void populate_grid () {
+        public void populate_grid_view () {
 
             page_switcher.clear_children ();
-            grid.clear ();
+            grid_view.clear ();
 
-            pages.move (grid, 0, 0);
+            view_manager.move (grid_view, 0, 0);
 
             page_switcher.append ("1");
             page_switcher.set_active (0);
@@ -589,7 +589,7 @@ namespace Slingshot {
                 
                 app_entry.app_launched.connect (hide_slingshot);
 
-                grid.append (app_entry);
+                grid_view.append (app_entry);
 
                 app_entry.show_all ();
 
@@ -606,8 +606,8 @@ namespace Slingshot {
 
             bg_color = Slingshot.settings.background_color;
             this.queue_draw ();
-            if (pages != null)
-                pages.queue_draw ();
+            if (view_manager != null)
+                view_manager.queue_draw ();
 
         }
 

@@ -85,8 +85,8 @@ namespace Slingshot.Widgets {
 
             });
 
-            category_switcher.draw.connect (view.draw_pages_background);
-            layout.draw.connect (view.draw_pages_background);
+            category_switcher.draw.connect (view.draw_background);
+            layout.draw.connect (view.draw_background);
 
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {

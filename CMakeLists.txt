@@ -9,7 +9,7 @@ project (slingshot)
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
-set (RELEASE_NAME "Slingshot is a lightweight app launcher for Elementary, written in Vala and utilizing GTK+ and Cairo.")
+set (RELEASE_NAME "Leonardo")
 set (VERSION "0.5")
 set (VERSION_INFO "Testing")
 set (CMAKE_C_FLAGS "-ggdb")
@@ -69,11 +69,19 @@ add_executable (slingshot ${VALA_C})
 install (TARGETS slingshot RUNTIME DESTINATION bin)
 install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
-install (FILES ${icons} DESTINATION ${DATADIR}/icons/hicolor/16x16/actions)
+
+# Install symbolic icons - fix bug #854734
+option (INSTALL_ICONS "Install symbolic icons" ON)
+if (INSTALL_ICONS)
+    install (FILES ${icons} DESTINATION ${DATADIR}/icons/hicolor/16x16/actions)
+endif (INSTALL_ICONS)
 
 # Update icon cache
-install (CODE "message (\"-- Update Gtk icon cache...\")")
-install (CODE "execute_process (COMMAND gtk-update-icon-cache -f -t ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor)")
+option (ICONCACHE_UPDATE "Update the icon cache after installation of new icons" ON)
+if (ICONCACHE_UPDATE)
+    install (CODE "message (\"-- Update Gtk icon cache...\")")
+    install (CODE "execute_process (COMMAND gtk-update-icon-cache -f -t ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor)")
+endif (ICONCACHE_UPDATE)
 
 #
 # GSettings Schema
