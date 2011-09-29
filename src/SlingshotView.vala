@@ -181,7 +181,7 @@ namespace Slingshot {
 
         private void connect_signals () {
 
-            this.focus_out_event.connect ( () => {
+            this.focus_out_event.connect (() => {
                 this.hide_slingshot();
                 return false;
             });
@@ -318,57 +318,86 @@ namespace Slingshot {
                     return true;
 
                 case "Alt":
-                    message ("Alt pressed");
                     break;
 
                 case "1":
                 case "KP_1":
-                    page_switcher.set_active (0);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (0);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "2":
                 case "KP_2":
-                    page_switcher.set_active (1);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (1);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "3":
                 case "KP_3":
-                    page_switcher.set_active (2);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (2);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "4":
                 case "KP_4":
-                    page_switcher.set_active (3);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (3);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "5":
                 case "KP_5":
-                    page_switcher.set_active (4);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (4);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "6":
                 case "KP_6":
-                    page_switcher.set_active (5);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (5);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "7":
                 case "KP_7":
-                    page_switcher.set_active (6);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (6);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "8":
                 case "KP_8":
-                    page_switcher.set_active (7);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (7);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "9":
                 case "KP_9":
-                    page_switcher.set_active (8);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (8);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "0":
                 case "KP_0":
-                    page_switcher.set_active (9);
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (9);
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 case "Down":
@@ -377,11 +406,11 @@ namespace Slingshot {
                 default:
                     if (!searchbar.has_focus)
                         searchbar.grab_focus ();
-                    break;
+                    return base.key_press_event (event);
 
             }
 
-            return base.key_press_event (event);
+            return true;
 
         }
 
@@ -423,7 +452,7 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            show ();
+            show_all ();
 
             searchbar.grab_focus ();
             //Utils.present_window (this);
