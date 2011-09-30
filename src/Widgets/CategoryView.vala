@@ -54,7 +54,7 @@ namespace Slingshot.Widgets {
 
             category_switcher = new Sidebar ();
             category_switcher.can_focus = false;
-            category_switcher.add_category (ALL_APPLICATIONS); 
+            //category_switcher.add_category (ALL_APPLICATIONS); 
             foreach (string cat_name in view.apps.keys) {
                 category_switcher.add_category (cat_name);
             }

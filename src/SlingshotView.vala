@@ -186,6 +186,11 @@ namespace Slingshot {
                 return false;
             });
 
+            this.focus_in_event.connect (() => {
+                searchbar.grab_focus ();
+                return false;
+            });
+
             view_manager.draw.connect (this.draw_background);
 
             searchbar.changed.connect_after (this.search);
@@ -223,7 +228,7 @@ namespace Slingshot {
             get_allocation (out size);
 
             // Some (configurable?) values
-            double radius = 6.0;
+            double radius = 7.0;
             double offset = 2.0;
 
             cr.set_antialias (Antialias.SUBPIXEL);
@@ -232,7 +237,7 @@ namespace Slingshot {
             // Create the little rounded triangle
             cr.line_to (20.0, 15.0 + offset);
             //cr.line_to (30.0, 0.0 + offset);
-            cr.arc (35.0, 0.0 + offset + radius, radius - 1.0, -2.0 * Math.PI / 2.7, -7.0 * Math.PI / 3.2);
+            cr.arc (35.0, 0.0 + offset + radius, radius - 2.0, -2.0 * Math.PI / 2.7, -7.0 * Math.PI / 3.2);
             cr.line_to (50.0, 15.0 + offset);
             // Create the rounded square
             cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset,
@@ -242,14 +247,16 @@ namespace Slingshot {
             cr.arc (0 + radius + offset, 0 + size.height - radius - offset,
                          radius, Math.PI * 0.5, Math.PI);
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
+            cr.close_path ();
 
             pick_background_color (cr);
 
-            cr.fill_preserve ();
+            cr.clip_preserve ();
+            cr.paint ();
 
             // Paint a little white border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
-            cr.set_line_width (0.5);
+            cr.set_line_width (1.5);
             cr.stroke ();
 
             return base.draw (cr);
@@ -453,6 +460,7 @@ namespace Slingshot {
         public void show_slingshot () {
 
             show_all ();
+            set_modality ((Modality) view_selector.selected);
 
             searchbar.grab_focus ();
             //Utils.present_window (this);
