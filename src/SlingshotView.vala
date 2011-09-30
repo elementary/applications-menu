@@ -126,8 +126,8 @@ namespace Slingshot {
             var top = new HBox (false, 10);
 
             view_selector = new ModeButton ();
-            view_selector.append (new Image.from_icon_name ("view-list-icons-symbolic", IconSize.MENU));
-            view_selector.append (new Image.from_icon_name ("view-list-filter-symbolic", IconSize.MENU));
+            view_selector.append (new Image.from_icon_name ("slingshot-view-list-icons-symbolic", IconSize.MENU));
+            view_selector.append (new Image.from_icon_name ("slingshot-view-list-filter-symbolic", IconSize.MENU));
             view_selector.selected = 0;
 
             searchbar = new SearchBar ("");
