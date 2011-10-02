@@ -26,7 +26,7 @@
             <description>This value manages the size of the icons in Slingshot.</description>
         </key>
         <key name="show-category-filter" type="b">
-            <default>false</default>
+            <default>true</default>
             <summary>Show the category switcher or not</summary>
             <description>This value handles the category switcher.</description>
         </key>

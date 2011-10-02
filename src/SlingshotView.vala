@@ -102,13 +102,12 @@ namespace Slingshot {
             app_system = new AppSystem ();
 
             categories = app_system.get_categories ();
-            app_system.get_apps.begin ((obj, res) => {
-                apps = app_system.get_apps.end (res);
-                setup_ui ();
-                connect_signals ();
-                if (!app.silent)
-                    show_all ();
-            });
+            apps = app_system.get_apps ();
+            setup_ui ();
+            connect_signals ();
+            if (!app.silent)
+                show_all ();
+
             debug ("Apps loaded");
 
             filtered = new ArrayList<App> ();
@@ -218,7 +217,16 @@ namespace Slingshot {
             });
 
             // Auto-update settings when changed
-            Slingshot.settings.changed.connect (() => read_settings (false));
+            Slingshot.settings.changed.connect (() => read_settings ());
+
+            // Auto-update applications grid
+            app_system.changed.connect (() => {
+
+                categories = app_system.get_categories ();
+                apps = app_system.get_apps ();
+
+                populate_grid_view ();
+            });
 
         }
 
@@ -256,7 +264,7 @@ namespace Slingshot {
 
             // Paint a little white border
             cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
-            cr.set_line_width (1.5);
+            cr.set_line_width (1.0);
             cr.stroke ();
 
             return base.draw (cr);
@@ -625,19 +633,15 @@ namespace Slingshot {
             page_switcher.clear_children ();
             grid_view.clear ();
 
-            view_manager.move (grid_view, 0, 0);
-
             page_switcher.append ("1");
             page_switcher.set_active (0);
 
             foreach (App app in app_system.get_apps_by_name ()) {
 
                 var app_entry = new AppEntry (app);
-                
+
                 app_entry.app_launched.connect (hide_slingshot);
-
                 grid_view.append (app_entry);
-
                 app_entry.show_all ();
 
             }

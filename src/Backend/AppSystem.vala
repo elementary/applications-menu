@@ -27,40 +27,45 @@ namespace Slingshot.Backend {
 
         private ArrayList<TreeDirectory> categories = null;
         private HashMap<string, ArrayList<App>> apps = null;
+        private GMenu.Tree apps_menu = null;
 
-        private Zeitgeist.Log log;
-        private Zeitgeist.Index zg_index;
         private RelevancyService rl_service;
 
-        private PtrArray zg_templates;
+        public signal void changed ();
+        private bool index_changed = false;
 
         construct {
 
-            log = new Zeitgeist.Log ();
-            zg_index = new Zeitgeist.Index ();
-
             rl_service = new RelevancyService ();
 
-            populate_zg_templates ();
+            apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_NODISPLAY);
+            apps_menu.add_monitor ((menu) => {
+
+                debug ("Apps menu tree changed. Updating..");
+                index_changed = true;
+                update_app_system ();
+                changed ();
+                
+            });
+
+            update_app_system ();
 
         }
 
-        private void populate_zg_templates () {
+        private void update_app_system () {
 
-            zg_templates = new PtrArray.sized (1);
-            var ev = new Zeitgeist.Event.full (ZG_ACCESS_EVENT, ZG_USER_ACTIVITY, 
-                                               "", new Subject.full ("application://*", 
-                                                                     "", "", "", "", "", ""));
-            zg_templates.add ((ev as Object).ref ());
+            rl_service.refresh_popularity ();
+
+            update_categories_index ();
+            update_apps ();
 
         }
 
-        public ArrayList<TreeDirectory> get_categories () {
+        private void update_categories_index () {
 
-            var apps_tree = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_NODISPLAY);
-            var root_tree = apps_tree.get_root_directory ();            
+            var root_tree = apps_menu.get_root_directory ();            
 
-            if (categories == null) {
+            if (categories == null || index_changed) {
                 categories = new ArrayList<TreeDirectory> ();
 
                 foreach (TreeItem item in root_tree.get_contents ()) {
@@ -70,29 +75,51 @@ namespace Slingshot.Backend {
                 }
             }
 
+        }
+
+        private void update_apps () {
+
+            if (index_changed) {
+                apps.clear ();
+                apps = null;
+                index_changed = false;
+            }
+
+            if (apps == null) {
+
+                apps = new HashMap<string, ArrayList<App>> ();
+                
+                foreach (TreeDirectory cat in categories) {
+                    apps.set (cat.get_menu_id (), get_apps_by_category (cat));
+                }
+
+            }
+
+        }
+
+        public ArrayList<TreeDirectory> get_categories () {
+
             return categories;
 
         }
 
-        public async ArrayList<App> get_apps_by_category (TreeDirectory category) {
+        public ArrayList<App> get_apps_by_category (TreeDirectory category) {
 
-            Idle.add_full (Priority.HIGH_IDLE, get_apps_by_category.callback);
-            yield;
-            
             var app_list = new ArrayList<App> ();
 
             foreach (TreeItem item in category.get_contents ()) {
                 App app;
                 switch (item.get_type ()) {
                     case TreeItemType.DIRECTORY:
-                        app_list.add_all (yield get_apps_by_category ((TreeDirectory) item));
+                        app_list.add_all (get_apps_by_category ((TreeDirectory) item));
                         break;
                     case TreeItemType.ENTRY:
                         if (is_entry ((TreeEntry) item)) {
                             app = new App ((TreeEntry) item);
-                            if (app_list.contains (app) == false) {
+                            if (app_list.contains (app) == false)
                                 app_list.add (app);
-                            }
+                            else
+                                debug (@"App already present: $(app.name)");
                         }
                         break;
                 }
@@ -112,20 +139,7 @@ namespace Slingshot.Backend {
 
         }
 
-        public async HashMap<string, ArrayList<App>> get_apps () {
-
-            Idle.add (get_apps.callback, Priority.HIGH);
-            yield;            
-
-            if (apps == null) {
-
-                apps = new HashMap<string, ArrayList<App>> ();
-                
-                foreach (TreeDirectory cat in categories) {
-                    apps.set (cat.get_menu_id (), yield get_apps_by_category (cat));
-                }
-
-            }
+        public HashMap<string, ArrayList<App>> get_apps () {
 
             return apps;
 

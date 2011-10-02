@@ -74,11 +74,13 @@ namespace Slingshot.Widgets {
             items[app] = search_item;
         
         }
+
         public void show_app (App app) {
 
-            //Idle.add_full (Priority.HIGH_IDLE, show_app.callback);
-            //yield;
-            
+            if (!(app in items.keys)) {
+                var search_item = new SearchItem (app);
+                append_app (app, search_item);
+            }
 
             if (apps_showed == 1) {
                 show_separator ();

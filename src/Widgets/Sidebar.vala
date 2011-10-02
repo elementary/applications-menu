@@ -43,11 +43,11 @@ namespace Slingshot.Widgets {
 
             insert_column_with_attributes (-1, "Filters", new CellRendererText (), "markup", 0);
 
-            store.append (out bookmarks_iter, null);
-            store.set (bookmarks_iter, 0, _("<b>Bookmarks</b>"));
-
             store.append (out category_iter, null);
             store.set (category_iter, 0, _("<b>Categories</b>"));
+
+            store.append (out bookmarks_iter, null);
+            store.set (bookmarks_iter, 0, _("<b>Bookmarks</b>"));
 
             get_selection ().set_mode (SelectionMode.SINGLE);
             get_selection ().changed.connect (selection_change);
@@ -91,7 +91,7 @@ namespace Slingshot.Widgets {
 
             // Select first item by default
             store.iter_nth_child (out iter, category_iter, 0);
-            get_selection ().select_iter (entry_iter);
+            get_selection ().select_iter (iter);
 
         }
 

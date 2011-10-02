@@ -60,7 +60,7 @@ namespace Slingshot.Backend {
             }
         }
 
-        private bool refresh_popularity () {
+        public bool refresh_popularity () {
 
             load_application_relevancies.begin ();
             return true;
