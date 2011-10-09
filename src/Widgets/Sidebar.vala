@@ -22,11 +22,11 @@ namespace Slingshot.Widgets {
 
     public class Sidebar : TreeView {
 
-        TreeStore store;
+        private TreeStore store;
             
-        TreeIter bookmarks_iter;
-        TreeIter category_iter;
-        TreeIter entry_iter;
+        private TreeIter bookmarks_iter;
+        private TreeIter category_iter;
+        private TreeIter entry_iter;
 
         public signal void selection_changed (string entry_name);
 
@@ -36,12 +36,17 @@ namespace Slingshot.Widgets {
             set_model (store);
 
             set_headers_visible (false);
-            set_show_expanders(false);
+            set_show_expanders (false);
             set_level_indentation (5);
+
             set_size_request (130, -1);
             get_style_context ().add_class ("sidebar");
 
-            insert_column_with_attributes (-1, "Filters", new CellRendererText (), "markup", 0);
+            var cell = new CellRendererText ();
+            cell.wrap_mode = Pango.WrapMode.WORD;
+            cell.wrap_width = 110;
+
+            insert_column_with_attributes (-1, "Filters", cell, "markup", 0);
 
             store.append (out category_iter, null);
             store.set (category_iter, 0, _("<b>Categories</b>"));

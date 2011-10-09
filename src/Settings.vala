@@ -20,26 +20,12 @@ using Granite.Services;
 
 namespace Slingshot {
 
-    public enum BackgroundColor {
-
-        BLACK = 0,
-        GREY = 1,
-        RED = 2,
-        BLUE = 3,
-        GREEN = 4,
-        ORANGE = 5,
-        GOLD = 6,
-        VIOLET = 7
-
-    }
-
     public class Settings : Granite.Services.Settings {
 
         public int columns { get; set; }
         public int rows { get; set; }
         public int icon_size { get; set; }
         public bool show_category_filter { get; set; }
-        public BackgroundColor background_color { get; set; }
 
         public Settings () {
             base ("desktop.pantheon.slingshot");

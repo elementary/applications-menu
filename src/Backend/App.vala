@@ -21,11 +21,11 @@ namespace Slingshot.Backend {
     public class App : Object {
 
         public string name { get; construct set; }
-        public string description { get; set; default = ""; }
+        public string description { get; private set; default = ""; }
         public string desktop_id { get; construct set; }
-        public string exec { get; set; }
-        public string icon_name { get; set; default = ""; }
-        public Gdk.Pixbuf icon { get; set; }
+        public string exec { get; private set; }
+        public string icon_name { get; private set; default = ""; }
+        public Gdk.Pixbuf icon { get; private set; }
         public double popularity { get; set; }
 
         private bool is_command = false;
@@ -34,7 +34,7 @@ namespace Slingshot.Backend {
 
         public App (GMenu.TreeEntry entry) {
 
-            name = entry.get_display_name ().replace ("&", _("and"));
+            name = entry.get_display_name ().replace ("&", "&amp;");
             description = entry.get_comment () ?? name;
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
@@ -47,7 +47,7 @@ namespace Slingshot.Backend {
 
         public App.from_command (string command) {
 
-            name = command;
+            name = command.replace ("&", "&amp;");
             description = _("Run this command...");
             exec = command;
             desktop_id = command;

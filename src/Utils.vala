@@ -50,6 +50,18 @@ namespace Slingshot {
 
         }
 
+        public static int sort_apps_by_popularity (Backend.App a, Backend.App b) {
+
+            return (int) (b.popularity*1000 - a.popularity*1000);
+
+        }
+
+        public static int sort_apps_by_name (Backend.App a, Backend.App b) {
+
+            return GLib.strcmp (a.name.down (), b.name.down ());
+
+        }
+
     }	
 	
 }

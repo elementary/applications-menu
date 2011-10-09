@@ -25,10 +25,11 @@ configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 # Slingshot
 
-set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;libgnome-menu;granite;zeitgeist-1.0")
+set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;granite;zeitgeist-1.0")
 
 find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED ${SLINGSHOT_DEPS})
+pkg_check_modules (GMENU REQUIRED "libgnome-menu")
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
@@ -51,7 +52,8 @@ vala_precompile (VALA_C
     src/Widgets/Sidebar.vala
     src/Widgets/CategoryView.vala
 PACKAGES
-	${SLINGSHOT_DEPS}
+    ${SLINGSHOT_DEPS}
+    libgnome-menu
 CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
@@ -59,9 +61,9 @@ OPTIONS
     -g
 )
 
-add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)
-link_libraries (${DEPS_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS})
+add_definitions (${DEPS_CFLAGS} ${GMENU_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)
+link_libraries (${DEPS_LIBRARIES} ${GMENU_LIBRARIES})
+link_directories (${DEPS_LIBRARY_DIRS} ${GMENU_LIBRARY_DIRS})
 
 add_executable (slingshot ${VALA_C})
 

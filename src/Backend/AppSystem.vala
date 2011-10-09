@@ -145,12 +145,6 @@ namespace Slingshot.Backend {
 
         }
 
-        private int sort_apps_by_popularity (App a, App b) {
-
-            return (int) (b.popularity*1000 - a.popularity*1000);
-
-        }
-
         public SList<App> get_apps_by_popularity () {
 
             var sorted_apps = new SList<App> ();
@@ -158,17 +152,11 @@ namespace Slingshot.Backend {
             foreach (ArrayList<App> category in apps.values) {
                 foreach (App app in category) {
                     app.popularity = rl_service.get_app_popularity (app.desktop_id);
-                    sorted_apps.insert_sorted_with_data (app, sort_apps_by_popularity);
+                    sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_popularity);
                 }
             }
             
             return sorted_apps;
-
-        }
-
-        private int sort_apps_by_name (App a, App b) {
-
-            return GLib.strcmp (a.name.down (), b.name.down ());
 
         }
 
@@ -178,7 +166,7 @@ namespace Slingshot.Backend {
 
             foreach (ArrayList<App> category in apps.values) {
                 foreach (App app in category) {
-                    sorted_apps.insert_sorted_with_data (app, sort_apps_by_name);
+                    sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_name);
                 }
             }
 

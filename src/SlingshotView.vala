@@ -39,6 +39,7 @@ namespace Slingshot {
         // Widgets
         public SearchBar searchbar;
         public Layout view_manager = null;
+        private Gtk.Window window;
         public Switcher page_switcher;
         public ModeButton view_selector;
         public HBox bottom;
@@ -72,9 +73,6 @@ namespace Slingshot {
         }
         private int default_columns;
         private int default_rows;
-
-        // Background color
-        private BackgroundColor bg_color;
 
         public SlingshotView (Slingshot app) {
 
@@ -117,6 +115,8 @@ namespace Slingshot {
         private void setup_ui () {
 
             debug ("In setup_ui ()");
+            window = new Gtk.Window ();
+            window.get_style_context ().add_class ("slingshot");
 
             // Create the base container
             container = new VBox (false, 0);
@@ -230,7 +230,7 @@ namespace Slingshot {
 
         }
 
-        protected override bool draw (Context cr) {
+        private void make_shape (Context cr) {
 
             Allocation size;
             get_allocation (out size);
@@ -257,14 +257,22 @@ namespace Slingshot {
             cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
             cr.close_path ();
 
-            pick_background_color (cr);
+        }
 
-            cr.clip_preserve ();
+        protected override bool draw (Context cr) {
+
+            Allocation size;
+            get_allocation (out size);
+
+            make_shape (cr);
+            cr.clip ();
+            Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_background_color (StateFlags.NORMAL));
             cr.paint ();
 
-            // Paint a little white border
-            cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
-            cr.set_line_width (1.0);
+            make_shape (cr);
+            // Outer border
+            cr.set_line_width ((double) window.get_style_context ().get_border (StateFlags.NORMAL).left);
+            Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_border_color (StateFlags.NORMAL));
             cr.stroke ();
 
             return base.draw (cr);
@@ -276,44 +284,10 @@ namespace Slingshot {
             Allocation size;
             widget.get_allocation (out size);
 
-            cr.rectangle (0, 0, size.width, size.height);
-
-            pick_background_color (cr);
-
-            cr.fill_preserve ();
+            Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_background_color (StateFlags.NORMAL));
+            cr.paint ();
 
             return false;
-
-        }
-
-        private void pick_background_color (Context cr) {
-
-            switch (bg_color) {
-                case BackgroundColor.BLACK:
-                    cr.set_source_rgba (0.1, 0.1, 0.1, 0.9);
-                    break;
-                case BackgroundColor.GREY:
-                    cr.set_source_rgba (0.3, 0.3, 0.3, 0.9);
-                    break;
-                case BackgroundColor.RED:
-                    cr.set_source_rgba (0.2, 0.1, 0.1, 0.9);
-                    break;
-                case BackgroundColor.BLUE:
-                    cr.set_source_rgba (0.1, 0.1, 0.2, 0.9);
-                    break;
-                case BackgroundColor.GREEN:
-                    cr.set_source_rgba (0.1, 0.2, 0.1, 0.9);
-                    break;
-                case BackgroundColor.ORANGE:
-                    cr.set_source_rgba (0.4, 0.2, 0.1, 0.9);
-                    break;
-                case BackgroundColor.GOLD:
-                    cr.set_source_rgba (0.5, 0.4, 0.0, 0.9);
-                    break;
-                case BackgroundColor.VIOLET:
-                    cr.set_source_rgba (0.2, 0.1, 0.2, 0.9);
-                    break;
-            }
 
         }
 
@@ -333,6 +307,13 @@ namespace Slingshot {
                     return true;
 
                 case "Alt":
+                    break;
+
+                case "Tab":
+                    if (modality == Modality.NORMAL_VIEW)
+                        view_selector.selected = 1;
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        view_selector.selected = 0;
                     break;
 
                 case "1":
@@ -418,6 +399,20 @@ namespace Slingshot {
                 case "Down":
                     break;
 
+                case "Left":
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (page_switcher.active - 1);
+                    else
+                        return base.key_press_event (event);
+                    break;
+
+                case "Right":
+                    if (modality == Modality.NORMAL_VIEW)
+                        page_switcher.set_active (page_switcher.active + 1);
+                    else
+                        return base.key_press_event (event);
+                    break;
+
                 default:
                     if (!searchbar.has_focus)
                         searchbar.grab_focus ();
@@ -484,7 +479,7 @@ namespace Slingshot {
             if (current_position < 0) {
                 int count = 0;
                 int val = columns*130*step / 10;
-                Timeout.add (20 / step, () => {
+                Timeout.add (20 / (2*step*step), () => {
 
                     if (count >= columns*130*step) {
                         count = 0;
@@ -495,7 +490,7 @@ namespace Slingshot {
                     count += val;
                     return true;
 
-                });
+                }, Priority.DEFAULT_IDLE);
             }
 
         }
@@ -509,7 +504,7 @@ namespace Slingshot {
             if ((- current_position) < (grid_view.n_columns*130)) {
                 int count = 0;
                 int val = columns*130*step / 10;
-                Timeout.add (20 / step, () => {
+                Timeout.add (20 / (2*step*step), () => {
 
                     if (count >= columns*130*step) {
                         count = 0;
@@ -585,9 +580,6 @@ namespace Slingshot {
 
         private void search () {
 
-            //Idle.add_full (Priority.HIGH_IDLE, get_apps_by_category.callback);
-            //yield;
-
             var text = searchbar.text.down ().strip ();
 
             if (text == "") {
@@ -656,11 +648,6 @@ namespace Slingshot {
                 default_columns = Slingshot.settings.columns;
                 default_rows = Slingshot.settings.rows;
             }
-
-            bg_color = Slingshot.settings.background_color;
-            this.queue_draw ();
-            if (view_manager != null)
-                view_manager.queue_draw ();
 
         }
 

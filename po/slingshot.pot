@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-29 23:11+0200\n"
+"POT-Creation-Date: 2011-10-09 15:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,19 +22,15 @@ msgid "All Applications"
 msgstr ""
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:35
-msgid "Most used apps"
+msgid "Most Used Apps"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:47
-msgid "<b>Bookmarks</b>"
-msgstr ""
-
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:50
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:52
 msgid "<b>Categories</b>"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:37
-msgid "and"
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:55
+msgid "<b>Bookmarks</b>"
 msgstr ""
 
 #: /home/random/Projects/slingshot/po/../src/Backend/App.vala:51

@@ -32,7 +32,7 @@ namespace Slingshot.Widgets {
         private SlingshotView view;
 
         private const string ALL_APPLICATIONS = _("All Applications");
-        private const string MOST_USED_APPS = _("Most used apps");
+        private const string MOST_USED_APPS = _("Most Used Apps");
         private int current_position = 0;
 
         public CategoryView (SlingshotView parent) {

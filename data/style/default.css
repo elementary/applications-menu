@@ -31,6 +31,12 @@
     text-shadow: 0 1 shade (@shadow_color, 0.8);
 }
 
+.slingshot {
+    background-color: shade (@shadow_color, 0.7);
+    border-width: 1;
+    border-color: rgba (255, 255, 255, 1.0);
+}
+
 *:selected, *:active, *:hover {
     transition: 200ms linear;
     color: #fff;
