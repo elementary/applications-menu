@@ -35,6 +35,8 @@ namespace Slingshot.Widgets {
 
         public signal void app_launched ();
 
+        private double alpha = 1.0;
+
         public AppEntry (Backend.App app) {
             
             app_paintable = true;
@@ -82,12 +84,45 @@ namespace Slingshot.Widgets {
 
             // Draw icon
             Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
-            cr.paint ();
+            cr.paint_with_alpha (alpha);
 
             return true;
 
         }
 
+        public void fade_out () {
+
+            Timeout.add (20, () => {
+
+                if (alpha <= 0.3) {
+                    queue_draw ();
+                    return false;
+                }
+
+                alpha -= 0.05;
+                queue_draw ();
+                return true;
+
+            });
+
+        }
+
+        public void fade_in () {
+
+            Timeout.add (20, () => {
+
+                if (alpha == 1.0) {
+                    queue_draw ();
+                    return false;
+                }
+                
+                alpha += 0.05;
+                queue_draw ();
+                return true;
+
+            });
+
+        }
     }
 
 }

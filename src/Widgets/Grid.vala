@@ -67,6 +67,7 @@ namespace Slingshot.Widgets {
                 current_col = 0;
                 current_row++;
             }
+
             if (current_row == page.rows) {
                 page.number++;
                 new_page (page.number.to_string ());
@@ -106,6 +107,22 @@ namespace Slingshot.Widgets {
         public int get_n_pages () {
 
             return (int) page.number;
+
+        }
+
+        public void fade_all_out () {
+
+            foreach (Widget widget in get_children ()) {
+                ((AppEntry) widget).fade_out ();
+            }
+
+        }
+
+        public void fade_all_in () {
+
+            foreach (Widget widget in get_children ()) {
+                ((AppEntry) widget).fade_in ();
+            }
 
         }
 

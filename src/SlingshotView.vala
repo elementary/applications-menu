@@ -264,6 +264,8 @@ namespace Slingshot {
             Allocation size;
             get_allocation (out size);
 
+            cr.set_antialias (Antialias.SUBPIXEL);
+
             make_shape (cr);
             cr.clip ();
             Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_background_color (StateFlags.NORMAL));
@@ -271,7 +273,7 @@ namespace Slingshot {
 
             make_shape (cr);
             // Outer border
-            cr.set_line_width ((double) window.get_style_context ().get_border (StateFlags.NORMAL).left);
+            cr.set_line_width (window.get_style_context ().get_border (StateFlags.NORMAL).left);
             Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_border_color (StateFlags.NORMAL));
             cr.stroke ();
 
