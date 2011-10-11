@@ -28,7 +28,7 @@ namespace Slingshot.Widgets {
          * Based on Ubuntu Software Center SearchEntry widget
         **/
 
-        private int SEARCH_TIMEOUT = 200;
+        private int SEARCH_TIMEOUT = 150;
         private uint timeout_id = 0;
 
         public signal void terms_changed (string text);
@@ -43,16 +43,17 @@ namespace Slingshot.Widgets {
 
         private void on_changed () {
 
-            if (timeout_id > 0)
-                Source.remove (timeout_id);
             timeout_id = Timeout.add (SEARCH_TIMEOUT, (SourceFunc) emit_terms_changed);
 
         }
 
-        private void emit_terms_changed () {
+        private bool emit_terms_changed () {
 
             var terms = get_text ();
             terms_changed (terms); // Emit signal
+
+            return Source.remove (timeout_id);
+
 
         }
 

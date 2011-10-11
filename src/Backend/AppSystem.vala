@@ -192,19 +192,19 @@ namespace Slingshot.Backend {
                     
                     if (search in app.name.down ()) {
                         if (search == app.name.down ()[0:search.length])
-                            app.relevancy = 0.5; // It must be minor than 1.0
+                            app.relevancy = 0.5 - app.popularity; // It must be minor than 1.0
                         else
-                            app.relevancy = app.name.length / search.length;
+                            app.relevancy = app.name.length / search.length - app.popularity;
                         filtered.add (app);
                     }
 
                     else if (search in app.exec.down ()) {
-                        app.relevancy = app.exec.length / search.length * 10.0;
+                        app.relevancy = app.exec.length / search.length * 10.0 - app.popularity;
                         filtered.add (app);
                     }
 
                     else if (search in app.description.down ()) {
-                        app.relevancy = app.description.length / search.length;
+                        app.relevancy = app.description.length / search.length - app.popularity;
                         filtered.add (app);
                     }
 
