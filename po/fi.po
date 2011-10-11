@@ -1,4 +1,4 @@
-# German translation for slingshot
+# Finnish translation for slingshot
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the slingshot package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-09 15:50+0200\n"
-"PO-Revision-Date: 2011-10-10 11:26+0000\n"
-"Last-Translator: Dennis Timmermann <timmermann.dennis@googlemail.com>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2011-10-10 13:37+0000\n"
+"Last-Translator: Teemu Kielinen <teemu.kielinen@gmail.com>\n"
+"Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,20 +19,20 @@ msgstr ""
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:34
 msgid "All Applications"
-msgstr "Alle Programme"
+msgstr "Kaikki sovellukset"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:35
 msgid "Most Used Apps"
-msgstr "Am häufigsten benutzte Apps"
+msgstr "Käytetyimmät sovellukset"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:52
 msgid "<b>Categories</b>"
-msgstr "<b>Kategorien</b>"
+msgstr "<b>Luokat</b>"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:55
 msgid "<b>Bookmarks</b>"
-msgstr "<b>Lesezeichen</b>"
+msgstr "<b>Kirjanmerkit</b>"
 
 #: /home/random/Projects/slingshot/po/../src/Backend/App.vala:51
 msgid "Run this command..."
-msgstr "Befehl ausführen..."
+msgstr "Suorita tämä komento..."
