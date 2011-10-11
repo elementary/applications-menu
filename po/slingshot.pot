@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 15:50+0200\n"
+"POT-Creation-Date: 2011-10-11 22:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,10 @@ msgstr ""
 msgid "<b>Bookmarks</b>"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:51
+#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:52
 msgid "Run this command..."
+msgstr ""
+
+#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:129
+msgid "Search Apps..."
 msgstr ""

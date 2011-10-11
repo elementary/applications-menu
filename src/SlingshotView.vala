@@ -37,7 +37,7 @@ namespace Slingshot {
     public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
         // Widgets
-        public SearchBar searchbar;
+        public SearchEntry searchbar;
         public Layout view_manager = null;
         private Gtk.Window window;
         public Switcher page_switcher;
@@ -54,7 +54,6 @@ namespace Slingshot {
         public AppSystem app_system;
         private ArrayList<TreeDirectory> categories;
         public HashMap<string, ArrayList<App>> apps;
-        private ArrayList<App> filtered;
 
         private int current_position = 0;
         private int search_view_position = 0;
@@ -108,8 +107,6 @@ namespace Slingshot {
 
             debug ("Apps loaded");
 
-            filtered = new ArrayList<App> ();
-
         }
 
         private void setup_ui () {
@@ -129,7 +126,7 @@ namespace Slingshot {
             view_selector.append (new Image.from_icon_name ("slingshot-view-list-filter-symbolic", IconSize.MENU));
             view_selector.selected = 0;
 
-            searchbar = new SearchBar ("");
+            searchbar = new SearchEntry (_("Search Apps..."));
             searchbar.width_request = 250;
 
             if (Slingshot.settings.show_category_filter) {
@@ -192,7 +189,7 @@ namespace Slingshot {
 
             view_manager.draw.connect (this.draw_background);
 
-            searchbar.changed.connect_after (this.search);
+            searchbar.terms_changed.connect ((text) => this.search (text.down ().strip ()));
             searchbar.grab_focus ();
 
             search_view.app_launched.connect (hide_slingshot);
@@ -580,9 +577,10 @@ namespace Slingshot {
 
         }
 
-        private void search () {
+        private async void search (string text) {
 
-            var text = searchbar.text.down ().strip ();
+            Idle.add (search.callback, Priority.HIGH);
+            yield;
 
             if (text == "") {
                 set_modality ((Modality) view_selector.selected);
@@ -593,28 +591,11 @@ namespace Slingshot {
                 set_modality (Modality.SEARCH_VIEW);
             search_view_position = 0;
             search_view.hide_all ();
-            filtered.clear ();
 
-            // There should be a real search engine, which can sort application
-            foreach (ArrayList<App> entries in apps.values) {
-                foreach (App app in entries) {
-                    
-                    if (text in app.name.down () ||
-                        text in app.exec.down () ||
-                        text in app.description.down ())
-                        filtered.add (app);
-                    else
-                        filtered.remove (app);
+            var filtered = yield app_system.search_results (text);
 
-                }
-            }
-
-            if (filtered.size > 20) {
-                foreach (App app in filtered[0:20])
-                    search_view.show_app (app);
-            } else {
-                foreach (App app in filtered)
-                    search_view.show_app (app);
+            foreach (App app in filtered) {
+                search_view.show_app (app);
             }
 
             if (filtered.size != 1)

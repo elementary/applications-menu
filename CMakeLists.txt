@@ -33,7 +33,7 @@ pkg_check_modules (GMENU REQUIRED "libgnome-menu")
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
-ensure_vala_version ("0.12.0" MINIMUM)
+ensure_vala_version ("0.14.0" MINIMUM)
 
 include (ValaPrecompile)
 vala_precompile (VALA_C
@@ -51,6 +51,7 @@ vala_precompile (VALA_C
     src/Widgets/SearchItem.vala
     src/Widgets/Sidebar.vala
     src/Widgets/CategoryView.vala
+    src/Widgets/SearchEntry.vala
 PACKAGES
     ${SLINGSHOT_DEPS}
     libgnome-menu

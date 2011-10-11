@@ -62,6 +62,12 @@ namespace Slingshot {
 
         }
 
+        public static int sort_apps_by_relevancy (Backend.App a, Backend.App b) {
+
+            return (int) (a.relevancy*1000 - b.relevancy*1000);
+
+        }
+
     }	
 	
 }

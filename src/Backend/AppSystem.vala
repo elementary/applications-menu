@@ -19,7 +19,6 @@
 using GLib;
 using GMenu;
 using Gee;
-using Zeitgeist;
 
 namespace Slingshot.Backend {
 
@@ -173,6 +172,54 @@ namespace Slingshot.Backend {
             return sorted_apps;
 
         }
+
+        public async ArrayList<App> search_results (string search) {
+
+            Idle.add (search_results.callback, Priority.HIGH);
+            yield;
+
+            var filtered = new ArrayList<App> ();
+
+            /** It's a bit stupid algorithm, simply check if the char is present
+             * some of the App values, then assign it a double. This is very simple:
+             * if an App name coincide with the search string they have obvious the
+             * same length, then the fraction will be 1.0.
+             * I've added a small multiplier when matching to a exec name, to give
+             * more priority to app.name
+            **/
+            foreach (ArrayList<App> category in apps.values) {
+                foreach (App app in category) {
+                    
+                    if (search in app.name.down ()) {
+                        if (search == app.name.down ()[0:search.length])
+                            app.relevancy = 0.5; // It must be minor than 1.0
+                        else
+                            app.relevancy = app.name.length / search.length;
+                        filtered.add (app);
+                    }
+
+                    else if (search in app.exec.down ()) {
+                        app.relevancy = app.exec.length / search.length * 10.0;
+                        filtered.add (app);
+                    }
+
+                    else if (search in app.description.down ()) {
+                        app.relevancy = app.description.length / search.length;
+                        filtered.add (app);
+                    }
+
+                }
+            }
+
+            filtered.sort ((a, b) => Utils.sort_apps_by_relevancy ((App) a, (App) b));
+
+            if (filtered.size > 20) {
+                return (ArrayList<App>) filtered[0:20];
+            } else {
+                return filtered;
+            }
+
+        }   
 
     }
 
