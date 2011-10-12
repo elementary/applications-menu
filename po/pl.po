@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-10-09 15:50+0200\n"
+"POT-Creation-Date: 2011-10-11 22:59+0200\n"
 "PO-Revision-Date: 2011-09-23 21:27+0000\n"
 "Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-10 05:08+0000\n"
-"X-Generator: Launchpad (build 14123)\n"
+"X-Launchpad-Export-Date: 2011-10-12 04:35+0000\n"
+"X-Generator: Launchpad (build 14124)\n"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:34
 msgid "All Applications"
@@ -33,6 +33,10 @@ msgstr "<b>Kategorie</b>"
 msgid "<b>Bookmarks</b>"
 msgstr "<b>Zakładki</b>"
 
-#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:51
+#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:52
 msgid "Run this command..."
 msgstr "Wykonaj to polecenie..."
+
+#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:129
+msgid "Search Apps..."
+msgstr ""
