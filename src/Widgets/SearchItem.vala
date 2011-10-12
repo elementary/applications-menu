@@ -36,8 +36,10 @@ namespace Slingshot.Widgets {
 
             icon = app.icon;
 
-            app_label = new Label (@"<b><span size=\"larger\">$(app.name)</span></b>\n" +
-                                    @"$(Utils.truncate_text (app.description, 200))");
+            var label = @"<b><span size=\"larger\">$(app.name)</span></b>\n" +
+                        @"<i>$(Utils.truncate_text (app.description, 200))</i>";
+
+            app_label = new Label (label.replace ("&", "&amp;"));
             app_label.use_markup = true;
             app_label.xalign = 0.0f;
 

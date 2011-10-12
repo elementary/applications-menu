@@ -37,7 +37,7 @@ namespace Slingshot {
     public class SlingshotView : Gtk.Window, Gtk.Buildable {
 
         // Widgets
-        public SearchEntry searchbar;
+        public SearchBar searchbar;
         public Layout view_manager = null;
         private Gtk.Window window;
         public Switcher page_switcher;
@@ -126,7 +126,8 @@ namespace Slingshot {
             view_selector.append (new Image.from_icon_name ("slingshot-view-list-filter-symbolic", IconSize.MENU));
             view_selector.selected = 0;
 
-            searchbar = new SearchEntry (_("Search Apps..."));
+            searchbar = new SearchBar (_("Search Apps..."));
+            searchbar.pause_delay = 200;
             searchbar.width_request = 250;
 
             if (Slingshot.settings.show_category_filter) {
@@ -189,7 +190,7 @@ namespace Slingshot {
 
             view_manager.draw.connect (this.draw_background);
 
-            searchbar.terms_changed.connect ((text) => this.search (text.down ().strip ()));
+            searchbar.text_changed_pause.connect ((text) => this.search (text.down ().strip ()));
             searchbar.grab_focus ();
 
             search_view.app_launched.connect (hide_slingshot);

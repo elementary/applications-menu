@@ -10,7 +10,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Leonardo")
-set (VERSION "0.5")
+set (VERSION "0.5 (0.6-pre)")
 set (VERSION_INFO "Testing")
 set (CMAKE_C_FLAGS "-ggdb")
 
@@ -25,11 +25,11 @@ configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 # Slingshot
 
-set (SLINGSHOT_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;gtk+-3.0;granite;zeitgeist-1.0")
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;")
+set (UI_DEPS "gtk+-3.0>=3.2.0;granite>=0.1.1;zeitgeist-1.0;")
 
 find_package (PkgConfig)
-pkg_check_modules (DEPS REQUIRED ${SLINGSHOT_DEPS})
-pkg_check_modules (GMENU REQUIRED "libgnome-menu")
+pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}")
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
@@ -41,7 +41,7 @@ vala_precompile (VALA_C
     src/SlingshotView.vala
     src/Settings.vala
     src/Utils.vala
-    src/Backend/AppSystem.vala    
+    src/Backend/AppSystem.vala
     src/Backend/App.vala
     src/Backend/RelevancyService.vala
     src/Widgets/AppEntry.vala
@@ -51,10 +51,9 @@ vala_precompile (VALA_C
     src/Widgets/SearchItem.vala
     src/Widgets/Sidebar.vala
     src/Widgets/CategoryView.vala
-    src/Widgets/SearchEntry.vala
 PACKAGES
-    ${SLINGSHOT_DEPS}
-    libgnome-menu
+    ${CORE_DEPS}
+    ${UI_DEPS}
 CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
@@ -62,9 +61,9 @@ OPTIONS
     -g
 )
 
-add_definitions (${DEPS_CFLAGS} ${GMENU_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)
-link_libraries (${DEPS_LIBRARIES} ${GMENU_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS} ${GMENU_LIBRARY_DIRS})
+add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)
+link_libraries (${DEPS_LIBRARIES})
+link_directories (${DEPS_LIBRARY_DIRS})
 
 add_executable (slingshot ${VALA_C})
 

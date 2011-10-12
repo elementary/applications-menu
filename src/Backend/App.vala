@@ -35,7 +35,7 @@ namespace Slingshot.Backend {
 
         public App (GMenu.TreeEntry entry) {
 
-            name = entry.get_display_name ().replace ("&", "&amp;");
+            name = entry.get_display_name ();
             description = entry.get_comment () ?? name;
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
@@ -48,7 +48,7 @@ namespace Slingshot.Backend {
 
         public App.from_command (string command) {
 
-            name = command.replace ("&", "&amp;");
+            name = command;
             description = _("Run this command...");
             exec = command;
             desktop_id = command;
