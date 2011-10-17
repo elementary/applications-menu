@@ -116,8 +116,9 @@ namespace Slingshot.Widgets {
 
             if (get_selection ().get_selected (out model, out sel_iter)) {
                 store.get (sel_iter, Columns.INT, out nth, Columns.TEXT, out name);
-                /** Check if sel_iter is category or bookmark entry.
-                 *  If it is, select the really next entry.
+                /** 
+                 * Check if sel_iter is category or bookmark entry.
+                 * If it is, select the previous selected entry.
                  */
                 if (sel_iter == category_iter || sel_iter == bookmarks_iter) {
                     index = _index;

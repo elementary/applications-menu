@@ -552,9 +552,9 @@ namespace Slingshot {
             switch (modality) {
                 case Modality.NORMAL_VIEW:
                     bottom.show ();
+                    view_selector.show_all ();
                     page_switcher.show_all ();
                     category_view.show_page_switcher (false);
-                    view_selector.show_all ();
                     view_manager.move (search_view, -130*columns, 0);
                     view_manager.move (category_view, 130*columns, 0);
                     view_manager.move (grid_view, 0, 0);
