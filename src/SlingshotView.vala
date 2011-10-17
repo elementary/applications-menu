@@ -551,20 +551,19 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
-                    view_manager.move (search_view, -130*columns, 0);
-                    view_manager.move (category_view, 130*columns, 0);
+                    bottom.show ();
                     page_switcher.show_all ();
                     category_view.show_page_switcher (false);
                     view_selector.show_all ();
-                    view_selector.selected = 0;
+                    view_manager.move (search_view, -130*columns, 0);
+                    view_manager.move (category_view, 130*columns, 0);
                     view_manager.move (grid_view, 0, 0);
-                    current_position = 0;
                     page_switcher.set_active (0);
                     return;
 
                 case Modality.CATEGORY_VIEW:
+                    bottom.show ();
                     view_selector.show_all ();
-                    view_selector.selected = 1;
                     page_switcher.hide ();
                     category_view.show_page_switcher (true);
                     view_manager.move (grid_view, columns*130, 0);
