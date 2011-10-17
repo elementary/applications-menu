@@ -27,15 +27,12 @@ namespace Slingshot.Widgets {
         public int active = -1;
         public int old_active = -1;
 
-        public Switcher () {
+        public Switcher (bool with_padding = true) {
 
             homogeneous = true;
             spacing = 2;
 
-            app_paintable = true;
-            set_visual (get_screen ().get_rgba_visual());
-
-            can_focus = true;
+            can_focus = false;
 
         }
 

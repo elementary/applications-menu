@@ -28,31 +28,61 @@ namespace Slingshot.Widgets {
         private TreeIter category_iter;
         private TreeIter entry_iter;
 
+        private int cat_size {
+            get {
+                return store.iter_n_children (category_iter);
+            }
+        }
+        private int book_size {
+            get {
+                return store.iter_n_children (bookmarks_iter);
+            }
+        }
+        
+        private int _index;
+        public int index {
+            get {
+                return _index;
+            }
+            set {
+                if (0 <= value < (cat_size + book_size)) {
+                    select_nth (value);
+                    _index = value;
+                }
+            }
+        }
+
+        private enum Columns {
+            INT,
+            TEXT,
+            N_COLUMNS
+        }
+
         public signal void selection_changed (string entry_name);
 
         public Sidebar () {
 
-            store = new TreeStore (1, typeof (string));
+            store = new TreeStore (Columns.N_COLUMNS, typeof (int), typeof (string));
             set_model (store);
 
             set_headers_visible (false);
             set_show_expanders (false);
-            set_level_indentation (5);
+            set_level_indentation (8);
 
-            set_size_request (130, -1);
+            set_size_request (129, -1);
             get_style_context ().add_class ("sidebar");
 
             var cell = new CellRendererText ();
             cell.wrap_mode = Pango.WrapMode.WORD;
             cell.wrap_width = 110;
 
-            insert_column_with_attributes (-1, "Filters", cell, "markup", 0);
+            insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 
             store.append (out category_iter, null);
-            store.set (category_iter, 0, _("<b>Categories</b>"));
+            store.set (category_iter, Columns.TEXT, _("<b>Categories</b>"));
 
             store.append (out bookmarks_iter, null);
-            store.set (bookmarks_iter, 0, _("<b>Bookmarks</b>"));
+            store.set (bookmarks_iter, Columns.TEXT, _("<b>Bookmarks</b>"));
 
             get_selection ().set_mode (SelectionMode.SINGLE);
             get_selection ().changed.connect (selection_change);
@@ -62,7 +92,7 @@ namespace Slingshot.Widgets {
         public void add_category (string entry_name) {
 
             store.append (out entry_iter, category_iter);
-            store.set (entry_iter, 0, entry_name, -1);
+            store.set (entry_iter, Columns.INT, cat_size - 1, Columns.TEXT, entry_name, -1);
             
             expand_all ();
 
@@ -71,7 +101,7 @@ namespace Slingshot.Widgets {
         public void add_bookmark (string entry_name) {
 
             store.append (out entry_iter, bookmarks_iter);
-            store.set (entry_iter, 0, entry_name, -1);
+            store.set (entry_iter, Columns.INT, cat_size + book_size - 1, Columns.TEXT, entry_name, -1);
             
             expand_all ();
 
@@ -82,21 +112,53 @@ namespace Slingshot.Widgets {
             TreeModel model;
             TreeIter sel_iter;
             string name;
+            int nth;
 
             if (get_selection ().get_selected (out model, out sel_iter)) {
-                store.get (sel_iter, 0, out name);
-                selection_changed (name);
+                store.get (sel_iter, Columns.INT, out nth, Columns.TEXT, out name);
+                /** Check if sel_iter is category or bookmark entry.
+                 *  If it is, select the really next entry.
+                 */
+                if (sel_iter == category_iter || sel_iter == bookmarks_iter) {
+                    index = _index;
+                } else {
+                    _index = nth;
+                    selection_changed (name);
+                }
             }
 
         }
 
-        public void select_first () {
+        public void select_nth (int nth) {
 
             TreeIter iter;
 
-            // Select first item by default
-            store.iter_nth_child (out iter, category_iter, 0);
+            if (nth < cat_size)
+                store.iter_nth_child (out iter, category_iter, nth);
+            else if (nth < (cat_size + book_size))
+                store.iter_nth_child (out iter, bookmarks_iter, nth - cat_size);
+            else
+                return;
+
             get_selection ().select_iter (iter);
+
+        }
+
+        protected override bool scroll_event (Gdk.EventScroll event) {
+
+            switch (event.direction.to_string ()) {
+                case "GDK_SCROLL_UP":
+                case "GDK_SCROLL_LEFT":
+                    index--;
+                    break;
+                case "GDK_SCROLL_DOWN":
+                case "GDK_SCROLL_RIGHT":
+                    index++;
+                    break;
+
+            }
+
+            return false;
 
         }
 

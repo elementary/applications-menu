@@ -15,7 +15,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-
+//  Thanks to Synapse Developers for this class
 
 using Zeitgeist;
 
@@ -65,6 +65,13 @@ namespace Slingshot.Backend {
             load_application_relevancies.begin ();
             return true;
 
+        }
+        private void reload_relevancies () {
+
+            Idle.add_full (Priority.LOW, () => {
+                load_application_relevancies.begin ();
+                return false;
+            });
         }
 
         private async void load_application_relevancies () {
@@ -129,5 +136,37 @@ namespace Slingshot.Backend {
             return 0.0f;
         }
 
+        public void app_launched (App app) {
+
+            string app_uri = null;
+            if (app.desktop_id != null) {
+                app_uri = "application://" + app.desktop_id;
+            }
+
+            push_app_launch (app_uri, app.name);
+
+            // and refresh
+            reload_relevancies ();
+        }
+
+        private void push_app_launch (string app_uri, string? display_name) {
+
+            message ("Pushing launch event: %s [%s]", app_uri, display_name);
+            var event = new Zeitgeist.Event ();
+            var subject = new Zeitgeist.Subject ();
+
+            event.set_actor ("application://synapse.desktop");
+            event.set_interpretation (Zeitgeist.ZG_ACCESS_EVENT);
+            event.set_manifestation (Zeitgeist.ZG_USER_ACTIVITY);
+            event.add_subject (subject);
+
+            subject.set_uri (app_uri);
+            subject.set_interpretation (Zeitgeist.NFO_SOFTWARE);
+            subject.set_manifestation (Zeitgeist.NFO_SOFTWARE_ITEM);
+            subject.set_mimetype ("application/x-desktop");
+            subject.set_text (display_name);
+
+            zg_log.insert_events_no_reply (event, null);
+        }
     }
 }

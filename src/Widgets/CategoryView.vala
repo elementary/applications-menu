@@ -29,7 +29,11 @@ namespace Slingshot.Widgets {
         private Sidebar category_switcher;
         private Widgets.Grid app_view;
         private Layout layout;
+        private Switcher switcher;
         private SlingshotView view;
+        private Label empty_cat_label;
+
+        private HBox page_switcher;
 
         private const string ALL_APPLICATIONS = _("All Applications");
         private const string MOST_USED_APPS = _("Most Used Apps");
@@ -42,15 +46,19 @@ namespace Slingshot.Widgets {
             set_visible_window (false);
             setup_ui ();
             connect_events ();
-            category_switcher.select_first ();
+            category_switcher.index = 0;
 
-            set_size_request (view.columns*130, view.rows * 130 + 190);
+            set_size_request (view.columns*130, view.view_height);
 
         }
 
         private void setup_ui () {
 
             container = new HBox (false, 0);
+
+            empty_cat_label = new Label (_("<b><span size=\"larger\">This Category is empty</span></b>"));
+            empty_cat_label.use_markup = true;
+            empty_cat_label.xalign = 0.5f;
 
             category_switcher = new Sidebar ();
             category_switcher.can_focus = false;
@@ -64,9 +72,21 @@ namespace Slingshot.Widgets {
 
             app_view = new Widgets.Grid (view.rows, view.columns - 1);
             layout.put (app_view, 0, 0);
+            layout.put (empty_cat_label, view.rows*130*2, view.columns * 130 / 2);
+
+            // Create the page switcher
+            switcher = new Switcher ();
+
+            // A bottom widget to keep the page switcher center
+            page_switcher = new HBox (false, 0);
+            page_switcher.pack_start (new Label (""), true, true, 0); // A fake label
+            page_switcher.pack_start (switcher, false, false, 10);
+            page_switcher.pack_start (new Label (""), true, true, 0); // A fake label
 
             container.pack_start (category_switcher, false, false, 0);
+            container.pack_start (new Separator (Orientation.VERTICAL), false, true, 0);
             container.pack_end (layout, true, true, 0);
+
 
             add (container);
 
@@ -78,10 +98,8 @@ namespace Slingshot.Widgets {
 
                 if (category == ALL_APPLICATIONS)
                     show_all_apps ();
-                else if (category in view.apps.keys || category == MOST_USED_APPS)
-                    show_filtered_apps (category);
                 else
-                    return;
+                    show_filtered_apps (category);
 
             });
 
@@ -92,14 +110,25 @@ namespace Slingshot.Widgets {
                 switch (event.direction.to_string ()) {
                     case "GDK_SCROLL_UP":
                     case "GDK_SCROLL_LEFT":
-                        page_left ();
+                        switcher.set_active (switcher.active - 1);
                         break;
                     case "GDK_SCROLL_DOWN":
                     case "GDK_SCROLL_RIGHT":
-                        page_right ();
+                        switcher.set_active (switcher.active + 1);
                         break;
                 }
                 return false;
+            });
+
+            app_view.new_page.connect (switcher.append);
+
+            switcher.active_changed.connect (() => {
+
+                if (switcher.active > switcher.old_active)
+                    page_right (switcher.active - switcher.old_active);
+                else
+                    page_left (switcher.old_active - switcher.active);
+
             });
 
         }
@@ -127,18 +156,28 @@ namespace Slingshot.Widgets {
 
         private void show_filtered_apps (string category) {
 
+            switcher.clear_children ();
+            switcher.append ("1");
+            switcher.set_active (0);
+
             app_view.clear ();
 
             if (category == MOST_USED_APPS) {
 
                 var apps = view.app_system.get_apps_by_popularity ();
+                layout.move (empty_cat_label, view.columns*130*2, view.rows*130 / 2);
                 for (int i = 0; i < 12; i++)
                     add_app (apps.nth_data (i));
 
             } else {
     
-                foreach (App app in view.apps[category])
-                    add_app (app);
+                if (view.apps[category].size == 0) {
+                    layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
+                } else {
+                    layout.move (empty_cat_label, view.columns*130*2, view.rows*130 / 2);
+                    foreach (App app in view.apps[category])
+                        add_app (app);
+                }
 
             }
 
@@ -147,30 +186,58 @@ namespace Slingshot.Widgets {
 
         }
 
-        private void page_left () {
+        private void page_left (int step = 1) {
 
             int columns = app_view.get_page_columns ();
 
             if (current_position < 0) {
 
-                layout.move (app_view, current_position + columns*130, 0);
-                current_position += columns*130;
+                layout.move (app_view, current_position + columns*130*step, 0);
+                current_position += columns*130*step;
 
             }
             
         }
 
-        private void page_right () {
+        private void page_right (int step = 1) {
 
             int columns = app_view.get_page_columns ();
             int pages = app_view.get_n_pages ();
             
             if ((- current_position) < (columns*(pages - 1)*130)) {
 
-                layout.move (app_view, current_position - columns*130, 0);
-                current_position -= columns*130;
+                layout.move (app_view, current_position - columns*130*step, 0);
+                current_position -= columns*130*step;
                     
             }
+
+        }
+
+        protected override void drag_begin (Gdk.DragContext context) {
+
+            message ("Test");
+            base.drag_begin (context);
+
+        }
+
+        protected override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
+
+            layout.move (app_view, x, 0);
+            message (x.to_string ());
+
+            return true;
+
+        }
+
+        public void show_page_switcher (bool show) {
+
+            if (page_switcher.get_parent () == null)
+                view.bottom.pack_start (page_switcher, false, false, 0);
+            
+            if (show)
+                page_switcher.show_all ();
+            else
+                page_switcher.hide ();
 
         }
 

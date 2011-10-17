@@ -32,6 +32,7 @@ namespace Slingshot.Backend {
         private bool is_command = false;
 
         public signal void icon_changed ();
+        public signal void launched (App app);
 
         public App (GMenu.TreeEntry entry) {
 
@@ -81,6 +82,7 @@ namespace Slingshot.Backend {
                     debug (@"Launching command: $name");
                     Process.spawn_command_line_async (exec);
                 } else {
+                    launched (this); // Emit launched signal
                     new DesktopAppInfo (desktop_id).launch (null, null);
                     debug (@"Launching application: $name");
                 }

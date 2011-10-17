@@ -42,14 +42,16 @@ namespace Slingshot {
         private Gtk.Window window;
         public Switcher page_switcher;
         public ModeButton view_selector;
-        public HBox bottom;
 
         // Views
         public Widgets.Grid grid_view;
         public SearchView search_view;
         public CategoryView category_view;
 
-        private VBox container;
+        private HBox top;
+        public HBox center;
+        public HBox bottom;
+        public VBox container;
 
         public AppSystem app_system;
         private ArrayList<TreeDirectory> categories;
@@ -73,7 +75,13 @@ namespace Slingshot {
         private int default_columns;
         private int default_rows;
 
-        public SlingshotView (Slingshot app) {
+        public int view_height {
+            get {
+                return (int) (rows*130 + rows*grid_view.row_spacing + 35);
+            }
+        }
+
+        public SlingshotView () {
 
             // Window properties
             this.title = "Slingshot";
@@ -102,8 +110,6 @@ namespace Slingshot {
             apps = app_system.get_apps ();
             setup_ui ();
             connect_signals ();
-            if (!app.silent)
-                show_all ();
 
             debug ("Apps loaded");
 
@@ -119,7 +125,7 @@ namespace Slingshot {
             container = new VBox (false, 0);
 
             // Add top bar
-            var top = new HBox (false, 10);
+            top = new HBox (false, 10);
 
             view_selector = new ModeButton ();
             view_selector.append (new Image.from_icon_name ("slingshot-view-list-icons-symbolic", IconSize.MENU));
@@ -135,12 +141,10 @@ namespace Slingshot {
             }
             top.pack_end (searchbar, false, false, 0);
 
+            center = new HBox (false, 0);
             // Create the layout which works like view_manager
             view_manager = new Layout (null, null);
-
-            // Get the current size of the view
-            int width, height;
-            get_size (out width, out height);
+            center.pack_end (Utils.set_padding (view_manager, 0, 22, 0, 22), true, true, 0);
 
             // Create the "NORMAL_VIEW"
             grid_view = new Widgets.Grid (default_rows, default_columns);
@@ -163,13 +167,13 @@ namespace Slingshot {
             // A bottom widget to keep the page switcher center
             bottom = new HBox (false, 0);
             bottom.pack_start (new Label (""), true, true, 0); // A fake label
-            bottom.pack_start (page_switcher, false, false, 10);
-            bottom.pack_start (new Label (""), true, true, 0); // A fake label
+            bottom.pack_start (page_switcher, false, false, 0);
+            bottom.pack_end (new Label (""), true, true, 0); // A fake label
 
-            container.pack_start (top, false, true, 15);
-            container.pack_start (Utils.set_padding (view_manager, 0, 10, 24, 10), true, true, 0);
-            container.pack_start (Utils.set_padding (bottom, 0, 9, 15, 9), false, false, 0);
-            this.add (Utils.set_padding (container, 15, 15, 1, 15));
+            container.pack_start (Utils.set_padding (top, 0, 15, 0, 15), false, true, 15);
+            container.pack_start (Utils.set_padding (center, 0, 3, 24, 3), true, true, 0);
+            container.pack_end (Utils.set_padding (bottom, 0, 24, 15, 24), false, true, 0);
+            this.add (Utils.set_padding (container, 15, 0, 1, 0));
 
             set_modality (Modality.NORMAL_VIEW);
             debug ("Ui setup completed");
@@ -515,7 +519,7 @@ namespace Slingshot {
                     count += val;
                     return true;
                     
-                });
+                }, Priority.DEFAULT_IDLE);
             }
 
         }
@@ -549,7 +553,8 @@ namespace Slingshot {
                 case Modality.NORMAL_VIEW:
                     view_manager.move (search_view, -130*columns, 0);
                     view_manager.move (category_view, 130*columns, 0);
-                    bottom.show_all ();
+                    page_switcher.show_all ();
+                    category_view.show_page_switcher (false);
                     view_selector.show_all ();
                     view_selector.selected = 0;
                     view_manager.move (grid_view, 0, 0);
@@ -560,7 +565,8 @@ namespace Slingshot {
                 case Modality.CATEGORY_VIEW:
                     view_selector.show_all ();
                     view_selector.selected = 1;
-                    bottom.hide ();
+                    page_switcher.hide ();
+                    category_view.show_page_switcher (true);
                     view_manager.move (grid_view, columns*130, 0);
                     view_manager.move (search_view, -columns*130, 0);
                     view_manager.move (category_view, 0, 0);

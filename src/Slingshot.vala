@@ -43,6 +43,7 @@ namespace Slingshot {
 		    app_copyright = "GPLv3";
 		    app_icon = "";
 		    app_launcher = "";
+            app_years = "2011";
             application_id = "net.launchpad.slingshot";
 		    main_url = "https://launchpad.net/slingshot";
 		    bug_url = "https://bugs.launchpad.net/slingshot";
@@ -52,6 +53,8 @@ namespace Slingshot {
 		    about_authors = {"Giulio Collura <random.cpp@gmail.com>"};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
                              "Daniel Foré <bunny@go-docky.com>"};
+            about_translators = "Launchpad Translators";
+            about_license_type = License.GPL_3_0;
 
         }
 
@@ -68,8 +71,7 @@ namespace Slingshot {
                 warning ("Could not add css provider. Some widgets won't look as intended. %s", e.message);
             }
 
-            Services.Logger.initialize ("Slingshot");
-            Services.Logger.DisplayLevel = Services.LogLevel.DEBUG;
+            DEBUG = true;
 
         }
 
@@ -80,22 +82,17 @@ namespace Slingshot {
                     silent = true;
             }
             
-            if (get_windows () == null) {
-                view = new SlingshotView (this);
-                view.set_application (this);
-                if (!silent)
-                    view.show_all ();
-            }
+            activate ();
 
         }
 
         protected override void activate () {
 
             if (get_windows () == null) {
-                view = new SlingshotView (this);
+                view = new SlingshotView ();
                 view.set_application (this);
                 if (!silent)
-                    view.show_all ();
+                    view.show_slingshot ();
             } else {
                 view.show_slingshot ();
             }

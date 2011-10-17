@@ -115,10 +115,8 @@ namespace Slingshot.Backend {
                     case TreeItemType.ENTRY:
                         if (is_entry ((TreeEntry) item)) {
                             app = new App ((TreeEntry) item);
-                            if (app_list.contains (app) == false)
-                                app_list.add (app);
-                            else
-                                debug (@"App already present: $(app.name)");
+                            app.launched.connect (rl_service.app_launched);
+                            app_list.add (app);
                         }
                         break;
                 }
