@@ -84,7 +84,6 @@ namespace Slingshot.Widgets {
             page_switcher.pack_start (new Label (""), true, true, 0); // A fake label
 
             container.pack_start (category_switcher, false, false, 0);
-            container.pack_start (new Separator (Orientation.VERTICAL), false, true, 0);
             container.pack_end (layout, true, true, 0);
 
 
@@ -120,7 +119,11 @@ namespace Slingshot.Widgets {
                 return false;
             });
 
-            app_view.new_page.connect (switcher.append);
+            app_view.new_page.connect ((page) => {
+                if (switcher.size == 0)
+                    switcher.append ("1");
+                switcher.append (page);
+            });
 
             switcher.active_changed.connect (() => {
 
@@ -157,8 +160,7 @@ namespace Slingshot.Widgets {
         private void show_filtered_apps (string category) {
 
             switcher.clear_children ();
-            switcher.append ("1");
-            switcher.set_active (0);
+            //switcher.append ("1");
 
             app_view.clear ();
 
@@ -180,6 +182,7 @@ namespace Slingshot.Widgets {
                 }
 
             }
+            switcher.set_active (0);
 
             layout.move (app_view, 0, 0);
             current_position = 0;

@@ -61,6 +61,14 @@
     background-color: @bg_selected;
 }
 
+GtkAssistant *:active, *:selected {
+    background-color: @bg_selected;
+    border-radius: 4;
+    background-image: none;
+    border-color: @transparent;
+    padding: 3;
+}
+
 /* Import other widgets styles */
 @import url("app.css");
 @import url("switcher.css");

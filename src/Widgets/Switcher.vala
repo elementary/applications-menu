@@ -24,6 +24,12 @@ namespace Slingshot.Widgets {
 
         public signal void active_changed (int active);
 
+        public int size {
+            get {
+                return (int) get_children ().length ();
+            }
+        }
+
         public int active = -1;
         public int old_active = -1;
 
