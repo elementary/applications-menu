@@ -89,10 +89,10 @@ namespace Slingshot {
             this.skip_taskbar_hint = true;
 
             // Have the window in the right place
-            this.move (5, 27);
+            //this.move (5, 27);
             move_to_coords (0, 0);
             read_settings (true);
-            set_size_request (default_columns * 130 + 82, default_rows * 140 + 190);
+            set_size_request (default_columns * 130 + 82, default_rows * 140 + 200);
 
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
             Slingshot.icon_theme = IconTheme.get_default ();
@@ -164,7 +164,7 @@ namespace Slingshot {
             bottom.pack_start (page_switcher, false, false, 0);
             bottom.pack_end (new Label (""), true, true, 0); // A fake label
 
-            container.pack_start (Utils.set_padding (top, 0, 15, 15, 15), false, true, 0);
+            container.pack_start (Utils.set_padding (top, 15, 15, 15, 15), false, true, 0);
             container.pack_start (Utils.set_padding (center, 0, 3, 15, 3), true, true, 0);
             container.pack_end (Utils.set_padding (bottom, 0, 24, 15, 24), false, true, 0);
             //this.add (Utils.set_padding (container, 15, 0, 1, 0));
@@ -463,6 +463,7 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
+            move_to_coords (0, 0);
             show_all ();
             set_modality ((Modality) view_selector.selected);
 

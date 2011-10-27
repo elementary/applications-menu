@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-11 22:59+0200\n"
+"POT-Creation-Date: 2011-10-27 22:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:34
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:38
 msgid "All Applications"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:35
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "Most Used Apps"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:52
-msgid "<b>Categories</b>"
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:60
+msgid "This Category is Empty"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:55
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:82
 msgid "<b>Bookmarks</b>"
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:52
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:85
+msgid "<b>Categories</b>"
+msgstr ""
+
+#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:53
 msgid "Run this command..."
 msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:129
+#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:128
 msgid "Search Apps..."
 msgstr ""
