@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-11 22:59+0200\n"
-"PO-Revision-Date: 2011-10-18 02:24+0000\n"
-"Last-Translator: Cody Garver <codygarver@gmail.com>\n"
+"PO-Revision-Date: 2011-10-27 04:12+0000\n"
+"Last-Translator: Paulo Roberto de Oliveira Castro <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-18 04:37+0000\n"
-"X-Generator: Launchpad (build 14157)\n"
+"X-Launchpad-Export-Date: 2011-10-27 05:10+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:34
 msgid "All Applications"
@@ -23,7 +23,7 @@ msgstr "Todas as Aplicações"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:35
 msgid "Most Used Apps"
-msgstr ""
+msgstr "Aplicativos mais usados"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:52
 msgid "<b>Categories</b>"
@@ -39,4 +39,4 @@ msgstr "Correr este comando"
 
 #: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:129
 msgid "Search Apps..."
-msgstr ""
+msgstr "Procurar aplicativos..."
