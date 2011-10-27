@@ -34,7 +34,7 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-    public class SlingshotView : Gtk.Window, Gtk.Buildable {
+    public class SlingshotView : PopOver {
 
         // Widgets
         public SearchBar searchbar;
@@ -97,8 +97,9 @@ namespace Slingshot {
 
             // Have the window in the right place
             this.move (5, 27);
+            move_to_coords (0, 0);
             read_settings (true);
-            set_size_request (default_columns * 130 + 50, default_rows * 140 + 160);
+            set_size_request (default_columns * 130 + 82, default_rows * 140 + 190);
 
             set_visual (get_screen ().get_rgba_visual());
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
@@ -144,7 +145,8 @@ namespace Slingshot {
             center = new HBox (false, 0);
             // Create the layout which works like view_manager
             view_manager = new Layout (null, null);
-            center.pack_end (Utils.set_padding (view_manager, 0, 22, 0, 22), true, true, 0);
+            center.pack_end (Utils.set_padding (view_manager, 0, 11, 0, 11), true, true, 0);
+            //view_manager.set_size_request (500, 500);
 
             // Create the "NORMAL_VIEW"
             grid_view = new Widgets.Grid (default_rows, default_columns);
@@ -170,10 +172,13 @@ namespace Slingshot {
             bottom.pack_start (page_switcher, false, false, 0);
             bottom.pack_end (new Label (""), true, true, 0); // A fake label
 
-            container.pack_start (Utils.set_padding (top, 0, 15, 0, 15), false, true, 15);
-            container.pack_start (Utils.set_padding (center, 0, 3, 24, 3), true, true, 0);
+            container.pack_start (Utils.set_padding (top, 0, 15, 15, 15), false, true, 0);
+            container.pack_start (Utils.set_padding (center, 0, 3, 15, 3), true, true, 0);
             container.pack_end (Utils.set_padding (bottom, 0, 24, 15, 24), false, true, 0);
-            this.add (Utils.set_padding (container, 15, 0, 1, 0));
+            //this.add (Utils.set_padding (container, 15, 0, 1, 0));
+
+            var content_area = get_content_area () as Box;
+            content_area.pack_start (container);
 
             set_modality (Modality.NORMAL_VIEW);
             debug ("Ui setup completed");
@@ -192,7 +197,7 @@ namespace Slingshot {
                 return false;
             });
 
-            view_manager.draw.connect (this.draw_background);
+            //view_manager.draw.connect (this.draw_background);
 
             searchbar.text_changed_pause.connect ((text) => this.search (text.down ().strip ()));
             searchbar.grab_focus ();
@@ -260,7 +265,7 @@ namespace Slingshot {
             cr.close_path ();
 
         }
-
+/*
         protected override bool draw (Context cr) {
 
             Allocation size;
@@ -282,8 +287,8 @@ namespace Slingshot {
             return base.draw (cr);
 
         }
-
-        public bool draw_background (Widget widget, Context cr) {
+*/
+/*        public bool draw_background (Widget widget, Context cr) {
 
             Allocation size;
             widget.get_allocation (out size);
@@ -294,7 +299,7 @@ namespace Slingshot {
             return false;
 
         }
-
+*/
         public override bool key_press_event (Gdk.EventKey event) {
 
             switch (Gdk.keyval_name (event.keyval)) {
@@ -557,8 +562,7 @@ namespace Slingshot {
                     category_view.show_page_switcher (false);
                     view_manager.move (search_view, -130*columns, 0);
                     view_manager.move (category_view, 130*columns, 0);
-                    view_manager.move (grid_view, 0, 0);
-                    page_switcher.set_active (0);
+                    view_manager.move (grid_view, current_position, 0);
                     return;
 
                 case Modality.CATEGORY_VIEW:

@@ -46,7 +46,8 @@ namespace Slingshot.Widgets {
             set_visible_window (false);
             setup_ui ();
             connect_events ();
-            category_switcher.index = 0;
+
+            category_switcher.selected = 1;
 
             set_size_request (view.columns*130, view.view_height);
 
@@ -56,9 +57,9 @@ namespace Slingshot.Widgets {
 
             container = new HBox (false, 0);
 
-            empty_cat_label = new Label (_("<b><span size=\"larger\">This Category is empty</span></b>"));
+            var empty_cat_text = _("This Category is Empty");
+            empty_cat_label = new Label ("<b><span size=\"larger\">" + empty_cat_text + "</span></b>");
             empty_cat_label.use_markup = true;
-            empty_cat_label.xalign = 0.5f;
 
             category_switcher = new Sidebar ();
             category_switcher.can_focus = false;
@@ -86,7 +87,6 @@ namespace Slingshot.Widgets {
             container.pack_start (category_switcher, false, false, 0);
             container.pack_end (layout, true, true, 0);
 
-
             add (container);
 
         }
@@ -102,8 +102,8 @@ namespace Slingshot.Widgets {
 
             });
 
-            category_switcher.draw.connect (view.draw_background);
-            layout.draw.connect (view.draw_background);
+            //category_switcher.draw.connect (view.draw_background);
+            //layout.draw.connect (view.draw_background);
 
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {

@@ -25,10 +25,6 @@
     border-radius: 3;
 }
 
-.app GtkLabel {
-    color: #fff;
-}
-
 .app:hover {
     background-image: -gtk-gradient (radial,
         center center, 0,

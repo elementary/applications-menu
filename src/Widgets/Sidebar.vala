@@ -39,15 +39,15 @@ namespace Slingshot.Widgets {
             }
         }
         
-        private int _index;
-        public int index {
+        private int _selected;
+        public int selected {
             get {
-                return _index;
+                return _selected;
             }
             set {
                 if (0 <= value < (cat_size + book_size)) {
                     select_nth (value);
-                    _index = value;
+                    _selected = value;
                 }
             }
         }
@@ -78,11 +78,11 @@ namespace Slingshot.Widgets {
 
             insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 
-            store.append (out category_iter, null);
-            store.set (category_iter, Columns.TEXT, _("<b>Categories</b>"));
-
             store.append (out bookmarks_iter, null);
             store.set (bookmarks_iter, Columns.TEXT, _("<b>Bookmarks</b>"));
+
+            store.append (out category_iter, null);
+            store.set (category_iter, Columns.TEXT, _("<b>Categories</b>"));
 
             get_selection ().set_mode (SelectionMode.SINGLE);
             get_selection ().changed.connect (selection_change);
@@ -92,7 +92,7 @@ namespace Slingshot.Widgets {
         public void add_category (string entry_name) {
 
             store.append (out entry_iter, category_iter);
-            store.set (entry_iter, Columns.INT, cat_size - 1, Columns.TEXT, entry_name, -1);
+            store.set (entry_iter, Columns.INT, book_size + cat_size - 1, Columns.TEXT, entry_name, -1);
             
             expand_all ();
 
@@ -101,7 +101,7 @@ namespace Slingshot.Widgets {
         public void add_bookmark (string entry_name) {
 
             store.append (out entry_iter, bookmarks_iter);
-            store.set (entry_iter, Columns.INT, cat_size + book_size - 1, Columns.TEXT, entry_name, -1);
+            store.set (entry_iter, Columns.INT, book_size - 1, Columns.TEXT, entry_name, -1);
             
             expand_all ();
 
@@ -121,9 +121,9 @@ namespace Slingshot.Widgets {
                  * If it is, select the previous selected entry.
                  */
                 if (sel_iter == category_iter || sel_iter == bookmarks_iter) {
-                    index = _index;
+                    selected = _selected;
                 } else {
-                    _index = nth;
+                    _selected = nth;
                     selection_changed (name);
                 }
             }
@@ -134,10 +134,10 @@ namespace Slingshot.Widgets {
 
             TreeIter iter;
 
-            if (nth < cat_size)
-                store.iter_nth_child (out iter, category_iter, nth);
+            if (nth < book_size)
+                store.iter_nth_child (out iter, bookmarks_iter, nth);
             else if (nth < (cat_size + book_size))
-                store.iter_nth_child (out iter, bookmarks_iter, nth - cat_size);
+                store.iter_nth_child (out iter, category_iter, nth - book_size);
             else
                 return;
 
@@ -150,11 +150,11 @@ namespace Slingshot.Widgets {
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
-                    index--;
+                    selected--;
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
-                    index++;
+                    selected++;
                     break;
 
             }

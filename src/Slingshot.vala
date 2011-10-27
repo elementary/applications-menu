@@ -94,7 +94,10 @@ namespace Slingshot {
                 if (!silent)
                     view.show_slingshot ();
             } else {
-                view.show_slingshot ();
+                if (view.visible)
+                    view.hide_slingshot ();
+                else
+                    view.show_slingshot ();
             }
         
         }
