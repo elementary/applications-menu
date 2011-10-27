@@ -87,13 +87,6 @@ namespace Slingshot {
             this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
-            this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
-            this.set_keep_above (true);
-            this.decorated = false;
-
-            // No time to have slingshot resizable.
-            this.resizable = false;
-            this.app_paintable = true;
 
             // Have the window in the right place
             this.move (5, 27);
@@ -101,7 +94,6 @@ namespace Slingshot {
             read_settings (true);
             set_size_request (default_columns * 130 + 82, default_rows * 140 + 190);
 
-            set_visual (get_screen ().get_rgba_visual());
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
             Slingshot.icon_theme = IconTheme.get_default ();
 
