@@ -7,36 +7,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-10-11 22:59+0200\n"
+"POT-Creation-Date: 2011-10-27 22:16+0200\n"
 "PO-Revision-Date: 2011-10-24 19:11+0000\n"
 "Last-Translator: Benny Schmidt <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-25 04:35+0000\n"
-"X-Generator: Launchpad (build 14185)\n"
+"X-Launchpad-Export-Date: 2011-10-28 05:11+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:34
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:38
 msgid "All Applications"
 msgstr "Alle Anwendungen"
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:35
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "Most Used Apps"
 msgstr "Am häufigsten benutzte Apps"
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:52
-msgid "<b>Categories</b>"
-msgstr "<b>Kategorien</b>"
+#: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:60
+msgid "This Category is Empty"
+msgstr ""
 
-#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:55
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:82
 msgid "<b>Bookmarks</b>"
 msgstr "<b>Lesezeichen</b>"
 
-#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:52
+#: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:85
+msgid "<b>Categories</b>"
+msgstr "<b>Kategorien</b>"
+
+#: /home/random/Projects/slingshot/po/../src/Backend/App.vala:53
 msgid "Run this command..."
 msgstr "Befehl ausführen..."
 
-#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:129
+#: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:128
 msgid "Search Apps..."
 msgstr "App suchen..."
