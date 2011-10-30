@@ -92,7 +92,8 @@ namespace Slingshot {
             //this.move (5, 27);
             move_to_coords (0, 0);
             read_settings (true);
-            set_size_request (default_columns * 130 + 82, default_rows * 140 + 200);
+            set_size_request (default_columns * 130 + 82, 
+                                default_rows * 140 + 200);
 
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
             Slingshot.icon_theme = IconTheme.get_default ();
@@ -229,69 +230,6 @@ namespace Slingshot {
 
         }
 
-        private void make_shape (Context cr) {
-
-            Allocation size;
-            get_allocation (out size);
-
-            // Some (configurable?) values
-            double radius = 7.0;
-            double offset = 2.0;
-
-            cr.set_antialias (Antialias.SUBPIXEL);
-
-            cr.move_to (0 + radius, 15 + offset);
-            // Create the little rounded triangle
-            cr.line_to (20.0, 15.0 + offset);
-            //cr.line_to (30.0, 0.0 + offset);
-            cr.arc (35.0, 0.0 + offset + radius, radius - 2.0, -2.0 * Math.PI / 2.7, -7.0 * Math.PI / 3.2);
-            cr.line_to (50.0, 15.0 + offset);
-            // Create the rounded square
-            cr.arc (0 + size.width - radius - offset, 15.0 + radius + offset,
-                         radius, Math.PI * 1.5, Math.PI * 2);
-            cr.arc (0 + size.width - radius - offset, 0 + size.height - radius - offset,
-                         radius, 0, Math.PI * 0.5);
-            cr.arc (0 + radius + offset, 0 + size.height - radius - offset,
-                         radius, Math.PI * 0.5, Math.PI);
-            cr.arc (0 + radius + offset, 15 + radius + offset, radius, Math.PI, Math.PI * 1.5);
-            cr.close_path ();
-
-        }
-/*
-        protected override bool draw (Context cr) {
-
-            Allocation size;
-            get_allocation (out size);
-
-            cr.set_antialias (Antialias.SUBPIXEL);
-
-            make_shape (cr);
-            cr.clip ();
-            Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_background_color (StateFlags.NORMAL));
-            cr.paint ();
-
-            make_shape (cr);
-            // Outer border
-            cr.set_line_width (window.get_style_context ().get_border (StateFlags.NORMAL).left);
-            Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_border_color (StateFlags.NORMAL));
-            cr.stroke ();
-
-            return base.draw (cr);
-
-        }
-*/
-/*        public bool draw_background (Widget widget, Context cr) {
-
-            Allocation size;
-            widget.get_allocation (out size);
-
-            Gdk.cairo_set_source_rgba (cr, window.get_style_context ().get_background_color (StateFlags.NORMAL));
-            cr.paint ();
-
-            return false;
-
-        }
-*/
         public override bool key_press_event (Gdk.EventKey event) {
 
             switch (Gdk.keyval_name (event.keyval)) {
@@ -302,7 +240,7 @@ namespace Slingshot {
 
                 case "Return":
                     if (modality == Modality.SEARCH_VIEW) {
-                        search_view.launch_first ();
+                        search_view.launch_selected ();
                         hide_slingshot ();
                     }
                     return true;
@@ -397,9 +335,6 @@ namespace Slingshot {
                         return base.key_press_event (event);
                     break;
 
-                case "Down":
-                    break;
-
                 case "Left":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (page_switcher.active - 1);
@@ -412,6 +347,16 @@ namespace Slingshot {
                         page_switcher.set_active (page_switcher.active + 1);
                     else
                         return base.key_press_event (event);
+                    break;
+
+                case "Up":
+                    if (modality == Modality.SEARCH_VIEW)
+                        search_view.selected--;
+                    break;
+
+                case "Down":
+                    if (modality == Modality.SEARCH_VIEW)
+                        search_view.selected++;
                     break;
 
                 default:
@@ -581,9 +526,6 @@ namespace Slingshot {
         }
 
         private async void search (string text) {
-
-            Idle.add (search.callback, Priority.HIGH);
-            yield;
 
             if (text == "") {
                 set_modality ((Modality) view_selector.selected);

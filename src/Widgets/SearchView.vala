@@ -31,8 +31,31 @@ namespace Slingshot.Widgets {
 
         private Gee.HashMap<App, SearchItem> items;
         private SeparatorItem separator;
+        private SearchItem selected_app;
 
-        public int active = -1;
+        private int _selected = 0;
+        public int selected {
+            get {
+                return _selected;
+            }
+            set {
+                if (value < 0 || value > get_children ().length () - 1)
+                    return;
+
+                if (value != 1) {
+                    select_nth (value);
+                    _selected = value;
+                } else if (_selected - value > 0) {
+                    /* Get a sort of direction */
+                    select_nth (value - 1);
+                    _selected = value - 1;
+                } else {
+                    select_nth (value + 1);
+                    _selected = value + 1;
+                }
+            }
+        }
+
         public int apps_showed = 0;
 
         public signal void app_launched ();
@@ -100,6 +123,7 @@ namespace Slingshot.Widgets {
                 set_focus_child (items[app]);
                 items[app].icon_size = 64;
                 items[app].queue_draw ();
+                selected = 0;
             }                
 
         }
@@ -155,9 +179,22 @@ namespace Slingshot.Widgets {
         
         }
 
-        public void launch_first () {
+        private void select_nth (int index) {
 
-            ((SearchItem) get_focus_child ()).launch_app ();
+            foreach (SearchItem app in items.values) {
+                app.set_state (StateType.ACTIVE);
+                app.queue_draw ();
+            }
+
+            var app = (SearchItem) get_children ().nth_data (index);
+            app.set_state (StateType.FOCUSED);
+            selected_app = app;
+
+        }
+
+        public void launch_selected () {
+
+            selected_app.launch_app ();
 
         }
 
