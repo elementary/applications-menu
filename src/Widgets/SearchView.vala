@@ -31,7 +31,7 @@ namespace Slingshot.Widgets {
 
         private Gee.HashMap<App, SearchItem> items;
         private SeparatorItem separator;
-        private SearchItem selected_app;
+        private SearchItem selected_app = null;
 
         private int _selected = 0;
         public int selected {
@@ -181,10 +181,8 @@ namespace Slingshot.Widgets {
 
         private void select_nth (int index) {
 
-            foreach (SearchItem app in items.values) {
-                app.set_state (StateType.ACTIVE);
-                app.queue_draw ();
-            }
+            if (selected_app != null)
+                selected_app.set_state (StateType.ACTIVE);
 
             var app = (SearchItem) get_children ().nth_data (index);
             app.set_state (StateType.FOCUSED);
