@@ -91,8 +91,10 @@ namespace Slingshot {
             if (get_windows () == null) {
                 view = new SlingshotView ();
                 view.set_application (this);
-                if (!silent)
+                if (!silent) {
+                    //view.move_to_coords (0, 0);
                     view.show_slingshot ();
+                }
             } else {
                 if (view.visible)
                     view.hide_slingshot ();

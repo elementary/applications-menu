@@ -25,48 +25,11 @@
     -GtkWidget-wide-separators: true;
     -GtkWidget-separator-width: 1;
     -GtkWidget-separator-height: 1;
-
-    /*background-color: @transparent;*/
-    /*color: @inactive_color;*/
-    /*text-shadow: 0 1 shade (@shadow_color, 0.8);*/
-}
-
-.slingshot {
-    background-color: shade (@shadow_color, 0.7);
-    border-width: 1;
-    border-color: rgba (255, 255, 255, 1.0);
 }
 
 *:selected, *:active, *:hover {
     transition: 200ms linear;
-    /*color: #fff;*/
 }
-
-/*.entry {*/
-/*color: rgba (50, 50, 50, 1.0);*/
-/*}*/
-
-/*.tooltip GtkLabel {*/
-/*color: white;*/
-/*}*/
-
-/*.modebutton {*/
-/*engine: none;*/
-/*padding: 1;*/
-/*background-color: @transparent;*/
-/*background-image: none;*/
-/*}*/
-
-/*.modebutton:active {*/
-/*background-color: @bg_selected;*/
-/*}*/
-
-/*GtkAssistant *:active, *:selected {*/
-/*background-image: none;*/
-/*background-color: @transparent;*/
-/*border-color: shade (@selected_bg_color, 1.0);*/
-/*border-width: 0 0 1 0;*/
-/*}*/
 
 /* Import other widgets styles */
 @import url("app.css");

@@ -1,3 +1,14 @@
+slingshot-launcher (0.6) oneiric; urgency=low
+
+  * First Slingshot beta release
+  * Lots of fixes
+  * It features a new shiny Category View
+  * Search View has been improved with a new algorithm
+  * Slingshot now uses PopOver as base
+  * And much more...
+
+ -- Giulio Collura <random.cpp@gmail.com>  Sun, 30 Oct 2011 17:57:28 +0100
+
 slingshot-launcher (0.5) oneiric; urgency=low
 
   * Slingshot now sorts application by usage using zeitgeist

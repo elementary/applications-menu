@@ -184,9 +184,8 @@ namespace Slingshot.Widgets {
             if (selected_app != null)
                 selected_app.set_state (StateType.ACTIVE);
 
-            var app = (SearchItem) get_children ().nth_data (index);
-            app.set_state (StateType.FOCUSED);
-            selected_app = app;
+            selected_app = (SearchItem) get_children ().nth_data (index);
+            selected_app.set_state (StateType.FOCUSED);
 
         }
 

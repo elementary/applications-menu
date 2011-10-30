@@ -38,17 +38,16 @@ namespace Slingshot {
 
         // Widgets
         public SearchBar searchbar;
-        public Layout view_manager = null;
-        private Gtk.Window window;
+        public Layout view_manager;
         public Switcher page_switcher;
         public ModeButton view_selector;
 
         // Views
-        public Widgets.Grid grid_view;
-        public SearchView search_view;
-        public CategoryView category_view;
+        private Widgets.Grid grid_view;
+        private SearchView search_view;
+        private CategoryView category_view;
 
-        private HBox top;
+        public HBox top;
         public HBox center;
         public HBox bottom;
         public VBox container;
@@ -89,11 +88,9 @@ namespace Slingshot {
             this.skip_taskbar_hint = true;
 
             // Have the window in the right place
-            //this.move (5, 27);
-            move_to_coords (0, 0);
+            //move_to_coords (0, 0);
             read_settings (true);
-            set_size_request (default_columns * 130 + 82, 
-                                default_rows * 140 + 200);
+            set_size_request (default_columns * 130 + 82, default_rows * 140 + 208);
 
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
             Slingshot.icon_theme = IconTheme.get_default ();
@@ -112,8 +109,6 @@ namespace Slingshot {
         private void setup_ui () {
 
             debug ("In setup_ui ()");
-            window = new Gtk.Window ();
-            window.get_style_context ().add_class ("slingshot");
 
             // Create the base container
             container = new VBox (false, 0);
@@ -217,7 +212,7 @@ namespace Slingshot {
             });
 
             // Auto-update settings when changed
-            Slingshot.settings.changed.connect (() => read_settings ());
+            //Slingshot.settings.changed.connect (() => read_settings ());
 
             // Auto-update applications grid
             app_system.changed.connect (() => {
@@ -226,6 +221,7 @@ namespace Slingshot {
                 apps = app_system.get_apps ();
 
                 populate_grid_view ();
+
             });
 
         }
@@ -350,13 +346,17 @@ namespace Slingshot {
                     break;
 
                 case "Up":
-                    if (modality == Modality.SEARCH_VIEW)
+                    if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected--;
+                        search_view_up ();
+                    }
                     break;
 
                 case "Down":
                     if (modality == Modality.SEARCH_VIEW)
                         search_view.selected++;
+                    if (search_view.selected > 7)
+                        search_view_down ();
                     break;
 
                 default:
@@ -473,8 +473,8 @@ namespace Slingshot {
                 return;
 
             if ((search_view_position) > -(search_view.apps_showed*48)) {
-                view_manager.move (search_view, 0, search_view_position - 2*48);
-                search_view_position -= 2*48;
+                view_manager.move (search_view, 0, search_view_position - 2*38);
+                search_view_position -= 2*38;
             }
 
         }
@@ -482,8 +482,8 @@ namespace Slingshot {
         private void search_view_up () {
 
             if (search_view_position < 0) {
-                view_manager.move (search_view, 0, search_view_position + 2*48);
-                search_view_position += 2*48;
+                view_manager.move (search_view, 0, search_view_position + 2*38);
+                search_view_position += 2*38;
             }
 
         }

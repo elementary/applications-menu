@@ -216,22 +216,6 @@ namespace Slingshot.Widgets {
 
         }
 
-        protected override void drag_begin (Gdk.DragContext context) {
-
-            message ("Test");
-            base.drag_begin (context);
-
-        }
-
-        protected override bool drag_motion (Gdk.DragContext context, int x, int y, uint time) {
-
-            layout.move (app_view, x, 0);
-            message (x.to_string ());
-
-            return true;
-
-        }
-
         public void show_page_switcher (bool show) {
 
             if (page_switcher.get_parent () == null)
