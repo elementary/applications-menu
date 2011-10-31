@@ -15,8 +15,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-@define-color bg_selected rgba (189, 189, 189, 0.5);
-@define-color bg_hover rgba (87, 87, 87, 0.5);
+/*@define-color bg_selected rgba (189, 189, 189, 0.5);*/
+/*@define-color bg_hover rgba (87, 87, 87, 0.5);*/
 
 /*.switcher {
     engine: none;

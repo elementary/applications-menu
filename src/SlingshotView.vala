@@ -90,9 +90,10 @@ namespace Slingshot {
             // Have the window in the right place
             //move_to_coords (0, 0);
             read_settings (true);
-            set_size_request (default_columns * 130 + 82, default_rows * 140 + 208);
+            height_request = default_rows * 145 + 195;
 
             get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
+            get_style_context ().add_class ("slingshot");
             Slingshot.icon_theme = IconTheme.get_default ();
 
             app_system = new AppSystem ();
@@ -133,8 +134,8 @@ namespace Slingshot {
             center = new HBox (false, 0);
             // Create the layout which works like view_manager
             view_manager = new Layout (null, null);
-            center.pack_end (Utils.set_padding (view_manager, 0, 11, 0, 11), true, true, 0);
-            //view_manager.set_size_request (500, 500);
+            view_manager.set_size_request (default_columns*130, default_rows*145);
+            center.pack_end (view_manager, true, true, 0);
 
             // Create the "NORMAL_VIEW"
             grid_view = new Widgets.Grid (default_rows, default_columns);
@@ -161,10 +162,12 @@ namespace Slingshot {
             bottom.pack_end (new Label (""), true, true, 0); // A fake label
 
             container.pack_start (Utils.set_padding (top, 15, 15, 15, 15), false, true, 0);
-            container.pack_start (Utils.set_padding (center, 0, 3, 15, 3), true, true, 0);
+            container.pack_start (Utils.set_padding (center, 0, ARROW_HEIGHT - PADDINGS.right, 
+                                                     15, ARROW_HEIGHT - PADDINGS.left), 
+                                                     true, true, 0);
             container.pack_end (Utils.set_padding (bottom, 0, 24, 15, 24), false, true, 0);
-            //this.add (Utils.set_padding (container, 15, 0, 1, 0));
 
+            // Add the container to the dialog's content area
             var content_area = get_content_area () as Box;
             content_area.pack_start (container);
 

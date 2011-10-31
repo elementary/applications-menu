@@ -17,21 +17,21 @@
 
 /* App Styles */
 
-.app {
+/*.app {
     engine: none;
     background-image: none;
     background-color: @transparent;
     border-width: 0;
     border-radius: 3;
-}
+}*/
 
 .app:hover, .app:focus {
     background-image: -gtk-gradient (radial,
         center center, 0,
         center center, 1,
-        from (alpha (@selected_bg_color, 0.5)),
+        from (alpha (@selected_bg_color, 0.2)),
         to (alpha (@selected_bg_color, 0.05)));
-    background-color: @transparent;
-    border-color: shade (@selected_bg_color, 1.0);
-    border-width: 1;
+    /*background-color: @transparent;*/
+    /*border-color: shade (@selected_bg_color, 1.0);*/
+    /*border-width: 1;*/
 }
