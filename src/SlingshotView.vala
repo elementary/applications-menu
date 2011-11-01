@@ -415,6 +415,7 @@ namespace Slingshot {
             show_all ();
             set_modality ((Modality) view_selector.selected);
 
+            present ();
             searchbar.grab_focus ();
             //Utils.present_window (this);
 
