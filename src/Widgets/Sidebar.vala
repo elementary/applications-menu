@@ -130,18 +130,25 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void select_nth (int nth) {
+        public bool select_nth (int nth) {
 
             TreeIter iter;
 
+            /**
+             * If the nth value to select is inside the fist iter,
+             * then check if it is minor than bookmark iter size
+             * If greater, it must be inside the category iter or
+             * outside any iter.
+             */
             if (nth < book_size)
                 store.iter_nth_child (out iter, bookmarks_iter, nth);
             else if (nth < (cat_size + book_size))
                 store.iter_nth_child (out iter, category_iter, nth - book_size);
             else
-                return;
+                return false;
 
             get_selection ().select_iter (iter);
+            return true;
 
         }
 

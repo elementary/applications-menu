@@ -47,6 +47,8 @@ namespace Slingshot.Backend {
                 
             });
 
+            apps_menu.set_sort_key (TreeSortKey.DISPLAY_NAME);
+
             update_app_system ();
 
         }

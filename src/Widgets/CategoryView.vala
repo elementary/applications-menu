@@ -37,6 +37,7 @@ namespace Slingshot.Widgets {
 
         private const string ALL_APPLICATIONS = _("All Applications");
         private const string MOST_USED_APPS = _("Most Used Apps");
+        private const string NEW_FILTER = _("Create a new Filter");
         private int current_position = 0;
 
         public CategoryView (SlingshotView parent) {
@@ -47,7 +48,7 @@ namespace Slingshot.Widgets {
             setup_ui ();
             connect_events ();
 
-            category_switcher.selected = 1;
+            category_switcher.selected = 2;
 
             set_size_request (view.columns*130, view.view_height);
 
@@ -63,26 +64,29 @@ namespace Slingshot.Widgets {
 
             category_switcher = new Sidebar ();
             category_switcher.can_focus = false;
-            //category_switcher.add_category (ALL_APPLICATIONS); 
+
+            // Fill the sidebar
             foreach (string cat_name in view.apps.keys) {
                 category_switcher.add_category (cat_name);
             }
+
             category_switcher.add_bookmark (MOST_USED_APPS);
+            //category_switcher.add_bookmark (NEW_FILTER);
 
             layout = new Layout (null, null);
 
             app_view = new Widgets.Grid (view.rows, view.columns - 1);
             layout.put (app_view, 0, 0);
-            layout.put (empty_cat_label, view.rows*130*2, view.columns * 130 / 2);
+            layout.put (empty_cat_label, view.columns*130, view.rows * 130 / 2);
 
             // Create the page switcher
             switcher = new Switcher ();
 
             // A bottom widget to keep the page switcher center
             page_switcher = new HBox (false, 0);
-            page_switcher.pack_start (new Label (""), true, true, 0); // A fake label
+            page_switcher.pack_start (new Label (""), true, true, 0);
             page_switcher.pack_start (switcher, false, false, 10);
-            page_switcher.pack_start (new Label (""), true, true, 0); // A fake label
+            page_switcher.pack_start (new Label (""), true, true, 0);
 
             container.pack_start (category_switcher, false, false, 0);
             container.pack_end (layout, true, true, 0);
@@ -101,9 +105,6 @@ namespace Slingshot.Widgets {
                     show_filtered_apps (category);
 
             });
-
-            //category_switcher.draw.connect (view.draw_background);
-            //layout.draw.connect (view.draw_background);
 
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {
@@ -160,23 +161,25 @@ namespace Slingshot.Widgets {
         private void show_filtered_apps (string category) {
 
             switcher.clear_children ();
-            //switcher.append ("1");
-
             app_view.clear ();
 
             if (category == MOST_USED_APPS) {
 
                 var apps = view.app_system.get_apps_by_popularity ();
-                layout.move (empty_cat_label, view.columns*130*2, view.rows*130 / 2);
+                layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
                 for (int i = 0; i < 12; i++)
                     add_app (apps.nth_data (i));
+
+            } else if (category == NEW_FILTER) {
+
+                layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
 
             } else {
     
                 if (view.apps[category].size == 0) {
                     layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
                 } else {
-                    layout.move (empty_cat_label, view.columns*130*2, view.rows*130 / 2);
+                    layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
                     foreach (App app in view.apps[category])
                         add_app (app);
                 }

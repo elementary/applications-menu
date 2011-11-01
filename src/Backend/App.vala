@@ -40,7 +40,7 @@ namespace Slingshot.Backend {
             description = entry.get_comment () ?? name;
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
-            icon_name = entry.get_icon ();
+            icon_name = entry.get_icon () ?? "application-default-icon";
 
             update_icon ();
             Slingshot.icon_theme.changed.connect (update_icon);
