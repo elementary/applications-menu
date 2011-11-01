@@ -104,6 +104,7 @@ namespace Slingshot {
             connect_signals ();
 
             debug ("Apps loaded");
+            set_keep_above(true);
 
         }
 

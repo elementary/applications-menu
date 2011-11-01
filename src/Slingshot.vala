@@ -100,6 +100,7 @@ namespace Slingshot {
                     view.hide_slingshot ();
                 else
                     view.show_slingshot ();
+                    view.present ();
             }
         
         }
