@@ -60,9 +60,9 @@ namespace Slingshot.Widgets {
 
             layout = new VBox (false, 0);
 
-            layout.pack_end (app_label, false, true, 0);
+            layout.pack_start (app_label, false, true, 0);
 
-            add (Utils.set_padding (layout, 10, 10, 10, 10));
+            add (Utils.set_padding (layout, 78, 5, 5, 5));
 
             this.button_release_event.connect (() => {
                 app.launch ();

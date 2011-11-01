@@ -90,9 +90,9 @@ namespace Slingshot {
             // Have the window in the right place
             //move_to_coords (0, 0);
             read_settings (true);
-            height_request = default_rows * 145 + 195;
+            height_request = default_rows * 145 + 180;
 
-            get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
+            //get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
             get_style_context ().add_class ("slingshot");
             Slingshot.icon_theme = IconTheme.get_default ();
 
@@ -161,11 +161,10 @@ namespace Slingshot {
             bottom.pack_start (page_switcher, false, false, 0);
             bottom.pack_end (new Label (""), true, true, 0); // A fake label
 
-            container.pack_start (Utils.set_padding (top, 15, 15, 15, 15), false, true, 0);
-            container.pack_start (Utils.set_padding (center, 0, ARROW_HEIGHT - PADDINGS.right, 
-                                                     15, ARROW_HEIGHT - PADDINGS.left), 
+            container.pack_start (Utils.set_padding (top, 12, 12, 12, 12), false, true, 0);
+            container.pack_start (Utils.set_padding (center, 0, 12, 12, 12), 
                                                      true, true, 0);
-            container.pack_end (Utils.set_padding (bottom, 0, 24, 15, 24), false, true, 0);
+            container.pack_end (Utils.set_padding (bottom, 0, 24, 12, 24), false, true, 0);
 
             // Add the container to the dialog's content area
             var content_area = get_content_area () as Box;
@@ -575,10 +574,15 @@ namespace Slingshot {
 
         private void read_settings (bool first_start = false) {
 
-            if (first_start) {
+            if (Slingshot.settings.columns > 3)
                 default_columns = Slingshot.settings.columns;
+            else
+                default_columns = Slingshot.settings.columns = 5;
+
+            if (Slingshot.settings.rows > 1)
                 default_rows = Slingshot.settings.rows;
-            }
+            else
+                default_rows = Slingshot.settings.rows = 3;
 
         }
 
