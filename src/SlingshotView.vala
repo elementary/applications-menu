@@ -86,14 +86,15 @@ namespace Slingshot {
             this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
+            set_keep_above (true);
 
             // Have the window in the right place
             //move_to_coords (0, 0);
             read_settings (true);
             height_request = default_rows * 145 + 180;
 
-            //get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
-            get_style_context ().add_class ("slingshot");
+            get_style_context ().add_provider_for_screen (get_screen (), Slingshot.style_provider, 600);
+            //get_style_context ().add_class ("slingshot");
             Slingshot.icon_theme = IconTheme.get_default ();
 
             app_system = new AppSystem ();

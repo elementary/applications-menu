@@ -11,12 +11,12 @@ set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Leonardo")
 set (VERSION "0.6")
-set (VERSION_INFO "Release")
+set (VERSION_INFO "Debug")
 set (CMAKE_C_FLAGS "-ggdb")
 
 # Files
 
-#file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
+file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
 file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applications.menu")
 file (GLOB icons "${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16x16/actions/*")
 
@@ -69,7 +69,7 @@ add_executable (slingshot ${VALA_C})
 
 # Installation
 install (TARGETS slingshot RUNTIME DESTINATION bin)
-#install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
+install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
 
 # Install symbolic icons - fix bug #854734
