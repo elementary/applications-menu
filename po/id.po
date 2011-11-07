@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-27 22:16+0200\n"
-"PO-Revision-Date: 2011-10-09 03:30+0000\n"
-"Last-Translator: Viko Adi Rahmawan <Unknown>\n"
+"PO-Revision-Date: 2011-11-06 05:37+0000\n"
+"Last-Translator: karangdesaku <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-31 05:21+0000\n"
-"X-Generator: Launchpad (build 14197)\n"
+"X-Launchpad-Export-Date: 2011-11-07 05:18+0000\n"
+"X-Generator: Launchpad (build 14231)\n"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:38
 msgid "All Applications"
@@ -23,15 +23,15 @@ msgstr "Semua Aplikasi"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "Most Used Apps"
-msgstr ""
+msgstr "Aplikasi Sering Dipakai"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:60
 msgid "This Category is Empty"
-msgstr ""
+msgstr "Kategori ini Kosong"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:82
 msgid "<b>Bookmarks</b>"
-msgstr ""
+msgstr "<b>Markah</b>"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:85
 msgid "<b>Categories</b>"
@@ -43,4 +43,4 @@ msgstr "Jalankan Perintah"
 
 #: /home/random/Projects/slingshot/po/../src/SlingshotView.vala:128
 msgid "Search Apps..."
-msgstr ""
+msgstr "Cari Aplikasi"
