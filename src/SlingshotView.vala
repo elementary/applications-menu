@@ -256,7 +256,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (0);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 0)
+                            category_view.set_active_page (0);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "2":
@@ -265,12 +268,10 @@ namespace Slingshot {
                         page_switcher.set_active (1);
                     else
                     {
-                        if (category_view.page_right () != 0)
-                            category_view.switcher.set_active (1); 
+                        if (category_view.switcher.active != 1)
+                            category_view.set_active_page (1);
                         else
                             return base.key_press_event (event);
-                        //TODO Slide animation to second page ?
-                        //TODO Make it work for all pages
                     }
                     break;
 
@@ -279,7 +280,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (2);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 2)
+                            category_view.set_active_page (2);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "4":
@@ -287,7 +291,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (3);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 3)
+                            category_view.set_active_page (3);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "5":
@@ -295,7 +302,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (4);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 4)
+                            category_view.set_active_page (4);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "6":
@@ -303,7 +313,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (5);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 5)
+                            category_view.set_active_page (5);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "7":
@@ -311,7 +324,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (6);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 6)
+                            category_view.set_active_page (6);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "8":
@@ -319,7 +335,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (7);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 7)
+                            category_view.set_active_page (7);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "9":
@@ -327,7 +346,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (8);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 8)
+                            category_view.set_active_page (8);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "0":
@@ -335,7 +357,10 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (9);
                     else
-                        return base.key_press_event (event);
+                        if (category_view.switcher.active != 9)
+                            category_view.set_active_page (9);
+                        else
+                            return base.key_press_event (event);
                     break;
 
                 case "Left":
@@ -353,6 +378,10 @@ namespace Slingshot {
                     break;
 
                 case "Up":
+                    if (modality == Modality.CATEGORY_VIEW) {
+                        category_view.category_switcher.selected--;
+                    }
+
                     if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected--;
                         search_view_up ();
@@ -360,6 +389,10 @@ namespace Slingshot {
                     break;
 
                 case "Down":
+                    if (modality == Modality.CATEGORY_VIEW) {
+                        category_view.category_switcher.selected++;
+                    }
+
                     if (modality == Modality.SEARCH_VIEW)
                         search_view.selected++;
                     if (search_view.selected > 7)

@@ -26,14 +26,14 @@ namespace Slingshot.Widgets {
     public class CategoryView : EventBox {
 
         private HBox container;
-        private Sidebar category_switcher;
+        public Sidebar category_switcher;
         private Widgets.Grid app_view;
         private Layout layout;
         public Switcher switcher;
         private SlingshotView view;
         private Label empty_cat_label;
 
-        public HBox page_switcher;
+        private HBox page_switcher;
 
         private const string ALL_APPLICATIONS = _("All Applications");
         private const string MOST_USED_APPS = _("Most Used Apps");
@@ -105,7 +105,7 @@ namespace Slingshot.Widgets {
                     show_filtered_apps (category);
 
             });
-
+  
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {
                     case "GDK_SCROLL_UP":
@@ -136,6 +136,19 @@ namespace Slingshot.Widgets {
             });
 
         }
+
+        public void set_active_page (int page) {
+            if (page > switcher.active)
+            {
+                switcher.set_active (page);
+                page_right (switcher.active - switcher.old_active);
+            }
+            else
+            {
+                switcher.set_active (page);
+                page_left (switcher.old_active - switcher.active);
+            }
+        }        
 
         private void add_app (App app) {
 
