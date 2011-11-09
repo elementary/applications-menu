@@ -29,11 +29,11 @@ namespace Slingshot.Widgets {
         private Sidebar category_switcher;
         private Widgets.Grid app_view;
         private Layout layout;
-        private Switcher switcher;
+        public Switcher switcher;
         private SlingshotView view;
         private Label empty_cat_label;
 
-        private HBox page_switcher;
+        public HBox page_switcher;
 
         private const string ALL_APPLICATIONS = _("All Applications");
         private const string MOST_USED_APPS = _("Most Used Apps");
@@ -192,20 +192,21 @@ namespace Slingshot.Widgets {
 
         }
 
-        private void page_left (int step = 1) {
+        public int page_left (int step = 1) {
 
             int columns = app_view.get_page_columns ();
 
             if (current_position < 0) {
 
                 layout.move (app_view, current_position + columns*130*step, 0);
-                current_position += columns*130*step;
-
+                return current_position += columns*130*step;
+                
             }
             
+            return 0;
         }
 
-        private void page_right (int step = 1) {
+        public int page_right (int step = 1) {
 
             int columns = app_view.get_page_columns ();
             int pages = app_view.get_n_pages ();
@@ -213,10 +214,11 @@ namespace Slingshot.Widgets {
             if ((- current_position) < (columns*(pages - 1)*130)) {
 
                 layout.move (app_view, current_position - columns*130*step, 0);
-                current_position -= columns*130*step;
-                    
+                return current_position -= columns*130*step; 
+                
             }
 
+            return 0;
         }
 
         public void show_page_switcher (bool show) {

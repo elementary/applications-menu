@@ -264,7 +264,14 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (1);
                     else
-                        return base.key_press_event (event);
+                    {
+                        if (category_view.page_right () != 0)
+                            category_view.switcher.set_active (1); 
+                        else
+                            return base.key_press_event (event);
+                        //TODO Slide animation to second page ?
+                        //TODO Make it work for all pages
+                    }
                     break;
 
                 case "3":
