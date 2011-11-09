@@ -27,7 +27,7 @@ namespace Slingshot.Widgets {
 
         private HBox container;
         public Sidebar category_switcher;
-        private Widgets.Grid app_view;
+        public Widgets.Grid app_view;
         private Layout layout;
         public Switcher switcher;
         private SlingshotView view;
