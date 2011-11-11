@@ -128,26 +128,30 @@ namespace Slingshot.Widgets {
 
             switcher.active_changed.connect (() => {
 
-                if (switcher.active > switcher.old_active)
-                    page_right (switcher.active - switcher.old_active);
-                else
-                    page_left (switcher.old_active - switcher.active);
+                /* FIXME This is also being activated when changing category */
 
+                if (switcher.active > switcher.old_active) {
+                    page_right (switcher.active - switcher.old_active);
+                }
+                else
+                {
+                    page_left (switcher.old_active - switcher.active);
+                }
             });
 
         }
 
         public void set_active_page (int page) {
+
             if (page > switcher.active)
             {
                 switcher.set_active (page);
-                page_right (switcher.active - switcher.old_active);
             }
-            else
+            if (page < switcher.active)
             {
                 switcher.set_active (page);
-                page_left (switcher.old_active - switcher.active);
             }
+
         }        
 
         private void add_app (App app) {
@@ -210,10 +214,24 @@ namespace Slingshot.Widgets {
             int columns = app_view.get_page_columns ();
 
             if (current_position < 0) {
+                int count = 0;
+                int val = columns*130*step / 10;
+                Timeout.add (20 / (step*step*2), () => {
 
+                    if (count >= columns*130*step) {
+                        count = 0;
+                        return false;
+                    }
+                    layout.move (app_view, current_position + val, 0);
+                    current_position += val;
+                    count += val;
+                    return true;
+
+                }, Priority.DEFAULT_IDLE);
+              /*
                 layout.move (app_view, current_position + columns*130*step, 0);
                 return current_position += columns*130*step;
-                
+                */
             }
             
             return 0;
@@ -223,13 +241,35 @@ namespace Slingshot.Widgets {
 
             int columns = app_view.get_page_columns ();
             int pages = app_view.get_n_pages ();
+
+            if ((- current_position) < (columns*(pages - 1)*130)) {
+                int count = 0;
+                int val = columns*130*step / 10;
+                Timeout.add(20 / (2*step*step), () => {
+                    
+                    if (count >= columns*130*step) {
+                        count = 0;
+                        return false;
+                    }
+    
+                    layout.move (app_view, current_position - val, 0);
+                    current_position -= val;
+                    count += val;
+                    return true;
+
+                }, Priority.DEFAULT_IDLE);
+            }
+
+            /*
+            int columns = app_view.get_page_columns ();
+            int pages = app_view.get_n_pages ();
             
             if ((- current_position) < (columns*(pages - 1)*130)) {
 
                 layout.move (app_view, current_position - columns*130*step, 0);
                 return current_position -= columns*130*step; 
                 
-            }
+            }*/
 
             return 0;
         }
