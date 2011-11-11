@@ -23,21 +23,21 @@ using Cairo;
 namespace Slingshot {
 
     class Utils : GLib.Object {
-		
-	    public static Alignment set_padding (Gtk.Widget widget, int top, int right, 
-                                                int bottom, int left) {
 
-		    var alignment = new Alignment (0.0f, 0.0f, 1.0f, 1.0f);
-		    alignment.top_padding = top;
-		    alignment.right_padding = right;
-		    alignment.bottom_padding = bottom;
-		    alignment.left_padding = left;
-		
-		    alignment.add (widget);
-		    return alignment;
+        public static Alignment set_padding (Gtk.Widget widget, int top, 
+                                             int right, int bottom, int left) {
 
-	    }
-		
+            var alignment = new Alignment (0.0f, 0.0f, 1.0f, 1.0f);
+            alignment.top_padding = top;
+            alignment.right_padding = right;
+            alignment.bottom_padding = bottom;
+            alignment.left_padding = left;
+
+            alignment.add (widget);
+            return alignment;
+
+        }
+  
         public static string truncate_text (string input, int icon_size) {
             
             string new_text;

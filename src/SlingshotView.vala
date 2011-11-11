@@ -464,7 +464,7 @@ namespace Slingshot {
             hide ();
 
             // grab_remove ((Widget) this);
-			// get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
+		      	// get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
 
         }
 
@@ -476,6 +476,8 @@ namespace Slingshot {
 
             present ();
             searchbar.grab_focus ();
+            this.focus (0);
+
             //Utils.present_window (this);
 
         }
