@@ -40,6 +40,8 @@ namespace Slingshot.Widgets {
         private const string NEW_FILTER = _("Create a new Filter");
         private int current_position = 0;
 
+        private bool from_category = false;
+
         public CategoryView (SlingshotView parent) {
 
             view = parent;
@@ -124,11 +126,17 @@ namespace Slingshot.Widgets {
                 if (switcher.size == 0)
                     switcher.append ("1");
                 switcher.append (page);
+                
+                /* Prevents pages from changing */
+                from_category = true;
             });
 
             switcher.active_changed.connect (() => {
 
-                /* FIXME This is also being activated when changing category */
+                if (from_category) {
+                    from_category = false;
+                    return;
+                }
 
                 if (switcher.active > switcher.old_active) {
                     page_right (switcher.active - switcher.old_active);
