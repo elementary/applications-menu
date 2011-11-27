@@ -39,7 +39,6 @@ namespace Slingshot.Widgets {
         private const string MOST_USED_APPS = _("Most Used Apps");
         private const string NEW_FILTER = _("Create a new Filter");
         private int current_position = 0;
-
         private bool from_category = false;
 
         public CategoryView (SlingshotView parent) {
@@ -149,19 +148,6 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void set_active_page (int page) {
-
-            if (page > switcher.active)
-            {
-                switcher.set_active (page);
-            }
-            if (page < switcher.active)
-            {
-                switcher.set_active (page);
-            }
-
-        }        
-
         private void add_app (App app) {
 
             var app_entry = new AppEntry (app);
@@ -197,6 +183,7 @@ namespace Slingshot.Widgets {
 
             } else if (category == NEW_FILTER) {
 
+                // This needs to be implemented
                 layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
 
             } else {
@@ -268,15 +255,13 @@ namespace Slingshot.Widgets {
                 }, Priority.DEFAULT_IDLE);
             }
 
-            /*
-            int columns = app_view.get_page_columns ();
+            /*int columns = app_view.get_page_columns ();
             int pages = app_view.get_n_pages ();
             
             if ((- current_position) < (columns*(pages - 1)*130)) {
 
                 layout.move (app_view, current_position - columns*130*step, 0);
-                return current_position -= columns*130*step; 
-                
+                return current_position -= columns*130*step;
             }*/
 
             return 0;

@@ -255,165 +255,133 @@ namespace Slingshot {
                 case "KP_1":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (0);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (0);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 0)
-                            category_view.set_active_page (0);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "2":
                 case "KP_2":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (1);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (1);
                     else
-                    {
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 1)
-                            category_view.set_active_page (1);
-                        else
-                            return base.key_press_event (event);
-                    }
+                        return base.key_press_event (event);
                     break;
 
                 case "3":
                 case "KP_3":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (2);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (2);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 2)
-                            category_view.set_active_page (2);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "4":
                 case "KP_4":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (3);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (3);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 3)
-                            category_view.set_active_page (3);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "5":
                 case "KP_5":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (4);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (4);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 4)
-                            category_view.set_active_page (4);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "6":
                 case "KP_6":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (5);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (5);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 5)
-                            category_view.set_active_page (5);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "7":
                 case "KP_7":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (6);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (6);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 6)
-                            category_view.set_active_page (6);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "8":
                 case "KP_8":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (7);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (7);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 7)
-                            category_view.set_active_page (7);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "9":
                 case "KP_9":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (8);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (8);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 8)
-                            category_view.set_active_page (8);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "0":
                 case "KP_0":
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (9);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (9);
                     else
-                        if (category_view.app_view.get_n_pages () > 1 &&
-                                category_view.switcher.active != 9)
-                            category_view.set_active_page (9);
-                        else
-                            return base.key_press_event (event);
+                        return base.key_press_event (event);
                     break;
 
                 case "Left":
-                    if (modality == Modality.CATEGORY_VIEW &&
-                            category_view.app_view.get_n_pages () > 1)
-                    {
-                        category_view.set_active_page (category_view.switcher.active - 1);
-                        break;
-                    }
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (page_switcher.active - 1);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (category_view.switcher.active - 1);
                     else
                         return base.key_press_event (event);
                     break;
 
                 case "Right":
-                    if (modality == Modality.CATEGORY_VIEW &&
-                            category_view.app_view.get_n_pages () > 1)
-                    {
-                        category_view.set_active_page (category_view.switcher.active + 1);
-                        break;
-                    }
                     if (modality == Modality.NORMAL_VIEW)
                         page_switcher.set_active (page_switcher.active + 1);
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.switcher.set_active (category_view.switcher.active + 1);
                     else
                         return base.key_press_event (event);
                     break;
 
                 case "Up":
-                    if (modality == Modality.CATEGORY_VIEW) {
+                    if (modality == Modality.CATEGORY_VIEW)
                         category_view.category_switcher.selected--;
-                    }
 
-                    if (modality == Modality.SEARCH_VIEW) {
+                    else if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected--;
                         search_view_up ();
                     }
                     break;
 
                 case "Down":
-                    if (modality == Modality.CATEGORY_VIEW) {
+                    if (modality == Modality.CATEGORY_VIEW)
                         category_view.category_switcher.selected++;
-                    }
 
                     if (modality == Modality.SEARCH_VIEW)
                         search_view.selected++;
@@ -464,7 +432,7 @@ namespace Slingshot {
             hide ();
 
             // grab_remove ((Widget) this);
-		      	// get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
+		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
 
         }
 
