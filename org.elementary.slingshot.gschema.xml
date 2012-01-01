@@ -19,6 +19,11 @@
             <default>true</default>
             <summary>Show the category switcher or not</summary>
             <description>This value handles the category switcher.</description>
+          </key>
+        <key name="open-on-mouse" type="b">
+            <default>false</default>
+            <summary>Open on mouse position.</summary>
+            <description>Whether Slingshot should open on mouse position or not.</description>
         </key>
 	</schema>
 </schemalist>

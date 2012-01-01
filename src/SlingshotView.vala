@@ -91,7 +91,7 @@ namespace Slingshot {
             // Have the window in the right place
             read_settings (true);
             height_request = default_rows * 145 + 180;
-            
+
             Slingshot.icon_theme = IconTheme.get_default ();
 
             app_system = new AppSystem ();
@@ -160,7 +160,7 @@ namespace Slingshot {
             bottom.pack_end (new Label (""), true, true, 0); // A fake label
 
             container.pack_start (Utils.set_padding (top, 12, 12, 12, 12), false, true, 0);
-            container.pack_start (Utils.set_padding (center, 0, 12, 12, 12), 
+            container.pack_start (Utils.set_padding (center, 0, 12, 12, 12),
                                                      true, true, 0);
             container.pack_end (Utils.set_padding (bottom, 0, 24, 12, 24), false, true, 0);
 
@@ -425,7 +425,7 @@ namespace Slingshot {
         }
 
         public void hide_slingshot () {
-            
+
             // Show the first page
             searchbar.text = "";
 
@@ -438,7 +438,11 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            move_to_coords (0, 0);
+            if (Slingshot.settings.open_on_mouse)
+                window_position = WindowPosition.MOUSE;
+            else
+                move_to_coords (0, 0);
+
             show_all ();
             set_modality ((Modality) view_selector.selected);
 
@@ -479,7 +483,7 @@ namespace Slingshot {
 
             // Avoid unexpected behavior
             if (modality != Modality.NORMAL_VIEW)
-                return;            
+                return;
 
             if ((- current_position) < (grid_view.n_columns*130)) {
                 int count = 0;
@@ -494,7 +498,7 @@ namespace Slingshot {
                     current_position -= val;
                     count += val;
                     return true;
-                    
+
                 }, Priority.DEFAULT_IDLE);
             }
 
@@ -553,7 +557,7 @@ namespace Slingshot {
                     view_manager.move (category_view, columns*130, 0);
                     view_manager.move (search_view, 0, 0); // Show the searchview
                     return;
-            
+
             }
 
         }
@@ -564,7 +568,7 @@ namespace Slingshot {
                 set_modality ((Modality) view_selector.selected);
                 return;
             }
-            
+
             if (modality != Modality.SEARCH_VIEW)
                 set_modality (Modality.SEARCH_VIEW);
             search_view_position = 0;
