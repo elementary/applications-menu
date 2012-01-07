@@ -29,7 +29,7 @@ set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;
 set (UI_DEPS "gtk+-3.0>=3.2.0;granite>=0.1.3;zeitgeist-1.0;")
 
 find_package (PkgConfig)
-pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}")
+pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
