@@ -224,6 +224,24 @@ namespace Slingshot {
 
             });
 
+            // position on the right monitor when settings changed
+            screen.size_changed.connect (() => {
+                reposition ();
+            });
+            screen.monitors_changed.connect (() => {
+                reposition ();
+            });
+
+        }
+
+        private void reposition () {
+
+            debug("Repositioning");
+
+            Gdk.Rectangle monitor_dimensions;
+            screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
+
+            move_to_coords (monitor_dimensions.x, monitor_dimensions.y); //this would be coordinates 0,0 on the screen
         }
 
         public override bool key_press_event (Gdk.EventKey event) {
@@ -438,7 +456,7 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            move_to_coords (0, 0);
+            reposition ();
             show_all ();
             set_modality ((Modality) view_selector.selected);
 
