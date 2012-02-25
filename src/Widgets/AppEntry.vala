@@ -36,12 +36,17 @@ namespace Slingshot.Widgets {
         public signal void app_launched ();
 
         private double alpha = 1.0;
-
+        private bool   dragging = false; //prevent launching
+        
         public AppEntry (Backend.App app) {
+            TargetEntry dnd = {"text/uri-list", 0, 0};
+            Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd}, 
+                Gdk.DragAction.COPY);
             
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
             set_size_request (130, 130);
+            desktop_id = app.desktop_id;
             
             app_name = app.name;
             tooltip_text = app.description;
@@ -63,13 +68,26 @@ namespace Slingshot.Widgets {
             layout.pack_start (app_label, false, true, 0);
 
             add (Utils.set_padding (layout, 78, 5, 5, 5));
-
+            
             this.button_release_event.connect (() => {
-                app.launch ();
-                app_launched ();
+                if (!this.dragging){
+                    app.launch ();
+                    app_launched ();
+                }
                 return true;
             });
-
+            
+            this.drag_begin.connect ( (ctx) => {
+                this.dragging = true;
+                Gtk.drag_set_icon_pixbuf (ctx, icon, 0, 0);
+            });
+            this.drag_end.connect ( () => {
+                this.dragging = false;
+            });
+            this.drag_data_get.connect ( (ctx, sel, info, time) => {
+                sel.set_uris ({"file:///usr/share/applications/"+desktop_id});
+            });
+            
             app.icon_changed.connect (queue_draw);
 
         }
