@@ -28,6 +28,7 @@ namespace Slingshot.Backend {
         public Gdk.Pixbuf icon { get; private set; }
         public double popularity { get; set; }
         public double relevancy { get; set; }
+        public string desktop_path;
 
         private bool is_command = false;
 
@@ -41,6 +42,7 @@ namespace Slingshot.Backend {
             exec = entry.get_exec ();
             desktop_id = entry.get_desktop_file_id ();
             icon_name = entry.get_icon () ?? "application-default-icon";
+            desktop_path = entry.get_desktop_file_path ();
 
             update_icon ();
             Slingshot.icon_theme.changed.connect (update_icon);

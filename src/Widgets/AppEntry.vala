@@ -32,6 +32,7 @@ namespace Slingshot.Widgets {
         public string app_name;
         public string desktop_id;
         public int icon_size;
+        public string desktop_path;
 
         public signal void app_launched ();
 
@@ -47,6 +48,7 @@ namespace Slingshot.Widgets {
 			set_visual (get_screen ().get_rgba_visual());
             set_size_request (130, 130);
             desktop_id = app.desktop_id;
+            desktop_path = app.desktop_path;
             
             app_name = app.name;
             tooltip_text = app.description;
@@ -85,7 +87,7 @@ namespace Slingshot.Widgets {
                 this.dragging = false;
             });
             this.drag_data_get.connect ( (ctx, sel, info, time) => {
-                sel.set_uris ({"file:///usr/share/applications/"+desktop_id});
+                sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
             });
             
             app.icon_changed.connect (queue_draw);
