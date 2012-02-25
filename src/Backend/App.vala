@@ -28,7 +28,7 @@ namespace Slingshot.Backend {
         public Gdk.Pixbuf icon { get; private set; }
         public double popularity { get; set; }
         public double relevancy { get; set; }
-        public string desktop_path;
+        public string desktop_path { get; private set; }
 
         private bool is_command = false;
 
