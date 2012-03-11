@@ -32,6 +32,9 @@
         <Not><Category>System</Category></Not>
       </And>
     </Include>
+  <Exclude>
+    <Filename>plank.desktop</Filename>
+  </Exclude>
   </Menu> <!-- End Accessories -->
 
   <!-- Accessibility submenu -->
@@ -272,6 +275,7 @@
     <MergeFile>debian-menu.menu</MergeFile>
     <Directory>Debian.directory</Directory>
   </Menu>
+
 
 <!-- Separator between menus and gnome-app-install -->
 <Layout>
