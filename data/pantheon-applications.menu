@@ -247,6 +247,7 @@
 	    <Not><Category>Game</Category></Not>
       </And>
       <Filename>switchboard.desktop</Filename>
+      <Filename>ubuntu-software-center.desktop</Filename>
     </Include>
   </Menu>   <!-- End System Tools -->
 
@@ -260,6 +261,7 @@
         <Not><Category>Core</Category></Not>
         <Not><Category>Screensaver</Category></Not>
         <Not><Category>X-GNOME-Settings-Panel</Category></Not>
+        <Not><Category>System</Category></Not>
       </And>
     </Include>
   </Menu> <!-- End Other -->
@@ -271,16 +273,11 @@
     <Directory>Debian.directory</Directory>
   </Menu>
 
-<Include>
-  <Filename>ubuntu-software-center.desktop</Filename>
-</Include>
-
 <!-- Separator between menus and gnome-app-install -->
 <Layout>
   <Merge type="menus"/>
   <Merge type="files"/>
   <Separator/>
-  <Filename>ubuntu-software-center.desktop</Filename>
 </Layout>
 
 </Menu> <!-- End Applications -->
