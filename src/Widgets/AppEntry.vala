@@ -58,18 +58,24 @@ namespace Slingshot.Widgets {
 
             get_style_context ().add_class ("app");
 
-            app_label = new Label (Utils.truncate_text (app_name, icon_size));
-            app_label.halign = Align.CENTER;
-            app_label.justify = Justification.CENTER;
-            app_label.set_line_wrap (true); // Need a smarter way
-            app_label.set_single_line_mode (false);
-            app_label.set_ellipsize (Pango.EllipsizeMode.END);
-
-            layout = new VBox (false, 0);
-
-            layout.pack_start (app_label, false, true, 0);
-
-            add (Utils.set_padding (layout, 78, 5, 5, 5));
+            var grid = new Gtk.Grid ();
+            grid.attach (new Gtk.Image.from_pixbuf (icon), 0, 0, 1, 1);
+            var label = new Gtk.EventBox ();
+            label.set_visible_window (false);
+            var layout = create_pango_layout (app_name);
+            layout.set_ellipsize(Pango.EllipsizeMode.END);
+            layout.set_width (Pango.units_from_double (130));
+            label.draw.connect ( (cr) => {
+                Gtk.render_layout (get_style_context (), cr, 0, 0, layout);
+                return true;
+            });
+            layout.set_alignment (Pango.Alignment.CENTER);
+            label.hexpand = true;
+            Pango.Rectangle extents;
+            layout.get_extents (null, out extents);
+            label.height_request = (int) Pango.units_to_double (extents.height);
+            grid.attach (label, 0, 1, 1, 1);
+            add (grid);
             
             this.button_release_event.connect (() => {
                 if (!this.dragging){
@@ -91,56 +97,6 @@ namespace Slingshot.Widgets {
             });
             
             app.icon_changed.connect (queue_draw);
-
-        }
-
-        protected override bool draw (Context cr) {
-
-
-            Allocation size;
-            get_allocation (out size);
-
-            base.draw (cr);
-
-            // Draw icon
-            Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
-            cr.paint_with_alpha (alpha);
-
-            return true;
-
-        }
-
-        public void fade_out () {
-
-            Timeout.add (20, () => {
-
-                if (alpha <= 0.3) {
-                    queue_draw ();
-                    return false;
-                }
-
-                alpha -= 0.05;
-                queue_draw ();
-                return true;
-
-            });
-
-        }
-
-        public void fade_in () {
-
-            Timeout.add (20, () => {
-
-                if (alpha == 1.0) {
-                    queue_draw ();
-                    return false;
-                }
-                
-                alpha += 0.05;
-                queue_draw ();
-                return true;
-
-            });
 
         }
     }

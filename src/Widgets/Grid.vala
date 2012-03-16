@@ -113,7 +113,6 @@ namespace Slingshot.Widgets {
         public void fade_all_out () {
 
             foreach (Widget widget in get_children ()) {
-                ((AppEntry) widget).fade_out ();
             }
 
         }
@@ -121,7 +120,6 @@ namespace Slingshot.Widgets {
         public void fade_all_in () {
 
             foreach (Widget widget in get_children ()) {
-                ((AppEntry) widget).fade_in ();
             }
 
         }

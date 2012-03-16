@@ -98,6 +98,7 @@ namespace Slingshot {
         }
 
         public static int main (string[] args) {
+            GtkClutter.init (ref args);
 
             return new Slingshot ().run (args);
 
