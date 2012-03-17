@@ -461,16 +461,18 @@ namespace Slingshot {
         public void show_slingshot () {
 
             reposition ();
-            show_all ();
+            //show_all ();
+            show_now ();
             set_modality ((Modality) view_selector.selected);
 
-            Idle.add ( () => {
+            //Idle.add ( () => {
                 unowned X.Display xdisplay = Gdk.X11Display.get_xdisplay (Gdk.Display.get_default ());
                 var xid = Gdk.X11Window.get_xid (get_window ());
                 xdisplay.raise_window (xid);
                 xdisplay.set_input_focus (xid, 0, 0);
-                return false;
-            });
+             //   show ();
+            //    return false;
+            //});
             //this.focus (0);
 
             //Utils.present_window (this);
