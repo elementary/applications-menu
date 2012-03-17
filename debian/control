@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 7),
     libgranite-dev,
     libgee-dev,
     libgnome-menu-dev,
+    libclutter-gtk-1.0-dev,
     libzeitgeist-dev
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/slingshot
