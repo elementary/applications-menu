@@ -583,9 +583,9 @@ namespace Slingshot {
             grid_view.clear ();
             grids_list = new GLib.List<Gtk.Grid> ();
             int column = -1;
-            const int max_row = 4;
+            int max_row = default_rows;
             int row = max_row+1;
-            const int max_col = 4;
+            int max_col = default_columns;
             int page = 0;
 
             Gtk.Grid? grid = null;
