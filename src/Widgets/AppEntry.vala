@@ -26,7 +26,6 @@ namespace Slingshot.Widgets {
 
         public Label app_label;
         private Pixbuf icon;
-        private VBox layout;
 
         public string exec_name;
         public string app_name;
@@ -39,6 +38,7 @@ namespace Slingshot.Widgets {
         private double alpha = 1.0;
         private bool   dragging = false; //prevent launching
         
+        Pango.Layout layout;
         public AppEntry (Backend.App app) {
             TargetEntry dnd = {"text/uri-list", 0, 0};
             Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd}, 
@@ -61,9 +61,8 @@ namespace Slingshot.Widgets {
             grid.attach (new Gtk.Image.from_pixbuf (icon), 0, 0, 1, 1);
             var label = new Gtk.EventBox ();
             label.set_visible_window (false);
-            var layout = create_pango_layout (app_name);
+            layout = create_pango_layout (app_name);
             layout.set_ellipsize(Pango.EllipsizeMode.END);
-            layout.set_width (Pango.units_from_double (130));
             label.draw.connect ( (cr) => {
                 Gtk.render_layout (get_style_context (), cr, 0, 0, layout);
                 return true;
@@ -96,6 +95,7 @@ namespace Slingshot.Widgets {
                 sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
             });
             
+            size_allocate.connect_after ( (a) => { layout.set_width (Pango.units_from_double (a.width - 20)); });
             app.icon_changed.connect (queue_draw);
 
         }
