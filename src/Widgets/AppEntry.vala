@@ -46,7 +46,6 @@ namespace Slingshot.Widgets {
             
             app_paintable = true;
 			set_visual (get_screen ().get_rgba_visual());
-            set_size_request (130, 130);
             desktop_id = app.desktop_id;
             desktop_path = app.desktop_path;
             
@@ -75,6 +74,7 @@ namespace Slingshot.Widgets {
             layout.get_extents (null, out extents);
             label.height_request = (int) Pango.units_to_double (extents.height);
             grid.attach (label, 0, 1, 1, 1);
+            set_size_request (130, icon.get_height () + label.height_request);
             add (grid);
             
             this.button_release_event.connect (() => {
