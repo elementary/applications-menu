@@ -1,6 +1,6 @@
 Source: slingshot-launcher
 Section: x11
-Priority: extra
+Priority: optional
 Maintainer: Giulio Collura <random.cpp@gmail.com>
 Build-Depends: debhelper (>= 7), 
     cmake,
