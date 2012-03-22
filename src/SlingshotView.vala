@@ -38,7 +38,7 @@ namespace Slingshot {
 
         // Widgets
         public SearchBar searchbar;
-        public Slider view_manager;
+        public Layout view_manager;
         public Switcher page_switcher;
         public ModeButton view_selector;
 
@@ -131,24 +131,24 @@ namespace Slingshot {
 
             center = new HBox (false, 0);
             // Create the layout which works like view_manager
-            view_manager = get_slider ();
+            view_manager = new Layout (null, null);
             view_manager.set_size_request (default_columns*130, default_rows*145);
             center.pack_end (view_manager, true, true, 0);
 
             // Create the "NORMAL_VIEW"
             grid_view = new Widgets.Grid (default_rows, default_columns);
-            //view_manager.put (grid_view, 0, 0);
+            view_manager.put (grid_view, 0, 0);
 
             // Create the "SEARCH_VIEW"
             search_view = new SearchView (this);
             foreach (ArrayList<App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
-            //view_manager.put (search_view, -columns*130, 0);
+            view_manager.put (search_view, -columns*130, 0);
 
             // Create the "CATEGORY_VIEW"
             category_view = new CategoryView (this);
-            //view_manager.put (category_view, -columns*130, 0);
+            view_manager.put (category_view, -columns*130, 0);
 
             // Create the page switcher
             page_switcher = new Switcher ();
@@ -199,9 +199,9 @@ namespace Slingshot {
             page_switcher.active_changed.connect (() => {
 
                 if (page_switcher.active > page_switcher.old_active)
-                    this.page_right (page_switcher.active);
+                    this.page_right (page_switcher.active - page_switcher.old_active);
                 else
-                    this.page_left (page_switcher.active);
+                    this.page_left (page_switcher.old_active - page_switcher.active);
 
             });
 
@@ -461,19 +461,13 @@ namespace Slingshot {
         public void show_slingshot () {
 
             reposition ();
-            //show_all ();
-            show_now ();
+            show_all ();
             set_modality ((Modality) view_selector.selected);
 
-            //Idle.add ( () => {
-                unowned X.Display xdisplay = Gdk.X11Display.get_xdisplay (Gdk.Display.get_default ());
-                var xid = Gdk.X11Window.get_xid (get_window ());
-                xdisplay.raise_window (xid);
-                xdisplay.set_input_focus (xid, 0, 0);
-             //   show ();
-            //    return false;
-            //});
-            //this.focus (0);
+            present ();
+            show_all ();
+            searchbar.grab_focus ();
+            this.focus (0);
 
             //Utils.present_window (this);
 
@@ -485,7 +479,22 @@ namespace Slingshot {
             if (modality != Modality.NORMAL_VIEW)
                 return;
 
-            view_manager.slide_from (grids_list.nth_data(step));
+            if (current_position < 0) {
+                int count = 0;
+                int val = columns*130*step / 10;
+                Timeout.add (20 / (2*step*step), () => {
+
+                    if (count >= columns*130*step) {
+                        count = 0;
+                        return false;
+                    }
+                    view_manager.move (grid_view, current_position + val, 0);
+                    current_position += val;
+                    count += val;
+                    return true;
+
+                }, Priority.DEFAULT_IDLE);
+            }
 
         }
 
@@ -495,7 +504,22 @@ namespace Slingshot {
             if (modality != Modality.NORMAL_VIEW)
                 return;
 
-            view_manager.slide_to (grids_list.nth_data (step));
+            if ((- current_position) < (grid_view.n_columns*130)) {
+                int count = 0;
+                int val = columns*130*step / 10;
+                Timeout.add (20 / (2*step*step), () => {
+
+                    if (count >= columns*130*step) {
+                        count = 0;
+                        return false;
+                    }
+                    view_manager.move (grid_view, current_position - val, 0);
+                    current_position -= val;
+                    count += val;
+                    return true;
+
+                }, Priority.DEFAULT_IDLE);
+            }
 
         }
 
@@ -505,7 +529,7 @@ namespace Slingshot {
                 return;
 
             if ((search_view_position) > -(search_view.apps_showed*48)) {
-                //view_manager.move (search_view, 0, search_view_position - 2*38);
+                view_manager.move (search_view, 0, search_view_position - 2*38);
                 search_view_position -= 2*38;
             }
 
@@ -514,7 +538,7 @@ namespace Slingshot {
         private void search_view_up () {
 
             if (search_view_position < 0) {
-                //view_manager.move (search_view, 0, search_view_position + 2*38);
+                view_manager.move (search_view, 0, search_view_position + 2*38);
                 search_view_position += 2*38;
             }
 
@@ -530,7 +554,9 @@ namespace Slingshot {
                     view_selector.show_all ();
                     page_switcher.show_all ();
                     category_view.show_page_switcher (false);
-                    view_manager.slide_fade (grids_list.nth_data (page_switcher.active));
+                    view_manager.move (search_view, -130*columns, 0);
+                    view_manager.move (category_view, 130*columns, 0);
+                    view_manager.move (grid_view, current_position, 0);
                     return;
 
                 case Modality.CATEGORY_VIEW:
@@ -538,15 +564,17 @@ namespace Slingshot {
                     view_selector.show_all ();
                     page_switcher.hide ();
                     category_view.show_page_switcher (true);
-                    view_manager.slide_fade (category_view);
+                    view_manager.move (grid_view, columns*130, 0);
+                    view_manager.move (search_view, -columns*130, 0);
+                    view_manager.move (category_view, 0, 0);
                     return;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
                     bottom.hide (); // Hide the switcher
-                    //view_manager.move (grid_view, columns*130, 0); // Move the grid_view away
-                    //view_manager.move (category_view, columns*130, 0);
-                    view_manager.slide_fade (search_view); // Show the searchview
+                    view_manager.move (grid_view, columns*130, 0); // Move the grid_view away
+                    view_manager.move (category_view, columns*130, 0);
+                    view_manager.move (search_view, 0, 0); // Show the searchview
                     return;
 
             }
@@ -576,44 +604,23 @@ namespace Slingshot {
 
         }
 
-        GLib.List<Gtk.Grid> grids_list;
         public void populate_grid_view () {
 
             page_switcher.clear_children ();
             grid_view.clear ();
-            grids_list = new GLib.List<Gtk.Grid> ();
-            int column = -1;
-            int max_row = default_rows;
-            int row = max_row+1;
-            int max_col = default_columns;
-            int page = 0;
 
-            Gtk.Grid? grid = null;
+            page_switcher.append ("1");
+            page_switcher.set_active (0);
 
             foreach (App app in app_system.get_apps_by_name ()) {
-                column++;
-                if (column >= max_col) {
-                    row++;
-                    column = 0;
-                }
-                if (row >= max_row)
-                {
-                    row = 0;
-                    grid = new Gtk.Grid ();
-                    grid.row_homogeneous = true;
-                    grid.column_homogeneous = true;
-                    grids_list.append (grid);
 
-                    page++;
-                    page_switcher.append (page.to_string ());
-                }
                 var app_entry = new AppEntry (app);
 
                 app_entry.app_launched.connect (hide_slingshot);
-                grid.attach (app_entry, row, column, 1, 1);
+                grid_view.append (app_entry);
                 app_entry.show_all ();
+
             }
-            page_switcher.set_active (0);
 
             current_position = 0;
 

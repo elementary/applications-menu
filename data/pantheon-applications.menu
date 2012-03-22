@@ -32,6 +32,9 @@
         <Not><Category>System</Category></Not>
       </And>
     </Include>
+  <Exclude>
+    <Filename>plank.desktop</Filename>
+  </Exclude>
   </Menu> <!-- End Accessories -->
 
   <!-- Accessibility submenu -->

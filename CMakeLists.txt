@@ -25,7 +25,7 @@ configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 # Slingshot
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;clutter-gtk-1.0;x11;gdk-x11-3.0;")
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;")
 set (UI_DEPS "gtk+-3.0>=3.2.0;granite>=0.1.3;zeitgeist-1.0;")
 
 find_package (PkgConfig)
@@ -51,7 +51,6 @@ vala_precompile (VALA_C
     src/Widgets/SearchItem.vala
     src/Widgets/Sidebar.vala
     src/Widgets/CategoryView.vala
-    src/Widgets/Slider.vala
 PACKAGES
     ${CORE_DEPS}
     ${UI_DEPS}
