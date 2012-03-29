@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-27 22:16+0200\n"
-"PO-Revision-Date: 2011-10-22 23:34+0000\n"
-"Last-Translator: Jeremy Rea <Unknown>\n"
+"PO-Revision-Date: 2012-03-28 13:25+0000\n"
+"Last-Translator: Shawn McTear <Unknown>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-01 04:39+0000\n"
-"X-Generator: Launchpad (build 14874)\n"
+"X-Launchpad-Export-Date: 2012-03-29 04:31+0000\n"
+"X-Generator: Launchpad (build 15032)\n"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:38
 msgid "All Applications"
@@ -27,7 +27,7 @@ msgstr "Most Used Apps"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/CategoryView.vala:60
 msgid "This Category is Empty"
-msgstr ""
+msgstr "This Category is Empty"
 
 #: /home/random/Projects/slingshot/po/../src/Widgets/Sidebar.vala:82
 msgid "<b>Bookmarks</b>"
