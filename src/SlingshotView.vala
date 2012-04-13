@@ -275,7 +275,7 @@ namespace Slingshot {
 
                 case "1":
                 case "KP_1":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (0);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (0);
@@ -285,7 +285,7 @@ namespace Slingshot {
 
                 case "2":
                 case "KP_2":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (1);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (1);
@@ -295,7 +295,7 @@ namespace Slingshot {
 
                 case "3":
                 case "KP_3":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (2);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (2);
@@ -305,7 +305,7 @@ namespace Slingshot {
 
                 case "4":
                 case "KP_4":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (3);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (3);
@@ -315,7 +315,7 @@ namespace Slingshot {
 
                 case "5":
                 case "KP_5":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (4);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (4);
@@ -325,7 +325,7 @@ namespace Slingshot {
 
                 case "6":
                 case "KP_6":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (5);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (5);
@@ -335,7 +335,7 @@ namespace Slingshot {
 
                 case "7":
                 case "KP_7":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (6);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (6);
@@ -345,7 +345,7 @@ namespace Slingshot {
 
                 case "8":
                 case "KP_8":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (7);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (7);
@@ -355,7 +355,7 @@ namespace Slingshot {
 
                 case "9":
                 case "KP_9":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (8);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (8);
@@ -365,7 +365,7 @@ namespace Slingshot {
 
                 case "0":
                 case "KP_0":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (9);
                     else if (modality == Modality.CATEGORY_VIEW)
                         category_view.switcher.set_active (9);
