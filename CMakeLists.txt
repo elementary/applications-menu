@@ -33,7 +33,7 @@ pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
-ensure_vala_version ("0.14.0" MINIMUM)
+ensure_vala_version ("0.15.1" MINIMUM)
 
 include (ValaPrecompile)
 vala_precompile (VALA_C
