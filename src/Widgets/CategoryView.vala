@@ -27,6 +27,7 @@ namespace Slingshot.Widgets {
 
         private HBox container;
         public Sidebar category_switcher;
+        public VSeparator separator;
         public Widgets.Grid app_view;
         private Layout layout;
         public Switcher switcher;
@@ -74,6 +75,8 @@ namespace Slingshot.Widgets {
             category_switcher.add_bookmark (MOST_USED_APPS);
             //category_switcher.add_bookmark (NEW_FILTER);
 
+            separator = new VSeparator ();
+
             layout = new Layout (null, null);
 
             app_view = new Widgets.Grid (view.rows, view.columns - 1);
@@ -90,6 +93,7 @@ namespace Slingshot.Widgets {
             page_switcher.pack_start (new Label (""), true, true, 0);
 
             container.pack_start (category_switcher, false, false, 0);
+            container.pack_start (separator, false, false, 0);
             container.pack_end (layout, true, true, 0);
 
             add (container);
