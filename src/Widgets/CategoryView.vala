@@ -25,7 +25,7 @@ namespace Slingshot.Widgets {
 
     public class CategoryView : EventBox {
 
-        private HBox container;
+        private Gtk.Grid container;
         public Sidebar category_switcher;
         public VSeparator separator;
         public Widgets.Grid app_view;
@@ -34,7 +34,7 @@ namespace Slingshot.Widgets {
         private SlingshotView view;
         private Label empty_cat_label;
 
-        private HBox page_switcher;
+        private Gtk.Grid page_switcher;
 
         private const string ALL_APPLICATIONS = _("All Applications");
         private const string MOST_USED_APPS = _("Most Used Apps");
@@ -60,7 +60,7 @@ namespace Slingshot.Widgets {
 
         private void setup_ui () {
 
-            container = new HBox (false, 0);
+            container = new Gtk.Grid();
 
             var empty_cat_text = _("This Category is Empty");
             empty_cat_label = new Label ("<b><span size=\"larger\">" + empty_cat_text + "</span></b>");
@@ -120,19 +120,25 @@ namespace Slingshot.Widgets {
             app_view = new Widgets.Grid (view.rows, view.columns - 1);
             layout.put (app_view, 0, 0);
             layout.put (empty_cat_label, view.columns*130, view.rows * 130 / 2);
+            layout.set_hexpand(true);
+            layout.set_vexpand(true);
 
             // Create the page switcher
             switcher = new Switcher ();
 
             // A bottom widget to keep the page switcher center
-            page_switcher = new HBox (false, 0);
-            page_switcher.pack_start (new Label (""), true, true, 0);
-            page_switcher.pack_start (switcher, false, false, 10);
-            page_switcher.pack_start (new Label (""), true, true, 0);
+            page_switcher = new Gtk.Grid ();
+            var bottom_separator1 = new Label (""); // A fake label
+            bottom_separator1.set_hexpand(true);
+            var bottom_separator2 = new Label (""); // A fake label
+            bottom_separator2.set_hexpand(true);
+            page_switcher.attach (bottom_separator1, 0, 0, 1, 1);
+            page_switcher.attach (switcher, 1, 0, 1, 1);
+            page_switcher.attach (bottom_separator2, 2, 0, 1, 1);
 
-            container.pack_start (category_switcher, false, false, 0);
-            container.pack_start (separator, false, false, 0);
-            container.pack_end (layout, true, true, 0);
+            container.attach (category_switcher, 0, 0, 1, 1);
+            container.attach (separator, 1, 0, 1, 1);
+            container.attach (layout, 2, 0, 1, 1);
 
             add (container);
 
@@ -317,7 +323,7 @@ namespace Slingshot.Widgets {
         public void show_page_switcher (bool show) {
 
             if (page_switcher.get_parent () == null)
-                view.bottom.pack_start (page_switcher, false, false, 0);
+                view.bottom.attach (page_switcher, 1, 0, 1, 1);
             
             if (show)
                 page_switcher.show_all ();

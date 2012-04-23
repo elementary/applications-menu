@@ -1,5 +1,5 @@
 <schemalist>
-	<schema path="/desktop/pantheon/slingshot/" id="desktop.pantheon.slingshot" gettext-domain="slingshot">
+	<schema path="/org/elementary/slingshot/" id="org.elementary.slingshot" gettext-domain="slingshot">
         <key name="columns" type="i">
             <default>5</default>
             <summary>The default number of columns</summary>
@@ -19,11 +19,21 @@
             <default>true</default>
             <summary>Show the category switcher or not</summary>
             <description>This value handles the category switcher.</description>
-          </key>
+        </key>
+        <key name="use-category" type="b">
+            <default>false</default>
+            <summary>Show the category view by default</summary>
+            <description>Save the current view of the launcher.</description>
+        </key>
         <key name="open-on-mouse" type="b">
             <default>false</default>
             <summary>Open on mouse position.</summary>
             <description>Whether Slingshot should open on mouse position or not.</description>
+        </key>
+        <key name="screen-resolution" type="s">
+            <default>""</default>
+            <summary>The last resolution of the screen</summary>
+            <description>This value makes slingshot able to adapt to each screen.</description>
         </key>
 	</schema>
 </schemalist>
