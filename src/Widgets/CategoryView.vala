@@ -41,7 +41,9 @@ namespace Slingshot.Widgets {
         private const string NEW_FILTER = _("Create a new Filter");
         private int current_position = 0;
         private bool from_category = false;
-
+        
+        private HashMap<int, string> category_ids = new HashMap<int, string> ();
+        
         public CategoryView (SlingshotView parent) {
 
             view = parent;
@@ -68,8 +70,44 @@ namespace Slingshot.Widgets {
             category_switcher.can_focus = false;
 
             // Fill the sidebar
+            int n = 0;
+            
             foreach (string cat_name in view.apps.keys) {
-                category_switcher.add_category (cat_name);
+                category_ids.set (n, cat_name);
+                                
+                switch (cat_name) {
+                    case "Accessories":
+                        category_switcher.add_category (_("Accessories"));
+                    break;
+                    case "Universal Access":
+                        category_switcher.add_category (_("Universal Access"));
+                    break;
+                    case "Graphics":
+                        category_switcher.add_category (_("Graphics"));
+                    break;
+                    case "Development":
+                        category_switcher.add_category (_("Development"));
+                    break;
+                    case "Other":
+                        category_switcher.add_category (_("Other"));
+                    break;
+                    case "Internet":
+                        category_switcher.add_category (_("Internet"));
+                    break;
+                    case "System":
+                        category_switcher.add_category (_("System"));
+                    break;
+                    case "Multimedia":
+                        category_switcher.add_category (_("Multimedia"));
+                    break;
+                    case "Games":
+                        category_switcher.add_category (_("Games"));
+                    break;
+                    case "Office":
+                        category_switcher.add_category (_("Office"));
+                    break;
+                }
+                n++;
             }
 
             category_switcher.add_bookmark (MOST_USED_APPS);
@@ -102,8 +140,13 @@ namespace Slingshot.Widgets {
 
         private void connect_events () { 
 
-            category_switcher.selection_changed.connect ((category) => {
-
+            category_switcher.selection_changed.connect ((name, nth) => {
+                
+                string category = category_ids.get (nth);
+                
+                if (name == MOST_USED_APPS)
+                    category = name;
+                    
                 if (category == ALL_APPLICATIONS)
                     show_all_apps ();
                 else

@@ -58,7 +58,7 @@ namespace Slingshot.Widgets {
             N_COLUMNS
         }
 
-        public signal void selection_changed (string entry_name);
+        public signal void selection_changed (string entry_name, int nth);
 
         public Sidebar () {
 
@@ -124,7 +124,7 @@ namespace Slingshot.Widgets {
                     selected = _selected;
                 } else {
                     _selected = nth;
-                    selection_changed (name);
+                    selection_changed (name, nth);
                 }
             }
 
