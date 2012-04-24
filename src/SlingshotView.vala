@@ -557,6 +557,10 @@ namespace Slingshot {
                     view_manager.move (search_view, -130*columns, 0);
                     view_manager.move (category_view, 130*columns, 0);
                     view_manager.move (grid_view, current_position, 0);
+                    get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
+                    center.set_margin_left (12);
+                    top.set_margin_left (12);
+                    view_manager.set_size_request (default_columns*130, default_rows*145);
                     return;
 
                 case Modality.CATEGORY_VIEW:
@@ -567,6 +571,10 @@ namespace Slingshot {
                     view_manager.move (grid_view, columns*130, 0);
                     view_manager.move (search_view, -columns*130, 0);
                     view_manager.move (category_view, 0, 0);
+                    get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE); // remove the left padding of the PopOver
+                    center.set_margin_left (0);
+                    top.set_margin_left (17);
+                    view_manager.set_size_request (default_columns*130 + 17, default_rows*145);
                     return;
 
                 case Modality.SEARCH_VIEW:
@@ -575,6 +583,10 @@ namespace Slingshot {
                     view_manager.move (grid_view, columns*130, 0); // Move the grid_view away
                     view_manager.move (category_view, columns*130, 0);
                     view_manager.move (search_view, 0, 0); // Show the searchview
+                    get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
+                    center.set_margin_left (12);
+                    top.set_margin_left (12);
+                    view_manager.set_size_request (default_columns*130, default_rows*145);
                     return;
 
             }

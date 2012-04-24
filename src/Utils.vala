@@ -24,17 +24,14 @@ namespace Slingshot {
 
     class Utils : GLib.Object {
 
-        public static Alignment set_padding (Gtk.Widget widget, int top, 
+        public static Widget set_padding (Gtk.Widget widget, int top, 
                                              int right, int bottom, int left) {
 
-            var alignment = new Alignment (0.0f, 0.0f, 1.0f, 1.0f);
-            alignment.top_padding = top;
-            alignment.right_padding = right;
-            alignment.bottom_padding = bottom;
-            alignment.left_padding = left;
-
-            alignment.add (widget);
-            return alignment;
+            widget.set_margin_top (top);
+            widget.set_margin_right (right);
+            widget.set_margin_bottom (bottom);
+            widget.set_margin_left (left);
+            return widget;
 
         }
   
