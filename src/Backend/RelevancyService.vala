@@ -129,7 +129,7 @@ namespace Slingshot.Backend {
 
             var id = "application://" + desktop_id;
 
-            if (id in app_popularity) {
+            if (app_popularity.has_key(id)) {
                 return app_popularity[id] / MULTIPLIER;
             }
 
