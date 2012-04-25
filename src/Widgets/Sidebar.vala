@@ -69,12 +69,13 @@ namespace Slingshot.Widgets {
             set_show_expanders (false);
             set_level_indentation (8);
 
-            set_size_request (130, -1);
+            set_size_request (145, -1);
             get_style_context ().add_class ("sidebar");
 
             var cell = new CellRendererText ();
             cell.wrap_mode = Pango.WrapMode.WORD;
             cell.wrap_width = 110;
+            cell.xpad = 17;
 
             insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 

@@ -54,7 +54,7 @@ namespace Slingshot.Widgets {
 
             category_switcher.selected = 0;
 
-            set_size_request (view.columns*130, view.view_height);
+            set_size_request (view.columns*130 + 17, view.view_height);
 
         }
 
