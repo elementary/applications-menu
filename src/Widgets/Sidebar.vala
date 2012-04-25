@@ -75,6 +75,7 @@ namespace Slingshot.Widgets {
             var cell = new CellRendererText ();
             cell.wrap_mode = Pango.WrapMode.WORD;
             cell.wrap_width = 110;
+            cell.xpad = 17;
 
             insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 
