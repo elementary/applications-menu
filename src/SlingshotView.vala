@@ -47,10 +47,10 @@ namespace Slingshot {
         private SearchView search_view;
         private CategoryView category_view;
 
-        public HBox top;
-        public HBox center;
-        public HBox bottom;
-        public VBox container;
+        public Gtk.Grid top;
+        public Gtk.Grid center;
+        public Gtk.Grid bottom;
+        public Gtk.Grid container;
 
         public AppSystem app_system;
         private ArrayList<TreeDirectory> categories;
@@ -90,7 +90,6 @@ namespace Slingshot {
 
             // Have the window in the right place
             read_settings (true);
-            height_request = default_rows * 145 + 180;
 
             Slingshot.icon_theme = IconTheme.get_default ();
 
@@ -98,11 +97,30 @@ namespace Slingshot {
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
+            
+            if (Slingshot.settings.screen_resolution != @"$(screen.get_width ())x$(screen.get_height ())")
+                setup_size ();
+            height_request = default_rows * 145 + 180;
             setup_ui ();
             connect_signals ();
 
             debug ("Apps loaded");
 
+        }
+        
+        private void setup_size () {
+        
+            debug ("In setup_size ()");
+            Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
+            while ((default_columns*130 +48 >= 2*screen.get_width ()/3)) {
+                default_columns--;
+            }
+            
+            while ((default_rows*145 + 72 >= 2*screen.get_height ()/3)) {
+                default_rows--;
+            }
+            Slingshot.settings.columns = default_columns;
+            Slingshot.settings.rows = default_rows;
         }
 
         private void setup_ui () {
@@ -110,30 +128,37 @@ namespace Slingshot {
             debug ("In setup_ui ()");
 
             // Create the base container
-            container = new VBox (false, 0);
+            container = new Gtk.Grid ();
 
             // Add top bar
-            top = new HBox (false, 10);
+            top = new Gtk.Grid ();
+            
+            var top_separator = new Label (""); // A fake label
+            top_separator.set_hexpand(true);
 
             view_selector = new ModeButton ();
             view_selector.append (new Image.from_icon_name ("slingshot-view-list-icons-symbolic", IconSize.MENU));
             view_selector.append (new Image.from_icon_name ("slingshot-view-list-filter-symbolic", IconSize.MENU));
-            view_selector.selected = 0;
+            if (Slingshot.settings.use_category)
+                view_selector.selected = 1;
+            else
+                view_selector.selected = 0;
 
             searchbar = new SearchBar (_("Search Apps..."));
             searchbar.pause_delay = 200;
             searchbar.width_request = 250;
 
             if (Slingshot.settings.show_category_filter) {
-                top.pack_start (view_selector, false, false, 0);
+                top.attach (view_selector, 0, 0, 1, 1);
             }
-            top.pack_end (searchbar, false, false, 0);
+            top.attach (top_separator, 1, 0, 1, 1);
+            top.attach (searchbar, 2, 0, 1, 1);
 
-            center = new HBox (false, 0);
+            center = new Gtk.Grid ();
             // Create the layout which works like view_manager
             view_manager = new Layout (null, null);
             view_manager.set_size_request (default_columns*130, default_rows*145);
-            center.pack_end (view_manager, true, true, 0);
+            center.attach (view_manager, 0, 0, 1, 1);
 
             // Create the "NORMAL_VIEW"
             grid_view = new Widgets.Grid (default_rows, default_columns);
@@ -154,21 +179,29 @@ namespace Slingshot {
             page_switcher = new Switcher ();
 
             // A bottom widget to keep the page switcher center
-            bottom = new HBox (false, 0);
-            bottom.pack_start (new Label (""), true, true, 0); // A fake label
-            bottom.pack_start (page_switcher, false, false, 0);
-            bottom.pack_end (new Label (""), true, true, 0); // A fake label
+            bottom = new Gtk.Grid ();
+            
+            
+            var bottom_separator1 = new Label (""); // A fake label
+            bottom_separator1.set_hexpand(true);
+            var bottom_separator2 = new Label (""); // A fake label
+            bottom_separator2.set_hexpand(true);
+            bottom.attach (bottom_separator1, 0, 0, 1, 1); // A fake label
+            bottom.attach (page_switcher, 1, 0, 1, 1);
+            bottom.attach (bottom_separator2, 2, 0, 1, 1); // A fake label
 
-            container.pack_start (Utils.set_padding (top, 12, 12, 12, 12), false, true, 0);
-            container.pack_start (Utils.set_padding (center, 0, 12, 12, 12),
-                                                     true, true, 0);
-            container.pack_end (Utils.set_padding (bottom, 0, 24, 12, 24), false, true, 0);
+            container.attach (Utils.set_padding (top, 12, 12, 12, 12), 0, 0, 1, 1);
+            container.attach (Utils.set_padding (center, 0, 12, 12, 12), 0, 1, 1, 1);
+            container.attach (Utils.set_padding (bottom, 0, 24, 12, 24), 0, 2, 1, 1);
 
             // Add the container to the dialog's content area
             var content_area = get_content_area () as Box;
             content_area.pack_start (container);
 
-            set_modality (Modality.NORMAL_VIEW);
+            if (Slingshot.settings.use_category)
+                set_modality (Modality.CATEGORY_VIEW);
+            else
+                set_modality (Modality.NORMAL_VIEW);
             debug ("Ui setup completed");
 
         }
@@ -208,7 +241,6 @@ namespace Slingshot {
             view_selector.mode_changed.connect (() => {
 
                 set_modality ((Modality) view_selector.selected);
-
             });
 
             // Auto-update settings when changed
@@ -462,12 +494,12 @@ namespace Slingshot {
 
             reposition ();
             show_all ();
-            set_modality ((Modality) view_selector.selected);
 
             present ();
             show_all ();
+            set_focus(null);
             searchbar.grab_focus ();
-            this.focus (0);
+            set_modality ((Modality) view_selector.selected);
 
             //Utils.present_window (this);
 
@@ -550,6 +582,8 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
+                
+                    Slingshot.settings.use_category = false;
                     bottom.show ();
                     view_selector.show_all ();
                     page_switcher.show_all ();
@@ -560,6 +594,8 @@ namespace Slingshot {
                     return;
 
                 case Modality.CATEGORY_VIEW:
+                    
+                    Slingshot.settings.use_category = true;
                     bottom.show ();
                     view_selector.show_all ();
                     page_switcher.hide ();
