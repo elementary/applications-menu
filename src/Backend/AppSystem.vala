@@ -163,10 +163,14 @@ namespace Slingshot.Backend {
         public SList<App> get_apps_by_name () {
 
             var sorted_apps = new SList<App> ();
+            string[] sorted_apps_execs = {};
 
             foreach (ArrayList<App> category in apps.values) {
                 foreach (App app in category) {
-                    sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_name);
+                    if (!(app.exec in sorted_apps_execs)) {
+                        sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_name);
+                        sorted_apps_execs += app.exec;
+                    }
                 }
             }
 
