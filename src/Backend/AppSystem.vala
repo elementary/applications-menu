@@ -192,27 +192,29 @@ namespace Slingshot.Backend {
              * I've added a small multiplier when matching to a exec name, to give
              * more priority to app.name
             **/
+            string[] sorted_apps_execs = {};
             foreach (ArrayList<App> category in apps.values) {
                 foreach (App app in category) {
-                    
-                    if (search in app.name.down ()) {
-                        if (search == app.name.down ()[0:search.length])
-                            app.relevancy = 0.5 - app.popularity; // It must be minor than 1.0
-                        else
-                            app.relevancy = app.name.length / search.length - app.popularity;
-                        filtered.add (app);
+                    if (!(app.exec in sorted_apps_execs)) {
+                        sorted_apps_execs += app.exec;
+                        if (search in app.name.down ()) {
+                            if (search == app.name.down ()[0:search.length])
+                                app.relevancy = 0.5 - app.popularity; // It must be minor than 1.0
+                            else
+                                app.relevancy = app.name.length / search.length - app.popularity;
+                            filtered.add (app);
+                        }
+    
+                        else if (search in app.exec.down ()) {
+                            app.relevancy = app.exec.length / search.length * 10.0 - app.popularity;
+                            filtered.add (app);
+                        }
+    
+                        else if (search in app.description.down ()) {
+                            app.relevancy = app.description.length / search.length - app.popularity;
+                            filtered.add (app);
+                        }
                     }
-
-                    else if (search in app.exec.down ()) {
-                        app.relevancy = app.exec.length / search.length * 10.0 - app.popularity;
-                        filtered.add (app);
-                    }
-
-                    else if (search in app.description.down ()) {
-                        app.relevancy = app.description.length / search.length - app.popularity;
-                        filtered.add (app);
-                    }
-
                 }
             }
 
