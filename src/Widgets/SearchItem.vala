@@ -35,11 +35,10 @@ namespace Slingshot.Widgets {
             get_style_context ().add_class ("app");            
 
             icon = app.icon;
+            var label = "<b><span size=\"larger\">" + fix (app.name) + "</span></b>\n" +
+                        fix (Utils.truncate_text (app.description, 200));
 
-            var label = @"<b><span size=\"larger\">$(app.name)</span></b>\n" +
-                        @"$(Utils.truncate_text (app.description, 200))";
-
-            app_label = new Label (label.replace ("&", "&amp;"));
+            app_label = new Label (label);
             app_label.use_markup = true;
             app_label.xalign = 0.0f;
 
@@ -69,7 +68,10 @@ namespace Slingshot.Widgets {
             return true;
 
         }
-
+        
+        private string fix (string text) {
+            return text.replace ("&", "&amp;").replace ("<", "&lt;").replace (">", "&gt;");
+        }
     }
 
 }

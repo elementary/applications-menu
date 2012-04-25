@@ -69,14 +69,17 @@ namespace Slingshot.Backend {
                 icon = Slingshot.icon_theme.load_icon (icon_name, Slingshot.settings.icon_size,
                                                         Gtk.IconLookupFlags.FORCE_SIZE);
             } catch (Error e) {
-	    	try {
-                    icon = Slingshot.icon_theme.load_icon ("application-default-icon", Slingshot.settings.icon_size,
-                                                           Gtk.IconLookupFlags.FORCE_SIZE);
-		}
-		catch (Error e) {
-                    icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", Slingshot.settings.icon_size,
-                                                           Gtk.IconLookupFlags.FORCE_SIZE);
-		}
+                try {
+                    icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, Slingshot.settings.icon_size, Slingshot.settings.icon_size, false);
+                } catch (Error e) {
+	            	try {
+                        icon = Slingshot.icon_theme.load_icon ("application-default-icon", Slingshot.settings.icon_size,
+                                                               Gtk.IconLookupFlags.FORCE_SIZE);
+	        	    } catch (Error e) {
+                        icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", Slingshot.settings.icon_size,
+                                                               Gtk.IconLookupFlags.FORCE_SIZE);
+	            	}
+                }
             }
 
             icon_changed ();
