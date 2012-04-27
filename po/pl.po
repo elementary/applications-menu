@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-04-23 11:56+0200\n"
-"PO-Revision-Date: 2011-11-08 20:25+0000\n"
-"Last-Translator: Piotr Sokół <Unknown>\n"
+"PO-Revision-Date: 2012-04-26 08:48+0000\n"
+"Last-Translator: Adrian Widerski <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-24 04:36+0000\n"
-"X-Generator: Launchpad (build 15135)\n"
+"X-Launchpad-Export-Date: 2012-04-27 04:33+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -27,7 +27,7 @@ msgstr "Najczęściej używane"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:41
 msgid "Create a new Filter"
-msgstr ""
+msgstr "Stwórz nowy filtr"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:63
 msgid "This Category is Empty"
@@ -35,15 +35,15 @@ msgstr "Ta kategoria jest pusta"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:74
 msgid "Accessories"
-msgstr ""
+msgstr "Akcesoria"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:77
 msgid "Universal Access"
-msgstr ""
+msgstr "Ułatwienia dostępu"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:80
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:83
 msgid "Development"
@@ -51,27 +51,27 @@ msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:86
 msgid "Other"
-msgstr ""
+msgstr "Pozostałe"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:89
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:92
 msgid "System"
-msgstr ""
+msgstr "System"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:95
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedia"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:98
 msgid "Games"
-msgstr ""
+msgstr "Gry"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:101
 msgid "Office"
-msgstr ""
+msgstr "Biuro"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/Sidebar.vala:82
 msgid "<b>Bookmarks</b>"
