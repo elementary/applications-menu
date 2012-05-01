@@ -21,7 +21,6 @@ Package: slingshot-launcher
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
-Conflicts: slingshot
 Provides: netbook-launcher
 Description: Slingshot App Launcher
  Slingshot is a lightweight app launcher for Pantheon, written in Vala
