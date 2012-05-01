@@ -31,7 +31,7 @@ namespace Slingshot {
         public string screen_resolution { get; set; }
 
         public Settings () {
-            base ("org.elementary.slingshot");
+            base ("org.pantheon.desktop.slingshot");
         }
 
     }
