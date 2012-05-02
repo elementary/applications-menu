@@ -1,5 +1,5 @@
 <schemalist>
-	<schema path="/org/pantheon/desktop/slingshot/" id="org.elementary.slingshot" gettext-domain="slingshot">
+	<schema path="/org/pantheon/desktop/slingshot/" id="org.pantheon.slingshot" gettext-domain="slingshot">
         <key name="columns" type="i">
             <default>5</default>
             <summary>The default number of columns</summary>
