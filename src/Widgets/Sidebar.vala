@@ -23,19 +23,13 @@ namespace Slingshot.Widgets {
     public class Sidebar : TreeView {
 
         private TreeStore store;
-            
-        private TreeIter bookmarks_iter;
+        
         private TreeIter category_iter;
         private TreeIter entry_iter;
 
         private int cat_size {
             get {
                 return store.iter_n_children (category_iter);
-            }
-        }
-        private int book_size {
-            get {
-                return store.iter_n_children (bookmarks_iter);
             }
         }
         
@@ -45,7 +39,7 @@ namespace Slingshot.Widgets {
                 return _selected;
             }
             set {
-                if (0 <= value < (cat_size + book_size)) {
+                if (0 <= value < cat_size) {
                     select_nth (value);
                     _selected = value;
                 }
@@ -77,10 +71,7 @@ namespace Slingshot.Widgets {
             cell.wrap_width = 110;
             cell.xpad = 17;
 
-            insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
-
-            store.append (out bookmarks_iter, null);
-            store.set (bookmarks_iter, Columns.TEXT, _("<b>Bookmarks</b>"));
+            insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);;
 
             store.append (out category_iter, null);
             store.set (category_iter, Columns.TEXT, _("<b>Categories</b>"));
@@ -93,16 +84,7 @@ namespace Slingshot.Widgets {
         public void add_category (string entry_name) {
 
             store.append (out entry_iter, category_iter);
-            store.set (entry_iter, Columns.INT, book_size + cat_size - 1, Columns.TEXT, entry_name, -1);
-            
-            expand_all ();
-
-        }
-
-        public void add_bookmark (string entry_name) {
-
-            store.append (out entry_iter, bookmarks_iter);
-            store.set (entry_iter, Columns.INT, book_size - 1, Columns.TEXT, entry_name, -1);
+            store.set (entry_iter, Columns.INT, cat_size - 1, Columns.TEXT, entry_name, -1);
             
             expand_all ();
 
@@ -121,7 +103,7 @@ namespace Slingshot.Widgets {
                  * Check if sel_iter is category or bookmark entry.
                  * If it is, select the previous selected entry.
                  */
-                if (sel_iter == category_iter || sel_iter == bookmarks_iter) {
+                if (sel_iter == category_iter) {
                     selected = _selected;
                 } else {
                     _selected = nth;
@@ -135,16 +117,8 @@ namespace Slingshot.Widgets {
 
             TreeIter iter;
 
-            /**
-             * If the nth value to select is inside the fist iter,
-             * then check if it is minor than bookmark iter size
-             * If greater, it must be inside the category iter or
-             * outside any iter.
-             */
-            if (nth < book_size)
-                store.iter_nth_child (out iter, bookmarks_iter, nth);
-            else if (nth < (cat_size + book_size))
-                store.iter_nth_child (out iter, category_iter, nth - book_size);
+            if (nth < cat_size)
+                store.iter_nth_child (out iter, category_iter, nth);
             else
                 return false;
 
