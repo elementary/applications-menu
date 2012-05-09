@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-04-23 11:56+0200\n"
-"PO-Revision-Date: 2012-04-26 08:48+0000\n"
-"Last-Translator: Adrian Widerski <Unknown>\n"
+"PO-Revision-Date: 2012-05-08 16:06+0000\n"
+"Last-Translator: Nitreus <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-27 04:33+0000\n"
-"X-Generator: Launchpad (build 15149)\n"
+"X-Launchpad-Export-Date: 2012-05-09 04:33+0000\n"
+"X-Generator: Launchpad (build 15213)\n"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -47,7 +47,7 @@ msgstr "Grafika"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:83
 msgid "Development"
-msgstr ""
+msgstr "Programowanie"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:86
 msgid "Other"
