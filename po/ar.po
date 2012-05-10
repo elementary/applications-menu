@@ -1,16 +1,16 @@
-# Hungarian translation for slingshot
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Arabic translation for slingshot
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-04-23 11:56+0200\n"
-"PO-Revision-Date: 2012-05-09 17:49+0000\n"
-"Last-Translator: András Bognár <froccsmester@gmail.com>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"PO-Revision-Date: 2012-05-09 08:18+0000\n"
+"Last-Translator: Anas Mohamed <anasm7m@gmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,72 +19,72 @@ msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr "Minden alkalmazás"
+msgstr "كل التطبيقات"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Most Used Apps"
-msgstr "Leggyakrabban használt alkalmazások"
+msgstr "التطبيقات الأكثر إستخداما"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:41
 msgid "Create a new Filter"
-msgstr "Új szűrő létrehozása"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:63
 msgid "This Category is Empty"
-msgstr "Ez a kategória üres"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:74
 msgid "Accessories"
-msgstr "Kellékek"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:77
 msgid "Universal Access"
-msgstr "Akadálymentesítés"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:80
 msgid "Graphics"
-msgstr "Grafika"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:83
 msgid "Development"
-msgstr "Fejlesztés"
+msgstr "تطوير"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:86
 msgid "Other"
-msgstr "Egyéb"
+msgstr "أخرى"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:89
 msgid "Internet"
-msgstr "Internet"
+msgstr "الإنترنت"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:92
 msgid "System"
-msgstr "Rendszer"
+msgstr "النظام"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:95
 msgid "Multimedia"
-msgstr "Multimédia"
+msgstr "الوسائط المتعددة"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:98
 msgid "Games"
-msgstr "Játékok"
+msgstr "الألعاب"
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:101
 msgid "Office"
-msgstr "Iroda"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/Sidebar.vala:82
 msgid "<b>Bookmarks</b>"
-msgstr "<b>Könyvjelzők</b>"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Widgets/Sidebar.vala:85
 msgid "<b>Categories</b>"
-msgstr "<b>Kategóriák</b>"
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/Backend/App.vala:55
 msgid "Run this command..."
-msgstr "Ezen parancs futtatása..."
+msgstr ""
 
 #: /home/mario/elementary/slingshot/po/../src/SlingshotView.vala:123
 msgid "Search Apps..."
-msgstr "Alkalmazások keresése..."
+msgstr "البحث عن تطبيقات..."
