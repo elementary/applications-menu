@@ -309,7 +309,7 @@ namespace Slingshot {
                 case "KP_1":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (0);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (0);
                     else
                         return base.key_press_event (event);
@@ -319,7 +319,7 @@ namespace Slingshot {
                 case "KP_2":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (1);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (1);
                     else
                         return base.key_press_event (event);
@@ -329,7 +329,7 @@ namespace Slingshot {
                 case "KP_3":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (2);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (2);
                     else
                         return base.key_press_event (event);
@@ -339,7 +339,7 @@ namespace Slingshot {
                 case "KP_4":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (3);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (3);
                     else
                         return base.key_press_event (event);
@@ -349,7 +349,7 @@ namespace Slingshot {
                 case "KP_5":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (4);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (4);
                     else
                         return base.key_press_event (event);
@@ -359,7 +359,7 @@ namespace Slingshot {
                 case "KP_6":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (5);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (5);
                     else
                         return base.key_press_event (event);
@@ -369,7 +369,7 @@ namespace Slingshot {
                 case "KP_7":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (6);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (6);
                     else
                         return base.key_press_event (event);
@@ -379,7 +379,7 @@ namespace Slingshot {
                 case "KP_8":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (7);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (7);
                     else
                         return base.key_press_event (event);
@@ -389,7 +389,7 @@ namespace Slingshot {
                 case "KP_9":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (8);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (8);
                     else
                         return base.key_press_event (event);
@@ -399,7 +399,7 @@ namespace Slingshot {
                 case "KP_0":
                     if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
                         page_switcher.set_active (9);
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
                         category_view.switcher.set_active (9);
                     else
                         return base.key_press_event (event);
