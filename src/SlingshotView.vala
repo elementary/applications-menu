@@ -137,8 +137,15 @@ namespace Slingshot {
             top_separator.set_hexpand(true);
 
             view_selector = new ModeButton ();
-            view_selector.append (new Image.from_icon_name ("slingshot-view-list-icons-symbolic", IconSize.MENU));
-            view_selector.append (new Image.from_icon_name ("slingshot-view-list-filter-symbolic", IconSize.MENU));
+            
+            var image = new Image.from_icon_name ("slingshot-view-list-icons-symbolic", IconSize.MENU);
+            image.tooltip_text = _("Grid");
+            view_selector.append (image);
+            
+            image = new Image.from_icon_name ("slingshot-view-list-filter-symbolic", IconSize.MENU);
+            image.tooltip_text = _("Categories");
+            view_selector.append (image);
+            
             if (Slingshot.settings.use_category)
                 view_selector.selected = 1;
             else
