@@ -37,7 +37,6 @@ namespace Slingshot.Widgets {
         private Gtk.Grid page_switcher;
 
         private const string ALL_APPLICATIONS = _("All Applications");
-        private const string MOST_USED_APPS = _("Most Used Apps");
         private const string NEW_FILTER = _("Create a new Filter");
         private int current_position = 0;
         private bool from_category = false;
@@ -60,7 +59,7 @@ namespace Slingshot.Widgets {
 
         private void setup_ui () {
 
-            container = new Gtk.Grid();
+            container = new Gtk.Grid ();
 
             var empty_cat_text = _("This Category is Empty");
             empty_cat_label = new Label ("<b><span size=\"larger\">" + empty_cat_text + "</span></b>");
@@ -110,9 +109,6 @@ namespace Slingshot.Widgets {
                 n++;
             }
 
-            category_switcher.add_bookmark (MOST_USED_APPS);
-            //category_switcher.add_bookmark (NEW_FILTER);
-
             separator = new VSeparator ();
 
             layout = new Layout (null, null);
@@ -150,9 +146,6 @@ namespace Slingshot.Widgets {
                 
                 string category = category_ids.get (nth);
                 
-                if (name == MOST_USED_APPS)
-                    category = name;
-                    
                 if (category == ALL_APPLICATIONS)
                     show_all_apps ();
                 else
@@ -227,14 +220,7 @@ namespace Slingshot.Widgets {
             switcher.clear_children ();
             app_view.clear ();
 
-            if (category == MOST_USED_APPS) {
-
-                var apps = view.app_system.get_apps_by_popularity ();
-                layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
-                for (int i = 0; i < 12; i++)
-                    add_app (apps.nth_data (i));
-
-            } else if (category == NEW_FILTER) {
+            if (category == NEW_FILTER) {
 
                 // This needs to be implemented
                 layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
