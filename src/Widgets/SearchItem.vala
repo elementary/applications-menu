@@ -24,6 +24,7 @@ namespace Slingshot.Widgets {
     public class SearchItem : Button {
 
         private Pixbuf icon;
+        private string icon_name;
         private Label app_label;
 
         public bool in_box = false;
@@ -35,6 +36,7 @@ namespace Slingshot.Widgets {
             get_style_context ().add_class ("app");            
 
             icon = app.icon;
+            icon_name = app.icon_name;
             var label = "<b><span size=\"larger\">" + fix (app.name) + "</span></b>\n" +
                         fix (Utils.truncate_text (app.description, 200));
 
@@ -58,7 +60,24 @@ namespace Slingshot.Widgets {
 
             base.draw (cr);
 
-            var scaled_icon = icon.scale_simple (icon_size, icon_size, Gdk.InterpType.BILINEAR);
+            Pixbuf scaled_icon = null;
+            try {
+                scaled_icon = Slingshot.icon_theme.load_icon (icon_name, icon_size,
+                                                        Gtk.IconLookupFlags.FORCE_SIZE);
+            } catch (Error e) {
+                try {
+                    scaled_icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, icon_size, icon_size, false);
+                } catch (Error e) {
+	            	try {
+                        scaled_icon = Slingshot.icon_theme.load_icon ("application-default-icon", icon_size,
+                                                               Gtk.IconLookupFlags.FORCE_SIZE);
+	        	    } catch (Error e) {
+                        scaled_icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", icon_size,
+                                                               Gtk.IconLookupFlags.FORCE_SIZE);
+	            	}
+                }
+            }
+            
             height_request = icon_size + 10;
 
             // Draw icon
