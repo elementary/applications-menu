@@ -2,25 +2,25 @@ Source: slingshot-launcher
 Section: x11
 Priority: optional
 Maintainer: Giulio Collura <random.cpp@gmail.com>
-Build-Depends: debhelper (>= 7), 
-    cmake,
-    pkg-config,
-    valac-0.16 (>= 0.15.1),
-    libgtk-3-dev,
-    libgranite-dev,
-    libgee-dev,
-    libgnome-menu-dev,
-    libclutter-gtk-1.0-dev,
-    libclutter-1.0-dev,
-    libwnck-3-dev,
-    libzeitgeist-dev
+Build-Depends: cmake,
+               debhelper (>= 7),
+               libclutter-1.0-dev,
+               libclutter-gtk-1.0-dev,
+               libgee-dev,
+               libgnome-menu-dev,
+               libgranite-dev,
+               libgtk-3-dev,
+               libwnck-3-dev,
+               libzeitgeist-dev,
+               pkg-config,
+               valac-0.16 (>= 0.15.1)
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/slingshot
 Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/new-slingshot
 
 Package: slingshot-launcher
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Provides: netbook-launcher
 Description: Slingshot App Launcher
