@@ -7,85 +7,85 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 11:56+0200\n"
-"PO-Revision-Date: 2012-04-26 22:27+0000\n"
-"Last-Translator: Benoît LAMY <Unknown>\n"
+"POT-Creation-Date: 2012-06-06 00:21-0700\n"
+"PO-Revision-Date: 2012-06-06 23:50+0000\n"
+"Last-Translator: Simon <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-01 05:11+0000\n"
-"X-Generator: Launchpad (build 15342)\n"
+"X-Launchpad-Export-Date: 2012-06-07 04:33+0000\n"
+"X-Generator: Launchpad (build 15353)\n"
 "Language: fr\n"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:39
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
 msgstr "Toutes les applications"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:40
-msgid "Most Used Apps"
-msgstr "Applications les plus utilisées"
-
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:41
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
 msgstr "Créer un nouveau filtre"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:63
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
 msgstr "Cette catégorie est vide"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:74
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
 msgid "Accessories"
 msgstr "Accessoires"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:77
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
 msgid "Universal Access"
 msgstr "Accessibilité"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:80
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:85
 msgid "Graphics"
 msgstr "Graphismes"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:83
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:88
 msgid "Development"
 msgstr "Développement"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:86
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:91
 msgid "Other"
 msgstr "Autres"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:89
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:94
 msgid "Internet"
 msgstr "Internet"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:92
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:97
 msgid "System"
 msgstr "Système"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:95
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:100
 msgid "Multimedia"
 msgstr "Multimédia"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:98
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:103
 msgid "Games"
 msgstr "Jeux"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/CategoryView.vala:101
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
 msgid "Office"
 msgstr "Bureautique"
 
-#: /home/mario/elementary/slingshot/po/../src/Widgets/Sidebar.vala:82
-msgid "<b>Bookmarks</b>"
-msgstr "<b>Signets</b>"
-
-#: /home/mario/elementary/slingshot/po/../src/Widgets/Sidebar.vala:85
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
 msgid "<b>Categories</b>"
 msgstr "<b>Catégories</b>"
 
-#: /home/mario/elementary/slingshot/po/../src/Backend/App.vala:55
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
 msgstr "Exécuter cette commande..."
 
-#: /home/mario/elementary/slingshot/po/../src/SlingshotView.vala:123
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
+msgid "Grid"
+msgstr "Grille"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
+msgid "Categories"
+msgstr "Catégories"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
 msgstr "Rechercher des applications..."
