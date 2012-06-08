@@ -1,54 +1,53 @@
-# French translation for slingshot
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Estonian translation for slingshot
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-06-06 23:50+0000\n"
-"Last-Translator: Simon <Unknown>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2012-06-07 15:33+0000\n"
+"Last-Translator: Kristjan Vool <Unknown>\n"
+"Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-06-08 04:36+0000\n"
 "X-Generator: Launchpad (build 15376)\n"
-"Language: fr\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr "Toutes les applications"
+msgstr "Kõik rakendused"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr "Créer un nouveau filtre"
+msgstr "Uue filtri loomine"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "Cette catégorie est vide"
+msgstr "Kategooria tühi"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
 msgid "Accessories"
-msgstr "Accessoires"
+msgstr "Tarvikud"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
 msgid "Universal Access"
-msgstr "Accessibilité"
+msgstr "Universaalne ligipääs"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:85
 msgid "Graphics"
-msgstr "Graphismes"
+msgstr "Graafika"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:88
 msgid "Development"
-msgstr "Développement"
+msgstr "Arendus"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:91
 msgid "Other"
-msgstr "Autres"
+msgstr "Muu"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:94
 msgid "Internet"
@@ -56,36 +55,36 @@ msgstr "Internet"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:97
 msgid "System"
-msgstr "Système"
+msgstr "Süsteem"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:100
 msgid "Multimedia"
-msgstr "Multimédia"
+msgstr "Multimeedia"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:103
 msgid "Games"
-msgstr "Jeux"
+msgstr "Mängud"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
 msgid "Office"
-msgstr "Bureautique"
+msgstr "Kontor"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
 msgid "<b>Categories</b>"
-msgstr "<b>Catégories</b>"
+msgstr "<b>Kategooriad</b>"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
-msgstr "Exécuter cette commande..."
+msgstr "Selle käsu käivitamine..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr "Grille"
+msgstr "Võrgustik"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr "Catégories"
+msgstr "Kategooriad"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
-msgstr "Rechercher des applications..."
+msgstr "Rakenduste otsimine..."
