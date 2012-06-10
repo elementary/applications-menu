@@ -64,7 +64,7 @@ namespace Slingshot.Widgets {
         
         public void set_active (int new_active) {
 
-            if (new_active >= get_children ().length () || active == new_active)
+            if (new_active >= get_children ().length ())
                 return;
 
             if (active >= 0)
@@ -86,7 +86,7 @@ namespace Slingshot.Widgets {
             }
 
             old_active = 0;
-            active = -1;
+            active = 0;
 
         }
     }

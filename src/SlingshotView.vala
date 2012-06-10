@@ -683,7 +683,6 @@ namespace Slingshot {
             foreach (App app in app_system.get_apps_by_name ()) {
 
                 var app_entry = new AppEntry (app);
-
                 app_entry.app_launched.connect (hide_slingshot);
                 grid_view.append (app_entry);
                 app_entry.show_all ();
