@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-04-24 14:54+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
+"PO-Revision-Date: 2012-06-09 19:18+0000\n"
+"Last-Translator: Teemu Kielinen <teemu.kielinen@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-07 04:32+0000\n"
-"X-Generator: Launchpad (build 15353)\n"
+"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
+"X-Generator: Launchpad (build 15376)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -27,7 +27,7 @@ msgstr "Luo uusi suodatin"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "Tämä kategoria on tyhjä"
+msgstr "Tämä luokka on tyhjä"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
 msgid "Accessories"
@@ -71,7 +71,7 @@ msgstr "Toimisto"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
 msgid "<b>Categories</b>"
-msgstr "<b>Kategoriat</b>"
+msgstr "<b>Luokat</b>"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
@@ -79,11 +79,11 @@ msgstr "Suorita tämä komento..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr ""
+msgstr "Ruudukko"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr ""
+msgstr "Luokat"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."

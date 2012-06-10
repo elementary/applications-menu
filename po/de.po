@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-05-20 17:32+0000\n"
-"Last-Translator: Eduard Gotwig <eduardgotwig@gmail.com>\n"
+"PO-Revision-Date: 2012-06-09 10:09+0000\n"
+"Last-Translator: Thomas Pitlik <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-07 04:33+0000\n"
-"X-Generator: Launchpad (build 15353)\n"
+"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
+"X-Generator: Launchpad (build 15376)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -79,11 +79,11 @@ msgstr "Befehl ausführen..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr ""
+msgstr "Raster"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
