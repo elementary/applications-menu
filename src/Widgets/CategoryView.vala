@@ -83,7 +83,7 @@ namespace Slingshot.Widgets {
             });
             foreach (string cat_name in categories) {
                 category_ids.set (n, cat_name);
-                
+            
                 switch (cat_name) {
                     case "Accessories":
                         category_switcher.add_category (_("Accessories"));
@@ -187,8 +187,7 @@ namespace Slingshot.Widgets {
             });
 
             switcher.active_changed.connect (() => {
-
-                if (from_category) {
+                if (from_category || switcher.active - switcher.old_active == 0) {
                     from_category = false;
                     return;
                 }

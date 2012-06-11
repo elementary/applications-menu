@@ -472,6 +472,8 @@ namespace Slingshot {
                         page_switcher.set_active (page_switcher.active - 1);
                     else if (modality == Modality.SEARCH_VIEW)
                         search_view_up ();
+                    else
+                        category_view.switcher.set_active (category_view.switcher.active - 1);
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
@@ -479,6 +481,8 @@ namespace Slingshot {
                         page_switcher.set_active (page_switcher.active + 1);
                     else if (modality == Modality.SEARCH_VIEW)
                         search_view_down ();
+                    else
+                        category_view.switcher.set_active (category_view.switcher.active + 1);
                     break;
 
             }

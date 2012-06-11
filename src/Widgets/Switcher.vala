@@ -63,10 +63,9 @@ namespace Slingshot.Widgets {
         }
         
         public void set_active (int new_active) {
-
             if (new_active >= get_children ().length ())
                 return;
-
+                
             if (active >= 0)
                 ((ToggleButton) get_children ().nth_data (active)).set_active (false);
 
