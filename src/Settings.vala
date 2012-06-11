@@ -46,12 +46,11 @@ namespace Slingshot {
             set {settings.set_boolean ("use-category", value);}
         }
         public string screen_resolution {
-            get {return (settings.get_string ("screen-resolution").to_string ());} //to_string () is required to avoid 
+            get {return (settings.get_string ("screen-resolution").to_string ());} //to_string () is required to avoid ownership problems
             set {settings.set_string ("screen-resolution", value);}
         }
 
         public Settings () {
-//            base ("org.pantheon.slingshot");
               settings = new GLib.Settings ("org.pantheon.slingshot");
         }
 
