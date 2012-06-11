@@ -80,7 +80,7 @@ namespace Slingshot {
             }
         }
 
-        public SlingshotView () {
+        public SlingshotView () {   
 
             // Window properties
             this.title = "Slingshot";
@@ -119,8 +119,10 @@ namespace Slingshot {
             while ((default_rows*145 + 72 >= 2*screen.get_height ()/3)) {
                 default_rows--;
             }
-            Slingshot.settings.columns = default_columns;
-            Slingshot.settings.rows = default_rows;
+            if (Slingshot.settings.columns != default_columns)
+                Slingshot.settings.columns = default_columns;
+            if (Slingshot.settings.rows != default_rows)
+                Slingshot.settings.rows = default_rows;
         }
 
         private void setup_ui () {
@@ -596,8 +598,9 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
-                
-                    Slingshot.settings.use_category = false;
+                    
+                    if (Slingshot.settings.use_category)
+                        Slingshot.settings.use_category = false;
                     bottom.show ();
                     view_selector.show_all ();
                     page_switcher.show_all ();
@@ -615,7 +618,8 @@ namespace Slingshot {
 
                 case Modality.CATEGORY_VIEW:
                     
-                    Slingshot.settings.use_category = true;
+                    if (!Slingshot.settings.use_category)
+                        Slingshot.settings.use_category = true;
                     bottom.show ();
                     view_selector.show_all ();
                     page_switcher.hide ();

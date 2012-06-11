@@ -116,8 +116,8 @@ namespace Slingshot.Widgets {
             app_view = new Widgets.Grid (view.rows, view.columns - 1);
             layout.put (app_view, 0, 0);
             layout.put (empty_cat_label, view.columns*130, view.rows * 130 / 2);
-            layout.set_hexpand(true);
-            layout.set_vexpand(true);
+            layout.set_hexpand (true);
+            layout.set_vexpand (true);
 
             // Create the page switcher
             switcher = new Switcher ();
