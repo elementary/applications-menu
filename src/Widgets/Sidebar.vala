@@ -29,7 +29,7 @@ namespace Slingshot.Widgets {
 
         private int cat_size {
             get {
-                return store.iter_n_children (category_iter);
+                return store.iter_n_children (null);
             }
         }
         
@@ -71,10 +71,7 @@ namespace Slingshot.Widgets {
             cell.wrap_width = 110;
             cell.xpad = 17;
 
-            insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);;
-
-            store.append (out category_iter, null);
-            store.set (category_iter, Columns.TEXT, _("<b>Categories</b>"));
+            insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 
             get_selection ().set_mode (SelectionMode.SINGLE);
             get_selection ().changed.connect (selection_change);
@@ -83,7 +80,7 @@ namespace Slingshot.Widgets {
 
         public void add_category (string entry_name) {
 
-            store.append (out entry_iter, category_iter);
+            store.append (out entry_iter, null);
             store.set (entry_iter, Columns.INT, cat_size - 1, Columns.TEXT, entry_name, -1);
             
             expand_all ();
@@ -99,16 +96,8 @@ namespace Slingshot.Widgets {
 
             if (get_selection ().get_selected (out model, out sel_iter)) {
                 store.get (sel_iter, Columns.INT, out nth, Columns.TEXT, out name);
-                /** 
-                 * Check if sel_iter is category or bookmark entry.
-                 * If it is, select the previous selected entry.
-                 */
-                if (sel_iter == category_iter) {
-                    selected = _selected;
-                } else {
-                    _selected = nth;
-                    selection_changed (name, nth);
-                }
+                _selected = nth;
+                selection_changed (name, nth);
             }
 
         }
@@ -118,7 +107,7 @@ namespace Slingshot.Widgets {
             TreeIter iter;
 
             if (nth < cat_size)
-                store.iter_nth_child (out iter, category_iter, nth);
+                store.iter_nth_child (out iter, null, nth);
             else
                 return false;
 
@@ -128,7 +117,7 @@ namespace Slingshot.Widgets {
         }
 
         protected override bool scroll_event (Gdk.EventScroll event) {
-
+        
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
