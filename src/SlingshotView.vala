@@ -555,8 +555,9 @@ namespace Slingshot {
             // Avoid unexpected behavior
             if (modality != Modality.NORMAL_VIEW)
                 return;
-
-            if ((- current_position) < (grid_view.n_columns*130)) {
+                
+            int n_columns = grid_view.get_page_columns () * (grid_view.get_n_pages () - 1) + 1; //total number of columns
+            if ((- current_position) < (n_columns*130)) {
                 int count = 0;
                 int val = columns*130*step / 10;
                 Timeout.add (20 / (2*step*step), () => {

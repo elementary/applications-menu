@@ -26,7 +26,7 @@ namespace Slingshot.Widgets {
         public uint number;
     }
 
-    public class Grid : Table {
+    public class Grid : Gtk.Grid {
 
         public signal void new_page (string page_num);
 
@@ -37,8 +37,9 @@ namespace Slingshot.Widgets {
         public Grid (int rows, int columns) {
             
             // Grid properties
-            this.homogeneous = true;
-
+            row_homogeneous = true;
+            column_homogeneous = true;
+            
             row_spacing = 20;
             column_spacing = 0;
 
@@ -54,9 +55,7 @@ namespace Slingshot.Widgets {
 
             var col = current_col + page.columns * (page.number - 1);
 
-            this.attach (widget, col, col + 1,
-                         current_row, current_row + 1, AttachOptions.EXPAND, AttachOptions.EXPAND,
-                         0, 0);
+            this.attach (widget, (int)col, (int)current_row, 1, 1);
             current_col++;
 
         }
@@ -87,8 +86,8 @@ namespace Slingshot.Widgets {
             current_row = 0;
             current_col = 0;
             page.number = 1;
-            n_rows = page.rows;
-            n_columns = page.columns;
+            //n_rows = page.rows;
+            //n_columns = page.columns;
 
         }
 
