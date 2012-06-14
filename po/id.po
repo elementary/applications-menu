@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-05-02 16:02+0000\n"
-"Last-Translator: Viko Adi Rahmawan <Unknown>\n"
+"PO-Revision-Date: 2012-06-13 13:27+0000\n"
+"Last-Translator: Anna Erdiawan <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-07 04:33+0000\n"
-"X-Generator: Launchpad (build 15353)\n"
+"X-Launchpad-Export-Date: 2012-06-14 04:32+0000\n"
+"X-Generator: Launchpad (build 15405)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -79,11 +79,11 @@ msgstr "Jalankan Perintah"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr ""
+msgstr "Jejaring"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr ""
+msgstr "Kategori"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
