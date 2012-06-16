@@ -39,6 +39,8 @@ namespace Slingshot.Widgets {
         private double alpha = 1.0;
         private bool   dragging = false; //prevent launching
         
+        private Backend.App application;
+        
         public AppEntry (Backend.App app) {
             TargetEntry dnd = {"text/uri-list", 0, 0};
             Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd}, 
@@ -50,6 +52,7 @@ namespace Slingshot.Widgets {
             desktop_id = app.desktop_id;
             desktop_path = app.desktop_path;
             
+            application = app;
             app_name = app.name;
             tooltip_text = app.description;
             exec_name = app.exec;
@@ -142,6 +145,10 @@ namespace Slingshot.Widgets {
             });
 
         }
+        
+        public void launch_app () {
+            application.launch ();
+            app_launched ();
+        }
     }
-
 }

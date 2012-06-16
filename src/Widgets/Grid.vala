@@ -49,7 +49,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        public async void append (Widget widget) {
+        public void append (Widget widget) {
 
             update_position ();
 
@@ -57,7 +57,6 @@ namespace Slingshot.Widgets {
 
             this.attach (widget, (int)col, (int)current_row, 1, 1);
             current_col++;
-
         }
 
         private void update_position () {
@@ -86,8 +85,6 @@ namespace Slingshot.Widgets {
             current_row = 0;
             current_col = 0;
             page.number = 1;
-            //n_rows = page.rows;
-            //n_columns = page.columns;
 
         }
 

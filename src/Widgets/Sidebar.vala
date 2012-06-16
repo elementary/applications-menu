@@ -24,10 +24,9 @@ namespace Slingshot.Widgets {
 
         private TreeStore store;
         
-        private TreeIter category_iter;
         private TreeIter entry_iter;
 
-        private int cat_size {
+        public int cat_size {
             get {
                 return store.iter_n_children (null);
             }
