@@ -475,7 +475,7 @@ namespace Slingshot {
                     }        
                     else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
-                            if (category_view.category_switcher.selected != 1) {
+                            if (category_view.category_switcher.selected != 0) {
                                 category_view.category_switcher.selected--;
                                 top_left_focus ();
                             }
