@@ -541,6 +541,8 @@ namespace Slingshot {
                 case "BackSpace":
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Delete
                         searchbar.set_text ("");
+                    else
+                        return base.key_press_event (event);
                     break;
 
                 default:
