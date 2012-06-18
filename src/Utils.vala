@@ -34,24 +34,6 @@ namespace Slingshot {
             return widget;
 
         }
-  
-        public static string truncate_text (string input, int icon_size) {
-            
-            string new_text = "";
-            if (input.length > icon_size / 3) {
-                unichar c;
-                for (int i = 0; input.get_next_char (ref i, out c);) {
-                    if (i > icon_size / 3)
-                        break;
-                    new_text += c.to_string ();
-                }
-                new_text += "...";
-                return new_text;
-            } else {
-                return input;
-            }
-
-        }
 
         public static int sort_apps_by_popularity (Backend.App a, Backend.App b) {
 

@@ -58,7 +58,7 @@ namespace Slingshot.Widgets {
 
             get_style_context ().add_class ("app");
 
-            app_label = new Label (Utils.truncate_text (app_name, icon_size));
+            app_label = new Label (app_name);
             app_label.halign = Align.CENTER;
             app_label.justify = Justification.CENTER;
             app_label.set_line_wrap (true); // Need a smarter way
