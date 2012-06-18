@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-06-13 13:27+0000\n"
-"Last-Translator: Anna Erdiawan <Unknown>\n"
+"PO-Revision-Date: 2012-06-17 15:17+0000\n"
+"Last-Translator: Dani Pratomo <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-14 04:32+0000\n"
-"X-Generator: Launchpad (build 15405)\n"
+"X-Launchpad-Export-Date: 2012-06-18 05:13+0000\n"
+"X-Generator: Launchpad (build 15419)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -23,7 +23,7 @@ msgstr "Semua Aplikasi"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr "Buat penyaring baru"
+msgstr "Buat Penyaring baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
@@ -35,11 +35,11 @@ msgstr "Aksesoris"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
 msgid "Universal Access"
-msgstr "Akses Untuk Semua"
+msgstr "Akses Universal"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:85
 msgid "Graphics"
-msgstr "Grafik"
+msgstr "Grafis"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:88
 msgid "Development"
@@ -75,11 +75,11 @@ msgstr "<b>Kategori</b>"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
-msgstr "Jalankan Perintah"
+msgstr "Jalankan perintah ini..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr "Jejaring"
+msgstr "Petak"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
@@ -87,4 +87,4 @@ msgstr "Kategori"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
-msgstr "Cari Aplikasi"
+msgstr "Cari Aplikasi..."
