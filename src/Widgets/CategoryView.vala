@@ -71,17 +71,7 @@ namespace Slingshot.Widgets {
             // Fill the sidebar
             int n = 0;
             
-            var categories = new GLib.List<string> ();
-            foreach (string cat_name in view.apps.keys)
-                categories.append (cat_name);
-                
-            categories.sort ( (a, b) => {
-                if (a > b)
-                    return 1;
-                else
-                    return -1;
-            });
-            foreach (string cat_name in categories) {
+            foreach (string cat_name in view.apps.keys) {
                 category_ids.set (n, cat_name);
             
                 switch (cat_name) {

@@ -50,7 +50,8 @@ namespace Slingshot {
 		    help_url = "https://answers.launchpad.net/slingshot";
 		    translate_url = "https://translations.launchpad.net/slingshot";
 
-		    about_authors = {"Giulio Collura <random.cpp@gmail.com>"};
+		    about_authors = {"Giulio Collura <random.cpp@gmail.com>",
+		                     "Andrea Basso <andrea@elementaryos.org"};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
                              "Daniel Foré <bunny@go-docky.com>"};
             about_translators = "Launchpad Translators";
