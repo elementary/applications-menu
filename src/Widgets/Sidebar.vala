@@ -57,6 +57,7 @@ namespace Slingshot.Widgets {
         public Sidebar () {
 
             store = new TreeStore (Columns.N_COLUMNS, typeof (int), typeof (string));
+            store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
             set_model (store);
 
             set_headers_visible (false);
