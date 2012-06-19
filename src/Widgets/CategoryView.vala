@@ -97,6 +97,9 @@ namespace Slingshot.Widgets {
                     case "Development":
                         category_switcher.add_category (_("Development"));
                     break;
+                    case "Education":
+                        category_switcher.add_category (_("Education"));
+                    break;
                     case "Other":
                         category_switcher.add_category (_("Other"));
                     break;
