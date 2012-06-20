@@ -555,55 +555,6 @@ namespace Slingshot {
             return true;
 
         }
-        
-        private void category_move_focus (int delta_column, int delta_row) {
-            var new_focus = category_view.app_view.get_child_at (category_column_focus + delta_column, category_row_focus + delta_row);
-            if (new_focus == null) {
-                if (delta_row < 0 && category_view.category_switcher.selected != 0) {
-                    category_view.category_switcher.selected--;
-                    top_left_focus ();
-                    return;
-                }
-                else if (delta_row > 0 && category_view.category_switcher.selected != category_view.category_switcher.cat_size - 1) {
-                    category_view.category_switcher.selected++;
-                    top_left_focus ();
-                    return;
-                }
-                else if (delta_column > 0 && (category_column_focus + delta_column) % category_view.app_view.get_page_columns () == 0
-                          && category_view.switcher.active + 1 != category_view.app_view.get_n_pages ()) {
-                    category_view.switcher.set_active (category_view.switcher.active + 1);
-                    top_left_focus ();
-                    return;
-                }
-                else if (category_column_focus == 0 && delta_column < 0) {
-                    searchbar.grab_focus ();
-                    category_column_focus = 0;
-                    category_row_focus = 0;
-                    return;
-                }
-                else
-                    return;
-            }
-            category_column_focus += delta_column;
-            category_row_focus += delta_row;
-            if (delta_column > 0 && category_column_focus % category_view.app_view.get_page_columns () == 0 ) { // check if we need to change page
-                category_view.switcher.set_active (category_view.switcher.active + 1);
-            }
-            else if (delta_column < 0 && (category_column_focus + 1) % category_view.app_view.get_page_columns () == 0) {
-                // check if we need to change page
-                category_view.switcher.set_active (category_view.switcher.active - 1);
-            }
-            new_focus.grab_focus ();
-        }
-        
-        // this method moves focus to the first AppEntry in the top left corner of the current page. Works in CategoryView only
-        private void top_left_focus () {
-            // this is the first column of the current page
-            int first_column = category_view.switcher.active * category_view.app_view.get_page_columns ();
-            category_view.app_view.get_child_at (first_column, 0).grab_focus ();
-            category_column_focus = first_column;
-            category_row_focus = 0;
-        }
 
         public override bool scroll_event (EventScroll event) {
 
@@ -883,6 +834,55 @@ namespace Slingshot {
                 column_focus = page_switcher.active * grid_view.get_page_columns ();
                 row_focus = 0;
             }
+        }
+        
+        private void category_move_focus (int delta_column, int delta_row) {
+            var new_focus = category_view.app_view.get_child_at (category_column_focus + delta_column, category_row_focus + delta_row);
+            if (new_focus == null) {
+                if (delta_row < 0 && category_view.category_switcher.selected != 0) {
+                    category_view.category_switcher.selected--;
+                    top_left_focus ();
+                    return;
+                }
+                else if (delta_row > 0 && category_view.category_switcher.selected != category_view.category_switcher.cat_size - 1) {
+                    category_view.category_switcher.selected++;
+                    top_left_focus ();
+                    return;
+                }
+                else if (delta_column > 0 && (category_column_focus + delta_column) % category_view.app_view.get_page_columns () == 0
+                          && category_view.switcher.active + 1 != category_view.app_view.get_n_pages ()) {
+                    category_view.switcher.set_active (category_view.switcher.active + 1);
+                    top_left_focus ();
+                    return;
+                }
+                else if (category_column_focus == 0 && delta_column < 0) {
+                    searchbar.grab_focus ();
+                    category_column_focus = 0;
+                    category_row_focus = 0;
+                    return;
+                }
+                else
+                    return;
+            }
+            category_column_focus += delta_column;
+            category_row_focus += delta_row;
+            if (delta_column > 0 && category_column_focus % category_view.app_view.get_page_columns () == 0 ) { // check if we need to change page
+                category_view.switcher.set_active (category_view.switcher.active + 1);
+            }
+            else if (delta_column < 0 && (category_column_focus + 1) % category_view.app_view.get_page_columns () == 0) {
+                // check if we need to change page
+                category_view.switcher.set_active (category_view.switcher.active - 1);
+            }
+            new_focus.grab_focus ();
+        }
+        
+        // this method moves focus to the first AppEntry in the top left corner of the current page. Works in CategoryView only
+        private void top_left_focus () {
+            // this is the first column of the current page
+            int first_column = category_view.switcher.active * category_view.app_view.get_page_columns ();
+            category_view.app_view.get_child_at (first_column, 0).grab_focus ();
+            category_column_focus = first_column;
+            category_row_focus = 0;
         }
         
         public void reset_category_focus () {
