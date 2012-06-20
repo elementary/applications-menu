@@ -25,7 +25,8 @@ namespace Slingshot.Widgets {
 
         private Pixbuf icon;
         private string icon_name;
-        private Label app_label;
+        private Label name_label;
+        private Label desc_label;
 
         public bool in_box = false;
         public int icon_size = 64;
@@ -37,15 +38,19 @@ namespace Slingshot.Widgets {
 
             icon = app.icon;
             icon_name = app.icon_name;
-            var label = "<b><span size=\"larger\">" + fix (app.name) + "</span></b>\n" +
-                        fix (Utils.truncate_text (app.description, 200));
 
-            app_label = new Label (label);
-            app_label.use_markup = true;
-            app_label.xalign = 0.0f;
+            name_label = new Label ("<b><span size=\"larger\">" + fix (app.name) + "</span></b>");
+            name_label.set_ellipsize (Pango.EllipsizeMode.END);
+            name_label.use_markup = true;
+            name_label.xalign = 0.0f;
+            
+            desc_label = new Label (fix (app.description));
+            desc_label.set_ellipsize (Pango.EllipsizeMode.END);
+            desc_label.xalign = 0.0f;
 
-            var vbox = new VBox (false, 3);
-            vbox.pack_start (app_label, false, true, 0);
+            var vbox = new VBox (false, 0);
+            vbox.pack_start (name_label, false, true, 0);
+            vbox.pack_start (desc_label, false, true, 0);
 
             add (Utils.set_padding (vbox, 5, 0, 0, 78));
 
