@@ -1,6 +1,6 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 //  
-//  Copyright (C) 2011 Giulio Collura
+//  Copyright (C) 2011-2012 Giulio Collura
 // 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ namespace Slingshot {
 		    app_copyright = "GPLv3";
 		    app_icon = "";
 		    app_launcher = "";
-            app_years = "2011";
+            app_years = "2011-2012";
             application_id = "net.launchpad.slingshot";
 		    main_url = "https://launchpad.net/slingshot";
 		    bug_url = "https://bugs.launchpad.net/slingshot";
