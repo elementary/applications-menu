@@ -24,7 +24,8 @@ namespace Slingshot {
     public class Slingshot : Granite.Application {
 
         private SlingshotView view = null;
-        public bool silent = false;
+        public static bool silent = false;
+        public static bool command_mode = false;
 
         public static Settings settings { get; private set; default = null; }
         //public static CssProvider style_provider { get; private set; default = null; }
@@ -98,10 +99,28 @@ namespace Slingshot {
             silent = false;
         
         }
+        
+        static const OptionEntry[] entries = {
+            { "silent", 's', 0, OptionArg.NONE, ref silent, "Launch Slingshot as a background process without it appearing visually.", null },
+            { "command-mode", 'c', 0, OptionArg.NONE, ref command_mode, "This feature is not implemented yet. When it is, description will be changed.", null },
+            { null }
+        };
 
         public static int main (string[] args) {
 
-            return new Slingshot ().run (args);
+            var context = new OptionContext("");
+            context.add_main_entries(entries, "slingshot");
+            context.add_group (Gtk.get_option_group (true));
+            try {
+                context.parse(ref args);
+            }
+            catch(Error e) {
+                print(e.message + "\n");
+            }
+
+            var app = new Slingshot ();
+
+            return app.run (args);
 
         }
 
