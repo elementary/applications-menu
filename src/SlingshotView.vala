@@ -224,7 +224,7 @@ namespace Slingshot {
         private void connect_signals () {
 
             this.focus_out_event.connect (() => {
-                this.hide_slingshot();
+                this.focus_out();
                 return false;
             });
 
@@ -301,7 +301,7 @@ namespace Slingshot {
             switch (Gdk.keyval_name (event.keyval)) {
 
                 case "Escape":
-                    hide_slingshot ();
+                    focus_out ();
                     return true;
 
                 case "Return":
@@ -589,7 +589,20 @@ namespace Slingshot {
             // Show the first page
             searchbar.text = "";
 
+            set_opacity (0);
+
+            // grab_remove ((Widget) this);
+		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
+
+        }
+
+        public void focus_out () {
+
+            // Show the first page
+            searchbar.text = "";
+
             hide ();
+            set_opacity (1);
 
             // grab_remove ((Widget) this);
 		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
