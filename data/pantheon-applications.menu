@@ -166,9 +166,25 @@
     <OnlyUnallocated/>
     <Include>
       <And>
-        <Not><Category>Core</Category></Not>
-        <Not><Category>Screensaver</Category></Not>
-        <Not><Category>X-GNOME-Settings-Panel</Category></Not>
+        <Not>
+          <Category>Core</Category>
+          <Category>Screensaver</Category>
+          <Category>X-GNOME-Settings-Panel</Category>
+          <Filename>debian-xterm.desktop</Filename>
+          <Filename>debian-uxterm.desktop</Filename>
+          <Filename>ibus.desktop</Filename>
+          <Filename>empathy-accounts.desktop</Filename>
+        </Not>
+        <Or>
+          <Not><Category>Settings</Category></Not>
+          <And>
+            <Category>Settings</Category>
+            <Or>
+              <Category>DesktopSettings</Category>
+              <Category>Security</Category>
+            </Or>
+          </And>
+        </Or>
       </And>
     </Include>
   </Menu> <!-- End Other -->
