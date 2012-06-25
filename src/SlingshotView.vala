@@ -590,6 +590,7 @@ namespace Slingshot {
             searchbar.text = "";
 
             set_opacity (0);
+            view_manager.hide ();
 
             // grab_remove ((Widget) this);
 		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
