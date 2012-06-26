@@ -63,12 +63,10 @@
     <Name>Education</Name>
     <Directory>Education.directory</Directory>
     <Include>
-      <And>
         <Category>Education</Category>
-        <Not><Category>Science</Category></Not>
-      </And>
     </Include>
-  </Menu> <!-- End Education -->
+  </Menu>
+  <!-- End Education -->
 
   <!-- Science -->
   <Menu>
@@ -76,11 +74,12 @@
     <Directory>GnomeScience.directory</Directory>
     <Include>
       <And>
-        <Category>Education</Category>
         <Category>Science</Category>
+        <Not><Category>Education</Category></Not>
       </And>
     </Include>
-  </Menu> <!-- End Science -->
+  </Menu>
+  <!-- End Science -->
 
   <!-- Games -->
   <Menu>

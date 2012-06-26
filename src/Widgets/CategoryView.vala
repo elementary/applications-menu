@@ -78,11 +78,8 @@ namespace Slingshot.Widgets {
                     case "Accessories":
                         category_switcher.add_category (_("Accessories"));
                     break;
-                    case "Universal Access":
-                        category_switcher.add_category (_("Universal Access"));
-                    break;
-                    case "Graphics":
-                        category_switcher.add_category (_("Graphics"));
+                    case "Debian":
+                        category_switcher.add_category ("Debian");
                     break;
                     case "Development":
                         category_switcher.add_category (_("Development"));
@@ -90,23 +87,32 @@ namespace Slingshot.Widgets {
                     case "Education":
                         category_switcher.add_category (_("Education"));
                     break;
-                    case "Other":
-                        category_switcher.add_category (_("Other"));
+                    case "Games":
+                        category_switcher.add_category (_("Games"));
+                    break;
+                    case "Graphics":
+                        category_switcher.add_category (_("Graphics"));
                     break;
                     case "Internet":
                         category_switcher.add_category (_("Internet"));
                     break;
-                    case "System":
-                        category_switcher.add_category (_("System"));
-                    break;
                     case "Multimedia":
                         category_switcher.add_category (_("Multimedia"));
                     break;
-                    case "Games":
-                        category_switcher.add_category (_("Games"));
-                    break;
                     case "Office":
                         category_switcher.add_category (_("Office"));
+                    break;
+                    case "Other":
+                        category_switcher.add_category (_("Other"));
+                    break;
+                    case "Science":
+                        category_switcher.add_category (_("Science"));
+                    break;
+                    case "System":
+                        category_switcher.add_category (_("System"));
+                    break;
+                    case "Universal Access":
+                        category_switcher.add_category (_("Universal Access"));
                     break;
                 }
                 n++;
