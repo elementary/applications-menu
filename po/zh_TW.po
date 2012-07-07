@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-07-05 13:05+0000\n"
-"Last-Translator: leo  <shing80333@gmail.com>\n"
+"PO-Revision-Date: 2012-07-06 08:24+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-06 04:33+0000\n"
+"X-Launchpad-Export-Date: 2012-07-07 04:36+0000\n"
 "X-Generator: Launchpad (build 15558)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
@@ -27,11 +27,11 @@ msgstr "建立新的過慮器"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "這個分類是空的"
+msgstr "這個類別是空的"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
 msgid "Accessories"
-msgstr "附屬應用程式"
+msgstr "附屬應用"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
 msgid "Universal Access"
@@ -47,7 +47,7 @@ msgstr "程式開發"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:91
 msgid "Other"
-msgstr "其它"
+msgstr "其他"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:94
 msgid "Internet"
@@ -67,11 +67,11 @@ msgstr "遊戲"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
 msgid "Office"
-msgstr "辦公軟體"
+msgstr "辦公"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
 msgid "<b>Categories</b>"
-msgstr "<b>分類</b>"
+msgstr "<b>類別</b>"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
@@ -79,11 +79,11 @@ msgstr "執行這道指令..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr "網格"
+msgstr "格狀"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr "分類"
+msgstr "類別"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
