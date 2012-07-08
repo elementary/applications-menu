@@ -65,10 +65,10 @@ add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -DWNCK_I_KNOW_TH
 link_libraries (${DEPS_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
 
-add_executable (slingshot ${VALA_C})
+add_executable (slingshot-launcher ${VALA_C})
 
 # Installation
-install (TARGETS slingshot RUNTIME DESTINATION bin)
+install (TARGETS slingshot-launcher RUNTIME DESTINATION bin)
 #install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
 
