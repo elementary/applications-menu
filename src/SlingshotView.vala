@@ -292,7 +292,7 @@ namespace Slingshot {
                 Gdk.Rectangle monitor_dimensions;
                 screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
 
-                move_to_coords (monitor_dimensions.x, monitor_dimensions.y); // this would be coordinates 0,0 on the screen
+                move_to_coords (monitor_dimensions.x, monitor_dimensions.y, false); // this would be coordinates 0,0 on the screen
             }
         }
 
