@@ -635,7 +635,11 @@ namespace Slingshot {
         private void page_left (int step = 1) {
 
             // Avoid unexpected behavior
-            if (modality != Modality.NORMAL_VIEW || step == 0)
+            if (modality != Modality.NORMAL_VIEW)
+                return;
+            if (step == 0)
+                return;
+            if (step == 1 && current_position == 0)
                 return;
 
             if (current_position < 0) {
