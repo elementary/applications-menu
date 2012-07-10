@@ -739,7 +739,7 @@ namespace Slingshot {
                     view_selector.show_all ();
                     page_switcher.hide ();
                     category_view.show_page_switcher (true);
-                    view_manager.move (grid_view, columns*130, 0);
+                    view_manager.move (grid_view, (columns + 1)*130, 0); // plus 1 is needed because otherwise grid_view may appear in category view 
                     view_manager.move (search_view, -columns*130, 0);
                     view_manager.move (category_view, 0, 0);
                     
