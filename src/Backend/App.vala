@@ -25,6 +25,7 @@ namespace Slingshot.Backend {
         public string desktop_id { get; construct set; }
         public string exec { get; private set; }
         public string icon_name { get; private set; default = ""; }
+        public string[] keywords { get; private set;}
         public Gdk.Pixbuf icon { get; private set; }
         public double popularity { get; set; }
         public double relevancy { get; set; }
@@ -43,6 +44,7 @@ namespace Slingshot.Backend {
             desktop_id = entry.get_desktop_file_id ();
             icon_name = entry.get_icon () ?? "application-default-icon";
             desktop_path = entry.get_desktop_file_path ();
+            keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
 
             update_icon ();
             Slingshot.icon_theme.changed.connect (update_icon);
