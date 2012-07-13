@@ -42,6 +42,7 @@ vala_precompile (VALA_C
     src/Settings.vala
     src/Utils.vala
     src/Backend/AppSystem.vala
+    src/Backend/DBusService.vala
     src/Backend/App.vala
     src/Backend/RelevancyService.vala
     src/Widgets/AppEntry.vala
