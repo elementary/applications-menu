@@ -214,6 +214,18 @@ namespace Slingshot.Backend {
                             app.relevancy = app.description.length / search.length - app.popularity;
                             filtered.add (app);
                         }
+                        
+                        else {
+                            app.relevancy = 0;
+                            foreach (string keyword in app.keywords) {
+                                foreach (string search_word in search.split (" ")) {
+                                    if (search_word in keyword.down ()) {
+                                        app.relevancy += keyword.length / search_word.length / app.keywords.length - app.popularity;
+                                        filtered.add (app);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
