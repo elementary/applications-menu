@@ -16,42 +16,22 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+using Granite.Services;
+
 namespace Slingshot {
-    GLib.Settings settings;
 
-    public class Settings {
+    public class Settings : Granite.Services.Settings {
 
-        public int columns {
-            get {return settings.get_int ("columns");}
-            set {settings.set_int ("columns", value);}
-        }
-        public int rows {
-            get {return settings.get_int ("rows");}
-            set {settings.set_int ("rows", value);}
-        }
-        public int icon_size {
-            get {return settings.get_int ("icon-size");}
-            set {settings.set_int ("icon-size", value);}
-        }
-        public bool show_category_filter {
-            get {return settings.get_boolean ("show-category-filter");}
-            set {settings.set_boolean ("show-category-filter", value);}
-        }
-        public bool open_on_mouse {
-            get {return settings.get_boolean ("open-on-mouse");}
-            set {settings.set_boolean ("open-on-mouse", value);}
-        }
-        public bool use_category {
-            get {return settings.get_boolean ("use-category");}
-            set {settings.set_boolean ("use-category", value);}
-        }
-        public string screen_resolution {
-            get {return (settings.get_string ("screen-resolution").to_string ());} //to_string () is required to avoid ownership problems
-            set {settings.set_string ("screen-resolution", value);}
-        }
+        public int columns { get; set; }
+        public int rows { get; set; }
+        public int icon_size { get; set; }
+        public bool show_category_filter { get; set; }
+        public bool open_on_mouse { get; set; }
+        public bool use_category { get; set; }
+        public string screen_resolution { get; set; }
 
         public Settings () {
-              settings = new GLib.Settings ("org.pantheon.slingshot");
+            base ("org.pantheon.desktop.slingshot");
         }
 
     }
