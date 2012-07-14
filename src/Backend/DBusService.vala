@@ -27,7 +27,8 @@ namespace Slingshot {
 
             public Service (Gtk.Widget view) {
                 this.view = view;
-                view.notify["visible"].connect (on_view_visibility_change);
+                view.show.connect (on_view_visibility_change);
+                view.hide.connect (on_view_visibility_change);
             }
 
             internal void on_view_visibility_change () {
