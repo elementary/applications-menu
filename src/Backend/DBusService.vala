@@ -46,7 +46,7 @@ namespace Slingshot {
                           "org.pantheon.desktop.AppLauncherService",
                           BusNameOwnerFlags.NONE,
                           (conn) => { on_bus_aquired (conn, view); },
-                          () => { message ("Service registration suceeded"); },
+                          name_acquired_handler,
                           () => { critical ("Could not aquire service name"); });
 
         }
@@ -60,12 +60,13 @@ namespace Slingshot {
                 critical ("Could not register service: %s", e.message);
                 return_if_reached ();
             }
+        }
 
+        private void name_acquired_handler (DBusConnection connection, string name) {
+            message ("Service registration suceeded");
+            return_if_fail (service != null);
             // Emit initial state
-            Timeout.add (200, () => {
-                service.on_view_visibility_change ();
-                return false;
-            });
+            service.on_view_visibility_change ();
         }
     }
 }
