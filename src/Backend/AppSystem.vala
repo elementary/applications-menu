@@ -220,7 +220,7 @@ namespace Slingshot.Backend {
                             foreach (string keyword in app.keywords) {
                                 foreach (string search_word in search.split (" ")) {
                                     if (search_word in keyword.down ()) {
-                                        app.relevancy += keyword.length / search_word.length / app.keywords.length - app.popularity;
+                                        app.relevancy += (keyword.length / search_word.length) * (app.keywords.length / search.split (" ").length) - app.popularity;
                                         filtered.add (app);
                                     }
                                 }
