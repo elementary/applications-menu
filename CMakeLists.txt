@@ -18,7 +18,6 @@ set (CMAKE_C_FLAGS "-ggdb")
 
 #file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
 file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applications.menu")
-file (GLOB icons "${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16x16/actions/*")
 
 # Configure file
 configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
@@ -71,19 +70,6 @@ add_executable (slingshot ${VALA_C})
 install (TARGETS slingshot RUNTIME DESTINATION bin)
 #install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
-
-# Install symbolic icons - fix bug #854734
-option (INSTALL_ICONS "Install symbolic icons" ON)
-if (INSTALL_ICONS)
-    install (FILES ${icons} DESTINATION ${DATADIR}/icons/hicolor/16x16/actions)
-endif (INSTALL_ICONS)
-
-# Update icon cache
-option (ICONCACHE_UPDATE "Update the icon cache after installation of new icons" ON)
-if (ICONCACHE_UPDATE)
-    install (CODE "message (\"-- Update Gtk icon cache...\")")
-    install (CODE "execute_process (COMMAND gtk-update-icon-cache -f -t ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor)")
-endif (ICONCACHE_UPDATE)
 
 #
 # GSettings Schema
