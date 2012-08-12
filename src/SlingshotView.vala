@@ -51,6 +51,7 @@ namespace Slingshot {
         public Gtk.Grid center;
         public Gtk.Grid bottom;
         public Gtk.Grid container;
+        public Gtk.Box content_area;
 
         public AppSystem app_system;
         private ArrayList<TreeDirectory> categories;
@@ -210,7 +211,7 @@ namespace Slingshot {
             container.attach (Utils.set_padding (bottom, 0, 24, 12, 24), 0, 2, 1, 1);
 
             // Add the container to the dialog's content area
-            var content_area = get_content_area () as Box;
+            content_area = get_content_area () as Box;
             content_area.pack_start (container);
 
             if (Slingshot.settings.use_category)
@@ -588,9 +589,21 @@ namespace Slingshot {
 
             // Show the first page
             searchbar.text = "";
+            
+            // FIXME All this part is definitely TOO hackish. As soon as Luna is out,
+            // we should revert this part of the code to revision #221 and find
+            // a proper solution.
 
-            set_opacity (0);
-            view_manager.hide ();
+            content_area.hide (); 
+            
+            
+            for (uint i = Wnck.Screen.get_default ().get_windows_stacked ().length (); i > 0; i--) {
+                var window = Wnck.Screen.get_default ().get_windows_stacked ().nth_data (i-1);
+                if (window.get_window_type () == Wnck.WindowType.NORMAL) {
+                    window.activate (Gdk.x11_get_server_time (this.get_window ()));
+                    break;
+                }
+            }
 
             // grab_remove ((Widget) this);
 		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
@@ -603,7 +616,6 @@ namespace Slingshot {
             searchbar.text = "";
 
             hide ();
-            set_opacity (1);
 
             // grab_remove ((Widget) this);
 		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
