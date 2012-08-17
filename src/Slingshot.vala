@@ -92,7 +92,7 @@ namespace Slingshot {
                 }
             } else {
                 if (view.visible && !silent)
-                    view.focus_out ();
+                    view.hide ();
                 else
                     view.show_slingshot ();
             }

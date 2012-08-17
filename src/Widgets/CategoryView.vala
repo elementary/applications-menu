@@ -209,7 +209,7 @@ namespace Slingshot.Widgets {
         private void add_app (App app) {
 
             var app_entry = new AppEntry (app);
-            app_entry.app_launched.connect (view.hide_slingshot);
+            app_entry.app_launched.connect (() => view.hide ());
             app_view.append (app_entry);
             app_entry.show_all ();
 

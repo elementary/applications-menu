@@ -224,11 +224,6 @@ namespace Slingshot {
 
         private void connect_signals () {
 
-            this.focus_out_event.connect (() => {
-                this.focus_out();
-                return false;
-            });
-
             this.focus_in_event.connect (() => {
                 searchbar.grab_focus ();
                 return false;
@@ -239,7 +234,7 @@ namespace Slingshot {
             searchbar.text_changed_pause.connect ((text) => this.search (text.down ().strip ()));
             searchbar.grab_focus ();
 
-            search_view.app_launched.connect (hide_slingshot);
+            search_view.app_launched.connect (() => hide ());
 
             // This function must be after creating the page switcher
             grid_view.new_page.connect (page_switcher.append);
@@ -301,14 +296,10 @@ namespace Slingshot {
 
             switch (Gdk.keyval_name (event.keyval)) {
 
-                case "Escape":
-                    focus_out ();
-                    return true;
-
                 case "Return":
                     if (modality == Modality.SEARCH_VIEW) {
                         search_view.launch_selected ();
-                        hide_slingshot ();
+                        hide ();
                     }
                     else
                         if (get_focus () as AppEntry != null) // checking the selected widget is an AppEntry
@@ -585,63 +576,15 @@ namespace Slingshot {
 
         }
 
-        public void hide_slingshot () {
-
-            // Show the first page
-            searchbar.text = "";
-            
-            // FIXME All this part is definitely TOO hackish. As soon as Luna is out,
-            // we should revert this part of the code to revision #221 and find
-            // a proper solution.
-
-            content_area.hide (); 
-            
-            
-            for (uint i = Wnck.Screen.get_default ().get_windows_stacked ().length (); i > 0; i--) {
-                var window = Wnck.Screen.get_default ().get_windows_stacked ().nth_data (i-1);
-                if (window.get_window_type () == Wnck.WindowType.NORMAL) {
-                    window.activate (Gdk.x11_get_server_time (this.get_window ()));
-                    break;
-                }
-            }
-
-            // grab_remove ((Widget) this);
-		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
-
-        }
-
-        public void focus_out () {
-
-            // Show the first page
-            searchbar.text = "";
-
-            hide ();
-
-            // grab_remove ((Widget) this);
-		    // get_current_event_device ().ungrab (Gdk.CURRENT_TIME);
-
-        }
-
         public void show_slingshot () {
 
             reposition ();
             show_all ();
 
-            present ();
             show_all ();
             set_focus(null);
             searchbar.grab_focus ();
             set_modality ((Modality) view_selector.selected);
-
-            while (Gtk.events_pending ())
-                Gtk.main_iteration ();
-            var xid = Gdk.X11Window.get_xid (this.get_window ());
-            var w = Wnck.Window.get (xid);
-            Wnck.Screen.get_default ().force_update ();
-            w.activate (Gdk.x11_get_server_time (this.get_window ()));
-
-            //Utils.present_window (this);
-
         }
 
         private void page_left (int step = 1) {
@@ -814,7 +757,7 @@ namespace Slingshot {
             foreach (App app in app_system.get_apps_by_name ()) {
 
                 var app_entry = new AppEntry (app);
-                app_entry.app_launched.connect (hide_slingshot);
+                app_entry.app_launched.connect (() => hide ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();
 
