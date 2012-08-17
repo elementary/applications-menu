@@ -163,6 +163,7 @@ namespace Slingshot {
             searchbar = new SearchBar (_("Search Apps..."));
             searchbar.pause_delay = 200;
             searchbar.width_request = 250;
+            searchbar.button_press_event.connect ((e) => {return e.button == 3;});
 
             if (Slingshot.settings.show_category_filter) {
                 top.attach (view_selector, 0, 0, 1, 1);
