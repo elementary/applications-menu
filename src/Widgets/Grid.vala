@@ -121,6 +121,15 @@ namespace Slingshot.Widgets {
             }
 
         }
+        
+        public void resize (int rows, int columns) {
+
+            clear ();
+            page.rows = rows;
+            page.columns = columns;
+            page.number = 1;
+
+        }
 
     }
 
