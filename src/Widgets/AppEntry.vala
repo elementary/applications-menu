@@ -47,7 +47,7 @@ namespace Slingshot.Widgets {
                 Gdk.DragAction.COPY);
             
             app_paintable = true;
-			set_visual (get_screen ().get_rgba_visual());
+            set_visual (get_screen ().get_rgba_visual());
             set_size_request (130, 130);
             desktop_id = app.desktop_id;
             desktop_path = app.desktop_path;
@@ -80,6 +80,8 @@ namespace Slingshot.Widgets {
                     app_launched ();
                 }
             });
+            
+            this.button_press_event.connect ((e) => {return e.button == 3;});
             
             this.drag_begin.connect ( (ctx) => {
                 this.dragging = true;
