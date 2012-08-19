@@ -42,6 +42,9 @@
       <And>
         <Category>Accessibility</Category>
         <Not><Category>Settings</Category></Not>
+        <!-- Do not display Orca and OnBoard; they belong to a11y plug -->
+        <Not><Filename>orca.desktop</Filename></Not>
+        <Not><Filename>onboard.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Accessibility -->
