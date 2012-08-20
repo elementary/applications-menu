@@ -3,12 +3,12 @@
         <key name="columns" type="i">
             <default>5</default>
             <summary>The default number of columns</summary>
-            <description>This value needs to be greater than 5 to be effective.</description>
+            <description>This value needs to be greater than 3 to be effective.</description>
         </key>
         <key name="rows" type="i">
             <default>3</default>
             <summary>The default number of rows</summary>
-            <description>This value needs to be greater than 3 to be effective.</description>
+            <description>This value needs to be greater than 1 to be effective.</description>
         </key>
         <key name="icon-size" type="i">
             <default>64</default>

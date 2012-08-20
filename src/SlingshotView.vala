@@ -119,6 +119,8 @@ namespace Slingshot {
         
             debug ("In setup_size ()");
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
+            default_columns = 5;
+            default_rows = 3;
             while ((default_columns*130 +48 >= 2*screen.get_width ()/3)) {
                 default_columns--;
             }
@@ -126,8 +128,10 @@ namespace Slingshot {
             while ((default_rows*145 + 72 >= 2*screen.get_height ()/3)) {
                 default_rows--;
             }
-            if (Slingshot.settings.columns != default_columns)
+            
+            if (Slingshot.settings.columns != default_columns) {
                 Slingshot.settings.columns = default_columns;
+            }
             if (Slingshot.settings.rows != default_rows)
                 Slingshot.settings.rows = default_rows;
         }
@@ -257,7 +261,8 @@ namespace Slingshot {
             });
 
             // Auto-update settings when changed
-            //Slingshot.settings.changed.connect (() => read_settings ());
+            Slingshot.settings.changed["rows"].connect ( () => {read_settings (false, false, true);});
+            Slingshot.settings.changed["columns"].connect ( () => {read_settings (false, true, false);});
 
             // Auto-update applications grid
             app_system.changed.connect (() => {
@@ -271,6 +276,7 @@ namespace Slingshot {
 
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
+                setup_size ();
                 reposition ();
             });
             screen.monitors_changed.connect (() => {
@@ -768,17 +774,31 @@ namespace Slingshot {
 
         }
 
-        private void read_settings (bool first_start = false) {
+        private void read_settings (bool first_start = false, bool check_columns = true, bool check_rows = true) {
 
-            if (Slingshot.settings.columns > 3)
-                default_columns = Slingshot.settings.columns;
-            else
-                default_columns = Slingshot.settings.columns = 5;
-
-            if (Slingshot.settings.rows > 1)
-                default_rows = Slingshot.settings.rows;
-            else
-                default_rows = Slingshot.settings.rows = 3;
+            if (check_columns) {
+                if (Slingshot.settings.columns > 3)
+                    default_columns = Slingshot.settings.columns;
+                else
+                    default_columns = Slingshot.settings.columns = 4;
+            }
+            
+            if (check_rows) {
+                if (Slingshot.settings.rows > 1)
+                    default_rows = Slingshot.settings.rows;
+                else
+                    default_rows = Slingshot.settings.rows = 2;
+            }
+                
+            if (!first_start) {
+                grid_view.resize (default_rows, default_columns);
+                populate_grid_view ();
+                height_request = default_rows * 145 + 180;
+                
+                category_view.app_view.resize (default_rows, default_columns);
+                category_view.set_size_request (columns*130 + 17, view_height);
+                category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
+            }
 
         }
         

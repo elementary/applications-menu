@@ -41,7 +41,7 @@ namespace Slingshot.Widgets {
         private int current_position = 0;
         private bool from_category = false;
         
-        private HashMap<int, string> category_ids = new HashMap<int, string> ();
+        public HashMap<int, string> category_ids = new HashMap<int, string> ();
         
         public CategoryView (SlingshotView parent) {
 
@@ -227,7 +227,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        private void show_filtered_apps (string category) {
+        public void show_filtered_apps (string category) {
 
             switcher.clear_children ();
             app_view.clear ();
