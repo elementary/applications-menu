@@ -176,6 +176,8 @@
           <Filename>debian-uxterm.desktop</Filename>
           <Filename>ibus.desktop</Filename>
           <Filename>empathy-accounts.desktop</Filename>
+          <Not><Filename>orca.desktop</Filename></Not>
+          <Not><Filename>onboard.desktop</Filename></Not>
         </Not>
         <Or>
           <Not><Category>Settings</Category></Not>
