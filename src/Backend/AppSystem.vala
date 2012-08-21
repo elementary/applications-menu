@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011-2012 Slingshot Developers
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -44,7 +44,7 @@ namespace Slingshot.Backend {
                 index_changed = true;
                 update_app_system ();
                 changed ();
-                
+
             });
 
             apps_menu.set_sort_key (TreeSortKey.DISPLAY_NAME);
@@ -64,7 +64,7 @@ namespace Slingshot.Backend {
 
         private void update_categories_index () {
 
-            var root_tree = apps_menu.get_root_directory ();            
+            var root_tree = apps_menu.get_root_directory ();
 
             if (categories == null || index_changed) {
                 categories = new ArrayList<TreeDirectory> ();
@@ -89,7 +89,7 @@ namespace Slingshot.Backend {
             if (apps == null) {
 
                 apps = new HashMap<string, ArrayList<App>> ();
-                
+
                 foreach (TreeDirectory cat in categories) {
                     apps.set (cat.get_menu_id (), get_apps_by_category (cat));
                 }
@@ -129,7 +129,7 @@ namespace Slingshot.Backend {
 
         private bool is_entry (TreeEntry entry) {
 
-            if (entry.get_launch_in_terminal () == false 
+            if (entry.get_launch_in_terminal () == false
                 && entry.get_is_nodisplay () == false
                 && entry.get_is_excluded () == false) {
                 return true;
@@ -155,7 +155,7 @@ namespace Slingshot.Backend {
                     sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_popularity);
                 }
             }
-            
+
             return sorted_apps;
 
         }
@@ -204,17 +204,17 @@ namespace Slingshot.Backend {
                                 app.relevancy = app.name.length / search.length - app.popularity;
                             filtered.add (app);
                         }
-    
+
                         else if (search in app.exec.down ()) {
                             app.relevancy = app.exec.length / search.length * 10.0 - app.popularity;
                             filtered.add (app);
                         }
-    
+
                         else if (search in app.description.down ()) {
                             app.relevancy = app.description.length / search.length - app.popularity;
                             filtered.add (app);
                         }
-                        
+
                         else {
                             app.relevancy = 0;
                             foreach (string keyword in app.keywords) {
@@ -238,7 +238,7 @@ namespace Slingshot.Backend {
                 return filtered;
             }
 
-        }   
+        }
 
     }
 

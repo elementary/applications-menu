@@ -80,14 +80,14 @@ namespace Slingshot {
                 return (int) (rows*130 + rows*grid_view.row_spacing + 35);
             }
         }
-        
+
         private int column_focus = 0;
         private int row_focus = 0;
-        
+
         private int category_column_focus = 0;
         private int category_row_focus = 0;
 
-        public SlingshotView () {   
+        public SlingshotView () {
 
             // Window properties
             this.title = "Slingshot";
@@ -104,7 +104,7 @@ namespace Slingshot {
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
-            
+
             if (Slingshot.settings.screen_resolution != @"$(screen.get_width ())x$(screen.get_height ())")
                 setup_size ();
             height_request = default_rows * 145 + 180;
@@ -114,9 +114,9 @@ namespace Slingshot {
             debug ("Apps loaded");
 
         }
-        
+
         private void setup_size () {
-        
+
             debug ("In setup_size ()");
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
             default_columns = 5;
@@ -124,11 +124,11 @@ namespace Slingshot {
             while ((default_columns*130 +48 >= 2*screen.get_width ()/3)) {
                 default_columns--;
             }
-            
+
             while ((default_rows*145 + 72 >= 2*screen.get_height ()/3)) {
                 default_rows--;
             }
-            
+
             if (Slingshot.settings.columns != default_columns) {
                 Slingshot.settings.columns = default_columns;
             }
@@ -145,20 +145,20 @@ namespace Slingshot {
 
             // Add top bar
             top = new Gtk.Grid ();
-            
+
             var top_separator = new Label (""); // A fake label
             top_separator.set_hexpand(true);
 
             view_selector = new ModeButton ();
-            
+
             var image = new Image.from_icon_name ("view-grid-symbolic", IconSize.MENU);
             image.tooltip_text = _("Grid");
             view_selector.append (image);
-            
+
             image = new Image.from_icon_name ("view-filter-symbolic", IconSize.MENU);
             image.tooltip_text = _("Categories");
             view_selector.append (image);
-            
+
             if (Slingshot.settings.use_category)
                 view_selector.selected = 1;
             else
@@ -201,8 +201,8 @@ namespace Slingshot {
 
             // A bottom widget to keep the page switcher center
             bottom = new Gtk.Grid ();
-            
-            
+
+
             var bottom_separator1 = new Label (""); // A fake label
             bottom_separator1.set_hexpand(true);
             var bottom_separator2 = new Label (""); // A fake label
@@ -251,7 +251,7 @@ namespace Slingshot {
                     this.page_right (page_switcher.active - page_switcher.old_active);
                 else
                     this.page_left (page_switcher.old_active - page_switcher.active);
-                
+
                 searchbar.grab_focus (); //avoid focus is not on current page
             });
 
@@ -437,7 +437,7 @@ namespace Slingshot {
                             page_switcher.set_active (page_switcher.active - 1);
                         else
                             normal_move_focus (-1, 0);
-                    }    
+                    }
                     else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
                             category_view.switcher.set_active (category_view.switcher.active - 1);
@@ -448,7 +448,7 @@ namespace Slingshot {
                     else
                         return base.key_press_event (event);
                     break;
-    
+
                 case "Right":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
@@ -471,7 +471,7 @@ namespace Slingshot {
                 case "Up":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, -1);
-                    }        
+                    }
                     else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
                             if (category_view.category_switcher.selected != 0) {
@@ -489,12 +489,12 @@ namespace Slingshot {
                         search_view_up ();
                     }
                     break;
-                    
+
 
                 case "Down":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, +1);
-                    }     
+                    }
                     else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                             category_view.category_switcher.selected++;
@@ -512,7 +512,7 @@ namespace Slingshot {
                             search_view_down ();
                     }
                     break;
-                    
+
                 case "Page_Up":
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (page_switcher.active - 1);
@@ -524,8 +524,8 @@ namespace Slingshot {
                         top_left_focus ();
                     }
                     break;
-                
-                case "Page_Down":                    
+
+                case "Page_Down":
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (page_switcher.active + 1);
                         if (page_switcher.active != grid_view.get_n_pages () - 1) // we don't wanna lose focus if we don't actually change page
@@ -536,7 +536,7 @@ namespace Slingshot {
                         top_left_focus ();
                     }
                     break;
-                    
+
                 case "BackSpace":
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Delete
                         searchbar.set_text ("");
@@ -627,7 +627,7 @@ namespace Slingshot {
             // Avoid unexpected behavior
             if (modality != Modality.NORMAL_VIEW)
                 return;
-                
+
             int n_columns = grid_view.get_page_columns () * (grid_view.get_n_pages () - 1) + 1; //total number of columns
             if ((- current_position) < (n_columns*130)) {
                 int count = 0;
@@ -675,7 +675,7 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
-                    
+
                     if (Slingshot.settings.use_category)
                         Slingshot.settings.use_category = false;
                     bottom.show ();
@@ -685,7 +685,7 @@ namespace Slingshot {
                     view_manager.move (search_view, -130*columns, 0);
                     view_manager.move (category_view, 130*columns, 0);
                     view_manager.move (grid_view, current_position, 0);
-                    
+
                     // change the paddings/margins back to normal
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
                     center.set_margin_left (12);
@@ -694,17 +694,17 @@ namespace Slingshot {
                     return;
 
                 case Modality.CATEGORY_VIEW:
-                    
+
                     if (!Slingshot.settings.use_category)
                         Slingshot.settings.use_category = true;
                     bottom.show ();
                     view_selector.show_all ();
                     page_switcher.hide ();
                     category_view.show_page_switcher (true);
-                    view_manager.move (grid_view, (columns + 1)*130, 0); // plus 1 is needed because otherwise grid_view may appear in category view 
+                    view_manager.move (grid_view, (columns + 1)*130, 0); // plus 1 is needed because otherwise grid_view may appear in category view
                     view_manager.move (search_view, -columns*130, 0);
                     view_manager.move (category_view, 0, 0);
-                    
+
                     // remove the padding/margin on the left
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE);
                     center.set_margin_left (0);
@@ -718,7 +718,7 @@ namespace Slingshot {
                     view_manager.move (grid_view, columns*130, 0); // Move the grid_view away
                     view_manager.move (category_view, columns*130, 0);
                     view_manager.move (search_view, 0, 0); // Show the searchview
-                    
+
                     // change the paddings/margins back to normal
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
                     center.set_margin_left (12);
@@ -782,26 +782,26 @@ namespace Slingshot {
                 else
                     default_columns = Slingshot.settings.columns = 4;
             }
-            
+
             if (check_rows) {
                 if (Slingshot.settings.rows > 1)
                     default_rows = Slingshot.settings.rows;
                 else
                     default_rows = Slingshot.settings.rows = 2;
             }
-                
+
             if (!first_start) {
                 grid_view.resize (default_rows, default_columns);
                 populate_grid_view ();
                 height_request = default_rows * 145 + 180;
-                
+
                 category_view.app_view.resize (default_rows, default_columns);
                 category_view.set_size_request (columns*130 + 17, view_height);
                 category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
             }
 
         }
-        
+
         private void normal_move_focus (int delta_column, int delta_row) {
             if (get_focus () as AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
                 var new_focus = grid_view.get_child_at (column_focus + delta_column, row_focus + delta_row); // we check if the new widget exists
@@ -829,7 +829,7 @@ namespace Slingshot {
                 row_focus = 0;
             }
         }
-        
+
         private void category_move_focus (int delta_column, int delta_row) {
             var new_focus = category_view.app_view.get_child_at (category_column_focus + delta_column, category_row_focus + delta_row);
             if (new_focus == null) {
@@ -869,7 +869,7 @@ namespace Slingshot {
             }
             new_focus.grab_focus ();
         }
-        
+
         // this method moves focus to the first AppEntry in the top left corner of the current page. Works in CategoryView only
         private void top_left_focus () {
             // this is the first column of the current page
@@ -878,7 +878,7 @@ namespace Slingshot {
             category_column_focus = first_column;
             category_row_focus = 0;
         }
-        
+
         public void reset_category_focus () {
             category_column_focus = 0;
             category_row_focus = 0;

@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011-2012 Giulio Collura
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -38,20 +38,20 @@ namespace Slingshot.Widgets {
 
         private double alpha = 1.0;
         private bool   dragging = false; //prevent launching
-        
+
         private Backend.App application;
-        
+
         public AppEntry (Backend.App app) {
             TargetEntry dnd = {"text/uri-list", 0, 0};
-            Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd}, 
+            Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                 Gdk.DragAction.COPY);
-            
+
             app_paintable = true;
             set_visual (get_screen ().get_rgba_visual());
             set_size_request (130, 130);
             desktop_id = app.desktop_id;
             desktop_path = app.desktop_path;
-            
+
             application = app;
             app_name = app.name;
             tooltip_text = app.description;
@@ -73,16 +73,16 @@ namespace Slingshot.Widgets {
             layout.pack_start (app_label, false, true, 0);
 
             add (Utils.set_padding (layout, 78, 5, 5, 5));
-            
+
             this.released.connect (() => {
                 if (!this.dragging){
                     app.launch ();
                     app_launched ();
                 }
             });
-            
+
             this.button_press_event.connect ((e) => {return e.button == 3;});
-            
+
             this.drag_begin.connect ( (ctx) => {
                 this.dragging = true;
                 Gtk.drag_set_icon_pixbuf (ctx, icon, 0, 0);
@@ -93,7 +93,7 @@ namespace Slingshot.Widgets {
             this.drag_data_get.connect ( (ctx, sel, info, time) => {
                 sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
             });
-            
+
             app.icon_changed.connect (queue_draw);
 
         }
@@ -139,7 +139,7 @@ namespace Slingshot.Widgets {
                     queue_draw ();
                     return false;
                 }
-                
+
                 alpha += 0.05;
                 queue_draw ();
                 return true;
@@ -147,7 +147,7 @@ namespace Slingshot.Widgets {
             });
 
         }
-        
+
         public void launch_app () {
             application.launch ();
             app_launched ();

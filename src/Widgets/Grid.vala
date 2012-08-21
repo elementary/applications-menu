@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011-2012 Giulio Collura
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -35,11 +35,11 @@ namespace Slingshot.Widgets {
         private Page page;
 
         public Grid (int rows, int columns) {
-            
+
             // Grid properties
             row_homogeneous = true;
             column_homogeneous = true;
-            
+
             row_spacing = 20;
             column_spacing = 0;
 
@@ -77,7 +77,7 @@ namespace Slingshot.Widgets {
         public void clear () {
 
             foreach (Widget widget in get_children ()) {
-                if (widget.get_parent () != null)                
+                if (widget.get_parent () != null)
                     remove (widget);
                 widget.destroy ();
             }
@@ -121,7 +121,7 @@ namespace Slingshot.Widgets {
             }
 
         }
-        
+
         public void resize (int rows, int columns) {
 
             clear ();

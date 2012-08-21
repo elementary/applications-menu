@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011-2012 Giulio Collura
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -33,8 +33,8 @@ namespace Slingshot.Widgets {
         public signal void launch_app ();
 
         public SearchItem (Backend.App app) {
-            
-            get_style_context ().add_class ("app");            
+
+            get_style_context ().add_class ("app");
 
             icon = app.icon;
             icon_name = app.icon_name;
@@ -43,7 +43,7 @@ namespace Slingshot.Widgets {
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
-            
+
             desc_label = new Label (fix (app.description));
             desc_label.set_ellipsize (Pango.EllipsizeMode.END);
             desc_label.xalign = 0.0f;
@@ -82,7 +82,7 @@ namespace Slingshot.Widgets {
 	            	}
                 }
             }
-            
+
             height_request = icon_size + 10;
 
             // Draw icon
@@ -92,7 +92,7 @@ namespace Slingshot.Widgets {
             return true;
 
         }
-        
+
         private string fix (string text) {
             return text.replace ("&", "&amp;").replace ("<", "&lt;").replace (">", "&gt;");
         }
