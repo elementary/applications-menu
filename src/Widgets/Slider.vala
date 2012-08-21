@@ -1,7 +1,7 @@
 public interface Slingshot.Slider : Gtk.Widget {
-    public abstract void slide_to (Gtk.Widget w);    
-    public abstract void slide_from (Gtk.Widget w);    
-    public abstract void slide_fade (Gtk.Widget w);    
+    public abstract void slide_to (Gtk.Widget w);
+    public abstract void slide_from (Gtk.Widget w);
+    public abstract void slide_fade (Gtk.Widget w);
 }
 
 public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
@@ -19,7 +19,7 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
         size_allocate.connect(on_size_allocate);
                 children = new List<Gtk.Widget>();
     }
-    
+
     public void on_size_allocate(Gtk.Allocation rect)
     {
         if(rect.width != 0.0)
@@ -29,7 +29,7 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
             active_actor.height = (float)rect.height;
         }
     }
-    
+
     public void slide(Gtk.Widget w)
     {
         if(sens == 0)
@@ -39,7 +39,7 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
         else if(sens == 2)
             slide_fade(w);
     }
-    
+
     public void slide_to(Gtk.Widget w)
     {
         first = true;
@@ -66,13 +66,13 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
             stage.add_actor(active_actor);
             w.show_all ();
             show_all();
-            
+
         }
         active_w = w;
     }
 
     void put_widget_in_actor (GtkClutter.Actor active_actor, Gtk.Widget w) {
-        
+
         if (w.get_parent () == null)
         (active_actor.get_widget() as Gtk.Bin).add(w);
         else
@@ -80,7 +80,7 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
         active_actor.width = get_allocated_width();
         active_actor.height = get_allocated_height();
     }
-    
+
     public void slide_fade(Gtk.Widget w)
     {
         first = true;
@@ -107,11 +107,11 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
             stage.add_actor(active_actor);
             w.show_all ();
             show_all();
-            
+
         }
         active_w = w;
     }
-    
+
     public void slide_from(Gtk.Widget w)
     {
         first = true;
@@ -138,26 +138,26 @@ public class Slingshot.SliderClutter : GtkClutter.Embed, Slider
             stage.add_actor(active_actor);
             w.show_all ();
             show_all();
-            
+
         }
         active_w = w;
     }
-    
-        
+
+
     internal List<Gtk.Widget> children;
-    
+
     bool first = true;
     int max_height = 0;
     public override void get_preferred_height(out int size1, out int size2){
         active_w.get_preferred_height(out size1, out size2);
         max_height = size1 = size2 = int.max(max_height, size2);
-        
+
     }
     int max_width = 0;
     public override void get_preferred_width(out int size1, out int size2){
         active_w.get_preferred_width(out size1, out size2);
         max_width = size1 = size2 = int.max(max_width, size2);
-        
+
     }
 }
 

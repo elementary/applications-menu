@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011-2012 Giulio Collura
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -40,9 +40,9 @@ namespace Slingshot.Widgets {
         private const string NEW_FILTER = _("Create a new Filter");
         private int current_position = 0;
         private bool from_category = false;
-        
+
         public HashMap<int, string> category_ids = new HashMap<int, string> ();
-        
+
         public CategoryView (SlingshotView parent) {
 
             view = parent;
@@ -70,10 +70,10 @@ namespace Slingshot.Widgets {
 
             // Fill the sidebar
             int n = 0;
-            
+
             foreach (string cat_name in view.apps.keys) {
                 category_ids.set (n, cat_name);
-            
+
                 switch (cat_name) {
                     case "Accessories":
                         category_switcher.add_category (_("Accessories"));
@@ -149,21 +149,21 @@ namespace Slingshot.Widgets {
 
         }
 
-        private void connect_events () { 
+        private void connect_events () {
 
             category_switcher.selection_changed.connect ((name, nth) => {
-            
+
                 view.reset_category_focus ();
-                
+
                 string category = category_ids.get (nth);
-                
+
                 if (category == ALL_APPLICATIONS)
                     show_all_apps ();
                 else
                     show_filtered_apps (category);
 
             });
-  
+
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {
                     case "GDK_SCROLL_UP":
@@ -182,7 +182,7 @@ namespace Slingshot.Widgets {
                 if (switcher.size == 0)
                     switcher.append ("1");
                 switcher.append (page);
-                
+
                 /* Prevents pages from changing */
                 from_category = true;
             });
@@ -200,7 +200,7 @@ namespace Slingshot.Widgets {
                 {
                     page_left (switcher.old_active - switcher.active);
                 }
-                
+
                 view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
             });
 
@@ -238,7 +238,7 @@ namespace Slingshot.Widgets {
                 layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
 
             } else {
-    
+
                 if (view.apps[category].size == 0) {
                     layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
                 } else {
@@ -279,7 +279,7 @@ namespace Slingshot.Widgets {
                 return current_position += columns*130*step;
                 */
             }
-            
+
             return 0;
         }
 
@@ -292,12 +292,12 @@ namespace Slingshot.Widgets {
                 int count = 0;
                 int val = columns*130*step / 10;
                 Timeout.add(20 / (2*step*step), () => {
-                    
+
                     if (count >= columns*130*step) {
                         count = 0;
                         return false;
                     }
-    
+
                     layout.move (app_view, current_position - val, 0);
                     current_position -= val;
                     count += val;
@@ -308,7 +308,7 @@ namespace Slingshot.Widgets {
 
             /*int columns = app_view.get_page_columns ();
             int pages = app_view.get_n_pages ();
-            
+
             if ((- current_position) < (columns*(pages - 1)*130)) {
 
                 layout.move (app_view, current_position - columns*130*step, 0);
@@ -322,7 +322,7 @@ namespace Slingshot.Widgets {
 
             if (page_switcher.get_parent () == null)
                 view.bottom.attach (page_switcher, 1, 0, 1, 1);
-            
+
             if (show)
                 page_switcher.show_all ();
             else

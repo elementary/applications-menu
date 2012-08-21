@@ -1,17 +1,17 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//  
+//
 //  Copyright (C) 2011-2012 Giulio Collura
-// 
+//
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-// 
+//
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-// 
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -38,7 +38,7 @@ namespace Slingshot {
             build_release_name = Build.RELEASE_NAME;
             build_version = Build.VERSION;
             build_version_info = Build.VERSION_INFO;
-            
+
             program_name = "Slingshot";
 		    exec_name = "slingshot";
 		    app_copyright = "GPLv3";
@@ -76,7 +76,7 @@ namespace Slingshot {
                 if (file.get_basename () == "--silent")
                     silent = true;
             }
-            
+
             activate ();
 
         }
@@ -97,9 +97,9 @@ namespace Slingshot {
                     view.show_slingshot ();
             }
             silent = false;
-        
+
         }
-        
+
         static const OptionEntry[] entries = {
             { "silent", 's', 0, OptionArg.NONE, ref silent, "Launch Slingshot as a background process without it appearing visually.", null },
             { "command-mode", 'c', 0, OptionArg.NONE, ref command_mode, "This feature is not implemented yet. When it is, description will be changed.", null },
