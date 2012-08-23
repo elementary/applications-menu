@@ -302,6 +302,11 @@ namespace Slingshot {
         public override bool key_press_event (Gdk.EventKey event) {
 
             switch (Gdk.keyval_name (event.keyval)) {
+            
+                case "Escape":
+                    hide ();
+                    return true;
+
 
                 case "Return":
                     if (modality == Modality.SEARCH_VIEW) {
