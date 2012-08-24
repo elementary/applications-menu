@@ -589,6 +589,8 @@ namespace Slingshot {
         }
 
         public void show_slingshot () {
+        
+            searchbar.set_text ("");
 
             reposition ();
             show_all ();
