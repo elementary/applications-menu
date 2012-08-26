@@ -204,9 +204,9 @@ namespace Slingshot {
 
 
             var bottom_separator1 = new Label (""); // A fake label
-            bottom_separator1.set_hexpand(true);
+            bottom_separator1.set_hexpand (true);
             var bottom_separator2 = new Label (""); // A fake label
-            bottom_separator2.set_hexpand(true);
+            bottom_separator2.set_hexpand (true);
             bottom.attach (bottom_separator1, 0, 0, 1, 1); // A fake label
             bottom.attach (page_switcher, 1, 0, 1, 1);
             bottom.attach (bottom_separator2, 2, 0, 1, 1); // A fake label

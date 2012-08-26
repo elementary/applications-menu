@@ -141,8 +141,8 @@ namespace Slingshot.Widgets {
             page_switcher.attach (switcher, 1, 0, 1, 1);
             page_switcher.attach (bottom_separator2, 2, 0, 1, 1);
 
-            container.attach (category_switcher, 0, 0, 1, 1);
-            container.attach (separator, 1, 0, 1, 1);
+            container.attach (category_switcher, 0, 0, 1, 2);
+            container.attach (separator, 1, 0, 1, 2);
             container.attach (layout, 2, 0, 1, 1);
 
             add (container);
@@ -320,11 +320,13 @@ namespace Slingshot.Widgets {
 
         public void show_page_switcher (bool show) {
 
-            if (page_switcher.get_parent () == null)
-                view.bottom.attach (page_switcher, 1, 0, 1, 1);
+            if (page_switcher.get_parent () == null) 
+                container.attach (page_switcher, 2, 1, 1, 1);
 
-            if (show)
+            if (show) {
                 page_switcher.show_all ();
+                view.bottom.hide ();
+            }
             else
                 page_switcher.hide ();
 
