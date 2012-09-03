@@ -1,16 +1,16 @@
-# Czech translation for slingshot
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Serbian translation for slingshot
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-09-02 20:03+0000\n"
-"Last-Translator: jimbulux <jimbulux@gmail.com>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2012-09-02 15:34+0000\n"
+"Last-Translator: Igor <Unknown>\n"
+"Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,72 +19,72 @@ msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr "Všechny aplikace"
+msgstr "Сви програми"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr "Vytvořit nový filtr"
+msgstr "Направи нови филтер"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "Tato kategorie je prázdná"
+msgstr "Ова категорија је празна"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
 msgid "Accessories"
-msgstr "Příslušenství"
+msgstr "Прибор"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
 msgid "Universal Access"
-msgstr "Univerzální přístup"
+msgstr "Општи приступ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:85
 msgid "Graphics"
-msgstr "Grafika"
+msgstr "Графика"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:88
 msgid "Development"
-msgstr "Vývoj"
+msgstr "Развој"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:91
 msgid "Other"
-msgstr "Ostatní"
+msgstr "Остало"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:94
 msgid "Internet"
-msgstr "Internet"
+msgstr "Интернет"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:97
 msgid "System"
-msgstr "Systém"
+msgstr "Систем"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:100
 msgid "Multimedia"
-msgstr "Multimédia"
+msgstr "Мултимедија"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:103
 msgid "Games"
-msgstr "Hry"
+msgstr "Игре"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
 msgid "Office"
-msgstr "Kancelář"
+msgstr "Канцеларија"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
 msgid "<b>Categories</b>"
-msgstr "Kategorie"
+msgstr "<b>Категорије</b>"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
-msgstr "Spustit tento příkaz..."
+msgstr "Покрени ову команду..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr "Mřížka"
+msgstr "Мрежа"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr "Kategorie"
+msgstr "Категорије"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
-msgstr "Najít aplikace..."
+msgstr "Претражи Програме..."
