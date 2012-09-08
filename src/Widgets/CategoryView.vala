@@ -114,6 +114,9 @@ namespace Slingshot.Widgets {
                     case "Universal Access":
                         category_switcher.add_category (_("Universal Access"));
                     break;
+                    case "Wine":
+                        category_switcher.add_category ("Wine");
+                    break;
                 }
                 n++;
             }
@@ -320,7 +323,7 @@ namespace Slingshot.Widgets {
 
         public void show_page_switcher (bool show) {
 
-            if (page_switcher.get_parent () == null) 
+            if (page_switcher.get_parent () == null)
                 container.attach (page_switcher, 2, 1, 1, 1);
 
             if (show) {
