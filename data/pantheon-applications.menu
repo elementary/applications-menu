@@ -194,6 +194,16 @@
     </Include>
   </Menu> <!-- End Other -->
 
+  <Menu>
+    <Name>Wine</Name>
+    <Directory>Wine.directory</Directory>
+    <Include>
+      <And>
+        <Category>Wine</Category>
+      </And>
+    </Include>
+  </Menu> <!-- End Wine -->
+
    <Layout>
      <Merge type="menus" />
      <Menuname>Other</Menuname>
