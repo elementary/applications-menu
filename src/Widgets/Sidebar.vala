@@ -38,7 +38,7 @@ namespace Slingshot.Widgets {
                 return _selected;
             }
             set {
-                if (0 <= value < cat_size) {
+                if (value >= 0 && value < cat_size) {
                     select_nth (value);
                     _selected = value;
                 }

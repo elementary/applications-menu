@@ -182,10 +182,10 @@ namespace Slingshot.Widgets {
         private void select_nth (int index) {
 
             if (selected_app != null)
-                selected_app.set_state (StateType.NORMAL);
+                selected_app.unset_state_flags (StateFlags.PRELIGHT);
 
             selected_app = (SearchItem) get_children ().nth_data (index);
-            selected_app.set_state (StateType.PRELIGHT);
+            selected_app.set_state_flags (StateFlags.PRELIGHT, false);
 
         }
 

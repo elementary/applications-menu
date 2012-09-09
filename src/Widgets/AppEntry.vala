@@ -26,7 +26,7 @@ namespace Slingshot.Widgets {
 
         public Label app_label;
         private Pixbuf icon;
-        private VBox layout;
+        private Box layout;
 
         public string exec_name;
         public string app_name;
@@ -68,17 +68,20 @@ namespace Slingshot.Widgets {
             app_label.set_single_line_mode (false);
             app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-            layout = new VBox (false, 0);
+            layout = new Box (Orientation.VERTICAL, 0);
+            layout.homogeneous = false;
 
             layout.pack_start (app_label, false, true, 0);
 
             add (Utils.set_padding (layout, 78, 5, 5, 5));
 
-            this.released.connect (() => {
+            this.button_release_event.connect ((e) => {
                 if (!this.dragging){
                     app.launch ();
                     app_launched ();
+                    return true;
                 }
+                return false;
             });
 
             this.button_press_event.connect ((e) => {return e.button == 3;});

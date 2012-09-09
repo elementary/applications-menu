@@ -48,7 +48,8 @@ namespace Slingshot.Widgets {
             desc_label.set_ellipsize (Pango.EllipsizeMode.END);
             desc_label.xalign = 0.0f;
 
-            var vbox = new VBox (false, 0);
+            var vbox = new Box (Orientation.VERTICAL, 0);
+            vbox.homogeneous = false;
             vbox.pack_start (name_label, false, true, 0);
             vbox.pack_start (desc_label, false, true, 0);
 
