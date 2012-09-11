@@ -40,7 +40,7 @@ namespace Slingshot {
             build_version_info = Build.VERSION_INFO;
 
             program_name = "Slingshot";
-		    exec_name = "slingshot";
+		    exec_name = "slingshot-launcher";
 		    app_copyright = "GPLv3";
 		    app_icon = "";
 		    app_launcher = "";
