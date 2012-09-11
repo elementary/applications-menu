@@ -38,11 +38,15 @@ namespace Slingshot.Backend {
 
         public App (GMenu.TreeEntry entry) {
 
-            name = entry.get_display_name ();
-            description = entry.get_comment () ?? name;
-            exec = entry.get_exec ();
+            unowned GLib.DesktopAppInfo info = entry.get_app_info ();
+            name = info.get_display_name ().dup ();
+            description = info.get_description ().dup () ?? name;
+            exec = info.get_executable ().dup ();
+            if (info.get_icon () is ThemedIcon)
+                icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
+            else
+                icon_name = "application-default-icon";
             desktop_id = entry.get_desktop_file_id ();
-            icon_name = entry.get_icon () ?? "application-default-icon";
             desktop_path = entry.get_desktop_file_path ();
             keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
 
