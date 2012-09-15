@@ -26,7 +26,7 @@ namespace Slingshot.Backend {
         public string exec { get; private set; }
         public string icon_name { get; private set; default = ""; }
         public string[] keywords { get; private set;}
-        public Gdk.Pixbuf icon { get; private set; }
+        public Gdk.Pixbuf? icon { get; private set; default = null; }
         public double popularity { get; set; }
         public double relevancy { get; set; }
         public string desktop_path { get; private set; }
@@ -42,15 +42,27 @@ namespace Slingshot.Backend {
             name = info.get_display_name ().dup ();
             description = info.get_description ().dup () ?? name;
             exec = info.get_executable ().dup ();
-            if (info.get_icon () is ThemedIcon)
-                icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
-            else
-                icon_name = "application-default-icon";
             desktop_id = entry.get_desktop_file_id ();
             desktop_path = entry.get_desktop_file_path ();
             keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
+            
+            if (info.get_icon () is ThemedIcon) {
+                icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
+            } else if (info.get_icon () is LoadableIcon) {
+                try {
+                    var ios = (info.get_icon () as LoadableIcon).load (0, null, null);
+                    icon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
+                        Slingshot.settings.icon_size, true, null);
+                } catch {
+                    icon_name = "application-default-icon";
+                }
+            } else {
+                icon_name = "application-default-icon";
+            }
 
-            update_icon ();
+            if (icon == null)
+                update_icon ();
+
             Slingshot.icon_theme.changed.connect (update_icon);
 
         }
