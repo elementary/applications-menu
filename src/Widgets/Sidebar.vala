@@ -81,7 +81,7 @@ namespace Slingshot.Widgets {
         public void add_category (string entry_name) {
 
             store.append (out entry_iter, null);
-            store.set (entry_iter, Columns.INT, cat_size - 1, Columns.TEXT, entry_name, -1);
+            store.set (entry_iter, Columns.INT, cat_size - 1, Columns.TEXT, Markup.escape_text (entry_name), -1);
 
             expand_all ();
 

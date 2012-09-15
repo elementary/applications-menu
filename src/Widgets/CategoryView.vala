@@ -73,7 +73,7 @@ namespace Slingshot.Widgets {
 
             foreach (string cat_name in view.apps.keys) {
                 category_ids.set (n, cat_name);
-                category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ().replace ("&", "&amp;"));
+                category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
                 n++;
             }
 
