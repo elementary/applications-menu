@@ -91,7 +91,7 @@ namespace Slingshot.Backend {
                 apps = new HashMap<string, ArrayList<App>> ();
 
                 foreach (TreeDirectory cat in categories) {
-                    apps.set (cat.get_menu_id (), get_apps_by_category (cat));
+                    apps.set (cat.get_name (), get_apps_by_category (cat));
                 }
 
             }
