@@ -37,7 +37,6 @@ namespace Slingshot.Backend {
             rl_service = new RelevancyService ();
 
             apps_menu = new GMenu.Tree ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED | TreeFlags.SORT_DISPLAY_NAME);
-            apps_menu.load_sync ();
             apps_menu.changed.connect (update_app_system);
             
             apps = new HashMap<string, ArrayList<App>> ();
@@ -51,6 +50,8 @@ namespace Slingshot.Backend {
 
             debug ("Updating Applications menu tree...");
             rl_service.refresh_popularity ();
+
+            apps_menu.load_sync ();
 
             update_categories_index ();
             update_apps ();
