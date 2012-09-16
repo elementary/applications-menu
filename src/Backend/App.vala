@@ -41,7 +41,7 @@ namespace Slingshot.Backend {
             unowned GLib.DesktopAppInfo info = entry.get_app_info ();
             name = info.get_display_name ().dup ();
             description = info.get_description ().dup () ?? name;
-            exec = info.get_executable ().dup ();
+            exec = info.get_commandline ().dup ();
             desktop_id = entry.get_desktop_file_id ();
             desktop_path = entry.get_desktop_file_path ();
             keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
