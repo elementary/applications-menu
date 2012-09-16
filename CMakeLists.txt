@@ -24,11 +24,11 @@ configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 # Slingshot
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;libwnck-3.0;gdk-x11-3.0;unity;")
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libwnck-3.0;gdk-x11-3.0;unity;")
 set (UI_DEPS "gtk+-3.0>=3.2.0;granite>=0.1.3;zeitgeist-1.0;")
 
 find_package (PkgConfig)
-pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
+pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS};libgnome-menu-3.0")
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
@@ -55,6 +55,7 @@ PACKAGES
     ${UI_DEPS}
 CUSTOM_VAPIS
     vapi/config.vapi
+    vapi/libgnome-menu-3.0.vapi
 OPTIONS
 	--thread
     -g
