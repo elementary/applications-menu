@@ -1,0 +1,90 @@
+# Amharic translation for slingshot
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the slingshot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: slingshot\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-06-06 00:21-0700\n"
+"PO-Revision-Date: 2012-09-22 23:19+0000\n"
+"Last-Translator: samson <Unknown>\n"
+"Language-Team: Amharic <am@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-09-23 04:33+0000\n"
+"X-Generator: Launchpad (build 15985)\n"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
+msgid "All Applications"
+msgstr "ሁሉንም መተግበሪያዎች"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
+msgid "Create a new Filter"
+msgstr "አዲስ ማጣሪያ መፍጠሪያ"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
+msgid "This Category is Empty"
+msgstr "ይህ ምድብ ባዶ ነው"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
+msgid "Accessories"
+msgstr "ተጨማሪዎች"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
+msgid "Universal Access"
+msgstr "አለም አቀፍ መድረሻ"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:85
+msgid "Graphics"
+msgstr "ንድፍ"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:88
+msgid "Development"
+msgstr "አበልጻጊ"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:91
+msgid "Other"
+msgstr "ሌሎች"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:94
+msgid "Internet"
+msgstr "ኢንተርኔት"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:97
+msgid "System"
+msgstr "ስርአት"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:100
+msgid "Multimedia"
+msgstr ""
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:103
+msgid "Games"
+msgstr "ጨዋታዎች"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
+msgid "Office"
+msgstr "ቢሮ"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
+msgid "<b>Categories</b>"
+msgstr "<b>ምድቦች</b>"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
+msgid "Run this command..."
+msgstr "ይህን ትእዛዝ ማስኬጃ..."
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
+msgid "Grid"
+msgstr "መገናኛ"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
+msgid "Categories"
+msgstr "ምድቦች"
+
+#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
+msgid "Search Apps..."
+msgstr "መተግበሪያዎች መፈለጊያ..."
