@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-06 00:21-0700\n"
-"PO-Revision-Date: 2012-09-25 07:00+0000\n"
+"PO-Revision-Date: 2012-09-29 10:16+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 04:32+0000\n"
-"X-Generator: Launchpad (build 16022)\n"
+"X-Launchpad-Export-Date: 2012-09-30 04:37+0000\n"
+"X-Generator: Launchpad (build 16049)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr ""
+msgstr "Visos programos"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr ""
+msgstr "Ši kategorija yra tuščia"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
 msgid "Accessories"
@@ -59,32 +59,32 @@ msgstr "Sistema"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:100
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedija"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:103
 msgid "Games"
-msgstr ""
+msgstr "Žaidimai"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
 msgid "Office"
-msgstr ""
+msgstr "Biuro programos"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
 msgid "<b>Categories</b>"
-msgstr ""
+msgstr "<b>Kategorijos</b>"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
 msgid "Run this command..."
-msgstr ""
+msgstr "Įvykdyti šią komandą..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
 msgid "Grid"
-msgstr ""
+msgstr "Tinklelis (rodyti visas)"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
 msgid "Categories"
-msgstr ""
+msgstr "Rodyti programas pagal kategorijas"
 
 #: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
 msgid "Search Apps..."
-msgstr ""
+msgstr "Ieškoti programų..."
