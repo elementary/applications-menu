@@ -31,16 +31,23 @@ namespace Slingshot.Backend {
         private RelevancyService rl_service;
 
         public signal void changed ();
+        private bool index_changed = false;
 
         construct {
 
             rl_service = new RelevancyService ();
 
-            apps_menu = new GMenu.Tree ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED | TreeFlags.SORT_DISPLAY_NAME);
-            apps_menu.changed.connect (update_app_system);
-            
-            apps = new HashMap<string, ArrayList<App>> ();
-            categories = new ArrayList<TreeDirectory> ();
+            apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED);
+            apps_menu.add_monitor ((menu) => {
+
+                debug ("Apps menu tree changed. Updating..");
+                index_changed = true;
+                update_app_system ();
+                changed ();
+
+            });
+
+            apps_menu.set_sort_key (TreeSortKey.DISPLAY_NAME);
 
             update_app_system ();
 
@@ -48,29 +55,24 @@ namespace Slingshot.Backend {
 
         private void update_app_system () {
 
-            debug ("Updating Applications menu tree...");
             rl_service.refresh_popularity ();
-
-            apps_menu.load_sync ();
 
             update_categories_index ();
             update_apps ();
-
-            changed ();
 
         }
 
         private void update_categories_index () {
 
-            categories.clear ();
+            var root_tree = apps_menu.get_root_directory ();
 
-            var iter = apps_menu.get_root_directory ().iter ();
-            TreeItemType type;
-            while ((type = iter.next ()) != TreeItemType.INVALID) {
-                if (type == TreeItemType.DIRECTORY) {
-                    var dir = iter.get_directory ();
-                    if (!dir.get_is_nodisplay ())
-                        categories.add (dir);
+            if (categories == null || index_changed) {
+                categories = new ArrayList<TreeDirectory> ();
+
+                foreach (TreeItem item in root_tree.get_contents ()) {
+                    if (item.get_type () == TreeItemType.DIRECTORY)
+                        if (((TreeDirectory) item).get_is_nodisplay () == false)
+                            categories.add ((TreeDirectory) item);
                 }
             }
 
@@ -78,10 +80,21 @@ namespace Slingshot.Backend {
 
         private void update_apps () {
 
-            apps.clear ();
- 
-            foreach (var cat in categories)
-                apps.set (cat.get_name (), get_apps_by_category (cat));
+            if (index_changed) {
+                apps.clear ();
+                apps = null;
+                index_changed = false;
+            }
+
+            if (apps == null) {
+
+                apps = new HashMap<string, ArrayList<App>> ();
+
+                foreach (TreeDirectory cat in categories) {
+                    apps.set (cat.get_name (), get_apps_by_category (cat));
+                }
+
+            }
 
         }
 
@@ -95,22 +108,34 @@ namespace Slingshot.Backend {
 
             var app_list = new ArrayList<App> ();
 
-            var iter = category.iter ();
-            TreeItemType type;
-            while ((type = iter.next ()) != TreeItemType.INVALID) {
-                switch (type) {
+            foreach (TreeItem item in category.get_contents ()) {
+                App app;
+                switch (item.get_type ()) {
                     case TreeItemType.DIRECTORY:
-                        app_list.add_all (get_apps_by_category (iter.get_directory ()));
+                        app_list.add_all (get_apps_by_category ((TreeDirectory) item));
                         break;
                     case TreeItemType.ENTRY:
-                        var app = new App (iter.get_entry ());
-                        app.launched.connect (rl_service.app_launched);
-                        app_list.add (app);
+                        if (is_entry ((TreeEntry) item)) {
+                            app = new App ((TreeEntry) item);
+                            app.launched.connect (rl_service.app_launched);
+                            app_list.add (app);
+                        }
                         break;
                 }
             }
-
             return app_list;
+
+        }
+
+        private bool is_entry (TreeEntry entry) {
+
+            if (entry.get_launch_in_terminal () == false
+                && entry.get_is_nodisplay () == false
+                && entry.get_is_excluded () == false) {
+                return true;
+            } else {
+                return false;
+            }
 
         }
 
