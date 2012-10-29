@@ -62,22 +62,9 @@ namespace Slingshot {
 
         public Slingshot () {
 
-            set_flags (ApplicationFlags.HANDLES_OPEN);
-
             settings = new Settings ();
 
             DEBUG = true;
-
-        }
-
-        protected override void open (File[] files, string hint) {
-
-            foreach (File file in files) {
-                if (file.get_basename () == "--silent")
-                    silent = true;
-            }
-
-            activate ();
 
         }
 
@@ -92,7 +79,7 @@ namespace Slingshot {
                 }
             } else {
                 if (view.visible && !silent)
-                    view.hide ();
+                    view.hide ();                  
                 else
                     view.show_slingshot ();
             }

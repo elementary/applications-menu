@@ -550,8 +550,6 @@ namespace Slingshot {
                     break;
 
                 default:
-                    if (!searchbar.has_focus)
-                        searchbar.grab_focus ();
                     return base.key_press_event (event);
 
             }

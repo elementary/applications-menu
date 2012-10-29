@@ -153,12 +153,14 @@
         </Or>
         <Not>
           <Category>Game</Category>
+	  <Category>X-GNOME-Settings-Panel</Category>
           <Filename>debian-xterm.desktop</Filename>
           <Filename>debian-uxterm.desktop</Filename>
           <Filename>ibus.desktop</Filename>
         </Not>
       </And>
       <Filename>ubuntuone-installer.desktop</Filename>
+      <Filename>ubuntu-tweak.desktop</Filename>
     </Include>
   </Menu>   <!-- End System Tools -->
 
