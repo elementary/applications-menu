@@ -152,11 +152,11 @@ namespace Slingshot {
             view_selector = new ModeButton ();
 
             var image = new Image.from_icon_name ("view-grid-symbolic", IconSize.MENU);
-            image.tooltip_text = _("Grid");
+            image.tooltip_text = _("View as Grid");
             view_selector.append (image);
 
             image = new Image.from_icon_name ("view-filter-symbolic", IconSize.MENU);
-            image.tooltip_text = _("Categories");
+            image.tooltip_text = _("View by Category");
             view_selector.append (image);
 
             if (Slingshot.settings.use_category)
