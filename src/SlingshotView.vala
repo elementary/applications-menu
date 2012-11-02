@@ -156,7 +156,7 @@ namespace Slingshot {
             view_selector.append (image);
 
             image = new Image.from_icon_name ("view-filter-symbolic", IconSize.MENU);
-            image.tooltip_text = _("Categories");
+            image.tooltip_text = _("View by Category");
             view_selector.append (image);
 
             if (Slingshot.settings.use_category)
