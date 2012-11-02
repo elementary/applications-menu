@@ -75,14 +75,7 @@ namespace Slingshot.Widgets {
 
             add (Utils.set_padding (layout, 78, 5, 5, 5));
 
-            this.button_release_event.connect ((e) => {
-                if (!this.dragging){
-                    app.launch ();
-                    app_launched ();
-                    return true;
-                }
-                return false;
-            });
+            this.clicked.connect (launch_app);
 
             this.button_press_event.connect ((e) => {return e.button == 3;});
 
