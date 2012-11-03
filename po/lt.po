@@ -7,84 +7,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-06-06 00:21-0700\n"
+"POT-Creation-Date: 2012-11-02 01:21-0500\n"
 "PO-Revision-Date: 2012-09-29 10:16+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-30 04:37+0000\n"
-"X-Generator: Launchpad (build 16049)\n"
+"X-Launchpad-Export-Date: 2012-11-03 04:35+0000\n"
+"X-Generator: Launchpad (build 16218)\n"
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:39
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
 msgstr "Visos programos"
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:40
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:64
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
 msgstr "Ši kategorija yra tuščia"
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:79
-msgid "Accessories"
-msgstr "Reikmenys"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:82
-msgid "Universal Access"
-msgstr "Universali prieiga"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:85
-msgid "Graphics"
-msgstr "Grafika"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:88
-msgid "Development"
-msgstr "Programavimas"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:91
-msgid "Other"
-msgstr "Kitos"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:94
-msgid "Internet"
-msgstr "Internetas"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:97
-msgid "System"
-msgstr "Sistema"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:100
-msgid "Multimedia"
-msgstr "Multimedija"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:103
-msgid "Games"
-msgstr "Žaidimai"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/CategoryView.vala:106
-msgid "Office"
-msgstr "Biuro programos"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Widgets/Sidebar.vala:77
-msgid "<b>Categories</b>"
-msgstr "<b>Kategorijos</b>"
-
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/Backend/App.vala:55
+#: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
 msgid "Run this command..."
 msgstr "Įvykdyti šią komandą..."
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:142
-msgid "Grid"
-msgstr "Tinklelis (rodyti visas)"
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
+msgid "View as Grid"
+msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:146
-msgid "Categories"
-msgstr "Rodyti programas pagal kategorijas"
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
+msgid "View by Category"
+msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/slingshot-fix-989076/po/../src/SlingshotView.vala:154
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
 msgstr "Ieškoti programų..."
