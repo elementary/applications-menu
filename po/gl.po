@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-10-10 05:39+0000\n"
+"PO-Revision-Date: 2012-11-03 06:40+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-03 04:35+0000\n"
+"X-Launchpad-Export-Date: 2012-11-04 04:35+0000\n"
 "X-Generator: Launchpad (build 16218)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
@@ -35,11 +35,11 @@ msgstr "Executar esta orde"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
 msgid "View as Grid"
-msgstr ""
+msgstr "Ver como grade"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
 msgid "View by Category"
-msgstr ""
+msgstr "Ver por categoría"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."

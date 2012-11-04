@@ -9,9 +9,9 @@ project (slingshot)
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
-set (RELEASE_NAME "Leonardo")
-set (VERSION "0.6")
-set (VERSION_INFO "Debug")
+set (RELEASE_NAME "Donatello")
+set (VERSION "0.7")
+set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
 # Files
@@ -68,7 +68,6 @@ add_executable (slingshot-launcher ${VALA_C})
 
 # Installation
 install (TARGETS slingshot-launcher RUNTIME DESTINATION bin)
-#install (FILES ${stylesheets} DESTINATION ${PKGDATADIR}/style)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
 
 #

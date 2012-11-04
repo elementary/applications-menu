@@ -49,9 +49,8 @@ namespace Slingshot.Widgets {
 
             set_visible_window (false);
             setup_ui ();
+            setup_sidebar ();
             connect_events ();
-
-            category_switcher.selected = 0;
 
             set_size_request (view.columns*130 + 17, view.view_height);
 
@@ -64,18 +63,6 @@ namespace Slingshot.Widgets {
             var empty_cat_text = _("This Category is Empty");
             empty_cat_label = new Label ("<b><span size=\"larger\">" + empty_cat_text + "</span></b>");
             empty_cat_label.use_markup = true;
-
-            category_switcher = new Sidebar ();
-            category_switcher.can_focus = false;
-
-            // Fill the sidebar
-            int n = 0;
-
-            foreach (string cat_name in view.apps.keys) {
-                category_ids.set (n, cat_name);
-                category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
-                n++;
-            }
 
             separator = new VSeparator ();
 
@@ -99,17 +86,33 @@ namespace Slingshot.Widgets {
             page_switcher.attach (bottom_separator1, 0, 0, 1, 1);
             page_switcher.attach (switcher, 1, 0, 1, 1);
             page_switcher.attach (bottom_separator2, 2, 0, 1, 1);
-
-            container.attach (category_switcher, 0, 0, 1, 2);
+            
             container.attach (separator, 1, 0, 1, 2);
             container.attach (layout, 2, 0, 1, 1);
 
             add (container);
 
         }
+        
+        public void setup_sidebar () {
+        
+            if (category_switcher != null)
+                category_switcher.destroy ();
+        
+            category_switcher = new Sidebar ();
+            category_switcher.can_focus = false;
 
-        private void connect_events () {
+            // Fill the sidebar
+            int n = 0;
 
+            foreach (string cat_name in view.apps.keys) {
+                category_ids.set (n, cat_name);
+                category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+                n++;
+            }
+            
+            container.attach (category_switcher, 0, 0, 1, 2);
+            
             category_switcher.selection_changed.connect ((name, nth) => {
 
                 view.reset_category_focus ();
@@ -122,6 +125,12 @@ namespace Slingshot.Widgets {
                     show_filtered_apps (category);
 
             });
+            
+            category_switcher.selected = 0;
+            category_switcher.show_all ();
+        }
+
+        private void connect_events () {
 
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {

@@ -54,7 +54,7 @@ namespace Slingshot.Backend {
         }
 
         private void update_app_system () {
-
+        
             rl_service.refresh_popularity ();
 
             update_categories_index ();

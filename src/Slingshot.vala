@@ -64,8 +64,6 @@ namespace Slingshot {
 
             settings = new Settings ();
 
-            DEBUG = true;
-
         }
 
         protected override void activate () {

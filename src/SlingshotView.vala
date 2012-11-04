@@ -271,6 +271,7 @@ namespace Slingshot {
                 apps = app_system.get_apps ();
 
                 populate_grid_view ();
+                category_view.setup_sidebar ();
 
             });
 
