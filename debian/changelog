@@ -1,3 +1,18 @@
+slingshot-launcher (0.7) precise; urgency=low
+
+  * Rewrite
+  * Solve focus issues
+  * Keyboard navigation support
+  * Support keywords
+  * Add tooltips to fix bug #1063333
+  * Changed from using the released event in the AppEntry to the clicked event to fix bug #956063
+  * Properly display Ubuntu One, Ubuntu Tweak and some Wine programs
+  * Changed binary name from slingshot to slingshot-launcher to fix bug #1041200
+  * Center page switcher to fix bug #1011851
+  * Various other fixes and improvements
+
+ -- Cody Garver <cody@elementaryos.org>  Sun, 04 Nov 2012 18:18:32 -0600
+
 slingshot-launcher (0.6) oneiric; urgency=low
 
   * First Slingshot beta release
