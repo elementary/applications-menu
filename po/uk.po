@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-07-15 09:31+0000\n"
-"Last-Translator: Max_ym <kontact.cat@gmail.com>\n"
+"PO-Revision-Date: 2012-11-14 17:09+0000\n"
+"Last-Translator: Rax <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-03 04:35+0000\n"
-"X-Generator: Launchpad (build 16218)\n"
+"X-Launchpad-Export-Date: 2012-11-15 04:38+0000\n"
+"X-Generator: Launchpad (build 16265)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -35,11 +35,11 @@ msgstr "Виконати команду..."
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
 msgid "View as Grid"
-msgstr ""
+msgstr "Показувати сіткою"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
 msgid "View by Category"
-msgstr ""
+msgstr "Показувати категоріями"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
