@@ -293,17 +293,21 @@ namespace Slingshot {
             if (Slingshot.settings.open_on_mouse)
                 window_position = WindowPosition.MOUSE;
             else {
-                Gdk.Rectangle monitor_dimensions;
+                Gdk.Rectangle monitor_dimensions, app_launcher_pos;
                 screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
-
-                move_to_coords (monitor_dimensions.x, monitor_dimensions.y, false); // this would be coordinates 0,0 on the screen
+                app_launcher_pos = Gdk.Rectangle () { x = monitor_dimensions.x,
+                                                      y = monitor_dimensions.y,
+                                                      width = 100,
+                                                      height = 30
+                                                  };
+                move_to_rect (app_launcher_pos); // this would be coordinates 0,0 on the screen
             }
         }
 
         public override bool key_press_event (Gdk.EventKey event) {
 
             switch (Gdk.keyval_name (event.keyval)) {
-            
+
                 case "Escape":
                     hide ();
                     return true;
@@ -588,7 +592,7 @@ namespace Slingshot {
         }
 
         public void show_slingshot () {
-        
+
             searchbar.set_text ("");
 
             reposition ();
