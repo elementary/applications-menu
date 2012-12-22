@@ -30,6 +30,7 @@ namespace Slingshot.Backend {
         public double popularity { get; set; }
         public double relevancy { get; set; }
         public string desktop_path { get; private set; }
+        public bool display { get; set; }
 
         private bool is_command = false;
 
@@ -45,6 +46,7 @@ namespace Slingshot.Backend {
             icon_name = entry.get_icon () ?? "application-default-icon";
             desktop_path = entry.get_desktop_file_path ();
             keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
+            display = !(entry.get_is_nodisplay ());
 
             update_icon ();
             Slingshot.icon_theme.changed.connect (update_icon);
@@ -77,7 +79,7 @@ namespace Slingshot.Backend {
                                                                Slingshot.settings.icon_size, Gtk.IconLookupFlags.FORCE_SIZE);
                     else
                         throw new IOError.NOT_FOUND ("Requested image could not be found.");
-                        
+
                 } catch (Error e) {
                     try {
                         icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, Slingshot.settings.icon_size,

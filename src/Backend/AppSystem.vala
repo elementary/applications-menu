@@ -37,7 +37,7 @@ namespace Slingshot.Backend {
 
             rl_service = new RelevancyService ();
 
-            apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED);
+            apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED | TreeFlags.INCLUDE_NODISPLAY);
             apps_menu.add_monitor ((menu) => {
 
                 debug ("Apps menu tree changed. Updating..");
@@ -54,7 +54,7 @@ namespace Slingshot.Backend {
         }
 
         private void update_app_system () {
-        
+
             rl_service.refresh_popularity ();
 
             update_categories_index ();
@@ -130,7 +130,6 @@ namespace Slingshot.Backend {
         private bool is_entry (TreeEntry entry) {
 
             if (entry.get_launch_in_terminal () == false
-                && entry.get_is_nodisplay () == false
                 && entry.get_is_excluded () == false) {
                 return true;
             } else {

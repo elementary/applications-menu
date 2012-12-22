@@ -86,19 +86,19 @@ namespace Slingshot.Widgets {
             page_switcher.attach (bottom_separator1, 0, 0, 1, 1);
             page_switcher.attach (switcher, 1, 0, 1, 1);
             page_switcher.attach (bottom_separator2, 2, 0, 1, 1);
-            
+
             container.attach (separator, 1, 0, 1, 2);
             container.attach (layout, 2, 0, 1, 1);
 
             add (container);
 
         }
-        
+
         public void setup_sidebar () {
-        
+
             if (category_switcher != null)
                 category_switcher.destroy ();
-        
+
             category_switcher = new Sidebar ();
             category_switcher.can_focus = false;
 
@@ -110,9 +110,9 @@ namespace Slingshot.Widgets {
                 category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
                 n++;
             }
-            
+
             container.attach (category_switcher, 0, 0, 1, 2);
-            
+
             category_switcher.selection_changed.connect ((name, nth) => {
 
                 view.reset_category_focus ();
@@ -125,7 +125,7 @@ namespace Slingshot.Widgets {
                     show_filtered_apps (category);
 
             });
-            
+
             category_switcher.selected = 0;
             category_switcher.show_all ();
         }
@@ -187,8 +187,10 @@ namespace Slingshot.Widgets {
 
             app_view.clear ();
 
-            foreach (App app in view.app_system.get_apps_by_name ())
-                add_app (app);
+            foreach (App app in view.app_system.get_apps_by_name ()) {
+                if (app.display)
+                    add_app (app);
+            }
 
             layout.move (app_view, 0, 0);
             current_position = 0;
