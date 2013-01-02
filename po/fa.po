@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Mohammad Zali <mohamadzali@gmail.com>, 2013
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-02 01:21-0500\n"
+"PO-Revision-Date: 2013-01-01 12:03+0000\n"
+"Last-Translator: Mohammad Zali <mohamadzali@gmail.com>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-02 04:33+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
+"Language: \n"
+
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
+msgid "All Applications"
+msgstr "همه برنامه‌ها"
+
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
+msgid "Create a new Filter"
+msgstr "ساخت پالایه جدید"
+
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
+msgid "This Category is Empty"
+msgstr "این دسته خالی است"
+
+#: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
+msgid "Run this command..."
+msgstr "اجراء فرمان..."
+
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
+msgid "View as Grid"
+msgstr "نمایش جدولی"
+
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
+msgid "View by Category"
+msgstr "نمایش دسته‌ای"
+
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
+msgid "Search Apps..."
+msgstr "جستجوی برنامه..."
