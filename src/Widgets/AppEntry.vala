@@ -33,6 +33,7 @@ namespace Slingshot.Widgets {
         public string desktop_id;
         public int icon_size;
         public string desktop_path;
+        public bool display;
 
         public signal void app_launched ();
 
@@ -58,6 +59,7 @@ namespace Slingshot.Widgets {
             exec_name = app.exec;
             icon_size = Slingshot.settings.icon_size;
             icon = app.icon;
+            display = app.display;
 
             get_style_context ().add_class ("app");
 
