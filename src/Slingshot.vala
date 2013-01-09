@@ -30,6 +30,7 @@ namespace Slingshot {
         public static Settings settings { get; private set; default = null; }
         //public static CssProvider style_provider { get; private set; default = null; }
         public static IconTheme icon_theme { get; set; default = null; }
+        private DBusService? dbus_service = null;
 
         construct {
 
@@ -67,10 +68,13 @@ namespace Slingshot {
         }
 
         protected override void activate () {
-
             if (get_windows () == null) {
                 view = new SlingshotView ();
                 view.set_application (this);
+
+                if (dbus_service == null)
+                    dbus_service = new DBusService (view);
+
                 if (!silent) {
                     //view.move_to_coords (0, 0);
                     view.show_slingshot ();
