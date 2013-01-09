@@ -26,7 +26,6 @@ namespace Slingshot {
         public int rows { get; set; }
         public int icon_size { get; set; }
         public bool show_category_filter { get; set; }
-        public bool open_on_mouse { get; set; }
         public bool use_category { get; set; }
         public string screen_resolution { get; set; }
 

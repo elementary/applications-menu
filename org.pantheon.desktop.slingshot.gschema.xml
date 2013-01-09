@@ -25,11 +25,6 @@
             <summary>Show the category view by default</summary>
             <description>Save the current view of the launcher.</description>
         </key>
-        <key name="open-on-mouse" type="b">
-            <default>false</default>
-            <summary>Open on mouse position.</summary>
-            <description>Whether Slingshot should open on mouse position or not.</description>
-        </key>
         <key name="screen-resolution" type="s">
             <default>""</default>
             <summary>The last resolution of the screen</summary>

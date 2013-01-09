@@ -289,19 +289,15 @@ namespace Slingshot {
         private void reposition () {
 
             debug("Repositioning");
-
-            if (Slingshot.settings.open_on_mouse)
-                window_position = WindowPosition.MOUSE;
-            else {
-                Gdk.Rectangle monitor_dimensions, app_launcher_pos;
-                screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
-                app_launcher_pos = Gdk.Rectangle () { x = monitor_dimensions.x,
-                                                      y = monitor_dimensions.y,
-                                                      width = 100,
-                                                      height = 30
-                                                  };
-                move_to_rect (app_launcher_pos); // this would be coordinates 0,0 on the screen
-            }
+            
+            Gdk.Rectangle monitor_dimensions, app_launcher_pos;
+            screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
+            app_launcher_pos = Gdk.Rectangle () { x = monitor_dimensions.x,
+                                                  y = monitor_dimensions.y,
+                                                  width = 100,
+                                                  height = 30
+                                                 };
+            move_to_rect (app_launcher_pos);
         }
 
         public override bool key_press_event (Gdk.EventKey event) {
