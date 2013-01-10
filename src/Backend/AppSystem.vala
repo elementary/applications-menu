@@ -27,7 +27,6 @@ public class Slingshot.Backend.AppSystem : Object {
 #endif
 
     public signal void changed ();
-    private bool index_changed = false;
 
     construct {
 
@@ -36,43 +35,43 @@ public class Slingshot.Backend.AppSystem : Object {
         rl_service.update_complete.connect (update_popularity);
 #endif
 
-        apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", GMenu.TreeFlags.INCLUDE_EXCLUDED);
-        apps_menu.add_monitor ((menu) => {
+        apps_menu = new GMenu.Tree ("pantheon-applications.menu", GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME);
+        apps_menu.changed.connect (update_app_system);
+        
+        apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
+        categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
 
-            debug ("Apps menu tree changed. Updating…");
-            index_changed = true;
-            update_app_system ();
-            changed ();
-
-        });
-
-        apps_menu.set_sort_key (GMenu.TreeSortKey.DISPLAY_NAME);
         update_app_system ();
 
     }
 
     private void update_app_system () {
 
+        debug ("Updating Applications menu tree...");
 #if HAVE_ZEITGEIST
         rl_service.refresh_popularity ();
 #endif
 
+        apps_menu.load_sync ();
+
         update_categories_index ();
         update_apps ();
+
+        changed ();
 
     }
 
     private void update_categories_index () {
 
-        var root_tree = apps_menu.get_root_directory ();
+        categories.clear ();
 
-        if (categories == null || index_changed) {
-            categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
-
-            foreach (GMenu.TreeItem item in root_tree.get_contents ()) {
-                if (item.get_type () == GMenu.TreeItemType.DIRECTORY)
-                    if (((GMenu.TreeDirectory) item).get_is_nodisplay () == false)
-                        categories.add ((GMenu.TreeDirectory) item);
+        var iter = apps_menu.get_root_directory ().iter ();
+        GMenu.TreeItemType type;
+        while ((type = iter.next ()) != GMenu.TreeItemType.INVALID) {
+            if (type == GMenu.TreeItemType.DIRECTORY) {
+                var dir = iter.get_directory ();
+                if (!dir.get_is_nodisplay ())
+                    categories.add (dir);
             }
         }
 
@@ -89,21 +88,10 @@ public class Slingshot.Backend.AppSystem : Object {
 
     private void update_apps () {
 
-        if (index_changed) {
-            apps.clear ();
-            apps = null;
-            index_changed = false;
-        }
+        apps.clear ();
 
-        if (apps == null) {
-
-            apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
-
-            foreach (GMenu.TreeDirectory cat in categories) {
-                apps.set (cat.get_name (), get_apps_by_category (cat));
-            }
-
-        }
+        foreach (var cat in categories)
+            apps.set (cat.get_name (), get_apps_by_category (cat));
 
     }
 
@@ -117,36 +105,24 @@ public class Slingshot.Backend.AppSystem : Object {
 
         var app_list = new Gee.ArrayList<App> ();
 
-        foreach (GMenu.TreeItem item in category.get_contents ()) {
-            App app;
-            switch (item.get_type ()) {
+        var iter = category.iter ();
+        GMenu.TreeItemType type;
+        while ((type = iter.next ()) != GMenu.TreeItemType.INVALID) {
+            switch (type) {
                 case GMenu.TreeItemType.DIRECTORY:
-                    app_list.add_all (get_apps_by_category ((GMenu.TreeDirectory) item));
+                    app_list.add_all (get_apps_by_category (iter.get_directory ()));
                     break;
                 case GMenu.TreeItemType.ENTRY:
-                    if (is_entry ((GMenu.TreeEntry) item)) {
-                        app = new App ((GMenu.TreeEntry) item);
+                    var app = new App (iter.get_entry ());
 #if HAVE_ZEITGEIST
-                        app.launched.connect (rl_service.app_launched);
+                    app.launched.connect (rl_service.app_launched);
 #endif
-                        app_list.add (app);
-                    }
+                    app_list.add (app);
                     break;
             }
         }
+
         return app_list;
-
-    }
-
-    private bool is_entry (GMenu.TreeEntry entry) {
-
-        if (entry.get_launch_in_terminal () == false
-            && entry.get_is_excluded () == false
-            && entry.get_is_nodisplay () == false) {
-            return true;
-        } else {
-            return false;
-        }
 
     }
 
