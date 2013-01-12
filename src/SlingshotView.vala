@@ -246,12 +246,8 @@ namespace Slingshot {
             populate_grid_view ();
 
             page_switcher.active_changed.connect (() => {
-
-                if (page_switcher.active > page_switcher.old_active)
-                    this.page_right (page_switcher.active - page_switcher.old_active);
-                else
-                    this.page_left (page_switcher.old_active - page_switcher.active);
-
+            
+                move_page (page_switcher.active - page_switcher.old_active);
                 searchbar.grab_focus (); //avoid focus is not on current page
             });
 
@@ -336,107 +332,7 @@ namespace Slingshot {
                             new_focus.grab_focus ();
                     }
                     break;
-
-                case "1":
-                case "KP_1":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (0);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (0);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "2":
-                case "KP_2":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (1);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (1);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "3":
-                case "KP_3":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (2);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (2);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "4":
-                case "KP_4":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (3);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (3);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "5":
-                case "KP_5":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (4);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (4);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "6":
-                case "KP_6":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (5);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (5);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "7":
-                case "KP_7":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (6);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (6);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "8":
-                case "KP_8":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (7);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (7);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "9":
-                case "KP_9":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (8);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (8);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
-                case "0":
-                case "KP_0":
-                    if (modality == Modality.NORMAL_VIEW && !searchbar.has_focus)
-                        page_switcher.set_active (9);
-                    else if (modality == Modality.CATEGORY_VIEW && !searchbar.has_focus)
-                        category_view.switcher.set_active (9);
-                    else
-                        return base.key_press_event (event);
-                    break;
-
+                    
                 case "Left":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
@@ -547,10 +443,13 @@ namespace Slingshot {
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Delete
                         searchbar.set_text ("");
                     else
+                        searchbar.grab_focus ();
+                        searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                         return base.key_press_event (event);
-                    break;
 
                 default:
+                    searchbar.grab_focus ();
+                    searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     return base.key_press_event (event);
 
             }
@@ -609,58 +508,33 @@ namespace Slingshot {
                 w.activate (Gdk.x11_get_server_time (this.get_window ()));
 		}
 
-        private void page_left (int step = 1) {
-
-            // Avoid unexpected behavior
-            if (modality != Modality.NORMAL_VIEW)
-                return;
+        private void move_page (int step) {
+        
+            debug ("Moving: step = " + step.to_string ());
+        
             if (step == 0)
                 return;
-            if (step == 1 && current_position == 0)
+            if (step < 0 && current_position >= 0) //Left border
                 return;
-
-            if (current_position < 0) {
-                int count = 0;
-                int val = columns*130*step / 10;
-                Timeout.add (20 / (2*step*step), () => {
-
-                    if (count >= columns*130*step) {
-                        count = 0;
-                        return false;
-                    }
-                    view_manager.move (grid_view, current_position + val, 0);
-                    current_position += val;
-                    count += val;
-                    return true;
-
-                }, Priority.DEFAULT_IDLE);
-            }
-
-        }
-
-        private void page_right (int step = 1) {
-            // Avoid unexpected behavior
-            if (modality != Modality.NORMAL_VIEW)
+            if (step > 0 && (-current_position) >= ((grid_view.get_n_pages () - 1) * grid_view.get_page_columns () * 130)) //Right border
                 return;
+            
+            int count = 0;
+            int increment = -step*130*columns/10;
+            Timeout.add (30/columns, () => {
 
-            int n_columns = grid_view.get_page_columns () * (grid_view.get_n_pages () - 1) + 1; //total number of columns
-            if ((- current_position) < (n_columns*130)) {
-                int count = 0;
-                int val = columns*130*step / 10;
-                Timeout.add (20 / (2*step*step), () => {
-
-                    if (count >= columns*130*step) {
-                        count = 0;
-                        return false;
-                    }
-                    view_manager.move (grid_view, current_position - val, 0);
-                    current_position -= val;
-                    count += val;
-                    return true;
-
-                }, Priority.DEFAULT_IDLE);
-            }
-
+                if (count >= 10) {
+                    current_position += -step*130*columns - 10*increment; //We adjust to end of the page
+                    view_manager.move (grid_view, current_position, 0);
+                    return false;
+                }
+                    
+                current_position += increment;
+                view_manager.move (grid_view, current_position, 0);
+                count++;
+                return true;
+                
+            }, Priority.DEFAULT_IDLE);
         }
 
         private void search_view_down () {
@@ -706,7 +580,7 @@ namespace Slingshot {
                     center.set_margin_left (12);
                     top.set_margin_left (12);
                     view_manager.set_size_request (default_columns*130, default_rows*145);
-                    return;
+                    break;
 
                 case Modality.CATEGORY_VIEW:
 
@@ -725,7 +599,7 @@ namespace Slingshot {
                     center.set_margin_left (0);
                     top.set_margin_left (17);
                     view_manager.set_size_request (default_columns*130 + 17, default_rows*145);
-                    return;
+                    break;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
@@ -739,9 +613,10 @@ namespace Slingshot {
                     center.set_margin_left (12);
                     top.set_margin_left (12);
                     view_manager.set_size_request (default_columns*130, default_rows*145);
-                    return;
+                    break;
 
             }
+            searchbar.grab_focus ();
 
         }
 

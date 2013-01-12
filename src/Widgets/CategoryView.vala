@@ -57,13 +57,7 @@ namespace Slingshot.Widgets {
         }
 
         private void setup_ui () {
-
             container = new Gtk.Grid ();
-
-            var empty_cat_text = _("This Category is Empty");
-            empty_cat_label = new Label ("<b><span size=\"larger\">" + empty_cat_text + "</span></b>");
-            empty_cat_label.use_markup = true;
-
             separator = new VSeparator ();
 
             layout = new Layout (null, null);
@@ -116,13 +110,8 @@ namespace Slingshot.Widgets {
             category_switcher.selection_changed.connect ((name, nth) => {
 
                 view.reset_category_focus ();
-
                 string category = category_ids.get (nth);
-
-                if (category == ALL_APPLICATIONS)
-                    show_all_apps ();
-                else
-                    show_filtered_apps (category);
+                show_filtered_apps (category);
 
             });
 
@@ -161,14 +150,7 @@ namespace Slingshot.Widgets {
                     return;
                 }
 
-                if (switcher.active > switcher.old_active) {
-                    page_right (switcher.active - switcher.old_active);
-                }
-                else
-                {
-                    page_left (switcher.old_active - switcher.active);
-                }
-
+                move_page (switcher.active - switcher.old_active);
                 view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
             });
 
@@ -183,41 +165,15 @@ namespace Slingshot.Widgets {
 
         }
 
-        private void show_all_apps () {
-
-            app_view.clear ();
-
-            foreach (App app in view.app_system.get_apps_by_name ()) {
-                if (app.display)
-                    add_app (app);
-            }
-
-            layout.move (app_view, 0, 0);
-            current_position = 0;
-
-        }
-
         public void show_filtered_apps (string category) {
 
             switcher.clear_children ();
             app_view.clear ();
-
-            if (category == NEW_FILTER) {
-
-                // This needs to be implemented
-                layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
-
-            } else {
-
-                if (view.apps[category].size == 0) {
-                    layout.move (empty_cat_label, (view.columns - 2)*130/2, view.rows*130 / 2);
-                } else {
-                    layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
-                    foreach (App app in view.apps[category])
-                        add_app (app);
-                }
-
-            }
+            
+            layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
+            foreach (App app in view.apps[category])
+                add_app (app);}
+            
             switcher.set_active (0);
 
             layout.move (app_view, 0, 0);
@@ -225,67 +181,33 @@ namespace Slingshot.Widgets {
 
         }
 
-        public int page_left (int step = 1) {
+        public void move_page (int step) {
+        
+            debug ("Moving: step = " + step.to_string ());
+        
+            if (step == 0)
+                return;
+            if (step < 0 && current_position >= 0) //Left border
+                return;
+            if (step > 0 && (-current_position) >= ((app_view.get_n_pages () - 1) * app_view.get_page_columns () * 130)) //Right border
+                return;
+            
+            int count = 0;
+            int increment = -step*130*view.columns/10;
+            Timeout.add (30/view.columns, () => {
 
-            int columns = app_view.get_page_columns ();
-
-            if (current_position < 0) {
-                int count = 0;
-                int val = columns*130*step / 10;
-                Timeout.add (20 / (step*step*2), () => {
-
-                    if (count >= columns*130*step) {
-                        count = 0;
-                        return false;
-                    }
-                    layout.move (app_view, current_position + val, 0);
-                    current_position += val;
-                    count += val;
-                    return true;
-
-                }, Priority.DEFAULT_IDLE);
-              /*
-                layout.move (app_view, current_position + columns*130*step, 0);
-                return current_position += columns*130*step;
-                */
-            }
-
-            return 0;
-        }
-
-        public int page_right (int step = 1) {
-
-            int columns = app_view.get_page_columns ();
-            int pages = app_view.get_n_pages ();
-
-            if ((- current_position) < (columns*(pages - 1)*130)) {
-                int count = 0;
-                int val = columns*130*step / 10;
-                Timeout.add(20 / (2*step*step), () => {
-
-                    if (count >= columns*130*step) {
-                        count = 0;
-                        return false;
-                    }
-
-                    layout.move (app_view, current_position - val, 0);
-                    current_position -= val;
-                    count += val;
-                    return true;
-
-                }, Priority.DEFAULT_IDLE);
-            }
-
-            /*int columns = app_view.get_page_columns ();
-            int pages = app_view.get_n_pages ();
-
-            if ((- current_position) < (columns*(pages - 1)*130)) {
-
-                layout.move (app_view, current_position - columns*130*step, 0);
-                return current_position -= columns*130*step;
-            }*/
-
-            return 0;
+                if (count >= 10) {
+                    current_position += -step*130*view.columns - 10*increment; //We adjust to end of the page
+                    layout.move (app_view, current_position, 0);
+                    return false;
+                }
+                    
+                current_position += increment;
+                layout.move (app_view, current_position, 0);
+                count++;
+                return true;
+                
+            }, Priority.DEFAULT_IDLE);
         }
 
         public void show_page_switcher (bool show) {
@@ -299,9 +221,12 @@ namespace Slingshot.Widgets {
             }
             else
                 page_switcher.hide ();
+                
+            view.searchbar.grab_focus ();
 
         }
 
     }
 
 }
+
