@@ -25,10 +25,12 @@ namespace Slingshot.Backend {
 
         private Zeitgeist.Log zg_log;
         private Zeitgeist.DataSourceRegistry zg_dsr;
-        private Gee.Map<string, int> app_popularity;
+        private Gee.HashMap<string, int> app_popularity;
         private bool has_datahub_gio_module = false;
 
         private const float MULTIPLIER = 65535.0f;
+        
+        public signal void update_complete ();
 
         public RelevancyService () {
 
@@ -119,6 +121,7 @@ namespace Slingshot.Backend {
                     app_popularity[s.get_uri ()] = (int)(relevancy * MULTIPLIER);
                     index++;
                 }
+                update_complete ();
             } catch (Error err) {
                 warning ("%s", err.message);
                 return;

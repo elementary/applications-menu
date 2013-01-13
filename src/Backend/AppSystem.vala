@@ -36,6 +36,7 @@ namespace Slingshot.Backend {
         construct {
 
             rl_service = new RelevancyService ();
+            rl_service.update_complete.connect (update_popularity);
 
             apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED | TreeFlags.INCLUDE_NODISPLAY);
             apps_menu.add_monitor ((menu) => {
@@ -48,7 +49,6 @@ namespace Slingshot.Backend {
             });
 
             apps_menu.set_sort_key (TreeSortKey.DISPLAY_NAME);
-
             update_app_system ();
 
         }
@@ -76,6 +76,13 @@ namespace Slingshot.Backend {
                 }
             }
 
+        }
+        
+        private void update_popularity () {
+        
+            foreach (ArrayList<App> category in apps.values)
+                foreach (App app in category)
+                    app.popularity = rl_service.get_app_popularity (app.desktop_id);
         }
 
         private void update_apps () {
@@ -150,7 +157,6 @@ namespace Slingshot.Backend {
 
             foreach (ArrayList<App> category in apps.values) {
                 foreach (App app in category) {
-                    app.popularity = rl_service.get_app_popularity (app.desktop_id);
                     sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_popularity);
                 }
             }
