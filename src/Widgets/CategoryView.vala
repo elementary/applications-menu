@@ -172,7 +172,8 @@ namespace Slingshot.Widgets {
             
             layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
             foreach (App app in view.apps[category])
-                add_app (app);
+		        if (app.display)
+	            add_app (app);
             
             switcher.set_active (0);
 
