@@ -448,6 +448,7 @@ namespace Slingshot {
                         return base.key_press_event (event);
 
                 default:
+                    debug (get_focus ().get_path ().to_string ());
                     searchbar.grab_focus ();
                     searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     return base.key_press_event (event);
@@ -659,9 +660,9 @@ namespace Slingshot {
                     grid_view.append (app_entry);
                     app_entry.show_all ();
                 }
-
             }
-
+                            
+            view_manager.move (grid_view, 0, 0);
             current_position = 0;
 
         }
