@@ -1,0 +1,46 @@
+# Vietnamese translation for slingshot
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the slingshot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: slingshot\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-11-02 01:21-0500\n"
+"PO-Revision-Date: 2013-01-27 06:45+0000\n"
+"Last-Translator: Ngô Trung <ndtrung4419@gmail.com>\n"
+"Language-Team: Vietnamese <vi@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-28 05:08+0000\n"
+"X-Generator: Launchpad (build 16451)\n"
+
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
+msgid "All Applications"
+msgstr "Tất cả ứng dụng"
+
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
+msgid "Create a new Filter"
+msgstr "Tạo một bộ lọc mới"
+
+#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
+msgid "This Category is Empty"
+msgstr "Phân loại này không có nội dung"
+
+#: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
+msgid "Run this command..."
+msgstr "Chạy lệnh này..."
+
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
+msgid "View as Grid"
+msgstr "Xem dạng lưới"
+
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
+msgid "View by Category"
+msgstr "Xem theo phân loại"
+
+#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
+msgid "Search Apps..."
+msgstr "Tìm kiếm ứng dụng..."
