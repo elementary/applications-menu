@@ -293,7 +293,7 @@ namespace Slingshot {
                                                   width = 100,
                                                   height = 30
                                                  };
-            move_to_rect (app_launcher_pos);
+            move_to_rect (app_launcher_pos, false);
         }
 
         public override bool key_press_event (Gdk.EventKey event) {
