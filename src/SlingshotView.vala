@@ -274,15 +274,15 @@ namespace Slingshot {
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
                 setup_size ();
-                reposition ();
+                reposition (false);
             });
             screen.monitors_changed.connect (() => {
-                reposition ();
+                reposition (false);
             });
 
         }
 
-        private void reposition () {
+        private void reposition (bool show=true) {
 
             debug("Repositioning");
             
@@ -293,7 +293,7 @@ namespace Slingshot {
                                                   width = 100,
                                                   height = 30
                                                  };
-            move_to_rect (app_launcher_pos, false);
+            move_to_rect (app_launcher_pos, show);
         }
 
         public override bool key_press_event (Gdk.EventKey event) {
