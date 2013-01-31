@@ -106,16 +106,6 @@ namespace Slingshot.Widgets {
             }
 
             container.attach (category_switcher, 0, 0, 1, 2);
-
-            category_switcher.selection_changed.connect ((name, nth) => {
-
-                view.reset_category_focus ();
-                string category = category_ids.get (nth);
-                show_filtered_apps (category);
-
-            });
-
-            category_switcher.selected = 0;
             category_switcher.show_all ();
         }
 
@@ -136,6 +126,7 @@ namespace Slingshot.Widgets {
             });
 
             app_view.new_page.connect ((page) => {
+                
                 if (switcher.size == 0)
                     switcher.append ("1");
                 switcher.append (page);
@@ -153,6 +144,14 @@ namespace Slingshot.Widgets {
                 move_page (switcher.active - switcher.old_active);
                 view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
             });
+
+            category_switcher.selection_changed.connect ((name, nth) => {
+
+                view.reset_category_focus ();
+                string category = category_ids.get (nth);
+                show_filtered_apps (category);
+            });
+            category_switcher.selected = 0; //Must be after everything else
 
         }
 
@@ -194,11 +193,11 @@ namespace Slingshot.Widgets {
                 return;
             
             int count = 0;
-            int increment = -step*130*view.columns/10;
-            Timeout.add (30/view.columns, () => {
+            int increment = -step*130*(view.columns-1)/10;
+            Timeout.add (30/(view.columns-1), () => {
 
                 if (count >= 10) {
-                    current_position += -step*130*view.columns - 10*increment; //We adjust to end of the page
+                    current_position += -step*130*(view.columns-1) - 10*increment; //We adjust to end of the page
                     layout.move (app_view, current_position, 0);
                     return false;
                 }
