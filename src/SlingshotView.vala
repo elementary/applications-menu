@@ -442,11 +442,14 @@ namespace Slingshot {
                 case "BackSpace":
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Delete
                         searchbar.set_text ("");
-                    else
+                    else if (searchbar.has_focus)
+                        return base.key_press_event (event);
+                    else {
                         searchbar.grab_focus ();
                         searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                         return base.key_press_event (event);
-
+                    }
+                    break;
                 default:
                     searchbar.grab_focus ();
                     searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
@@ -616,7 +619,7 @@ namespace Slingshot {
                     break;
 
             }
-            searchbar.grab_focus ();
+            //searchbar.grab_focus ();
 
         }
 
