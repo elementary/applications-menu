@@ -268,6 +268,7 @@ namespace Slingshot {
 
                 populate_grid_view ();
                 category_view.setup_sidebar ();
+                category_view.connect_events ();
 
             });
 

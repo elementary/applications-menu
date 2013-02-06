@@ -109,7 +109,7 @@ namespace Slingshot.Widgets {
             category_switcher.show_all ();
         }
 
-        private void connect_events () {
+        public void connect_events () {
 
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {
