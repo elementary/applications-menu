@@ -49,7 +49,7 @@ namespace Slingshot.Widgets {
             button.can_focus = false;
             button.get_style_context ().add_class ("switcher");
 
-            button.button_press_event.connect (() => {
+            button.button_release_event.connect (() => {
 
                 int select = get_children ().index (button);
                 set_active (select);
