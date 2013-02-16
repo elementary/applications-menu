@@ -106,10 +106,18 @@ namespace Slingshot.Widgets {
             }
 
             container.attach (category_switcher, 0, 0, 1, 2);
+            category_switcher.selection_changed.connect ((name, nth) => {
+
+                view.reset_category_focus ();
+                string category = category_ids.get (nth);
+                show_filtered_apps (category);
+            });
+            category_switcher.selected = 0; //Must be after everything else
+
             category_switcher.show_all ();
         }
 
-        public void connect_events () {
+        private void connect_events () {
 
             layout.scroll_event.connect ((event) => {
                 switch (event.direction.to_string ()) {
@@ -144,15 +152,6 @@ namespace Slingshot.Widgets {
                 move_page (switcher.active - switcher.old_active);
                 view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
             });
-
-            category_switcher.selection_changed.connect ((name, nth) => {
-
-                view.reset_category_focus ();
-                string category = category_ids.get (nth);
-                show_filtered_apps (category);
-            });
-            category_switcher.selected = 0; //Must be after everything else
-
         }
 
         private void add_app (App app) {
@@ -171,7 +170,6 @@ namespace Slingshot.Widgets {
             
             layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
             foreach (App app in view.apps[category])
-		        if (app.display)
 	            add_app (app);
             
             switcher.set_active (0);

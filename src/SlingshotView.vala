@@ -268,8 +268,6 @@ namespace Slingshot {
 
                 populate_grid_view ();
                 category_view.setup_sidebar ();
-                category_view.connect_events ();
-
             });
 
             // position on the right monitor when settings changed
@@ -660,12 +658,9 @@ namespace Slingshot {
             foreach (App app in app_system.get_apps_by_name ()) {
 
                 var app_entry = new AppEntry (app);
-                if (app_entry.display) {
-                    app_entry.app_launched.connect (() => hide ());
-                    grid_view.append (app_entry);
-                    app_entry.show_all ();
-                }
-
+                app_entry.app_launched.connect (() => hide ());
+                grid_view.append (app_entry);
+                app_entry.show_all ();
             }
                             
             view_manager.move (grid_view, 0, 0);
