@@ -38,7 +38,7 @@ namespace Slingshot.Backend {
             rl_service = new RelevancyService ();
             rl_service.update_complete.connect (update_popularity);
 
-            apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED | TreeFlags.INCLUDE_NODISPLAY);
+            apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED);
             apps_menu.add_monitor ((menu) => {
 
                 debug ("Apps menu tree changed. Updating..");
@@ -137,7 +137,8 @@ namespace Slingshot.Backend {
         private bool is_entry (TreeEntry entry) {
 
             if (entry.get_launch_in_terminal () == false
-                && entry.get_is_excluded () == false) {
+                && entry.get_is_excluded () == false
+                && entry.get_is_nodisplay () == false) {
                 return true;
             } else {
                 return false;
