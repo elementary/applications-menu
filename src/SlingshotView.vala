@@ -634,6 +634,7 @@ namespace Slingshot {
             if (modality != Modality.SEARCH_VIEW)
                 set_modality (Modality.SEARCH_VIEW);
             search_view_position = 0;
+            view_manager.move (search_view, 0, search_view_position);
             search_view.hide_all ();
             
             var filtered = yield app_system.search_results (text);
@@ -641,9 +642,8 @@ namespace Slingshot {
             foreach (App app in filtered) {
                 search_view.show_app (app);
             }
-
-            if (filtered.size != 1)
-                search_view.add_command (text);
+            
+            search_view.add_command (text);
 
         }
 
