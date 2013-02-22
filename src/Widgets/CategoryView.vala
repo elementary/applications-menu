@@ -112,7 +112,6 @@ namespace Slingshot.Widgets {
                 string category = category_ids.get (nth);
                 show_filtered_apps (category);
             });
-            category_switcher.selected = 0; //Must be after everything else
 
             category_switcher.show_all ();
         }
@@ -152,6 +151,8 @@ namespace Slingshot.Widgets {
                 move_page (switcher.active - switcher.old_active);
                 view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
             });
+            
+            category_switcher.selected = 0; //Must be after everything else
         }
 
         private void add_app (App app) {
