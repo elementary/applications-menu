@@ -66,6 +66,7 @@ link_libraries (${DEPS_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
 
 add_executable (slingshot-launcher ${VALA_C})
+target_link_libraries(slingshot-launcher m)
 
 # Installation
 install (TARGETS slingshot-launcher RUNTIME DESTINATION bin)
