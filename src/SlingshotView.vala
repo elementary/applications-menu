@@ -318,26 +318,33 @@ namespace Slingshot {
                 case "Alt_L":
                 case "Alt_R":
                     break;
-                    
-                case "1": case "KP_1":
-                case "2": case "KP_2":
-                case "3": case "KP_3":
-                case "4": case "KP_4":
-                case "5": case "KP_5":
-                case "6": case "KP_6":
-                case "7": case "KP_7":
-                case "8": case "KP_8":
+                
                 case "9": case "KP_9":
+                case "8": case "KP_8":
+                case "7": case "KP_7":
+                case "6": case "KP_6":
+                case "5": case "KP_5":
+                case "4": case "KP_4":
+                case "3": case "KP_3":
+                case "2": case "KP_2":
+                case "1": case "KP_1":
                 case "0": case "KP_0":
+                
+                    int page = int.parse (Gdk.keyval_name (event.keyval).replace ("KP_", "")) - 1;
+                
                     if (event.state != Gdk.ModifierType.MOD1_MASK) 
                         break;
                         
-                    int page = int.parse (Gdk.keyval_name (event.keyval)) - 1;
-
                     if (modality == Modality.NORMAL_VIEW) {
+                        if (page < 0)
+                            page_switcher.set_active (grid_view.get_n_pages () - 1);
+                        else
                             page_switcher.set_active (page);
                     }
                     else if (modality == Modality.CATEGORY_VIEW) {
+                        if (page < 0)
+                            category_view.switcher.set_active (category_view.switcher.size - 1);
+                        else
                             category_view.switcher.set_active (page);
                     }
                     else {
