@@ -297,13 +297,19 @@ namespace Slingshot {
 
         public override bool key_press_event (Gdk.EventKey event) {
 
-            switch (Gdk.keyval_name (event.keyval)) {
+            var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
+
+            event.state &= (Gdk.ModifierType.SHIFT_MASK |
+                            Gdk.ModifierType.MOD1_MASK |
+                            Gdk.ModifierType.CONTROL_MASK);
+
+            switch (key) {
 
                 case "Escape":
                     hide ();
                     return true;
-
-                case "KP_Enter":
+                
+                case "Enter": // "KP_Enter"
                 case "Return":
                     if (modality == Modality.SEARCH_VIEW) {
                         search_view.launch_selected ();
@@ -319,21 +325,21 @@ namespace Slingshot {
                 case "Alt_R":
                     break;
                 
-                case "9": case "KP_9":
-                case "8": case "KP_8":
-                case "7": case "KP_7":
-                case "6": case "KP_6":
-                case "5": case "KP_5":
-                case "4": case "KP_4":
-                case "3": case "KP_3":
-                case "2": case "KP_2":
-                case "1": case "KP_1":
-                case "0": case "KP_0":
+                case "9":
+                case "8":
+                case "7":
+                case "6":
+                case "5":
+                case "4":
+                case "3":
+                case "2":
+                case "1":
+                case "0":
                 
-                    int page = int.parse (Gdk.keyval_name (event.keyval).replace ("KP_", "")) - 1;
+                    int page = int.parse (key) - 1;
                 
                     if (event.state != Gdk.ModifierType.MOD1_MASK) 
-                        break;
+                        return base.key_press_event (event);
                         
                     if (modality == Modality.NORMAL_VIEW) {
                         if (page < 0)
@@ -351,7 +357,6 @@ namespace Slingshot {
                         return base.key_press_event (event);
                     }
                     searchbar.grab_focus ();
-                    
                     break;
 
                 case "Tab":
@@ -369,7 +374,6 @@ namespace Slingshot {
                     }
                     break;
                 
-                case "KP_Left":
                 case "Left":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
@@ -388,7 +392,6 @@ namespace Slingshot {
                         return base.key_press_event (event);
                     break;
                 
-                case "KP_Right":
                 case "Right":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
@@ -408,7 +411,6 @@ namespace Slingshot {
                         return base.key_press_event (event);
                     break;
                 
-                case "KP_Up":
                 case "Up":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, -1);
@@ -431,7 +433,6 @@ namespace Slingshot {
                     }
                     break;
 
-                case "KP_Down":
                 case "Down":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, +1);
@@ -454,7 +455,6 @@ namespace Slingshot {
                     }
                     break;
 
-                case "KP_Page_Up":
                 case "Page_Up":
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (page_switcher.active - 1);
@@ -467,7 +467,6 @@ namespace Slingshot {
                     }
                     break;
 
-                case "KP_Page_Down":
                 case "Page_Down":
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (page_switcher.active + 1);
@@ -492,7 +491,6 @@ namespace Slingshot {
                     }
                     break;
                 
-                case "KP_Home":
                 case "Home":
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (0);
@@ -503,7 +501,6 @@ namespace Slingshot {
                     }
                     break;
                 
-                case "KP_End": 
                 case "End":
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (grid_view.get_n_pages () - 1);
