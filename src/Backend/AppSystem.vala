@@ -220,6 +220,11 @@ namespace Slingshot.Backend {
                             app.relevancy = app.description.length / search.length - app.popularity;
                             filtered.add (app);
                         }
+                        
+                        else if (search in app.generic_name.down ()) {
+                            app.relevancy = app.generic_name.length / search.length - app.popularity;
+                            filtered.add (app);
+                        }
 
                         else {
                             app.relevancy = 0;
