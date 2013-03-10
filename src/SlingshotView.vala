@@ -334,8 +334,7 @@ namespace Slingshot {
                 case "6":
                 case "7":
                 case "8":
-                case "9":
-                
+                case "9":          
                     int page = int.parse (key) - 1;
                 
                     if (event.state != Gdk.ModifierType.MOD1_MASK) 
