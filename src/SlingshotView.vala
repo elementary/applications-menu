@@ -341,12 +341,12 @@ namespace Slingshot {
                         return base.key_press_event (event);
                         
                     if (modality == Modality.NORMAL_VIEW) {
-                        if (page < 0)
+                        if (page < 0 || page == 8)
                             page_switcher.set_active (grid_view.get_n_pages () - 1);
                         else
                             page_switcher.set_active (page);
                     } else if (modality == Modality.CATEGORY_VIEW) {
-                        if (page < 0)
+                        if (page < 0 || page == 8)
                             category_view.switcher.set_active (category_view.switcher.size - 1);
                         else
                             category_view.switcher.set_active (page);
