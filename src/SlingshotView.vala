@@ -305,6 +305,7 @@ namespace Slingshot {
 
 
                 case "Return":
+                case "KP_Enter":
                     if (modality == Modality.SEARCH_VIEW) {
                         search_view.launch_selected ();
                         hide ();
