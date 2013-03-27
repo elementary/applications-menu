@@ -22,6 +22,15 @@ file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applicat
 # Configure file
 configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
+# Add 'make dist' command for creating release tarball
+set (CPACK_PACKAGE_VERSION ${VERSION})
+set (CPACK_SOURCE_GENERATOR "TGZ")
+set (CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${CPACK_PACKAGE_VERSION}")
+set (CPACK_SOURCE_IGNORE_FILES "/build/;/.bzr/;/.bzrignore;~$;${CPACK_SOURCE_IGNORE_FILES}")
+
+include (CPack)
+add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
+
 # Slingshot
 
 set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;libwnck-3.0;gdk-x11-3.0;unity;")
