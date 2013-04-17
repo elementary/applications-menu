@@ -30,7 +30,7 @@ namespace Slingshot.Backend {
         public double popularity { get; set; }
         public double relevancy { get; set; }
         public string desktop_path { get; private set; }
-        public string generic_name { get; private set; default =""; }
+        public string generic_name { get; private set; default = ""; }
 
         private bool is_command = false;
 
