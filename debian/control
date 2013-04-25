@@ -2,10 +2,8 @@ Source: slingshot-launcher
 Section: x11
 Priority: optional
 Maintainer: Giulio Collura <random.cpp@gmail.com>
-Build-Depends: cmake,
+Build-Depends: cmake (>= 2.6),
                debhelper (>= 7),
-               libclutter-1.0-dev,
-               libclutter-gtk-1.0-dev,
                libgee-dev,
                libgnome-menu-dev,
                libgranite-dev,
