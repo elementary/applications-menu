@@ -1,4 +1,4 @@
-slingshot-launcher (1:0.7) precise; urgency=low
+slingshot-launcher (0.7) precise; urgency=low
 
   * Rewrite
   * Solve focus issues
