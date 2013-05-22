@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2013-02-25 20:42+0000\n"
-"Last-Translator: Danny Damsky <dannydamsky99@gmail.com>\n"
+"PO-Revision-Date: 2013-05-22 04:14+0000\n"
+"Last-Translator: uri damsker <ud1955@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-04 05:11+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-05-22 04:33+0000\n"
+"X-Generator: Launchpad (build 16626)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr "כל האפליקציות"
+msgstr "כל היישומים"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
@@ -27,20 +27,20 @@ msgstr "יצירת מסנן חדש"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "קטגוריה זו ריקה"
+msgstr "אין ישומים בקבוצה זו"
 
 #: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
 msgid "Run this command..."
-msgstr "הפעל פקודה זו..."
+msgstr "הפעלת פקודה זו..."
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
 msgid "View as Grid"
-msgstr "הצג ברשת"
+msgstr "תצוגת רשת"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
 msgid "View by Category"
-msgstr "הצג לפי קטגוריה"
+msgstr "תצוגה לפי קבוצה"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
-msgstr "חפש אפליקציות..."
+msgstr "חיפוש יישומים..."
