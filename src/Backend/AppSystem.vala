@@ -199,6 +199,7 @@ namespace Slingshot.Backend {
              * more priority to app.name
             **/
             string[] sorted_apps_execs = {};
+            
             foreach (ArrayList<App> category in apps.values) {
                 foreach (App app in category) {
                     if (!(app.exec in sorted_apps_execs)) {
@@ -209,19 +210,16 @@ namespace Slingshot.Backend {
                             else
                                 app.relevancy = app.name.length / search.length - app.popularity;
                             filtered.add (app);
-                        }
-
-                        else if (search in app.exec.down ()) {
+                        } else if (search in app.exec.down ()) {
                             app.relevancy = app.exec.length / search.length * 10.0 - app.popularity;
                             filtered.add (app);
-                        }
-
-                        else if (search in app.description.down ()) {
+                        } else if (search in app.description.down ()) {
                             app.relevancy = app.description.length / search.length - app.popularity;
                             filtered.add (app);
-                        }
-
-                        else {
+                        } else if (search in app.generic_name.down ()) {
+                            app.relevancy = app.generic_name.length / search.length - app.popularity;
+                            filtered.add (app);
+                        }  else {
                             app.relevancy = 0;
                             foreach (string keyword in app.keywords) {
                                 foreach (string search_word in search.split (" ")) {
