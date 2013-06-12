@@ -164,7 +164,7 @@ namespace Slingshot {
             else
                 view_selector.selected = 0;
 
-            searchbar = new SearchBar (_("Search Apps..."));
+            searchbar = new SearchBar (_("Search Apps…"));
             searchbar.pause_delay = 200;
             searchbar.width_request = 250;
             searchbar.button_press_event.connect ((e) => {return e.button == 3;});
@@ -236,7 +236,7 @@ namespace Slingshot {
 
             //view_manager.draw.connect (this.draw_background);
 
-            searchbar.text_changed_pause.connect ((text) => this.search (text.down ().strip ()));
+            searchbar.text_changed_pause.connect ((text) => this.search (text));
             searchbar.grab_focus ();
 
             search_view.app_launched.connect (() => hide ());
@@ -627,7 +627,9 @@ namespace Slingshot {
 
         private async void search (string text) {
 
-            if (text == "") {
+            var stripped = text.down ().strip ();
+
+            if (stripped == "") {
                 set_modality ((Modality) view_selector.selected);
                 return;
             }
@@ -638,7 +640,7 @@ namespace Slingshot {
             view_manager.move (search_view, 0, search_view_position);
             search_view.hide_all ();
             
-            var filtered = yield app_system.search_results (text);
+            var filtered = yield app_system.search_results (stripped);
 
             foreach (App app in filtered) {
                 search_view.show_app (app);

@@ -41,7 +41,7 @@ namespace Slingshot.Backend {
             apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", TreeFlags.INCLUDE_EXCLUDED);
             apps_menu.add_monitor ((menu) => {
 
-                debug ("Apps menu tree changed. Updating..");
+                debug ("Apps menu tree changed. Updating…");
                 index_changed = true;
                 update_app_system ();
                 changed ();
