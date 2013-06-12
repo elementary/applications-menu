@@ -297,25 +297,64 @@ namespace Slingshot {
 
         public override bool key_press_event (Gdk.EventKey event) {
 
-            switch (Gdk.keyval_name (event.keyval)) {
+            var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
+
+            event.state &= (Gdk.ModifierType.SHIFT_MASK |
+                            Gdk.ModifierType.MOD1_MASK |
+                            Gdk.ModifierType.CONTROL_MASK);
+
+            switch (key) {
 
                 case "Escape":
                     hide ();
                     return true;
-
-
+                
+                case "Enter": // "KP_Enter"
                 case "Return":
                 case "KP_Enter":
                     if (modality == Modality.SEARCH_VIEW) {
                         search_view.launch_selected ();
                         hide ();
-                    }
-                    else
+                    } else {
                         if (get_focus () as AppEntry != null) // checking the selected widget is an AppEntry
                             ((AppEntry)get_focus ()).launch_app ();
+                    }
                     return true;
 
-                case "Alt":
+
+                case "Alt_L":
+                case "Alt_R":
+                    break;
+                
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":          
+                    int page = int.parse (key) - 1;
+                
+                    if (event.state != Gdk.ModifierType.MOD1_MASK) 
+                        return base.key_press_event (event);
+                        
+                    if (modality == Modality.NORMAL_VIEW) {
+                        if (page < 0 || page == 8)
+                            page_switcher.set_active (grid_view.get_n_pages () - 1);
+                        else
+                            page_switcher.set_active (page);
+                    } else if (modality == Modality.CATEGORY_VIEW) {
+                        if (page < 0 || page == 8)
+                            category_view.switcher.set_active (category_view.switcher.size - 1);
+                        else
+                            category_view.switcher.set_active (page);
+                    } else {
+                        return base.key_press_event (event);
+                    }
+                    searchbar.grab_focus ();
                     break;
 
                 case "Tab":
@@ -324,91 +363,81 @@ namespace Slingshot {
                         var new_focus = category_view.app_view.get_child_at (category_column_focus, category_row_focus);
                         if (new_focus != null)
                             new_focus.grab_focus ();
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         view_selector.selected = 0;
                         var new_focus = grid_view.get_child_at (column_focus, row_focus);
                         if (new_focus != null)
                             new_focus.grab_focus ();
                     }
                     break;
-                    
+                
                 case "Left":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
                             page_switcher.set_active (page_switcher.active - 1);
                         else
                             normal_move_focus (-1, 0);
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
                             category_view.switcher.set_active (category_view.switcher.active - 1);
                         else if (!searchbar.has_focus) {//the user has already selected an AppEntry
                             category_move_focus (-1, 0);
                         }
-                    }
-                    else
+                    } else
                         return base.key_press_event (event);
                     break;
-
+                
                 case "Right":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
                             page_switcher.set_active (page_switcher.active + 1);
                         else
                             normal_move_focus (+1, 0);
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
                             category_view.switcher.set_active (category_view.switcher.active + 1);
                         else if (searchbar.has_focus) // there's no AppEntry selected, the user is switching category
                             top_left_focus ();
                         else //the user has already selected an AppEntry
                             category_move_focus (+1, 0);
-                    }
-                    else
+                    } else {
                         return base.key_press_event (event);
+                    }
                     break;
-
+                
                 case "Up":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, -1);
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
                             if (category_view.category_switcher.selected != 0) {
                                 category_view.category_switcher.selected--;
                                 top_left_focus ();
                             }
-                        }
-                        else if (searchbar.has_focus)
+                        } else if (searchbar.has_focus) {
                             category_view.category_switcher.selected--;
-                        else
+                        } else {
                           category_move_focus (0, -1);
-                    }
-                    else if (modality == Modality.SEARCH_VIEW) {
+                        }
+                    } else if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected--;
                         search_view_up ();
                     }
                     break;
 
-
                 case "Down":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, +1);
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                             category_view.category_switcher.selected++;
                             top_left_focus ();
-                        }
-                        else if (searchbar.has_focus)
+                        } else if (searchbar.has_focus) {
                             category_view.category_switcher.selected++;
-                        else { // the user has already selected an AppEntry
+                        } else { // the user has already selected an AppEntry
                             category_move_focus (0, +1);
                         }
-                    }
-                    else if (modality == Modality.SEARCH_VIEW) {
+                    } else if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected++;
                         if (search_view.selected > 7)
                             search_view_down ();
@@ -420,8 +449,7 @@ namespace Slingshot {
                         page_switcher.set_active (page_switcher.active - 1);
                         if (page_switcher.active != 0) // we don't wanna lose focus if we don't actually change page
                             searchbar.grab_focus (); // this is because otherwise focus isn't the current page
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected--;
                         top_left_focus ();
                     }
@@ -432,24 +460,42 @@ namespace Slingshot {
                         page_switcher.set_active (page_switcher.active + 1);
                         if (page_switcher.active != grid_view.get_n_pages () - 1) // we don't wanna lose focus if we don't actually change page
                             searchbar.grab_focus (); //this is because otherwise focus isn't the current page
-                    }
-                    else if (modality == Modality.CATEGORY_VIEW) {
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected++;
                         top_left_focus ();
                     }
                     break;
 
                 case "BackSpace":
-                    if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Delete
-                        searchbar.set_text ("");
-                    else if (searchbar.has_focus)
+                    if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Delete
+                        searchbar.text = "";
+                    } else if (searchbar.has_focus) {
                         return base.key_press_event (event);
-                    else {
+                    } else {
                         searchbar.grab_focus ();
                         searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                         return base.key_press_event (event);
                     }
                     break;
+                
+                case "Home":
+                    if (modality == Modality.NORMAL_VIEW) {
+                        page_switcher.set_active (0);
+                    } else if (modality == Modality.CATEGORY_VIEW) {
+                        category_view.category_switcher.selected = 0;
+                        top_left_focus ();
+                    }
+                    break;
+                
+                case "End":
+                    if (modality == Modality.NORMAL_VIEW) {
+                        page_switcher.set_active (grid_view.get_n_pages () - 1);
+                    } else if (modality == Modality.CATEGORY_VIEW) {
+                        category_view.category_switcher.selected = category_view.category_switcher.cat_size - 1;
+                        top_left_focus ();
+                    }
+                    break;
+                    
                 default:
                     if (!searchbar.has_focus) {
                         searchbar.grab_focus ();
@@ -493,7 +539,7 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            searchbar.set_text ("");
+            searchbar.text = "";
 
             reposition ();
             show_all ();

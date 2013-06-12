@@ -63,6 +63,7 @@ namespace Slingshot.Widgets {
         }
 
         public void set_active (int new_active) {
+        
             if (new_active >= get_children ().length ())
                 return;
 
@@ -73,7 +74,7 @@ namespace Slingshot.Widgets {
             active = new_active;
             active_changed (new_active);
             ((ToggleButton) get_children ().nth_data (active)).set_active (true);
-
+            
         }
 
         public void clear_children () {
