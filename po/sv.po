@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-11-23 11:10+0000\n"
-"Last-Translator: Jon Persson <Unknown>\n"
+"PO-Revision-Date: 2013-06-27 21:22+0000\n"
+"Last-Translator: Joachim Johansson <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-04 05:11+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-06-28 05:11+0000\n"
+"X-Generator: Launchpad (build 16681)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -23,11 +23,11 @@ msgstr "Alla program"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr "Skapa nytt filter"
+msgstr "Skapa ett nytt filter"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "Denna kategori är tom"
+msgstr "Den här kategorin är tom"
 
 #: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
 msgid "Run this command..."
