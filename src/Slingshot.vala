@@ -96,20 +96,24 @@ namespace Slingshot {
         };
 
         public static int main (string[] args) {
-
-            var context = new OptionContext("");
-            context.add_main_entries(entries, "slingshot");
-            context.add_group (Gtk.get_option_group (true));
-            try {
-                context.parse(ref args);
+            string[] _args = args;
+            if (args.length == 2 && args[1] == "show") {
+                _args = {};
+            } else {
+                var context = new OptionContext("");
+                context.add_main_entries(entries, "slingshot");
+                context.add_group (Gtk.get_option_group (true));
+                try {
+                    context.parse(ref args);
+                }
+                catch(Error e) {
+                    print(e.message + "\n");
+                }
             }
-            catch(Error e) {
-                print(e.message + "\n");
-            }
-
+            
             var app = new Slingshot ();
 
-            return app.run (args);
+            return app.run (_args);
 
         }
 
