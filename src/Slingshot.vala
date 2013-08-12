@@ -95,7 +95,7 @@ namespace Slingshot {
         public static int main (string[] args) {
             if (args.length > 1) {
                 var context = new OptionContext ("");
-                context.add_main_entries(entries, "slingshot");
+                context.add_main_entries (entries, "slingshot");
                 context.add_group (Gtk.get_option_group (true));
                 
                 try {
