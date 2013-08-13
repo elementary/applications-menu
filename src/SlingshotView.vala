@@ -295,6 +295,17 @@ namespace Slingshot {
             move_to_rect (app_launcher_pos, show);
         }
 
+        private void change_view_mode (string key) {
+            switch (key) {
+                case "1": // Normal view
+                    view_selector.selected = 0;
+                    break;
+                default: // Category view
+                    view_selector.selected = 1;
+                    break;
+            }
+        }
+
         public override bool key_press_event (Gdk.EventKey event) {
 
             var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
@@ -302,6 +313,12 @@ namespace Slingshot {
             event.state &= (Gdk.ModifierType.SHIFT_MASK |
                             Gdk.ModifierType.MOD1_MASK |
                             Gdk.ModifierType.CONTROL_MASK);
+
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
+                (key == "1" || key == "2")) {
+                change_view_mode (key);
+                return true;
+            }
 
             switch (key) {
 
