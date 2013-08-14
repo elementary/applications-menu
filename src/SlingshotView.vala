@@ -37,7 +37,7 @@ namespace Slingshot {
     public class SlingshotView : PopOver {
 
         // Widgets
-        public SearchBar searchbar;
+        public Granite.Widgets.SearchBar searchbar;
         public Layout view_manager;
         public Switcher page_switcher;
         public ModeButton view_selector;
@@ -164,7 +164,7 @@ namespace Slingshot {
             else
                 view_selector.selected = 0;
 
-            searchbar = new SearchBar (_("Search Apps…"));
+            searchbar = new Granite.Widgets.SearchBar (_("Search Apps…"));
             searchbar.pause_delay = 200;
             searchbar.width_request = 250;
             searchbar.button_press_event.connect ((e) => {return e.button == 3;});
