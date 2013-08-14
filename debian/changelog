@@ -1,3 +1,9 @@
+slingshot-launcher (0.7.3) precise; urgency=low
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementaryos.org>  Wed, 14 Aug 2013 01:59:17 -0500
+
 slingshot-launcher (0.7.2) precise; urgency=low
 
   * New upstream release.
