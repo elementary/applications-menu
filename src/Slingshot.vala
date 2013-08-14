@@ -62,9 +62,7 @@ namespace Slingshot {
         }
 
         public Slingshot () {
-
             settings = new Settings ();
-
         }
 
         protected override void activate () {
@@ -86,7 +84,6 @@ namespace Slingshot {
                     view.show_slingshot ();
             }
             silent = false;
-
         }
 
         static const OptionEntry[] entries = {
@@ -96,21 +93,21 @@ namespace Slingshot {
         };
 
         public static int main (string[] args) {
-
-            var context = new OptionContext("");
-            context.add_main_entries(entries, "slingshot");
-            context.add_group (Gtk.get_option_group (true));
-            try {
-                context.parse(ref args);
+            if (args.length > 1) {
+                var context = new OptionContext ("");
+                context.add_main_entries (entries, "slingshot");
+                context.add_group (Gtk.get_option_group (true));
+                
+                try {
+                    context.parse (ref args);
+                } catch (Error e) {
+                    print (e.message + "\n");
+                }
             }
-            catch(Error e) {
-                print(e.message + "\n");
-            }
-
+            
             var app = new Slingshot ();
 
             return app.run (args);
-
         }
 
     }
