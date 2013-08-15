@@ -16,43 +16,29 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using GLib;
-using Gtk;
-using Cairo;
-
 namespace Slingshot {
 
     class Utils : GLib.Object {
 
-        public static Widget set_padding (Gtk.Widget widget, int top,
-                                             int right, int bottom, int left) {
-
+        public static Gtk.Widget set_padding (Gtk.Widget widget, int top,
+                                              int right, int bottom, int left) {
             widget.set_margin_top (top);
             widget.set_margin_right (right);
             widget.set_margin_bottom (bottom);
             widget.set_margin_left (left);
             return widget;
-
         }
 
         public static int sort_apps_by_popularity (Backend.App a, Backend.App b) {
-
             return (int) (b.popularity*1000 - a.popularity*1000);
-
         }
 
         public static int sort_apps_by_name (Backend.App a, Backend.App b) {
-
-            return GLib.strcmp (a.name.down (), b.name.down ());
-
+            return a.name.collate (b.name);
         }
 
         public static int sort_apps_by_relevancy (Backend.App a, Backend.App b) {
-
             return (int) (a.relevancy*1000 - b.relevancy*1000);
-
         }
-
     }
-
 }
