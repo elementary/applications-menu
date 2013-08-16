@@ -153,7 +153,7 @@
         </Or>
         <Not>
           <Category>Game</Category>
-	  <Category>X-GNOME-Settings-Panel</Category>
+          <Category>X-GNOME-Settings-Panel</Category>
           <Filename>debian-xterm.desktop</Filename>
           <Filename>debian-uxterm.desktop</Filename>
           <Filename>ibus.desktop</Filename>
@@ -179,8 +179,8 @@
           <Filename>debian-uxterm.desktop</Filename>
           <Filename>ibus.desktop</Filename>
           <Filename>empathy-accounts.desktop</Filename>
-          <Not><Filename>orca.desktop</Filename></Not>
-          <Not><Filename>onboard.desktop</Filename></Not>
+          <Filename>orca.desktop</Filename>
+          <Filename>onboard.desktop</Filename>
         </Not>
         <Or>
           <Not><Category>Settings</Category></Not>
