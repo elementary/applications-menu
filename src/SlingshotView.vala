@@ -496,7 +496,7 @@ namespace Slingshot {
                     break;
                 
                 case "Home":
-                    if (searchbar.text.size() > 0) {
+                    if (searchbar.text.size () > 0) {
                         return base.key_press_event (event);
                     }
 
@@ -509,7 +509,7 @@ namespace Slingshot {
                     break;
                 
                 case "End":
-                    if (searchbar.text.size() > 0) {
+                    if (searchbar.text.size () > 0) {
                         return base.key_press_event (event);
                     }
 
