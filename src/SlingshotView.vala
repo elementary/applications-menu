@@ -496,6 +496,10 @@ namespace Slingshot {
                     break;
                 
                 case "Home":
+                    if (searchbar.text.size () > 0) {
+                        return base.key_press_event (event);
+                    }
+
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (0);
                     } else if (modality == Modality.CATEGORY_VIEW) {
@@ -505,6 +509,10 @@ namespace Slingshot {
                     break;
                 
                 case "End":
+                    if (searchbar.text.size () > 0) {
+                        return base.key_press_event (event);
+                    }
+
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (grid_view.get_n_pages () - 1);
                     } else if (modality == Modality.CATEGORY_VIEW) {
