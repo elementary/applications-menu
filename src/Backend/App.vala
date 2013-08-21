@@ -38,7 +38,6 @@ namespace Slingshot.Backend {
         public signal void launched (App app);
 
         public App (GMenu.TreeEntry entry) {
-
             name = entry.get_display_name ();
             description = entry.get_comment () ?? name;
             exec = entry.get_exec ();
@@ -47,10 +46,9 @@ namespace Slingshot.Backend {
             desktop_path = entry.get_desktop_file_path ();
             keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
             generic_name = entry.get_generic_name ();
-            
+
             update_icon ();
             Slingshot.icon_theme.changed.connect (update_icon);
-
         }
 
         public App.from_command (string command) {
@@ -68,40 +66,40 @@ namespace Slingshot.Backend {
         }
 
         public void update_icon () {
+            icon = load_icon (Slingshot.settings.icon_size);
+            icon_changed ();
+        }
 
+        public Gdk.Pixbuf load_icon (int size) {
+            Gdk.Pixbuf loaded_icon;
             try {
-                icon = Slingshot.icon_theme.load_icon (icon_name, Slingshot.settings.icon_size,
+                loaded_icon = Slingshot.icon_theme.load_icon (icon_name, size,
                                                         Gtk.IconLookupFlags.FORCE_SIZE);
             } catch (Error e) {
                 try {
                     if (icon_name.last_index_of (".") > 0)
-                        icon = Slingshot.icon_theme.load_icon (icon_name[0:icon_name.last_index_of (".")],
-                                                               Slingshot.settings.icon_size, Gtk.IconLookupFlags.FORCE_SIZE);
+                        loaded_icon = Slingshot.icon_theme.load_icon (icon_name[0:icon_name.last_index_of (".")],
+                                                               size, Gtk.IconLookupFlags.FORCE_SIZE);
                     else
                         throw new IOError.NOT_FOUND ("Requested image could not be found.");
-
                 } catch (Error e) {
                     try {
-                        icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, Slingshot.settings.icon_size,
-                                                                  Slingshot.settings.icon_size, false);
+                        loaded_icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
                     } catch (Error e) {
                         try {
-                            icon = Slingshot.icon_theme.load_icon ("application-default-icon", Slingshot.settings.icon_size,
+                            loaded_icon = Slingshot.icon_theme.load_icon ("application-default-icon", size,
                                                                    Gtk.IconLookupFlags.FORCE_SIZE);
                         } catch (Error e) {
-                            icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", Slingshot.settings.icon_size,
+                            loaded_icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size,
                                                                    Gtk.IconLookupFlags.FORCE_SIZE);
                         }
                     }
                 }
             }
-
-            icon_changed ();
-
+            return loaded_icon;
         }
 
         public void launch () {
-
             try {
                 if (is_command) {
                     debug (@"Launching command: $name");
@@ -114,7 +112,6 @@ namespace Slingshot.Backend {
             } catch (Error e) {
                 warning ("Failed to launch %s: %s", name, exec);
             }
-
         }
 
     }
