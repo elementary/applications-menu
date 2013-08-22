@@ -70,33 +70,60 @@ namespace Slingshot.Backend {
             icon_changed ();
         }
 
-        public Gdk.Pixbuf load_icon (int size) {
-            Gdk.Pixbuf loaded_icon;
-            try {
-                loaded_icon = Slingshot.icon_theme.load_icon (icon_name, size,
-                                                        Gtk.IconLookupFlags.FORCE_SIZE);
-            } catch (Error e) {
-                try {
-                    if (icon_name.last_index_of (".") > 0)
-                        loaded_icon = Slingshot.icon_theme.load_icon (icon_name[0:icon_name.last_index_of (".")],
-                                                               size, Gtk.IconLookupFlags.FORCE_SIZE);
-                    else
-                        throw new IOError.NOT_FOUND ("Requested image could not be found.");
-                } catch (Error e) {
-                    try {
-                        loaded_icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
-                    } catch (Error e) {
-                        try {
-                            loaded_icon = Slingshot.icon_theme.load_icon ("application-default-icon", size,
-                                                                   Gtk.IconLookupFlags.FORCE_SIZE);
-                        } catch (Error e) {
-                            loaded_icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size,
-                                                                   Gtk.IconLookupFlags.FORCE_SIZE);
-                        }
-                    }
-                }
+        private delegate void IconLoadFallback ();
+
+        private class IconLoadFallbackMethod {
+
+            public unowned IconLoadFallback load_icon;
+
+            public IconLoadFallbackMethod(IconLoadFallback fallback) {
+                load_icon = fallback;
             }
-            return loaded_icon;
+
+        }
+
+        public Gdk.Pixbuf load_icon (int size) {
+            Gdk.Pixbuf icon = null;
+            var flags = Gtk.IconLookupFlags.FORCE_SIZE;
+
+            IconLoadFallbackMethod[] fallbacks = {
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        icon = Slingshot.icon_theme.load_icon (icon_name, size, flags);
+                    } catch (Error e) {}
+                }),
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        if (icon_name.last_index_of (".") > 0) {
+                            var name = icon_name[0:icon_name.last_index_of (".")];
+                            icon = Slingshot.icon_theme.load_icon (name, size, flags);
+                        }
+                    } catch (Error e) {}
+                }),
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
+                    } catch (Error e) {}
+                }),
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        icon = Slingshot.icon_theme.load_icon ("application-default-icon", size, flags);
+                     } catch (Error e) {}
+                }),
+                new IconLoadFallbackMethod (() => {
+                     try {
+                        icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size, flags);
+                     } catch (Error e) {}
+                })
+            };
+
+            foreach (IconLoadFallbackMethod fallback in fallbacks) {
+                fallback.load_icon ();
+                if (icon != null)
+                    break;
+            }
+
+            return icon;
         }
 
         public void launch () {
