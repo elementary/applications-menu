@@ -90,7 +90,9 @@ namespace Slingshot.Backend {
                 new IconLoadFallbackMethod (() => {
                     try {
                         icon = Slingshot.icon_theme.load_icon (icon_name, size, flags);
-                    } catch (Error e) {}
+                    } catch (Error e) {
+                        warning ("Could not load icon. Falling back to method 2");
+                    }
                 }),
                 new IconLoadFallbackMethod (() => {
                     try {
@@ -98,22 +100,30 @@ namespace Slingshot.Backend {
                             var name = icon_name[0:icon_name.last_index_of (".")];
                             icon = Slingshot.icon_theme.load_icon (name, size, flags);
                         }
-                    } catch (Error e) {}
+                    } catch (Error e) {
+                        warning ("Could not load icon. Falling back to method 3");
+                    }
                 }),
                 new IconLoadFallbackMethod (() => {
                     try {
                         icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
-                    } catch (Error e) {}
+                    } catch (Error e) {
+                        warning ("Could not load icon. Falling back to method 4");
+                    }
                 }),
                 new IconLoadFallbackMethod (() => {
                     try {
                         icon = Slingshot.icon_theme.load_icon ("application-default-icon", size, flags);
-                     } catch (Error e) {}
+                     } catch (Error e) {
+                         warning ("Could not load icon. Falling back to method 5");
+                     }
                 }),
                 new IconLoadFallbackMethod (() => {
                      try {
                         icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size, flags);
-                     } catch (Error e) {}
+                     } catch (Error e) {
+                        error ("Could not find a fallback icon to load");
+                     }
                 })
             };
 
