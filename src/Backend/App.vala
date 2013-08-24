@@ -92,6 +92,7 @@ namespace Slingshot.Backend {
                         warning ("Could not load icon. Falling back to method 2");
                     }
                 }),
+
                 new IconLoadFallbackMethod (() => {
                     try {
                         if (icon_name.last_index_of (".") > 0) {
@@ -102,6 +103,7 @@ namespace Slingshot.Backend {
                         warning ("Could not load icon. Falling back to method 3");
                     }
                 }),
+
                 new IconLoadFallbackMethod (() => {
                     try {
                         icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
@@ -109,6 +111,7 @@ namespace Slingshot.Backend {
                         warning ("Could not load icon. Falling back to method 4");
                     }
                 }),
+
                 new IconLoadFallbackMethod (() => {
                     try {
                         icon = Slingshot.icon_theme.load_icon ("application-default-icon", size, flags);
@@ -116,6 +119,7 @@ namespace Slingshot.Backend {
                          warning ("Could not load icon. Falling back to method 5");
                      }
                 }),
+
                 new IconLoadFallbackMethod (() => {
                      try {
                         icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size, flags);
