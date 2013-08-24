@@ -73,13 +73,11 @@ namespace Slingshot.Backend {
         private delegate void IconLoadFallback ();
 
         private class IconLoadFallbackMethod {
-
             public unowned IconLoadFallback load_icon;
 
             public IconLoadFallbackMethod(IconLoadFallback fallback) {
                 load_icon = fallback;
             }
-
         }
 
         public Gdk.Pixbuf load_icon (int size) {
