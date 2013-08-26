@@ -310,7 +310,12 @@ namespace Slingshot {
             }
         }
 
-        //public override bool key_press_event (Gdk.EventKey event) {
+        /*Overriding the default handler results in infinite loop of error messages
+         *  when an input method is in use (Gtk3 bug?).  Key press events are
+         * captured by an Event Box and passed to this function instead.
+         * Events not dealt with here are propagated to the searchbar by the
+         * usual mechanism.
+         */
         public bool on_key_press (Gdk.EventKey event) {
             var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
@@ -360,7 +365,6 @@ namespace Slingshot {
                     int page = int.parse (key) - 1;
 
                     if (event.state != Gdk.ModifierType.MOD1_MASK)
-                        //return base.key_press_event (event);
                         return false;
 
                     if (modality == Modality.NORMAL_VIEW) {
@@ -374,7 +378,6 @@ namespace Slingshot {
                         else
                             category_view.switcher.set_active (page);
                     } else {
-                        //return base.key_press_event (event);
                         return false;
                     }
                     searchbar.grab_focus ();
@@ -407,7 +410,6 @@ namespace Slingshot {
                             category_move_focus (-1, 0);
                         }
                     } else
-                        //return base.key_press_event (event);
                         return false;
                     break;
 
@@ -425,7 +427,6 @@ namespace Slingshot {
                         else //the user has already selected an AppEntry
                             category_move_focus (+1, 0);
                     } else {
-                        //return base.key_press_event (event);
                         return false;
                     }
                     break;
@@ -495,19 +496,16 @@ namespace Slingshot {
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Delete
                         searchbar.text = "";
                     } else if (searchbar.has_focus) {
-                        //return base.key_press_event (event);
                         return false;
                     } else {
                         searchbar.grab_focus ();
                         searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
-                        //return base.key_press_event (event);
                         return false;
                     }
                     break;
 
                 case "Home":
                     if (searchbar.text.size () > 0) {
-                        //return base.key_press_event (event);
                         return false;
                     }
 
@@ -521,7 +519,6 @@ namespace Slingshot {
 
                 case "End":
                     if (searchbar.text.size () > 0) {
-                        //return base.key_press_event (event);
                         return false;
                     }
 
@@ -538,7 +535,6 @@ namespace Slingshot {
                         searchbar.grab_focus ();
                         searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     }
-                    //return base.key_press_event (event);
                     return false;
 
             }
