@@ -64,6 +64,7 @@ namespace Slingshot.Widgets {
 
             app_view = new Widgets.Grid (view.rows, view.columns - 1);
             layout.put (app_view, 0, 0);
+            empty_cat_label = new Gtk.Label ("");
             layout.put (empty_cat_label, view.columns*130, view.rows * 130 / 2);
             layout.set_hexpand (true);
             layout.set_vexpand (true);
@@ -133,7 +134,7 @@ namespace Slingshot.Widgets {
             });
 
             app_view.new_page.connect ((page) => {
-                
+
                 if (switcher.size == 0)
                     switcher.append ("1");
                 switcher.append (page);
@@ -151,7 +152,7 @@ namespace Slingshot.Widgets {
                 move_page (switcher.active - switcher.old_active);
                 view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
             });
-            
+
             category_switcher.selected = 0; //Must be after everything else
         }
 
@@ -168,11 +169,11 @@ namespace Slingshot.Widgets {
 
             switcher.clear_children ();
             app_view.clear ();
-            
+
             layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
             foreach (App app in view.apps[category])
-	            add_app (app);
-            
+                add_app (app);
+
             switcher.set_active (0);
 
             layout.move (app_view, 0, 0);
@@ -181,16 +182,16 @@ namespace Slingshot.Widgets {
         }
 
         public void move_page (int step) {
-        
+
             debug ("Moving: step = " + step.to_string ());
-        
+
             if (step == 0)
                 return;
             if (step < 0 && current_position >= 0) //Left border
                 return;
             if (step > 0 && (-current_position) >= ((app_view.get_n_pages () - 1) * app_view.get_page_columns () * 130)) //Right border
                 return;
-            
+
             int count = 0;
             int increment = -step*130*(view.columns-1)/10;
             Timeout.add (30/(view.columns-1), () => {
@@ -200,12 +201,12 @@ namespace Slingshot.Widgets {
                     layout.move (app_view, current_position, 0);
                     return false;
                 }
-                    
+
                 current_position += increment;
                 layout.move (app_view, current_position, 0);
                 count++;
                 return true;
-                
+
             }, Priority.DEFAULT_IDLE);
         }
 
@@ -220,7 +221,7 @@ namespace Slingshot.Widgets {
             }
             else
                 page_switcher.hide ();
-                
+
             view.searchbar.grab_focus ();
 
         }
