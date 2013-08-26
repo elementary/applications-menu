@@ -75,7 +75,7 @@ namespace Slingshot.Backend {
         private class IconLoadFallbackMethod {
             public unowned IconLoadFallback load_icon;
 
-            public IconLoadFallbackMethod(IconLoadFallback fallback) {
+            public IconLoadFallbackMethod (IconLoadFallback fallback) {
                 load_icon = fallback;
             }
         }
