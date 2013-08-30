@@ -38,7 +38,6 @@ namespace Slingshot.Backend {
         public signal void launched (App app);
 
         public App (GMenu.TreeEntry entry) {
-
             name = entry.get_display_name ();
             description = entry.get_comment () ?? name;
             exec = entry.get_exec ();
@@ -47,10 +46,9 @@ namespace Slingshot.Backend {
             desktop_path = entry.get_desktop_file_path ();
             keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
             generic_name = entry.get_generic_name ();
-            
+
             update_icon ();
             Slingshot.icon_theme.changed.connect (update_icon);
-
         }
 
         public App.from_command (string command) {
@@ -68,40 +66,79 @@ namespace Slingshot.Backend {
         }
 
         public void update_icon () {
+            icon = load_icon (Slingshot.settings.icon_size);
+            icon_changed ();
+        }
 
-            try {
-                icon = Slingshot.icon_theme.load_icon (icon_name, Slingshot.settings.icon_size,
-                                                        Gtk.IconLookupFlags.FORCE_SIZE);
-            } catch (Error e) {
-                try {
-                    if (icon_name.last_index_of (".") > 0)
-                        icon = Slingshot.icon_theme.load_icon (icon_name[0:icon_name.last_index_of (".")],
-                                                               Slingshot.settings.icon_size, Gtk.IconLookupFlags.FORCE_SIZE);
-                    else
-                        throw new IOError.NOT_FOUND ("Requested image could not be found.");
+        private delegate void IconLoadFallback ();
 
-                } catch (Error e) {
+        private class IconLoadFallbackMethod {
+            public unowned IconLoadFallback load_icon;
+
+            public IconLoadFallbackMethod (IconLoadFallback fallback) {
+                load_icon = fallback;
+            }
+        }
+
+        public Gdk.Pixbuf load_icon (int size) {
+            Gdk.Pixbuf icon = null;
+            var flags = Gtk.IconLookupFlags.FORCE_SIZE;
+
+            IconLoadFallbackMethod[] fallbacks = {
+                new IconLoadFallbackMethod (() => {
                     try {
-                        icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, Slingshot.settings.icon_size,
-                                                                  Slingshot.settings.icon_size, false);
+                        icon = Slingshot.icon_theme.load_icon (icon_name, size, flags);
                     } catch (Error e) {
-                        try {
-                            icon = Slingshot.icon_theme.load_icon ("application-default-icon", Slingshot.settings.icon_size,
-                                                                   Gtk.IconLookupFlags.FORCE_SIZE);
-                        } catch (Error e) {
-                            icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", Slingshot.settings.icon_size,
-                                                                   Gtk.IconLookupFlags.FORCE_SIZE);
-                        }
+                        warning ("Could not load icon. Falling back to method 2");
                     }
-                }
+                }),
+
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        if (icon_name.last_index_of (".") > 0) {
+                            var name = icon_name[0:icon_name.last_index_of (".")];
+                            icon = Slingshot.icon_theme.load_icon (name, size, flags);
+                        }
+                    } catch (Error e) {
+                        warning ("Could not load icon. Falling back to method 3");
+                    }
+                }),
+
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
+                    } catch (Error e) {
+                        warning ("Could not load icon. Falling back to method 4");
+                    }
+                }),
+
+                new IconLoadFallbackMethod (() => {
+                    try {
+                        icon = Slingshot.icon_theme.load_icon ("application-default-icon", size, flags);
+                     } catch (Error e) {
+                         warning ("Could not load icon. Falling back to method 5");
+                     }
+                }),
+
+                new IconLoadFallbackMethod (() => {
+                     try {
+                        icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size, flags);
+                     } catch (Error e) {
+                        error ("Could not find a fallback icon to load");
+                     }
+                })
+            };
+
+            foreach (IconLoadFallbackMethod fallback in fallbacks) {
+                fallback.load_icon ();
+                if (icon != null)
+                    break;
             }
 
-            icon_changed ();
-
+            return icon;
         }
 
         public void launch () {
-
             try {
                 if (is_command) {
                     debug (@"Launching command: $name");
@@ -114,7 +151,6 @@ namespace Slingshot.Backend {
             } catch (Error e) {
                 warning ("Failed to launch %s: %s", name, exec);
             }
-
         }
 
     }
