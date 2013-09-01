@@ -227,10 +227,19 @@ namespace Slingshot {
 
         }
 
+        public override bool map_event (Gdk.EventAny event) {
+            return false;
+        }
+
         private void connect_signals () {
 
             this.focus_in_event.connect (() => {
                 searchbar.grab_focus ();
+                return false;
+            });
+
+            focus_out_event.connect (() => {
+                hide ();
                 return false;
             });
 
