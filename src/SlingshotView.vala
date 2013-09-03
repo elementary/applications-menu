@@ -232,19 +232,19 @@ namespace Slingshot {
             var display = Gdk.Display.get_default ();
             var pointer = display.get_device_manager ().get_client_pointer ();
             var keyboard = pointer.associated_device;
-            var keyboardStatus = Gdk.GrabStatus.SUCCESS;
+            var keyboard_status = Gdk.GrabStatus.SUCCESS;
 
             if (keyboard != null && keyboard.input_source == Gdk.InputSource.KEYBOARD) {
-                keyboardStatus = keyboard.grab (get_window (), Gdk.GrabOwnership.NONE, true,
+                keyboard_status = keyboard.grab (get_window (), Gdk.GrabOwnership.NONE, true,
                     Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK, null, Gdk.CURRENT_TIME);
             }
 
-            var pointerStatus = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true, 
+            var pointer_status = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true, 
                 Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | 
                 Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
                 null, Gdk.CURRENT_TIME);
 
-            if (pointerStatus != Gdk.GrabStatus.SUCCESS || keyboardStatus != Gdk.GrabStatus.SUCCESS)  {
+            if (pointer_status != Gdk.GrabStatus.SUCCESS || keyboard_status != Gdk.GrabStatus.SUCCESS)  {
                 // If grab failed, retry again. Happens when "Applications" button is long held.
                 Timeout.add (100, () => {
                     grab_device ();
