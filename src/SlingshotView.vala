@@ -60,6 +60,7 @@ namespace Slingshot {
         private int current_position = 0;
         private int search_view_position = 0;
         private Modality modality;
+        private bool can_trigger = true;
 
         // Sizes
         public int columns {
@@ -227,7 +228,43 @@ namespace Slingshot {
 
         }
 
+        private void grab_device () {
+            var display = Gdk.Display.get_default ();
+            var pointer = display.get_device_manager ().get_client_pointer ();
+            var keyboard = pointer.associated_device;
+            var keyboardStatus = Gdk.GrabStatus.SUCCESS;
+
+            if (keyboard != null && keyboard.input_source == Gdk.InputSource.KEYBOARD) {
+                keyboardStatus = keyboard.grab (get_window (), Gdk.GrabOwnership.NONE, true,
+                    Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK, null, Gdk.CURRENT_TIME);
+            }
+
+            var pointerStatus = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true, 
+                Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | 
+                Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
+                null, Gdk.CURRENT_TIME);
+
+            if (pointerStatus != Gdk.GrabStatus.SUCCESS || keyboardStatus != Gdk.GrabStatus.SUCCESS)  {
+                // If grab failed, retry again. Happens when "Applications" button is long held.
+                Timeout.add (100, () => {
+                    grab_device ();
+                    return false;
+                });
+            }
+        }
+
+        public override bool button_press_event (Gdk.EventButton event) {
+            var pointer = Gdk.Display.get_default ().get_device_manager ().get_client_pointer ();
+            if (pointer.get_window_at_position (null, null) != get_window ()) {
+                pointer.ungrab (event.time);
+                hide ();
+            }
+            return false;
+        }
+
         public override bool map_event (Gdk.EventAny event) {
+            can_trigger = false;
+            grab_device ();
             return false;
         }
 
@@ -235,11 +272,6 @@ namespace Slingshot {
 
             this.focus_in_event.connect (() => {
                 searchbar.grab_focus ();
-                return false;
-            });
-
-            focus_out_event.connect (() => {
-                hide ();
                 return false;
             });
 
@@ -288,6 +320,18 @@ namespace Slingshot {
                 reposition (false);
             });
 
+            motion_notify_event.connect ((event) => {
+                if (event.x_root <= 0 && event.y_root <= 0 ) {
+                    if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher" && can_trigger) {
+                        Gdk.Display.get_default ().get_device_manager ().get_client_pointer ().ungrab (event.time);
+                        can_trigger = false;
+                    }
+                } else if (event.x_root >= 1 || event.y_root >= 1) {
+                    // make sure we moved at least 1 pixel in x or y axis before we can trigger ungrab again
+                    can_trigger = true;
+                }
+                return false;
+            });
         }
 
         private void reposition (bool show=true) {
