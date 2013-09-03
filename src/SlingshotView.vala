@@ -375,6 +375,12 @@ namespace Slingshot {
 
             switch (key) {
 
+                case "F4":
+                    if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
+                        hide ();
+                    }
+                    break;
+
                 case "Escape":
                     hide ();
                     return true;
