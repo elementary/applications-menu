@@ -60,7 +60,7 @@ namespace Slingshot {
         private int current_position = 0;
         private int search_view_position = 0;
         private Modality modality;
-        private bool can_trigger = true;
+        private bool can_trigger_hotcorner = true;
 
         // Sizes
         public int columns {
@@ -262,8 +262,26 @@ namespace Slingshot {
         }
 
         public override bool map_event (Gdk.EventAny event) {
-            can_trigger = false;
+            can_trigger_hotcorner = false;
             grab_device ();
+            
+            if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
+                motion_notify_event.connect (hotcorner_trigger);
+            } else {
+                motion_notify_event.disconnect (hotcorner_trigger);
+            }
+
+            return false;
+        }
+
+        private bool hotcorner_trigger (Gdk.EventMotion event) {
+            if (can_trigger_hotcorner && event.x_root <= 0 && event.y_root <= 0) {
+                Gdk.Display.get_default ().get_device_manager ().get_client_pointer ().ungrab (event.time);
+                can_trigger_hotcorner = false;
+            } else if (event.x_root >= 1 || event.y_root >= 1) {
+                can_trigger_hotcorner = true;
+            }
+
             return false;
         }
 
@@ -319,18 +337,6 @@ namespace Slingshot {
                 reposition (false);
             });
 
-            motion_notify_event.connect ((event) => {
-                if (event.x_root <= 0 && event.y_root <= 0 ) {
-                    if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher" && can_trigger) {
-                        Gdk.Display.get_default ().get_device_manager ().get_client_pointer ().ungrab (event.time);
-                        can_trigger = false;
-                    }
-                } else if (event.x_root >= 1 || event.y_root >= 1) {
-                    // make sure we moved at least 1 pixel in x or y axis before we can trigger ungrab again
-                    can_trigger = true;
-                }
-                return false;
-            });
         }
 
         private void reposition (bool show=true) {
