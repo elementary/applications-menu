@@ -532,6 +532,14 @@ namespace Slingshot {
                     }
                     break;
 
+                case "v":
+                case "V":
+                    if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
+                        searchbar.paste_clipboard ();
+                    }
+
+                    break;
+
                 default:
                     if (!searchbar.has_focus) {
                         searchbar.grab_focus ();

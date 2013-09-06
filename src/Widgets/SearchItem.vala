@@ -23,6 +23,7 @@ namespace Slingshot.Widgets {
 
     public class SearchItem : Button {
 
+        private Backend.App app;
         private Pixbuf icon;
         private string icon_name;
         private Label name_label;
@@ -33,7 +34,7 @@ namespace Slingshot.Widgets {
         public signal void launch_app ();
 
         public SearchItem (Backend.App app) {
-
+            this.app = app;
             get_style_context ().add_class ("app");
 
             icon = app.icon;
@@ -56,33 +57,15 @@ namespace Slingshot.Widgets {
             add (Utils.set_padding (vbox, 5, 0, 0, 78));
 
             this.launch_app.connect (app.launch);
-
         }
 
         protected override bool draw (Cairo.Context cr) {
-
             Allocation size;
             get_allocation (out size);
 
             base.draw (cr);
 
-            Pixbuf scaled_icon = null;
-            try {
-                scaled_icon = Slingshot.icon_theme.load_icon (icon_name, icon_size,
-                                                        Gtk.IconLookupFlags.FORCE_SIZE);
-            } catch (Error e) {
-                try {
-                    scaled_icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, icon_size, icon_size, false);
-                } catch (Error e) {
-	            	try {
-                        scaled_icon = Slingshot.icon_theme.load_icon ("application-default-icon", icon_size,
-                                                               Gtk.IconLookupFlags.FORCE_SIZE);
-	        	    } catch (Error e) {
-                        scaled_icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", icon_size,
-                                                               Gtk.IconLookupFlags.FORCE_SIZE);
-	            	}
-                }
-            }
+            Pixbuf scaled_icon = app.load_icon (icon_size);
 
             height_request = icon_size + 10;
 
@@ -91,7 +74,6 @@ namespace Slingshot.Widgets {
             cr.paint ();
 
             return true;
-
         }
 
         private string fix (string text) {

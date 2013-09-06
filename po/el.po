@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-06-18 14:30+0000\n"
-"Last-Translator: Nikos Raptopoulos <nraptopoulos@gmail.com>\n"
+"PO-Revision-Date: 2013-08-26 14:51+0000\n"
+"Last-Translator: Stefanos Papanatsios <stefan0spapanatsi0s@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-21 04:33+0000\n"
-"X-Generator: Launchpad (build 16731)\n"
+"X-Launchpad-Export-Date: 2013-08-27 04:33+0000\n"
+"X-Generator: Launchpad (build 16738)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -35,11 +35,11 @@ msgstr "Εκτέλεση Εντολής..."
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
 msgid "View as Grid"
-msgstr ""
+msgstr "Προβολή σε πλέγμα"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
 msgid "View by Category"
-msgstr ""
+msgstr "Προβολή ανά kατηγορία"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
