@@ -328,6 +328,7 @@ namespace Slingshot {
                     } else {
                         hide ();
                     }
+
                     return true;
 
                 case "Enter": // "KP_Enter"
