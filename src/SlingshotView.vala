@@ -527,7 +527,7 @@ namespace Slingshot {
                         searchbar.paste_clipboard ();
                     }
 
-                    break;
+                    return base.key_press_event (event);
 
                 default:
                     if (!searchbar.has_focus) {
