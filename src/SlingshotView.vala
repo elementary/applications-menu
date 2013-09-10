@@ -323,9 +323,14 @@ namespace Slingshot {
             switch (key) {
 
                 case "Escape":
-                    hide ();
+                    if (searchbar.text.length > 0) {
+                        searchbar.text = "";
+                    } else {
+                        hide ();
+                    }
+
                     return true;
-                
+
                 case "Enter": // "KP_Enter"
                 case "Return":
                 case "KP_Enter":
