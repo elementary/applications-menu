@@ -77,7 +77,7 @@ namespace Slingshot {
 
         public int view_height {
             get {
-                return (int) (rows*130 + rows*grid_view.row_spacing + 35);
+                return (int) (rows * 130 + rows * grid_view.row_spacing + 35);
             }
         }
 
@@ -121,11 +121,11 @@ namespace Slingshot {
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
             default_columns = 5;
             default_rows = 3;
-            while ((default_columns*130 +48 >= 2*screen.get_width ()/3)) {
+            while ((default_columns * 130 + 48 >= 2 * screen.get_width () / 3)) {
                 default_columns--;
             }
 
-            while ((default_rows*145 + 72 >= 2*screen.get_height ()/3)) {
+            while ((default_rows * 145 + 72 >= 2 * screen.get_height () / 3)) {
                 default_rows--;
             }
 
@@ -178,7 +178,7 @@ namespace Slingshot {
             center = new Gtk.Grid ();
             // Create the layout which works like view_manager
             view_manager = new Layout (null, null);
-            view_manager.set_size_request (default_columns*130, default_rows*145);
+            view_manager.set_size_request (default_columns * 130, default_rows * 145);
             center.attach (view_manager, 0, 0, 1, 1);
 
             // Create the "NORMAL_VIEW"
@@ -190,11 +190,11 @@ namespace Slingshot {
             foreach (ArrayList<App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
-            view_manager.put (search_view, -columns*130, 0);
+            view_manager.put (search_view, -columns * 130, 0);
 
             // Create the "CATEGORY_VIEW"
             category_view = new CategoryView (this);
-            view_manager.put (category_view, -columns*130, 0);
+            view_manager.put (category_view, -columns * 130, 0);
 
             // Create the page switcher
             page_switcher = new Switcher ();
@@ -604,11 +604,11 @@ namespace Slingshot {
                 return;
             
             int count = 0;
-            int increment = -step*130*columns/10;
-            Timeout.add (30/columns, () => {
+            int increment = -step * 130 * columns / 10;
+            Timeout.add (30 / columns, () => {
 
                 if (count >= 10) {
-                    current_position += -step*130*columns - 10*increment; //We adjust to end of the page
+                    current_position += -step * 130 * columns - 10 * increment; //We adjust to end of the page
                     view_manager.move (grid_view, current_position, 0);
                     return false;
                 }
@@ -626,9 +626,9 @@ namespace Slingshot {
             if (search_view.apps_showed < default_rows * 3)
                 return;
 
-            if ((search_view_position) > -(search_view.apps_showed*48)) {
-                view_manager.move (search_view, 0, search_view_position - 2*38);
-                search_view_position -= 2*38;
+            if ((search_view_position) > -(search_view.apps_showed * 48)) {
+                view_manager.move (search_view, 0, search_view_position - 2 * 38);
+                search_view_position -= 2 * 38;
             }
 
         }
@@ -636,8 +636,8 @@ namespace Slingshot {
         private void search_view_up () {
 
             if (search_view_position < 0) {
-                view_manager.move (search_view, 0, search_view_position + 2*38);
-                search_view_position += 2*38;
+                view_manager.move (search_view, 0, search_view_position + 2 * 38);
+                search_view_position += 2 * 38;
             }
 
         }
@@ -655,15 +655,15 @@ namespace Slingshot {
                     view_selector.show_all ();
                     page_switcher.show_all ();
                     category_view.show_page_switcher (false);
-                    view_manager.move (search_view, -130*columns, 0);
-                    view_manager.move (category_view, 130*columns, 0);
+                    view_manager.move (search_view, - 130 * columns, 0);
+                    view_manager.move (category_view, 130 * columns, 0);
                     view_manager.move (grid_view, current_position, 0);
 
                     // change the paddings/margins back to normal
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
                     center.set_margin_left (12);
                     top.set_margin_left (12);
-                    view_manager.set_size_request (default_columns*130, default_rows*145);
+                    view_manager.set_size_request (default_columns * 130, default_rows * 145);
                     break;
 
                 case Modality.CATEGORY_VIEW:
@@ -674,29 +674,29 @@ namespace Slingshot {
                     view_selector.show_all ();
                     page_switcher.hide ();
                     category_view.show_page_switcher (true);
-                    view_manager.move (grid_view, (columns + 1)*130, 0); // plus 1 is needed because otherwise grid_view may appear in category view
-                    view_manager.move (search_view, -columns*130, 0);
+                    view_manager.move (grid_view, (columns + 1) * 130, 0); // plus 1 is needed because otherwise grid_view may appear in category view
+                    view_manager.move (search_view, -columns * 130, 0);
                     view_manager.move (category_view, 0, 0);
 
                     // remove the padding/margin on the left
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE);
                     center.set_margin_left (0);
                     top.set_margin_left (17);
-                    view_manager.set_size_request (default_columns*130 + 17, default_rows*145);
+                    view_manager.set_size_request (default_columns * 130 + 17, default_rows * 145);
                     break;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
                     bottom.hide (); // Hide the switcher
-                    view_manager.move (grid_view, columns*130, 0); // Move the grid_view away
-                    view_manager.move (category_view, columns*130, 0);
+                    view_manager.move (grid_view, columns * 130, 0); // Move the grid_view away
+                    view_manager.move (category_view, columns * 130, 0);
                     view_manager.move (search_view, 0, 0); // Show the searchview
 
                     // change the paddings/margins back to normal
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
                     center.set_margin_left (12);
                     top.set_margin_left (12);
-                    view_manager.set_size_request (default_columns*130, default_rows*145);
+                    view_manager.set_size_request (default_columns * 130, default_rows * 145);
                     break;
 
             }
@@ -772,7 +772,7 @@ namespace Slingshot {
                 height_request = default_rows * 145 + 180;
 
                 category_view.app_view.resize (default_rows, default_columns);
-                category_view.set_size_request (columns*130 + 17, view_height);
+                category_view.set_size_request (columns * 130 + 17, view_height);
                 category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
             }
 
