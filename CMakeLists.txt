@@ -10,7 +10,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/slingshot")
 set (GETTEXT_PACKAGE "slingshot")
 set (RELEASE_NAME "Donatello")
-set (VERSION "0.7.4")
+set (VERSION "0.7.5")
 set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
