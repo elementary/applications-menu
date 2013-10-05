@@ -243,6 +243,16 @@ namespace Slingshot {
             searchbar.text_changed_pause.connect ((text) => this.search (text));
             searchbar.grab_focus ();
 
+            searchbar.activate.connect (() => {
+                if (modality == Modality.SEARCH_VIEW) {
+                    search_view.launch_selected ();
+                    hide ();
+                } else {
+                    if (get_focus () as AppEntry != null) // checking the selected widget is an AppEntry
+                        ((AppEntry) get_focus ()).launch_app ();
+                }
+            });
+
             search_view.app_launched.connect (() => hide ());
 
             // This function must be after creating the page switcher
