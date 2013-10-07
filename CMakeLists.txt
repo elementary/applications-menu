@@ -70,6 +70,9 @@ OPTIONS
     -g
 )
 
+# Comment this out to enable C compiler warnings
+add_definitions (-w)
+
 add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -DWNCK_I_KNOW_THIS_IS_UNSTABLE -include config.h)
 link_libraries (${DEPS_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
