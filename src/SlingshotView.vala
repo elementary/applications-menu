@@ -262,14 +262,7 @@ namespace Slingshot {
         }
 
         public override bool map_event (Gdk.EventAny event) {
-            can_trigger_hotcorner = false;
             grab_device ();
-            
-            if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
-                motion_notify_event.connect (hotcorner_trigger);
-            } else {
-                motion_notify_event.disconnect (hotcorner_trigger);
-            }
 
             return false;
         }
@@ -337,8 +330,21 @@ namespace Slingshot {
                 reposition (false);
             });
 
+            // check for change in gala settings
+            Slingshot.settings.gala_settings.changed.connect (gala_settings_changed);
+            gala_settings_changed ();
         }
 
+        private void gala_settings_changed () {
+            can_trigger_hotcorner = false;
+            
+            if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
+                motion_notify_event.connect (hotcorner_trigger);
+            } else {
+                motion_notify_event.disconnect (hotcorner_trigger);
+            }
+        }
+        
         private void reposition (bool show=true) {
 
             debug("Repositioning");
