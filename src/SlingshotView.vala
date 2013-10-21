@@ -333,15 +333,16 @@ namespace Slingshot {
             // check for change in gala settings
             Slingshot.settings.gala_settings.changed.connect (gala_settings_changed);
             gala_settings_changed ();
+
+            // hotcorner management
+            motion_notify_event.connect (hotcorner_trigger);
         }
 
         private void gala_settings_changed () {
-            can_trigger_hotcorner = false;
-            
             if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
-                motion_notify_event.connect (hotcorner_trigger);
+                can_trigger_hotcorner = true;
             } else {
-                motion_notify_event.disconnect (hotcorner_trigger);
+                can_trigger_hotcorner = false;
             }
         }
         
