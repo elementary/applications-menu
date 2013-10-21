@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-05-09 08:18+0000\n"
-"Last-Translator: Anas Mohamed <anasm7m@gmail.com>\n"
+"PO-Revision-Date: 2013-10-20 17:49+0000\n"
+"Last-Translator: Fathallah Wael <fathallahwael80@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-08 05:11+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2013-10-21 04:32+0000\n"
+"X-Generator: Launchpad (build 16807)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
@@ -23,23 +23,23 @@ msgstr "كل التطبيقات"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr ""
+msgstr "إنشاء فلتر جديد"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr ""
+msgstr "هذه الفئة فارغة"
 
 #: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
 msgid "Run this command..."
-msgstr ""
+msgstr "تشغيل هذا الأمر ..."
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
 msgid "View as Grid"
-msgstr ""
+msgstr "عرض كشبكة"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
 msgid "View by Category"
-msgstr ""
+msgstr "عرض حسب الفئة"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
