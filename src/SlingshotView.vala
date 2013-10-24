@@ -236,13 +236,14 @@ namespace Slingshot {
 
             if (keyboard != null && keyboard.input_source == Gdk.InputSource.KEYBOARD) {
                 keyboard_status = keyboard.grab (get_window (), Gdk.GrabOwnership.NONE, true,
-                    Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK, null, Gdk.CURRENT_TIME);
+                                                 Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK,
+                                                 null, Gdk.CURRENT_TIME);
             }
 
             var pointer_status = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true, 
-                Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | 
-                Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
-                null, Gdk.CURRENT_TIME);
+                                               Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | 
+                                               Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
+                                               null, Gdk.CURRENT_TIME);
 
             if (pointer_status != Gdk.GrabStatus.SUCCESS || keyboard_status != Gdk.GrabStatus.SUCCESS)  {
                 // If grab failed, retry again. Happens when "Applications" button is long held.
@@ -255,9 +256,11 @@ namespace Slingshot {
 
         public override bool button_press_event (Gdk.EventButton event) {
             var pointer = Gdk.Display.get_default ().get_device_manager ().get_client_pointer ();
+            
             if (pointer.get_window_at_position (null, null) != get_window ()) {
                 hide ();
             }
+            
             return false;
         }
 
@@ -386,11 +389,11 @@ namespace Slingshot {
             }
 
             switch (key) {
-
                 case "F4":
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                         hide ();
                     }
+                    
                     break;
 
                 case "Escape":
