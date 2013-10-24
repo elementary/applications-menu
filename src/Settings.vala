@@ -22,15 +22,26 @@ namespace Slingshot {
 
     public class Settings : Granite.Services.Settings {
 
+        protected class GalaSettings : Granite.Services.Settings {
+
+            public string hotcorner_topleft { get; set; }
+
+            public GalaSettings () {
+                base ("org.pantheon.desktop.gala.behavior");
+            }
+        }
+
         public int columns { get; set; }
         public int rows { get; set; }
         public int icon_size { get; set; }
         public bool show_category_filter { get; set; }
         public bool use_category { get; set; }
         public string screen_resolution { get; set; }
+        public GalaSettings gala_settings;
 
         public Settings () {
             base ("org.pantheon.desktop.slingshot");
+            gala_settings = new GalaSettings ();
         }
 
     }

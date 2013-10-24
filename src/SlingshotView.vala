@@ -61,6 +61,7 @@ namespace Slingshot {
         private int current_position = 0;
         private int search_view_position = 0;
         private Modality modality;
+        private bool can_trigger_hotcorner = true;
 
         // Sizes
         public int columns {
@@ -230,6 +231,59 @@ namespace Slingshot {
 
         }
 
+        private void grab_device () {
+            var display = Gdk.Display.get_default ();
+            var pointer = display.get_device_manager ().get_client_pointer ();
+            var keyboard = pointer.associated_device;
+            var keyboard_status = Gdk.GrabStatus.SUCCESS;
+
+            if (keyboard != null && keyboard.input_source == Gdk.InputSource.KEYBOARD) {
+                keyboard_status = keyboard.grab (get_window (), Gdk.GrabOwnership.NONE, true,
+                                                 Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK,
+                                                 null, Gdk.CURRENT_TIME);
+            }
+
+            var pointer_status = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true, 
+                                               Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | 
+                                               Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
+                                               null, Gdk.CURRENT_TIME);
+
+            if (pointer_status != Gdk.GrabStatus.SUCCESS || keyboard_status != Gdk.GrabStatus.SUCCESS)  {
+                // If grab failed, retry again. Happens when "Applications" button is long held.
+                Timeout.add (100, () => {
+                    grab_device ();
+                    return false;
+                });
+            }
+        }
+
+        public override bool button_press_event (Gdk.EventButton event) {
+            var pointer = Gdk.Display.get_default ().get_device_manager ().get_client_pointer ();
+            
+            if (pointer.get_window_at_position (null, null) != get_window ()) {
+                hide ();
+            }
+            
+            return false;
+        }
+
+        public override bool map_event (Gdk.EventAny event) {
+            grab_device ();
+
+            return false;
+        }
+
+        private bool hotcorner_trigger (Gdk.EventMotion event) {
+            if (can_trigger_hotcorner && event.x_root <= 0 && event.y_root <= 0) {
+                Gdk.Display.get_default ().get_device_manager ().get_client_pointer ().ungrab (event.time);
+                can_trigger_hotcorner = false;
+            } else if (event.x_root >= 1 || event.y_root >= 1) {
+                can_trigger_hotcorner = true;
+            }
+
+            return false;
+        }
+
         private void connect_signals () {
 
             this.focus_in_event.connect (() => {
@@ -293,8 +347,22 @@ namespace Slingshot {
                 reposition (false);
             });
 
+            // check for change in gala settings
+            Slingshot.settings.gala_settings.changed.connect (gala_settings_changed);
+            gala_settings_changed ();
+
+            // hotcorner management
+            motion_notify_event.connect (hotcorner_trigger);
         }
 
+        private void gala_settings_changed () {
+            if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
+                can_trigger_hotcorner = true;
+            } else {
+                can_trigger_hotcorner = false;
+            }
+        }
+        
         private void reposition (bool show=true) {
 
             debug("Repositioning");
@@ -342,6 +410,12 @@ namespace Slingshot {
             }
 
             switch (key) {
+                case "F4":
+                    if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
+                        hide ();
+                    }
+                    
+                    break;
 
                 case "Escape":
                     if (searchbar.text.length > 0) {
