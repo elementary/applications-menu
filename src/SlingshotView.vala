@@ -16,16 +16,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-using Gdk;
-using Gee;
-using Cairo;
-using Granite.Widgets;
-using GMenu;
-
-using Slingshot.Widgets;
-using Slingshot.Backend;
-
 namespace Slingshot {
 
     public enum Modality {
@@ -34,18 +24,18 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-    public class SlingshotView : PopOver {
+    public class SlingshotView : Granite.Widgets.PopOver {
 
         // Widgets
         public Granite.Widgets.SearchBar searchbar;
-        public Layout view_manager;
-        public Switcher page_switcher;
-        public ModeButton view_selector;
+        public Gtk.Layout view_manager;
+        public Widgets.Switcher page_switcher;
+        public Granite.Widgets.ModeButton view_selector;
 
         // Views
         private Widgets.Grid grid_view;
-        private SearchView search_view;
-        private CategoryView category_view;
+        private Widgets.SearchView search_view;
+        private Widgets.CategoryView category_view;
 
         public Gtk.Grid top;
         public Gtk.Grid center;
@@ -54,9 +44,9 @@ namespace Slingshot {
         public Gtk.Box content_area;
         private Gtk.EventBox event_box;
 
-        public AppSystem app_system;
-        private ArrayList<TreeDirectory> categories;
-        public HashMap<string, ArrayList<App>> apps;
+        public Backend.AppSystem app_system;
+        private Gee.ArrayList<GMenu.TreeDirectory> categories;
+        public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
 
         private int current_position = 0;
         private int search_view_position = 0;
@@ -100,9 +90,9 @@ namespace Slingshot {
             // Have the window in the right place
             read_settings (true);
 
-            Slingshot.icon_theme = IconTheme.get_default ();
+            Slingshot.icon_theme = Gtk.IconTheme.get_default ();
 
-            app_system = new AppSystem ();
+            app_system = new Backend.AppSystem ();
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
@@ -148,16 +138,16 @@ namespace Slingshot {
             // Add top bar
             top = new Gtk.Grid ();
 
-            var top_separator = new Label (""); // A fake label
+            var top_separator = new Gtk.Label (""); // A fake label
             top_separator.set_hexpand(true);
 
-            view_selector = new ModeButton ();
+            view_selector = new Granite.Widgets.ModeButton ();
 
-            var image = new Image.from_icon_name ("view-grid-symbolic", IconSize.MENU);
+            var image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
             image.tooltip_text = _("View as Grid");
             view_selector.append (image);
 
-            image = new Image.from_icon_name ("view-filter-symbolic", IconSize.MENU);
+            image = new Gtk.Image.from_icon_name ("view-filter-symbolic", Gtk.IconSize.MENU);
             image.tooltip_text = _("View by Category");
             view_selector.append (image);
 
@@ -179,7 +169,7 @@ namespace Slingshot {
 
             center = new Gtk.Grid ();
             // Create the layout which works like view_manager
-            view_manager = new Layout (null, null);
+            view_manager = new Gtk.Layout (null, null);
             view_manager.set_size_request (default_columns * 130, default_rows * 145);
             center.attach (view_manager, 0, 0, 1, 1);
 
@@ -188,26 +178,26 @@ namespace Slingshot {
             view_manager.put (grid_view, 0, 0);
 
             // Create the "SEARCH_VIEW"
-            search_view = new SearchView (this);
-            foreach (ArrayList<App> app_list in apps.values) {
+            search_view = new Widgets.SearchView (this);
+            foreach (Gee.ArrayList<Backend.App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
             view_manager.put (search_view, -columns * 130, 0);
 
             // Create the "CATEGORY_VIEW"
-            category_view = new CategoryView (this);
+            category_view = new Widgets.CategoryView (this);
             view_manager.put (category_view, -columns * 130, 0);
 
             // Create the page switcher
-            page_switcher = new Switcher ();
+            page_switcher = new Widgets.Switcher ();
 
             // A bottom widget to keep the page switcher center
             bottom = new Gtk.Grid ();
 
 
-            var bottom_separator1 = new Label (""); // A fake label
+            var bottom_separator1 = new Gtk.Label (""); // A fake label
             bottom_separator1.set_hexpand (true);
-            var bottom_separator2 = new Label (""); // A fake label
+            var bottom_separator2 = new Gtk.Label (""); // A fake label
             bottom_separator2.set_hexpand (true);
             bottom.attach (bottom_separator1, 0, 0, 1, 1); // A fake label
             bottom.attach (page_switcher, 1, 0, 1, 1);
@@ -220,7 +210,7 @@ namespace Slingshot {
             event_box = new Gtk.EventBox ();
             event_box.add (container);
             // Add the container to the dialog's content area
-            content_area = get_content_area () as Box;
+            content_area = get_content_area () as Gtk.Box;
             content_area.pack_start (event_box);
 
             if (Slingshot.settings.use_category)
@@ -294,7 +284,7 @@ namespace Slingshot {
             //view_manager.draw.connect (this.draw_background);
 
             event_box.key_press_event.connect (on_key_press);
-            searchbar.text_changed_pause.connect ((text) => this.search (text));
+            searchbar.text_changed_pause.connect ((text) => this.search.begin (text));
             searchbar.grab_focus ();
 
             searchbar.activate.connect (() => {
@@ -302,8 +292,8 @@ namespace Slingshot {
                     search_view.launch_selected ();
                     hide ();
                 } else {
-                    if (get_focus () as AppEntry != null) // checking the selected widget is an AppEntry
-                        ((AppEntry) get_focus ()).launch_app ();
+                    if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
+                        ((Widgets.AppEntry) get_focus ()).launch_app ();
                 }
             });
 
@@ -433,8 +423,8 @@ namespace Slingshot {
                         search_view.launch_selected ();
                         hide ();
                     } else {
-                        if (get_focus () as AppEntry != null) // checking the selected widget is an AppEntry
-                            ((AppEntry)get_focus ()).launch_app ();
+                        if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
+                            ((Widgets.AppEntry)get_focus ()).launch_app ();
                     }
                     return true;
 
@@ -596,7 +586,7 @@ namespace Slingshot {
                     break;
 
                 case "Home":
-                    if (searchbar.text.size () > 0) {
+                    if (searchbar.text.length > 0) {
                         return false;
                     }
 
@@ -609,7 +599,7 @@ namespace Slingshot {
                     break;
 
                 case "End":
-                    if (searchbar.text.size () > 0) {
+                    if (searchbar.text.length > 0) {
                         return false;
                     }
 
@@ -641,7 +631,7 @@ namespace Slingshot {
 
         }
 
-        public override bool scroll_event (EventScroll event) {
+        public override bool scroll_event (Gdk.EventScroll event) {
 
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
@@ -820,7 +810,7 @@ namespace Slingshot {
 
             var filtered = yield app_system.search_results (stripped);
 
-            foreach (App app in filtered) {
+            foreach (Backend.App app in filtered) {
                 search_view.show_app (app);
             }
 
@@ -836,9 +826,9 @@ namespace Slingshot {
             page_switcher.append ("1");
             page_switcher.set_active (0);
 
-            foreach (App app in app_system.get_apps_by_name ()) {
+            foreach (Backend.App app in app_system.get_apps_by_name ()) {
 
-                var app_entry = new AppEntry (app);
+                var app_entry = new Widgets.AppEntry (app);
                 app_entry.app_launched.connect (() => hide ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();
@@ -878,7 +868,7 @@ namespace Slingshot {
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
-            if (get_focus () as AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
+            if (get_focus () as Widgets.AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
                 var new_focus = grid_view.get_child_at (column_focus + delta_column, row_focus + delta_row); // we check if the new widget exists
                 if (new_focus == null) {
                     if (delta_column <= 0)

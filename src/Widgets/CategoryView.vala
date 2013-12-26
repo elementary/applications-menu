@@ -16,215 +16,206 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-using Gee;
+public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
-using Slingshot.Backend;
+    private Gtk.Grid container;
+    public Sidebar category_switcher;
+    public Gtk.Separator separator;
+    public Widgets.Grid app_view;
+    private Gtk.Layout layout;
+    public Switcher switcher;
+    private SlingshotView view;
+    private Gtk.Label empty_cat_label;
 
-namespace Slingshot.Widgets {
+    private Gtk.Grid page_switcher;
 
-    public class CategoryView : EventBox {
+    private const string ALL_APPLICATIONS = _("All Applications");
+    private const string NEW_FILTER = _("Create a new Filter");
+    private int current_position = 0;
+    private bool from_category = false;
 
-        private Gtk.Grid container;
-        public Sidebar category_switcher;
-        public VSeparator separator;
-        public Widgets.Grid app_view;
-        private Layout layout;
-        public Switcher switcher;
-        private SlingshotView view;
-        private Label empty_cat_label;
+    public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
-        private Gtk.Grid page_switcher;
+    public CategoryView (SlingshotView parent) {
 
-        private const string ALL_APPLICATIONS = _("All Applications");
-        private const string NEW_FILTER = _("Create a new Filter");
-        private int current_position = 0;
-        private bool from_category = false;
+        view = parent;
 
-        public HashMap<int, string> category_ids = new HashMap<int, string> ();
+        set_visible_window (false);
+        setup_ui ();
+        setup_sidebar ();
+        connect_events ();
 
-        public CategoryView (SlingshotView parent) {
+        set_size_request (view.columns*130 + 17, view.view_height);
 
-            view = parent;
+    }
 
-            set_visible_window (false);
-            setup_ui ();
-            setup_sidebar ();
-            connect_events ();
+    private void setup_ui () {
+        container = new Gtk.Grid ();
+        separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-            set_size_request (view.columns*130 + 17, view.view_height);
+        layout = new Gtk.Layout (null, null);
 
+        app_view = new Widgets.Grid (view.rows, view.columns - 1);
+        layout.put (app_view, 0, 0);
+        empty_cat_label = new Gtk.Label ("");
+        layout.put (empty_cat_label, view.columns*130, view.rows * 130 / 2);
+        layout.set_hexpand (true);
+        layout.set_vexpand (true);
+
+        // Create the page switcher
+        switcher = new Switcher ();
+
+        // A bottom widget to keep the page switcher center
+        page_switcher = new Gtk.Grid ();
+        var bottom_separator1 = new Gtk.Label (""); // A fake label
+        bottom_separator1.set_hexpand(true);
+        var bottom_separator2 = new Gtk.Label (""); // A fake label
+        bottom_separator2.set_hexpand(true);
+        page_switcher.attach (bottom_separator1, 0, 0, 1, 1);
+        page_switcher.attach (switcher, 1, 0, 1, 1);
+        page_switcher.attach (bottom_separator2, 2, 0, 1, 1);
+
+        container.attach (separator, 1, 0, 1, 2);
+        container.attach (layout, 2, 0, 1, 1);
+
+        add (container);
+
+    }
+
+    public void setup_sidebar () {
+
+        if (category_switcher != null)
+            category_switcher.destroy ();
+
+        category_switcher = new Sidebar ();
+        category_switcher.can_focus = false;
+
+        // Fill the sidebar
+        int n = 0;
+
+        foreach (string cat_name in view.apps.keys) {
+            category_ids.set (n, cat_name);
+            category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+            n++;
         }
 
-        private void setup_ui () {
-            container = new Gtk.Grid ();
-            separator = new VSeparator ();
+        container.attach (category_switcher, 0, 0, 1, 2);
+        category_switcher.selection_changed.connect ((name, nth) => {
 
-            layout = new Layout (null, null);
+            view.reset_category_focus ();
+            string category = category_ids.get (nth);
+            show_filtered_apps (category);
+        });
 
-            app_view = new Widgets.Grid (view.rows, view.columns - 1);
-            layout.put (app_view, 0, 0);
-            empty_cat_label = new Gtk.Label ("");
-            layout.put (empty_cat_label, view.columns*130, view.rows * 130 / 2);
-            layout.set_hexpand (true);
-            layout.set_vexpand (true);
+        category_switcher.show_all ();
+    }
 
-            // Create the page switcher
-            switcher = new Switcher ();
+    private void connect_events () {
 
-            // A bottom widget to keep the page switcher center
-            page_switcher = new Gtk.Grid ();
-            var bottom_separator1 = new Label (""); // A fake label
-            bottom_separator1.set_hexpand(true);
-            var bottom_separator2 = new Label (""); // A fake label
-            bottom_separator2.set_hexpand(true);
-            page_switcher.attach (bottom_separator1, 0, 0, 1, 1);
-            page_switcher.attach (switcher, 1, 0, 1, 1);
-            page_switcher.attach (bottom_separator2, 2, 0, 1, 1);
+        layout.scroll_event.connect ((event) => {
+            switch (event.direction.to_string ()) {
+                case "GDK_SCROLL_UP":
+                case "GDK_SCROLL_LEFT":
+                    switcher.set_active (switcher.active - 1);
+                    break;
+                case "GDK_SCROLL_DOWN":
+                case "GDK_SCROLL_RIGHT":
+                    switcher.set_active (switcher.active + 1);
+                    break;
+            }
+            return false;
+        });
 
-            container.attach (separator, 1, 0, 1, 2);
-            container.attach (layout, 2, 0, 1, 1);
+        app_view.new_page.connect ((page) => {
 
-            add (container);
+            if (switcher.size == 0)
+                switcher.append ("1");
+            switcher.append (page);
 
-        }
+            /* Prevents pages from changing */
+            from_category = true;
+        });
 
-        public void setup_sidebar () {
-
-            if (category_switcher != null)
-                category_switcher.destroy ();
-
-            category_switcher = new Sidebar ();
-            category_switcher.can_focus = false;
-
-            // Fill the sidebar
-            int n = 0;
-
-            foreach (string cat_name in view.apps.keys) {
-                category_ids.set (n, cat_name);
-                category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
-                n++;
+        switcher.active_changed.connect (() => {
+            if (from_category || switcher.active - switcher.old_active == 0) {
+                from_category = false;
+                return;
             }
 
-            container.attach (category_switcher, 0, 0, 1, 2);
-            category_switcher.selection_changed.connect ((name, nth) => {
+            move_page (switcher.active - switcher.old_active);
+            view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
+        });
 
-                view.reset_category_focus ();
-                string category = category_ids.get (nth);
-                show_filtered_apps (category);
-            });
+        category_switcher.selected = 0; //Must be after everything else
+    }
 
-            category_switcher.show_all ();
-        }
+    private void add_app (Backend.App app) {
 
-        private void connect_events () {
+        var app_entry = new AppEntry (app);
+        app_entry.app_launched.connect (() => view.hide ());
+        app_view.append (app_entry);
+        app_entry.show_all ();
 
-            layout.scroll_event.connect ((event) => {
-                switch (event.direction.to_string ()) {
-                    case "GDK_SCROLL_UP":
-                    case "GDK_SCROLL_LEFT":
-                        switcher.set_active (switcher.active - 1);
-                        break;
-                    case "GDK_SCROLL_DOWN":
-                    case "GDK_SCROLL_RIGHT":
-                        switcher.set_active (switcher.active + 1);
-                        break;
-                }
-                return false;
-            });
+    }
 
-            app_view.new_page.connect ((page) => {
+    public void show_filtered_apps (string category) {
 
-                if (switcher.size == 0)
-                    switcher.append ("1");
-                switcher.append (page);
+        switcher.clear_children ();
+        app_view.clear ();
 
-                /* Prevents pages from changing */
-                from_category = true;
-            });
+        layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
+        foreach (Backend.App app in view.apps[category])
+            add_app (app);
 
-            switcher.active_changed.connect (() => {
-                if (from_category || switcher.active - switcher.old_active == 0) {
-                    from_category = false;
-                    return;
-                }
+        switcher.set_active (0);
 
-                move_page (switcher.active - switcher.old_active);
-                view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
-            });
+        layout.move (app_view, 0, 0);
+        current_position = 0;
 
-            category_switcher.selected = 0; //Must be after everything else
-        }
+    }
 
-        private void add_app (App app) {
+    public void move_page (int step) {
 
-            var app_entry = new AppEntry (app);
-            app_entry.app_launched.connect (() => view.hide ());
-            app_view.append (app_entry);
-            app_entry.show_all ();
+        debug ("Moving: step = " + step.to_string ());
 
-        }
+        if (step == 0)
+            return;
+        if (step < 0 && current_position >= 0) //Left border
+            return;
+        if (step > 0 && (-current_position) >= ((app_view.get_n_pages () - 1) * app_view.get_page_columns () * 130)) //Right border
+            return;
 
-        public void show_filtered_apps (string category) {
+        int count = 0;
+        int increment = -step*130*(view.columns-1)/10;
+        Timeout.add (30/(view.columns-1), () => {
 
-            switcher.clear_children ();
-            app_view.clear ();
-
-            layout.move (empty_cat_label, view.columns*130, view.rows*130 / 2);
-            foreach (App app in view.apps[category])
-                add_app (app);
-
-            switcher.set_active (0);
-
-            layout.move (app_view, 0, 0);
-            current_position = 0;
-
-        }
-
-        public void move_page (int step) {
-
-            debug ("Moving: step = " + step.to_string ());
-
-            if (step == 0)
-                return;
-            if (step < 0 && current_position >= 0) //Left border
-                return;
-            if (step > 0 && (-current_position) >= ((app_view.get_n_pages () - 1) * app_view.get_page_columns () * 130)) //Right border
-                return;
-
-            int count = 0;
-            int increment = -step*130*(view.columns-1)/10;
-            Timeout.add (30/(view.columns-1), () => {
-
-                if (count >= 10) {
-                    current_position += -step*130*(view.columns-1) - 10*increment; //We adjust to end of the page
-                    layout.move (app_view, current_position, 0);
-                    return false;
-                }
-
-                current_position += increment;
+            if (count >= 10) {
+                current_position += -step*130*(view.columns-1) - 10*increment; //We adjust to end of the page
                 layout.move (app_view, current_position, 0);
-                count++;
-                return true;
-
-            }, Priority.DEFAULT_IDLE);
-        }
-
-        public void show_page_switcher (bool show) {
-
-            if (page_switcher.get_parent () == null)
-                container.attach (page_switcher, 2, 1, 1, 1);
-
-            if (show) {
-                page_switcher.show_all ();
-                view.bottom.hide ();
+                return false;
             }
-            else
-                page_switcher.hide ();
 
-            view.searchbar.grab_focus ();
+            current_position += increment;
+            layout.move (app_view, current_position, 0);
+            count++;
+            return true;
 
+        }, Priority.DEFAULT_IDLE);
+    }
+
+    public void show_page_switcher (bool show) {
+
+        if (page_switcher.get_parent () == null)
+            container.attach (page_switcher, 2, 1, 1, 1);
+
+        if (show) {
+            page_switcher.show_all ();
+            view.bottom.hide ();
         }
+        else
+            page_switcher.hide ();
+
+        view.searchbar.grab_focus ();
 
     }
 

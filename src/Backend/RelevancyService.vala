@@ -17,159 +17,164 @@
 //
 //  Thanks to Synapse Developers for this class
 
-using Zeitgeist;
+public class Slingshot.Backend.RelevancyService : Object {
 
-namespace Slingshot.Backend {
+    private Zeitgeist.Log zg_log;
+    private Zeitgeist.DataSourceRegistry zg_dsr;
+    private Gee.HashMap<string, int> app_popularity;
+    private bool has_datahub_gio_module = false;
 
-    public class RelevancyService : Object {
+    private const float MULTIPLIER = 65535.0f;
+    
+    public signal void update_complete ();
 
-        private Zeitgeist.Log zg_log;
-        private Zeitgeist.DataSourceRegistry zg_dsr;
-        private Gee.HashMap<string, int> app_popularity;
-        private bool has_datahub_gio_module = false;
+    public RelevancyService () {
 
-        private const float MULTIPLIER = 65535.0f;
-        
-        public signal void update_complete ();
+        zg_log = new Zeitgeist.Log ();
+        app_popularity = new Gee.HashMap<string, int> ();
 
-        public RelevancyService () {
+        refresh_popularity ();
+        check_data_sources.begin ();
 
-            zg_log = new Zeitgeist.Log ();
-            app_popularity = new Gee.HashMap<string, int> ();
+        Timeout.add_seconds (60*30, refresh_popularity);
 
-            refresh_popularity ();
-            check_data_sources.begin ();
+    }
 
-            Timeout.add_seconds (60*30, refresh_popularity);
+    private async void check_data_sources () {
 
-        }
-
-        private async void check_data_sources () {
-
-            zg_dsr = new Zeitgeist.DataSourceRegistry ();
+        zg_dsr = new Zeitgeist.DataSourceRegistry ();
+        try {
             var ptr_arr = yield zg_dsr.get_data_sources (null);
 
-            for (uint i=0; i < ptr_arr.len; i++) {
+            for (uint i=0; i < ptr_arr.length; i++) {
 
                 unowned Zeitgeist.DataSource ds;
-                ds = (Zeitgeist.DataSource) ptr_arr.index (i);
-                if (ds.get_unique_id () == "com.zeitgeist-project,datahub,gio-launch-listener"
-                        && ds.is_enabled ()) {
+                ds = (Zeitgeist.DataSource) ptr_arr.get (i);
+                if (ds.unique_id  == "com.zeitgeist-project,datahub,gio-launch-listener"
+                        && ds.enabled == true) {
 
                     has_datahub_gio_module = true;
                     break;
                 }
             }
+        } catch (Error e) {
+            critical (e.message);
         }
+    }
 
-        public bool refresh_popularity () {
+    public bool refresh_popularity () {
 
+        load_application_relevancies.begin ();
+        return true;
+
+    }
+    private void reload_relevancies () {
+
+        Idle.add_full (Priority.LOW, () => {
             load_application_relevancies.begin ();
-            return true;
+            return false;
+        });
+    }
 
-        }
-        private void reload_relevancies () {
+    private async void load_application_relevancies () {
 
-            Idle.add_full (Priority.LOW, () => {
-                load_application_relevancies.begin ();
-                return false;
-            });
-        }
+        Idle.add (load_application_relevancies.callback, Priority.HIGH);
+        yield;
 
-        private async void load_application_relevancies () {
+        int64 end = Zeitgeist.Timestamp.from_now ();
+        int64 start = end - Zeitgeist.Timestamp.WEEK * 4;
+        Zeitgeist.TimeRange tr = new Zeitgeist.TimeRange (start, end);
 
-            Idle.add (load_application_relevancies.callback, Priority.HIGH);
-            yield;
+        var event = new Zeitgeist.Event ();
+        event.interpretation = "!" + Zeitgeist.ZG.LEAVE_EVENT;
+        var subject = new Zeitgeist.Subject ();
+        subject.interpretation = Zeitgeist.NFO.SOFTWARE;
+        subject.uri = "application://*";
+        event.add_subject (subject);
 
-            int64 end = Zeitgeist.Timestamp.now ();
-            int64 start = end - Zeitgeist.Timestamp.WEEK * 4;
-            Zeitgeist.TimeRange tr = new Zeitgeist.TimeRange (start, end);
+        var ptr_arr = new GLib.GenericArray<Zeitgeist.Event> ();
+        ptr_arr.add (event);
 
-            var event = new Zeitgeist.Event ();
-            event.set_interpretation ("!" + ZG_LEAVE_EVENT);
-            var subject = new Zeitgeist.Subject ();
-            subject.set_interpretation (NFO_SOFTWARE);
-            subject.set_uri ("application://*");
-            event.add_subject (subject);
+        Zeitgeist.ResultSet rs;
 
-            var ptr_arr = new PtrArray ();
-            ptr_arr.add (event);
+        try {
 
-            Zeitgeist.ResultSet rs;
+            rs = yield zg_log.find_events (tr, (owned) ptr_arr,
+                    Zeitgeist.StorageState.ANY,
+                    256,
+                    Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
+                    null);
 
-            try {
+            app_popularity.clear ();
+            uint size = rs.size ();
+            uint index = 0;
 
-                rs = yield zg_log.find_events (tr, (owned) ptr_arr,
-                        Zeitgeist.StorageState.ANY,
-                        256,
-                        Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
-                        null);
+            // Zeitgeist (0.6) doesn't have any stats API, so let's approximate
 
-                app_popularity.clear ();
-                uint size = rs.size ();
-                uint index = 0;
+            foreach (Zeitgeist.Event e in rs) {
 
-                // Zeitgeist (0.6) doesn't have any stats API, so let's approximate
+                if (e.num_subjects () <= 0) continue;
+                Zeitgeist.Subject s = e.get_subject (0);
 
-                foreach (Zeitgeist.Event e in rs) {
-
-                    if (e.num_subjects () <= 0) continue;
-                    Zeitgeist.Subject s = e.get_subject (0);
-
-                    float power = index / (size * 2) + 0.5f; // linearly <0.5, 1.0>
-                    float relevancy = 1.0f / Math.powf (index + 1, power);
-                    app_popularity[s.get_uri ()] = (int)(relevancy * MULTIPLIER);
-                    index++;
-                }
-                update_complete ();
-            } catch (Error err) {
-                warning ("%s", err.message);
-                return;
+                float power = index / (size * 2) + 0.5f; // linearly <0.5, 1.0>
+                float relevancy = 1.0f / Math.powf (index + 1, power);
+                app_popularity[s.uri] = (int)(relevancy * MULTIPLIER);
+                index++;
             }
+            update_complete ();
+        } catch (Error err) {
+            warning ("%s", err.message);
+            return;
+        }
+    }
+
+    public float get_app_popularity (string desktop_id) {
+
+        var id = "application://" + desktop_id;
+
+        if (app_popularity.has_key(id)) {
+            return app_popularity[id] / MULTIPLIER;
         }
 
-        public float get_app_popularity (string desktop_id) {
+        return 0.0f;
+    }
 
-            var id = "application://" + desktop_id;
+    public void app_launched (App app) {
 
-            if (app_popularity.has_key(id)) {
-                return app_popularity[id] / MULTIPLIER;
-            }
-
-            return 0.0f;
+        string app_uri = null;
+        if (app.desktop_id != null) {
+            app_uri = "application://" + app.desktop_id;
         }
 
-        public void app_launched (App app) {
+        push_app_launch (app_uri, app.name);
 
-            string app_uri = null;
-            if (app.desktop_id != null) {
-                app_uri = "application://" + app.desktop_id;
-            }
+        // and refresh
+        reload_relevancies ();
+    }
 
-            push_app_launch (app_uri, app.name);
+    private void push_app_launch (string app_uri, string? display_name) {
 
-            // and refresh
-            reload_relevancies ();
-        }
+        message ("Pushing launch event: %s [%s]", app_uri, display_name);
+        var event = new Zeitgeist.Event ();
+        var subject = new Zeitgeist.Subject ();
 
-        private void push_app_launch (string app_uri, string? display_name) {
+        event.actor = "application://synapse.desktop";
+        event.interpretation = Zeitgeist.ZG.ACCESS_EVENT;
+        event.manifestation = Zeitgeist.ZG.USER_ACTIVITY;
+        event.add_subject (subject);
 
-            message ("Pushing launch event: %s [%s]", app_uri, display_name);
-            var event = new Zeitgeist.Event ();
-            var subject = new Zeitgeist.Subject ();
-
-            event.set_actor ("application://synapse.desktop");
-            event.set_interpretation (Zeitgeist.ZG_ACCESS_EVENT);
-            event.set_manifestation (Zeitgeist.ZG_USER_ACTIVITY);
-            event.add_subject (subject);
-
-            subject.set_uri (app_uri);
-            subject.set_interpretation (Zeitgeist.NFO_SOFTWARE);
-            subject.set_manifestation (Zeitgeist.NFO_SOFTWARE_ITEM);
-            subject.set_mimetype ("application/x-desktop");
-            subject.set_text (display_name);
-
-            zg_log.insert_events_no_reply (event, null);
+        subject.uri = app_uri;
+        subject.interpretation = Zeitgeist.NFO.SOFTWARE;
+        subject.manifestation = Zeitgeist.NFO.SOFTWARE_ITEM;
+        subject.mimetype = "application/x-desktop";
+        subject.text = display_name;
+        var ptr_arr = new GLib.GenericArray<Zeitgeist.Event> ();
+        ptr_arr.add (event);
+        
+        try {
+            zg_log.insert_events_no_reply (ptr_arr);
+        } catch (Error e) {
+            critical (e.message);
         }
     }
 }

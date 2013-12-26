@@ -16,137 +16,130 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-using Gdk;
-using Cairo;
+public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
-namespace Slingshot.Widgets {
+    public Gtk.Label app_label;
+    private Gdk.Pixbuf icon;
+    private Gtk.Box layout;
 
-    public class AppEntry : Button {
+    public string exec_name;
+    public string app_name;
+    public string desktop_id;
+    public int icon_size;
+    public string desktop_path;
 
-        public Label app_label;
-        private Pixbuf icon;
-        private Box layout;
+    public signal void app_launched ();
 
-        public string exec_name;
-        public string app_name;
-        public string desktop_id;
-        public int icon_size;
-        public string desktop_path;
+    private double alpha = 1.0;
+    private bool   dragging = false; //prevent launching
 
-        public signal void app_launched ();
+    private Backend.App application;
 
-        private double alpha = 1.0;
-        private bool   dragging = false; //prevent launching
+    public AppEntry (Backend.App app) {
+        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
+        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
+            Gdk.DragAction.COPY);
 
-        private Backend.App application;
+        app_paintable = true;
+        set_visual (get_screen ().get_rgba_visual());
+        set_size_request (130, 130);
+        desktop_id = app.desktop_id;
+        desktop_path = app.desktop_path;
 
-        public AppEntry (Backend.App app) {
-            TargetEntry dnd = {"text/uri-list", 0, 0};
-            Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-                Gdk.DragAction.COPY);
+        application = app;
+        app_name = app.name;
+        tooltip_text = app.description;
+        exec_name = app.exec;
+        icon_size = Slingshot.settings.icon_size;
+        icon = app.icon;
 
-            app_paintable = true;
-            set_visual (get_screen ().get_rgba_visual());
-            set_size_request (130, 130);
-            desktop_id = app.desktop_id;
-            desktop_path = app.desktop_path;
+        get_style_context ().add_class ("app");
 
-            application = app;
-            app_name = app.name;
-            tooltip_text = app.description;
-            exec_name = app.exec;
-            icon_size = Slingshot.settings.icon_size;
-            icon = app.icon;
+        app_label = new Gtk.Label (app_name);
+        app_label.halign = Gtk.Align.CENTER;
+        app_label.justify = Gtk.Justification.CENTER;
+        app_label.set_line_wrap (true); // Need a smarter way
+        app_label.set_single_line_mode (false);
+        app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-            get_style_context ().add_class ("app");
+        layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        layout.homogeneous = false;
 
-            app_label = new Label (app_name);
-            app_label.halign = Align.CENTER;
-            app_label.justify = Justification.CENTER;
-            app_label.set_line_wrap (true); // Need a smarter way
-            app_label.set_single_line_mode (false);
-            app_label.set_ellipsize (Pango.EllipsizeMode.END);
+        layout.pack_start (app_label, false, true, 0);
 
-            layout = new Box (Orientation.VERTICAL, 0);
-            layout.homogeneous = false;
+        add (Utils.set_padding (layout, 78, 5, 5, 5));
 
-            layout.pack_start (app_label, false, true, 0);
+        this.clicked.connect (launch_app);
 
-            add (Utils.set_padding (layout, 78, 5, 5, 5));
+        this.button_press_event.connect ((e) => {return e.button == 3;});
 
-            this.clicked.connect (launch_app);
+        this.drag_begin.connect ( (ctx) => {
+            this.dragging = true;
+            Gtk.drag_set_icon_pixbuf (ctx, icon, 0, 0);
+        });
+        this.drag_end.connect ( () => {
+            this.dragging = false;
+        });
+        this.drag_data_get.connect ( (ctx, sel, info, time) => {
+            sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
+        });
 
-            this.button_press_event.connect ((e) => {return e.button == 3;});
+        app.icon_changed.connect (queue_draw);
 
-            this.drag_begin.connect ( (ctx) => {
-                this.dragging = true;
-                Gtk.drag_set_icon_pixbuf (ctx, icon, 0, 0);
-            });
-            this.drag_end.connect ( () => {
-                this.dragging = false;
-            });
-            this.drag_data_get.connect ( (ctx, sel, info, time) => {
-                sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
-            });
+    }
 
-            app.icon_changed.connect (queue_draw);
-
-        }
-
-        protected override bool draw (Context cr) {
+    protected override bool draw (Cairo.Context cr) {
 
 
-            Allocation size;
-            get_allocation (out size);
+        Gtk.Allocation size;
+        get_allocation (out size);
 
-            base.draw (cr);
+        base.draw (cr);
 
-            // Draw icon
-            Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
-            cr.paint_with_alpha (alpha);
+        // Draw icon
+        Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
+        cr.paint_with_alpha (alpha);
 
+        return true;
+
+    }
+
+    public void fade_out () {
+
+        Timeout.add (20, () => {
+
+            if (alpha <= 0.3) {
+                queue_draw ();
+                return false;
+            }
+
+            alpha -= 0.05;
+            queue_draw ();
             return true;
 
-        }
+        });
 
-        public void fade_out () {
+    }
 
-            Timeout.add (20, () => {
+    public void fade_in () {
 
-                if (alpha <= 0.3) {
-                    queue_draw ();
-                    return false;
-                }
+        Timeout.add (20, () => {
 
-                alpha -= 0.05;
+            if (alpha == 1.0) {
                 queue_draw ();
-                return true;
+                return false;
+            }
 
-            });
+            alpha += 0.05;
+            queue_draw ();
+            return true;
 
-        }
+        });
 
-        public void fade_in () {
+    }
 
-            Timeout.add (20, () => {
-
-                if (alpha == 1.0) {
-                    queue_draw ();
-                    return false;
-                }
-
-                alpha += 0.05;
-                queue_draw ();
-                return true;
-
-            });
-
-        }
-
-        public void launch_app () {
-            application.launch ();
-            app_launched ();
-        }
+    public void launch_app () {
+        application.launch ();
+        app_launched ();
     }
 }

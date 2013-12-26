@@ -16,57 +16,54 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-namespace Slingshot {
+public class Slingshot.DBusService : Object {
 
-    public class DBusService : Object {
+    [DBus (name = "org.pantheon.desktop.AppLauncherService")]
+    private class Service : Object {
+        public signal void visibility_changed (bool launcher_visible);
+        private Gtk.Widget? view = null;
 
-        [DBus (name = "org.pantheon.desktop.AppLauncherService")]
-        private class Service : Object {
-            public signal void visibility_changed (bool launcher_visible);
-            private Gtk.Widget? view = null;
-
-            public Service (Gtk.Widget view) {
-                this.view = view;
-                view.show.connect (on_view_visibility_change);
-                view.hide.connect (on_view_visibility_change);
-            }
-
-            internal void on_view_visibility_change () {
-                debug ("Visibility changed. Sending visible = %s over DBus", view.visible.to_string ());
-                this.visibility_changed (view.visible);
-            }
+        public Service (Gtk.Widget view) {
+            this.view = view;
+            view.show.connect (on_view_visibility_change);
+            view.hide.connect (on_view_visibility_change);
         }
 
-        private Service? service = null;
-
-        public DBusService (SlingshotView view) {
-            // Own bus name
-            // try to register service name in session bus
-            Bus.own_name (BusType.SESSION,
-                          "org.pantheon.desktop.AppLauncherService",
-                          BusNameOwnerFlags.NONE,
-                          (conn) => { on_bus_aquired (conn, view); },
-                          name_acquired_handler,
-                          () => { critical ("Could not aquire service name"); });
-
+        internal void on_view_visibility_change () {
+            debug ("Visibility changed. Sending visible = %s over DBus", view.visible.to_string ());
+            this.visibility_changed (view.visible);
         }
+    }
 
-        private void on_bus_aquired (DBusConnection connection, SlingshotView view) {
-            try {
-                // start service and register it as dbus object
-                service = new Service (view);
-                connection.register_object ("/org/pantheon/desktop/AppLauncherService", service);
-            } catch (IOError e) {
-                critical ("Could not register service: %s", e.message);
-                return_if_reached ();
-            }
-        }
+    private Service? service = null;
 
-        private void name_acquired_handler (DBusConnection connection, string name) {
-            message ("Service registration suceeded");
-            return_if_fail (service != null);
-            // Emit initial state
-            service.on_view_visibility_change ();
+    public DBusService (SlingshotView view) {
+        // Own bus name
+        // try to register service name in session bus
+        Bus.own_name (BusType.SESSION,
+                      "org.pantheon.desktop.AppLauncherService",
+                      BusNameOwnerFlags.NONE,
+                      (conn) => { on_bus_aquired (conn, view); },
+                      name_acquired_handler,
+                      () => { critical ("Could not aquire service name"); });
+
+    }
+
+    private void on_bus_aquired (DBusConnection connection, SlingshotView view) {
+        try {
+            // start service and register it as dbus object
+            service = new Service (view);
+            connection.register_object ("/org/pantheon/desktop/AppLauncherService", service);
+        } catch (IOError e) {
+            critical ("Could not register service: %s", e.message);
+            return_if_reached ();
         }
+    }
+
+    private void name_acquired_handler (DBusConnection connection, string name) {
+        message ("Service registration suceeded");
+        return_if_fail (service != null);
+        // Emit initial state
+        service.on_view_visibility_change ();
     }
 }
