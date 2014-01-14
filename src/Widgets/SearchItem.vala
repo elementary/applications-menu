@@ -16,18 +16,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-using Gdk;
-
 namespace Slingshot.Widgets {
 
-    public class SearchItem : Button {
+    public class SearchItem : Gtk.Button {
 
         private Backend.App app;
-        private Pixbuf icon;
+        private Gdk.Pixbuf icon;
         private string icon_name;
-        private Label name_label;
-        private Label desc_label;
+        private Gtk.Label name_label;
+        private Gtk.Label desc_label;
 
         public bool in_box = false;
         public int icon_size = 64;
@@ -40,16 +37,16 @@ namespace Slingshot.Widgets {
             icon = app.icon;
             icon_name = app.icon_name;
 
-            name_label = new Label ("<b><span size=\"larger\">" + fix (app.name) + "</span></b>");
+            name_label = new Gtk.Label ("<b><span size=\"larger\">" + fix (app.name) + "</span></b>");
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
 
-            desc_label = new Label (fix (app.description));
+            desc_label = new Gtk.Label (fix (app.description));
             desc_label.set_ellipsize (Pango.EllipsizeMode.END);
             desc_label.xalign = 0.0f;
 
-            var vbox = new Box (Orientation.VERTICAL, 0);
+            var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             vbox.homogeneous = false;
             vbox.pack_start (name_label, false, true, 0);
             vbox.pack_start (desc_label, false, true, 0);
@@ -60,17 +57,17 @@ namespace Slingshot.Widgets {
         }
 
         protected override bool draw (Cairo.Context cr) {
-            Allocation size;
+            Gtk.Allocation size;
             get_allocation (out size);
 
             base.draw (cr);
 
-            Pixbuf scaled_icon = app.load_icon (icon_size);
+            Gdk.Pixbuf scaled_icon = app.load_icon (icon_size);
 
             height_request = icon_size + 10;
 
             // Draw icon
-            cairo_set_source_pixbuf (cr, scaled_icon, 74 - icon_size, 5);
+            Gdk.cairo_set_source_pixbuf (cr, scaled_icon, 74 - icon_size, 5);
             cr.paint ();
 
             return true;

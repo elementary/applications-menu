@@ -16,8 +16,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-
 namespace Slingshot.Widgets {
 
     struct Page {
@@ -49,7 +47,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void append (Widget widget) {
+        public void append (Gtk.Widget widget) {
 
             update_position ();
 
@@ -76,7 +74,7 @@ namespace Slingshot.Widgets {
 
         public void clear () {
 
-            foreach (Widget widget in get_children ()) {
+            foreach (Gtk.Widget widget in get_children ()) {
                 if (widget.get_parent () != null)
                     remove (widget);
                 widget.destroy ();
@@ -108,7 +106,7 @@ namespace Slingshot.Widgets {
 
         public void fade_all_out () {
 
-            foreach (Widget widget in get_children ()) {
+            foreach (Gtk.Widget widget in get_children ()) {
                 ((AppEntry) widget).fade_out ();
             }
 
@@ -116,7 +114,7 @@ namespace Slingshot.Widgets {
 
         public void fade_all_in () {
 
-            foreach (Widget widget in get_children ()) {
+            foreach (Gtk.Widget widget in get_children ()) {
                 ((AppEntry) widget).fade_in ();
             }
 

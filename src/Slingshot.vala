@@ -16,100 +16,93 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-using Granite;
+public class Slingshot.Slingshot : Granite.Application {
 
-namespace Slingshot {
+    private SlingshotView view = null;
+    public static bool silent = false;
+    public static bool command_mode = false;
 
-    public class Slingshot : Granite.Application {
+    public static Settings settings { get; private set; default = null; }
+    //public static CssProvider style_provider { get; private set; default = null; }
+    public static Gtk.IconTheme icon_theme { get; set; default = null; }
+    private DBusService? dbus_service = null;
 
-        private SlingshotView view = null;
-        public static bool silent = false;
-        public static bool command_mode = false;
+    construct {
 
-        public static Settings settings { get; private set; default = null; }
-        //public static CssProvider style_provider { get; private set; default = null; }
-        public static IconTheme icon_theme { get; set; default = null; }
-        private DBusService? dbus_service = null;
+        build_data_dir = Build.DATADIR;
+        build_pkg_data_dir = Build.PKGDATADIR;
+        build_release_name = Build.RELEASE_NAME;
+        build_version = Build.VERSION;
+        build_version_info = Build.VERSION_INFO;
 
-        construct {
+        program_name = "Slingshot";
+	    exec_name = "slingshot-launcher";
+	    app_copyright = "GPLv3";
+	    app_icon = "";
+	    app_launcher = "";
+        app_years = "2011-2012";
+        application_id = "net.launchpad.slingshot";
+	    main_url = "https://launchpad.net/slingshot";
+	    bug_url = "https://bugs.launchpad.net/slingshot";
+	    help_url = "https://answers.launchpad.net/slingshot";
+	    translate_url = "https://translations.launchpad.net/slingshot";
 
-            build_data_dir = Build.DATADIR;
-            build_pkg_data_dir = Build.PKGDATADIR;
-            build_release_name = Build.RELEASE_NAME;
-            build_version = Build.VERSION;
-            build_version_info = Build.VERSION_INFO;
+	    about_authors = {"Giulio Collura <random.cpp@gmail.com>",
+	                     "Andrea Basso <andrea@elementaryos.org"};
+	    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
+                         "Daniel Foré <bunny@go-docky.com>"};
+        about_translators = "Launchpad Translators";
+        about_license_type = Gtk.License.GPL_3_0;
 
-            program_name = "Slingshot";
-		    exec_name = "slingshot-launcher";
-		    app_copyright = "GPLv3";
-		    app_icon = "";
-		    app_launcher = "";
-            app_years = "2011-2012";
-            application_id = "net.launchpad.slingshot";
-		    main_url = "https://launchpad.net/slingshot";
-		    bug_url = "https://bugs.launchpad.net/slingshot";
-		    help_url = "https://answers.launchpad.net/slingshot";
-		    translate_url = "https://translations.launchpad.net/slingshot";
+    }
 
-		    about_authors = {"Giulio Collura <random.cpp@gmail.com>",
-		                     "Andrea Basso <andrea@elementaryos.org"};
-		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
-                             "Daniel Foré <bunny@go-docky.com>"};
-            about_translators = "Launchpad Translators";
-            about_license_type = License.GPL_3_0;
+    public Slingshot () {
+        settings = new Settings ();
+    }
 
-        }
+    protected override void activate () {
+        if (get_windows () == null) {
+            view = new SlingshotView ();
+            view.set_application (this);
 
-        public Slingshot () {
-            settings = new Settings ();
-        }
+            if (dbus_service == null)
+                dbus_service = new DBusService (view);
 
-        protected override void activate () {
-            if (get_windows () == null) {
-                view = new SlingshotView ();
-                view.set_application (this);
-
-                if (dbus_service == null)
-                    dbus_service = new DBusService (view);
-
-                if (!silent) {
-                    //view.move_to_coords (0, 0);
-                    view.show_slingshot ();
-                }
-            } else {
-                if (view.visible && !silent)
-                    view.hide ();                  
-                else
-                    view.show_slingshot ();
+            if (!silent) {
+                //view.move_to_coords (0, 0);
+                view.show_slingshot ();
             }
-            silent = false;
+        } else {
+            if (view.visible && !silent)
+                view.hide ();                  
+            else
+                view.show_slingshot ();
         }
+        silent = false;
+    }
 
-        static const OptionEntry[] entries = {
-            { "silent", 's', 0, OptionArg.NONE, ref silent, "Launch Slingshot as a background process without it appearing visually.", null },
-            { "command-mode", 'c', 0, OptionArg.NONE, ref command_mode, "This feature is not implemented yet. When it is, description will be changed.", null },
-            { null }
-        };
+    static const OptionEntry[] entries = {
+        { "silent", 's', 0, OptionArg.NONE, ref silent, "Launch Slingshot as a background process without it appearing visually.", null },
+        { "command-mode", 'c', 0, OptionArg.NONE, ref command_mode, "This feature is not implemented yet. When it is, description will be changed.", null },
+        { null }
+    };
 
-        public static int main (string[] args) {
-            if (args.length > 1) {
-                var context = new OptionContext ("");
-                context.add_main_entries (entries, "slingshot");
-                context.add_group (Gtk.get_option_group (true));
-                
-                try {
-                    context.parse (ref args);
-                } catch (Error e) {
-                    print (e.message + "\n");
-                }
-            }
+    public static int main (string[] args) {
+        if (args.length > 1) {
+            var context = new OptionContext ("");
+            context.add_main_entries (entries, "slingshot");
+            context.add_group (Gtk.get_option_group (true));
             
-            var app = new Slingshot ();
-
-            return app.run (args);
+            try {
+                context.parse (ref args);
+            } catch (Error e) {
+                print (e.message + "\n");
+            }
         }
+        
+        var app = new Slingshot ();
 
+        return app.run (args);
     }
 
 }

@@ -16,20 +16,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
-using Slingshot.Backend;
-
 namespace Slingshot.Widgets {
 
-    private class SeparatorItem : HSeparator {
+    private class SeparatorItem : Gtk.Separator {
+        public SeparatorItem () {
+            orientation = Gtk.Orientation.HORIZONTAL;
+        }
 
         public bool in_box;
 
     }
 
-    public class SearchView : VBox {
+    public class SearchView : Gtk.Box {
 
-        private Gee.HashMap<App, SearchItem> items;
+        private Gee.HashMap<Backend.App, SearchItem> items;
         private SeparatorItem separator;
         private SearchItem selected_app = null;
 
@@ -63,6 +63,7 @@ namespace Slingshot.Widgets {
         private SlingshotView view;
 
         public SearchView (SlingshotView parent) {
+            orientation = Gtk.Orientation.VERTICAL;
 
             can_focus = true;
             homogeneous = false;
@@ -70,14 +71,14 @@ namespace Slingshot.Widgets {
             this.view = parent;
             width_request = view.columns * 130;
 
-            items = new Gee.HashMap<App, SearchItem> ();
+            items = new Gee.HashMap<Backend.App, SearchItem> ();
             separator = new SeparatorItem ();
 
         }
 
-        public void add_apps (Gee.ArrayList<App> apps) {
+        public void add_apps (Gee.ArrayList<Backend.App> apps) {
 
-            foreach (App app in apps) {
+            foreach (Backend.App app in apps) {
                 var search_item = new SearchItem (app);
 
                 append_app (app, search_item);
@@ -86,7 +87,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void append_app (App app, SearchItem search_item) {
+        public void append_app (Backend.App app, SearchItem search_item) {
 
             search_item.button_release_event.connect (() => {
                 app.launch ();
@@ -98,7 +99,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void show_app (App app) {
+        public void show_app (Backend.App app) {
 
             if (!(app in items.keys)) {
                 var search_item = new SearchItem (app);
@@ -128,7 +129,7 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void hide_app (App app) {
+        public void hide_app (Backend.App app) {
 
             items[app].hide ();
             apps_showed--;
@@ -151,7 +152,7 @@ namespace Slingshot.Widgets {
 
         public void add_command (string command) {
 
-            var app = new App.from_command (command);
+            var app = new Backend.App.from_command (command);
             var item = new SearchItem (app);
 
             append_app (app, item);
@@ -182,10 +183,10 @@ namespace Slingshot.Widgets {
         private void select_nth (int index) {
 
             if (selected_app != null)
-                selected_app.unset_state_flags (StateFlags.PRELIGHT);
+                selected_app.unset_state_flags (Gtk.StateFlags.PRELIGHT);
 
             selected_app = (SearchItem) get_children ().nth_data (index);
-            selected_app.set_state_flags (StateFlags.PRELIGHT, false);
+            selected_app.set_state_flags (Gtk.StateFlags.PRELIGHT, false);
 
         }
 

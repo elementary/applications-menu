@@ -6,9 +6,10 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 project (slingshot)
 
+set (APPNAME "${CMAKE_PROJECT_NAME}-launcher")
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
-set (PKGDATADIR "${DATADIR}/slingshot")
-set (GETTEXT_PACKAGE "slingshot")
+set (PKGDATADIR "${DATADIR}/${CMAKE_PROJECT_NAME}")
+set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Donatello")
 set (VERSION "0.7.6.1")
 set (VERSION_INFO "Release")
@@ -34,7 +35,7 @@ add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 # Slingshot
 
 set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;libwnck-3.0;gdk-x11-3.0;unity;")
-set (UI_DEPS "gtk+-3.0>=3.2.0;granite;zeitgeist-1.0;")
+set (UI_DEPS "gtk+-3.0>=3.2.0;granite;zeitgeist-2.0;")
 
 find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
@@ -44,7 +45,7 @@ include (ValaVersion)
 ensure_vala_version ("0.15.1" MINIMUM)
 
 include (ValaPrecompile)
-vala_precompile (VALA_C
+vala_precompile (VALA_C ${APPNAME}
     src/Slingshot.vala
     src/SlingshotView.vala
     src/Settings.vala
@@ -66,7 +67,7 @@ PACKAGES
 CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
-	--thread
+    --thread
     -g
 )
 
@@ -77,11 +78,11 @@ add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -DWNCK_I_KNOW_TH
 link_libraries (${DEPS_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
 
-add_executable (slingshot-launcher ${VALA_C})
-target_link_libraries(slingshot-launcher m)
+add_executable (${APPNAME} ${VALA_C})
+target_link_libraries(${APPNAME} m)
 
 # Installation
-install (TARGETS slingshot-launcher RUNTIME DESTINATION bin)
+install (TARGETS ${APPNAME} RUNTIME DESTINATION bin)
 install (FILES ${applications_menu} DESTINATION /etc/xdg/menus)
 
 #
