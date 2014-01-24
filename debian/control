@@ -22,7 +22,7 @@ Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Provides: netbook-launcher
-Description: Slingshot App Launcher
+Description: Lightweight and stylish app launcher
  Slingshot is a lightweight app launcher for Pantheon, written in Vala
  and utilizing GTK+ and Cairo.
 
@@ -33,7 +33,7 @@ Priority: extra
 Depends: slingshot-launcher (= ${binary:Version}), ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Enhances: slingshot-launcher
-Description: Slingshot App Launcher (debugging symbols)
+Description: Lightweight and stylish app launcher (debugging symbols)
  Slingshot is a lightweight app launcher for Pantheon, written in Vala
  and utilizing GTK+ and Cairo.
  .
