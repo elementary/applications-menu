@@ -22,15 +22,19 @@ public class Slingshot.Backend.AppSystem : Object {
     private Gee.HashMap<string, Gee.ArrayList<App>> apps = null;
     private GMenu.Tree apps_menu = null;
 
+#if HAVE_ZEITGEIST
     private RelevancyService rl_service;
+#endif
 
     public signal void changed ();
     private bool index_changed = false;
 
     construct {
 
+#if HAVE_ZEITGEIST
         rl_service = new RelevancyService ();
         rl_service.update_complete.connect (update_popularity);
+#endif
 
         apps_menu = GMenu.Tree.lookup ("pantheon-applications.menu", GMenu.TreeFlags.INCLUDE_EXCLUDED);
         apps_menu.add_monitor ((menu) => {
@@ -49,7 +53,9 @@ public class Slingshot.Backend.AppSystem : Object {
 
     private void update_app_system () {
 
+#if HAVE_ZEITGEIST
         rl_service.refresh_popularity ();
+#endif
 
         update_categories_index ();
         update_apps ();
@@ -72,12 +78,14 @@ public class Slingshot.Backend.AppSystem : Object {
 
     }
 
+#if HAVE_ZEITGEIST
     private void update_popularity () {
 
         foreach (Gee.ArrayList<App> category in apps.values)
             foreach (App app in category)
                 app.popularity = rl_service.get_app_popularity (app.desktop_id);
     }
+#endif
 
     private void update_apps () {
 
@@ -118,7 +126,9 @@ public class Slingshot.Backend.AppSystem : Object {
                 case GMenu.TreeItemType.ENTRY:
                     if (is_entry ((GMenu.TreeEntry) item)) {
                         app = new App ((GMenu.TreeEntry) item);
+#if HAVE_ZEITGEIST
                         app.launched.connect (rl_service.app_launched);
+#endif
                         app_list.add (app);
                     }
                     break;
