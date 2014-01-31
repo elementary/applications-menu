@@ -42,7 +42,9 @@ public class Slingshot.Backend.App : Object {
         desktop_id = entry.get_desktop_file_id ();
         icon_name = entry.get_icon () ?? "application-default-icon";
         desktop_path = entry.get_desktop_file_path ();
+#if HAVE_UNITY
         keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
+#endif
         generic_name = entry.get_generic_name ();
 
         update_icon ();
