@@ -34,8 +34,28 @@ add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
 # Slingshot
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;libwnck-3.0;gdk-x11-3.0;unity;")
-set (UI_DEPS "gtk+-3.0>=3.2.0;granite;zeitgeist-2.0;")
+option (USE_UNITY "Use Unity integration" ON)
+
+if (USE_UNITY)
+  message ("-- Unity integration enabled")
+  set (UNITY_DEPS unity)
+  set (UNITY_OPTIONS --define=HAVE_UNITY)
+else ()
+  message ("-- Unity integration disabled")
+endif ()
+
+option (USE_ZEITGEIST "Use Zeitgeist integration" ON)
+
+if (USE_ZEITGEIST)
+  message ("-- Zeitgeist integration enabled")
+  set (ZEITGEIST_DEPS zeitgeist-2.0)
+  set (ZEITGEIST_OPTIONS --define=HAVE_ZEITGEIST)
+else ()
+  message ("-- Zeitgeist integration disabled")
+endif ()
+
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu;libwnck-3.0;gdk-x11-3.0;${UNITY_DEPS};")
+set (UI_DEPS "gtk+-3.0>=3.2.0;granite;${ZEITGEIST_DEPS};")
 
 find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
@@ -69,6 +89,8 @@ CUSTOM_VAPIS
 OPTIONS
     --thread
     -g
+    ${UNITY_OPTIONS}
+    ${ZEITGEIST_OPTIONS}
 )
 
 # Comment this out to enable C compiler warnings

@@ -17,6 +17,7 @@
 //
 //  Thanks to Synapse Developers for this class
 
+#if HAVE_ZEITGEIST
 public class Slingshot.Backend.RelevancyService : Object {
 
     private Zeitgeist.Log zg_log;
@@ -178,3 +179,4 @@ public class Slingshot.Backend.RelevancyService : Object {
         }
     }
 }
+#endif
