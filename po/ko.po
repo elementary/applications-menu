@@ -1,16 +1,16 @@
-# Japanese translation for slingshot
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Korean translation for slingshot
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-08-31 00:41+0000\n"
-"Last-Translator: Joji Bronner <Unknown>\n"
-"Language-Team: Japanese <ja@li.org>\n"
+"PO-Revision-Date: 2014-02-14 03:37+0000\n"
+"Last-Translator: MinSik CHO <Unknown>\n"
+"Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,28 +19,28 @@ msgstr ""
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr "すべてのアプリケーション"
+msgstr "모든 프로그램"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr "新規フィルタを作成"
+msgstr "새로운 필터 만들기"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
-msgstr "このカテゴリは空です"
+msgstr "이 카테고리는 비어있습니다."
 
 #: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
 msgid "Run this command..."
-msgstr "コマンドを実行..."
+msgstr "명령 실행..."
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
 msgid "View as Grid"
-msgstr ""
+msgstr "그리드로 보기"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
 msgid "View by Category"
-msgstr ""
+msgstr "카테고리로 보기"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
-msgstr "アプリを検索..."
+msgstr "프로그램 검색..."
