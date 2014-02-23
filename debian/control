@@ -3,7 +3,7 @@ Section: x11
 Priority: optional
 Maintainer: Giulio Collura <random.cpp@gmail.com>
 Build-Depends: cmake (>= 2.6),
-               debhelper (>= 7.0.50~),
+               debhelper (>= 9),
                libgee-dev,
                libgnome-menu-3-dev,
                libgranite-dev,
@@ -13,7 +13,7 @@ Build-Depends: cmake (>= 2.6),
                libzeitgeist-2.0-dev,
                pkg-config,
                valac (>= 0.18)
-Standards-Version: 3.9.1
+Standards-Version: 3.9.5
 Homepage: http://launchpad.net/slingshot
 Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/new-slingshot
 
