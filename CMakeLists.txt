@@ -54,7 +54,7 @@ else ()
   message ("-- Zeitgeist integration disabled")
 endif ()
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-1.0;libgnome-menu-3.0;libwnck-3.0;gdk-x11-3.0;${UNITY_DEPS};")
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-0.8;libgnome-menu-3.0;libwnck-3.0;gdk-x11-3.0;${UNITY_DEPS};")
 set (UI_DEPS "gtk+-3.0>=3.2.0;granite;${ZEITGEIST_DEPS};")
 
 find_package (PkgConfig)
