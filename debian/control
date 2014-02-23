@@ -5,14 +5,14 @@ Maintainer: Giulio Collura <random.cpp@gmail.com>
 Build-Depends: cmake (>= 2.6),
                debhelper (>= 7.0.50~),
                libgee-dev,
-               libgnome-menu-dev,
+               libgnome-menu-3-dev,
                libgranite-dev,
                libgtk-3-dev,
                libunity-dev,
                libwnck-3-dev,
                libzeitgeist-2.0-dev,
                pkg-config,
-               valac (>= 0.15.1)
+               valac (>= 0.18)
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/slingshot
 Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/new-slingshot
