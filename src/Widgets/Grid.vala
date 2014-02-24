@@ -21,40 +21,70 @@ namespace Slingshot.Widgets {
     struct Page {
         public uint rows;
         public uint columns;
-        public uint number;
+        public int number;
     }
 
-    public class Grid : Gtk.Grid {
-
-        public signal void new_page (string page_num);
+    public class Grid : Gtk.Box {
+        public int row_spacing = 20;
+        public Widgets.Switcher page_switcher;
+        
+        private Gtk.Stack stack;
+        private Gtk.Grid current_grid;
+        private Gee.HashMap<int, Gtk.Grid> grids;
 
         private uint current_row = 0;
         private uint current_col = 0;
         private Page page;
 
         public Grid (int rows, int columns) {
-
-            // Grid properties
-            row_homogeneous = true;
-            column_homogeneous = true;
-
-            row_spacing = 20;
-            column_spacing = 0;
-
             page.rows = rows;
             page.columns = columns;
             page.number = 1;
+            var main_grid = new Gtk.Grid ();
+            main_grid.orientation = Gtk.Orientation.VERTICAL;
+            stack = new Gtk.Stack ();
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+            page_switcher = new Widgets.Switcher ();
+            page_switcher.set_stack (stack);
+            var fake_grid = new Gtk.Grid ();
+            fake_grid.hexpand = true;
+            var stack_layout = new Gtk.Layout ();
+            stack_layout.expand = true;
+            stack_layout.add (stack);
 
+            main_grid.add (stack_layout);
+            main_grid.add (fake_grid);
+            main_grid.add (page_switcher);
+            add (main_grid);
+
+            grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
+            create_new_grid ();
+            go_to_number (1);
+        }
+        
+        private void create_new_grid () {
+            // Grid properties
+            current_grid = new Gtk.Grid ();
+            current_grid.expand = true;
+            current_grid.row_homogeneous = true;
+            current_grid.column_homogeneous = true;
+
+            current_grid.row_spacing = row_spacing;
+            current_grid.column_spacing = 0;
+            grids.set (page.number, current_grid);
+            stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
+
+            // Fake grids in case there are not enough apps to fill the grid
+            current_grid.attach (new Gtk.Grid (), 0, 0, (int)page.columns, (int)page.rows);
         }
 
         public void append (Gtk.Widget widget) {
 
             update_position ();
 
-            var col = current_col + page.columns * (page.number - 1);
-
-            this.attach (widget, (int)col, (int)current_row, 1, 1);
+            current_grid.attach (widget, (int)current_col, (int)current_row, 1, 1);
             current_col++;
+            current_grid.show ();
         }
 
         private void update_position () {
@@ -66,7 +96,7 @@ namespace Slingshot.Widgets {
 
             if (current_row == page.rows) {
                 page.number++;
-                new_page (page.number.to_string ());
+                create_new_grid ();
                 current_row = 0;
             }
 
@@ -74,16 +104,27 @@ namespace Slingshot.Widgets {
 
         public void clear () {
 
-            foreach (Gtk.Widget widget in get_children ()) {
-                if (widget.get_parent () != null)
-                    remove (widget);
-                widget.destroy ();
+            foreach (Gtk.Grid grid in grids.values) {
+                foreach (Gtk.Widget widget in grid.get_children ()) {
+                    widget.destroy ();
+                }
+                grid.destroy ();
             }
+            grids.clear ();
 
             current_row = 0;
             current_col = 0;
             page.number = 1;
+            create_new_grid ();
+            stack.set_visible_child (current_grid);
 
+        }
+
+        public Gtk.Widget get_child_at (int column, int row) {
+            var col = ((int)(column/page.columns))+1;
+            
+            var grid = grids.get (col);
+            return grid.get_child_at (column - (int)page.columns*(col-1), row);
         }
 
         public int get_page_columns () {
@@ -104,20 +145,34 @@ namespace Slingshot.Widgets {
 
         }
 
-        public void fade_all_out () {
-
-            foreach (Gtk.Widget widget in get_children ()) {
-                ((AppEntry) widget).fade_out ();
-            }
-
+        public int get_current_page () {
+            return int.parse (stack.get_visible_child_name ());
         }
 
-        public void fade_all_in () {
+        public void go_to_next () {
+            int page_number = get_current_page ()+1;
+            if (page_number <= get_n_pages ())
+                stack.set_visible_child_name ("%d".printf (page_number));
+            
+            page_switcher.update_selected ();
+        }
 
-            foreach (Gtk.Widget widget in get_children ()) {
-                ((AppEntry) widget).fade_in ();
-            }
+        public void go_to_previous () {
+            int page_number = get_current_page ()-1;
+            if (page_number > 0)
+                stack.set_visible_child_name ("%d".printf (page_number));
+            
+            page_switcher.update_selected ();
+        }
 
+        public void go_to_last () {
+            stack.set_visible_child_name ("%d".printf (get_n_pages ()));
+            page_switcher.update_selected ();
+        }
+
+        public void go_to_number (int number) {
+            stack.set_visible_child_name ("%d".printf (number));
+            page_switcher.update_selected ();
         }
 
         public void resize (int rows, int columns) {
