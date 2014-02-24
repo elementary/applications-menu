@@ -27,7 +27,7 @@ namespace Slingshot {
     public class SlingshotView : Granite.Widgets.PopOver {
 
         // Widgets
-        public Granite.Widgets.SearchBar searchbar;
+        public Gtk.SearchEntry search_entry;
         public Gtk.Layout view_manager;
         public Widgets.Switcher page_switcher;
         public Granite.Widgets.ModeButton view_selector;
@@ -156,16 +156,16 @@ namespace Slingshot {
             else
                 view_selector.selected = 0;
 
-            searchbar = new Granite.Widgets.SearchBar (_("Search Apps…"));
-            searchbar.pause_delay = 200;
-            searchbar.width_request = 250;
-            searchbar.button_press_event.connect ((e) => {return e.button == 3;});
+            search_entry = new Gtk.SearchEntry ();
+            search_entry.placeholder_text = _("Search Apps…");
+            search_entry.width_request = 250;
+            search_entry.button_press_event.connect ((e) => {return e.button == 3;});
 
             if (Slingshot.settings.show_category_filter) {
                 top.attach (view_selector, 0, 0, 1, 1);
             }
             top.attach (top_separator, 1, 0, 1, 1);
-            top.attach (searchbar, 2, 0, 1, 1);
+            top.attach (search_entry, 2, 0, 1, 1);
 
             center = new Gtk.Grid ();
             // Create the layout which works like view_manager
@@ -277,17 +277,17 @@ namespace Slingshot {
         private void connect_signals () {
 
             this.focus_in_event.connect (() => {
-                searchbar.grab_focus ();
+                search_entry.grab_focus ();
                 return false;
             });
 
             //view_manager.draw.connect (this.draw_background);
 
             event_box.key_press_event.connect (on_key_press);
-            searchbar.text_changed_pause.connect ((text) => this.search.begin (text));
-            searchbar.grab_focus ();
+            search_entry.search_changed.connect (() => this.search.begin (search_entry.text));
+            search_entry.grab_focus ();
 
-            searchbar.activate.connect (() => {
+            search_entry.activate.connect (() => {
                 if (modality == Modality.SEARCH_VIEW) {
                     search_view.launch_selected ();
                     hide ();
@@ -306,7 +306,7 @@ namespace Slingshot {
             page_switcher.active_changed.connect (() => {
 
                 move_page (page_switcher.active - page_switcher.old_active);
-                searchbar.grab_focus (); //avoid focus is not on current page
+                search_entry.grab_focus (); //avoid focus is not on current page
             });
 
             view_selector.mode_changed.connect (() => {
@@ -383,7 +383,7 @@ namespace Slingshot {
           when an input method is in use (Gtk3 bug?).  Key press events are
           captured by an Event Box and passed to this function instead.
 
-          Events not dealt with here are propagated to the searchbar by the
+          Events not dealt with here are propagated to the search_entry by the
           usual mechanism.
         */
         public bool on_key_press (Gdk.EventKey event) {
@@ -408,8 +408,8 @@ namespace Slingshot {
                     break;
 
                 case "Escape":
-                    if (searchbar.text.length > 0) {
-                        searchbar.text = "";
+                    if (search_entry.text.length > 0) {
+                        search_entry.text = "";
                     } else {
                         hide ();
                     }
@@ -461,7 +461,7 @@ namespace Slingshot {
                     } else {
                         return false;
                     }
-                    searchbar.grab_focus ();
+                    search_entry.grab_focus ();
                     break;
 
                 case "Tab":
@@ -487,7 +487,7 @@ namespace Slingshot {
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
                             category_view.switcher.set_active (category_view.switcher.active - 1);
-                        else if (!searchbar.has_focus) {//the user has already selected an AppEntry
+                        else if (!search_entry.has_focus) {//the user has already selected an AppEntry
                             category_move_focus (-1, 0);
                         }
                     } else
@@ -503,7 +503,7 @@ namespace Slingshot {
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
                             category_view.switcher.set_active (category_view.switcher.active + 1);
-                        else if (searchbar.has_focus) // there's no AppEntry selected, the user is switching category
+                        else if (search_entry.has_focus) // there's no AppEntry selected, the user is switching category
                             top_left_focus ();
                         else //the user has already selected an AppEntry
                             category_move_focus (+1, 0);
@@ -521,7 +521,7 @@ namespace Slingshot {
                                 category_view.category_switcher.selected--;
                                 top_left_focus ();
                             }
-                        } else if (searchbar.has_focus) {
+                        } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected--;
                         } else {
                           category_move_focus (0, -1);
@@ -539,7 +539,7 @@ namespace Slingshot {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                             category_view.category_switcher.selected++;
                             top_left_focus ();
-                        } else if (searchbar.has_focus) {
+                        } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected++;
                         } else { // the user has already selected an AppEntry
                             category_move_focus (0, +1);
@@ -555,7 +555,7 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (page_switcher.active - 1);
                         if (page_switcher.active != 0) // we don't wanna lose focus if we don't actually change page
-                            searchbar.grab_focus (); // this is because otherwise focus isn't the current page
+                            search_entry.grab_focus (); // this is because otherwise focus isn't the current page
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected--;
                         top_left_focus ();
@@ -566,7 +566,7 @@ namespace Slingshot {
                     if (modality == Modality.NORMAL_VIEW) {
                         page_switcher.set_active (page_switcher.active + 1);
                         if (page_switcher.active != grid_view.get_n_pages () - 1) // we don't wanna lose focus if we don't actually change page
-                            searchbar.grab_focus (); //this is because otherwise focus isn't the current page
+                            search_entry.grab_focus (); //this is because otherwise focus isn't the current page
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected++;
                         top_left_focus ();
@@ -575,18 +575,18 @@ namespace Slingshot {
 
                 case "BackSpace":
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Delete
-                        searchbar.text = "";
-                    } else if (searchbar.has_focus) {
+                        search_entry.text = "";
+                    } else if (search_entry.has_focus) {
                         return false;
                     } else {
-                        searchbar.grab_focus ();
-                        searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
+                        search_entry.grab_focus ();
+                        search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                         return false;
                     }
                     break;
 
                 case "Home":
-                    if (searchbar.text.length > 0) {
+                    if (search_entry.text.length > 0) {
                         return false;
                     }
 
@@ -599,7 +599,7 @@ namespace Slingshot {
                     break;
 
                 case "End":
-                    if (searchbar.text.length > 0) {
+                    if (search_entry.text.length > 0) {
                         return false;
                     }
 
@@ -614,14 +614,14 @@ namespace Slingshot {
                 case "v":
                 case "V":
                     if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
-                        searchbar.paste_clipboard ();
+                        search_entry.paste_clipboard ();
                     }
                     break;
 
                 default:
-                    if (!searchbar.has_focus) {
-                        searchbar.grab_focus ();
-                        searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
+                    if (!search_entry.has_focus) {
+                        search_entry.grab_focus ();
+                        search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     }
                     return false;
 
@@ -661,14 +661,14 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            searchbar.text = "";
+            search_entry.text = "";
 
             reposition ();
             show_all ();
             present ();
 
             set_focus(null);
-            searchbar.grab_focus ();
+            search_entry.grab_focus ();
             set_modality ((Modality) view_selector.selected);
 
             while (Gtk.events_pending ())
@@ -789,7 +789,7 @@ namespace Slingshot {
                     break;
 
             }
-            //searchbar.grab_focus ();
+            //search_entry.grab_focus ();
 
         }
 
@@ -915,7 +915,7 @@ namespace Slingshot {
                     return;
                 }
                 else if (category_column_focus == 0 && delta_column < 0) {
-                    searchbar.grab_focus ();
+                    search_entry.grab_focus ();
                     category_column_focus = 0;
                     category_row_focus = 0;
                     return;

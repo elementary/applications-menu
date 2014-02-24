@@ -143,7 +143,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             }
 
             move_page (switcher.active - switcher.old_active);
-            view.searchbar.grab_focus (); // this is because otherwise focus isn't the current page
+            view.search_entry.grab_focus (); // this is because otherwise focus isn't the current page
         });
 
         category_switcher.selected = 0; //Must be after everything else
@@ -215,9 +215,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         else
             page_switcher.hide ();
 
-        view.searchbar.grab_focus ();
+        view.search_entry.grab_focus ();
 
     }
 
 }
-
