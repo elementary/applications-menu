@@ -29,7 +29,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private const string ALL_APPLICATIONS = _("All Applications");
     private const string NEW_FILTER = _("Create a new Filter");
     private int current_position = 0;
-    private bool from_category = false;
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
@@ -51,6 +50,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
+        app_view.margin_left = 5;
 
         container.attach (separator, 1, 0, 1, 2);
         container.attach (app_view, 2, 0, 1, 1);

@@ -757,7 +757,6 @@ namespace Slingshot {
                 height_request = default_rows * 145 + 180;
 
                 category_view.app_view.resize (default_rows, default_columns);
-                category_view.set_size_request (columns * 130 + 17, view_height);
                 category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
             }
 
