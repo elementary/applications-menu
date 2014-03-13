@@ -27,9 +27,8 @@ namespace Slingshot {
     public class SlingshotView : Granite.Widgets.PopOver {
 
         // Widgets
-        public Granite.Widgets.SearchBar searchbar;
-        public Gtk.Layout view_manager;
-        public Widgets.Switcher page_switcher;
+        public Gtk.SearchEntry search_entry;
+        public Gtk.Stack stack;
         public Granite.Widgets.ModeButton view_selector;
 
         // Views
@@ -39,7 +38,6 @@ namespace Slingshot {
 
         public Gtk.Grid top;
         public Gtk.Grid center;
-        public Gtk.Grid bottom;
         public Gtk.Grid container;
         public Gtk.Box content_area;
         private Gtk.EventBox event_box;
@@ -156,56 +154,43 @@ namespace Slingshot {
             else
                 view_selector.selected = 0;
 
-            searchbar = new Granite.Widgets.SearchBar (_("Search Apps…"));
-            searchbar.pause_delay = 200;
-            searchbar.width_request = 250;
-            searchbar.button_press_event.connect ((e) => {return e.button == 3;});
+            search_entry = new Gtk.SearchEntry ();
+            search_entry.placeholder_text = _("Search Apps…");
+            search_entry.width_request = 250;
+            search_entry.button_press_event.connect ((e) => {return e.button == 3;});
 
             if (Slingshot.settings.show_category_filter) {
                 top.attach (view_selector, 0, 0, 1, 1);
             }
             top.attach (top_separator, 1, 0, 1, 1);
-            top.attach (searchbar, 2, 0, 1, 1);
+            top.attach (search_entry, 2, 0, 1, 1);
 
             center = new Gtk.Grid ();
-            // Create the layout which works like view_manager
-            view_manager = new Gtk.Layout (null, null);
-            view_manager.set_size_request (default_columns * 130, default_rows * 145);
-            center.attach (view_manager, 0, 0, 1, 1);
+            
+            stack = new Gtk.Stack ();
+            stack.set_size_request (default_columns * 130, default_rows * 145);
+            center.attach (stack, 0, 0, 1, 1);
 
             // Create the "NORMAL_VIEW"
+            var scrolled_normal = new Gtk.ScrolledWindow (null, null);
             grid_view = new Widgets.Grid (default_rows, default_columns);
-            view_manager.put (grid_view, 0, 0);
+            scrolled_normal.add_with_viewport (grid_view);
+            stack.add_named (scrolled_normal, "normal");
 
             // Create the "SEARCH_VIEW"
             search_view = new Widgets.SearchView (this);
+
             foreach (Gee.ArrayList<Backend.App> app_list in apps.values) {
                 search_view.add_apps (app_list);
             }
-            view_manager.put (search_view, -columns * 130, 0);
+            stack.add_named (search_view, "search");
 
             // Create the "CATEGORY_VIEW"
             category_view = new Widgets.CategoryView (this);
-            view_manager.put (category_view, -columns * 130, 0);
-
-            // Create the page switcher
-            page_switcher = new Widgets.Switcher ();
-
-            // A bottom widget to keep the page switcher center
-            bottom = new Gtk.Grid ();
-
-
-            var bottom_separator1 = new Gtk.Label (""); // A fake label
-            bottom_separator1.set_hexpand (true);
-            var bottom_separator2 = new Gtk.Label (""); // A fake label
-            bottom_separator2.set_hexpand (true);
-            bottom.attach (bottom_separator1, 0, 0, 1, 1); // A fake label
-            bottom.attach (page_switcher, 1, 0, 1, 1);
-            bottom.attach (bottom_separator2, 2, 0, 1, 1); // A fake label
+            stack.add_named (category_view, "category");
 
             container.attach (Utils.set_padding (top, 12, 12, 12, 12), 0, 0, 1, 1);
             container.attach (Utils.set_padding (center, 0, 12, 12, 12), 0, 1, 1, 1);
-            container.attach (Utils.set_padding (bottom, 0, 24, 12, 24), 0, 2, 1, 1);
 
             event_box = new Gtk.EventBox ();
             event_box.add (container);
@@ -277,17 +262,15 @@ namespace Slingshot {
         private void connect_signals () {
 
             this.focus_in_event.connect (() => {
-                searchbar.grab_focus ();
+                search_entry.grab_focus ();
                 return false;
             });
 
-            //view_manager.draw.connect (this.draw_background);
-
             event_box.key_press_event.connect (on_key_press);
-            searchbar.text_changed_pause.connect ((text) => this.search.begin (text));
-            searchbar.grab_focus ();
+            search_entry.search_changed.connect (() => this.search.begin (search_entry.text));
+            search_entry.grab_focus ();
 
-            searchbar.activate.connect (() => {
+            search_entry.activate.connect (() => {
                 if (modality == Modality.SEARCH_VIEW) {
                     search_view.launch_selected ();
                     hide ();
@@ -300,14 +283,7 @@ namespace Slingshot {
             search_view.app_launched.connect (() => hide ());
 
             // This function must be after creating the page switcher
-            grid_view.new_page.connect (page_switcher.append);
             populate_grid_view ();
-
-            page_switcher.active_changed.connect (() => {
-
-                move_page (page_switcher.active - page_switcher.old_active);
-                searchbar.grab_focus (); //avoid focus is not on current page
-            });
 
             view_selector.mode_changed.connect (() => {
 
@@ -383,7 +359,7 @@ namespace Slingshot {
           when an input method is in use (Gtk3 bug?).  Key press events are
           captured by an Event Box and passed to this function instead.
 
-          Events not dealt with here are propagated to the searchbar by the
+          Events not dealt with here are propagated to the search_entry by the
           usual mechanism.
         */
         public bool on_key_press (Gdk.EventKey event) {
@@ -408,8 +384,8 @@ namespace Slingshot {
                     break;
 
                 case "Escape":
-                    if (searchbar.text.length > 0) {
-                        searchbar.text = "";
+                    if (search_entry.text.length > 0) {
+                        search_entry.text = "";
                     } else {
                         hide ();
                     }
@@ -443,25 +419,25 @@ namespace Slingshot {
                 case "7":
                 case "8":
                 case "9":
-                    int page = int.parse (key) - 1;
+                    int page = int.parse (key);
 
                     if (event.state != Gdk.ModifierType.MOD1_MASK)
                         return false;
 
                     if (modality == Modality.NORMAL_VIEW) {
-                        if (page < 0 || page == 8)
-                            page_switcher.set_active (grid_view.get_n_pages () - 1);
+                        if (page < 0 || page == 9)
+                            grid_view.go_to_last ();
                         else
-                            page_switcher.set_active (page);
+                            grid_view.go_to_number (page);
                     } else if (modality == Modality.CATEGORY_VIEW) {
-                        if (page < 0 || page == 8)
-                            category_view.switcher.set_active (category_view.switcher.size - 1);
+                        if (page < 0 || page == 9)
+                            category_view.app_view.go_to_last ();
                         else
-                            category_view.switcher.set_active (page);
+                            category_view.app_view.go_to_number (page);
                     } else {
                         return false;
                     }
-                    searchbar.grab_focus ();
+                    search_entry.grab_focus ();
                     break;
 
                 case "Tab":
@@ -480,14 +456,15 @@ namespace Slingshot {
 
                 case "Left":
                     if (modality == Modality.NORMAL_VIEW) {
-                        if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
-                            page_switcher.set_active (page_switcher.active - 1);
-                        else
+                        if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
+                            grid_view.go_to_previous ();
+                        } else {
                             normal_move_focus (-1, 0);
+                        }
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
-                            category_view.switcher.set_active (category_view.switcher.active - 1);
-                        else if (!searchbar.has_focus) {//the user has already selected an AppEntry
+                            category_view.app_view.go_to_previous ();
+                        else if (!search_entry.has_focus) {//the user has already selected an AppEntry
                             category_move_focus (-1, 0);
                         }
                     } else
@@ -497,13 +474,13 @@ namespace Slingshot {
                 case "Right":
                     if (modality == Modality.NORMAL_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
-                            page_switcher.set_active (page_switcher.active + 1);
+                            grid_view.go_to_next ();
                         else
                             normal_move_focus (+1, 0);
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
-                            category_view.switcher.set_active (category_view.switcher.active + 1);
-                        else if (searchbar.has_focus) // there's no AppEntry selected, the user is switching category
+                            category_view.app_view.go_to_next ();
+                        else if (search_entry.has_focus) // there's no AppEntry selected, the user is switching category
                             top_left_focus ();
                         else //the user has already selected an AppEntry
                             category_move_focus (+1, 0);
@@ -521,14 +498,13 @@ namespace Slingshot {
                                 category_view.category_switcher.selected--;
                                 top_left_focus ();
                             }
-                        } else if (searchbar.has_focus) {
+                        } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected--;
                         } else {
                           category_move_focus (0, -1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected--;
-                        search_view_up ();
                     }
                     break;
 
@@ -539,23 +515,19 @@ namespace Slingshot {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                             category_view.category_switcher.selected++;
                             top_left_focus ();
-                        } else if (searchbar.has_focus) {
+                        } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected++;
                         } else { // the user has already selected an AppEntry
                             category_move_focus (0, +1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
                         search_view.selected++;
-                        if (search_view.selected > 7)
-                            search_view_down ();
                     }
                     break;
 
                 case "Page_Up":
                     if (modality == Modality.NORMAL_VIEW) {
-                        page_switcher.set_active (page_switcher.active - 1);
-                        if (page_switcher.active != 0) // we don't wanna lose focus if we don't actually change page
-                            searchbar.grab_focus (); // this is because otherwise focus isn't the current page
+                        grid_view.go_to_previous ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected--;
                         top_left_focus ();
@@ -564,9 +536,7 @@ namespace Slingshot {
 
                 case "Page_Down":
                     if (modality == Modality.NORMAL_VIEW) {
-                        page_switcher.set_active (page_switcher.active + 1);
-                        if (page_switcher.active != grid_view.get_n_pages () - 1) // we don't wanna lose focus if we don't actually change page
-                            searchbar.grab_focus (); //this is because otherwise focus isn't the current page
+                        grid_view.go_to_next ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected++;
                         top_left_focus ();
@@ -575,23 +545,23 @@ namespace Slingshot {
 
                 case "BackSpace":
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Delete
-                        searchbar.text = "";
-                    } else if (searchbar.has_focus) {
+                        search_entry.text = "";
+                    } else if (search_entry.has_focus) {
                         return false;
                     } else {
-                        searchbar.grab_focus ();
-                        searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
+                        search_entry.grab_focus ();
+                        search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                         return false;
                     }
                     break;
 
                 case "Home":
-                    if (searchbar.text.length > 0) {
+                    if (search_entry.text.length > 0) {
                         return false;
                     }
 
                     if (modality == Modality.NORMAL_VIEW) {
-                        page_switcher.set_active (0);
+                        grid_view.go_to_number (1);
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected = 0;
                         top_left_focus ();
@@ -599,12 +569,12 @@ namespace Slingshot {
                     break;
 
                 case "End":
-                    if (searchbar.text.length > 0) {
+                    if (search_entry.text.length > 0) {
                         return false;
                     }
 
                     if (modality == Modality.NORMAL_VIEW) {
-                        page_switcher.set_active (grid_view.get_n_pages () - 1);
+                        grid_view.go_to_last ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected = category_view.category_switcher.cat_size - 1;
                         top_left_focus ();
@@ -614,14 +584,14 @@ namespace Slingshot {
                 case "v":
                 case "V":
                     if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
-                        searchbar.paste_clipboard ();
+                        search_entry.paste_clipboard ();
                     }
                     break;
 
                 default:
-                    if (!searchbar.has_focus) {
-                        searchbar.grab_focus ();
-                        searchbar.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
+                    if (!search_entry.has_focus) {
+                        search_entry.grab_focus ();
+                        search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     }
                     return false;
 
@@ -637,20 +607,16 @@ namespace Slingshot {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
                     if (modality == Modality.NORMAL_VIEW)
-                        page_switcher.set_active (page_switcher.active - 1);
-                    else if (modality == Modality.SEARCH_VIEW)
-                        search_view_up ();
-                    else
-                        category_view.switcher.set_active (category_view.switcher.active - 1);
+                        grid_view.go_to_previous ();
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.app_view.go_to_previous ();
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
                     if (modality == Modality.NORMAL_VIEW)
-                        page_switcher.set_active (page_switcher.active + 1);
-                    else if (modality == Modality.SEARCH_VIEW)
-                        search_view_down ();
-                    else
-                        category_view.switcher.set_active (category_view.switcher.active + 1);
+                        grid_view.go_to_next ();
+                    else if (modality == Modality.CATEGORY_VIEW)
+                        category_view.app_view.go_to_next ();
                     break;
 
             }
@@ -661,14 +627,14 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            searchbar.text = "";
+            search_entry.text = "";
 
             reposition ();
             show_all ();
             present ();
 
             set_focus(null);
-            searchbar.grab_focus ();
+            search_entry.grab_focus ();
             set_modality ((Modality) view_selector.selected);
 
             while (Gtk.events_pending ())
@@ -681,56 +647,6 @@ namespace Slingshot {
                 w.activate (Gdk.x11_get_server_time (this.get_window ()));
         }
 
-        private void move_page (int step) {
-
-            debug ("Moving: step = " + step.to_string ());
-
-            if (step == 0)
-                return;
-            if (step < 0 && current_position >= 0) //Left border
-                return;
-            if (step > 0 && (-current_position) >= ((grid_view.get_n_pages () - 1) * grid_view.get_page_columns () * 130)) //Right border
-                return;
-
-            int count = 0;
-            int increment = -step * 130 * columns / 10;
-            Timeout.add (30 / columns, () => {
-
-                if (count >= 10) {
-                    current_position += -step * 130 * columns - 10 * increment; //We adjust to end of the page
-                    view_manager.move (grid_view, current_position, 0);
-                    return false;
-                }
-
-                current_position += increment;
-                view_manager.move (grid_view, current_position, 0);
-                count++;
-                return true;
-
-            }, Priority.DEFAULT_IDLE);
-        }
-
-        private void search_view_down () {
-
-            if (search_view.apps_showed < default_rows * 3)
-                return;
-
-            if ((search_view_position) > -(search_view.apps_showed * 48)) {
-                view_manager.move (search_view, 0, search_view_position - 2 * 38);
-                search_view_position -= 2 * 38;
-            }
-
-        }
-
-        private void search_view_up () {
-
-            if (search_view_position < 0) {
-                view_manager.move (search_view, 0, search_view_position + 2 * 38);
-                search_view_position += 2 * 38;
-            }
-
-        }
-
         private void set_modality (Modality new_modality) {
 
             modality = new_modality;
@@ -740,57 +656,42 @@ namespace Slingshot {
 
                     if (Slingshot.settings.use_category)
                         Slingshot.settings.use_category = false;
-                    bottom.show ();
                     view_selector.show_all ();
-                    page_switcher.show_all ();
-                    category_view.show_page_switcher (false);
-                    view_manager.move (search_view, - 130 * columns, 0);
-                    view_manager.move (category_view, 130 * columns, 0);
-                    view_manager.move (grid_view, current_position, 0);
+                    stack.set_visible_child_name ("normal");
 
                     // change the paddings/margins back to normal
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
                     center.set_margin_left (12);
                     top.set_margin_left (12);
-                    view_manager.set_size_request (default_columns * 130, default_rows * 145);
+                    stack.set_size_request (default_columns * 130, default_rows * 145);
                     break;
 
                 case Modality.CATEGORY_VIEW:
 
                     if (!Slingshot.settings.use_category)
                         Slingshot.settings.use_category = true;
-                    bottom.show ();
                     view_selector.show_all ();
-                    page_switcher.hide ();
-                    category_view.show_page_switcher (true);
-                    view_manager.move (grid_view, (columns + 1) * 130, 0); // plus 1 is needed because otherwise grid_view may appear in category view
-                    view_manager.move (search_view, -columns * 130, 0);
-                    view_manager.move (category_view, 0, 0);
+                    stack.set_visible_child_name ("category");
 
                     // remove the padding/margin on the left
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE);
                     center.set_margin_left (0);
                     top.set_margin_left (17);
-                    view_manager.set_size_request (default_columns * 130 + 17, default_rows * 145);
+                    stack.set_size_request (default_columns * 130 + 17, default_rows * 145);
                     break;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
-                    bottom.hide (); // Hide the switcher
-                    view_manager.move (grid_view, columns * 130, 0); // Move the grid_view away
-                    view_manager.move (category_view, columns * 130, 0);
-                    view_manager.move (search_view, 0, 0); // Show the searchview
+                    stack.set_visible_child_name ("search");
 
                     // change the paddings/margins back to normal
                     get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
                     center.set_margin_left (12);
                     top.set_margin_left (12);
-                    view_manager.set_size_request (default_columns * 130, default_rows * 145);
+                    stack.set_size_request (default_columns * 130, default_rows * 145);
                     break;
 
             }
-            //searchbar.grab_focus ();
-
         }
 
         private async void search (string text) {
@@ -805,7 +706,6 @@ namespace Slingshot {
             if (modality != Modality.SEARCH_VIEW)
                 set_modality (Modality.SEARCH_VIEW);
             search_view_position = 0;
-            view_manager.move (search_view, 0, search_view_position);
             search_view.hide_all ();
 
             var filtered = yield app_system.search_results (stripped);
@@ -820,11 +720,7 @@ namespace Slingshot {
 
         public void populate_grid_view () {
 
-            page_switcher.clear_children ();
             grid_view.clear ();
-
-            page_switcher.append ("1");
-            page_switcher.set_active (0);
 
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
 
@@ -834,7 +730,7 @@ namespace Slingshot {
                 app_entry.show_all ();
             }
 
-            view_manager.move (grid_view, 0, 0);
+            stack.set_visible_child_name ("normal");
             current_position = 0;
 
         }
@@ -861,7 +757,6 @@ namespace Slingshot {
                 height_request = default_rows * 145 + 180;
 
                 category_view.app_view.resize (default_rows, default_columns);
-                category_view.set_size_request (columns * 130 + 17, view_height);
                 category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
             }
 
@@ -869,6 +764,8 @@ namespace Slingshot {
 
         private void normal_move_focus (int delta_column, int delta_row) {
             if (get_focus () as Widgets.AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
+                if (column_focus + delta_column < 0 || row_focus + delta_row < 0)
+                    return;
                 var new_focus = grid_view.get_child_at (column_focus + delta_column, row_focus + delta_row); // we check if the new widget exists
                 if (new_focus == null) {
                     if (delta_column <= 0)
@@ -883,14 +780,15 @@ namespace Slingshot {
                 column_focus += delta_column;
                 row_focus += delta_row;
                 if (delta_column > 0 && column_focus % grid_view.get_page_columns () == 0 ) //check if we need to change page
-                    page_switcher.set_active (page_switcher.active + 1);
+                    grid_view.go_to_next ();
                 else if (delta_column < 0 && (column_focus + 1) % grid_view.get_page_columns () == 0) //check if we need to change page
-                    page_switcher.set_active (page_switcher.active - 1);
+                    grid_view.go_to_previous ();
                 new_focus.grab_focus ();
             }
             else { // we move to the first app in the top left corner of the current page
-                grid_view.get_child_at (page_switcher.active * grid_view.get_page_columns (), 0).grab_focus ();
-                column_focus = page_switcher.active * grid_view.get_page_columns ();
+                column_focus = (grid_view.get_current_page ()-1) * grid_view.get_page_columns ();
+                if (column_focus >= 0)
+                    grid_view.get_child_at (column_focus, 0).grab_focus ();
                 row_focus = 0;
             }
         }
@@ -909,13 +807,13 @@ namespace Slingshot {
                     return;
                 }
                 else if (delta_column > 0 && (category_column_focus + delta_column) % category_view.app_view.get_page_columns () == 0
-                          && category_view.switcher.active + 1 != category_view.app_view.get_n_pages ()) {
-                    category_view.switcher.set_active (category_view.switcher.active + 1);
+                          && category_view.app_view.get_current_page ()+ 1 != category_view.app_view.get_n_pages ()) {
+                    category_view.app_view.go_to_next ();
                     top_left_focus ();
                     return;
                 }
                 else if (category_column_focus == 0 && delta_column < 0) {
-                    searchbar.grab_focus ();
+                    search_entry.grab_focus ();
                     category_column_focus = 0;
                     category_row_focus = 0;
                     return;
@@ -926,11 +824,11 @@ namespace Slingshot {
             category_column_focus += delta_column;
             category_row_focus += delta_row;
             if (delta_column > 0 && category_column_focus % category_view.app_view.get_page_columns () == 0 ) { // check if we need to change page
-                category_view.switcher.set_active (category_view.switcher.active + 1);
+                category_view.app_view.go_to_next ();
             }
             else if (delta_column < 0 && (category_column_focus + 1) % category_view.app_view.get_page_columns () == 0) {
                 // check if we need to change page
-                category_view.switcher.set_active (category_view.switcher.active - 1);
+                category_view.app_view.go_to_previous ();
             }
             new_focus.grab_focus ();
         }
@@ -938,10 +836,10 @@ namespace Slingshot {
         // this method moves focus to the first AppEntry in the top left corner of the current page. Works in CategoryView only
         private void top_left_focus () {
             // this is the first column of the current page
-            int first_column = category_view.switcher.active * category_view.app_view.get_page_columns ();
+            int first_column = (grid_view.get_current_page ()-1) * category_view.app_view.get_page_columns ();
             category_view.app_view.get_child_at (first_column, 0).grab_focus ();
             category_column_focus = first_column;
-            category_row_focus = 0;
+            category_row_focus = 1;
         }
 
         public void reset_category_focus () {

@@ -104,40 +104,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
     }
 
-    public void fade_out () {
-
-        Timeout.add (20, () => {
-
-            if (alpha <= 0.3) {
-                queue_draw ();
-                return false;
-            }
-
-            alpha -= 0.05;
-            queue_draw ();
-            return true;
-
-        });
-
-    }
-
-    public void fade_in () {
-
-        Timeout.add (20, () => {
-
-            if (alpha == 1.0) {
-                queue_draw ();
-                return false;
-            }
-
-            alpha += 0.05;
-            queue_draw ();
-            return true;
-
-        });
-
-    }
-
     public void launch_app () {
         application.launch ();
         app_launched ();

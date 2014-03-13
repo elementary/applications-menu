@@ -51,8 +51,11 @@ public class Slingshot.Backend.AppSystem : Object {
 #if HAVE_ZEITGEIST
         rl_service.refresh_popularity ();
 #endif
-
-        apps_menu.load_sync ();
+        try {
+            apps_menu.load_sync ();
+        } catch (Error e) {
+            warning (e.message);
+        }
 
         update_categories_index ();
         update_apps ();

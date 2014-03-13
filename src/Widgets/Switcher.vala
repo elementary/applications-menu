@@ -1,6 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 //
 //  Copyright (C) 2011-2012 Giulio Collura
+//  Copyright (C) 2014 Corentin Noël <tintou@mailoo.org>
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -16,78 +17,106 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-using Gtk;
+public class Slingshot.Widgets.Switcher : Gtk.Box {
 
-namespace Slingshot.Widgets {
+    public int size {
+        get {
+            return (int) buttons.size;
+        }
+    }
 
-    public class Switcher : HBox {
+    private Gtk.Stack stack;
+    private Gee.HashMap<Gtk.Widget, Gtk.ToggleButton> buttons;
 
-        public signal void active_changed (int active);
+    public Switcher () {
+        orientation = Gtk.Orientation.HORIZONTAL;
+        spacing = 2;
+        can_focus = false;
+        buttons = new Gee.HashMap<Gtk.Widget, Gtk.ToggleButton> (null, null);
+        pack_start (new Gtk.Grid (), true, true, 0);
+        pack_end (new Gtk.Grid (), true, true, 0);
+    }
 
-        public int size {
-            get {
-                return (int) get_children ().length ();
+    public void set_stack (Gtk.Stack stack) {
+        if (this.stack != null) {
+            clear_children ();
+        }
+        this.stack = stack;
+        populate_switcher ();
+        connect_stack_signals ();
+        update_selected ();
+    }
+
+    private void add_child (Gtk.Widget widget) {
+        var button = new Gtk.ToggleButton.with_label ((buttons.size +1).to_string ());
+        button.width_request = 30;
+        button.can_focus = false;
+        button.get_style_context ().add_class ("switcher");
+        button.button_release_event.connect (() => {
+            foreach (var entry in buttons.entries) {
+                if (entry.value == button)
+                    on_button_clicked (entry.key);
+                entry.value.active = false;
             }
+            button.active = true;
+            return true;
+        });
+
+        add (button);
+        buttons.set (widget, button);
+        if (buttons.size == 1)
+            button.active = true;
+    }
+    
+    public override void show () {
+        base.show ();
+        if (buttons.size <= 1)
+            hide ();
+    }
+
+    
+    public override void show_all () {
+        base.show_all ();
+        if (buttons.size <= 1)
+            hide ();
+    }
+
+    private void on_button_clicked (Gtk.Widget widget) {
+        stack.set_visible_child (widget);
+    }
+
+    private void populate_switcher () {
+        foreach (var child in stack.get_children ()) {
+            add_child (child);
         }
+    }
 
-        public int active = -1;
-        public int old_active = -1;
+    private void on_stack_child_removed (Gtk.Widget widget) {
+        var button = buttons.get (widget);
+        remove (button);
+        buttons.unset (widget);
+    }
 
-        public Switcher (bool with_padding = true) {
+    private void connect_stack_signals () {
+        stack.add.connect_after (add_child);
+        stack.remove.connect_after (on_stack_child_removed);
+    }
 
-            homogeneous = true;
-            spacing = 2;
-
-            can_focus = false;
-
+    public void clear_children () {
+        foreach (weak Gtk.Widget button in get_children ()) {
+            button.hide ();
+            if (button.get_parent () != null)
+                remove (button);
         }
-
-        public void append (string label) {
-
-            var button = new ToggleButton.with_label (label);
-            button.width_request = 30;
-            button.can_focus = false;
-            button.get_style_context ().add_class ("switcher");
-
-            button.button_release_event.connect (() => {
-
-                int select = get_children ().index (button);
-                set_active (select);
-                return true;
-
-            });
-
-            add (button);
-            button.show_all ();
-
-        }
-
-        public void set_active (int new_active) {
-        
-            if (new_active >= get_children ().length ())
-                return;
-
-            if (active >= 0)
-                ((ToggleButton) get_children ().nth_data (active)).set_active (false);
-
-            old_active = active;
-            active = new_active;
-            active_changed (new_active);
-            ((ToggleButton) get_children ().nth_data (active)).set_active (true);
-            
-        }
-
-        public void clear_children () {
-
-            foreach (weak Widget button in get_children ()) {
-                button.hide ();
-                if (button.get_parent () != null)
-                    remove (button);
+    }
+    
+    public void update_selected () {
+        foreach (var entry in buttons.entries) {
+            if (entry.key == stack.get_visible_child ()) {
+                entry.value.active = true;
+            } else {
+                entry.value.active = false;
             }
-
-            old_active = 0;
-            active = 0;
-
         }
     }
 }
