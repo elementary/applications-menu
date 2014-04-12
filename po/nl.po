@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-02 01:21-0500\n"
-"PO-Revision-Date: 2012-11-07 20:40+0000\n"
-"Last-Translator: Jaap Broekhuizen <Unknown>\n"
+"PO-Revision-Date: 2014-04-11 18:54+0000\n"
+"Last-Translator: Thomas Berends <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-21 05:33+0000\n"
-"X-Generator: Launchpad (build 16967)\n"
+"X-Launchpad-Export-Date: 2014-04-12 05:40+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
 msgid "All Applications"
-msgstr "Alle applicaties"
+msgstr "Alle apps"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
 msgid "Create a new Filter"
-msgstr "maak een nieuwe filter"
+msgstr "Maak een nieuw filter"
 
 #: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
 msgid "This Category is Empty"
@@ -43,4 +43,4 @@ msgstr "Bekijk per categorie"
 
 #: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
 msgid "Search Apps..."
-msgstr "Applicaties zoeken"
+msgstr "Zoek apps..."
