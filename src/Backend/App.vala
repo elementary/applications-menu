@@ -28,6 +28,7 @@ public class Slingshot.Backend.App : Object {
     public double popularity { get; set; }
     public double relevancy { get; set; }
     public string desktop_path { get; private set; }
+    public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
 
     private bool is_command = false;
@@ -45,6 +46,7 @@ public class Slingshot.Backend.App : Object {
 #if HAVE_UNITY
         keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
 #endif
+        categories = info.get_categories ();
         generic_name = info.get_generic_name ();
 
         if (info.get_icon () is ThemedIcon) {
