@@ -161,9 +161,10 @@ public class Slingshot.Backend.AppSystem : Object {
         foreach (Gee.ArrayList<App> category in apps.values) {
             foreach (App app in category) {
 
-                if (GCC_PANEL_CATEGORY in app.categories || SWITCHBOARD_PLUG_CATEGORY in app.categories) {
+                if (GCC_PANEL_CATEGORY in app.categories || SWITCHBOARD_PLUG_CATEGORY in app.categories)
                     continue;
-                }
+                
+
                 if (!(app.exec in sorted_apps_execs)) {
                     sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_name);
                     sorted_apps_execs += app.exec;
