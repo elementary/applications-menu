@@ -28,6 +28,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private const string ALL_APPLICATIONS = _("All Applications");
     private const string NEW_FILTER = _("Create a new Filter");
+    private const string SWITCHBOARD_CATEGORY = "switchboard";
+
     private int current_position = 0;
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
@@ -71,6 +73,9 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         int n = 0;
 
         foreach (string cat_name in view.apps.keys) {
+            if (cat_name == SWITCHBOARD_CATEGORY)
+                continue;
+
             category_ids.set (n, cat_name);
             category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
             n++;
