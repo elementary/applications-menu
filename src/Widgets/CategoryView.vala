@@ -73,7 +73,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         int n = 0;
 
         foreach (string cat_name in view.apps.keys) {
-            warning (cat_name);
             if (cat_name == SWITCHBOARD_CATEGORY)
                 continue;
 
