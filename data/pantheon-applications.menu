@@ -220,18 +220,4 @@
     <Directory>Debian.directory</Directory>
   </Menu>
 
-  <!-- Switchboard menu -->
-  <Menu>
-    <Name>System Settings</Name>
-    <Directory>Switchboard.directory</Directory>
-    <Include>
-      <And>
-        <Or>
-          <Category>X-PANTHEON-Switchboard-Plugs</Category>
-          <Category>X-GNOME-Settings-Panel</Category>
-        </Or>
-      </And>
-    </Include>
-  </Menu>
-
 </Menu> <!-- End Applications -->
