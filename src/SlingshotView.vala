@@ -234,11 +234,14 @@ namespace Slingshot {
 
         public override bool button_press_event (Gdk.EventButton event) {
             var pointer = Gdk.Display.get_default ().get_device_manager ().get_client_pointer ();
-            
-            if (pointer.get_window_at_position (null, null) != get_window ()) {
+
+            // get_window_at_position returns null if the window belongs to another application.
+            if (pointer.get_window_at_position (null, null) == null) {
                 hide ();
+
+                return true;
             }
-            
+
             return false;
         }
 
