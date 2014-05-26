@@ -84,7 +84,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
         });
 
-        app.icon_changed.connect (queue_draw);
+        app.icon_changed.connect (() => {
+            icon = app.icon;
+            queue_draw ();
+        });
 
     }
 

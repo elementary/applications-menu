@@ -36,6 +36,10 @@ public class Slingshot.Backend.App : Object {
     public signal void icon_changed ();
     public signal void launched (App app);
 
+    // seconds to wait before retrying icon check
+    private const int RECHECK_TIMEOUT = 2;
+    private bool check_icon_again = true;
+
     public App (GMenu.TreeEntry entry) {
         unowned GLib.DesktopAppInfo info = entry.get_app_info ();
         name = info.get_display_name ().dup ();
@@ -127,6 +131,19 @@ public class Slingshot.Backend.App : Object {
                     icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
                 } catch (Error e) {
                     warning ("Could not load icon. Falling back to method 4");
+                }
+            }),
+
+            new IconLoadFallbackMethod (() => {
+                if (check_icon_again) {
+                    // only recheck once
+                    check_icon_again = false;
+                    Slingshot.icon_theme.rescan_if_needed ();
+
+                    Timeout.add_seconds (RECHECK_TIMEOUT, () => {
+                        update_icon ();
+                        return false;
+                    });
                 }
             }),
 
