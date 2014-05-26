@@ -116,6 +116,20 @@ public class Slingshot.Backend.App : Object {
             }),
 
             new IconLoadFallbackMethod (() => {
+                // Since the best method didn't work retry after some time
+                if (check_icon_again) {
+                    // only recheck once
+                    check_icon_again = false;
+                    Slingshot.icon_theme.rescan_if_needed ();
+
+                    Timeout.add_seconds (RECHECK_TIMEOUT, () => {
+                        update_icon ();
+                        return false;
+                    });
+                }
+            }),
+
+            new IconLoadFallbackMethod (() => {
                 try {
                     if (icon_name.last_index_of (".") > 0) {
                         var name = icon_name[0:icon_name.last_index_of (".")];
@@ -131,19 +145,6 @@ public class Slingshot.Backend.App : Object {
                     icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
                 } catch (Error e) {
                     warning ("Could not load icon. Falling back to method 4");
-                }
-            }),
-
-            new IconLoadFallbackMethod (() => {
-                if (check_icon_again) {
-                    // only recheck once
-                    check_icon_again = false;
-                    Slingshot.icon_theme.rescan_if_needed ();
-
-                    Timeout.add_seconds (RECHECK_TIMEOUT, () => {
-                        update_icon ();
-                        return false;
-                    });
                 }
             }),
 
