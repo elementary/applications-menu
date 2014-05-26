@@ -120,9 +120,9 @@ public class Slingshot.Backend.App : Object {
                 if (check_icon_again) {
                     // only recheck once
                     check_icon_again = false;
-                    Slingshot.icon_theme.rescan_if_needed ();
 
                     Timeout.add_seconds (RECHECK_TIMEOUT, () => {
+                        Slingshot.icon_theme.rescan_if_needed ();
                         update_icon ();
                         return false;
                     });
