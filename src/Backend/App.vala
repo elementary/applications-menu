@@ -17,10 +17,6 @@
 //
 
 public class Slingshot.Backend.App : Object {
-    public enum IconType {
-        THEMED,
-        LOADABLE,
-    }
 
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
@@ -34,7 +30,6 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
-    public IconType icon_type { get; private set; }
 
     private bool is_command = false;
     private LoadableIcon? loadable_icon = null;
@@ -60,10 +55,8 @@ public class Slingshot.Backend.App : Object {
         generic_name = info.get_generic_name ();
 
         if (info.get_icon () is ThemedIcon) {
-            icon_type = IconType.THEMED;
             icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
         } else if (info.get_icon () is LoadableIcon) {
-            icon_type = IconType.LOADABLE;
             loadable_icon = info.get_icon () as LoadableIcon;
         } else {
             icon_name = "application-default-icon";
@@ -89,7 +82,7 @@ public class Slingshot.Backend.App : Object {
     }
 
     public void update_icon () {
-        if (icon_type == IconType.LOADABLE) {
+        if (loadable_icon != null) {
             try {
                 var ios = loadable_icon.load (0, null, null);
                 icon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
