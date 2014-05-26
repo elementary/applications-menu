@@ -744,7 +744,6 @@ namespace Slingshot {
                 app_entry.show_all ();
             }
 
-            stack.set_visible_child_name ("normal");
             current_position = 0;
 
         }
