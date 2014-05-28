@@ -32,7 +32,6 @@ public class Slingshot.Backend.App : Object {
     public string generic_name { get; private set; default = ""; }
 
     private bool is_command = false;
-    private LoadableIcon? loadable_icon = null;
 
     public signal void icon_changed ();
     public signal void launched (App app);
@@ -57,7 +56,16 @@ public class Slingshot.Backend.App : Object {
         if (info.get_icon () is ThemedIcon) {
             icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
         } else if (info.get_icon () is LoadableIcon) {
-            loadable_icon = info.get_icon () as LoadableIcon;
+            var loadable_icon = info.get_icon () as LoadableIcon;
+            try {
+                var ios = loadable_icon.load (0, null, null);
+                icon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
+                                                            Slingshot.settings.icon_size, true, null);
+
+                return;
+            } catch (Error e) {
+                icon_name = "application-default-icon";
+            }
         } else {
             icon_name = "application-default-icon";
         }
@@ -82,17 +90,7 @@ public class Slingshot.Backend.App : Object {
     }
 
     public void update_icon () {
-        if (loadable_icon != null) {
-            try {
-                var ios = loadable_icon.load (0, null, null);
-                icon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
-                                                            Slingshot.settings.icon_size, true, null);
-            } catch (Error e) {
-                icon_name = "application-default-icon";
-            }
-        } else {
-            icon = load_icon (Slingshot.settings.icon_size);
-        }
+        icon = load_icon (Slingshot.settings.icon_size);
 
         icon_changed ();
     }
