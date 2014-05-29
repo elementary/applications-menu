@@ -40,6 +40,8 @@ public class Slingshot.Backend.App : Object {
     private const int RECHECK_TIMEOUT = 2;
     private bool check_icon_again = true;
 
+    private LoadableIcon loadable_icon = null;
+
     public App (GMenu.TreeEntry entry) {
         unowned GLib.DesktopAppInfo info = entry.get_app_info ();
         name = info.get_display_name ().dup ();
@@ -56,23 +58,16 @@ public class Slingshot.Backend.App : Object {
         if (info.get_icon () is ThemedIcon) {
             icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
         } else if (info.get_icon () is LoadableIcon) {
-            var loadable_icon = info.get_icon () as LoadableIcon;
-            try {
-                var ios = loadable_icon.load (0, null, null);
-                icon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
-                                                            Slingshot.settings.icon_size, true, null);
-
-                return;
-            } catch (Error e) {
-                icon_name = "application-default-icon";
-            }
+            loadable_icon = info.get_icon () as LoadableIcon;
+            icon = get_loadable_icon ();
         } else {
             icon_name = "application-default-icon";
         }
+        if (icon == null) {
+            update_icon ();
 
-        update_icon ();
-
-        Slingshot.icon_theme.changed.connect (update_icon);
+            Slingshot.icon_theme.changed.connect (update_icon);
+        }
     }
 
     public App.from_command (string command) {
@@ -87,6 +82,10 @@ public class Slingshot.Backend.App : Object {
 
         update_icon ();
 
+    }
+
+    ~App () {
+        Slingshot.icon_theme.changed.disconnect (update_icon);
     }
 
     public void update_icon () {
@@ -107,6 +106,9 @@ public class Slingshot.Backend.App : Object {
 
     public Gdk.Pixbuf load_icon (int size) {
         var flags = Gtk.IconLookupFlags.FORCE_SIZE;
+
+        if (loadable_icon != null)
+            return get_loadable_icon ();
 
         IconLoadFallbackMethod[] fallbacks = {
             new IconLoadFallbackMethod (() => {
@@ -173,6 +175,18 @@ public class Slingshot.Backend.App : Object {
         }
 
         return icon;
+    }
+
+    public Gdk.Pixbuf? get_loadable_icon () {
+        Gdk.Pixbuf licon;
+        try {
+            var ios = loadable_icon.load (0, null, null);
+            licon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
+                                                        Slingshot.settings.icon_size, true, null);
+        } catch (Error e) {
+            return null;
+        }
+        return licon;
     }
 
     public void launch () {
