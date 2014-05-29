@@ -54,7 +54,7 @@ else ()
   message ("-- Zeitgeist integration disabled")
 endif ()
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-0.8;libgnome-menu-3.0;libwnck-3.0;gdk-x11-3.0;${UNITY_DEPS};")
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-0.8;libgnome-menu-3.0;${UNITY_DEPS};")
 set (UI_DEPS "gtk+-3.0>=3.10.0;granite;${ZEITGEIST_DEPS};")
 
 find_package (PkgConfig)
@@ -96,7 +96,7 @@ OPTIONS
 # Comment this out to enable C compiler warnings
 add_definitions (-w)
 
-add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -DWNCK_I_KNOW_THIS_IS_UNSTABLE -include config.h)
+add_definitions (${DEPS_CFLAGS} -DGMENU_I_KNOW_THIS_IS_UNSTABLE -include config.h)
 link_libraries (${DEPS_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
 

@@ -650,15 +650,6 @@ namespace Slingshot {
             set_focus(null);
             search_entry.grab_focus ();
             set_modality ((Modality) view_selector.selected);
-
-            while (Gtk.events_pending ())
-                Gtk.main_iteration ();
-
-            var xid = Gdk.X11Window.get_xid (this.get_window ());
-            var w = Wnck.Window.get (xid);
-            Wnck.Screen.get_default ().force_update ();
-            if (w != null)
-                w.activate (Gdk.x11_get_server_time (this.get_window ()));
         }
 
         private void set_modality (Modality new_modality) {
