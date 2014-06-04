@@ -42,9 +42,9 @@ GENERATE_HEADER
 
 add_definitions(${CORE_DEPS_CFLAGS} -include config.h)
 link_directories(${CORE_DEPS_LIBRARY_DIRS})
-link_libraries (${CORE_DEPS_LIBRARIES})
 
 add_library(${CORE_LIBRARY_NAME} STATIC ${CORE_VALA_C})
+target_link_libraries (${CORE_LIBRARY_NAME} ${CORE_DEPS_LIBRARIES})
 
 set_target_properties(${CORE_LIBRARY_NAME} PROPERTIES
 	OUTPUT_NAME ${CORE_LIBRARY_NAME}

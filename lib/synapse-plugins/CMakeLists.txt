@@ -72,6 +72,5 @@ set_target_properties(${PLUGINS_LIBRARY_NAME} PROPERTIES
 	SOVERSION ${PLUGINS_LIB_SOVERSION}
 )
 
-link_libraries (${PLUGINS_LIBRARY_NAME} ${PLUGINS_DEPS_LIBRARIES})
-
+target_link_libraries (${PLUGINS_LIBRARY_NAME} ${PLUGINS_DEPS_LIBRARIES} synapse-core)
 

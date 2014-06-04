@@ -64,7 +64,6 @@ find_package (Vala REQUIRED)
 include (ValaVersion)
 ensure_vala_version ("0.22.0" MINIMUM)
 
-message(${DEPS_LIBRARIES})
 include (ValaPrecompile)
 vala_precompile (VALA_C ${APPNAME}
     src/Slingshot.vala
