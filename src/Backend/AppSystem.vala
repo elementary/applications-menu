@@ -161,7 +161,9 @@ public class Slingshot.Backend.AppSystem : Object {
         foreach (Gee.ArrayList<App> category in apps.values) {
             foreach (App app in category) {
 
-                if (GCC_PANEL_CATEGORY in app.categories || SWITCHBOARD_PLUG_CATEGORY in app.categories)
+                if (app.categories != null
+					&& (GCC_PANEL_CATEGORY in app.categories
+					|| SWITCHBOARD_PLUG_CATEGORY in app.categories))
                     continue;
                 
 
@@ -196,19 +198,19 @@ public class Slingshot.Backend.AppSystem : Object {
             foreach (App app in category) {
                 if (!(app.exec in sorted_apps_execs)) {
                     sorted_apps_execs += app.exec;
-                    if (search in app.name.down ()) {
+                    if (app.name != null && search in app.name.down ()) {
                         if (search == app.name.down ()[0:search.length])
                             app.relevancy = 0.5 - app.popularity; // It must be minor than 1.0
                         else
                             app.relevancy = app.name.length / search.length - app.popularity;
                         filtered.add (app);
-                    } else if (search in app.exec.down ()) {
+                    } else if (app.exec != null && search in app.exec.down ()) {
                         app.relevancy = app.exec.length / search.length * 10.0 - app.popularity;
                         filtered.add (app);
-                    } else if (search in app.description.down ()) {
+                    } else if (app.description != null && search in app.description.down ()) {
                         app.relevancy = app.description.length / search.length - app.popularity;
                         filtered.add (app);
-                    } else if (search in app.generic_name.down ()) {
+                    } else if (app.generic_name != null && search in app.generic_name.down ()) {
                         app.relevancy = app.generic_name.length / search.length - app.popularity;
                         filtered.add (app);
                     }  else if (app.keywords != null) {

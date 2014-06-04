@@ -54,7 +54,7 @@ else ()
   message ("-- Zeitgeist integration disabled")
 endif ()
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-0.8;libgnome-menu-3.0;${UNITY_DEPS};")
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};")
 set (UI_DEPS "gtk+-3.0>=3.10.0;granite;${ZEITGEIST_DEPS};")
 
 find_package (PkgConfig)
@@ -64,6 +64,7 @@ find_package (Vala REQUIRED)
 include (ValaVersion)
 ensure_vala_version ("0.22.0" MINIMUM)
 
+message(${DEPS_LIBRARIES})
 include (ValaPrecompile)
 vala_precompile (VALA_C ${APPNAME}
     src/Slingshot.vala
@@ -74,6 +75,7 @@ vala_precompile (VALA_C ${APPNAME}
     src/Backend/DBusService.vala
     src/Backend/App.vala
     src/Backend/RelevancyService.vala
+	src/Backend/SynapseSearch.vala
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
     src/Widgets/Switcher.vala
@@ -84,14 +86,24 @@ vala_precompile (VALA_C ${APPNAME}
 PACKAGES
     ${CORE_DEPS}
     ${UI_DEPS}
+	synapse-core
+	synapse-plugins
 CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
     --thread
+	--vapidir=${CMAKE_BINARY_DIR}/lib/synapse-core
+	--vapidir=${CMAKE_BINARY_DIR}/lib/synapse-plugins
     -g
     ${UNITY_OPTIONS}
     ${ZEITGEIST_OPTIONS}
 )
+
+include_directories(${CMAKE_BINARY_DIR}/lib/synapse-core)
+include_directories(${CMAKE_BINARY_DIR}/lib/synapse-plugins)
+
+add_subdirectory(lib/synapse-core)
+add_subdirectory(lib/synapse-plugins)
 
 # Comment this out to enable C compiler warnings
 add_definitions (-w)
@@ -101,7 +113,7 @@ link_libraries (${DEPS_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
 
 add_executable (${APPNAME} ${VALA_C})
-target_link_libraries(${APPNAME} m)
+target_link_libraries(${APPNAME} m synapse-core synapse-plugins)
 
 # Installation
 install (TARGETS ${APPNAME} RUNTIME DESTINATION bin)
@@ -115,3 +127,4 @@ add_schema ("org.pantheon.desktop.slingshot.gschema.xml")
 
 # Translations
 add_subdirectory (po)
+

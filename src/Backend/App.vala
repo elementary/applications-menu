@@ -18,6 +18,12 @@
 
 public class Slingshot.Backend.App : Object {
 
+	public enum AppType {
+		APP,
+		COMMAND,
+		SYNAPSE
+	}
+
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
     public string desktop_id { get; construct set; }
@@ -30,13 +36,16 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
+	public AppType app_type { get; private set; default = AppType.APP; }
 
-    private bool is_command = false;
+	private Synapse.Match? match { get; private set; default = null; }
 
     public signal void icon_changed ();
     public signal void launched (App app);
 
     public App (GMenu.TreeEntry entry) {
+		app_type = AppType.APP;
+
         unowned GLib.DesktopAppInfo info = entry.get_app_info ();
         name = info.get_display_name ().dup ();
         description = info.get_description ().dup () ?? name;
@@ -70,6 +79,7 @@ public class Slingshot.Backend.App : Object {
     }
 
     public App.from_command (string command) {
+		app_type = AppType.COMMAND;
 
         name = command;
         description = _("Run this command...");
@@ -77,11 +87,19 @@ public class Slingshot.Backend.App : Object {
         desktop_id = command;
         icon_name = "system-run";
 
-        is_command = true;
-
         update_icon ();
 
     }
+
+	public App.from_synapse_match (Synapse.Match match) {
+
+		name = match.title;
+		description = match.description;
+		icon_name = match.icon_name;
+
+		update_icon ();
+
+	}
 
     public void update_icon () {
         icon = load_icon (Slingshot.settings.icon_size);
@@ -99,6 +117,20 @@ public class Slingshot.Backend.App : Object {
     }
 
     public Gdk.Pixbuf load_icon (int size) {
+		if (app_type == AppType.SYNAPSE) {
+			var icon = Icon.new_for_string (name);
+			if (icon == null)
+				return null;
+
+			var info = Gtk.IconTheme.get_default ().lookup_by_gicon (icon,
+				size, Gtk.IconLookupFlags.FORCE_SIZE);
+
+			if (info == null)
+				return null;
+
+			return info.load_icon ();
+		}
+
         Gdk.Pixbuf icon = null;
         var flags = Gtk.IconLookupFlags.FORCE_SIZE;
 
@@ -158,13 +190,19 @@ public class Slingshot.Backend.App : Object {
 
     public void launch () {
         try {
-            if (is_command) {
-                debug (@"Launching command: $name");
-                Process.spawn_command_line_async (exec);
-            } else {
-                launched (this); // Emit launched signal
-                new DesktopAppInfo (desktop_id).launch (null, null);
-                debug (@"Launching application: $name");
+            switch (app_type) {
+				case AppType.COMMAND:
+					debug (@"Launching command: $name");
+					Process.spawn_command_line_async (exec);
+					break;
+				case AppType.APP:
+					launched (this); // Emit launched signal
+					new DesktopAppInfo (desktop_id).launch (null, null);
+					debug (@"Launching application: $name");
+					break;
+				case AppType.SYNAPSE:
+					match.execute (null);
+					break;
             }
         } catch (Error e) {
             warning ("Failed to launch %s: %s", name, exec);

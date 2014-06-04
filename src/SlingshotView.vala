@@ -51,6 +51,8 @@ namespace Slingshot {
         private Modality modality;
         private bool can_trigger_hotcorner = true;
 
+		private Backend.SynapseSearch synapse;
+
         // Sizes
         public int columns {
             get {
@@ -91,6 +93,7 @@ namespace Slingshot {
             Slingshot.icon_theme = Gtk.IconTheme.get_default ();
 
             app_system = new Backend.AppSystem ();
+			synapse = new Backend.SynapseSearch ();
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
@@ -714,9 +717,14 @@ namespace Slingshot {
             search_view.hide_all ();
 
             var filtered = yield app_system.search_results (stripped);
+			var synapse_matches = yield synapse.search (stripped);
+
+			foreach (var match in synapse_matches) {
+				search_view.show_app (new Backend.App.from_synapse_match (match));
+			}	
 
             foreach (Backend.App app in filtered) {
-                search_view.show_app (app);
+                //search_view.show_app (app);
             }
 
             search_view.add_command (text);
