@@ -18,21 +18,20 @@
 
 namespace Slingshot.Widgets {
 
-    private class SeparatorItem : Gtk.Separator {
-        public SeparatorItem () {
-            orientation = Gtk.Orientation.HORIZONTAL;
-        }
-
-        public bool in_box;
-
-    }
-
     public class SearchView : Gtk.ScrolledWindow {
+		const int CONTEXT_WIDTH = 200;
+
+		public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
         private Gee.HashMap<Backend.App, SearchItem> items;
-        private SeparatorItem separator;
         private SearchItem selected_app = null;
-        private Gtk.Box main_box;
+		private Gtk.Box main_box;
+
+		private Gtk.Revealer revealer;
+		private Gtk.Box context_box;
+		private Gtk.Fixed context_fixed;
+
+		private bool in_context_view = false;
 
         private int _selected = 0;
         public int selected {
@@ -40,168 +39,174 @@ namespace Slingshot.Widgets {
                 return _selected;
             }
             set {
-                if (value < 0 || value > get_children ().length () - 1)
-                    return;
+				_selected = value;
+				var max_index = (int)main_box.get_children ().length () - 1;
 
-                if (value != 1) {
-                    select_nth (value);
-                    _selected = value;
-                } else if (_selected - value > 0) {
-                    /* Get a sort of direction */
-                    select_nth (value - 1);
-                    _selected = value - 1;
-                } else {
-                    select_nth (value + 1);
-                    _selected = value + 1;
-                }
+				// cycle
+                if (_selected < 0)
+					_selected = max_index;
+				else if (_selected > max_index)
+					_selected = 0;
+
+				select_nth (main_box, _selected);
+
+				if (in_context_view)
+					toggle_context (false);
             }
         }
 
-        public int apps_showed = 0;
+        private int _context_selected = 0;
+        public int context_selected {
+            get {
+                return _context_selected;
+            }
+            set {
+				_context_selected = value;
+				var max_index = (int)context_box.get_children ().length () - 1;
+
+				// cycle
+                if (_context_selected < 0)
+					_context_selected = max_index;
+				else if (_context_selected > max_index)
+					_context_selected = 0;
+
+				select_nth (context_box, _context_selected);
+            }
+        }
 
         public signal void app_launched ();
 
         private SlingshotView view;
 
         public SearchView (SlingshotView parent) {
-            main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.can_focus = true;
-            main_box.homogeneous = false;
-
-            this.view = parent;
-            main_box. width_request = view.columns * 130;
+            view = parent;
 
             items = new Gee.HashMap<Backend.App, SearchItem> ();
-            separator = new SeparatorItem ();
 
-            var expand_grid = new Gtk.Grid ();
-            expand_grid.expand = true;
-            var search_grid = new Gtk.Grid ();
-            search_grid.orientation = Gtk.Orientation.VERTICAL;
-            search_grid.add (main_box);
-            search_grid.add (expand_grid);
-            add_with_viewport (search_grid);
+			main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+
+			context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+			context_box.width_request = CONTEXT_WIDTH;
+			context_fixed = new Gtk.Fixed ();
+			context_fixed.put (context_box, 0, 0);
+
+			revealer = new Gtk.Revealer ();
+			revealer.transition_duration = 400;
+			revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
+			revealer.width_request = CONTEXT_WIDTH;
+			revealer.no_show_all = true;
+			revealer.add (context_fixed);
+
+			var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+			box.pack_start (main_box, true);
+			box.pack_start (revealer, false);
+
+            add_with_viewport (box);
         }
 
-        public void add_apps (Gee.ArrayList<Backend.App> apps) {
+        public void show_app (Backend.App app) {
 
-            foreach (Backend.App app in apps) {
-                var search_item = new SearchItem (app);
-
-                append_app (app, search_item);
-
-            }
-
-        }
-
-        public void append_app (Backend.App app, SearchItem search_item) {
-
+			var search_item = new SearchItem (app);
+			app.start_search.connect ((search, target) => start_search (search, target));
             search_item.button_release_event.connect (() => {
                 app.launch ();
                 app_launched ();
                 return true;
             });
 
+			main_box.pack_start (search_item, false, false);
+			search_item.show_all ();
+
             items[app] = search_item;
 
         }
 
-        public void show_app (Backend.App app) {
+		public void toggle_context (bool show) {
+			var prev_y = vadjustment.value;
 
-            if (!(app in items.keys)) {
-                var search_item = new SearchItem (app);
-                append_app (app, search_item);
-            }
+			if (show && in_context_view == false) {
+				in_context_view = true;
 
-            if (apps_showed == 1) {
-                show_separator ();
-            }
+				foreach (var child in context_box.get_children ())
+					context_box.remove (child);
 
-            if (!(items[app].in_box)) {
-                main_box.pack_start (items[app], true, true, 0);
-                items[app].in_box = true;
-                items[app].icon_size = 48;
-                items[app].queue_draw ();
-            }
+				var actions = Backend.SynapseSearch.find_actions_for_match (selected_app.app.match);
+				foreach (var action in actions) {
+					var app = new Backend.App.from_synapse_match (action, selected_app.app.match);
+					app.start_search.connect ((search, target) => start_search (search, target));
+					context_box.pack_start (new SearchItem (app));
+				}
+				context_fixed.show_all ();
 
-            items[app].show_all ();
-            apps_showed++;
+				revealer.show ();
+				revealer.set_reveal_child (true);
 
-            if (apps_showed == 1) {
-                set_focus_child (items[app]);
-                items[app].icon_size = 64;
-                items[app].queue_draw ();
-                selected = 0;
-            }
+				Gtk.Allocation alloc;
+				selected_app.get_allocation (out alloc);
 
+				context_fixed.move (context_box, 0, alloc.y);
+
+				context_selected = 0;
+			} else {
+				in_context_view = false;
+
+				revealer.set_reveal_child (false);
+				revealer.hide ();
+
+				// trigger update of selection
+				selected = selected;
+			}
+
+			vadjustment.value = prev_y;
+		}
+
+        public void clear () {
+			if (in_context_view)
+				toggle_context (false);
+
+			foreach (var child in main_box.get_children ())
+				main_box.remove (child);
         }
 
-        public void hide_app (Backend.App app) {
+		public void down ()
+		{
+			if (in_context_view)
+				context_selected ++;
+			else
+				selected++;
+		}
 
-            items[app].hide ();
-            apps_showed--;
+		public void up ()
+		{
+			if (in_context_view)
+				context_selected--;
+			else
+				selected--;
+		}
 
-        }
-
-        public void hide_all () {
-
-            hide_separator ();
-
-            foreach (SearchItem app in items.values) {
-                app.hide ();
-                if (app.in_box) {
-                    main_box.remove (app);
-                    app.in_box = false;
-                }
-            }
-
-            vadjustment.value = vadjustment.lower;
-            apps_showed = 0;
-        }
-
-        public void add_command (string command) {
-
-            var app = new Backend.App.from_command (command);
-            var item = new SearchItem (app);
-
-            append_app (app, item);
-
-            show_app (app);
-        }
-
-        private void show_separator () {
-
-            if (!(separator.in_box)) {
-                main_box.pack_start (separator, true, true, 3);
-                separator.in_box = true;
-            }
-            separator.show_all ();
-
-        }
-
-        private void hide_separator () {
-
-            separator.hide ();
-            if (separator.in_box) {
-                main_box.remove (separator);
-                separator.in_box = false;
-            }
-
-        }
-
-        private void select_nth (int index) {
+        private void select_nth (Gtk.Box box, int index) {
 
             if (selected_app != null)
+				//&& !(box == context_box && selected_app.get_parent () == main_box))
                 selected_app.unset_state_flags (Gtk.StateFlags.PRELIGHT);
 
-            selected_app = (SearchItem) main_box.get_children ().nth_data (index);
+            selected_app = (SearchItem) box.get_children ().nth_data (index);
             selected_app.set_state_flags (Gtk.StateFlags.PRELIGHT, false);
 
+			Gtk.Allocation alloc;
+			selected_app.get_allocation (out alloc);
+
+			vadjustment.value = double.max (alloc.y - vadjustment.page_size / 2, 0);
         }
 
-        public void launch_selected () {
+		/**
+		 * Launch selected app
+		 *
+		 * @return indicates whether slingshot should now be hidden
+		 */
+        public bool launch_selected () {
 
-            selected_app.launch_app ();
+            return selected_app.launch_app ();
 
         }
 

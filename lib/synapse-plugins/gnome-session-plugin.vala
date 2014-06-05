@@ -95,7 +95,7 @@ namespace Synapse
       {
         Object (match_type: MatchType.ACTION, title: _ ("Restart"),
                 description: _ ("Restart your computer"),
-                icon_name: "gnome-session-reboot", has_thumbnail: false);
+                icon_name: "system-reboot", has_thumbnail: false);
       }
       
       public void execute (Match? match)
@@ -184,9 +184,8 @@ namespace Synapse
       
       actions = new Gee.LinkedList<Match> ();
       actions.add (new LogOutAction ());
-      // TODO: add a config option to enable these actions (for example when ConsoleKit is not available)
-      //actions.add (new RebootAction ());
-      //actions.add (new ShutDownAction ());
+      actions.add (new RebootAction ());
+      actions.add (new ShutDownAction ());
     }
     
     public async ResultSet? search (Query q) throws SearchError

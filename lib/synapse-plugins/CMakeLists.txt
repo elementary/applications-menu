@@ -9,6 +9,7 @@ set(PLUGINS_PKG
 	gee-0.8
 	libnotify
 	gtk+-3.0
+	libsoup-2.4
 	rest-0.7
 )
 
@@ -41,6 +42,7 @@ set(PLUGINS_SOURCE
 	system-management.vala
 	test-slow-plugin.vala
 	xnoise-media-player-plugin.vala
+	wolframalpha-plugin.vala
 	zeitgeist-plugin.vala
 	zeitgeist-related.vala
 )

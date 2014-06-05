@@ -26,7 +26,7 @@ namespace Slingshot.Backend
 			typeof (Synapse.GnomeSessionPlugin),
 			typeof (Synapse.GnomeScreenSaverPlugin),
 			typeof (Synapse.SystemManagementPlugin),
-			// typeof (Synapse.CommandPlugin),
+			typeof (Synapse.CommandPlugin),
 			typeof (Synapse.RhythmboxActions),
 			typeof (Synapse.BansheeActions),
 			typeof (Synapse.DirectoryPlugin),
@@ -35,33 +35,51 @@ namespace Slingshot.Backend
 			typeof (Synapse.SelectionPlugin),
 			typeof (Synapse.SshPlugin),
 			typeof (Synapse.XnoiseActions),
+			typeof (Synapse.ZeitgeistPlugin),
+			typeof (Synapse.ZeitgeistRelated),
+			typeof (Synapse.DevhelpPlugin),
+			typeof (Synapse.OpenSearchPlugin),
+			typeof (Synapse.LocatePlugin),
+			typeof (Synapse.PastebinPlugin),
+			typeof (Synapse.DictionaryPlugin),
+			// typeof (Synapse.FilezillaPlugin),
+			typeof (Synapse.WolframAlphaPlugin)
 		};
 
-		private Synapse.DataSink sink;
+		private static Synapse.DataSink? sink = null;
+
 		Cancellable? current_search = null;
 
 		public SynapseSearch ()
 		{
-			sink = new Synapse.DataSink ();
-			foreach (var plugin in plugins) {
-				sink.register_static_plugin (plugin);
+			if (sink == null) {
+				sink = new Synapse.DataSink ();
+				foreach (var plugin in plugins) {
+					sink.register_static_plugin (plugin);
+				}
 			}
 		}
 
-		public async Gee.List<Synapse.Match>? search (string text)
+		public async Gee.List<Synapse.Match>? search (string text, Synapse.SearchProvider? provider = null)
 		{
 			if (current_search != null)
 				current_search.cancel ();
 
+			if (provider == null)
+				provider = sink;
+
+			var results = new Synapse.ResultSet ();
+
 			try {
-				var matches = yield sink.search (text, Synapse.QueryFlags.ALL, null, current_search);
-				foreach (var match in matches) {
-					print ("%s\n", match.title);
-				}
-				return matches;
+				return yield provider.search (text, Synapse.QueryFlags.ALL, results, current_search);
 			} catch (Error e) { warning (e.message); }
 
 			return null;
+		}
+
+		public static Gee.List<Synapse.Match> find_actions_for_match (Synapse.Match match)
+		{
+			return sink.find_actions_for_match (match, null, Synapse.QueryFlags.ALL);
 		}
 	}
 }

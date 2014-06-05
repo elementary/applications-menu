@@ -29,21 +29,23 @@ namespace Synapse
   public class DesktopFileInfo: Object
   {
     // registered environments from http://standards.freedesktop.org/menu-spec/latest
+    // (and pantheon)
     [Flags]
     public enum EnvironmentType
     {
-      GNOME = 1 << 0,
-      KDE   = 1 << 1,
-      LXDE  = 1 << 2,
-      MATE  = 1 << 3,
-      RAZOR = 1 << 4,
-      ROX   = 1 << 5,
-      TDE   = 1 << 6,
-      UNITY = 1 << 7,
-      XFCE  = 1 << 8,
-      OLD   = 1 << 9,
+      GNOME     = 1 << 0,
+      KDE       = 1 << 1,
+      LXDE      = 1 << 2,
+      MATE      = 1 << 3,
+      RAZOR     = 1 << 4,
+      ROX       = 1 << 5,
+      TDE       = 1 << 6,
+      UNITY     = 1 << 7,
+      XFCE      = 1 << 8,
+      PANTHEON  = 1 << 9,
+      OLD       = 1 << 10,
 
-      ALL   = 0x3FF
+      ALL       = 0x3FF
     }
    
     public string desktop_id { get; construct set; } 
@@ -89,6 +91,7 @@ namespace Synapse
         switch (env_up)
         {
           case "GNOME": result |= EnvironmentType.GNOME; break;
+          case "PANTHEON": result |= EnvironmentType.PANTHEON; break;
           case "KDE": result |= EnvironmentType.KDE; break;
           case "LXDE": result |= EnvironmentType.LXDE; break;
           case "MATE": result |= EnvironmentType.MATE; break;
@@ -315,6 +318,11 @@ namespace Synapse
       {
         session_type = DesktopFileInfo.EnvironmentType.ROX;
         session_type_str = "ROX";
+      }
+      else if (session.has_prefix ("pantheon"))
+      {
+        session_type = DesktopFileInfo.EnvironmentType.PANTHEON;
+        session_type_str = "Pantheon";
       }
       else
       {

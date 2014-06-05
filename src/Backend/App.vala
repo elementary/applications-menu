@@ -24,6 +24,8 @@ public class Slingshot.Backend.App : Object {
 		SYNAPSE
 	}
 
+	public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
+
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
     public string desktop_id { get; construct set; }
@@ -38,7 +40,8 @@ public class Slingshot.Backend.App : Object {
     public string generic_name { get; private set; default = ""; }
 	public AppType app_type { get; private set; default = AppType.APP; }
 
-	private Synapse.Match? match { get; private set; default = null; }
+	public Synapse.Match? match { get; private set; default = null; }
+	public Synapse.Match? target { get; private set; default = null; }
 
     public signal void icon_changed ();
     public signal void launched (App app);
@@ -91,11 +94,16 @@ public class Slingshot.Backend.App : Object {
 
     }
 
-	public App.from_synapse_match (Synapse.Match match) {
+	public App.from_synapse_match (Synapse.Match match, Synapse.Match? target = null) {
+
+		app_type = AppType.SYNAPSE;
 
 		name = match.title;
 		description = match.description;
 		icon_name = match.icon_name;
+
+		this.match = match;
+		this.target = target;
 
 		update_icon ();
 
@@ -116,9 +124,16 @@ public class Slingshot.Backend.App : Object {
         }
     }
 
-    public Gdk.Pixbuf load_icon (int size) {
+    public Gdk.Pixbuf? load_icon (int size) {
 		if (app_type == AppType.SYNAPSE) {
-			var icon = Icon.new_for_string (name);
+			Icon? icon = null;
+
+			try {
+				icon = Icon.new_for_string (icon_name);
+			} catch (Error e) {
+				warning (e.message);
+			}
+
 			if (icon == null)
 				return null;
 
@@ -128,7 +143,11 @@ public class Slingshot.Backend.App : Object {
 			if (info == null)
 				return null;
 
-			return info.load_icon ();
+			try {
+				return info.load_icon ();
+			} catch (Error e) {
+				return null;
+			}
 		}
 
         Gdk.Pixbuf icon = null;
@@ -188,7 +207,7 @@ public class Slingshot.Backend.App : Object {
         return icon;
     }
 
-    public void launch () {
+    public bool launch () {
         try {
             switch (app_type) {
 				case AppType.COMMAND:
@@ -201,12 +220,22 @@ public class Slingshot.Backend.App : Object {
 					debug (@"Launching application: $name");
 					break;
 				case AppType.SYNAPSE:
-					match.execute (null);
+					if (match.match_type == Synapse.MatchType.SEARCH) {
+						start_search (match as Synapse.SearchMatch, target);
+						return false;
+					} else {
+						if (target == null)
+							Backend.SynapseSearch.find_actions_for_match (match).get (0).execute_with_target (match);
+						else
+							match.execute_with_target (target);
+					}
 					break;
             }
         } catch (Error e) {
             warning ("Failed to launch %s: %s", name, exec);
         }
+
+		return true;
     }
 
 }

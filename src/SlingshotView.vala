@@ -46,8 +46,6 @@ namespace Slingshot {
         private Gee.ArrayList<GMenu.TreeDirectory> categories;
         public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
 
-        private int current_position = 0;
-        private int search_view_position = 0;
         private Modality modality;
         private bool can_trigger_hotcorner = true;
 
@@ -182,10 +180,10 @@ namespace Slingshot {
 
             // Create the "SEARCH_VIEW"
             search_view = new Widgets.SearchView (this);
+			search_view.start_search.connect ((match, target) => {
+				search (search_entry.text, match, target);
+			});
 
-            foreach (Gee.ArrayList<Backend.App> app_list in apps.values) {
-                search_view.add_apps (app_list);
-            }
             stack.add_named (search_view, "search");
 
             // Create the "CATEGORY_VIEW"
@@ -280,8 +278,8 @@ namespace Slingshot {
 
             search_entry.activate.connect (() => {
                 if (modality == Modality.SEARCH_VIEW) {
-                    search_view.launch_selected ();
-                    hide ();
+                    if (search_view.launch_selected ())
+						hide ();
                 } else {
                     if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
                         ((Widgets.AppEntry) get_focus ()).launch_app ();
@@ -368,6 +366,16 @@ namespace Slingshot {
                 hide ();
                 return true;
             }
+
+			switch (event.keyval) {
+				case Gdk.Key.Left:
+					search_view.toggle_context (false);
+					return true;
+				case Gdk.Key.Right:
+					search_view.toggle_context (true);
+					return true;
+			}
+
             return false;
         }
 
@@ -413,8 +421,8 @@ namespace Slingshot {
                 case "Return":
                 case "KP_Enter":
                     if (modality == Modality.SEARCH_VIEW) {
-                        search_view.launch_selected ();
-                        hide ();
+                        if (search_view.launch_selected ())
+							hide ();
                     } else {
                         if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
                             ((Widgets.AppEntry)get_focus ()).launch_app ();
@@ -484,7 +492,7 @@ namespace Slingshot {
                         else if (!search_entry.has_focus) {//the user has already selected an AppEntry
                             category_move_focus (-1, 0);
                         }
-                    } else
+					} else
                         return false;
                     break;
 
@@ -521,7 +529,7 @@ namespace Slingshot {
                           category_move_focus (0, -1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
-                        search_view.selected--;
+                        search_view.up ();
                     }
                     break;
 
@@ -538,7 +546,7 @@ namespace Slingshot {
                             category_move_focus (0, +1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
-                        search_view.selected++;
+                        search_view.down ();
                     }
                     break;
 
@@ -702,9 +710,10 @@ namespace Slingshot {
             }
         }
 
-        private async void search (string text) {
+        private async void search (string text, Synapse.SearchMatch? search_match = null,
+			Synapse.Match? target = null) {
 
-            var stripped = text.down ().strip ();
+            var stripped = text.strip ();
 
             if (stripped == "") {
                 set_modality ((Modality) view_selector.selected);
@@ -713,21 +722,23 @@ namespace Slingshot {
 
             if (modality != Modality.SEARCH_VIEW)
                 set_modality (Modality.SEARCH_VIEW);
-            search_view_position = 0;
-            search_view.hide_all ();
 
-            var filtered = yield app_system.search_results (stripped);
-			var synapse_matches = yield synapse.search (stripped);
+            search_view.clear ();
 
-			foreach (var match in synapse_matches) {
+			Gee.List<Synapse.Match> matches;
+
+			if (search_match != null) {
+				search_match.search_source = target;
+				matches = yield synapse.search (text, search_match);
+			} else {
+				matches = yield synapse.search (text);
+			}
+
+			foreach (var match in matches) {
 				search_view.show_app (new Backend.App.from_synapse_match (match));
-			}	
+			}
 
-            foreach (Backend.App app in filtered) {
-                //search_view.show_app (app);
-            }
-
-            search_view.add_command (text);
+			search_view.selected = 0;
 
         }
 
@@ -744,7 +755,6 @@ namespace Slingshot {
             }
 
             stack.set_visible_child_name ("normal");
-            current_position = 0;
 
         }
 
