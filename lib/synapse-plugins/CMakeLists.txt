@@ -11,6 +11,8 @@ set(PLUGINS_PKG
 	gtk+-3.0
 	libsoup-2.4
 	rest-0.7
+	folks
+	folks-telepathy
 )
 
 pkg_check_modules(PLUGINS_DEPS REQUIRED ${PLUGINS_PKG})
@@ -40,6 +42,7 @@ set(PLUGINS_SOURCE
 	selection-plugin.vala
 	ssh-plugin.vala
 	system-management.vala
+	empathy-plugin.vala
 	test-slow-plugin.vala
 	xnoise-media-player-plugin.vala
 	wolframalpha-plugin.vala

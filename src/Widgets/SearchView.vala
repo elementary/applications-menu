@@ -33,6 +33,8 @@ namespace Slingshot.Widgets {
 
 		private bool in_context_view = false;
 
+		private int n_results = 0;
+
         private int _selected = 0;
         public int selected {
             get {
@@ -40,7 +42,7 @@ namespace Slingshot.Widgets {
             }
             set {
 				_selected = value;
-				var max_index = (int)main_box.get_children ().length () - 1;
+				var max_index = (int)n_results - 1;
 
 				// cycle
                 if (_selected < 0)
@@ -104,9 +106,69 @@ namespace Slingshot.Widgets {
             add_with_viewport (box);
         }
 
-        public void show_app (Backend.App app) {
+		public void set_results (Gee.List<Synapse.Match> matches, string search_term)
+		{
+			n_results = matches.size;
 
-			var search_item = new SearchItem (app);
+			// we have a hashmap of the categories with their matches and keep
+			// their order in a separate list, as the keys list of the map does
+			// not always keep the same order in which the keys were added
+			var categories = new HashTable<Synapse.MatchType,Gee.LinkedList<Synapse.Match>> (null, null);
+			var categories_order = new Gee.LinkedList<Synapse.MatchType> ();
+
+			foreach (var match in matches) {
+				Gee.LinkedList<Synapse.Match> list = null;
+
+				if ((list = categories.get (match.match_type)) == null) {
+					categories_order.add (match.match_type);
+					list = new Gee.LinkedList<Synapse.Match> ();
+					categories.set (match.match_type, list);
+				}
+
+				list.add (match);
+			}
+
+			foreach (var type in categories_order) {
+				string label = "";
+
+				switch (type) {
+					case Synapse.MatchType.UNKNOWN:
+						label = _("Unknown");
+						break;
+					case Synapse.MatchType.TEXT:
+						label = _("Text");
+						break;
+					case Synapse.MatchType.APPLICATION:
+						label = _("Applications");
+						break;
+					case Synapse.MatchType.GENERIC_URI:
+						label = _("Files");
+						break;
+					case Synapse.MatchType.ACTION:
+						label = _("Actions");
+						break;
+					case Synapse.MatchType.SEARCH:
+						label = _("Search");
+						break;
+					case Synapse.MatchType.CONTACT:
+						label = _("Contacts");
+						break;
+				}
+
+				var header = new Gtk.Label ("<b>" + label + "</b>");
+				header.xalign = 0;
+				header.use_markup = true;
+				header.show ();
+				main_box.pack_start (header, false);
+
+				foreach (var match in categories.get (type))
+					show_app (new Backend.App.from_synapse_match (match), search_term);
+			}
+		}
+
+        private void show_app (Backend.App app, string search_term) {
+
+			var search_item = new SearchItem (app, search_term);
 			app.start_search.connect ((search, target) => start_search (search, target));
             search_item.button_release_event.connect (() => {
                 app.launch ();
@@ -187,10 +249,15 @@ namespace Slingshot.Widgets {
         private void select_nth (Gtk.Box box, int index) {
 
             if (selected_app != null)
-				//&& !(box == context_box && selected_app.get_parent () == main_box))
+				// enable to make main item stay blue
+				// && !(box == context_box && selected_app.get_parent () == main_box))
                 selected_app.unset_state_flags (Gtk.StateFlags.PRELIGHT);
 
-            selected_app = (SearchItem) box.get_children ().nth_data (index);
+			if (box == main_box)
+				selected_app = get_nth_main_item (index) as SearchItem;
+			else
+				selected_app = box.get_children ().nth_data (index) as SearchItem;
+
             selected_app.set_state_flags (Gtk.StateFlags.PRELIGHT, false);
 
 			Gtk.Allocation alloc;
@@ -198,6 +265,20 @@ namespace Slingshot.Widgets {
 
 			vadjustment.value = double.max (alloc.y - vadjustment.page_size / 2, 0);
         }
+
+		private Gtk.Widget? get_nth_main_item (int n)
+		{
+			var i = 0;
+			foreach (var child in main_box.get_children ()) {
+				if (i == n && child is SearchItem)
+					return child;
+
+				if (child is SearchItem)
+					i++;
+			}
+
+			return null;
+		}
 
 		/**
 		 * Launch selected app

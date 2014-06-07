@@ -126,6 +126,14 @@ public class Slingshot.Backend.App : Object {
 
     public Gdk.Pixbuf? load_icon (int size) {
 		if (app_type == AppType.SYNAPSE) {
+			// for contacts we can load the thumbnail because we expect it to be
+			// the avatar. For other types it'd be ridiculously small.
+			if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
+				try {
+					return new Gdk.Pixbuf.from_file_at_scale (match.thumbnail_path, size, size, true);
+				} catch (Error e) { warning (e.message); }
+			}
+
 			Icon? icon = null;
 
 			try {

@@ -24,22 +24,19 @@ namespace Slingshot.Widgets {
 
         public Backend.App app { get; construct; }
 
-        private Gdk.Pixbuf icon;
-        private string icon_name;
         private Gtk.Label name_label;
         // private Gtk.Label desc_label;
 
         public signal bool launch_app ();
 
-        public SearchItem (Backend.App app) {
+        public SearchItem (Backend.App app, string search_term = "") {
             Object (app: app);
 
             get_style_context ().add_class ("app");
 
-            icon = app.icon;
-            icon_name = app.icon_name;
+			var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 
-            name_label = new Gtk.Label (fix (app.name));
+            name_label = new Gtk.Label (markup);
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
@@ -62,10 +59,6 @@ namespace Slingshot.Widgets {
             get_allocation (out size);
 
             return base.draw (cr);
-        }
-
-        private string fix (string text) {
-            return text.replace ("&", "&amp;").replace ("<", "&lt;").replace (">", "&gt;");
         }
     }
 

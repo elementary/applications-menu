@@ -181,7 +181,7 @@ namespace Slingshot {
             // Create the "SEARCH_VIEW"
             search_view = new Widgets.SearchView (this);
 			search_view.start_search.connect ((match, target) => {
-				search (search_entry.text, match, target);
+				search.begin (search_entry.text, match, target);
 			});
 
             stack.add_named (search_view, "search");
@@ -734,9 +734,7 @@ namespace Slingshot {
 				matches = yield synapse.search (text);
 			}
 
-			foreach (var match in matches) {
-				search_view.show_app (new Backend.App.from_synapse_match (match));
-			}
+			search_view.set_results (matches, text);
 
 			search_view.selected = 0;
 
