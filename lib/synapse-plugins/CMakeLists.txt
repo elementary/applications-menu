@@ -42,7 +42,7 @@ set(PLUGINS_SOURCE
 	selection-plugin.vala
 	ssh-plugin.vala
 	system-management.vala
-	empathy-plugin.vala
+	telepathy-plugin.vala
 	test-slow-plugin.vala
 	xnoise-media-player-plugin.vala
 	wolframalpha-plugin.vala
