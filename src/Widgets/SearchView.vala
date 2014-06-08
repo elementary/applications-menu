@@ -108,8 +108,6 @@ namespace Slingshot.Widgets {
 
 		public void set_results (Gee.List<Synapse.Match> matches, string search_term)
 		{
-			n_results = matches.size;
-
 			// we have a hashmap of the categories with their matches and keep
 			// their order in a separate list, as the keys list of the map does
 			// not always keep the same order in which the keys were added
@@ -138,6 +136,8 @@ namespace Slingshot.Widgets {
 
 				list.add (match);
 			}
+
+			n_results = 0;
 
 			foreach (var type in categories_order) {
 				string label = "";
@@ -178,8 +178,19 @@ namespace Slingshot.Widgets {
 				header.get_style_context ().add_class ("search-category-header");
 				main_box.pack_start (header, false);
 
-				foreach (var match in categories.get (type))
-					show_app (new Backend.App.from_synapse_match (match), search_term);
+				foreach (var match in categories.get (type)) {
+					// expand the actions we get for UNKNOWN
+					if (match.match_type == Synapse.MatchType.UNKNOWN) {
+						var actions = Backend.SynapseSearch.find_actions_for_match (match);
+						foreach (var action in actions) {
+							show_app (new Backend.App.from_synapse_match (action, match), search_term);
+							n_results++;
+						}
+					} else {
+						show_app (new Backend.App.from_synapse_match (match), search_term);
+						n_results++;
+					}
+				}
 			}
 		}
 
