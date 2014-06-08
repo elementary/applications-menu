@@ -178,7 +178,10 @@ namespace Slingshot.Widgets {
 				header.get_style_context ().add_class ("search-category-header");
 				main_box.pack_start (header, false);
 
-				foreach (var match in categories.get (type)) {
+				var list = categories.get (type);
+				for (var i = 0; i < 5 && i < list.size; i++) {
+					var match = list.get (i);
+
 					// expand the actions we get for UNKNOWN
 					if (match.match_type == Synapse.MatchType.UNKNOWN) {
 						var actions = Backend.SynapseSearch.find_actions_for_match (match);

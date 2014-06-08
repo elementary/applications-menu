@@ -26,8 +26,6 @@ namespace Slingshot {
 
     public class SlingshotView : Granite.Widgets.PopOver {
 
-		const uint MAIN_STACK_TRANSITION_DURATION = 200;
-
         // Widgets
         public Gtk.SearchEntry dummy_search_entry;
         public Widgets.LargeSearchEntry real_search_entry;
@@ -139,8 +137,6 @@ namespace Slingshot {
             container = new Gtk.Grid ();
 
 			main_stack = new Gtk.Stack ();
-			main_stack.transition_duration = MAIN_STACK_TRANSITION_DURATION;
-			main_stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
 
 			main_stack.add_named (container, "apps");
 
