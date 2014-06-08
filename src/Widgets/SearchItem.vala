@@ -20,7 +20,7 @@ namespace Slingshot.Widgets {
 
     public class SearchItem : Gtk.Button {
 
-		const int ICON_SIZE = 28;
+		const int ICON_SIZE = 32;
 
         public Backend.App app { get; construct; }
 

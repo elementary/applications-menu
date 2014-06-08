@@ -26,7 +26,7 @@ namespace Slingshot {
 
     public class SlingshotView : Granite.Widgets.PopOver {
 
-		const uint MAIN_STACK_TRANSITION_DURATION = 300;
+		const uint MAIN_STACK_TRANSITION_DURATION = 200;
 
         // Widgets
         public Gtk.SearchEntry dummy_search_entry;
@@ -140,6 +140,7 @@ namespace Slingshot {
 
 			main_stack = new Gtk.Stack ();
 			main_stack.transition_duration = MAIN_STACK_TRANSITION_DURATION;
+			main_stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
 
 			main_stack.add_named (container, "apps");
 
@@ -725,7 +726,6 @@ namespace Slingshot {
                     if (Slingshot.settings.use_category)
                         Slingshot.settings.use_category = false;
                     view_selector.show_all ();
-					main_stack.transition_type = Gtk.StackTransitionType.SLIDE_RIGHT;
 					main_stack.set_visible_child_name ("apps");
                     stack.set_visible_child_name ("normal");
 
@@ -743,7 +743,6 @@ namespace Slingshot {
                     if (!Slingshot.settings.use_category)
                         Slingshot.settings.use_category = true;
                     view_selector.show_all ();
-					main_stack.transition_type = Gtk.StackTransitionType.SLIDE_RIGHT;
 					main_stack.set_visible_child_name ("apps");
                     stack.set_visible_child_name ("category");
 
@@ -758,7 +757,6 @@ namespace Slingshot {
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
-					main_stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT;
 					main_stack.set_visible_child_name ("search");
 
                     var content_area = get_content_area ();
