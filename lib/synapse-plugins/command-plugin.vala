@@ -53,7 +53,7 @@ namespace Synapse
       
       public CommandObject (string cmd)
       {
-        Object (title: cmd, description: _ ("Run command"), command: cmd,
+        Object (title: _("Execute '%s'").printf (cmd), description: _ ("Run command"), command: cmd,
                 icon_name: "application-x-executable",
                 match_type: MatchType.APPLICATION,
                 needs_terminal: cmd.has_prefix ("sudo "));

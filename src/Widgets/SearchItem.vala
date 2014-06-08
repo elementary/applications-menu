@@ -20,12 +20,11 @@ namespace Slingshot.Widgets {
 
     public class SearchItem : Gtk.Button {
 
-		const int ICON_SIZE = 22;
+		const int ICON_SIZE = 28;
 
         public Backend.App app { get; construct; }
 
         private Gtk.Label name_label;
-        // private Gtk.Label desc_label;
 
         public signal bool launch_app ();
 
@@ -33,6 +32,7 @@ namespace Slingshot.Widgets {
             Object (app: app);
 
             get_style_context ().add_class ("app");
+            get_style_context ().add_class ("search-item");
 
 			var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 
@@ -41,13 +41,11 @@ namespace Slingshot.Widgets {
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
 
-            /*desc_label = new Gtk.Label (fix (app.description));
-            desc_label.set_ellipsize (Pango.EllipsizeMode.END);
-            desc_label.xalign = 0.0f;*/
-
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
 			box.pack_start (new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE)), false);
             box.pack_start (name_label, true);
+			box.margin_left = 12;
+			box.margin_top = box.margin_bottom = 3;
 
             add (box);
 

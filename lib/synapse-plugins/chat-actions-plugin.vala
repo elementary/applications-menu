@@ -152,8 +152,8 @@ namespace Synapse
       actions = new Gee.ArrayList<BaseAction> ();
 
       actions.add (new OpenChat ());
-      actions.add (new SendMessage ());
-      actions.add (new SendMessageTo ());
+      // actions.add (new SendMessage ());
+      // actions.add (new SendMessageTo ());
     }
 
     public ResultSet? find_for_match (ref Query query, Match match)

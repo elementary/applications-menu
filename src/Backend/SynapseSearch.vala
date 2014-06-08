@@ -21,6 +21,8 @@ namespace Slingshot.Backend
 	public class SynapseSearch : Object
 	{
 		private static Type[] plugins = {
+			typeof (Synapse.ChatActions),
+			typeof (Synapse.ChromiumPlugin),
 			typeof (Synapse.DesktopFilePlugin),
 			typeof (Synapse.HybridSearchPlugin),
 			typeof (Synapse.GnomeSessionPlugin),
@@ -115,7 +117,7 @@ namespace Slingshot.Backend
 						warn_if_fail (start_pos >= 0 && end_pos >= 0);
 						res.append (Markup.escape_text (text.substring (last_pos, start_pos - last_pos)));
 						last_pos = end_pos;
-						res.append (Markup.printf_escaped ("<u><b>%s</b></u>", mi.fetch (i)));
+						res.append (Markup.printf_escaped ("<b>%s</b>", mi.fetch (i)));
 						if (i == cnt - 1) {
 							res.append (Markup.escape_text (text.substring (last_pos)));
 						}

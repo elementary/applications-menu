@@ -95,45 +95,6 @@ namespace Synapse
 			}
 		}
 
-		private class StartChat : BaseAction
-		{
-			public StartChat ()
-			{
-				Object (title: _ ("Start chat"),
-						description: _ ("Open a chat"),
-						match_type: MatchType.ACTION,
-						icon_name: "internet-chat", has_thumbnail: false,
-						default_relevancy: Match.Score.EXCELLENT);
-			}
-
-			public override void do_execute (Match? match, Match? target = null)
-			{
-				var contact = (match as Contact).persona.contact;
-
-				if (contact == null)
-					return;
-
-				var request = new TelepathyGLib.AccountChannelRequest.text (contact.get_account (), 0);
-				request.set_target_contact (contact);
-
-				request.create_channel_async.begin ("", null, (obj, res) => {
-					try {
-						if (!request.create_channel_async.end (res))
-							warning ("Creating channel failed");
-					} catch (GLib.Error e) { warning (e.message); }
-				});
-			}
-
-			public override bool valid_for_match (Match match)
-			{
-				return match.match_type == MatchType.CONTACT && match is Contact;
-			}
-
-			public override bool needs_target () {
-				return false;
-			}
-		}
-
 		private class Contact: Object, Match, ContactMatch
 		{
 			// from Match interface
@@ -148,7 +109,9 @@ namespace Synapse
 
 			public Contact (Tpf.Persona persona)
 			{
-				var avatar_file = persona.contact.avatar_file;
+				File? avatar_file = null;
+				if (persona.contact != null)
+					avatar_file = persona.contact.avatar_file;
 
 				Object (title: persona.alias,
 						description: persona.full_name, // FIXME
@@ -165,6 +128,19 @@ namespace Synapse
 
 			public virtual void open_chat ()
 			{
+				var contact = persona.contact;
+				if (contact == null)
+					return;
+
+				var request = new TelepathyGLib.AccountChannelRequest.text (contact.get_account (), 0);
+				request.set_target_contact (contact);
+
+				request.create_channel_async.begin ("", null, (obj, res) => {
+					try {
+						if (!request.create_channel_async.end (res))
+							warning ("Creating channel failed");
+					} catch (GLib.Error e) { warning (e.message); }
+				});
 			}
 
 			public void send_file (string path)
@@ -181,7 +157,6 @@ namespace Synapse
 		{
 			actions = new Gee.ArrayList<BaseAction> ();
 			// TODO actions.add (new SendToContact ());
-			actions.add (new StartChat ());
 
 			contacts = new Gee.LinkedList<Contact> ();
 

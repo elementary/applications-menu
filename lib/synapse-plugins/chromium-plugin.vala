@@ -68,7 +68,7 @@ namespace Synapse
                 description: url,
                 uri: url,
                 match_type: MatchType.GENERIC_URI,
-                has_thumbnail: false, icon_name: "text-html");
+                has_thumbnail: false, icon_name: "internet-web-browser");
       }
     }
     
@@ -80,7 +80,8 @@ namespace Synapse
         _ ("Browse and open Chromium bookmarks."),
         "chromium",
         register_plugin,
-        Environment.find_program_in_path ("chromium") != null,
+        Environment.find_program_in_path ("chromium") != null ||
+        Environment.find_program_in_path ("google-chrome") != null,
         _ ("Chromium is not installed")
       );
     }
@@ -91,10 +92,12 @@ namespace Synapse
     }
     
     private Utils.AsyncOnce<Gee.List<BookmarkMatch>> bookmarks_once;
+    private bool use_google_chrome = false;
     
     construct
     {
       bookmarks_once = new Utils.AsyncOnce<Gee.List<BookmarkMatch>> ();
+      use_google_chrome = Environment.find_program_in_path ("google-chrome") != null;
     }
     
     private void full_search (Query q, ResultSet results,
@@ -181,7 +184,8 @@ namespace Synapse
       var bookmarks = new Gee.ArrayList<BookmarkMatch> ();
       var parser = new Json.Parser ();
       string fpath = GLib.Path.build_filename (
-        Environment.get_user_config_dir (), "chromium", "Default", "Bookmarks");
+        Environment.get_user_config_dir (),
+		use_google_chrome ? "google-chrome" : "chromium", "Default", "Bookmarks");
       
       string CONTAINER = "folder";
       Gee.HashSet<string> UNWANTED_SCHEME = new Gee.HashSet<string> ();

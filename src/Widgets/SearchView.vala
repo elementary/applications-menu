@@ -85,9 +85,9 @@ namespace Slingshot.Widgets {
 
             items = new Gee.HashMap<Backend.App, SearchItem> ();
 
-			main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+			main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-			context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+			context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 			context_box.width_request = CONTEXT_WIDTH;
 			context_fixed = new Gtk.Fixed ();
 			context_fixed.put (context_box, 0, 0);
@@ -113,16 +113,27 @@ namespace Slingshot.Widgets {
 			// we have a hashmap of the categories with their matches and keep
 			// their order in a separate list, as the keys list of the map does
 			// not always keep the same order in which the keys were added
-			var categories = new HashTable<Synapse.MatchType,Gee.LinkedList<Synapse.Match>> (null, null);
-			var categories_order = new Gee.LinkedList<Synapse.MatchType> ();
+			var categories = new HashTable<int,Gee.LinkedList<Synapse.Match>> (null, null);
+			var categories_order = new Gee.LinkedList<int> ();
 
 			foreach (var match in matches) {
 				Gee.LinkedList<Synapse.Match> list = null;
 
-				if ((list = categories.get (match.match_type)) == null) {
-					categories_order.add (match.match_type);
+				// we're cheating here to give remote results a separate category. We assign 8 as
+				// the id for internet results, which currently is the lowest undefined MatchType
+				int type = match.match_type;
+				if (type == Synapse.MatchType.GENERIC_URI) {
+					var uri = (match as Synapse.UriMatch).uri;
+					if (uri.has_prefix ("http://")
+						|| uri.has_prefix ("ftp://")
+						|| uri.has_prefix ("https://"))
+						type = 8;
+				}
+
+				if ((list = categories.get (type)) == null) {
 					list = new Gee.LinkedList<Synapse.Match> ();
-					categories.set (match.match_type, list);
+					categories.set (type, list);
+					categories_order.add (type);
 				}
 
 				list.add (match);
@@ -133,7 +144,7 @@ namespace Slingshot.Widgets {
 
 				switch (type) {
 					case Synapse.MatchType.UNKNOWN:
-						label = _("Unknown");
+						label = _("Other");
 						break;
 					case Synapse.MatchType.TEXT:
 						label = _("Text");
@@ -153,12 +164,18 @@ namespace Slingshot.Widgets {
 					case Synapse.MatchType.CONTACT:
 						label = _("Contacts");
 						break;
+					case 8:
+						label = _("Internet");
+						break;
 				}
 
-				var header = new Gtk.Label ("<b>" + label + "</b>");
+				var header = new Gtk.Label (label);
 				header.xalign = 0;
+				header.margin_left = header.margin_top = 8;
+				header.margin_bottom = 4;
 				header.use_markup = true;
 				header.show ();
+				header.get_style_context ().add_class ("search-category-header");
 				main_box.pack_start (header, false);
 
 				foreach (var match in categories.get (type))
