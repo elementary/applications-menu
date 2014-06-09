@@ -266,7 +266,7 @@ namespace Slingshot.Widgets {
 				toggle_context (false);
 
 			foreach (var child in main_box.get_children ())
-				main_box.remove (child);
+				child.destroy ();
         }
 
 		public void down ()

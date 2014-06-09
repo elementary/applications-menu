@@ -27,6 +27,8 @@ namespace Slingshot.Widgets {
         private Gtk.Label name_label;
 		private Gtk.Image icon;
 
+		private Cancellable? cancellable = null;
+
         public signal bool launch_app ();
 
         public SearchItem (Backend.App app, string search_term = "") {
@@ -42,14 +44,20 @@ namespace Slingshot.Widgets {
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
 
-			var icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
+			icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
+
+			// load a favicon if we're an internet page
 			var uri_match = app.match as Synapse.UriMatch;
-			if (uri_match != null && uri_match.uri.has_prefix ("http"))
-				Backend.SynapseSearch.get_favicon_for_match.begin (uri_match, ICON_SIZE, null, (obj, res) => {
+			if (uri_match != null && uri_match.uri.has_prefix ("http")) {
+				cancellable = new Cancellable ();
+				Backend.SynapseSearch.get_favicon_for_match.begin (uri_match,
+					ICON_SIZE, cancellable, (obj, res) => {
+
 					var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
 					if (pixbuf != null)
 						icon.set_from_pixbuf (pixbuf);
 				});
+			}
 
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
 			box.pack_start (icon, false);
@@ -62,12 +70,13 @@ namespace Slingshot.Widgets {
             launch_app.connect (app.launch);
         }
 
-        protected override bool draw (Cairo.Context cr) {
-            Gtk.Allocation size;
-            get_allocation (out size);
+		public override void destroy ()
+		{
+			base.destroy ();
 
-            return base.draw (cr);
-        }
+			if (cancellable != null)
+				cancellable.cancel ();
+		}
     }
 
 }

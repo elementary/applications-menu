@@ -98,8 +98,8 @@ namespace Slingshot.Backend
 
 			Gdk.Pixbuf? pixbuf = null;
 
-			if ((pixbuf = favicon_cache.get (soup_uri.host)) != null)
-				return pixbuf;
+			if (favicon_cache.has_key (soup_uri.host))
+				return favicon_cache.get (soup_uri.host);
 
 			var url = "%s://%s/favicon.ico".printf (soup_uri.scheme, soup_uri.host);
 
@@ -110,14 +110,12 @@ namespace Slingshot.Backend
 			try {
 				var stream = yield session.send_async (msg, cancellable);
 				if (stream != null) {
-					pixbuf = yield new Gdk.Pixbuf.from_stream_async (stream, cancellable);
-
-					if (pixbuf != null)
-						pixbuf = pixbuf.scale_simple (size, size, Gdk.InterpType.HYPER);
+					pixbuf = yield new Gdk.Pixbuf.from_stream_at_scale_async (stream, size, size, true, cancellable);
 				}
-			} catch (Error e) {
-				warning ("Fetching icon for %s failed: %s\n", url, e.message);
-			}
+			} catch (Error e) {}
+
+			if (cancellable.is_cancelled ())
+				return null;
 
 			// we set the cache in any case, even if things failed. No need to
 			// try requesting an icon again and again
