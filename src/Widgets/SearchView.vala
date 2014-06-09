@@ -20,6 +20,7 @@ namespace Slingshot.Widgets {
 
     public class SearchView : Gtk.ScrolledWindow {
 		const int CONTEXT_WIDTH = 200;
+		const int MAX_RESULTS_BEFORE_LIMIT = 10;
 
 		public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
@@ -139,6 +140,13 @@ namespace Slingshot.Widgets {
 
 			n_results = 0;
 
+			// if we're showing more than about 10 results and we have more than
+			// categories, we limit the results per category to the most relevant
+			// ones.
+			var limit = int.MAX;
+			if (matches.size + 3 > MAX_RESULTS_BEFORE_LIMIT && categories_order.size > 2)
+				limit = 5;
+
 			foreach (var type in categories_order) {
 				string label = "";
 
@@ -179,7 +187,7 @@ namespace Slingshot.Widgets {
 				main_box.pack_start (header, false);
 
 				var list = categories.get (type);
-				for (var i = 0; i < 5 && i < list.size; i++) {
+				for (var i = 0; i < limit && i < list.size; i++) {
 					var match = list.get (i);
 
 					// expand the actions we get for UNKNOWN

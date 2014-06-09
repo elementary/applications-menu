@@ -25,6 +25,7 @@ namespace Slingshot.Widgets {
         public Backend.App app { get; construct; }
 
         private Gtk.Label name_label;
+		private Gtk.Image icon;
 
         public signal bool launch_app ();
 
@@ -41,8 +42,17 @@ namespace Slingshot.Widgets {
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
 
+			var icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
+			var uri_match = app.match as Synapse.UriMatch;
+			if (uri_match != null && uri_match.uri.has_prefix ("http"))
+				Backend.SynapseSearch.get_favicon_for_match.begin (uri_match, ICON_SIZE, null, (obj, res) => {
+					var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
+					if (pixbuf != null)
+						icon.set_from_pixbuf (pixbuf);
+				});
+
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-			box.pack_start (new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE)), false);
+			box.pack_start (icon, false);
             box.pack_start (name_label, true);
 			box.margin_left = 12;
 			box.margin_top = box.margin_bottom = 3;

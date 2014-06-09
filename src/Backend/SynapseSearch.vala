@@ -51,6 +51,7 @@ namespace Slingshot.Backend
 		};
 
 		private static Synapse.DataSink? sink = null;
+		private static Gee.HashMap<string,Gdk.Pixbuf> favicon_cache;
 
 		Cancellable? current_search = null;
 
@@ -61,6 +62,8 @@ namespace Slingshot.Backend
 				foreach (var plugin in plugins) {
 					sink.register_static_plugin (plugin);
 				}
+
+				favicon_cache = new Gee.HashMap<string,Gdk.Pixbuf> ();
 			}
 		}
 
@@ -86,6 +89,43 @@ namespace Slingshot.Backend
 			return sink.find_actions_for_match (match, null, Synapse.QueryFlags.ALL);
 		}
 
+		public static async Gdk.Pixbuf? get_favicon_for_match (Synapse.UriMatch match, int size,
+			Cancellable? cancellable = null)
+		{
+			var soup_uri = new Soup.URI (match.uri);
+			if (!soup_uri.scheme.has_prefix ("http"))
+				return null;
+
+			Gdk.Pixbuf? pixbuf = null;
+
+			if ((pixbuf = favicon_cache.get (soup_uri.host)) != null)
+				return pixbuf;
+
+			var url = "%s://%s/favicon.ico".printf (soup_uri.scheme, soup_uri.host);
+
+			var msg = new Soup.Message ("GET", url);
+			var session = new Soup.Session ();
+			session.use_thread_context = true;
+
+			try {
+				var stream = yield session.send_async (msg, cancellable);
+				if (stream != null) {
+					pixbuf = yield new Gdk.Pixbuf.from_stream_async (stream, cancellable);
+
+					if (pixbuf != null)
+						pixbuf = pixbuf.scale_simple (size, size, Gdk.InterpType.HYPER);
+				}
+			} catch (Error e) {
+				warning ("Fetching icon for %s failed: %s\n", url, e.message);
+			}
+
+			// we set the cache in any case, even if things failed. No need to
+			// try requesting an icon again and again
+			favicon_cache.set (soup_uri.host, pixbuf);
+
+			return pixbuf;
+		}
+
 		// copied from synapse-ui with some slight changes
 		public static string markup_string_with_search (string text, string pattern)
 		{
@@ -100,7 +140,7 @@ namespace Slingshot.Backend
 				return markup.printf (Markup.escape_text (pattern));
 			}
 
-			var matchers = Synapse.Query.get_matchers_for_query ( pattern, 0,
+			var matchers = Synapse.Query.get_matchers_for_query (pattern, 0,
 				RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS);
 
 			string? highlighted = null;
