@@ -44,6 +44,7 @@ set(PLUGINS_SOURCE
 	system-management.vala
 	telepathy-plugin.vala
 	test-slow-plugin.vala
+	user-search.vala
 	xnoise-media-player-plugin.vala
 	wolframalpha-plugin.vala
 	zeitgeist-plugin.vala

@@ -38,11 +38,12 @@ namespace Slingshot.Backend
 			typeof (Synapse.TelepathyPlugin),
 			typeof (Synapse.ImgUrPlugin), // HAVE_LIBREST
 			typeof (Synapse.SshPlugin),
+			typeof (Synapse.UserSearchPlugin),
 			typeof (Synapse.XnoiseActions),
 			typeof (Synapse.ZeitgeistPlugin),
 			typeof (Synapse.ZeitgeistRelated),
 			typeof (Synapse.DevhelpPlugin),
-			typeof (Synapse.OpenSearchPlugin),
+			// typeof (Synapse.OpenSearchPlugin),
 			typeof (Synapse.LocatePlugin),
 			typeof (Synapse.PastebinPlugin),
 			typeof (Synapse.DictionaryPlugin),
