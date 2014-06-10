@@ -768,14 +768,22 @@ namespace Slingshot {
             var stripped = text.strip ();
 
             if (stripped == "") {
-                set_modality ((Modality) view_selector.selected);
-                return;
+				// this code was making problems when selecting the currently searched text
+				// and immediately replacing it. In that case two async searches would be
+				// started and both requested switching from and to search view, which would
+				// result in a Gtk error and the first letter of the new search not being
+				// picked up. If we add an idle and recheck that the entry is indeed still
+				// empty before switching, this problem is gone.
+				Idle.add (() => {
+					if (real_search_entry.text.strip () == "")
+						set_modality ((Modality) view_selector.selected);
+					return false;
+				});
+				return;
             }
 
             if (modality != Modality.SEARCH_VIEW)
                 set_modality (Modality.SEARCH_VIEW);
-
-            search_view.clear ();
 
 			Gee.List<Synapse.Match> matches;
 
@@ -786,6 +794,7 @@ namespace Slingshot {
 				matches = yield synapse.search (text);
 			}
 
+            search_view.clear ();
 			search_view.set_results (matches, text);
 
 			search_view.selected = 0;

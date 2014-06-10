@@ -90,6 +90,15 @@ namespace Slingshot.Backend
 			return sink.find_actions_for_match (match, null, Synapse.QueryFlags.ALL);
 		}
 
+		/**
+		 * Attempts to load a favicon for an UriMatch and caches the icon
+		 *
+		 * @param match       The UriMatch
+		 * @param size        The icon size at which to load the icon. If the favicon is smaller than
+		 *                    that size, null will be returned
+		 * @param cancellable Cancellable for the loading operations
+		 * @return            The pixbuf or null if loading failed or the icon was too small
+		 */
 		public static async Gdk.Pixbuf? get_favicon_for_match (Synapse.UriMatch match, int size,
 			Cancellable? cancellable = null)
 		{
@@ -111,7 +120,11 @@ namespace Slingshot.Backend
 			try {
 				var stream = yield session.send_async (msg, cancellable);
 				if (stream != null) {
-					pixbuf = yield new Gdk.Pixbuf.from_stream_at_scale_async (stream, size, size, true, cancellable);
+					pixbuf = yield new Gdk.Pixbuf.from_stream_async (stream, cancellable);
+					// as per design decision, icons that are smaller than requested will not
+					// be displayed, instead the fallback should be used, so we return null
+					if (pixbuf.width < size)
+						pixbuf = null;
 				}
 			} catch (Error e) {}
 
