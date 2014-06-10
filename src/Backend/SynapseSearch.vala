@@ -29,6 +29,7 @@ namespace Slingshot.Backend
 			typeof (Synapse.GnomeScreenSaverPlugin),
 			typeof (Synapse.SystemManagementPlugin),
 			typeof (Synapse.CommandPlugin),
+			typeof (Synapse.ContractorPlugin),
 			typeof (Synapse.RhythmboxActions),
 			typeof (Synapse.BansheeActions),
 			typeof (Synapse.DirectoryPlugin),

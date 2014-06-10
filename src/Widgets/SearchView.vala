@@ -20,6 +20,7 @@ namespace Slingshot.Widgets {
 
     public class SearchView : Gtk.ScrolledWindow {
 		const int CONTEXT_WIDTH = 200;
+		const int CONTEXT_ARROW_SIZE = 12;
 		const int MAX_RESULTS_BEFORE_LIMIT = 10;
 
 		public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
@@ -31,8 +32,10 @@ namespace Slingshot.Widgets {
 		private Gtk.Box main_box;
 
 		private Gtk.Revealer revealer;
+		private Gtk.EventBox context;
 		private Gtk.Box context_box;
 		private Gtk.Fixed context_fixed;
+		private int context_selected_y;
 
 		private int n_results = 0;
 
@@ -91,14 +94,18 @@ namespace Slingshot.Widgets {
 			context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 			context_box.width_request = CONTEXT_WIDTH;
 			context_fixed = new Gtk.Fixed ();
+			context_fixed.margin_left = CONTEXT_ARROW_SIZE;
 			context_fixed.put (context_box, 0, 0);
+			context = new Gtk.EventBox ();
+			context.draw.connect (draw_context);
+			context.add (context_fixed);
 
 			revealer = new Gtk.Revealer ();
 			revealer.transition_duration = 400;
 			revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
-			revealer.width_request = CONTEXT_WIDTH;
+			revealer.width_request = CONTEXT_WIDTH + CONTEXT_ARROW_SIZE;
 			revealer.no_show_all = true;
-			revealer.add (context_fixed);
+			revealer.add (context);
 
 			var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 			box.pack_start (main_box, true);
@@ -237,7 +244,7 @@ namespace Slingshot.Widgets {
 					app.start_search.connect ((search, target) => start_search (search, target));
 					context_box.pack_start (new SearchItem (app));
 				}
-				context_fixed.show_all ();
+				context.show_all ();
 
 				revealer.show ();
 				revealer.set_reveal_child (true);
@@ -246,6 +253,7 @@ namespace Slingshot.Widgets {
 				selected_app.get_allocation (out alloc);
 
 				context_fixed.move (context_box, 0, alloc.y);
+				context_selected_y = alloc.y;
 
 				context_selected = 0;
 			} else {
@@ -317,6 +325,20 @@ namespace Slingshot.Widgets {
 			}
 
 			return null;
+		}
+
+		private bool draw_context (Cairo.Context cr)
+		{
+			cr.rectangle (CONTEXT_ARROW_SIZE, 0, context.get_allocated_width (), context.get_allocated_height ());
+
+			cr.move_to (CONTEXT_ARROW_SIZE, context_selected_y + 6);
+			cr.rel_line_to (-CONTEXT_ARROW_SIZE, 12);
+			cr.rel_line_to (CONTEXT_ARROW_SIZE, 12);
+			cr.close_path ();
+
+			cr.set_source_rgb (0.85, 0.85, 0.85);
+			cr.fill ();
+			return false;
 		}
 
 		/**

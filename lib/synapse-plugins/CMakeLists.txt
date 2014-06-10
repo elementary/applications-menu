@@ -13,6 +13,7 @@ set(PLUGINS_PKG
 	rest-0.7
 	folks
 	folks-telepathy
+	granite
 )
 
 pkg_check_modules(PLUGINS_DEPS REQUIRED ${PLUGINS_PKG})
@@ -23,6 +24,7 @@ set(PLUGINS_SOURCE
 	chat-actions-plugin.vala
 	chromium-plugin.vala
 	command-plugin.vala
+	contractor-plugin.vala
 	desktop-file-plugin.vala
 	devhelp-search.vala
 	dictionary.vala

@@ -16,6 +16,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+errordomain IconError
+{
+	NOT_FOUND
+}
+
 public class Slingshot.Backend.App : Object {
 
 	public enum AppType {
@@ -126,36 +131,27 @@ public class Slingshot.Backend.App : Object {
 
     public Gdk.Pixbuf? load_icon (int size) {
 		if (app_type == AppType.SYNAPSE) {
-			// for contacts we can load the thumbnail because we expect it to be
-			// the avatar. For other types it'd be ridiculously small.
-			if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
-				try {
+			try {
+				// for contacts we can load the thumbnail because we expect it to be
+				// the avatar. For other types it'd be ridiculously small.
+				if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
 					return new Gdk.Pixbuf.from_file_at_scale (match.thumbnail_path, size, size, true);
-				} catch (Error e) { warning (e.message); }
-			}
+				}
 
-			Icon? icon = null;
+				var icon = Icon.new_for_string (icon_name);
+				var info = Gtk.IconTheme.get_default ().lookup_by_gicon (icon,
+					size, Gtk.IconLookupFlags.FORCE_SIZE);
 
-			try {
-				icon = Icon.new_for_string (icon_name);
-			} catch (Error e) {
-				warning (e.message);
-			}
+				if (info == null)
+					throw new IconError.NOT_FOUND ("Not found");
 
-			if (icon == null)
-				return null;
-
-			var info = Gtk.IconTheme.get_default ().lookup_by_gicon (icon,
-				size, Gtk.IconLookupFlags.FORCE_SIZE);
-
-			if (info == null)
-				return null;
-
-			try {
 				return info.load_icon ();
 			} catch (Error e) {
-				return null;
+				warning ("Failed to load icon: %s\n", e.message);
 			}
+
+			return Slingshot.icon_theme.load_icon ("application-default-icon",
+				size, Gtk.IconLookupFlags.FORCE_SIZE);
 		}
 
         Gdk.Pixbuf icon = null;
