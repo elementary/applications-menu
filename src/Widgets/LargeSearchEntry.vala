@@ -38,8 +38,8 @@ namespace Slingshot.Widgets
 		{
 			Object (orientation: Gtk.Orientation.HORIZONTAL, spacing: 4);
 
-			var find_pixbuf = Gtk.IconTheme.get_default ().load_icon ("edit-find-symbolic", ICON_SIZE, 0);
-			var clear_pixbuf = Gtk.IconTheme.get_default ().load_icon ("edit-clear-symbolic", ICON_SIZE, 0);
+			var find_pixbuf = get_icon ("edit-find-symbolic");
+			var clear_pixbuf = get_icon ("edit-clear-symbolic");
 
 			var clear_box = new Gtk.Button ();
 			clear_box.add (new Gtk.Image.from_pixbuf (clear_pixbuf));
@@ -54,6 +54,18 @@ namespace Slingshot.Widgets
 			pack_start (clear_box, false);
 
 			widget.changed.connect (() => search_changed ());
+		}
+
+		Gdk.Pixbuf? get_icon (string name)
+		{
+			Gdk.Pixbuf? pixbuf = null;
+			var info = Gtk.IconTheme.get_default ().lookup_icon (name, ICON_SIZE, 0);
+			try {
+				if (info != null)
+					pixbuf = info.load_symbolic ({ 0.5, 0.5, 0.5, 1 });
+			} catch (Error e) {}
+
+			return pixbuf;
 		}
 
 	}

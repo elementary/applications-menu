@@ -396,11 +396,8 @@ namespace Slingshot {
             }
 
 			switch (event.keyval) {
-				case Gdk.Key.Left:
-					search_view.toggle_context (false);
-					return true;
-				case Gdk.Key.Right:
-					search_view.toggle_context (true);
+				case Gdk.Key.Tab:
+					search_view.toggle_context (!search_view.in_context_view);
 					return true;
 			}
 

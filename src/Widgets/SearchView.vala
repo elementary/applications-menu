@@ -24,6 +24,8 @@ namespace Slingshot.Widgets {
 
 		public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
+		public bool in_context_view { get; private set; default = false; }
+
         private Gee.HashMap<Backend.App, SearchItem> items;
         private SearchItem selected_app = null;
 		private Gtk.Box main_box;
@@ -31,8 +33,6 @@ namespace Slingshot.Widgets {
 		private Gtk.Revealer revealer;
 		private Gtk.Box context_box;
 		private Gtk.Fixed context_fixed;
-
-		private bool in_context_view = false;
 
 		private int n_results = 0;
 

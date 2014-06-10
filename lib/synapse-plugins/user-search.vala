@@ -68,8 +68,15 @@ namespace Synapse
 				url = "http://www.google.com/search?q={searchTerms}";
 			}
 
+			// if we only failed to detect the name, use a fallback
+			string title;
+			if (name == null)
+				title = _("Search the web");
+			else
+				title = _("Search with %s").printf (name);
+
 			actions = new Gee.ArrayList<SearchAction> ();
-			actions.add (new SearchAction (_("Search with %s").printf (name), url));
+			actions.add (new SearchAction (title, url));
 		}
 
 		void get_info_for_chromium_like (Browser exact_type, out string name, out string url)
@@ -102,6 +109,15 @@ namespace Synapse
 						} else if ("\"search_url\":" in line) {
 							json_value_regex.match (line, 0, out match);
 							url = match.fetch (1);
+
+							if (url != null) {
+								// for google's default search, there are plenty of variables we don't need
+								// to fill, so we delete them
+								var clean_regex = new Regex ("{google:\\w*}");
+								url = url.replace ("{google:baseURL}", "http://google.com/")
+									.replace ("{inputEncoding}", "");
+								url = clean_regex.replace (url, url.length, 0, "");
+							}
 						}
 
 					} else if ("\"default_search_provider\": {" in line) {
@@ -252,6 +268,7 @@ namespace Synapse
 					string what = (match is TextMatch) ?
 						(match as TextMatch).get_text () : match.title;
 
+					print ("ASKJDSD: %s\n", query_template);
 					AppInfo.launch_default_for_uri (query_template.replace ("{searchTerms}", what),
 						new Gdk.AppLaunchContext ());
 				} catch (Error err) {
