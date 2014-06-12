@@ -162,8 +162,8 @@ public class Slingshot.Backend.AppSystem : Object {
             foreach (App app in category) {
 
                 if (app.categories != null
-					&& (GCC_PANEL_CATEGORY in app.categories
-					|| SWITCHBOARD_PLUG_CATEGORY in app.categories))
+                    && (GCC_PANEL_CATEGORY in app.categories
+                    || SWITCHBOARD_PLUG_CATEGORY in app.categories))
                     continue;
                 
 

@@ -74,10 +74,10 @@ vala_precompile (VALA_C ${APPNAME}
     src/Backend/DBusService.vala
     src/Backend/App.vala
     src/Backend/RelevancyService.vala
-	src/Backend/SynapseSearch.vala
+    src/Backend/SynapseSearch.vala
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
-	src/Widgets/LargeSearchEntry.vala
+    src/Widgets/LargeSearchEntry.vala
     src/Widgets/Switcher.vala
     src/Widgets/SearchView.vala
     src/Widgets/SearchItem.vala
@@ -86,14 +86,14 @@ vala_precompile (VALA_C ${APPNAME}
 PACKAGES
     ${CORE_DEPS}
     ${UI_DEPS}
-	synapse-core
-	synapse-plugins
+    synapse-core
+    synapse-plugins
 CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
     --thread
-	--vapidir=${CMAKE_BINARY_DIR}/lib/synapse-core
-	--vapidir=${CMAKE_BINARY_DIR}/lib/synapse-plugins
+    --vapidir=${CMAKE_BINARY_DIR}/lib/synapse-core
+    --vapidir=${CMAKE_BINARY_DIR}/lib/synapse-plugins
     -g
     ${UNITY_OPTIONS}
     ${ZEITGEIST_OPTIONS}
