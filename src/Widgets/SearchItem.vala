@@ -20,14 +20,14 @@ namespace Slingshot.Widgets {
 
     public class SearchItem : Gtk.Button {
 
-		const int ICON_SIZE = 32;
+        const int ICON_SIZE = 32;
 
         public Backend.App app { get; construct; }
 
         private Gtk.Label name_label;
-		private Gtk.Image icon;
+        private Gtk.Image icon;
 
-		private Cancellable? cancellable = null;
+        private Cancellable? cancellable = null;
 
         public signal bool launch_app ();
 
@@ -37,46 +37,46 @@ namespace Slingshot.Widgets {
             get_style_context ().add_class ("app");
             get_style_context ().add_class ("search-item");
 
-			var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
+            var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 
             name_label = new Gtk.Label (markup);
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
 
-			icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
+            icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
 
-			// load a favicon if we're an internet page
-			var uri_match = app.match as Synapse.UriMatch;
-			if (uri_match != null && uri_match.uri.has_prefix ("http")) {
-				cancellable = new Cancellable ();
-				Backend.SynapseSearch.get_favicon_for_match.begin (uri_match,
-					ICON_SIZE, cancellable, (obj, res) => {
+            // load a favicon if we're an internet page
+            var uri_match = app.match as Synapse.UriMatch;
+            if (uri_match != null && uri_match.uri.has_prefix ("http")) {
+                cancellable = new Cancellable ();
+                Backend.SynapseSearch.get_favicon_for_match.begin (uri_match,
+                    ICON_SIZE, cancellable, (obj, res) => {
 
-					var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
-					if (pixbuf != null)
-						icon.set_from_pixbuf (pixbuf);
-				});
-			}
+                    var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
+                    if (pixbuf != null)
+                        icon.set_from_pixbuf (pixbuf);
+                });
+            }
 
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-			box.pack_start (icon, false);
+            box.pack_start (icon, false);
             box.pack_start (name_label, true);
-			box.margin_left = 12;
-			box.margin_top = box.margin_bottom = 3;
+            box.margin_left = 12;
+            box.margin_top = box.margin_bottom = 3;
 
             add (box);
 
             launch_app.connect (app.launch);
         }
 
-		public override void destroy ()
-		{
-			base.destroy ();
+        public override void destroy () {
 
-			if (cancellable != null)
-				cancellable.cancel ();
-		}
+            base.destroy ();
+
+            if (cancellable != null)
+                cancellable.cancel ();
+        }
     }
 
 }

@@ -19,25 +19,25 @@
 namespace Slingshot.Widgets {
 
     public class SearchView : Gtk.ScrolledWindow {
-		const int CONTEXT_WIDTH = 200;
-		const int CONTEXT_ARROW_SIZE = 12;
-		const int MAX_RESULTS_BEFORE_LIMIT = 10;
+        const int CONTEXT_WIDTH = 200;
+        const int CONTEXT_ARROW_SIZE = 12;
+        const int MAX_RESULTS_BEFORE_LIMIT = 10;
 
-		public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
+        public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
-		public bool in_context_view { get; private set; default = false; }
+        public bool in_context_view { get; private set; default = false; }
 
         private Gee.HashMap<Backend.App, SearchItem> items;
         private SearchItem selected_app = null;
-		private Gtk.Box main_box;
+        private Gtk.Box main_box;
 
-		private Gtk.Revealer revealer;
-		private Gtk.EventBox context;
-		private Gtk.Box context_box;
-		private Gtk.Fixed context_fixed;
-		private int context_selected_y;
+        private Gtk.Revealer revealer;
+        private Gtk.EventBox context;
+        private Gtk.Box context_box;
+        private Gtk.Fixed context_fixed;
+        private int context_selected_y;
 
-		private int n_results = 0;
+        private int n_results = 0;
 
         private int _selected = 0;
         public int selected {
@@ -45,19 +45,19 @@ namespace Slingshot.Widgets {
                 return _selected;
             }
             set {
-				_selected = value;
-				var max_index = (int)n_results - 1;
+                _selected = value;
+                var max_index = (int)n_results - 1;
 
-				// cycle
+                // cycle
                 if (_selected < 0)
-					_selected = max_index;
-				else if (_selected > max_index)
-					_selected = 0;
+                    _selected = max_index;
+                else if (_selected > max_index)
+                    _selected = 0;
 
-				select_nth (main_box, _selected);
+                select_nth (main_box, _selected);
 
-				if (in_context_view)
-					toggle_context (false);
+                if (in_context_view)
+                    toggle_context (false);
             }
         }
 
@@ -67,16 +67,16 @@ namespace Slingshot.Widgets {
                 return _context_selected;
             }
             set {
-				_context_selected = value;
-				var max_index = (int)context_box.get_children ().length () - 1;
+                _context_selected = value;
+                var max_index = (int)context_box.get_children ().length () - 1;
 
-				// cycle
+                // cycle
                 if (_context_selected < 0)
-					_context_selected = max_index;
-				else if (_context_selected > max_index)
-					_context_selected = 0;
+                    _context_selected = max_index;
+                else if (_context_selected > max_index)
+                    _context_selected = 0;
 
-				select_nth (context_box, _context_selected);
+                select_nth (context_box, _context_selected);
             }
         }
 
@@ -89,263 +89,261 @@ namespace Slingshot.Widgets {
 
             items = new Gee.HashMap<Backend.App, SearchItem> ();
 
-			main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-			context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-			context_box.width_request = CONTEXT_WIDTH;
-			context_fixed = new Gtk.Fixed ();
-			context_fixed.margin_left = CONTEXT_ARROW_SIZE;
-			context_fixed.put (context_box, 0, 0);
-			context = new Gtk.EventBox ();
-			context.draw.connect (draw_context);
-			context.add (context_fixed);
+            context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            context_box.width_request = CONTEXT_WIDTH;
+            context_fixed = new Gtk.Fixed ();
+            context_fixed.margin_left = CONTEXT_ARROW_SIZE;
+            context_fixed.put (context_box, 0, 0);
+            context = new Gtk.EventBox ();
+            context.draw.connect (draw_context);
+            context.add (context_fixed);
 
-			revealer = new Gtk.Revealer ();
-			revealer.transition_duration = 400;
-			revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
-			revealer.width_request = CONTEXT_WIDTH + CONTEXT_ARROW_SIZE;
-			revealer.no_show_all = true;
-			revealer.add (context);
+            revealer = new Gtk.Revealer ();
+            revealer.transition_duration = 400;
+            revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
+            revealer.width_request = CONTEXT_WIDTH + CONTEXT_ARROW_SIZE;
+            revealer.no_show_all = true;
+            revealer.add (context);
 
-			var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-			box.pack_start (main_box, true);
-			box.pack_start (revealer, false);
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            box.pack_start (main_box, true);
+            box.pack_start (revealer, false);
 
             add_with_viewport (box);
         }
 
-		public void set_results (Gee.List<Synapse.Match> matches, string search_term)
-		{
-			// we have a hashmap of the categories with their matches and keep
-			// their order in a separate list, as the keys list of the map does
-			// not always keep the same order in which the keys were added
-			var categories = new HashTable<int,Gee.LinkedList<Synapse.Match>> (null, null);
-			var categories_order = new Gee.LinkedList<int> ();
+        public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
+            // we have a hashmap of the categories with their matches and keep
+            // their order in a separate list, as the keys list of the map does
+            // not always keep the same order in which the keys were added
+            var categories = new HashTable<int,Gee.LinkedList<Synapse.Match>> (null, null);
+            var categories_order = new Gee.LinkedList<int> ();
 
-			foreach (var match in matches) {
-				Gee.LinkedList<Synapse.Match> list = null;
+            foreach (var match in matches) {
+                Gee.LinkedList<Synapse.Match> list = null;
 
-				// we're cheating here to give remote results a separate category. We assign 8 as
-				// the id for internet results, which currently is the lowest undefined MatchType
-				int type = match.match_type;
-				if (type == Synapse.MatchType.GENERIC_URI) {
-					var uri = (match as Synapse.UriMatch).uri;
-					if (uri.has_prefix ("http://")
-						|| uri.has_prefix ("ftp://")
-						|| uri.has_prefix ("https://"))
-						type = 8;
-				}
+                // we're cheating here to give remote results a separate category. We assign 8 as
+                // the id for internet results, which currently is the lowest undefined MatchType
+                int type = match.match_type;
+                if (type == Synapse.MatchType.GENERIC_URI) {
+                    var uri = (match as Synapse.UriMatch).uri;
+                    if (uri.has_prefix ("http://")
+                        || uri.has_prefix ("ftp://")
+                        || uri.has_prefix ("https://"))
+                        type = 8;
+                }
 
-				if ((list = categories.get (type)) == null) {
-					list = new Gee.LinkedList<Synapse.Match> ();
-					categories.set (type, list);
-					categories_order.add (type);
-				}
+                if ((list = categories.get (type)) == null) {
+                    list = new Gee.LinkedList<Synapse.Match> ();
+                    categories.set (type, list);
+                    categories_order.add (type);
+                }
 
-				list.add (match);
-			}
+                list.add (match);
+            }
 
-			n_results = 0;
+            n_results = 0;
 
-			// if we're showing more than about 10 results and we have more than
-			// categories, we limit the results per category to the most relevant
-			// ones.
-			var limit = int.MAX;
-			if (matches.size + 3 > MAX_RESULTS_BEFORE_LIMIT && categories_order.size > 2)
-				limit = 5;
+            // if we're showing more than about 10 results and we have more than
+            // categories, we limit the results per category to the most relevant
+            // ones.
+            var limit = int.MAX;
+            if (matches.size + 3 > MAX_RESULTS_BEFORE_LIMIT && categories_order.size > 2)
+                limit = 5;
 
-			foreach (var type in categories_order) {
-				string label = "";
+            foreach (var type in categories_order) {
+                string label = "";
 
-				switch (type) {
-					case Synapse.MatchType.UNKNOWN:
-						label = _("Other");
-						break;
-					case Synapse.MatchType.TEXT:
-						label = _("Text");
-						break;
-					case Synapse.MatchType.APPLICATION:
-						label = _("Applications");
-						break;
-					case Synapse.MatchType.GENERIC_URI:
-						label = _("Files");
-						break;
-					case Synapse.MatchType.ACTION:
-						label = _("Actions");
-						break;
-					case Synapse.MatchType.SEARCH:
-						label = _("Search");
-						break;
-					case Synapse.MatchType.CONTACT:
-						label = _("Contacts");
-						break;
-					case 8:
-						label = _("Internet");
-						break;
-				}
+                switch (type) {
+                    case Synapse.MatchType.UNKNOWN:
+                        label = _("Other");
+                        break;
+                    case Synapse.MatchType.TEXT:
+                        label = _("Text");
+                        break;
+                    case Synapse.MatchType.APPLICATION:
+                        label = _("Applications");
+                        break;
+                    case Synapse.MatchType.GENERIC_URI:
+                        label = _("Files");
+                        break;
+                    case Synapse.MatchType.ACTION:
+                        label = _("Actions");
+                        break;
+                    case Synapse.MatchType.SEARCH:
+                        label = _("Search");
+                        break;
+                    case Synapse.MatchType.CONTACT:
+                        label = _("Contacts");
+                        break;
+                    case 8:
+                        label = _("Internet");
+                        break;
+                }
 
-				var header = new Gtk.Label (label);
-				header.xalign = 0;
-				header.margin_left = header.margin_top = 8;
-				header.margin_bottom = 4;
-				header.use_markup = true;
-				header.show ();
-				header.get_style_context ().add_class ("search-category-header");
-				main_box.pack_start (header, false);
+                var header = new Gtk.Label (label);
+                header.xalign = 0;
+                header.margin_left = header.margin_top = 8;
+                header.margin_bottom = 4;
+                header.use_markup = true;
+                header.show ();
+                header.get_style_context ().add_class ("search-category-header");
+                main_box.pack_start (header, false);
 
-				var list = categories.get (type);
-				for (var i = 0; i < limit && i < list.size; i++) {
-					var match = list.get (i);
+                var list = categories.get (type);
+                for (var i = 0; i < limit && i < list.size; i++) {
+                    var match = list.get (i);
 
-					// expand the actions we get for UNKNOWN
-					if (match.match_type == Synapse.MatchType.UNKNOWN) {
-						var actions = Backend.SynapseSearch.find_actions_for_match (match);
-						foreach (var action in actions) {
-							show_app (new Backend.App.from_synapse_match (action, match), search_term);
-							n_results++;
-						}
-					} else {
-						show_app (new Backend.App.from_synapse_match (match), search_term);
-						n_results++;
-					}
-				}
-			}
-		}
+                    // expand the actions we get for UNKNOWN
+                    if (match.match_type == Synapse.MatchType.UNKNOWN) {
+                        var actions = Backend.SynapseSearch.find_actions_for_match (match);
+                        foreach (var action in actions) {
+                            show_app (new Backend.App.from_synapse_match (action, match), search_term);
+                            n_results++;
+                        }
+                    } else {
+                        show_app (new Backend.App.from_synapse_match (match), search_term);
+                        n_results++;
+                    }
+                }
+            }
+        }
 
         private void show_app (Backend.App app, string search_term) {
 
-			var search_item = new SearchItem (app, search_term);
-			app.start_search.connect ((search, target) => start_search (search, target));
+            var search_item = new SearchItem (app, search_term);
+            app.start_search.connect ((search, target) => start_search (search, target));
             search_item.button_release_event.connect (() => {
                 app.launch ();
                 app_launched ();
                 return true;
             });
 
-			main_box.pack_start (search_item, false, false);
-			search_item.show_all ();
+            main_box.pack_start (search_item, false, false);
+            search_item.show_all ();
 
             items[app] = search_item;
 
         }
 
-		public void toggle_context (bool show) {
-			var prev_y = vadjustment.value;
+        public void toggle_context (bool show) {
+            var prev_y = vadjustment.value;
 
-			if (show && in_context_view == false) {
-				in_context_view = true;
+            if (show && in_context_view == false) {
+                if (selected_app.app.match.match_type == Synapse.MatchType.ACTION)
+                    return;
 
-				foreach (var child in context_box.get_children ())
-					context_box.remove (child);
+                in_context_view = true;
 
-				var actions = Backend.SynapseSearch.find_actions_for_match (selected_app.app.match);
-				foreach (var action in actions) {
-					var app = new Backend.App.from_synapse_match (action, selected_app.app.match);
-					app.start_search.connect ((search, target) => start_search (search, target));
-					context_box.pack_start (new SearchItem (app));
-				}
-				context.show_all ();
+                foreach (var child in context_box.get_children ())
+                    context_box.remove (child);
 
-				revealer.show ();
-				revealer.set_reveal_child (true);
+                var actions = Backend.SynapseSearch.find_actions_for_match (selected_app.app.match);
+                foreach (var action in actions) {
+                    var app = new Backend.App.from_synapse_match (action, selected_app.app.match);
+                    app.start_search.connect ((search, target) => start_search (search, target));
+                    context_box.pack_start (new SearchItem (app));
+                }
+                context.show_all ();
 
-				Gtk.Allocation alloc;
-				selected_app.get_allocation (out alloc);
+                revealer.show ();
+                revealer.set_reveal_child (true);
 
-				context_fixed.move (context_box, 0, alloc.y);
-				context_selected_y = alloc.y;
+                Gtk.Allocation alloc;
+                selected_app.get_allocation (out alloc);
 
-				context_selected = 0;
-			} else {
-				in_context_view = false;
+                context_fixed.move (context_box, 0, alloc.y);
+                context_selected_y = alloc.y;
 
-				revealer.set_reveal_child (false);
-				revealer.hide ();
+                context_selected = 0;
+            } else {
+                in_context_view = false;
 
-				// trigger update of selection
-				selected = selected;
-			}
+                revealer.set_reveal_child (false);
+                revealer.hide ();
 
-			vadjustment.value = prev_y;
-		}
+                // trigger update of selection
+                selected = selected;
+            }
 
-        public void clear () {
-			if (in_context_view)
-				toggle_context (false);
-
-			foreach (var child in main_box.get_children ())
-				child.destroy ();
+            vadjustment.value = prev_y;
         }
 
-		public void down ()
-		{
-			if (in_context_view)
-				context_selected ++;
-			else
-				selected++;
-		}
+        public void clear () {
+            if (in_context_view)
+                toggle_context (false);
 
-		public void up ()
-		{
-			if (in_context_view)
-				context_selected--;
-			else
-				selected--;
-		}
+            foreach (var child in main_box.get_children ())
+                child.destroy ();
+        }
+
+        public void down () {
+            if (in_context_view)
+                context_selected ++;
+            else
+                selected++;
+        }
+
+        public void up () {
+            if (in_context_view)
+                context_selected--;
+            else
+                selected--;
+        }
 
         private void select_nth (Gtk.Box box, int index) {
 
             if (selected_app != null)
-				// enable to make main item stay blue
-				// && !(box == context_box && selected_app.get_parent () == main_box))
+                // enable to make main item stay blue
+                // && !(box == context_box && selected_app.get_parent () == main_box))
                 selected_app.unset_state_flags (Gtk.StateFlags.PRELIGHT);
 
-			if (box == main_box)
-				selected_app = get_nth_main_item (index) as SearchItem;
-			else
-				selected_app = box.get_children ().nth_data (index) as SearchItem;
+            if (box == main_box)
+                selected_app = get_nth_main_item (index) as SearchItem;
+            else
+                selected_app = box.get_children ().nth_data (index) as SearchItem;
 
             selected_app.set_state_flags (Gtk.StateFlags.PRELIGHT, false);
 
-			Gtk.Allocation alloc;
-			selected_app.get_allocation (out alloc);
+            Gtk.Allocation alloc;
+            selected_app.get_allocation (out alloc);
 
-			vadjustment.value = double.max (alloc.y - vadjustment.page_size / 2, 0);
+            vadjustment.value = double.max (alloc.y - vadjustment.page_size / 2, 0);
         }
 
-		private Gtk.Widget? get_nth_main_item (int n)
-		{
-			var i = 0;
-			foreach (var child in main_box.get_children ()) {
-				if (i == n && child is SearchItem)
-					return child;
+        private Gtk.Widget? get_nth_main_item (int n) {
+            var i = 0;
+            foreach (var child in main_box.get_children ()) {
+                if (i == n && child is SearchItem)
+                    return child;
 
-				if (child is SearchItem)
-					i++;
-			}
+                if (child is SearchItem)
+                    i++;
+            }
 
-			return null;
-		}
+            return null;
+        }
 
-		private bool draw_context (Cairo.Context cr)
-		{
-			cr.rectangle (CONTEXT_ARROW_SIZE, 0, context.get_allocated_width (), context.get_allocated_height ());
+        private bool draw_context (Cairo.Context cr) {
+            cr.rectangle (CONTEXT_ARROW_SIZE, 0, context.get_allocated_width (), context.get_allocated_height ());
 
-			cr.move_to (CONTEXT_ARROW_SIZE, context_selected_y + 6);
-			cr.rel_line_to (-CONTEXT_ARROW_SIZE, 12);
-			cr.rel_line_to (CONTEXT_ARROW_SIZE, 12);
-			cr.close_path ();
+            cr.move_to (CONTEXT_ARROW_SIZE, context_selected_y + 6);
+            cr.rel_line_to (-CONTEXT_ARROW_SIZE, 12);
+            cr.rel_line_to (CONTEXT_ARROW_SIZE, 12);
+            cr.close_path ();
 
-			cr.set_source_rgb (0.85, 0.85, 0.85);
-			cr.fill ();
-			return false;
-		}
+            cr.set_source_rgb (0.85, 0.85, 0.85);
+            cr.fill ();
+            return false;
+        }
 
-		/**
-		 * Launch selected app
-		 *
-		 * @return indicates whether slingshot should now be hidden
-		 */
+        /**
+         * Launch selected app
+         *
+         * @return indicates whether slingshot should now be hidden
+         */
         public bool launch_selected () {
 
             return selected_app.launch_app ();
