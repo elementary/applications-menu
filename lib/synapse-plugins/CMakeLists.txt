@@ -30,7 +30,7 @@ GENERATE_HEADER
     ${PLUGINS_LIBRARY_NAME}
 )
 
-add_definitions(${PLUGINS_DEPS_CFLAGS} -include config.h)
+add_definitions(${PLUGINS_DEPS_CFLAGS} -include config.h -w)
 link_directories(${PLUGINS_DEPS_LIBRARY_DIRS})
 include_directories(${CMAKE_BINARY_DIR}/lib/synapse-core)
 

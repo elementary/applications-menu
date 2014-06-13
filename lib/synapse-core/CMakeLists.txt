@@ -40,7 +40,7 @@ GENERATE_HEADER
     ${CORE_LIBRARY_NAME}
 )
 
-add_definitions(${CORE_DEPS_CFLAGS} -include config.h)
+add_definitions(${CORE_DEPS_CFLAGS} -include config.h -w)
 link_directories(${CORE_DEPS_LIBRARY_DIRS})
 
 add_library(${CORE_LIBRARY_NAME} STATIC ${CORE_VALA_C})
