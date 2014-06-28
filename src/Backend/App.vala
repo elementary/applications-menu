@@ -16,7 +16,19 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+errordomain IconError {
+    NOT_FOUND
+}
+
 public class Slingshot.Backend.App : Object {
+
+    public enum AppType {
+        APP,
+        COMMAND,
+        SYNAPSE
+    }
+
+    public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
@@ -30,13 +42,17 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
+    public AppType app_type { get; private set; default = AppType.APP; }
 
-    private bool is_command = false;
+    public Synapse.Match? match { get; private set; default = null; }
+    public Synapse.Match? target { get; private set; default = null; }
 
     public signal void icon_changed ();
     public signal void launched (App app);
 
     public App (GMenu.TreeEntry entry) {
+        app_type = AppType.APP;
+
         unowned GLib.DesktopAppInfo info = entry.get_app_info ();
         name = info.get_display_name ().dup ();
         description = info.get_description ().dup () ?? name;
@@ -70,6 +86,7 @@ public class Slingshot.Backend.App : Object {
     }
 
     public App.from_command (string command) {
+        app_type = AppType.COMMAND;
 
         name = command;
         description = _("Run this command...");
@@ -77,7 +94,20 @@ public class Slingshot.Backend.App : Object {
         desktop_id = command;
         icon_name = "system-run";
 
-        is_command = true;
+        update_icon ();
+
+    }
+
+    public App.from_synapse_match (Synapse.Match match, Synapse.Match? target = null) {
+
+        app_type = AppType.SYNAPSE;
+
+        name = match.title;
+        description = match.description;
+        icon_name = match.icon_name;
+
+        this.match = match;
+        this.target = target;
 
         update_icon ();
 
@@ -98,7 +128,31 @@ public class Slingshot.Backend.App : Object {
         }
     }
 
-    public Gdk.Pixbuf load_icon (int size) {
+    public Gdk.Pixbuf? load_icon (int size) {
+        if (app_type == AppType.SYNAPSE) {
+            try {
+                // for contacts we can load the thumbnail because we expect it to be
+                // the avatar. For other types it'd be ridiculously small.
+                if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
+                    return new Gdk.Pixbuf.from_file_at_scale (match.thumbnail_path, size, size, true);
+                }
+
+                var icon = Icon.new_for_string (icon_name);
+                var info = Gtk.IconTheme.get_default ().lookup_by_gicon (icon,
+                    size, Gtk.IconLookupFlags.FORCE_SIZE);
+
+                if (info == null)
+                    throw new IconError.NOT_FOUND ("Not found");
+
+                return info.load_icon ();
+            } catch (Error e) {
+                warning ("Failed to load icon: %s\n", e.message);
+            }
+
+            return Slingshot.icon_theme.load_icon ("application-default-icon",
+                size, Gtk.IconLookupFlags.FORCE_SIZE);
+        }
+
         Gdk.Pixbuf icon = null;
         var flags = Gtk.IconLookupFlags.FORCE_SIZE;
 
@@ -156,19 +210,35 @@ public class Slingshot.Backend.App : Object {
         return icon;
     }
 
-    public void launch () {
+    public bool launch () {
         try {
-            if (is_command) {
-                debug (@"Launching command: $name");
-                Process.spawn_command_line_async (exec);
-            } else {
-                launched (this); // Emit launched signal
-                new DesktopAppInfo (desktop_id).launch (null, null);
-                debug (@"Launching application: $name");
+            switch (app_type) {
+                case AppType.COMMAND:
+                    debug (@"Launching command: $name");
+                    Process.spawn_command_line_async (exec);
+                    break;
+                case AppType.APP:
+                    launched (this); // Emit launched signal
+                    new DesktopAppInfo (desktop_id).launch (null, null);
+                    debug (@"Launching application: $name");
+                    break;
+                case AppType.SYNAPSE:
+                    if (match.match_type == Synapse.MatchType.SEARCH) {
+                        start_search (match as Synapse.SearchMatch, target);
+                        return false;
+                    } else {
+                        if (target == null)
+                            Backend.SynapseSearch.find_actions_for_match (match).get (0).execute_with_target (match);
+                        else
+                            match.execute_with_target (target);
+                    }
+                    break;
             }
         } catch (Error e) {
             warning ("Failed to launch %s: %s", name, exec);
         }
+
+        return true;
     }
 
 }

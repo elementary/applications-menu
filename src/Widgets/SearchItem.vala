@@ -20,61 +20,62 @@ namespace Slingshot.Widgets {
 
     public class SearchItem : Gtk.Button {
 
-        private Backend.App app;
-        private Gdk.Pixbuf icon;
-        private string icon_name;
+        const int ICON_SIZE = 32;
+
+        public Backend.App app { get; construct; }
+
         private Gtk.Label name_label;
-        private Gtk.Label desc_label;
+        private Gtk.Image icon;
 
-        public bool in_box = false;
-        public int icon_size = 64;
-        public signal void launch_app ();
+        private Cancellable? cancellable = null;
 
-        public SearchItem (Backend.App app) {
-            this.app = app;
+        public signal bool launch_app ();
+
+        public SearchItem (Backend.App app, string search_term = "") {
+            Object (app: app);
+
             get_style_context ().add_class ("app");
+            get_style_context ().add_class ("search-item");
 
-            icon = app.icon;
-            icon_name = app.icon_name;
+            var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 
-            name_label = new Gtk.Label ("<b><span size=\"larger\">" + fix (app.name) + "</span></b>");
+            name_label = new Gtk.Label (markup);
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
             name_label.xalign = 0.0f;
 
-            desc_label = new Gtk.Label (fix (app.description));
-            desc_label.set_ellipsize (Pango.EllipsizeMode.END);
-            desc_label.xalign = 0.0f;
+            icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
 
-            var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            vbox.homogeneous = false;
-            vbox.pack_start (name_label, false, true, 0);
-            vbox.pack_start (desc_label, false, true, 0);
+            // load a favicon if we're an internet page
+            var uri_match = app.match as Synapse.UriMatch;
+            if (uri_match != null && uri_match.uri.has_prefix ("http")) {
+                cancellable = new Cancellable ();
+                Backend.SynapseSearch.get_favicon_for_match.begin (uri_match,
+                    ICON_SIZE, cancellable, (obj, res) => {
 
-            add (Utils.set_padding (vbox, 5, 0, 0, 78));
+                    var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
+                    if (pixbuf != null)
+                        icon.set_from_pixbuf (pixbuf);
+                });
+            }
 
-            this.launch_app.connect (app.launch);
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
+            box.pack_start (icon, false);
+            box.pack_start (name_label, true);
+            box.margin_left = 12;
+            box.margin_top = box.margin_bottom = 3;
+
+            add (box);
+
+            launch_app.connect (app.launch);
         }
 
-        protected override bool draw (Cairo.Context cr) {
-            Gtk.Allocation size;
-            get_allocation (out size);
+        public override void destroy () {
 
-            base.draw (cr);
+            base.destroy ();
 
-            Gdk.Pixbuf scaled_icon = app.load_icon (icon_size);
-
-            height_request = icon_size + 10;
-
-            // Draw icon
-            Gdk.cairo_set_source_pixbuf (cr, scaled_icon, 74 - icon_size, 5);
-            cr.paint ();
-
-            return true;
-        }
-
-        private string fix (string text) {
-            return text.replace ("&", "&amp;").replace ("<", "&lt;").replace (">", "&gt;");
+            if (cancellable != null)
+                cancellable.cancel ();
         }
     }
 

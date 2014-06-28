@@ -36,20 +36,20 @@ public class Slingshot.Slingshot : Granite.Application {
         build_version_info = Build.VERSION_INFO;
 
         program_name = "Slingshot";
-	    exec_name = "slingshot-launcher";
-	    app_copyright = "GPLv3";
-	    app_icon = "";
-	    app_launcher = "";
+        exec_name = "slingshot-launcher";
+        app_copyright = "GPLv3";
+        app_icon = "";
+        app_launcher = "";
         app_years = "2011-2012";
         application_id = "net.launchpad.slingshot";
-	    main_url = "https://launchpad.net/slingshot";
-	    bug_url = "https://bugs.launchpad.net/slingshot";
-	    help_url = "https://answers.launchpad.net/slingshot";
-	    translate_url = "https://translations.launchpad.net/slingshot";
+        main_url = "https://launchpad.net/slingshot";
+        bug_url = "https://bugs.launchpad.net/slingshot";
+        help_url = "https://answers.launchpad.net/slingshot";
+        translate_url = "https://translations.launchpad.net/slingshot";
 
-	    about_authors = {"Giulio Collura <random.cpp@gmail.com>",
-	                     "Andrea Basso <andrea@elementaryos.org"};
-	    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
+        about_authors = {"Giulio Collura <random.cpp@gmail.com>",
+                         "Andrea Basso <andrea@elementaryos.org"};
+        about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
                          "Daniel Foré <bunny@go-docky.com>"};
         about_translators = "Launchpad Translators";
         about_license_type = Gtk.License.GPL_3_0;

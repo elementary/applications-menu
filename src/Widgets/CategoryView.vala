@@ -127,7 +127,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         else
             page_switcher.hide ();
 
-        view.search_entry.grab_focus ();
+        view.get_current_search_entry ().grab_focus ();
 
     }
 

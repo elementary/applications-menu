@@ -27,7 +27,8 @@ namespace Slingshot {
     public class SlingshotView : Granite.Widgets.PopOver {
 
         // Widgets
-        public Gtk.SearchEntry search_entry;
+        public Gtk.SearchEntry dummy_search_entry;
+        public Widgets.LargeSearchEntry real_search_entry;
         public Gtk.Stack stack;
         public Granite.Widgets.ModeButton view_selector;
 
@@ -39,6 +40,7 @@ namespace Slingshot {
         public Gtk.Grid top;
         public Gtk.Grid center;
         public Gtk.Grid container;
+        public Gtk.Stack main_stack;
         public Gtk.Box content_area;
         private Gtk.EventBox event_box;
 
@@ -46,10 +48,10 @@ namespace Slingshot {
         private Gee.ArrayList<GMenu.TreeDirectory> categories;
         public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
 
-        private int current_position = 0;
-        private int search_view_position = 0;
         private Modality modality;
         private bool can_trigger_hotcorner = true;
+
+        private Backend.SynapseSearch synapse;
 
         // Sizes
         public int columns {
@@ -91,6 +93,7 @@ namespace Slingshot {
             Slingshot.icon_theme = Gtk.IconTheme.get_default ();
 
             app_system = new Backend.AppSystem ();
+            synapse = new Backend.SynapseSearch ();
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
@@ -133,6 +136,10 @@ namespace Slingshot {
             // Create the base container
             container = new Gtk.Grid ();
 
+            main_stack = new Gtk.Stack ();
+
+            main_stack.add_named (container, "apps");
+
             // Add top bar
             top = new Gtk.Grid ();
 
@@ -154,16 +161,16 @@ namespace Slingshot {
             else
                 view_selector.selected = 0;
 
-            search_entry = new Gtk.SearchEntry ();
-            search_entry.placeholder_text = _("Search Apps…");
-            search_entry.width_request = 250;
-            search_entry.button_press_event.connect ((e) => {return e.button == 3;});
+            dummy_search_entry = new Gtk.SearchEntry ();
+            dummy_search_entry.placeholder_text = _("Search Apps…");
+            dummy_search_entry.width_request = 250;
+            dummy_search_entry.button_press_event.connect ((e) => {return e.button == 3;});
 
             if (Slingshot.settings.show_category_filter) {
                 top.attach (view_selector, 0, 0, 1, 1);
             }
             top.attach (top_separator, 1, 0, 1, 1);
-            top.attach (search_entry, 2, 0, 1, 1);
+            top.attach (dummy_search_entry, 2, 0, 1, 1);
 
             center = new Gtk.Grid ();
             
@@ -178,12 +185,21 @@ namespace Slingshot {
             stack.add_named (scrolled_normal, "normal");
 
             // Create the "SEARCH_VIEW"
-            search_view = new Widgets.SearchView (this);
+            var search_view_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-            foreach (Gee.ArrayList<Backend.App> app_list in apps.values) {
-                search_view.add_apps (app_list);
-            }
-            stack.add_named (search_view, "search");
+            real_search_entry = new Widgets.LargeSearchEntry ();
+            real_search_entry.margin_left = real_search_entry.margin_right = 12;
+
+            search_view = new Widgets.SearchView (this);
+            search_view.start_search.connect ((match, target) => {
+                search.begin (real_search_entry.text, match, target);
+            });
+
+            search_view_container.pack_start (real_search_entry, false);
+            search_view_container.pack_start (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), false);
+            search_view_container.pack_start (search_view);
+
+            main_stack.add_named (search_view_container, "search");
 
             // Create the "CATEGORY_VIEW"
             category_view = new Widgets.CategoryView (this);
@@ -193,7 +209,7 @@ namespace Slingshot {
             container.attach (Utils.set_padding (center, 0, 12, 12, 12), 0, 1, 1, 1);
 
             event_box = new Gtk.EventBox ();
-            event_box.add (container);
+            event_box.add (main_stack);
             // Add the container to the dialog's content area
             content_area = get_content_area () as Gtk.Box;
             content_area.pack_start (event_box);
@@ -265,24 +281,37 @@ namespace Slingshot {
         private void connect_signals () {
 
             this.focus_in_event.connect (() => {
-                search_entry.grab_focus ();
+                get_current_search_entry ().grab_focus ();
                 return false;
             });
 
             event_box.key_press_event.connect (on_key_press);
-            search_entry.key_press_event.connect (search_entry_key_press);
+            dummy_search_entry.key_press_event.connect (search_entry_key_press);
+            real_search_entry.widget.key_press_event.connect (search_entry_key_press);
 
-            search_entry.search_changed.connect (() => this.search.begin (search_entry.text));
-            search_entry.grab_focus ();
+            real_search_entry.search_changed.connect (() => {
+                search.begin (real_search_entry.text);
+            });
+            dummy_search_entry.search_changed.connect (() => {
+                if (modality != Modality.SEARCH_VIEW)
+                    set_modality (Modality.SEARCH_VIEW);
+            });
+            dummy_search_entry.grab_focus ();
 
-            search_entry.activate.connect (() => {
-                if (modality == Modality.SEARCH_VIEW) {
-                    search_view.launch_selected ();
-                    hide ();
-                } else {
-                    if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
-                        ((Widgets.AppEntry) get_focus ()).launch_app ();
-                }
+            dummy_search_entry.activate.connect (search_entry_activated);
+            real_search_entry.widget.activate.connect (search_entry_activated);
+
+            // the focus-out event is fired as soon as the stack transition is ended
+            // at which point we're able to focus the real_search_entry
+            dummy_search_entry.focus_out_event.connect (() => {
+                real_search_entry.text = dummy_search_entry.text;
+                real_search_entry.widget.grab_focus ();
+                var cursor_pos = real_search_entry.text.length;
+                real_search_entry.widget.select_region (cursor_pos, cursor_pos);
+
+                dummy_search_entry.text = "";
+
+                return false;
             });
 
             search_view.app_launched.connect (() => hide ());
@@ -365,7 +394,31 @@ namespace Slingshot {
                 hide ();
                 return true;
             }
+
+            switch (event.keyval) {
+                case Gdk.Key.Tab:
+                    // context view is disabled until we get plugins that are actually
+                    // useful with a context
+                    // search_view.toggle_context (!search_view.in_context_view);
+                    return true;
+            }
+
             return false;
+        }
+
+        private void search_entry_activated () {
+            if (modality == Modality.SEARCH_VIEW) {
+                if (search_view.launch_selected ())
+                    hide ();
+            } else {
+                if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
+                    ((Widgets.AppEntry) get_focus ()).launch_app ();
+            }
+        }
+
+        public Gtk.Entry get_current_search_entry ()
+        {
+            return modality == Modality.SEARCH_VIEW ? real_search_entry.widget : dummy_search_entry;
         }
 
         /*
@@ -389,6 +442,8 @@ namespace Slingshot {
                 return true;
             }
 
+            var search_entry = get_current_search_entry ();
+
             switch (key) {
                 case "F4":
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
@@ -410,8 +465,8 @@ namespace Slingshot {
                 case "Return":
                 case "KP_Enter":
                     if (modality == Modality.SEARCH_VIEW) {
-                        search_view.launch_selected ();
-                        hide ();
+                        if (search_view.launch_selected ())
+                            hide ();
                     } else {
                         if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
                             ((Widgets.AppEntry)get_focus ()).launch_app ();
@@ -518,7 +573,7 @@ namespace Slingshot {
                           category_move_focus (0, -1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
-                        search_view.selected--;
+                        search_view.up ();
                     }
                     break;
 
@@ -535,7 +590,7 @@ namespace Slingshot {
                             category_move_focus (0, +1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
-                        search_view.selected++;
+                        search_view.down ();
                     }
                     break;
 
@@ -641,18 +696,22 @@ namespace Slingshot {
 
         public void show_slingshot () {
 
-            search_entry.text = "";
+            dummy_search_entry.text = "";
+            real_search_entry.text = "";
 
             reposition ();
             show_all ();
             present ();
 
             set_focus(null);
-            search_entry.grab_focus ();
+            get_current_search_entry ().grab_focus ();
             set_modality ((Modality) view_selector.selected);
         }
 
         private void set_modality (Modality new_modality) {
+
+            if (modality == new_modality)
+                return;
 
             modality = new_modality;
 
@@ -662,6 +721,7 @@ namespace Slingshot {
                     if (Slingshot.settings.use_category)
                         Slingshot.settings.use_category = false;
                     view_selector.show_all ();
+                    main_stack.set_visible_child_name ("apps");
                     stack.set_visible_child_name ("normal");
 
                     // change the paddings/margins back to normal
@@ -669,6 +729,8 @@ namespace Slingshot {
                     center.set_margin_left (12);
                     top.set_margin_left (12);
                     stack.set_size_request (default_columns * 130, default_rows * 145);
+
+                    dummy_search_entry.grab_focus ();
                     break;
 
                 case Modality.CATEGORY_VIEW:
@@ -676,6 +738,7 @@ namespace Slingshot {
                     if (!Slingshot.settings.use_category)
                         Slingshot.settings.use_category = true;
                     view_selector.show_all ();
+                    main_stack.set_visible_child_name ("apps");
                     stack.set_visible_child_name ("category");
 
                     // remove the padding/margin on the left
@@ -683,43 +746,57 @@ namespace Slingshot {
                     center.set_margin_left (0);
                     top.set_margin_left (17);
                     stack.set_size_request (default_columns * 130 + 17, default_rows * 145);
+
+                    dummy_search_entry.grab_focus ();
                     break;
 
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
-                    stack.set_visible_child_name ("search");
+                    main_stack.set_visible_child_name ("search");
 
-                    // change the paddings/margins back to normal
-                    get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
-                    center.set_margin_left (12);
-                    top.set_margin_left (12);
-                    stack.set_size_request (default_columns * 130, default_rows * 145);
+                    var content_area = get_content_area ();
+                    content_area.margin_left = content_area.margin_right = SHADOW_SIZE - 1;
                     break;
 
             }
         }
 
-        private async void search (string text) {
+        private async void search (string text, Synapse.SearchMatch? search_match = null,
+            Synapse.Match? target = null) {
 
-            var stripped = text.down ().strip ();
+            var stripped = text.strip ();
 
             if (stripped == "") {
-                set_modality ((Modality) view_selector.selected);
+                // this code was making problems when selecting the currently searched text
+                // and immediately replacing it. In that case two async searches would be
+                // started and both requested switching from and to search view, which would
+                // result in a Gtk error and the first letter of the new search not being
+                // picked up. If we add an idle and recheck that the entry is indeed still
+                // empty before switching, this problem is gone.
+                Idle.add (() => {
+                    if (real_search_entry.text.strip () == "")
+                        set_modality ((Modality) view_selector.selected);
+                    return false;
+                });
                 return;
             }
 
             if (modality != Modality.SEARCH_VIEW)
                 set_modality (Modality.SEARCH_VIEW);
-            search_view_position = 0;
-            search_view.hide_all ();
 
-            var filtered = yield app_system.search_results (stripped);
+            Gee.List<Synapse.Match> matches;
 
-            foreach (Backend.App app in filtered) {
-                search_view.show_app (app);
+            if (search_match != null) {
+                search_match.search_source = target;
+                matches = yield synapse.search (text, search_match);
+            } else {
+                matches = yield synapse.search (text);
             }
 
-            search_view.add_command (text);
+            search_view.clear ();
+            search_view.set_results (matches, text);
+
+            search_view.selected = 0;
 
         }
 
@@ -736,7 +813,6 @@ namespace Slingshot {
             }
 
             stack.set_visible_child_name ("normal");
-            current_position = 0;
 
         }
 
@@ -818,7 +894,7 @@ namespace Slingshot {
                     return;
                 }
                 else if (category_column_focus == 0 && delta_column < 0) {
-                    search_entry.grab_focus ();
+                    get_current_search_entry ().grab_focus ();
                     category_column_focus = 0;
                     category_row_focus = 0;
                     return;
