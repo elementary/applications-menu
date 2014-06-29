@@ -11,6 +11,7 @@ set(PLUGINS_PKG
 pkg_check_modules(PLUGINS_DEPS REQUIRED ${PLUGINS_PKG})
 
 set(PLUGINS_SOURCE
+    calculator-plugin.vala
     command-plugin.vala
     desktop-file-plugin.vala
 )
