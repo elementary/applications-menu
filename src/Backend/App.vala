@@ -183,7 +183,7 @@ public class Slingshot.Backend.App : Object {
         try {
             var icon_stream = loadable_icon.load (0, null, null);
             tmp_loadable_icon = new Gdk.Pixbuf.from_stream_at_scale (icon_stream, Slingshot.settings.icon_size,
-                                                        Slingshot.settings.icon_size, true, null);
+                                                                     Slingshot.settings.icon_size, true, null);
         } catch (Error e) {
             tmp_loadable_icon = null;
         }
