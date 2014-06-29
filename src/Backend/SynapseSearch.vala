@@ -21,6 +21,7 @@ namespace Slingshot.Backend {
     public class SynapseSearch : Object {
 
         private static Type[] plugins = {
+            typeof (Synapse.CalculatorPlugin),
             typeof (Synapse.CommandPlugin),
             typeof (Synapse.DesktopFilePlugin)
         };
