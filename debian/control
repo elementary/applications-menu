@@ -12,7 +12,6 @@ Build-Depends: cmake (>= 2.6),
                libsoup2.4-dev,
                libunity-dev,
                libwnck-3-dev,
-               libzeitgeist-dev,
                libzeitgeist-2.0-dev,
                pkg-config,
                valac (>= 0.18)
