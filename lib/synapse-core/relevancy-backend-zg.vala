@@ -47,19 +47,16 @@ namespace Synapse
       zg_dsr = new Zeitgeist.DataSourceRegistry ();
       try
       {
-        var ptr_arr = yield zg_dsr.get_data_sources (null);
+        var array = yield zg_dsr.get_data_sources (null);
 
-        for (uint i=0; i < ptr_arr.len; i++)
-        {
-          unowned Zeitgeist.DataSource ds;
-          ds = (Zeitgeist.DataSource) ptr_arr.index (i);
-          if (ds.get_unique_id () == "com.zeitgeist-project,datahub,gio-launch-listener"
-              && ds.is_enabled ())
+        array.foreach ((ds) => {
+          if (ds.unique_id == "com.zeitgeist-project,datahub,gio-launch-listener"
+              && ds.enabled)
           {
             has_datahub_gio_module = true;
-            break;
+            return;
           }
-        }
+        });
       }
       catch (Error err)
       {
@@ -79,25 +76,25 @@ namespace Synapse
       Idle.add (load_application_relevancies.callback, Priority.LOW);
       yield;
 
-      int64 end = Zeitgeist.Timestamp.now ();
+      int64 end = new DateTime.now_local ().to_unix () * 1000;
       int64 start = end - Zeitgeist.Timestamp.WEEK * 4;
       Zeitgeist.TimeRange tr = new Zeitgeist.TimeRange (start, end);
 
       var event = new Zeitgeist.Event ();
-      event.set_interpretation ("!" + Zeitgeist.ZG_LEAVE_EVENT);
+      event.interpretation = "!" + Zeitgeist.ZG.LEAVE_EVENT;
       var subject = new Zeitgeist.Subject ();
-      subject.set_interpretation (Zeitgeist.NFO_SOFTWARE);
-      subject.set_uri ("application://*");
+      subject.interpretation = Zeitgeist.NFO.SOFTWARE;
+      subject.uri = "application://*";
       event.add_subject (subject);
 
-      var ptr_arr = new PtrArray ();
-      ptr_arr.add (event);
+      var array = new GenericArray<Zeitgeist.Event> ();
+      array.add (event);
 
       Zeitgeist.ResultSet rs;
 
       try
       {
-        rs = yield zg_log.find_events (tr, (owned) ptr_arr,
+        rs = yield zg_log.find_events (tr, array,
                                        Zeitgeist.StorageState.ANY,
                                        256,
                                        Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
@@ -112,11 +109,11 @@ namespace Synapse
         foreach (Zeitgeist.Event e in rs)
         {
           if (e.num_subjects () <= 0) continue;
-          Zeitgeist.Subject s = e.get_subject (0);
+          Zeitgeist.Subject s = e.subjects[0];
 
           float power = index / (size * 2) + 0.5f; // linearly <0.5, 1.0>
           float relevancy = 1.0f / Math.powf (index + 1, power);
-          application_popularity[s.get_uri ()] = (int)(relevancy * MULTIPLIER);
+          application_popularity[s.uri] = (int)(relevancy * MULTIPLIER);
 
           index++;
         }
@@ -133,19 +130,19 @@ namespace Synapse
       Idle.add (load_uri_relevancies.callback, Priority.LOW);
       yield;
 
-      int64 end = Zeitgeist.Timestamp.now ();
+      int64 end = new DateTime.now_local ().to_unix () * 1000;
       int64 start = end - Zeitgeist.Timestamp.WEEK * 4;
       Zeitgeist.TimeRange tr = new Zeitgeist.TimeRange (start, end);
 
       var event = new Zeitgeist.Event ();
-      event.set_interpretation ("!" + Zeitgeist.ZG_LEAVE_EVENT);
+      event.interpretation = "!" + Zeitgeist.ZG.LEAVE_EVENT;
       var subject = new Zeitgeist.Subject ();
-      subject.set_interpretation ("!" + Zeitgeist.NFO_SOFTWARE);
-      subject.set_uri ("file://*");
+      subject.interpretation = "!" + Zeitgeist.NFO.SOFTWARE;
+      subject.uri = "file://*";
       event.add_subject (subject);
 
-      var ptr_arr = new PtrArray ();
-      ptr_arr.add (event);
+      var array = new GenericArray<Zeitgeist.Event> ();
+      array.add (event);
 
       Zeitgeist.ResultSet rs;
       Gee.Map<string, int> popularity_map = new Gee.HashMap<string, int> ();
@@ -155,7 +152,7 @@ namespace Synapse
         uint size, index;
         float power, relevancy;
         /* Get popularity for file uris */
-        rs = yield zg_log.find_events (tr, (owned) ptr_arr,
+        rs = yield zg_log.find_events (tr, array,
                                        Zeitgeist.StorageState.ANY,
                                        256,
                                        Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
@@ -169,22 +166,22 @@ namespace Synapse
         foreach (Zeitgeist.Event e1 in rs)
         {
           if (e1.num_subjects () <= 0) continue;
-          Zeitgeist.Subject s1 = e1.get_subject (0);
+          Zeitgeist.Subject s1 = e1.subjects[0];
 
           power = index / (size * 2) + 0.5f; // linearly <0.5, 1.0>
           relevancy = 1.0f / Math.powf (index + 1, power);
-          popularity_map[s1.get_uri ()] = (int)(relevancy * MULTIPLIER);
+          popularity_map[s1.uri] = (int)(relevancy * MULTIPLIER);
 
           index++;
         }
         
         /* Get popularity for web uris */
-        subject.set_interpretation (Zeitgeist.NFO_WEBSITE);
-        subject.set_uri ("");
-        ptr_arr = new PtrArray ();
-        ptr_arr.add (event);
+        subject.interpretation = Zeitgeist.NFO.WEBSITE;
+        subject.uri = "";
+        array = new GenericArray<Zeitgeist.Event> ();
+        array.add (event);
 
-        rs = yield zg_log.find_events (tr, (owned) ptr_arr,
+        rs = yield zg_log.find_events (tr, array,
                                        Zeitgeist.StorageState.ANY,
                                        128,
                                        Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
@@ -198,11 +195,11 @@ namespace Synapse
         foreach (Zeitgeist.Event e2 in rs)
         {
           if (e2.num_subjects () <= 0) continue;
-          Zeitgeist.Subject s2 = e2.get_subject (0);
+          Zeitgeist.Subject s2 = e2.subjects[0];
 
           power = index / (size * 2) + 0.5f; // linearly <0.5, 1.0>
           relevancy = 1.0f / Math.powf (index + 1, power);
-          popularity_map[s2.get_uri ()] = (int)(relevancy * MULTIPLIER);
+          popularity_map[s2.uri] = (int)(relevancy * MULTIPLIER);
 
           index++;
         }
@@ -290,18 +287,26 @@ namespace Synapse
       var event = new Zeitgeist.Event ();
       var subject = new Zeitgeist.Subject ();
 
-      event.set_actor ("application://synapse.desktop");
-      event.set_interpretation (Zeitgeist.ZG_ACCESS_EVENT);
-      event.set_manifestation (Zeitgeist.ZG_USER_ACTIVITY);
+      event.actor = "application://synapse.desktop";
+      event.interpretation = Zeitgeist.ZG.ACCESS_EVENT;
+      event.manifestation = Zeitgeist.ZG.USER_ACTIVITY;
       event.add_subject (subject);
 
-      subject.set_uri (app_uri);
-      subject.set_interpretation (Zeitgeist.NFO_SOFTWARE);
-      subject.set_manifestation (Zeitgeist.NFO_SOFTWARE_ITEM);
-      subject.set_mimetype ("application/x-desktop");
-      subject.set_text (display_name);
+      subject.uri = app_uri;
+      subject.interpretation = Zeitgeist.NFO.SOFTWARE;
+      subject.manifestation = Zeitgeist.NFO.SOFTWARE_ITEM;
+      subject.mimetype ="application/x-desktop";
+      subject.text = display_name;
 
-      zg_log.insert_events_no_reply (event, null);
+      try
+      {
+        zg_log.insert_event_no_reply (event);
+      }
+      catch (Error err)
+      {
+        warning ("%s", err.message);
+        return;
+      }
     }
   }
 }

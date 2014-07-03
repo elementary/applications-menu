@@ -3,7 +3,7 @@ set(CORE_LIB_SOVERSION 0)
 set(CORE_LIBRARY_NAME synapse-core)
 set(CORE_PKG
     glib-2.0
-    zeitgeist-1.0
+    zeitgeist-2.0
     gio-unix-2.0
     json-glib-1.0
     gee-0.8
