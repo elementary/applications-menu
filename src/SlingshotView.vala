@@ -812,8 +812,8 @@ namespace Slingshot {
                 app_entry.show_all ();
             }
 
-            stack.set_visible_child_name ("normal");
 
+            stack.set_visible_child_name ("normal");
         }
 
         private void read_settings (bool first_start = false, bool check_columns = true, bool check_rows = true) {
