@@ -66,6 +66,9 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
         buttons.set (widget, button);
         if (buttons.size == 1)
             button.active = true;
+
+        // show all children after update
+        show_all ();
     }
     
     public override void show () {

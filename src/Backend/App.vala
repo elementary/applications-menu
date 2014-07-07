@@ -1,6 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 //
 //  Copyright (C) 2011-2012 Giulio Collura
+//                2013-2014 Akshay Shekher
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -50,6 +51,12 @@ public class Slingshot.Backend.App : Object {
     public signal void icon_changed ();
     public signal void launched (App app);
 
+    // seconds to wait before retrying icon check
+    private const int RECHECK_TIMEOUT = 2;
+    private bool check_icon_again = true;
+
+    private LoadableIcon loadable_icon = null;
+
     public App (GMenu.TreeEntry entry) {
         app_type = AppType.APP;
 
@@ -68,21 +75,16 @@ public class Slingshot.Backend.App : Object {
         if (info.get_icon () is ThemedIcon) {
             icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
         } else if (info.get_icon () is LoadableIcon) {
-            try {
-                var ios = (info.get_icon () as LoadableIcon).load (0, null, null);
-                icon = new Gdk.Pixbuf.from_stream_at_scale (ios, Slingshot.settings.icon_size,
-                    Slingshot.settings.icon_size, true, null);
-            } catch {
-                icon_name = "application-default-icon";
-            }
+            loadable_icon = info.get_icon () as LoadableIcon;
+            icon = get_loadable_icon ();
         } else {
             icon_name = "application-default-icon";
         }
-
-        if (icon == null)
+        if (icon == null) {
             update_icon ();
 
-        Slingshot.icon_theme.changed.connect (update_icon);
+            Slingshot.icon_theme.changed.connect (update_icon);
+        }
     }
 
     public App.from_command (string command) {
@@ -113,8 +115,13 @@ public class Slingshot.Backend.App : Object {
 
     }
 
+    ~App () {
+        Slingshot.icon_theme.changed.disconnect (update_icon);
+    }
+
     public void update_icon () {
         icon = load_icon (Slingshot.settings.icon_size);
+
         icon_changed ();
     }
 
@@ -156,12 +163,29 @@ public class Slingshot.Backend.App : Object {
         Gdk.Pixbuf icon = null;
         var flags = Gtk.IconLookupFlags.FORCE_SIZE;
 
+        if (loadable_icon != null)
+            return get_loadable_icon ();
+
         IconLoadFallbackMethod[] fallbacks = {
             new IconLoadFallbackMethod (() => {
                 try {
                     icon = Slingshot.icon_theme.load_icon (icon_name, size, flags);
                 } catch (Error e) {
                     warning ("Could not load icon. Falling back to method 2");
+                }
+            }),
+
+            new IconLoadFallbackMethod (() => {
+                // Since the best method didn't work retry after some time
+                if (check_icon_again) {
+                    // only recheck once
+                    check_icon_again = false;
+
+                    Timeout.add_seconds (RECHECK_TIMEOUT, () => {
+                        Slingshot.icon_theme.rescan_if_needed ();
+                        update_icon ();
+                        return false;
+                    });
                 }
             }),
 
@@ -200,7 +224,6 @@ public class Slingshot.Backend.App : Object {
                  }
             })
         };
-
         foreach (IconLoadFallbackMethod fallback in fallbacks) {
             fallback.load_icon ();
             if (icon != null)
@@ -208,6 +231,18 @@ public class Slingshot.Backend.App : Object {
         }
 
         return icon;
+    }
+
+    public Gdk.Pixbuf? get_loadable_icon () {
+        Gdk.Pixbuf? tmp_loadable_icon;
+        try {
+            var icon_stream = loadable_icon.load (0, null, null);
+            tmp_loadable_icon = new Gdk.Pixbuf.from_stream_at_scale (icon_stream, Slingshot.settings.icon_size,
+                                                                     Slingshot.settings.icon_size, true, null);
+        } catch (Error e) {
+            tmp_loadable_icon = null;
+        }
+        return tmp_loadable_icon;
     }
 
     public bool launch () {
