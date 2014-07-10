@@ -24,6 +24,7 @@ public class Slingshot.Backend.RelevancyService : Object {
     private Zeitgeist.DataSourceRegistry zg_dsr;
     private Gee.HashMap<string, int> app_popularity;
     private bool has_datahub_gio_module = false;
+    private bool refreshing = false;
 
     private const float MULTIPLIER = 65535.0f;
     
@@ -82,6 +83,14 @@ public class Slingshot.Backend.RelevancyService : Object {
         Idle.add (load_application_relevancies.callback, Priority.HIGH);
         yield;
 
+        /* 
+         * Dont reload everything if a refresh is already running.
+         * This avoids a double free exception in libzeitgeist-2.0.
+         */
+        if (refreshing == true)
+            return;
+
+        refreshing = true;
         int64 end = Zeitgeist.Timestamp.from_now ();
         int64 start = end - Zeitgeist.Timestamp.WEEK * 4;
         Zeitgeist.TimeRange tr = new Zeitgeist.TimeRange (start, end);
@@ -96,11 +105,8 @@ public class Slingshot.Backend.RelevancyService : Object {
         var ptr_arr = new GLib.GenericArray<Zeitgeist.Event> ();
         ptr_arr.add (event);
 
-        Zeitgeist.ResultSet rs;
-
         try {
-
-            rs = yield zg_log.find_events (tr, (owned) ptr_arr,
+            Zeitgeist.ResultSet rs = yield zg_log.find_events (tr, ptr_arr,
                     Zeitgeist.StorageState.ANY,
                     256,
                     Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
@@ -123,8 +129,10 @@ public class Slingshot.Backend.RelevancyService : Object {
                 index++;
             }
             update_complete ();
+            refreshing = false;
         } catch (Error err) {
-            warning ("%s", err.message);
+            critical (err.message);
+            refreshing = false;
             return;
         }
     }

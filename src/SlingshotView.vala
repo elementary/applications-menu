@@ -709,10 +709,6 @@ namespace Slingshot {
         }
 
         private void set_modality (Modality new_modality) {
-
-            if (modality == new_modality)
-                return;
-
             modality = new_modality;
 
             switch (modality) {
