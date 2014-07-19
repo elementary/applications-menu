@@ -156,8 +156,12 @@ public class Slingshot.Backend.App : Object {
                 warning ("Failed to load icon: %s\n", e.message);
             }
 
-            return Slingshot.icon_theme.load_icon ("application-default-icon",
-                size, Gtk.IconLookupFlags.FORCE_SIZE);
+            try {
+                return Slingshot.icon_theme.load_icon ("application-default-icon",
+                    size, Gtk.IconLookupFlags.FORCE_SIZE);
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
         Gdk.Pixbuf icon = null;
