@@ -17,7 +17,6 @@ Build-Depends: cmake (>= 2.6),
                valac (>= 0.18)
 Standards-Version: 3.9.5
 Homepage: http://launchpad.net/slingshot
-Vcs-Bzr: https://code.launchpad.net/~slingshot-devs/slingshot/new-slingshot
 
 Package: slingshot-launcher
 Architecture: any
@@ -25,8 +24,11 @@ Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Provides: netbook-launcher
 Description: Lightweight and stylish app launcher
- Slingshot is a lightweight app launcher for Pantheon, written in Vala
- and utilizing GTK+ and Cairo.
+ Slingshot is an application launcher for Pantheon,
+ written in Vala and utilizing GTK+ and Cairo.
+ .
+ It features an optional category view and fast
+ application search, including keywords.
 
 Package: slingshot-launcher-dbg
 Architecture: any
@@ -36,7 +38,10 @@ Depends: slingshot-launcher (= ${binary:Version}), ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Enhances: slingshot-launcher
 Description: Lightweight and stylish app launcher (debugging symbols)
- Slingshot is a lightweight app launcher for Pantheon, written in Vala
- and utilizing GTK+ and Cairo.
+ Slingshot is an application launcher for Pantheon,
+ written in Vala and utilizing GTK+ and Cairo.
+ .
+ It features an optional category view and fast
+ application search, including keywords.
  .
  This package contains debugging symbols for slingshot-launcher.
