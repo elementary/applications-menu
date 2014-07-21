@@ -1,5 +1,6 @@
-Format: http://dep.debian.net/deps/dep5
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: slingshot-launcher
+Source: https://launchpad.net/slingshot
 
 Files: *
 Copyright: 2011-2013 elementary Developers
@@ -9,6 +10,7 @@ Files: debian/*
 Copyright: 2011 Giulio Collura <random.cpp@gmail.com>
 License: GPL-3.0+
 
+License: GPL-3.0+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
