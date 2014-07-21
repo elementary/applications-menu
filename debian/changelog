@@ -70,9 +70,9 @@ slingshot-launcher (0.5) oneiric; urgency=low
 
   * Slingshot now sorts application by usage using zeitgeist
   * It can filter apps by category
-  
+
  -- Giulio Collura <random.cpp@gmail.com>  Mon, 12 Sep 2011 16:34:00 +0200
- 
+
 slingshot-launcher (0.4) oneiric; urgency=low
 
   * New Slingshot version for Elementary OS Luna

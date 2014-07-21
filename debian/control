@@ -28,7 +28,7 @@ Description: Lightweight and stylish app launcher
  written in Vala and utilizing GTK+ and Cairo.
  .
  It features an optional category view and fast
- application search, including keywords.
+ application search that uses Synapse as a back-end.
 
 Package: slingshot-launcher-dbg
 Architecture: any
@@ -42,6 +42,6 @@ Description: Lightweight and stylish app launcher (debugging symbols)
  written in Vala and utilizing GTK+ and Cairo.
  .
  It features an optional category view and fast
- application search, including keywords.
+ application search that uses Synapse as a back-end.
  .
  This package contains debugging symbols for slingshot-launcher.
