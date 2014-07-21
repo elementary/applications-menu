@@ -21,9 +21,42 @@ Copyright: 2011 Giulio Collura <random.cpp@gmail.com>
            2014 Simon Dieterle <smndtrl@gmail.com>
 License: GPL-3.0+
 
-Files: cmake/*
-Copyright: TODO
-License: Various
+Files: cmake/ParseArguments.cmake
+Copyright: 2000-2009 Kitware, Inc., Insight Software Consortium
+License: 2-clause BSD
+
+Files: cmake/FindVala.cmake
+       cmake/ValaVersion.cmake
+Copyright: 2009-2010 Jakob Westhoff
+License: 2-clause BSD
+
+Files: cmake/FindGirCompiler.cmake
+Copyright: 2009-2010 Jakob Westhoff
+           2014 Corentin Noël <corentin@elementaryos.org>
+License: 2-clause BSD
+
+Files: cmake/ValaPrecompile.cmake
+Copyright: 2009-2010 Jakob Westhoff
+           2011-2012 Lucas Baudin <xapantu@gmail.com>
+           2013 Victor Martinez <victor@elementaryos.org>
+           2014 Corentin Noël <corentin@elementaryos.org>
+License: 2-clause BSD
+
+Files: cmake/GSettings.cmake
+       cmake/Tests.cmake
+Copyright: 2011 ammonkey <am.monkeyd@gmail.com>
+License: 2-clause BSD
+
+Files: cmake/Translations.cmake
+Copyright: 2011 ammonkey <am.monkeyd@gmail.com>
+           2013 Victor Martinez <victor@elementaryos.org>
+           2013 Sergio Costas <rastersoft@gmail.com>
+           2014 Corentin Noël <corentin@elementaryos.org>
+License: 2-clause BSD
+
+Files: cmake/GObjectIntrospectionMacros.cmake
+Copyright: 2012 Lucas Baudin <xapantu@gmail.com>
+License: 2-clause BSD
 
 Files: debian/*
 Copyright: 2011 Giulio Collura <random.cpp@gmail.com>
@@ -52,3 +85,24 @@ License: GPL-3.0+
  .
  On Debian systems, the complete text of the GNU General
  Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+License: 2-clause BSD
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ 1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
