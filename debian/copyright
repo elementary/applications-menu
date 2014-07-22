@@ -3,7 +3,8 @@ Upstream-Name: slingshot-launcher
 Source: https://launchpad.net/slingshot
 
 Files: *
-Copyright: 2011 Giulio Collura <random.cpp@gmail.com>
+Copyright: 2011 Maxwell Barvian <maxwell@elementaryos.org>
+           2011 Giulio Collura <random.cpp@gmail.com>
            2011-2012 David Gomes <david@elementaryos.org>
            2011-2012 Lucas Baudin <xapantu@gmail.com>
            2012 Mario Guerriero <mario@elementaryos.org>
