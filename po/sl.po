@@ -7,40 +7,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-11-02 01:21-0500\n"
+"POT-Creation-Date: 2014-08-06 22:03-0500\n"
 "PO-Revision-Date: 2012-12-16 12:07+0000\n"
 "Last-Translator: Damir Jerovšek <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-07-27 05:58+0000\n"
-"X-Generator: Launchpad (build 17131)\n"
+"X-Launchpad-Export-Date: 2014-08-07 05:35+0000\n"
+"X-Generator: Launchpad (build 17147)\n"
 
-#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:39
-msgid "All Applications"
-msgstr "Vsi programi"
-
-#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:40
-msgid "Create a new Filter"
-msgstr "Ustvari nov filter"
-
-#: /home/codygarver/slingshot/po/../src/Widgets/CategoryView.vala:64
-msgid "This Category is Empty"
-msgstr "Ta kategorija je prazna"
-
-#: /home/codygarver/slingshot/po/../src/Backend/App.vala:57
-msgid "Run this command..."
-msgstr "Zaženi ta ukaz ..."
-
-#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:155
+#: ../src/SlingshotView.vala:152
 msgid "View as Grid"
 msgstr "Pogled mreže"
 
-#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:159
+#: ../src/SlingshotView.vala:156
 msgid "View by Category"
 msgstr "Pogled v kategorijah"
 
-#: /home/codygarver/slingshot/po/../src/SlingshotView.vala:167
-msgid "Search Apps..."
-msgstr "Išči programe ..."
+#: ../src/SlingshotView.vala:165
+msgid "Search Apps…"
+msgstr ""
+
+#: ../src/Backend/App.vala:94
+msgid "Run this command..."
+msgstr "Zaženi ta ukaz ..."
+
+#: ../src/Widgets/SearchView.vala:161
+msgid "Other"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:164
+msgid "Text"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:167
+msgid "Applications"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:170
+msgid "Files"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:173
+msgid "Actions"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:176
+msgid "Search"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:179
+msgid "Contacts"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:182
+msgid "Internet"
+msgstr ""
+
+#: ../src/Widgets/CategoryView.vala:29
+msgid "All Applications"
+msgstr "Vsi programi"
+
+#: ../src/Widgets/CategoryView.vala:30
+msgid "Create a new Filter"
+msgstr "Ustvari nov filter"
+
+#~ msgid "This Category is Empty"
+#~ msgstr "Ta kategorija je prazna"
+
+#~ msgid "Search Apps..."
+#~ msgstr "Išči programe ..."
