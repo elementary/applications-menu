@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-07 05:35+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-08-08 05:50+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 
 #: ../src/SlingshotView.vala:152
 msgid "View as Grid"
@@ -72,9 +72,3 @@ msgstr "Všetky aplikácie"
 #: ../src/Widgets/CategoryView.vala:30
 msgid "Create a new Filter"
 msgstr "Vytvoriť nový filter"
-
-#~ msgid "Search Apps..."
-#~ msgstr "Vyhľadávať aplikácie"
-
-#~ msgid "This Category is Empty"
-#~ msgstr "Táto kategória je prázdna"

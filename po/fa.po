@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-07 05:35+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-08-08 05:49+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 "Language: \n"
 
 #: ../src/SlingshotView.vala:152
@@ -73,9 +73,3 @@ msgstr "همه برنامه‌ها"
 #: ../src/Widgets/CategoryView.vala:30
 msgid "Create a new Filter"
 msgstr "ساخت پالایه جدید"
-
-#~ msgid "This Category is Empty"
-#~ msgstr "این دسته خالی است"
-
-#~ msgid "Search Apps..."
-#~ msgstr "جستجوی برنامه..."
