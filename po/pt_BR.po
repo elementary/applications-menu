@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2012-12-28 11:59+0000\n"
-"Last-Translator: Belenos Govannnon <Unknown>\n"
+"PO-Revision-Date: 2014-08-10 19:19+0000\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 05:50+0000\n"
+"X-Launchpad-Export-Date: 2014-08-11 05:36+0000\n"
 "X-Generator: Launchpad (build 17156)\n"
 
 #: ../src/SlingshotView.vala:152
@@ -27,7 +27,7 @@ msgstr "Visualizar por categoria"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr ""
+msgstr "Buscar aplicativos..."
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
@@ -35,35 +35,35 @@ msgstr "Executar esse comando..."
 
 #: ../src/Widgets/SearchView.vala:161
 msgid "Other"
-msgstr ""
+msgstr "Outros"
 
 #: ../src/Widgets/SearchView.vala:164
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: ../src/Widgets/SearchView.vala:167
 msgid "Applications"
-msgstr ""
+msgstr "Aplicativos"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Files"
-msgstr ""
+msgstr "Arquivos"
 
 #: ../src/Widgets/SearchView.vala:173
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: ../src/Widgets/SearchView.vala:179
 msgid "Contacts"
-msgstr ""
+msgstr "Contatos"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
