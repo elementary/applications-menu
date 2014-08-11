@@ -216,8 +216,10 @@ namespace Slingshot.Widgets {
             var search_item = new SearchItem (app, search_term);
             app.start_search.connect ((search, target) => start_search (search, target));
             search_item.button_release_event.connect (() => {
-                app.launch ();
-                app_launched ();
+                if (!search_item.dragging) {
+                    app.launch ();
+                    app_launched ();
+                }
                 return true;
             });
 

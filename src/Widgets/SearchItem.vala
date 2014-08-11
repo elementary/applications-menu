@@ -28,12 +28,13 @@ namespace Slingshot.Widgets {
         private Gtk.Image icon;
 
         private Cancellable? cancellable = null;
+        public bool dragging = false; //prevent launching
 
         public signal bool launch_app ();
 
         public SearchItem (Backend.App app, string search_term = "") {
             Object (app: app);
-
+            
             get_style_context ().add_class ("app");
             get_style_context ().add_class ("search-item");
 
@@ -68,6 +69,24 @@ namespace Slingshot.Widgets {
             add (box);
 
             launch_app.connect (app.launch);
+
+            var app_match = app.match as Synapse.ApplicationMatch;
+            if (app_match != null) {
+                Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
+                Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
+                Gdk.DragAction.COPY);
+                this.drag_begin.connect ( (ctx) => {
+                    this.dragging = true;
+                    Gtk.drag_set_icon_pixbuf (ctx, app.icon, 0, 0);
+                });
+                this.drag_end.connect ( () => {
+                    this.dragging = false;
+                });
+                this.drag_data_get.connect ( (ctx, sel, info, time) => {
+                    sel.set_uris ({File.new_for_path (app_match.filename).get_uri ()});
+                });
+            }
+           
         }
 
         public override void destroy () {
