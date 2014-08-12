@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2012-11-07 11:58+0000\n"
-"Last-Translator: Wang Dianjin <Unknown>\n"
+"PO-Revision-Date: 2014-08-11 09:29+0000\n"
+"Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 05:50+0000\n"
+"X-Launchpad-Export-Date: 2014-08-12 05:36+0000\n"
 "X-Generator: Launchpad (build 17156)\n"
 
 #: ../src/SlingshotView.vala:152
@@ -27,7 +27,7 @@ msgstr "按分类查看"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr ""
+msgstr "搜索应用程序..."
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
@@ -35,35 +35,35 @@ msgstr "运行此命令..."
 
 #: ../src/Widgets/SearchView.vala:161
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 #: ../src/Widgets/SearchView.vala:164
 msgid "Text"
-msgstr ""
+msgstr "文本"
 
 #: ../src/Widgets/SearchView.vala:167
 msgid "Applications"
-msgstr ""
+msgstr "应用程序"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Files"
-msgstr ""
+msgstr "文件"
 
 #: ../src/Widgets/SearchView.vala:173
 msgid "Actions"
-msgstr ""
+msgstr "动作"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: ../src/Widgets/SearchView.vala:179
 msgid "Contacts"
-msgstr ""
+msgstr "联系人"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "Internet"
-msgstr ""
+msgstr "网络"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
