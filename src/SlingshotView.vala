@@ -64,14 +64,9 @@ namespace Slingshot {
                 return grid_view.get_page_rows ();
             }
         }
+
         private int default_columns;
         private int default_rows;
-
-        public int view_height {
-            get {
-                return (int) (rows * 130 + rows * grid_view.row_spacing + 35);
-            }
-        }
 
         private int column_focus = 0;
         private int row_focus = 0;
@@ -100,12 +95,21 @@ namespace Slingshot {
 
             if (Slingshot.settings.screen_resolution != @"$(screen.get_width ())x$(screen.get_height ())")
                 setup_size ();
-            height_request = default_rows * 145 + 180;
+
+            height_request = calculate_grid_height () + 180;
             setup_ui ();
             connect_signals ();
 
             debug ("Apps loaded");
+        }
 
+        public int calculate_grid_height () {
+            return (int) (default_rows * Widgets.Grid.ITEM_HEIGHT +
+                         (default_rows - 1) * Widgets.Grid.ROW_SPACING);
+        }
+
+        public int calculate_grid_width () {
+            return (int) default_columns * Widgets.Grid.ITEM_WIDTH;
         }
 
         private void setup_size () {
@@ -114,11 +118,11 @@ namespace Slingshot {
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
             default_columns = 5;
             default_rows = 3;
-            while ((default_columns * 130 + 48 >= 2 * screen.get_width () / 3)) {
+            while ((calculate_grid_width () + 48 >= 2 * screen.get_width () / 3)) {
                 default_columns--;
             }
 
-            while ((default_rows * 145 + 72 >= 2 * screen.get_height () / 3)) {
+            while ((calculate_grid_height () + 72 >= 2 * screen.get_height () / 3)) {
                 default_rows--;
             }
 
@@ -173,15 +177,17 @@ namespace Slingshot {
             top.attach (dummy_search_entry, 2, 0, 1, 1);
 
             center = new Gtk.Grid ();
-            
+
             stack = new Gtk.Stack ();
-            stack.set_size_request (default_columns * 130, default_rows * 145);
+            stack.set_size_request (calculate_grid_width (), calculate_grid_height ());
+
             center.attach (stack, 0, 0, 1, 1);
 
             // Create the "NORMAL_VIEW"
             var scrolled_normal = new Gtk.ScrolledWindow (null, null);
             grid_view = new Widgets.Grid (default_rows, default_columns);
             scrolled_normal.add_with_viewport (grid_view);
+
             stack.add_named (scrolled_normal, "normal");
 
             // Create the "SEARCH_VIEW"
@@ -234,8 +240,8 @@ namespace Slingshot {
                                                  null, Gdk.CURRENT_TIME);
             }
 
-            var pointer_status = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true, 
-                                               Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | 
+            var pointer_status = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true,
+                                               Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK |
                                                Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
                                                null, Gdk.CURRENT_TIME);
 
@@ -362,7 +368,7 @@ namespace Slingshot {
                 can_trigger_hotcorner = false;
             }
         }
-        
+
         private void reposition (bool show=true) {
 
             debug("Repositioning");
@@ -449,7 +455,7 @@ namespace Slingshot {
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                         hide ();
                     }
-                    
+
                     break;
 
                 case "Escape":

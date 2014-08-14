@@ -42,9 +42,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         setup_ui ();
         setup_sidebar ();
         connect_events ();
-
-        set_size_request (view.columns*130 + 17, view.view_height);
-
     }
 
     private void setup_ui () {
