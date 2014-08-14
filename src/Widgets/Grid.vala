@@ -25,10 +25,6 @@ namespace Slingshot.Widgets {
     }
 
     public class Grid : Gtk.Box {
-
-        public const int ITEM_WIDTH = 130;
-        public const int ITEM_HEIGHT = 130;
-        public const int ROW_SPACING = 20;
         
         public Widgets.Switcher page_switcher;
         
@@ -73,7 +69,7 @@ namespace Slingshot.Widgets {
             current_grid.row_homogeneous = true;
             current_grid.column_homogeneous = true;
 
-            current_grid.row_spacing = ROW_SPACING;
+            current_grid.row_spacing = Pixels.ROW_SPACING;
             current_grid.column_spacing = 0;
             grids.set (page.number, current_grid);
             stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());

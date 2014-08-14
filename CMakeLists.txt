@@ -70,6 +70,7 @@ vala_precompile (VALA_C ${APPNAME}
     src/SlingshotView.vala
     src/Settings.vala
     src/Utils.vala
+    src/Pixels.vala
     src/Backend/AppSystem.vala
     src/Backend/DBusService.vala
     src/Backend/App.vala
@@ -127,4 +128,3 @@ add_schema ("org.pantheon.desktop.slingshot.gschema.xml")
 
 # Translations
 add_subdirectory (po)
-

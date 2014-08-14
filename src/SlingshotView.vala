@@ -96,7 +96,7 @@ namespace Slingshot {
             if (Slingshot.settings.screen_resolution != @"$(screen.get_width ())x$(screen.get_height ())")
                 setup_size ();
 
-            height_request = calculate_grid_height () + 180;
+            height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
             setup_ui ();
             connect_signals ();
 
@@ -104,12 +104,12 @@ namespace Slingshot {
         }
 
         public int calculate_grid_height () {
-            return (int) (default_rows * Widgets.Grid.ITEM_HEIGHT +
-                         (default_rows - 1) * Widgets.Grid.ROW_SPACING);
+            return (int) (default_rows * Pixels.ITEM_SIZE +
+                         (default_rows - 1) * Pixels.ROW_SPACING);
         }
 
         public int calculate_grid_width () {
-            return (int) default_columns * Widgets.Grid.ITEM_WIDTH;
+            return (int) default_columns * Pixels.ITEM_SIZE;
         }
 
         private void setup_size () {
@@ -118,11 +118,11 @@ namespace Slingshot {
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
             default_columns = 5;
             default_rows = 3;
-            while ((calculate_grid_width () + 48 >= 2 * screen.get_width () / 3)) {
+            while ((calculate_grid_width () + 2 * Pixels.PADDING >= 2 * screen.get_width () / 3)) {
                 default_columns--;
             }
 
-            while ((calculate_grid_height () + 72 >= 2 * screen.get_height () / 3)) {
+            while ((calculate_grid_height () + Pixels.BOTTOM_SPACE >= 2 * screen.get_height () / 3)) {
                 default_rows--;
             }
 
@@ -194,7 +194,8 @@ namespace Slingshot {
             var search_view_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             real_search_entry = new Widgets.LargeSearchEntry ();
-            real_search_entry.margin_left = real_search_entry.margin_right = 12;
+            real_search_entry.margin_left = Pixels.PADDING;
+            real_search_entry.margin_right = Pixels.PADDING;
 
             search_view = new Widgets.SearchView (this);
             search_view.start_search.connect ((match, target) => {
@@ -210,16 +211,23 @@ namespace Slingshot {
             // Create the "CATEGORY_VIEW"
             category_view = new Widgets.CategoryView (this);
             stack.add_named (category_view, "category");
-
-            container.attach (Utils.set_padding (top, 12, 12, 12, 12), 0, 0, 1, 1);
-            container.attach (Utils.set_padding (center, 0, 12, 12, 12), 0, 1, 1, 1);
+            
+            Utils.set_padding (top, 12, Pixels.PADDING, 12, Pixels.PADDING);
+            Utils.set_padding (center, 0, Pixels.PADDING, 12, Pixels.PADDING);
+            
+            container.attach (top, 0, 0, 1, 1);
+            container.attach (center, 0, 1, 1, 1);
 
             event_box = new Gtk.EventBox ();
             event_box.add (main_stack);
             // Add the container to the dialog's content area
             content_area = get_content_area () as Gtk.Box;
             content_area.pack_start (event_box);
-
+            content_area.set_margin_left (SHADOW_SIZE-1);
+            content_area.set_margin_right (SHADOW_SIZE-1);
+            content_area.set_margin_top (SHADOW_SIZE-1);
+            content_area.set_margin_bottom (SHADOW_SIZE-1);
+                    
             if (Slingshot.settings.use_category)
                 set_modality (Modality.CATEGORY_VIEW);
             else
@@ -727,10 +735,8 @@ namespace Slingshot {
                     stack.set_visible_child_name ("normal");
 
                     // change the paddings/margins back to normal
-                    get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE + 5);
-                    center.set_margin_left (12);
-                    top.set_margin_left (12);
-                    stack.set_size_request (default_columns * 130, default_rows * 145);
+                    center.set_margin_left (Pixels.PADDING);
+                    stack.set_size_request (calculate_grid_width (), calculate_grid_height ());
 
                     dummy_search_entry.grab_focus ();
                     break;
@@ -744,10 +750,8 @@ namespace Slingshot {
                     stack.set_visible_child_name ("category");
 
                     // remove the padding/margin on the left
-                    get_content_area ().set_margin_left (PADDINGS.left + SHADOW_SIZE);
                     center.set_margin_left (0);
-                    top.set_margin_left (17);
-                    stack.set_size_request (default_columns * 130 + 17, default_rows * 145);
+                    stack.set_size_request (calculate_grid_width () + Pixels.PADDING, calculate_grid_height ());
 
                     dummy_search_entry.grab_focus ();
                     break;
@@ -757,7 +761,6 @@ namespace Slingshot {
                     main_stack.set_visible_child_name ("search");
 
                     var content_area = get_content_area ();
-                    content_area.margin_left = content_area.margin_right = SHADOW_SIZE - 1;
                     break;
 
             }
@@ -837,7 +840,7 @@ namespace Slingshot {
             if (!first_start) {
                 grid_view.resize (default_rows, default_columns);
                 populate_grid_view ();
-                height_request = default_rows * 145 + 180;
+                height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
 
                 category_view.app_view.resize (default_rows, default_columns);
                 category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
