@@ -759,8 +759,6 @@ namespace Slingshot {
                 case Modality.SEARCH_VIEW:
                     view_selector.hide ();
                     main_stack.set_visible_child_name ("search");
-
-                    var content_area = get_content_area ();
                     break;
 
             }
