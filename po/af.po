@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2014-07-13 16:15+0000\n"
-"Last-Translator: Jacques Strydom <jacquesafro@gmail.com>\n"
+"PO-Revision-Date: 2014-08-15 09:05+0000\n"
+"Last-Translator: Jaycee Lock <jaycee.lock@gmail.com>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 05:49+0000\n"
+"X-Launchpad-Export-Date: 2014-08-16 05:35+0000\n"
 "X-Generator: Launchpad (build 17156)\n"
 
 #: ../src/SlingshotView.vala:152
@@ -27,7 +27,7 @@ msgstr "Vertoon as kategorie"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr ""
+msgstr "Deursoek programme"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
@@ -35,35 +35,35 @@ msgstr "Voer hierdie opdrag uit"
 
 #: ../src/Widgets/SearchView.vala:161
 msgid "Other"
-msgstr ""
+msgstr "Ander"
 
 #: ../src/Widgets/SearchView.vala:164
 msgid "Text"
-msgstr ""
+msgstr "Teks"
 
 #: ../src/Widgets/SearchView.vala:167
 msgid "Applications"
-msgstr ""
+msgstr "Programme"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Files"
-msgstr ""
+msgstr "Lêers"
 
 #: ../src/Widgets/SearchView.vala:173
 msgid "Actions"
-msgstr ""
+msgstr "Aksies"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Search"
-msgstr ""
+msgstr "Deursoek"
 
 #: ../src/Widgets/SearchView.vala:179
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakte"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
@@ -71,4 +71,4 @@ msgstr "Alle Programme"
 
 #: ../src/Widgets/CategoryView.vala:30
 msgid "Create a new Filter"
-msgstr "Skep 'n nuwe verfyning"
+msgstr "Skep 'n nuwe Filter"
