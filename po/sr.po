@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2013-06-19 15:48+0000\n"
+"PO-Revision-Date: 2014-08-19 20:41+0000\n"
 "Last-Translator: Иван Благојевић <ivan_blagojevic@mail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 05:50+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-08-20 05:36+0000\n"
+"X-Generator: Launchpad (build 17163)\n"
 
 #: ../src/SlingshotView.vala:152
 msgid "View as Grid"
@@ -27,7 +27,7 @@ msgstr "Преглед по категорији"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr ""
+msgstr "Претражи Апликације..."
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
@@ -35,35 +35,35 @@ msgstr "Покрени ову команду..."
 
 #: ../src/Widgets/SearchView.vala:161
 msgid "Other"
-msgstr ""
+msgstr "Остали"
 
 #: ../src/Widgets/SearchView.vala:164
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: ../src/Widgets/SearchView.vala:167
 msgid "Applications"
-msgstr ""
+msgstr "Апликације"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Files"
-msgstr ""
+msgstr "Датотеке"
 
 #: ../src/Widgets/SearchView.vala:173
 msgid "Actions"
-msgstr ""
+msgstr "Акције"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Search"
-msgstr ""
+msgstr "Тражи"
 
 #: ../src/Widgets/SearchView.vala:179
 msgid "Contacts"
-msgstr ""
+msgstr "Именик"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "Internet"
-msgstr ""
+msgstr "Мрежа"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
