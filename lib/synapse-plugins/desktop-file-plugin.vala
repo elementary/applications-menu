@@ -50,6 +50,9 @@ namespace Synapse
       public bool needs_terminal { get; set; default = false; }
       public string? filename { get; construct set; }
 
+      // for additional matching
+      public string generic_name { get; construct set; default = ""; }
+      
       private string? title_folded = null;
       public unowned string get_title_folded ()
       {
@@ -79,6 +82,7 @@ namespace Synapse
         this.title_folded = info.get_name_folded ();
         this.title_unaccented = Utils.remove_accents (this.title_folded);
         this.desktop_id = "application://" + info.desktop_id;
+        this.generic_name = info.generic_name;
       }
     }
 
@@ -160,6 +164,9 @@ namespace Synapse
       {
         unowned string folded_title = dfm.get_title_folded ();
         unowned string unaccented_title = dfm.title_unaccented;
+        unowned string comment = dfm.description;
+        unowned string generic_name = dfm.generic_name;
+
         bool matched = false;
         // FIXME: we need to do much smarter relevancy computation in fuzzy re
         // "sysmon" matching "System Monitor" is very good as opposed to
@@ -177,7 +184,13 @@ namespace Synapse
             results.add (dfm, compute_relevancy (dfm, matcher.value - Match.Score.INCREMENT_SMALL));
             matched = true;
             break;
-          }
+          } 
+        }
+        if (!matched && (comment.down ().contains (q.query_string_folded) 
+            || generic_name.down ().contains (q.query_string_folded)))
+        {
+            results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE - Match.Score.INCREMENT_SMALL));
+            matched = true;
         }
         if (!matched && dfm.exec.has_prefix (q.query_string))
         {
