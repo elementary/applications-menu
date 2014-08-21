@@ -112,10 +112,10 @@ namespace Synapse
       dfs.reload_done.connect (() => {
         mimetype_map.clear ();
         desktop_files.clear ();
-        load_all_desktop_files ();
+        load_all_desktop_files.begin ();
       });
 
-      load_all_desktop_files ();
+      load_all_desktop_files.begin ();
     }
 
     public signal void load_complete ();
@@ -277,7 +277,7 @@ namespace Synapse
           var app_info = new DesktopAppInfo.from_filename (desktop_info.filename);
           List<File> files = new List<File> ();
           files.prepend (f);
-          app_info.launch (files, new Gdk.AppLaunchContext ());
+          app_info.launch (files, Gdk.Display.get_default ().get_app_launch_context ());
         }
         catch (Error err)
         {
