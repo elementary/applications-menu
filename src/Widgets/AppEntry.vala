@@ -36,6 +36,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private Backend.App application;
 
     public AppEntry (Backend.App app) {
+        this.relief = Gtk.ReliefStyle.NONE;
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
             Gdk.DragAction.COPY);
