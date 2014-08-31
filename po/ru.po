@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2013-01-12 21:15+0000\n"
-"Last-Translator: Mukusev Vladimir <damon95@yandex.ru>\n"
+"PO-Revision-Date: 2014-08-30 21:21+0000\n"
+"Last-Translator: Alex <JWo1F@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 05:50+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-08-31 05:42+0000\n"
+"X-Generator: Launchpad (build 17176)\n"
 
 #: ../src/SlingshotView.vala:152
 msgid "View as Grid"
@@ -27,7 +27,7 @@ msgstr "Просмотр по категориям"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr ""
+msgstr "Поисковые приложения..."
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
@@ -35,23 +35,23 @@ msgstr "Выполнить эту команду..."
 
 #: ../src/Widgets/SearchView.vala:161
 msgid "Other"
-msgstr ""
+msgstr "Прочие"
 
 #: ../src/Widgets/SearchView.vala:164
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: ../src/Widgets/SearchView.vala:167
 msgid "Applications"
-msgstr ""
+msgstr "Приложения"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Files"
-msgstr ""
+msgstr "Файлы"
 
 #: ../src/Widgets/SearchView.vala:173
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Search"
@@ -59,11 +59,11 @@ msgstr ""
 
 #: ../src/Widgets/SearchView.vala:179
 msgid "Contacts"
-msgstr ""
+msgstr "Контакты"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "Internet"
-msgstr ""
+msgstr "Интернет"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
