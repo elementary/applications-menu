@@ -189,7 +189,7 @@ namespace Synapse
         if (!matched && (comment.down ().contains (q.query_string_folded) 
             || generic_name.down ().contains (q.query_string_folded)))
         {
-            results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE - Match.Score.INCREMENT_SMALL));
+            results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE - Match.Score.INCREMENT_MEDIUM));
             matched = true;
         }
         if (!matched && dfm.exec.has_prefix (q.query_string))
