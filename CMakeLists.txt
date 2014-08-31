@@ -127,4 +127,3 @@ add_schema ("org.pantheon.desktop.slingshot.gschema.xml")
 
 # Translations
 add_subdirectory (po)
-

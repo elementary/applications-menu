@@ -93,8 +93,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 
     protected override bool draw (Cairo.Context cr) {
-
-
         Gtk.Allocation size;
         get_allocation (out size);
 

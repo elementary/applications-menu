@@ -29,16 +29,8 @@ namespace Slingshot {
             return widget;
         }
 
-        public static int sort_apps_by_popularity (Backend.App a, Backend.App b) {
-            return (int) (b.popularity*1000 - a.popularity*1000);
-        }
-
         public static int sort_apps_by_name (Backend.App a, Backend.App b) {
             return a.name.collate (b.name);
-        }
-
-        public static int sort_apps_by_relevancy (Backend.App a, Backend.App b) {
-            return (int) (a.relevancy*1000 - b.relevancy*1000);
         }
     }
 }
