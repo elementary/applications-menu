@@ -99,8 +99,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         base.draw (cr);
 
         // Draw icon
-        Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
-        cr.paint_with_alpha (alpha);
+        if (icon != null) {
+            Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
+            cr.paint_with_alpha (alpha);
+        }
 
         return true;
 
