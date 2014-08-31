@@ -242,7 +242,9 @@ namespace Slingshot {
             if (pointer_status != Gdk.GrabStatus.SUCCESS || keyboard_status != Gdk.GrabStatus.SUCCESS)  {
                 // If grab failed, retry again. Happens when "Applications" button is long held.
                 Timeout.add (100, () => {
-                    grab_device ();
+                    if (visible)
+                        grab_device ();
+
                     return false;
                 });
             }
@@ -262,7 +264,8 @@ namespace Slingshot {
         }
 
         public override bool map_event (Gdk.EventAny event) {
-            grab_device ();
+            if (visible)
+                grab_device ();
 
             return false;
         }
