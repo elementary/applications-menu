@@ -97,12 +97,13 @@ namespace Slingshot {
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
+            height_request = default_rows * 145 + 180;
+
+            setup_ui ();
+            connect_signals ();
 
             if (Slingshot.settings.screen_resolution != @"$(screen.get_width ())x$(screen.get_height ())")
                 setup_size ();
-            height_request = default_rows * 145 + 180;
-            setup_ui ();
-            connect_signals ();
 
             debug ("Apps loaded");
 
@@ -350,6 +351,10 @@ namespace Slingshot {
                 reposition (false);
             });
 
+            get_style_context ().notify["direction"].connect (() => {
+                reposition (false);
+            });
+
             // check for change in gala settings
             Slingshot.settings.gala_settings.changed.connect (gala_settings_changed);
             gala_settings_changed ();
@@ -377,6 +382,11 @@ namespace Slingshot {
                                                   width = 100,
                                                   height = 30
                                                  };
+
+            if (get_style_context ().direction == Gtk.TextDirection.RTL) {
+                app_launcher_pos.x += screen.get_width ();
+            }
+
             move_to_rect (app_launcher_pos, show);
         }
 
