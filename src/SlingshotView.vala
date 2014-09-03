@@ -164,7 +164,15 @@ namespace Slingshot {
             dummy_search_entry = new Gtk.SearchEntry ();
             dummy_search_entry.placeholder_text = _("Search Apps…");
             dummy_search_entry.width_request = 250;
-            dummy_search_entry.button_press_event.connect ((e) => {return e.button == 3;});
+            dummy_search_entry.button_press_event.connect ((event) => {
+                if (event.button == 3) {
+                    var cb = Gtk.Clipboard.@get (Gdk.SELECTION_CLIPBOARD);
+                    var text = cb.wait_for_text ();
+                    dummy_search_entry.text = text;
+                    return true;
+                }
+                return false;
+            });
 
             if (Slingshot.settings.show_category_filter) {
                 top.attach (view_selector, 0, 0, 1, 1);
