@@ -31,18 +31,20 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     public signal void app_launched ();
 
     private double alpha = 1.0;
-    private bool   dragging = false; //prevent launching
+    private bool dragging = false; //prevent launching
 
     private Backend.App application;
+    private unowned SlingshotView view;
 
-    public AppEntry (Backend.App app) {
+    public AppEntry (Backend.App app, SlingshotView view) {
+        this.view = view;
         this.relief = Gtk.ReliefStyle.NONE;
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-            Gdk.DragAction.COPY);
+                             Gdk.DragAction.COPY);
 
         app_paintable = true;
-        set_visual (get_screen ().get_rgba_visual());
+        set_visual (get_screen ().get_rgba_visual ());
         set_size_request (130, 130);
         desktop_id = app.desktop_id;
         desktop_path = app.desktop_path;
@@ -72,7 +74,13 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         this.clicked.connect (launch_app);
 
-        this.button_press_event.connect ((e) => {return e.button == 3;});
+        this.button_release_event.connect ((e) => {
+            if (e.button == Gdk.BUTTON_SECONDARY) {
+                show_menu ();
+                return true;
+            }
+            return false;
+        });
 
         this.drag_begin.connect ( (ctx) => {
             this.dragging = true;
@@ -105,11 +113,40 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         }
 
         return true;
-
     }
 
     public void launch_app () {
         application.launch ();
         app_launched ();
     }
+
+    private void show_menu () {
+        // Display the apps static quicklist items in a popover menu
+        if (application.actions == null) {
+            try {
+                application.init_actions ();
+            } catch (KeyFileError e) {
+                critical ("%s: %s", desktop_path, e.message);
+            }
+        }
+
+        var menu = new PopoverMenu ();
+        foreach (var action in application.actions) {
+            var values = application.actions_map.get (action).split (";;");
+            var menuitem = new Widgets.PopoverMenuItem (action, application.quicklist_icon);
+            menu.add_menu_item (menuitem);
+            menuitem.activated.connect (() => {
+                try {
+                    AppInfo.create_from_commandline (values[0], null, AppInfoCreateFlags.NONE).launch (null, null);
+                    app_launched ();
+                } catch (Error e) {
+                    critical ("%s: %s", desktop_path, e.message);
+                }
+            });
+        }
+
+        if (menu.get_size () > 0)
+            view.show_popover_menu (menu, this);
+    }
+
 }

@@ -27,7 +27,8 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
 
     private Gtk.Stack stack;
     private Gee.HashMap<Gtk.Widget, Gtk.ToggleButton> buttons;
-
+    public signal void on_stack_changed ();
+    
     public Switcher () {
         orientation = Gtk.Orientation.HORIZONTAL;
         spacing = 2;
@@ -86,6 +87,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
 
     private void on_button_clicked (Gtk.Widget widget) {
         stack.set_visible_child (widget);
+        on_stack_changed ();
     }
 
     private void populate_switcher () {

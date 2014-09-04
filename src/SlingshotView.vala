@@ -31,6 +31,8 @@ namespace Slingshot {
         public Widgets.LargeSearchEntry real_search_entry;
         public Gtk.Stack stack;
         public Granite.Widgets.ModeButton view_selector;
+        // Single popover to use for all of app as context menu
+        private Widgets.NofocusPopover context_popover;
 
         // Views
         private Widgets.Grid grid_view;
@@ -52,6 +54,7 @@ namespace Slingshot {
         private bool can_trigger_hotcorner = true;
 
         private Backend.SynapseSearch synapse;
+
 
         // Sizes
         public int columns {
@@ -102,14 +105,13 @@ namespace Slingshot {
                 setup_size ();
             height_request = default_rows * 145 + 180;
             setup_ui ();
+            context_popover = new Widgets.NofocusPopover (this, event_box);
+
             connect_signals ();
-
             debug ("Apps loaded");
-
         }
 
         private void setup_size () {
-
             debug ("In setup_size ()");
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
             default_columns = 5;
@@ -130,7 +132,6 @@ namespace Slingshot {
         }
 
         private void setup_ui () {
-
             debug ("In setup_ui ()");
 
             // Create the base container
@@ -144,7 +145,7 @@ namespace Slingshot {
             top = new Gtk.Grid ();
 
             var top_separator = new Gtk.Label (""); // A fake label
-            top_separator.set_hexpand(true);
+            top_separator.set_hexpand (true);
 
             view_selector = new Granite.Widgets.ModeButton ();
 
@@ -164,15 +165,7 @@ namespace Slingshot {
             dummy_search_entry = new Gtk.SearchEntry ();
             dummy_search_entry.placeholder_text = _("Search Apps…");
             dummy_search_entry.width_request = 250;
-            dummy_search_entry.button_press_event.connect ((event) => {
-                if (event.button == 3) {
-                    var cb = Gtk.Clipboard.@get (Gdk.SELECTION_CLIPBOARD);
-                    var text = cb.wait_for_text ();
-                    dummy_search_entry.text = text;
-                    return true;
-                }
-                return false;
-            });
+            dummy_search_entry.button_press_event.connect ((e) => {return e.button == 3;});
 
             if (Slingshot.settings.show_category_filter) {
                 top.attach (view_selector, 0, 0, 1, 1);
@@ -290,12 +283,10 @@ namespace Slingshot {
         }
 
         private void connect_signals () {
-
             this.focus_in_event.connect (() => {
                 get_current_search_entry ().grab_focus ();
                 return false;
             });
-
             event_box.key_press_event.connect (on_key_press);
             dummy_search_entry.key_press_event.connect (search_entry_key_press);
             real_search_entry.widget.key_press_event.connect (search_entry_key_press);
@@ -366,6 +357,19 @@ namespace Slingshot {
             motion_notify_event.connect (hotcorner_trigger);
         }
 
+        public void show_popover_menu (Gtk.Widget menu, Gtk.Widget relative) {
+            context_popover = new Widgets.NofocusPopover (this, event_box);
+            context_popover.set_relative_to (relative);
+            context_popover.add (menu);
+            context_popover.show_all ();
+
+            var entry = relative as Widgets.AppEntry;
+            if (entry != null)
+                entry.app_launched.connect (() => {context_popover.hide ();});
+                
+            relative.grab_focus ();
+        }
+
         private void gala_settings_changed () {
             if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
                 can_trigger_hotcorner = true;
@@ -376,10 +380,10 @@ namespace Slingshot {
         
         private void reposition (bool show=true) {
 
-            debug("Repositioning");
+            debug ("Repositioning");
 
             Gdk.Rectangle monitor_dimensions, app_launcher_pos;
-            screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
+            screen.get_monitor_geometry (this.screen.get_primary_monitor (), out monitor_dimensions);
             app_launcher_pos = Gdk.Rectangle () { x = monitor_dimensions.x,
                                                   y = monitor_dimensions.y,
                                                   width = 100,
@@ -682,7 +686,7 @@ namespace Slingshot {
         }
 
         public override bool scroll_event (Gdk.EventScroll event) {
-
+            context_popover.hide ();
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
@@ -706,7 +710,7 @@ namespace Slingshot {
         }
 
         public void show_slingshot () {
-
+            context_popover.hide ();
             dummy_search_entry.text = "";
             real_search_entry.text = "";
 
@@ -714,7 +718,7 @@ namespace Slingshot {
             show_all ();
             present ();
 
-            set_focus(null);
+            set_focus (null);
             get_current_search_entry ().grab_focus ();
             set_modality ((Modality) view_selector.selected);
         }
@@ -813,7 +817,7 @@ namespace Slingshot {
 
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
 
-                var app_entry = new Widgets.AppEntry (app);
+                var app_entry = new Widgets.AppEntry (app, this);
                 app_entry.app_launched.connect (() => hide ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();
