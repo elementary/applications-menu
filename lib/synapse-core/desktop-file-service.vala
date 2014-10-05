@@ -50,6 +50,7 @@ namespace Synapse
    
     public string desktop_id { get; construct set; } 
     public string name { get; construct set; }
+    public string generic_name { get; construct set; }
     public string comment { get; set; default = ""; }
     public string icon_name { get; construct set; default = ""; }
 
@@ -134,6 +135,7 @@ namespace Synapse
         }
 
         name = app_info.get_name ();
+        generic_name = app_info.get_generic_name () ?? "";     
         exec = app_info.get_commandline ();
         if (exec == null)
         {
@@ -632,4 +634,3 @@ namespace Synapse
     }
   }
 }
-
