@@ -59,13 +59,13 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         set_show_expanders (false);
         set_level_indentation (8);
 
-        set_size_request (145, -1);
+        set_size_request (Pixels.SIDEBAR_WIDTH, -1);
         get_style_context ().add_class ("sidebar");
 
         var cell = new Gtk.CellRendererText ();
         cell.wrap_mode = Pango.WrapMode.WORD;
-        cell.wrap_width = 110;
-        cell.xpad = 17;
+        cell.wrap_width = Pixels.SIDEBAR_WIDTH - 2 * Pixels.PADDING;
+        cell.xpad = Pixels.PADDING;
 
         insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 

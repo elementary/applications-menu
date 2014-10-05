@@ -43,7 +43,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         app_paintable = true;
         set_visual (get_screen ().get_rgba_visual());
-        set_size_request (130, 130);
+        set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
         desktop_id = app.desktop_id;
         desktop_path = app.desktop_path;
 

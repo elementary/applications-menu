@@ -25,7 +25,7 @@ namespace Slingshot.Widgets {
     }
 
     public class Grid : Gtk.Box {
-        public int row_spacing = 20;
+        
         public Widgets.Switcher page_switcher;
         
         private Gtk.Stack stack;
@@ -69,7 +69,7 @@ namespace Slingshot.Widgets {
             current_grid.row_homogeneous = true;
             current_grid.column_homogeneous = true;
 
-            current_grid.row_spacing = row_spacing;
+            current_grid.row_spacing = Pixels.ROW_SPACING;
             current_grid.column_spacing = 0;
             grids.set (page.number, current_grid);
             stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
@@ -79,7 +79,6 @@ namespace Slingshot.Widgets {
         }
 
         public void append (Gtk.Widget widget) {
-
             update_position ();
 
             current_grid.attach (widget, (int)current_col, (int)current_row, 1, 1);
@@ -88,7 +87,6 @@ namespace Slingshot.Widgets {
         }
 
         private void update_position () {
-
             if (current_col == page.columns) {
                 current_col = 0;
                 current_row++;
@@ -99,11 +97,9 @@ namespace Slingshot.Widgets {
                 create_new_grid ();
                 current_row = 0;
             }
-
         }
 
         public void clear () {
-
             foreach (Gtk.Grid grid in grids.values) {
                 foreach (Gtk.Widget widget in grid.get_children ()) {
                     widget.destroy ();
@@ -117,7 +113,6 @@ namespace Slingshot.Widgets {
             page.number = 1;
             create_new_grid ();
             stack.set_visible_child (current_grid);
-
         }
 
         public Gtk.Widget get_child_at (int column, int row) {
@@ -128,21 +123,15 @@ namespace Slingshot.Widgets {
         }
 
         public int get_page_columns () {
-
             return (int) page.columns;
-
         }
 
         public int get_page_rows () {
-
             return (int) page.rows;
-
         }
 
         public int get_n_pages () {
-
             return (int) page.number;
-
         }
 
         public int get_current_page () {
@@ -152,7 +141,7 @@ namespace Slingshot.Widgets {
         public void go_to_next () {
             int page_number = get_current_page ()+1;
             if (page_number <= get_n_pages ())
-                stack.set_visible_child_name ("%d".printf (page_number));
+                stack.set_visible_child_name (page_number.to_string ());
             
             page_switcher.update_selected ();
         }
@@ -160,30 +149,26 @@ namespace Slingshot.Widgets {
         public void go_to_previous () {
             int page_number = get_current_page ()-1;
             if (page_number > 0)
-                stack.set_visible_child_name ("%d".printf (page_number));
+                stack.set_visible_child_name (page_number.to_string ());
             
             page_switcher.update_selected ();
         }
 
         public void go_to_last () {
-            stack.set_visible_child_name ("%d".printf (get_n_pages ()));
+            stack.set_visible_child_name (get_n_pages ().to_string ());
             page_switcher.update_selected ();
         }
 
         public void go_to_number (int number) {
-            stack.set_visible_child_name ("%d".printf (number));
+            stack.set_visible_child_name (number.to_string ());
             page_switcher.update_selected ();
         }
 
         public void resize (int rows, int columns) {
-
             clear ();
             page.rows = rows;
             page.columns = columns;
             page.number = 1;
-
         }
-
     }
-
 }
