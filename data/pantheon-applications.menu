@@ -159,7 +159,6 @@
           <Filename>ibus.desktop</Filename>
         </Not>
       </And>
-      <Filename>ibus-setup.desktop</Filename>
       <Filename>ubuntuone-installer.desktop</Filename>
       <Filename>ubuntu-tweak.desktop</Filename>
     </Include>
