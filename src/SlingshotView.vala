@@ -372,7 +372,6 @@ namespace Slingshot {
         }
         
         private void reposition (bool show=true) {
-
             debug("Repositioning");
 
             Gdk.Rectangle monitor_dimensions, app_launcher_pos;
@@ -385,6 +384,7 @@ namespace Slingshot {
 
             if (get_style_context ().direction == Gtk.TextDirection.RTL) {
                 app_launcher_pos.x += screen.get_width ();
+                app_launcher_pos.x -= this.get_window ().get_width ();
             }
 
             move_to_rect (app_launcher_pos, show);
