@@ -42,9 +42,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         setup_ui ();
         setup_sidebar ();
         connect_events ();
-
-        set_size_request (view.columns*130 + 17, view.view_height);
-
     }
 
     private void setup_ui () {
@@ -52,7 +49,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
-        app_view.margin_left = 5;
+        app_view.margin_left = Pixels.SIDEBAR_GRID_PADDING;
 
         container.attach (separator, 1, 0, 1, 2);
         container.attach (app_view, 2, 0, 1, 1);

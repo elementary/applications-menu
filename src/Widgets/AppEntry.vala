@@ -31,7 +31,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     public signal void app_launched ();
 
     private double alpha = 1.0;
-    private bool dragging = false; //prevent launching
+    private bool   dragging = false; //prevent launching
 
     private Backend.App application;
     private unowned SlingshotView view;
@@ -41,11 +41,11 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         this.relief = Gtk.ReliefStyle.NONE;
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-                             Gdk.DragAction.COPY);
+            Gdk.DragAction.COPY);
 
         app_paintable = true;
-        set_visual (get_screen ().get_rgba_visual ());
-        set_size_request (130, 130);
+        set_visual (get_screen ().get_rgba_visual());
+        set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
         desktop_id = app.desktop_id;
         desktop_path = app.desktop_path;
 

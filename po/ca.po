@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2013-05-07 20:53+0000\n"
+"PO-Revision-Date: 2014-09-06 13:21+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 05:49+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-09-07 05:48+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: ../src/SlingshotView.vala:152
 msgid "View as Grid"
@@ -27,7 +27,7 @@ msgstr "Visualitza per categories"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr ""
+msgstr "Cerca aplicacions…"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
@@ -35,35 +35,35 @@ msgstr "Executa aquesta ordre…"
 
 #: ../src/Widgets/SearchView.vala:161
 msgid "Other"
-msgstr ""
+msgstr "Altres"
 
 #: ../src/Widgets/SearchView.vala:164
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/Widgets/SearchView.vala:167
 msgid "Applications"
-msgstr ""
+msgstr "Aplicacions"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Files"
-msgstr ""
+msgstr "Fitxers"
 
 #: ../src/Widgets/SearchView.vala:173
 msgid "Actions"
-msgstr ""
+msgstr "Accions"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: ../src/Widgets/SearchView.vala:179
 msgid "Contacts"
-msgstr ""
+msgstr "Contactes"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
