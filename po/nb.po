@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 22:03-0500\n"
-"PO-Revision-Date: 2014-08-12 10:47+0000\n"
-"Last-Translator: Thomas Lekanger <datagutt666@hotmail.com>\n"
+"PO-Revision-Date: 2014-10-12 07:05+0000\n"
+"Last-Translator: Niklas Fjeldberg <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-12 05:45+0000\n"
+"X-Launchpad-Export-Date: 2014-10-13 05:39+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: ../src/SlingshotView.vala:152
 msgid "View as Grid"
-msgstr "Se i rutenett"
+msgstr "Vis som rutenett"
 
 #: ../src/SlingshotView.vala:156
 msgid "View by Category"
@@ -27,7 +27,7 @@ msgstr "Sorter etter kategori"
 
 #: ../src/SlingshotView.vala:165
 msgid "Search Apps…"
-msgstr "Søk i apper..."
+msgstr "Søk i applikasjoner..."
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command..."
