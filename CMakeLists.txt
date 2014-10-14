@@ -78,7 +78,6 @@ vala_precompile (VALA_C ${APPNAME}
     src/Backend/SynapseSearch.vala
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
-    src/Widgets/LargeSearchEntry.vala
     src/Widgets/Switcher.vala
     src/Widgets/SearchView.vala
     src/Widgets/SearchItem.vala

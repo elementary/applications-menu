@@ -37,6 +37,8 @@ namespace Slingshot.Widgets {
         private Page page;
 
         public Grid (int rows, int columns) {
+            margin_left = 12;
+            margin_right = 12;
             page.rows = rows;
             page.columns = columns;
             page.number = 1;
