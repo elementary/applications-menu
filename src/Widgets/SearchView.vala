@@ -188,7 +188,7 @@ namespace Slingshot.Widgets {
                 header.margin_left = header.margin_top = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
-                header.get_style_context ().add_class ("search-category-header");
+                header.get_style_context ().add_class ("category-label");
 
                 var list = categories.get (type);
                 var queue = new Queue<Backend.App> ();

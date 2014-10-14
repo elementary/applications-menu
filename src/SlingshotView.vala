@@ -637,6 +637,7 @@ namespace Slingshot {
                     if (!search_entry.has_focus) {
                         search_entry.grab_focus ();
                         search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
+                        search_entry.key_press_event (event);
                     }
                     return false;
 
@@ -752,11 +753,7 @@ namespace Slingshot {
                 matches = yield synapse.search (text);
             }
 
-            new Thread<bool> (null, () => {
-                search_view.set_results (matches, text);
-                return false;
-            });
-
+            search_view.set_results (matches, text);
             search_view.selected = 0;
 
         }
