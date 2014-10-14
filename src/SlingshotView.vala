@@ -398,8 +398,7 @@ namespace Slingshot {
             if (get_style_context ().direction == Gtk.TextDirection.RTL) {
                 Gdk.Rectangle rectangle;
                 screen.get_monitor_geometry (screen.get_primary_monitor () , out rectangle);
-                app_launcher_pos.x += rectangle.width;
-                app_launcher_pos.x -= this.get_window ().get_width ();
+                app_launcher_pos.x += rectangle.width - this.get_window ().get_width ();
             }
 
             move_to_rect (app_launcher_pos, show);
