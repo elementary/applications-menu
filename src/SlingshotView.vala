@@ -753,7 +753,10 @@ namespace Slingshot {
                 matches = yield synapse.search (text);
             }
 
-            search_view.set_results (matches, text);
+            Idle.add (() => {
+                search_view.set_results (matches, text);
+                return false;
+            });
 
         }
 

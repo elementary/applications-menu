@@ -21,6 +21,7 @@ namespace Slingshot.Widgets {
     public class SearchView : Gtk.ScrolledWindow {
         const int CONTEXT_WIDTH = 200;
         const int CONTEXT_ARROW_SIZE = 12;
+        const int MAX_RESULTS = 20;
         const int MAX_RESULTS_BEFORE_LIMIT = 10;
 
         public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
@@ -149,7 +150,7 @@ namespace Slingshot.Widgets {
             // if we're showing more than about 10 results and we have more than
             // categories, we limit the results per category to the most relevant
             // ones.
-            var limit = 20;
+            var limit = MAX_RESULTS;
             if (matches.size + 3 > MAX_RESULTS_BEFORE_LIMIT && categories_order.size > 2)
                 limit = 5;
 
@@ -189,9 +190,12 @@ namespace Slingshot.Widgets {
                 header.margin_bottom = 4;
                 header.use_markup = true;
                 header.get_style_context ().add_class ("category-label");
+                header.show ();
+                main_box.pack_start (header, false);
 
                 var list = categories.get (type);
-                var queue = new Queue<Backend.App> ();
+                var old_selected = selected;
+                clear ();
                 for (var i = 0; i < limit && i < list.size; i++) {
                     var match = list.get (i);
 
@@ -199,28 +203,15 @@ namespace Slingshot.Widgets {
                     if (match.match_type == Synapse.MatchType.UNKNOWN) {
                         var actions = Backend.SynapseSearch.find_actions_for_match (match);
                         foreach (var action in actions) {
-                            queue.push_tail (new Backend.App.from_synapse_match (action, match));
+                            show_app (new Backend.App.from_synapse_match (action, match), search_term);
                             n_results++;
                         }
                     } else {
-                        queue.push_tail (new Backend.App.from_synapse_match (match));
+                        show_app (new Backend.App.from_synapse_match (match), search_term);
                         n_results++;
                     }
                 }
-
-                Idle.add (() => {
-                    var old_selected = selected;
-                    clear ();
-                    header.show ();
-                    main_box.pack_start (header, false);
-                    Backend.App item = null;
-                    while ((item = queue.pop_head ()) != null) {
-                        show_app (item, search_term);
-                    }
-                    selected = old_selected;
-
-                    return GLib.Source.REMOVE;
-                });
+                selected = old_selected;
             }
         }
 
