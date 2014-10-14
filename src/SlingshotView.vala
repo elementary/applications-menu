@@ -754,7 +754,6 @@ namespace Slingshot {
             }
 
             search_view.set_results (matches, text);
-            search_view.selected = 0;
 
         }
 

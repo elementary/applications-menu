@@ -149,7 +149,7 @@ namespace Slingshot.Widgets {
             // if we're showing more than about 10 results and we have more than
             // categories, we limit the results per category to the most relevant
             // ones.
-            var limit = int.MAX;
+            var limit = 20;
             if (matches.size + 3 > MAX_RESULTS_BEFORE_LIMIT && categories_order.size > 2)
                 limit = 5;
 
@@ -185,7 +185,7 @@ namespace Slingshot.Widgets {
 
                 var header = new Gtk.Label (label);
                 header.xalign = 0;
-                header.margin_left = header.margin_top = 8;
+                header.margin_left = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
                 header.get_style_context ().add_class ("category-label");
