@@ -209,6 +209,7 @@ namespace Slingshot.Widgets {
                 }
 
                 Idle.add (() => {
+                    var old_selected = selected;
                     clear ();
                     header.show ();
                     main_box.pack_start (header, false);
@@ -216,6 +217,7 @@ namespace Slingshot.Widgets {
                     while ((item = queue.pop_head ()) != null) {
                         show_app (item, search_term);
                     }
+                    selected = old_selected;
 
                     return GLib.Source.REMOVE;
                 });
