@@ -92,6 +92,7 @@ CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
     --thread
+    --target-glib=2.32
     --vapidir=${CMAKE_BINARY_DIR}/lib/synapse-core
     --vapidir=${CMAKE_BINARY_DIR}/lib/synapse-plugins
     -g

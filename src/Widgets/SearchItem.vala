@@ -35,7 +35,6 @@ namespace Slingshot.Widgets {
             Object (app: app);
 
             get_style_context ().add_class ("app");
-            get_style_context ().add_class ("search-item");
 
             var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 

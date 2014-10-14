@@ -176,6 +176,7 @@ namespace Slingshot {
             top.add (search_entry);
 
             stack = new Gtk.Stack ();
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
             // Create the "NORMAL_VIEW"
             var scrolled_normal = new Gtk.ScrolledWindow (null, null);
@@ -183,6 +184,11 @@ namespace Slingshot {
             grid_view = new Widgets.Grid (default_rows, default_columns);
             scrolled_normal.add_with_viewport (grid_view);
             stack.add_named (scrolled_normal, "normal");
+
+            // Create the "CATEGORY_VIEW"
+            category_view = new Widgets.CategoryView (this);
+            category_view.set_size_request (calculate_grid_width (), calculate_grid_height ());
+            stack.add_named (category_view, "category");
 
             // Create the "SEARCH_VIEW"
             search_view = new Widgets.SearchView (this);
@@ -192,11 +198,6 @@ namespace Slingshot {
             });
 
             stack.add_named (search_view, "search");
-
-            // Create the "CATEGORY_VIEW"
-            category_view = new Widgets.CategoryView (this);
-            category_view.set_size_request (calculate_grid_width (), calculate_grid_height ());
-            stack.add_named (category_view, "category");
 
             container.attach (top, 0, 0, 1, 1);
             container.attach (stack, 0, 1, 1, 1);
@@ -209,7 +210,7 @@ namespace Slingshot {
             content_area.set_margin_left (SHADOW_SIZE-1);
             content_area.set_margin_right (SHADOW_SIZE-1);
             content_area.set_margin_top (SHADOW_SIZE-1);
-            //content_area.set_margin_bottom (SHADOW_SIZE-1);
+            content_area.set_margin_bottom (SHADOW_SIZE-1);
 
             if (Slingshot.settings.use_category)
                 set_modality (Modality.CATEGORY_VIEW);
@@ -679,7 +680,12 @@ namespace Slingshot {
 
             set_focus (null);
             search_entry.grab_focus ();
+            //This is needed in order to not animate if the previous view was the search view.
+            view_selector_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
+            stack.transition_type = Gtk.StackTransitionType.NONE;
             set_modality ((Modality) view_selector.selected);
+            view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
         }
 
         private void set_modality (Modality new_modality) {
@@ -746,8 +752,10 @@ namespace Slingshot {
                 matches = yield synapse.search (text);
             }
 
-            search_view.clear ();
-            search_view.set_results (matches, text);
+            new Thread<bool> (null, () => {
+                search_view.set_results (matches, text);
+                return false;
+            });
 
             search_view.selected = 0;
 

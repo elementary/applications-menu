@@ -90,9 +90,10 @@ namespace Slingshot.Widgets {
             items = new Gee.HashMap<Backend.App, SearchItem> ();
 
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            main_box.margin_left = 12;
+            main_box.margin_right = 12;
 
             context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            context_box.width_request = CONTEXT_WIDTH;
             context_fixed = new Gtk.Fixed ();
             context_fixed.margin_left = CONTEXT_ARROW_SIZE;
             context_fixed.put (context_box, 0, 0);
@@ -103,7 +104,6 @@ namespace Slingshot.Widgets {
             revealer = new Gtk.Revealer ();
             revealer.transition_duration = 400;
             revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
-            revealer.width_request = CONTEXT_WIDTH + CONTEXT_ARROW_SIZE;
             revealer.no_show_all = true;
             revealer.add (context);
 
@@ -188,11 +188,10 @@ namespace Slingshot.Widgets {
                 header.margin_left = header.margin_top = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
-                header.show ();
                 header.get_style_context ().add_class ("search-category-header");
-                main_box.pack_start (header, false);
 
                 var list = categories.get (type);
+                var queue = new Queue<Backend.App> ();
                 for (var i = 0; i < limit && i < list.size; i++) {
                     var match = list.get (i);
 
@@ -200,14 +199,26 @@ namespace Slingshot.Widgets {
                     if (match.match_type == Synapse.MatchType.UNKNOWN) {
                         var actions = Backend.SynapseSearch.find_actions_for_match (match);
                         foreach (var action in actions) {
-                            show_app (new Backend.App.from_synapse_match (action, match), search_term);
+                            queue.push_tail (new Backend.App.from_synapse_match (action, match));
                             n_results++;
                         }
                     } else {
-                        show_app (new Backend.App.from_synapse_match (match), search_term);
+                        queue.push_tail (new Backend.App.from_synapse_match (match));
                         n_results++;
                     }
                 }
+
+                Idle.add (() => {
+                    clear ();
+                    header.show ();
+                    main_box.pack_start (header, false);
+                    Backend.App item = null;
+                    while ((item = queue.pop_head ()) != null) {
+                        show_app (item, search_term);
+                    }
+
+                    return GLib.Source.REMOVE;
+                });
             }
         }
 
