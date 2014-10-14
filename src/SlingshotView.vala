@@ -396,7 +396,9 @@ namespace Slingshot {
                                                  };
 
             if (get_style_context ().direction == Gtk.TextDirection.RTL) {
-                app_launcher_pos.x += screen.get_width ();
+                Gdk.Rectangle rectangle;
+                screen.get_monitor_geometry (screen.get_primary_monitor () , out rectangle);
+                app_launcher_pos.x += rectangle.width;
                 app_launcher_pos.x -= this.get_window ().get_width ();
             }
 
