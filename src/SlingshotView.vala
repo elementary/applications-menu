@@ -166,7 +166,7 @@ namespace Slingshot {
                 view_selector.selected = 0;
 
             dummy_search_entry = new Gtk.SearchEntry ();
-            dummy_search_entry.placeholder_text = _("Search Apps…");
+            dummy_search_entry.placeholder_text = _("Search Apps");
             dummy_search_entry.width_request = 250;
             dummy_search_entry.button_press_event.connect ((e) => {return e.button == 3;});
 
