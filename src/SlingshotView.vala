@@ -330,6 +330,10 @@ namespace Slingshot {
                 reposition (false);
             });
 
+            get_style_context ().notify["direction"].connect (() => {
+                reposition (false);
+            });
+
             // check for change in gala settings
             Slingshot.settings.gala_settings.changed.connect (gala_settings_changed);
             gala_settings_changed ();
@@ -347,7 +351,6 @@ namespace Slingshot {
         }
 
         private void reposition (bool show=true) {
-
             debug("Repositioning");
 
             Gdk.Rectangle monitor_dimensions, app_launcher_pos;
@@ -357,6 +360,11 @@ namespace Slingshot {
                                                   width = 100,
                                                   height = 30
                                                  };
+
+            if (get_style_context ().direction == Gtk.TextDirection.RTL) {
+                app_launcher_pos.x += monitor_dimensions.width - this.get_window ().get_width ();
+            }
+
             move_to_rect (app_launcher_pos, show);
         }
 
