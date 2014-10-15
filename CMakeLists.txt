@@ -78,7 +78,6 @@ vala_precompile (VALA_C ${APPNAME}
     src/Backend/SynapseSearch.vala
     src/Widgets/AppEntry.vala
     src/Widgets/Grid.vala
-    src/Widgets/LargeSearchEntry.vala
     src/Widgets/Switcher.vala
     src/Widgets/SearchView.vala
     src/Widgets/SearchItem.vala
@@ -93,6 +92,7 @@ CUSTOM_VAPIS
     vapi/config.vapi
 OPTIONS
     --thread
+    --target-glib=2.32
     --vapidir=${CMAKE_BINARY_DIR}/lib/synapse-core
     --vapidir=${CMAKE_BINARY_DIR}/lib/synapse-plugins
     -g

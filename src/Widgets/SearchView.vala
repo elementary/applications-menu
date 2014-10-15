@@ -21,6 +21,7 @@ namespace Slingshot.Widgets {
     public class SearchView : Gtk.ScrolledWindow {
         const int CONTEXT_WIDTH = 200;
         const int CONTEXT_ARROW_SIZE = 12;
+        const int MAX_RESULTS = 20;
         const int MAX_RESULTS_BEFORE_LIMIT = 10;
 
         public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
@@ -90,9 +91,10 @@ namespace Slingshot.Widgets {
             items = new Gee.HashMap<Backend.App, SearchItem> ();
 
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            main_box.margin_left = 12;
+            main_box.margin_right = 12;
 
             context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            context_box.width_request = CONTEXT_WIDTH;
             context_fixed = new Gtk.Fixed ();
             context_fixed.margin_left = CONTEXT_ARROW_SIZE;
             context_fixed.put (context_box, 0, 0);
@@ -103,7 +105,6 @@ namespace Slingshot.Widgets {
             revealer = new Gtk.Revealer ();
             revealer.transition_duration = 400;
             revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
-            revealer.width_request = CONTEXT_WIDTH + CONTEXT_ARROW_SIZE;
             revealer.no_show_all = true;
             revealer.add (context);
 
@@ -149,7 +150,7 @@ namespace Slingshot.Widgets {
             // if we're showing more than about 10 results and we have more than
             // categories, we limit the results per category to the most relevant
             // ones.
-            var limit = int.MAX;
+            var limit = MAX_RESULTS;
             if (matches.size + 3 > MAX_RESULTS_BEFORE_LIMIT && categories_order.size > 2)
                 limit = 5;
 
@@ -185,14 +186,16 @@ namespace Slingshot.Widgets {
 
                 var header = new Gtk.Label (label);
                 header.xalign = 0;
-                header.margin_left = header.margin_top = 8;
+                header.margin_left = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
+                header.get_style_context ().add_class ("category-label");
                 header.show ();
-                header.get_style_context ().add_class ("search-category-header");
                 main_box.pack_start (header, false);
 
                 var list = categories.get (type);
+                var old_selected = selected;
+                clear ();
                 for (var i = 0; i < limit && i < list.size; i++) {
                     var match = list.get (i);
 
@@ -208,6 +211,7 @@ namespace Slingshot.Widgets {
                         n_results++;
                     }
                 }
+                selected = old_selected;
             }
         }
 
