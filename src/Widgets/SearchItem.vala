@@ -61,7 +61,7 @@ namespace Slingshot.Widgets {
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
             box.pack_start (icon, false);
             box.pack_start (name_label, true);
-            box.margin_left = 12;
+            box.margin_start = 12;
             box.margin_top = box.margin_bottom = 3;
 
             add (box);

@@ -49,7 +49,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
-        app_view.margin_left = Pixels.SIDEBAR_GRID_PADDING;
+        app_view.margin_start = Pixels.SIDEBAR_GRID_PADDING;
 
         container.attach (separator, 1, 0, 1, 2);
         container.attach (app_view, 2, 0, 1, 1);

@@ -143,11 +143,11 @@ namespace Slingshot {
             // Add top bar
             top = new Gtk.Grid ();
             top.orientation = Gtk.Orientation.HORIZONTAL;
-            top.margin_left = 12;
-            top.margin_right = 12;
+            top.margin_start = 12;
+            top.margin_end = 12;
 
             view_selector = new Granite.Widgets.ModeButton ();
-            view_selector.margin_right = 12;
+            view_selector.margin_end = 12;
             view_selector_revealer = new Gtk.Revealer ();
             view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
             view_selector_revealer.add (view_selector);
@@ -207,8 +207,8 @@ namespace Slingshot {
             // Add the container to the dialog's content area
             content_area = get_content_area () as Gtk.Box;
             content_area.pack_start (event_box);
-            content_area.set_margin_left (SHADOW_SIZE-1);
-            content_area.set_margin_right (SHADOW_SIZE-1);
+            content_area.set_margin_start (SHADOW_SIZE-1);
+            content_area.set_margin_end (SHADOW_SIZE-1);
             content_area.set_margin_top (SHADOW_SIZE-1);
             content_area.set_margin_bottom (SHADOW_SIZE-1);
 

@@ -91,12 +91,12 @@ namespace Slingshot.Widgets {
             items = new Gee.HashMap<Backend.App, SearchItem> ();
 
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.margin_left = 12;
-            main_box.margin_right = 12;
+            main_box.margin_start = 12;
+            main_box.margin_end = 12;
 
             context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             context_fixed = new Gtk.Fixed ();
-            context_fixed.margin_left = CONTEXT_ARROW_SIZE;
+            context_fixed.margin_start = CONTEXT_ARROW_SIZE;
             context_fixed.put (context_box, 0, 0);
             context = new Gtk.EventBox ();
             context.draw.connect (draw_context);
@@ -186,7 +186,7 @@ namespace Slingshot.Widgets {
 
                 var header = new Gtk.Label (label);
                 header.xalign = 0;
-                header.margin_left = 8;
+                header.margin_start = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
                 header.get_style_context ().add_class ("category-label");
