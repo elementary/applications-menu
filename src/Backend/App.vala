@@ -91,7 +91,7 @@ public class Slingshot.Backend.App : Object {
         app_type = AppType.COMMAND;
 
         name = command;
-        description = _("Run this command...");
+        description = _("Run this command…");
         exec = command;
         desktop_id = command;
         icon_name = "system-run";
