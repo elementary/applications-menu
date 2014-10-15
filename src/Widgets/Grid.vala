@@ -49,8 +49,11 @@ namespace Slingshot.Widgets {
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
             page_switcher = new Widgets.Switcher ();
             page_switcher.set_stack (stack);
+            var fake_grid = new Gtk.Grid ();
+            fake_grid.expand = true;
 
             main_grid.add (stack);
+            main_grid.add (fake_grid);
             main_grid.add (page_switcher);
             add (main_grid);
 

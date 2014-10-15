@@ -97,6 +97,16 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
     }
 
+    public override void get_preferred_width (out int minimum_width, out int natural_width) {
+        minimum_width = Pixels.ITEM_SIZE;
+        natural_width = Pixels.ITEM_SIZE;
+    }
+
+    public override void get_preferred_height (out int minimum_height, out int natural_height) {
+        minimum_height = Pixels.ITEM_SIZE;
+        natural_height = Pixels.ITEM_SIZE;
+    }
+
     public void launch_app () {
         application.launch ();
         app_launched ();
