@@ -45,17 +45,12 @@ namespace Slingshot.Widgets {
             var main_grid = new Gtk.Grid ();
             main_grid.orientation = Gtk.Orientation.VERTICAL;
             stack = new Gtk.Stack ();
+            stack.expand = true;
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
             page_switcher = new Widgets.Switcher ();
             page_switcher.set_stack (stack);
-            var fake_grid = new Gtk.Grid ();
-            fake_grid.hexpand = true;
-            var stack_layout = new Gtk.Layout ();
-            stack_layout.expand = true;
-            stack_layout.add (stack);
 
-            main_grid.add (stack_layout);
-            main_grid.add (fake_grid);
+            main_grid.add (stack);
             main_grid.add (page_switcher);
             add (main_grid);
 
@@ -99,6 +94,16 @@ namespace Slingshot.Widgets {
                 create_new_grid ();
                 current_row = 0;
             }
+        }
+
+        public override void get_preferred_width (out int minimum_width, out int natural_width) {
+            minimum_width = (int)page.columns * Pixels.ITEM_SIZE;
+            natural_width = minimum_width;
+        }
+
+        public override void get_preferred_height (out int minimum_height, out int natural_height) {
+            minimum_height = (int)page.rows * Pixels.ITEM_SIZE + ((int)page.rows - 1) * Pixels.ROW_SPACING;
+            natural_height = minimum_height;
         }
 
         public void clear () {

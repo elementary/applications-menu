@@ -20,15 +20,6 @@ namespace Slingshot {
 
     class Utils : GLib.Object {
 
-        public static Gtk.Widget set_padding (Gtk.Widget widget, int top,
-                                              int end, int bottom, int start) {
-            widget.set_margin_top (top);
-            widget.set_margin_end (end);
-            widget.set_margin_bottom (bottom);
-            widget.set_margin_start (start);
-            return widget;
-        }
-
         public static int sort_apps_by_name (Backend.App a, Backend.App b) {
             return a.name.collate (b.name);
         }
