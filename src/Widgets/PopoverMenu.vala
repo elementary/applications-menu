@@ -84,6 +84,16 @@ public class NofocusPopover : Gtk.Popover {
     private Gtk.Container parent_container;
     private unowned SlingshotView view;
 
+    private const string POPOVER_STYLESHEET = """
+        .popover,
+        .popover.osd,
+        GtkPopover {
+            border-radius: 0px;
+            margin: 0px;
+            text-shadow: none;
+        }
+    """;
+
     public NofocusPopover (SlingshotView view, Gtk.Container parent) {
         this.view = view;
         this.parent_container = parent;
@@ -92,6 +102,8 @@ public class NofocusPopover : Gtk.Popover {
         parent.button_release_event.connect (hide_popover_menu);
         parent.button_press_event.connect (hide_popover_menu);
         get_style_context ().add_class (Gtk.STYLE_CLASS_MENU);
+        Granite.Widgets.Utils.set_theming_for_screen (get_screen (), POPOVER_STYLESHEET,
+                                      Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
     public void connect_popover_signals (Gtk.Container parent) {
