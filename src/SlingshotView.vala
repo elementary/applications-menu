@@ -179,20 +179,15 @@ namespace Slingshot {
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
             // Create the "NORMAL_VIEW"
-            var scrolled_normal = new Gtk.ScrolledWindow (null, null);
-            scrolled_normal.set_size_request (calculate_grid_width (), calculate_grid_height ());
             grid_view = new Widgets.Grid (default_rows, default_columns);
-            scrolled_normal.add_with_viewport (grid_view);
-            stack.add_named (scrolled_normal, "normal");
+            stack.add_named (grid_view, "normal");
 
             // Create the "CATEGORY_VIEW"
             category_view = new Widgets.CategoryView (this);
-            category_view.set_size_request (calculate_grid_width (), calculate_grid_height ());
             stack.add_named (category_view, "category");
 
             // Create the "SEARCH_VIEW"
             search_view = new Widgets.SearchView (this);
-            search_view.set_size_request (calculate_grid_width (), calculate_grid_height ());
             search_view.start_search.connect ((match, target) => {
                 search.begin (search_entry.text, match, target);
             });
@@ -316,7 +311,6 @@ namespace Slingshot {
 
                 categories = app_system.get_categories ();
                 apps = app_system.get_apps ();
-
                 populate_grid_view ();
                 category_view.setup_sidebar ();
             });

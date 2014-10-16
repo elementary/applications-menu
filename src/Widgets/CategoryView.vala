@@ -24,8 +24,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public Widgets.Grid app_view;
     private SlingshotView view;
 
-    private Gtk.Grid page_switcher;
-
     private const string ALL_APPLICATIONS = _("All Applications");
     private const string NEW_FILTER = _("Create a new Filter");
     private const string SWITCHBOARD_CATEGORY = "switchboard";
@@ -35,40 +33,36 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
     public CategoryView (SlingshotView parent) {
-
         view = parent;
-
         set_visible_window (false);
-        setup_ui ();
-        setup_sidebar ();
-        connect_events ();
-    }
+        hexpand = true;
 
-    private void setup_ui () {
         container = new Gtk.Grid ();
+        container.hexpand = true;
+        container.orientation = Gtk.Orientation.HORIZONTAL;
         separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
-
-        app_view = new Widgets.Grid (view.rows, view.columns - 1);
-        app_view.margin_start = Pixels.SIDEBAR_GRID_PADDING;
-
-        container.attach (separator, 1, 0, 1, 2);
-        container.attach (app_view, 2, 0, 1, 1);
-
-        add (container);
-
-    }
-
-    public void setup_sidebar () {
-
-        if (category_switcher != null)
-            category_switcher.destroy ();
 
         category_switcher = new Sidebar ();
         category_switcher.can_focus = false;
 
+        app_view = new Widgets.Grid (view.rows, view.columns - 1);
+        app_view.margin_start = Pixels.SIDEBAR_GRID_PADDING;
+
+        container.add (category_switcher);
+        container.add (separator);
+        container.add (app_view);
+        add (container);
+
+        setup_sidebar ();
+        connect_events ();
+    }
+
+    public void setup_sidebar () {
+        category_ids.clear ();
+        category_switcher.clear ();
+        app_view.set_size_request (-1, -1);
         // Fill the sidebar
         int n = 0;
-
         foreach (string cat_name in view.apps.keys) {
             if (cat_name == SWITCHBOARD_CATEGORY)
                 continue;
@@ -77,19 +71,26 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
             n++;
         }
+        category_switcher.show_all ();
 
-        container.attach (category_switcher, 0, 0, 1, 2);
+        int minimum_width;
+        category_switcher.get_preferred_width (out minimum_width, null);
+
+        // Because of the different sizes of the column widget, we need to calculate if it will fit.
+        int removing_columns = (int)((double)minimum_width / (double)Pixels.ITEM_SIZE);
+        if (minimum_width % Pixels.ITEM_SIZE != 0)
+            removing_columns++;
+
+        int columns = view.columns - removing_columns;
+        app_view.resize (view.rows, columns);
+    }
+
+    private void connect_events () {
         category_switcher.selection_changed.connect ((name, nth) => {
-
             view.reset_category_focus ();
             string category = category_ids.get (nth);
             show_filtered_apps (category);
         });
-
-        category_switcher.show_all ();
-    }
-
-    private void connect_events () {
 
         category_switcher.selected = 0; //Must be after everything else
     }
@@ -110,21 +111,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             add_app (app);
 
         current_position = 0;
-
-    }
-
-    public void show_page_switcher (bool show) {
-
-        if (page_switcher.get_parent () == null)
-            container.attach (page_switcher, 2, 1, 1, 1);
-
-        if (show) {
-            page_switcher.show_all ();
-        }
-        else
-            page_switcher.hide ();
-
-        view.search_entry.grab_focus ();
 
     }
 
