@@ -147,7 +147,7 @@ public class NofocusPopover : Gtk.Popover {
     public bool hide_popover_menu (Gdk.EventButton event) {
         if (this.visible) {
             view.set_focus (null);
-            view.get_current_search_entry ().grab_focus ();
+            view.search_entry.grab_focus ();
 
             this.hide ();
             // Block here to replicate context menu behavior

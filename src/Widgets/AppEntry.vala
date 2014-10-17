@@ -17,10 +17,9 @@
 //
 
 public class Slingshot.Widgets.AppEntry : Gtk.Button {
-
     public Gtk.Label app_label;
     private Gdk.Pixbuf icon;
-    private Gtk.Box layout;
+    private new Gtk.Image image;
 
     public string exec_name;
     public string app_name;
@@ -30,22 +29,17 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
     public signal void app_launched ();
 
-    private double alpha = 1.0;
-    private bool   dragging = false; //prevent launching
+    private bool dragging = false; //prevent launching
 
     private Backend.App application;
     private unowned SlingshotView view;
 
     public AppEntry (Backend.App app, SlingshotView view) {
         this.view = view;
-        this.relief = Gtk.ReliefStyle.NONE;
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
             Gdk.DragAction.COPY);
 
-        app_paintable = true;
-        set_visual (get_screen ().get_rgba_visual());
-        set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
         desktop_id = app.desktop_id;
         desktop_path = app.desktop_path;
 
@@ -61,16 +55,25 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app_label = new Gtk.Label (app_name);
         app_label.halign = Gtk.Align.CENTER;
         app_label.justify = Gtk.Justification.CENTER;
-        app_label.set_line_wrap (true); // Need a smarter way
+        app_label.set_line_wrap (true);
+        app_label.lines = 2;
         app_label.set_single_line_mode (false);
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-        layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        layout.homogeneous = false;
+        image = new Gtk.Image.from_pixbuf (icon);
+        image.icon_size = icon_size;
+        image.margin_top = 12;
 
-        layout.pack_start (app_label, false, true, 0);
+        var grid = new Gtk.Grid ();
+        grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.row_spacing = 6;
+        grid.expand = true;
+        grid.halign = Gtk.Align.CENTER;
+        grid.add (image);
+        grid.add (app_label);
 
-        add (Utils.set_padding (layout, 78, 5, 5, 5));
+        add (grid);
+        set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
 
         this.clicked.connect (launch_app);
 
@@ -86,33 +89,30 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             this.dragging = true;
             Gtk.drag_set_icon_pixbuf (ctx, icon, 0, 0);
         });
+
         this.drag_end.connect ( () => {
             this.dragging = false;
         });
+
         this.drag_data_get.connect ( (ctx, sel, info, time) => {
             sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
         });
 
         app.icon_changed.connect (() => {
             icon = app.icon;
-            queue_draw ();
+            image.set_from_pixbuf (icon);
         });
 
     }
 
-    protected override bool draw (Cairo.Context cr) {
-        Gtk.Allocation size;
-        get_allocation (out size);
+    public override void get_preferred_width (out int minimum_width, out int natural_width) {
+        minimum_width = Pixels.ITEM_SIZE;
+        natural_width = Pixels.ITEM_SIZE;
+    }
 
-        base.draw (cr);
-
-        // Draw icon
-        if (icon != null) {
-            Gdk.cairo_set_source_pixbuf (cr, icon, (icon.width - size.width) / -2.0, 10);
-            cr.paint_with_alpha (alpha);
-        }
-
-        return true;
+    public override void get_preferred_height (out int minimum_height, out int natural_height) {
+        minimum_height = Pixels.ITEM_SIZE;
+        natural_height = Pixels.ITEM_SIZE;
     }
 
     public void launch_app () {

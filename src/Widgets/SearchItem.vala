@@ -35,7 +35,6 @@ namespace Slingshot.Widgets {
             Object (app: app);
 
             get_style_context ().add_class ("app");
-            get_style_context ().add_class ("search-item");
 
             var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 
@@ -62,7 +61,7 @@ namespace Slingshot.Widgets {
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
             box.pack_start (icon, false);
             box.pack_start (name_label, true);
-            box.margin_left = 12;
+            box.margin_start = 12;
             box.margin_top = box.margin_bottom = 3;
 
             add (box);
