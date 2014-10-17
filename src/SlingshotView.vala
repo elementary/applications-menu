@@ -31,6 +31,8 @@ namespace Slingshot {
         public Gtk.Stack stack;
         public Granite.Widgets.ModeButton view_selector;
         private Gtk.Revealer view_selector_revealer;
+        // Single popover to use for all of app as context menu
+        private Widgets.NofocusPopover context_popover;
 
         // Views
         private Widgets.Grid grid_view;
@@ -97,8 +99,9 @@ namespace Slingshot {
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
             setup_ui ();
-            connect_signals ();
+            context_popover = new Widgets.NofocusPopover (this, event_box);
 
+            connect_signals ();
             debug ("Apps loaded");
         }
 
@@ -311,6 +314,7 @@ namespace Slingshot {
 
                 categories = app_system.get_categories ();
                 apps = app_system.get_apps ();
+
                 populate_grid_view ();
                 category_view.setup_sidebar ();
             });
@@ -334,6 +338,19 @@ namespace Slingshot {
 
             // hotcorner management
             motion_notify_event.connect (hotcorner_trigger);
+        }
+
+        public void show_popover_menu (Gtk.Widget menu, Gtk.Widget relative) {
+            context_popover = new Widgets.NofocusPopover (this, event_box);
+            context_popover.set_relative_to (relative);
+            context_popover.add (menu);
+            context_popover.show_all ();
+
+            var entry = relative as Widgets.AppEntry;
+            if (entry != null)
+                entry.app_launched.connect (() => {context_popover.hide ();});
+                
+            relative.grab_focus ();
         }
 
         private void gala_settings_changed () {
@@ -650,7 +667,7 @@ namespace Slingshot {
         }
 
         public override bool scroll_event (Gdk.EventScroll event) {
-
+            context_popover.hide ();
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
@@ -674,7 +691,7 @@ namespace Slingshot {
         }
 
         public void show_slingshot () {
-
+            context_popover.hide ();
             search_entry.text = "";
 
             reposition ();
@@ -768,7 +785,7 @@ namespace Slingshot {
 
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
 
-                var app_entry = new Widgets.AppEntry (app);
+                var app_entry = new Widgets.AppEntry (app, this);
                 app_entry.app_launched.connect (() => hide ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();

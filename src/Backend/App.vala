@@ -47,7 +47,10 @@ public class Slingshot.Backend.App : Object {
 
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
-
+    public Gee.ArrayList<string> actions { get; private set; default = null; }
+    public Gee.HashMap<string, string> actions_map { get; private set; default = null; }
+    public Gdk.Pixbuf? quicklist_icon { get; private set; default = null; }
+    
     public signal void icon_changed ();
     public signal void launched (App app);
 
@@ -56,6 +59,18 @@ public class Slingshot.Backend.App : Object {
     private bool check_icon_again = true;
 
     private LoadableIcon loadable_icon = null;
+
+    // for FDO Desktop Actions
+    // see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions
+    private const string DESKTOP_ACTION_KEY = "Actions";
+    private const string DESKTOP_ACTION_GROUP_NAME = "Desktop Action %s";
+    // for the Unity static quicklists
+    // see https://wiki.edubuntu.org/Unity/LauncherAPI#Static_Quicklist_entries
+    private const string UNITY_QUICKLISTS_KEY = "X-Ayatana-Desktop-Shortcuts";
+    private const string UNITY_QUICKLISTS_SHORTCUT_GROUP_NAME = "%s Shortcut Group";
+    private const string UNITY_QUICKLISTS_TARGET_KEY = "TargetEnvironment";
+    private const string UNITY_QUICKLISTS_TARGET_VALUE = "Unity";
+    private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
 
     public App (GMenu.TreeEntry entry) {
         app_type = AppType.APP;
@@ -280,4 +295,85 @@ public class Slingshot.Backend.App : Object {
         return true;
     }
 
+    public void init_actions () throws KeyFileError  {
+        actions = new Gee.ArrayList<string> ();
+        actions_map = new Gee.HashMap<string, string> ();
+        quicklist_icon = load_icon (16);
+
+        // get FDO Desktop Actions
+        // see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions
+        // get the Unity static quicklists
+        // see https://wiki.edubuntu.org/Unity/LauncherAPI#Static Quicklist entries
+        KeyFile file;
+        try {
+            file = new KeyFile ();
+            file.load_from_file (desktop_path, 0);
+        } catch (Error e) {
+            critical ("%s: %s", desktop_path, e.message);
+        }
+
+        string? textdomain = null;
+        foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS)
+            if (file.has_key (KeyFileDesktop.GROUP, domain_key)) {
+                textdomain = file.get_string (KeyFileDesktop.GROUP, domain_key);
+                break;
+            }
+        if (actions != null && actions_map != null) {
+            actions.clear ();
+            actions_map.clear ();
+            string[] keys = {DESKTOP_ACTION_KEY, UNITY_QUICKLISTS_KEY};
+
+            foreach (var key in keys) {
+                if (!file.has_key (KeyFileDesktop.GROUP, key))
+                    continue;
+
+                foreach (var action in file.get_string_list (KeyFileDesktop.GROUP, key)) {
+                    var group = DESKTOP_ACTION_GROUP_NAME.printf (action);
+                    if (!file.has_group (group)) {
+                        group = UNITY_QUICKLISTS_SHORTCUT_GROUP_NAME.printf (action);
+                        if (!file.has_group (group))
+                            continue;
+                    }
+
+                    // check for TargetEnvironment
+                    if (file.has_key (group, UNITY_QUICKLISTS_TARGET_KEY)) {
+                        var target = file.get_string (group, UNITY_QUICKLISTS_TARGET_KEY);
+                        if (target != UNITY_QUICKLISTS_TARGET_VALUE)
+                            continue;
+                    }
+
+                    // check for OnlyShowIn
+                    if (file.has_key (group, KeyFileDesktop.KEY_ONLY_SHOW_IN)) {
+                        var found = false;
+
+                        foreach (var s in file.get_string_list (group, KeyFileDesktop.KEY_ONLY_SHOW_IN))
+                            if (s == UNITY_QUICKLISTS_TARGET_VALUE) {
+                                found = true;
+                                break;
+                            }
+
+                        if (!found)
+                            continue;
+                    }
+
+                    var action_name = file.get_locale_string (group, KeyFileDesktop.KEY_NAME);
+
+                    var action_icon = "";
+                    if (file.has_key (group, KeyFileDesktop.KEY_ICON))
+                        action_icon = file.get_locale_string (group, KeyFileDesktop.KEY_ICON);
+
+                    var action_exec = "";
+                    if (file.has_key (group, KeyFileDesktop.KEY_EXEC))
+                        action_exec = file.get_string (group, KeyFileDesktop.KEY_EXEC);
+
+                    // apply given gettext-domain if available
+                    if (textdomain != null)
+                        action_name = GLib.dgettext (textdomain, action_name).dup ();
+
+                    actions.add (action_name);
+                    actions_map.set (action_name, "%s;;%s".printf (action_exec, action_icon));
+                }
+            }
+        }
+    }
 }
