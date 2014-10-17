@@ -49,7 +49,6 @@ public class Slingshot.Backend.App : Object {
     public Synapse.Match? target { get; private set; default = null; }
     public Gee.ArrayList<string> actions { get; private set; default = null; }
     public Gee.HashMap<string, string> actions_map { get; private set; default = null; }
-    public Gdk.Pixbuf? quicklist_icon { get; private set; default = null; }
     
     public signal void icon_changed ();
     public signal void launched (App app);
@@ -298,7 +297,6 @@ public class Slingshot.Backend.App : Object {
     public void init_actions () throws KeyFileError  {
         actions = new Gee.ArrayList<string> ();
         actions_map = new Gee.HashMap<string, string> ();
-        quicklist_icon = load_icon (16);
 
         // get FDO Desktop Actions
         // see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions

@@ -58,7 +58,7 @@ public class PopoverMenuItem : Object {
             grid.attach (image, 0, 0, 1, 1);
         } else {
             var space_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            space_box.set_size_request (16, 16);
+            space_box.set_size_request (26, 16);
             grid.attach (space_box, 0, 0, 1, 1);
         }
 
