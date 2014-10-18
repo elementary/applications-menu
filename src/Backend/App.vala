@@ -294,6 +294,7 @@ public class Slingshot.Backend.App : Object {
         return true;
     }
 
+    // Quicklist code from Plank
     public void init_actions () throws KeyFileError  {
         actions = new Gee.ArrayList<string> ();
         actions_map = new Gee.HashMap<string, string> ();
