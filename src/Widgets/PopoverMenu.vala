@@ -39,11 +39,30 @@ public class PopoverMenu : Gtk.Grid {
     public int get_size () {
         return items.size;
     }
+
+    public override void show () {
+        base.show ();
+        bool has_image = false;
+        foreach (PopoverMenuItem item in items) {
+            if (item.image != null)
+                has_image = true;
+        }
+
+        if (!has_image) {
+            foreach (PopoverMenuItem item in items) {
+                item.label_widget.margin_left = item.label_widget.margin_right = 8;
+                item.space_box.hide ();
+            }
+        }
+    }
 }
 
 public class PopoverMenuItem : Object {
     public Gtk.Widget child = null;
     public signal void activated ();
+    public Gtk.Image? image;
+    public Gtk.Box? space_box;
+    public Gtk.Label label_widget;
 
     public PopoverMenuItem (string label, Gdk.Pixbuf? icon) {
         var button = new Gtk.Button ();
@@ -51,18 +70,18 @@ public class PopoverMenuItem : Object {
 
         var grid = new Gtk.Grid ();
         if (icon != null) {
-            var image = new Gtk.Image.from_pixbuf (icon);
+            image = new Gtk.Image.from_pixbuf (icon);
             image.margin_left = 2;
-            image.margin_right = 2;
             image.halign = Gtk.Align.START;
             grid.attach (image, 0, 0, 1, 1);
         } else {
-            var space_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            space_box.set_size_request (16, 16);
+            space_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            space_box.set_size_request (24, 16);
             grid.attach (space_box, 0, 0, 1, 1);
         }
 
-        var label_widget = new Gtk.Label.with_mnemonic (label);
+        label_widget = new Gtk.Label.with_mnemonic (label);
+        label_widget.margin_left = 2;
         label_widget.margin_right = 16;
         label_widget.justify = Gtk.Justification.LEFT;
         label_widget.set_alignment (0, 0);

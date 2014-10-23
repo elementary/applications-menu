@@ -38,7 +38,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         this.view = view;
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-            Gdk.DragAction.COPY);
+                             Gdk.DragAction.COPY);
 
         desktop_id = app.desktop_id;
         desktop_path = app.desktop_path;
@@ -133,8 +133,19 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         var menu = new PopoverMenu ();
         foreach (var action in application.actions) {
             var values = application.actions_map.get (action).split (";;");
-            var menuitem = new Widgets.PopoverMenuItem (action, application.quicklist_icon);
+            Gdk.Pixbuf? icon = null;
+            var flags = Gtk.IconLookupFlags.FORCE_SIZE;
+
+            try {
+                if (values.length > 1 && values[1] != "" && values[1] != null)
+                    icon = Slingshot.icon_theme.load_icon (values[1], 16, flags);
+            } catch (Error e) {
+                error ("Error loading quicklist icon");
+            }
+
+            var menuitem = new Widgets.PopoverMenuItem (action, icon);
             menu.add_menu_item (menuitem);
+
             menuitem.activated.connect (() => {
                 try {
                     AppInfo.create_from_commandline (values[0], null, AppInfoCreateFlags.NONE).launch (null, null);
