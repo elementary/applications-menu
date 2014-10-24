@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-09-01 12:27+0000\n"
+"PO-Revision-Date: 2014-10-23 19:50+0000\n"
 "Last-Translator: Artem Anufrij <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-10-24 05:33+0000\n"
+"X-Generator: Launchpad (build 17203)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -67,7 +67,7 @@ msgstr "Просмотр по категориям"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Поиск приложений"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Запустить в терминале"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
@@ -91,7 +91,7 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Открыть"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
@@ -99,15 +99,15 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Открыть папку"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Открыть папку, содержащую этот файл"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Копировать в буфер обмена"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
@@ -115,11 +115,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Выполнить '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Выполнить команду"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
@@ -127,7 +127,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Калькулятор"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
@@ -143,7 +143,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Открыть в %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"

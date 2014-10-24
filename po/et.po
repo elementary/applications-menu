@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-08-13 01:05+0000\n"
+"PO-Revision-Date: 2014-10-23 13:58+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-10-24 05:33+0000\n"
+"X-Generator: Launchpad (build 17203)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -67,84 +67,84 @@ msgstr "Kuva kategooriatena"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Otsi rakendusi..."
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Käivita see"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Käivita"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Rakenduse, toimingu või skripti käivitamine"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Käivita terminalis"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Rakenduse või toimingu käivitamine terminalis"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Ava"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Ava vaikimisi rakendusega"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Ava kaust"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Ava faili sisaldav kaust"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopeeri lõikepuhvrisse"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Valiku kopeerimine lõikepuhvrisse"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Käivita toiming \"%s\""
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Käsu käivitamine"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Otsi ja käivita arbitray käske."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulaator"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Põhilised arvutused."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc ei ole paigaldatud"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Rakenduste otsimine ja käivitamine"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Ava rakendusega %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Valiku avamine rakendusega %s"
