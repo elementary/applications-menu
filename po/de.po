@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-10-01 11:55+0000\n"
-"Last-Translator: UweS <Unknown>\n"
+"PO-Revision-Date: 2014-10-24 11:03+0000\n"
+"Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-10-25 05:27+0000\n"
+"X-Generator: Launchpad (build 17203)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -67,84 +67,84 @@ msgstr "Ansicht nach Kategorie"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Anwendungen durchsuchen"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Befehl ausführen …"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Ausführen"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Eine Anwendung, eine Aktion oder ein Skript ausführen"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Im Terminal ausführen"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Eine Anwendung oder einen Befehl im Terminal ausführen"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Mit der Standardanwendung öffnen"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Ordner öffnen"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Öffnet den Ordner, der diese Datei enthält"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "In die Zwischenablage kopieren"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Auswahl in die Zwischenablage kopieren"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "»%s« ausführen"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Befehl ausführen"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Finden und führen Sie beliebige Befehle aus."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Taschenrechner"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Berechne Basisausdrücke."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc ist nicht installiert"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Suchen und starten Sie Anwendungen auf Ihrem Computer."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Öffnen mit %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Öffnet die momentane Auswahl mittels %s"
