@@ -28,7 +28,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         }
     }
 
-    private int _selected;
+    private int _selected = 0;
     public int selected {
         get {
             return _selected;

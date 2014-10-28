@@ -53,11 +53,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         container.add (app_view);
         add (container);
 
-        setup_sidebar ();
         connect_events ();
+        setup_sidebar ();
     }
 
     public void setup_sidebar () {
+        var old_selected = category_switcher.selected;
         category_ids.clear ();
         category_switcher.clear ();
         app_view.set_size_request (-1, -1);
@@ -83,6 +84,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         int columns = view.columns - removing_columns;
         app_view.resize (view.rows, columns);
+
+        category_switcher.selected = old_selected;
     }
 
     private void connect_events () {
@@ -91,8 +94,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             string category = category_ids.get (nth);
             show_filtered_apps (category);
         });
-
-        category_switcher.selected = 0; //Must be after everything else
     }
 
     private void add_app (Backend.App app) {
