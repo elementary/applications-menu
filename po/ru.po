@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-10-23 19:50+0000\n"
-"Last-Translator: Artem Anufrij <Unknown>\n"
+"PO-Revision-Date: 2014-10-27 20:06+0000\n"
+"Last-Translator: Ivan Infro <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-24 05:33+0000\n"
+"X-Launchpad-Export-Date: 2014-10-28 05:41+0000\n"
 "X-Generator: Launchpad (build 17203)\n"
 
 #: ../src/Widgets/SearchView.vala:162
@@ -71,7 +71,7 @@ msgstr "Поиск приложений"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Выполнить команду..."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -87,7 +87,7 @@ msgstr "Запустить в терминале"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Запустить приложение или выполнить команду в терминале"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
