@@ -15,7 +15,9 @@ Build-Depends: cmake (>= 2.6),
                libzeitgeist-2.0-dev,
                pkg-config,
                valac (>= 0.18)
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
+Vcs-Bzr: lp:~pantheon-debian/pantheon-debian/slingshot-launcher
+Vcs-Browser: https://code.launchpad.net/~pantheon-debian/pantheon-debian/slingshot-launcher
 Homepage: http://launchpad.net/slingshot
 
 Package: slingshot-launcher
