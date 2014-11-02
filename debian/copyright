@@ -24,40 +24,40 @@ License: GPL-3.0+
 
 Files: cmake/ParseArguments.cmake
 Copyright: 2000-2009 Kitware, Inc., Insight Software Consortium
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: cmake/FindVala.cmake
        cmake/ValaVersion.cmake
 Copyright: 2009-2010 Jakob Westhoff
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: cmake/FindGirCompiler.cmake
 Copyright: 2009-2010 Jakob Westhoff
            2014 Corentin Noël <corentin@elementaryos.org>
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: cmake/ValaPrecompile.cmake
 Copyright: 2009-2010 Jakob Westhoff
            2011-2012 Lucas Baudin <xapantu@gmail.com>
            2013 Victor Martinez <victor@elementaryos.org>
            2014 Corentin Noël <corentin@elementaryos.org>
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: cmake/GSettings.cmake
        cmake/Tests.cmake
 Copyright: 2011 ammonkey <am.monkeyd@gmail.com>
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: cmake/Translations.cmake
 Copyright: 2011 ammonkey <am.monkeyd@gmail.com>
            2013 Victor Martinez <victor@elementaryos.org>
            2013 Sergio Costas <rastersoft@gmail.com>
            2014 Corentin Noël <corentin@elementaryos.org>
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: cmake/GObjectIntrospectionMacros.cmake
 Copyright: 2012 Lucas Baudin <xapantu@gmail.com>
-License: 2-clause BSD
+License: BSD-2-clause
 
 Files: debian/*
 Copyright: 2011 Giulio Collura <random.cpp@gmail.com>
@@ -87,7 +87,7 @@ License: GPL-3.0+
  On Debian systems, the complete text of the GNU General
  Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
 
-License: 2-clause BSD
+License: BSD-2-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
  .
