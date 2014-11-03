@@ -23,13 +23,21 @@ Copyright: 2011 Maxwell Barvian <maxwell@elementaryos.org>
            2014 Madelynn May <madelynn.r.may@gmail.com>
 License: GPL-3.0+
 
-Files: lib/synapse-plugins/*
-Copyright: TODO
-License: GPL-2.0+
-
 Files: lib/synapse-core/*
-Copyright: TODO
+Copyright: 2010-2014 Michal Hruby <michal.mhr@gmail.com>
+           2011 Alberto Aldegheri <albyrock87+dev@gmail.com>
+           2013 Tom Beckmann <tom@elementaryos.org>
+           2014 Rico Tzschichholz <ricotz@ubuntu.com>
 License: LGPL-2.1+
+
+Files: lib/synapse-plugins/*
+Copyright: 2010-2012, 2014 Michal Hruby <michal.mhr@gmail.com>
+           2010 Igor S. Mandrigin <i@mandrigin.ru>
+           2010-2011 Alberto Aldegheri <albyrock87+dev@gmail.com>
+           2012 Jörn Magens <shuerhaaken@googlemail.com>
+           2013 Tom Beckmann <tom@elementaryos.org>
+           2014 Rico Tzschichholz <ricotz@ubuntu.com>
+License: GPL-2.0+
 
 Files: cmake/ParseArguments.cmake
 Copyright: 2000-2009 Kitware, Inc., Insight Software Consortium
@@ -116,3 +124,36 @@ License: BSD-2-clause
  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License can be found in `/usr/share/common-licenses/LGPL-2.1’.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2’.
