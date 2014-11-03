@@ -17,10 +17,19 @@ Copyright: 2011 Maxwell Barvian <maxwell@elementaryos.org>
            2012-2014 Tom Beckmann <tom@elementaryos.org>
            2012, 2014 Pim Vullers <pim@vullersmail.nl>
            2013 Jeremy Wootten <jeremy@elementaryos.org>
-           2013 Julien Spautz <spautz.julien@gmail.com>
+           2013-2014 Julien Spautz <spautz.julien@gmail.com>
            2013 Tigran Gabrielyan <tigrangab@gmail.com>
            2014 Simon Dieterle <smndtrl@gmail.com>
+           2014 Madelynn May <madelynn.r.may@gmail.com>
 License: GPL-3.0+
+
+Files: lib/synapse-plugins/*
+Copyright: TODO
+License: GPL-2.0+
+
+Files: lib/synapse-core/*
+Copyright: TODO
+License: LGPL-2.1+
 
 Files: cmake/ParseArguments.cmake
 Copyright: 2000-2009 Kitware, Inc., Insight Software Consortium
