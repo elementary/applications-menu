@@ -120,11 +120,11 @@ namespace Slingshot {
             Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
             default_columns = 5;
             default_rows = 3;
-            while ((calculate_grid_width () + 2 * Pixels.PADDING >= 2 * screen.get_width () / 3)) {
+            while ((calculate_grid_width () >= 2 * screen.get_width () / 3)) {
                 default_columns--;
             }
 
-            while ((calculate_grid_height () + Pixels.BOTTOM_SPACE >= 2 * screen.get_height () / 3)) {
+            while ((calculate_grid_height () >= 2 * screen.get_height () / 3)) {
                 default_rows--;
             }
 
