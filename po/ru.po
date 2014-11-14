@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-10-27 20:06+0000\n"
-"Last-Translator: Ivan Infro <Unknown>\n"
+"PO-Revision-Date: 2014-11-13 20:23+0000\n"
+"Last-Translator: Николай <nicolai.andr12@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-28 05:41+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2014-11-14 05:38+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -59,11 +59,11 @@ msgstr "Создать новый фильтр"
 
 #: ../src/SlingshotView.vala:156
 msgid "View as Grid"
-msgstr "Просмотр в виде таблицы"
+msgstr "В виде таблицы"
 
 #: ../src/SlingshotView.vala:160
 msgid "View by Category"
-msgstr "Просмотр по категориям"
+msgstr "В виде категорий"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
@@ -75,11 +75,11 @@ msgstr "Выполнить команду..."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Выполнить"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Выполнить приложение, действие или скрипт"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
@@ -95,7 +95,7 @@ msgstr "Открыть"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Открыть в приложении по умолчанию"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
@@ -103,15 +103,15 @@ msgstr "Открыть папку"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr "Открыть папку, содержащую этот файл"
+msgstr "Открыть папку этого файла"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr "Копировать в буфер обмена"
+msgstr "Копировать"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Копировать выделенное"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
@@ -131,11 +131,11 @@ msgstr "Калькулятор"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Вычислить основные выражения."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc не установлена"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
@@ -147,4 +147,4 @@ msgstr "Открыть в %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Открыть выделенное в %s"
