@@ -8,46 +8,46 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2013-05-06 06:58+0000\n"
-"Last-Translator: Martin Maričák <Unknown>\n"
+"PO-Revision-Date: 2014-11-24 08:25+0000\n"
+"Last-Translator: Wigg Person <wiggperson@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-11-25 05:33+0000\n"
+"X-Generator: Launchpad (build 17252)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
-msgstr ""
+msgstr "Iné"
 
 #: ../src/Widgets/SearchView.vala:165
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/Widgets/SearchView.vala:168
 msgid "Applications"
-msgstr ""
+msgstr "Aplikácie"
 
 #: ../src/Widgets/SearchView.vala:171
 msgid "Files"
-msgstr ""
+msgstr "Súbory"
 
 #: ../src/Widgets/SearchView.vala:174
 msgid "Actions"
-msgstr ""
+msgstr "Operácie"
 
 #: ../src/Widgets/SearchView.vala:177
 msgid "Search"
-msgstr ""
+msgstr "Hľadať"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakty"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
@@ -67,84 +67,84 @@ msgstr "Zobraziť podľa kategórie"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Hľadať aplikácie"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Vykonať tento príkaz..."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Vykonať"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Spustiť aplikáciu, činnosť alebo skript"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Spustiť v termináli"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Spustiť aplikáciu alebo príkaz v termináli"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Otvoriť"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Otvoriť pomocou predvolenej aplikácie"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Otvoriť priečinok"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Otvoriť priečinok obsahujúci tento súbor"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Skopírovať"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Skopírovať výber"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Vykonať '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Vykonať príkaz"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Nájsť a vykonať ľubovoľné príkazy"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulačka"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Vypočítať základné výrazy"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc nie je nainštalované"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Nájsť a spustiť aplikácie na vašom počítači."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Otvoriť pomocou %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Otvoriť aktuálny výber použitím %s"
