@@ -8,46 +8,46 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2013-06-27 21:22+0000\n"
-"Last-Translator: Joachim Johansson <Unknown>\n"
+"PO-Revision-Date: 2014-11-28 09:18+0000\n"
+"Last-Translator: Zahirovic Mensur <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-11-29 05:26+0000\n"
+"X-Generator: Launchpad (build 17267)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
-msgstr ""
+msgstr "Övrigt"
 
 #: ../src/Widgets/SearchView.vala:165
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/Widgets/SearchView.vala:168
 msgid "Applications"
-msgstr ""
+msgstr "Program"
 
 #: ../src/Widgets/SearchView.vala:171
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: ../src/Widgets/SearchView.vala:174
 msgid "Actions"
-msgstr ""
+msgstr "Åtgärder"
 
 #: ../src/Widgets/SearchView.vala:177
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakter"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
@@ -67,59 +67,59 @@ msgstr "Visa kategorivis"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Sök efter program"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Kör detta kommando..."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Kör"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Starta program, händelse eller skript"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Starta i Terminalen"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Kör program eller kommando i terminalen"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Öppna"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Öppna med förvalt program"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Öppna mapp"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Öppna mappen som innehåller denna fil"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopiera till urklipp"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Kopiera markeringen till urklipp"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Kör '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Kör kommando"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
@@ -127,7 +127,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkylator"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
@@ -135,16 +135,16 @@ msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc är inte installerad"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Sök efter och starta program på din dator"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Öppna med %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Öppna det valda objektet med %s"
