@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-11-24 08:25+0000\n"
-"Last-Translator: Wigg Person <wiggperson@gmail.com>\n"
+"PO-Revision-Date: 2014-11-29 19:53+0000\n"
+"Last-Translator: Igor Štefanko <istefanko@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-25 05:33+0000\n"
-"X-Generator: Launchpad (build 17252)\n"
+"X-Launchpad-Export-Date: 2014-11-30 04:50+0000\n"
+"X-Generator: Launchpad (build 17267)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -71,11 +71,11 @@ msgstr "Hľadať aplikácie"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr "Vykonať tento príkaz..."
+msgstr "Spustiť tento príkaz"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr "Vykonať"
+msgstr "Spustiť"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
@@ -107,11 +107,11 @@ msgstr "Otvoriť priečinok obsahujúci tento súbor"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr "Skopírovať"
+msgstr "Kopírovať do schránky"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr "Skopírovať výber"
+msgstr "Kopírovať výber do schránky"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
@@ -119,11 +119,11 @@ msgstr "Vykonať '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr "Vykonať príkaz"
+msgstr "Spustiť príkaz"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr "Nájsť a vykonať ľubovoľné príkazy"
+msgstr "Nájsť a spustiť ľubovoľné príkazy"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
