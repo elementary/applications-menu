@@ -8,50 +8,50 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2012-11-03 06:40+0000\n"
+"PO-Revision-Date: 2014-12-11 11:14+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-12-12 05:41+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #: ../src/Widgets/SearchView.vala:165
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: ../src/Widgets/SearchView.vala:168
 msgid "Applications"
-msgstr ""
+msgstr "Aplicativos"
 
 #: ../src/Widgets/SearchView.vala:171
 msgid "Files"
-msgstr ""
+msgstr "Ficheiros"
 
 #: ../src/Widgets/SearchView.vala:174
 msgid "Actions"
-msgstr ""
+msgstr "Accións"
 
 #: ../src/Widgets/SearchView.vala:177
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Contacts"
-msgstr ""
+msgstr "Contactos"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
-msgstr "Todos os aplicativos"
+msgstr "Todos os programas"
 
 #: ../src/Widgets/CategoryView.vala:30
 msgid "Create a new Filter"
@@ -67,84 +67,84 @@ msgstr "Ver por categoría"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Busca de aplicativos"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Executar esta orde..."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Executar"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Executar un aplicativo, acción ou script"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Executar no terminal"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Executar un aplicativo ou orde nun terminal"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Abrir usando o aplicativo predeterminado"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Abrir cartafol"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Abrir o cartafol que contén este ficheiro"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "aoopiar ó portapapeis"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Copiar a selección ao portapapeis"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Executar «%s»"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Executar a orde"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Buscar e executar ordes arbitrarias."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Calculadora"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Calcular expresións básicas."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "«bc» non está instalado"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Buscar e executar aplicativos no seu computador."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Abrir con %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Abrir a selección actual usando %s"
