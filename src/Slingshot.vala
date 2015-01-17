@@ -69,12 +69,11 @@ public class Slingshot.Slingshot : Granite.Application {
                 dbus_service = new DBusService (view);
 
             if (!silent) {
-                //view.move_to_coords (0, 0);
                 view.show_slingshot ();
             }
         } else {
             if (view.visible && !silent)
-                view.hide ();                  
+                view.hide ();
             else
                 view.show_slingshot ();
         }

@@ -24,15 +24,13 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-    public class SlingshotView : Granite.Widgets.PopOver {
+    public class SlingshotView : Granite.Widgets.CompositedWindow {
 
         // Widgets
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
         public Granite.Widgets.ModeButton view_selector;
         private Gtk.Revealer view_selector_revealer;
-        // Single popover to use for all of app as context menu
-        private Widgets.NofocusPopover context_popover;
 
         // Views
         private Widgets.Grid grid_view;
@@ -44,6 +42,8 @@ namespace Slingshot {
         public Gtk.Stack main_stack;
         public Gtk.Box content_area;
         private Gtk.EventBox event_box;
+        private Gtk.Popover popover;
+        private Gtk.Grid ref_grid;
 
         public Backend.AppSystem app_system;
         private Gee.ArrayList<GMenu.TreeDirectory> categories;
@@ -99,7 +99,6 @@ namespace Slingshot {
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
             setup_ui ();
-            context_popover = new Widgets.NofocusPopover (this, event_box);
 
             connect_signals ();
             debug ("Apps loaded");
@@ -142,6 +141,7 @@ namespace Slingshot {
             // Create the base container
             container = new Gtk.Grid ();
             container.row_spacing = 12;
+            container.margin_top = 12;
 
             // Add top bar
             top = new Gtk.Grid ();
@@ -171,7 +171,6 @@ namespace Slingshot {
             search_entry = new Gtk.SearchEntry ();
             search_entry.placeholder_text = _("Search Apps");
             search_entry.hexpand = true;
-            search_entry.button_press_event.connect ((e) => {return e.button == 3;});
 
             if (Slingshot.settings.show_category_filter) {
                 top.add (view_selector_revealer);
@@ -203,19 +202,21 @@ namespace Slingshot {
             event_box = new Gtk.EventBox ();
             event_box.add (container);
             // Add the container to the dialog's content area
-            content_area = get_content_area () as Gtk.Box;
-            content_area.pack_start (event_box);
-            content_area.set_margin_start (SHADOW_SIZE-1);
-            content_area.set_margin_end (SHADOW_SIZE-1);
-            content_area.set_margin_top (SHADOW_SIZE-1);
-            content_area.set_margin_bottom (SHADOW_SIZE-1);
+
+            ref_grid = new Gtk.Grid ();
+            this.add (ref_grid);
+
+            popover = new Gtk.Popover (ref_grid);
+            popover.add (event_box);
+            popover.set_position (Gtk.PositionType.TOP);
+
+            this.show.connect (() => popover.show ());
 
             if (Slingshot.settings.use_category)
                 set_modality (Modality.CATEGORY_VIEW);
             else
                 set_modality (Modality.NORMAL_VIEW);
             debug ("Ui setup completed");
-
         }
 
         private void grab_device () {
@@ -257,6 +258,14 @@ namespace Slingshot {
             }
 
             return false;
+        }
+
+        public override void get_preferred_width (out int minimum_width, out int natural_width) {
+            popover.get_preferred_width (out minimum_width, out natural_width);
+        }
+
+        public override void get_preferred_height (out int minimum_height, out int natural_height) {
+            popover.get_preferred_height (out minimum_height, out natural_height);
         }
 
         public override bool map_event (Gdk.EventAny event) {
@@ -322,14 +331,18 @@ namespace Slingshot {
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
                 setup_size ();
-                reposition (false);
+                reposition ();
             });
             screen.monitors_changed.connect (() => {
-                reposition (false);
+                reposition ();
             });
 
             get_style_context ().notify["direction"].connect (() => {
-                reposition (false);
+                reposition ();
+            });
+
+            popover.hide.connect (() => {
+                hide ();
             });
 
             // check for change in gala settings
@@ -340,19 +353,6 @@ namespace Slingshot {
             motion_notify_event.connect (hotcorner_trigger);
         }
 
-        public void show_popover_menu (Gtk.Widget menu, Gtk.Widget relative) {
-            context_popover = new Widgets.NofocusPopover (this, event_box);
-            context_popover.set_relative_to (relative);
-            context_popover.add (menu);
-            context_popover.show_all ();
-
-            var entry = relative as Widgets.AppEntry;
-            if (entry != null)
-                entry.app_launched.connect (() => {context_popover.hide ();});
-                
-            relative.grab_focus ();
-        }
-
         private void gala_settings_changed () {
             if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
                 can_trigger_hotcorner = true;
@@ -361,22 +361,18 @@ namespace Slingshot {
             }
         }
 
-        private void reposition (bool show=true) {
+        private void reposition () {
             debug("Repositioning");
 
-            Gdk.Rectangle monitor_dimensions, app_launcher_pos;
+            popover.set_pointing_to ({36, 0, 0, 0});
+            Gdk.Rectangle monitor_dimensions;
             screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
-            app_launcher_pos = Gdk.Rectangle () { x = monitor_dimensions.x,
-                                                  y = monitor_dimensions.y,
-                                                  width = 100,
-                                                  height = 30
-                                                 };
-
-            if (get_style_context ().direction == Gtk.TextDirection.RTL) {
-                app_launcher_pos.x += monitor_dimensions.width - this.get_window ().get_width ();
+            if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                move (monitor_dimensions.x, monitor_dimensions.y);
+            } else {
+                popover.set_pointing_to ({ref_grid.get_window ().get_width () - 36, 0, 0, 0});
+                move (monitor_dimensions.x + monitor_dimensions.width - this.get_window ().get_width (), monitor_dimensions.y);
             }
-
-            move_to_rect (app_launcher_pos, show);
         }
 
         private void change_view_mode (string key) {
@@ -667,7 +663,6 @@ namespace Slingshot {
         }
 
         public override bool scroll_event (Gdk.EventScroll event) {
-            context_popover.hide ();
             switch (event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
@@ -691,11 +686,11 @@ namespace Slingshot {
         }
 
         public void show_slingshot () {
-            context_popover.hide ();
             search_entry.text = "";
 
             reposition ();
             show_all ();
+            popover.show_all ();
             present ();
 
             set_focus (null);
@@ -780,23 +775,18 @@ namespace Slingshot {
         }
 
         public void populate_grid_view () {
-
             grid_view.clear ();
-
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
-
-                var app_entry = new Widgets.AppEntry (app, this);
+                var app_entry = new Widgets.AppEntry (app);
                 app_entry.app_launched.connect (() => hide ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();
             }
 
-
             stack.set_visible_child_name ("normal");
         }
 
         private void read_settings (bool first_start = false, bool check_columns = true, bool check_rows = true) {
-
             if (check_columns) {
                 if (Slingshot.settings.columns > 3)
                     default_columns = Slingshot.settings.columns;
@@ -837,6 +827,7 @@ namespace Slingshot {
                             return;
                     }
                 }
+
                 column_focus += delta_column;
                 row_focus += delta_row;
                 if (delta_column > 0 && column_focus % grid_view.get_page_columns () == 0 ) //check if we need to change page
@@ -844,8 +835,7 @@ namespace Slingshot {
                 else if (delta_column < 0 && (column_focus + 1) % grid_view.get_page_columns () == 0) //check if we need to change page
                     grid_view.go_to_previous ();
                 new_focus.grab_focus ();
-            }
-            else { // we move to the first app in the top left corner of the current page
+            } else { // we move to the first app in the top left corner of the current page
                 column_focus = (grid_view.get_current_page ()-1) * grid_view.get_page_columns ();
                 if (column_focus >= 0)
                     grid_view.get_child_at (column_focus, 0).grab_focus ();
@@ -860,36 +850,34 @@ namespace Slingshot {
                     category_view.category_switcher.selected--;
                     top_left_focus ();
                     return;
-                }
-                else if (delta_row > 0 && category_view.category_switcher.selected != category_view.category_switcher.cat_size - 1) {
+                } else if (delta_row > 0 && category_view.category_switcher.selected != category_view.category_switcher.cat_size - 1) {
                     category_view.category_switcher.selected++;
                     top_left_focus ();
                     return;
-                }
-                else if (delta_column > 0 && (category_column_focus + delta_column) % category_view.app_view.get_page_columns () == 0
+                } else if (delta_column > 0 && (category_column_focus + delta_column) % category_view.app_view.get_page_columns () == 0
                           && category_view.app_view.get_current_page ()+ 1 != category_view.app_view.get_n_pages ()) {
                     category_view.app_view.go_to_next ();
                     top_left_focus ();
                     return;
-                }
-                else if (category_column_focus == 0 && delta_column < 0) {
+                } else if (category_column_focus == 0 && delta_column < 0) {
                     search_entry.grab_focus ();
                     category_column_focus = 0;
                     category_row_focus = 0;
                     return;
-                }
-                else
+                } else {
                     return;
+                }
             }
+
             category_column_focus += delta_column;
             category_row_focus += delta_row;
             if (delta_column > 0 && category_column_focus % category_view.app_view.get_page_columns () == 0 ) { // check if we need to change page
                 category_view.app_view.go_to_next ();
-            }
-            else if (delta_column < 0 && (category_column_focus + 1) % category_view.app_view.get_page_columns () == 0) {
+            } else if (delta_column < 0 && (category_column_focus + 1) % category_view.app_view.get_page_columns () == 0) {
                 // check if we need to change page
                 category_view.app_view.go_to_previous ();
             }
+
             new_focus.grab_focus ();
         }
 
