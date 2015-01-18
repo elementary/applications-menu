@@ -81,7 +81,8 @@ namespace Slingshot {
             this.title = "Slingshot";
             this.skip_pager_hint = true;
             this.skip_taskbar_hint = true;
-            set_keep_above (true);
+            this.set_keep_above (true);
+            this.set_type_hint (Gdk.WindowTypeHint.MENU);
 
             // Have the window in the right place
             read_settings (true);
@@ -518,40 +519,27 @@ namespace Slingshot {
                     break;
 
                 case "Left":
-                    if (modality == Modality.NORMAL_VIEW) {
-                        if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
-                            grid_view.go_to_previous ();
-                        } else {
-                            normal_move_focus (-1, 0);
-                        }
-                    } else if (modality == Modality.CATEGORY_VIEW) {
-                        if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
-                            category_view.app_view.go_to_previous ();
-                        else if (!search_entry.has_focus) {//the user has already selected an AppEntry
-                            category_move_focus (-1, 0);
-                        }
-                    } else
+                    if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
                         return false;
-                    break;
 
-                case "Right":
-                    if (modality == Modality.NORMAL_VIEW) {
-                        if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
-                            grid_view.go_to_next ();
-                        else
-                            normal_move_focus (+1, 0);
-                    } else if (modality == Modality.CATEGORY_VIEW) {
-                        if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
-                            category_view.app_view.go_to_next ();
-                        else if (search_entry.has_focus) // there's no AppEntry selected, the user is switching category
-                            top_left_focus ();
-                        else //the user has already selected an AppEntry
-                            category_move_focus (+1, 0);
+                    if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                        move_left (event);
                     } else {
-                        return false;
+                        move_right (event);
                     }
-                    break;
 
+                    break;
+                case "Right":
+                    if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
+                        return false;
+
+                    if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                        move_right (event);
+                    } else {
+                        move_left (event);
+                    }
+
+                    break;
                 case "Up":
                     if (modality == Modality.NORMAL_VIEW) {
                             normal_move_focus (0, -1);
@@ -704,6 +692,44 @@ namespace Slingshot {
             set_modality ((Modality) view_selector.selected);
             view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+        }
+
+        /*
+         * Moves the current view to the left (undependent of the TextDirection).
+         */
+        private void move_left (Gdk.EventKey event) {
+            if (modality == Modality.NORMAL_VIEW) {
+                if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
+                    grid_view.go_to_previous ();
+                } else {
+                    normal_move_focus (-1, 0);
+                }
+            } else if (modality == Modality.CATEGORY_VIEW) {
+                if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
+                    category_view.app_view.go_to_previous ();
+                else if (!search_entry.has_focus) {//the user has already selected an AppEntry
+                    category_move_focus (-1, 0);
+                }
+            }
+        }
+
+        /*
+         * Moves the current view to the right (undependent of the TextDirection).
+         */
+        private void move_right (Gdk.EventKey event) {
+            if (modality == Modality.NORMAL_VIEW) {
+                if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
+                    grid_view.go_to_next ();
+                else
+                    normal_move_focus (+1, 0);
+            } else if (modality == Modality.CATEGORY_VIEW) {
+                if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
+                    category_view.app_view.go_to_next ();
+                else if (search_entry.has_focus) // there's no AppEntry selected, the user is switching category
+                    top_left_focus ();
+                else //the user has already selected an AppEntry
+                    category_move_focus (+1, 0);
+            }
         }
 
         private void set_modality (Modality new_modality) {
