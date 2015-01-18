@@ -146,11 +146,12 @@ namespace Slingshot {
             // Add top bar
             top = new Gtk.Grid ();
             top.orientation = Gtk.Orientation.HORIZONTAL;
-            top.margin_start = 12;
-            top.margin_end = 12;
+            top.margin_start = 6;
+            top.margin_end = 6;
 
             view_selector = new Granite.Widgets.ModeButton ();
-            view_selector.margin_end = 12;
+            view_selector.margin_end = 6;
+            view_selector.margin_start = 6;
             view_selector_revealer = new Gtk.Revealer ();
             view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
             view_selector_revealer.add (view_selector);
@@ -171,6 +172,8 @@ namespace Slingshot {
             search_entry = new Gtk.SearchEntry ();
             search_entry.placeholder_text = _("Search Apps");
             search_entry.hexpand = true;
+            search_entry.margin_start = 6;
+            search_entry.margin_end = 6;
 
             if (Slingshot.settings.show_category_filter) {
                 top.add (view_selector_revealer);

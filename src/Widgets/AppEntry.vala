@@ -47,9 +47,11 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         tooltip_text = app.description;
         exec_name = app.exec;
         icon_size = Slingshot.settings.icon_size;
+        relief = Gtk.ReliefStyle.NONE;
         icon = app.icon;
 
         get_style_context ().add_class ("app");
+        get_style_context ().add_class ("flat");
 
         app_label = new Gtk.Label (app_name);
         app_label.halign = Gtk.Align.CENTER;
