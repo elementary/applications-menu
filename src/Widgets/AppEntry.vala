@@ -99,6 +99,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         this.drag_end.connect ( () => {
             this.dragging = false;
+            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
+            ((SlingshotView)slingshot_app.active_window).grab_device ();
         });
 
         this.drag_data_get.connect ( (ctx, sel, info, time) => {
