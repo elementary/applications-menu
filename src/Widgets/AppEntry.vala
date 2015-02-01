@@ -78,6 +78,11 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         create_menu ();
 
         this.clicked.connect (launch_app);
+        // Showing a menu reverts the effect of the grab_device function.
+        menu.hide.connect (() => {
+            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
+            ((SlingshotView)slingshot_app.active_window).grab_device ();
+        });
 
         this.button_press_event.connect ((e) => {
             if (e.button == Gdk.BUTTON_SECONDARY && menu.get_children ().length () > 0) {

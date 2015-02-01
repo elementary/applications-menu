@@ -75,6 +75,8 @@ namespace Slingshot {
         private int category_column_focus = 0;
         private int category_row_focus = 0;
 
+        private int primary_monitor = 0;
+
         public SlingshotView () {
 
             // Window properties
@@ -83,6 +85,7 @@ namespace Slingshot {
             this.skip_taskbar_hint = true;
             this.set_keep_above (true);
             this.set_type_hint (Gdk.WindowTypeHint.MENU);
+            this.focus_on_map = true;
 
             // Have the window in the right place
             read_settings (true);
@@ -95,7 +98,10 @@ namespace Slingshot {
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
 
-            if (Slingshot.settings.screen_resolution != @"$(screen.get_width ())x$(screen.get_height ())")
+            primary_monitor = screen.get_primary_monitor ();
+            Gdk.Rectangle geometry;
+            screen.get_monitor_geometry (primary_monitor, out geometry);
+            if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)")
                 setup_size ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
@@ -115,16 +121,18 @@ namespace Slingshot {
         }
 
         private void setup_size () {
-
             debug ("In setup_size ()");
-            Slingshot.settings.screen_resolution = @"$(screen.get_width ())x$(screen.get_height ())";
+            primary_monitor = screen.get_primary_monitor ();
+            Gdk.Rectangle geometry;
+            screen.get_monitor_geometry (primary_monitor, out geometry);
+            Slingshot.settings.screen_resolution = @"$(geometry.width)x$(geometry.height)";
             default_columns = 5;
             default_rows = 3;
-            while ((calculate_grid_width () >= 2 * screen.get_width () / 3)) {
+            while ((calculate_grid_width () >= 2 * geometry.width / 3)) {
                 default_columns--;
             }
 
-            while ((calculate_grid_height () >= 2 * screen.get_height () / 3)) {
+            while ((calculate_grid_height () >= 2 * geometry.width / 3)) {
                 default_rows--;
             }
 
@@ -194,6 +202,7 @@ namespace Slingshot {
 
             // Create the "SEARCH_VIEW"
             search_view = new Widgets.SearchView (this);
+            search_view.margin_end = 6;
             search_view.start_search.connect ((match, target) => {
                 search.begin (search_entry.text, match, target);
             });
@@ -223,7 +232,7 @@ namespace Slingshot {
             debug ("Ui setup completed");
         }
 
-        private void grab_device () {
+        public void grab_device () {
             var display = Gdk.Display.get_default ();
             var pointer = display.get_device_manager ().get_client_pointer ();
             var keyboard = pointer.associated_device;
@@ -299,7 +308,12 @@ namespace Slingshot {
 
             event_box.key_press_event.connect (on_key_press);
             search_entry.key_press_event.connect (search_entry_key_press);
-
+            // Showing a menu reverts the effect of the grab_device function.
+            search_entry.populate_popup.connect ((menu) => {
+                menu.hide.connect (() => {
+                    grab_device ();
+                });
+            });
             search_entry.search_changed.connect (() => {
                 if (modality != Modality.SEARCH_VIEW)
                     set_modality (Modality.SEARCH_VIEW);
@@ -334,7 +348,11 @@ namespace Slingshot {
 
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
-                setup_size ();
+                Gdk.Rectangle geometry;
+                screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
+                if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
+                    setup_size ();
+                }
                 reposition ();
             });
             screen.monitors_changed.connect (() => {
@@ -673,7 +691,6 @@ namespace Slingshot {
             }
 
             return false;
-
         }
 
         public void show_slingshot () {
@@ -838,22 +855,23 @@ namespace Slingshot {
                 category_view.app_view.resize (default_rows, default_columns);
                 category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
             }
-
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
             if (get_focus () as Widgets.AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
                 if (column_focus + delta_column < 0 || row_focus + delta_row < 0)
                     return;
+
                 var new_focus = grid_view.get_child_at (column_focus + delta_column, row_focus + delta_row); // we check if the new widget exists
                 if (new_focus == null) {
                     if (delta_column <= 0)
                         return;
                     else {
                         new_focus = grid_view.get_child_at (column_focus + delta_column, 0);
-                        delta_row = -row_focus; // so it's 0 at the end
                         if (new_focus == null)
                             return;
+
+                        row_focus = -delta_row; // so it's 0 at the end
                     }
                 }
 
@@ -863,6 +881,7 @@ namespace Slingshot {
                     grid_view.go_to_next ();
                 else if (delta_column < 0 && (column_focus + 1) % grid_view.get_page_columns () == 0) //check if we need to change page
                     grid_view.go_to_previous ();
+
                 new_focus.grab_focus ();
             } else { // we move to the first app in the top left corner of the current page
                 column_focus = (grid_view.get_current_page ()-1) * grid_view.get_page_columns ();

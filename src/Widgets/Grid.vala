@@ -34,6 +34,7 @@ namespace Slingshot.Widgets {
 
         private uint current_row = 0;
         private uint current_col = 0;
+
         private Page page;
 
         public Grid (int rows, int columns) {
@@ -118,11 +119,15 @@ namespace Slingshot.Widgets {
             stack.set_visible_child (current_grid);
         }
 
-        public Gtk.Widget get_child_at (int column, int row) {
+        public Gtk.Widget? get_child_at (int column, int row) {
             var col = ((int)(column/page.columns))+1;
 
             var grid = grids.get (col);
-            return grid.get_child_at (column - (int)page.columns*(col-1), row);
+            if (grid != null) {
+                return grid.get_child_at (column - (int)page.columns*(col-1), row) as Widgets.AppEntry;
+            } else {
+                return null;
+            }
         }
 
         public int get_page_columns () {

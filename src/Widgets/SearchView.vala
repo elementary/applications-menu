@@ -19,8 +19,6 @@
 namespace Slingshot.Widgets {
 
     public class SearchView : Gtk.ScrolledWindow {
-        const int CONTEXT_WIDTH = 200;
-        const int CONTEXT_ARROW_SIZE = 12;
         const int MAX_RESULTS = 20;
         const int MAX_RESULTS_BEFORE_LIMIT = 10;
 
@@ -32,8 +30,6 @@ namespace Slingshot.Widgets {
         private SearchItem selected_app = null;
         private Gtk.Box main_box;
 
-        private Gtk.Revealer revealer;
-        private Gtk.EventBox context;
         private Gtk.Box context_box;
         private Gtk.Fixed context_fixed;
         private int context_selected_y;
@@ -87,30 +83,20 @@ namespace Slingshot.Widgets {
 
         public SearchView (SlingshotView parent) {
             view = parent;
-
+            hscrollbar_policy = Gtk.PolicyType.NEVER;
             items = new Gee.HashMap<Backend.App, SearchItem> ();
 
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             main_box.margin_start = 12;
-            main_box.margin_end = 12;
 
             context_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             context_fixed = new Gtk.Fixed ();
-            context_fixed.margin_start = CONTEXT_ARROW_SIZE;
+            context_fixed.margin_start = 12;
             context_fixed.put (context_box, 0, 0);
-            context = new Gtk.EventBox ();
-            context.draw.connect (draw_context);
-            context.add (context_fixed);
-
-            revealer = new Gtk.Revealer ();
-            revealer.transition_duration = 400;
-            revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
-            revealer.no_show_all = true;
-            revealer.add (context);
 
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             box.pack_start (main_box, true);
-            box.pack_start (revealer, false);
+            box.pack_start (context_fixed, false);
 
             add_with_viewport (box);
         }
@@ -189,7 +175,7 @@ namespace Slingshot.Widgets {
                 header.margin_start = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
-                header.get_style_context ().add_class ("category-label");
+                header.get_style_context ().add_class ("h4");
                 header.show ();
                 main_box.pack_start (header, false);
 
@@ -252,10 +238,7 @@ namespace Slingshot.Widgets {
                     app.start_search.connect ((search, target) => start_search (search, target));
                     context_box.pack_start (new SearchItem (app));
                 }
-                context.show_all ();
-
-                revealer.show ();
-                revealer.set_reveal_child (true);
+                context_box.show_all ();
 
                 Gtk.Allocation alloc;
                 selected_app.get_allocation (out alloc);
@@ -266,9 +249,6 @@ namespace Slingshot.Widgets {
                 context_selected = 0;
             } else {
                 in_context_view = false;
-
-                revealer.set_reveal_child (false);
-                revealer.hide ();
 
                 // trigger update of selection
                 selected = selected;
@@ -330,19 +310,6 @@ namespace Slingshot.Widgets {
             }
 
             return null;
-        }
-
-        private bool draw_context (Cairo.Context cr) {
-            cr.rectangle (CONTEXT_ARROW_SIZE, 0, context.get_allocated_width (), context.get_allocated_height ());
-
-            cr.move_to (CONTEXT_ARROW_SIZE, context_selected_y + 6);
-            cr.rel_line_to (-CONTEXT_ARROW_SIZE, 12);
-            cr.rel_line_to (CONTEXT_ARROW_SIZE, 12);
-            cr.close_path ();
-
-            cr.set_source_rgb (0.85, 0.85, 0.85);
-            cr.fill ();
-            return false;
         }
 
         /**
