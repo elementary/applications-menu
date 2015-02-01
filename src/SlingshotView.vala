@@ -386,14 +386,16 @@ namespace Slingshot {
         private void reposition () {
             debug("Repositioning");
 
-            popover.set_pointing_to ({36, 0, 0, 0});
             Gdk.Rectangle monitor_dimensions;
             screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
             if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                move (monitor_dimensions.x, monitor_dimensions.y);
+                popover.set_pointing_to ({36, 0, 0, 0});
+                // Added 36px to y to be aligned with other popovers.
+                move (monitor_dimensions.x, monitor_dimensions.y + 36);
             } else {
                 popover.set_pointing_to ({ref_grid.get_window ().get_width () - 36, 0, 0, 0});
-                move (monitor_dimensions.x + monitor_dimensions.width - this.get_window ().get_width (), monitor_dimensions.y);
+                // Added 36px to y to be aligned with other popovers.
+                move (monitor_dimensions.x + monitor_dimensions.width - this.get_window ().get_width (), monitor_dimensions.y + 36);
             }
         }
 
