@@ -43,10 +43,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
         category_switcher = new Sidebar ();
-        category_switcher.can_focus = false;
 
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
-        app_view.margin_start = Pixels.SIDEBAR_GRID_PADDING;
 
         container.add (category_switcher);
         container.add (separator);
@@ -97,7 +95,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     private void add_app (Backend.App app) {
-        var app_entry = new AppEntry (app, view);
+        var app_entry = new AppEntry (app);
         app_entry.app_launched.connect (() => view.hide ());
         app_view.append (app_entry);
         app_view.show_all ();

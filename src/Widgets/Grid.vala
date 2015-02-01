@@ -34,16 +34,17 @@ namespace Slingshot.Widgets {
 
         private uint current_row = 0;
         private uint current_col = 0;
+
         private Page page;
 
         public Grid (int rows, int columns) {
-            margin_start = 12;
-            margin_end = 12;
             page.rows = rows;
             page.columns = columns;
             page.number = 1;
             var main_grid = new Gtk.Grid ();
             main_grid.orientation = Gtk.Orientation.VERTICAL;
+            main_grid.row_spacing = 6;
+            main_grid.margin_bottom = 12;
             stack = new Gtk.Stack ();
             stack.expand = true;
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -61,13 +62,15 @@ namespace Slingshot.Widgets {
             create_new_grid ();
             go_to_number (1);
         }
-        
+
         private void create_new_grid () {
             // Grid properties
             current_grid = new Gtk.Grid ();
             current_grid.expand = true;
             current_grid.row_homogeneous = true;
             current_grid.column_homogeneous = true;
+            current_grid.margin_start = 12;
+            current_grid.margin_end = 12;
 
             current_grid.row_spacing = Pixels.ROW_SPACING;
             current_grid.column_spacing = 0;
@@ -99,25 +102,16 @@ namespace Slingshot.Widgets {
             }
         }
 
-        public override void get_preferred_width (out int minimum_width, out int natural_width) {
-            minimum_width = (int)page.columns * Pixels.ITEM_SIZE;
-            natural_width = minimum_width;
-        }
-
-        public override void get_preferred_height (out int minimum_height, out int natural_height) {
-            minimum_height = (int)page.rows * Pixels.ITEM_SIZE + ((int)page.rows - 1) * Pixels.ROW_SPACING;
-            natural_height = minimum_height;
-        }
-
         public void clear () {
             foreach (Gtk.Grid grid in grids.values) {
                 foreach (Gtk.Widget widget in grid.get_children ()) {
                     widget.destroy ();
                 }
+
                 grid.destroy ();
             }
-            grids.clear ();
 
+            grids.clear ();
             current_row = 0;
             current_col = 0;
             page.number = 1;
@@ -125,11 +119,15 @@ namespace Slingshot.Widgets {
             stack.set_visible_child (current_grid);
         }
 
-        public Gtk.Widget get_child_at (int column, int row) {
+        public Gtk.Widget? get_child_at (int column, int row) {
             var col = ((int)(column/page.columns))+1;
-            
+
             var grid = grids.get (col);
-            return grid.get_child_at (column - (int)page.columns*(col-1), row);
+            if (grid != null) {
+                return grid.get_child_at (column - (int)page.columns*(col-1), row) as Widgets.AppEntry;
+            } else {
+                return null;
+            }
         }
 
         public int get_page_columns () {
@@ -152,7 +150,7 @@ namespace Slingshot.Widgets {
             int page_number = get_current_page ()+1;
             if (page_number <= get_n_pages ())
                 stack.set_visible_child_name (page_number.to_string ());
-            
+
             page_switcher.update_selected ();
         }
 
@@ -160,7 +158,7 @@ namespace Slingshot.Widgets {
             int page_number = get_current_page ()-1;
             if (page_number > 0)
                 stack.set_visible_child_name (page_number.to_string ());
-            
+
             page_switcher.update_selected ();
         }
 

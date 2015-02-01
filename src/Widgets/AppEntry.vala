@@ -32,10 +32,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private bool dragging = false; //prevent launching
 
     private Backend.App application;
-    private unowned SlingshotView view;
+    private Gtk.Menu menu;
 
-    public AppEntry (Backend.App app, SlingshotView view) {
-        this.view = view;
+    public AppEntry (Backend.App app) {
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
@@ -50,7 +49,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         icon_size = Slingshot.settings.icon_size;
         icon = app.icon;
 
-        get_style_context ().add_class ("app");
+        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         app_label = new Gtk.Label (app_name);
         app_label.halign = Gtk.Align.CENTER;
@@ -75,11 +74,19 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         add (grid);
         set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
 
-        this.clicked.connect (launch_app);
+        menu = new Gtk.Menu ();
+        create_menu ();
 
-        this.button_release_event.connect ((e) => {
-            if (e.button == Gdk.BUTTON_SECONDARY) {
-                show_menu ();
+        this.clicked.connect (launch_app);
+        // Showing a menu reverts the effect of the grab_device function.
+        menu.hide.connect (() => {
+            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
+            ((SlingshotView)slingshot_app.active_window).grab_device ();
+        });
+
+        this.button_press_event.connect ((e) => {
+            if (e.button == Gdk.BUTTON_SECONDARY && menu.get_children ().length () > 0) {
+                menu.popup (null, null, null, e.button, e.time);
                 return true;
             }
             return false;
@@ -120,7 +127,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app_launched ();
     }
 
-    private void show_menu () {
+    private void create_menu () {
         // Display the apps static quicklist items in a popover menu
         if (application.actions == null) {
             try {
@@ -130,24 +137,13 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             }
         }
 
-        var menu = new PopoverMenu ();
         foreach (var action in application.actions) {
-            var values = application.actions_map.get (action).split (";;");
-            Gdk.Pixbuf? icon = null;
-            var flags = Gtk.IconLookupFlags.FORCE_SIZE;
+            var menuitem = new Gtk.MenuItem.with_label (action);
+            menu.add (menuitem);
 
-            try {
-                if (values.length > 1 && values[1] != "" && values[1] != null)
-                    icon = Slingshot.icon_theme.load_icon (values[1], 16, flags);
-            } catch (Error e) {
-                error ("Error loading quicklist icon");
-            }
-
-            var menuitem = new Widgets.PopoverMenuItem (action, icon);
-            menu.add_menu_item (menuitem);
-
-            menuitem.activated.connect (() => {
+            menuitem.activate.connect (() => {
                 try {
+                    var values = application.actions_map.get (action).split (";;");
                     AppInfo.create_from_commandline (values[0], null, AppInfoCreateFlags.NONE).launch (null, null);
                     app_launched ();
                 } catch (Error e) {
@@ -155,9 +151,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
                 }
             });
         }
-
-        if (menu.get_size () > 0)
-            view.show_popover_menu (menu, this);
+        menu.show_all ();
     }
 
 }

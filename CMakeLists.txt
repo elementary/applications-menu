@@ -83,7 +83,6 @@ vala_precompile (VALA_C ${APPNAME}
     src/Widgets/SearchItem.vala
     src/Widgets/Sidebar.vala
     src/Widgets/CategoryView.vala
-    src/Widgets/PopoverMenu.vala
 PACKAGES
     ${CORE_DEPS}
     ${UI_DEPS}
