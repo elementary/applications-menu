@@ -17,6 +17,8 @@
 //
 
 public class Slingshot.Widgets.AppEntry : Gtk.Button {
+    private static Gtk.Menu menu;
+
     public Gtk.Label app_label;
     private Gdk.Pixbuf icon;
     private new Gtk.Image image;
@@ -32,7 +34,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private bool dragging = false; //prevent launching
 
     private Backend.App application;
-    private Gtk.Menu menu;
 
     public AppEntry (Backend.App app) {
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
@@ -74,18 +75,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         add (grid);
         set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
 
-        menu = new Gtk.Menu ();
-        create_menu ();
-
         this.clicked.connect (launch_app);
-        // Showing a menu reverts the effect of the grab_device function.
-        menu.hide.connect (() => {
-            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
-            ((SlingshotView)slingshot_app.active_window).grab_device ();
-        });
 
         this.button_press_event.connect ((e) => {
-            if (e.button == Gdk.BUTTON_SECONDARY && menu.get_children ().length () > 0) {
+            if (e.button != Gdk.BUTTON_SECONDARY)
+                return false;
+
+            create_menu ();
+            if (menu != null && menu.get_children () != null) {
                 menu.popup (null, null, null, e.button, e.time);
                 return true;
             }
@@ -139,8 +136,16 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             }
         }
 
+        menu = new Gtk.Menu ();
+
+        // Showing a menu reverts the effect of the grab_device function.
+        menu.hide.connect (() => {
+            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
+            ((SlingshotView)slingshot_app.active_window).grab_device ();
+        });
+
         foreach (var action in application.actions) {
-            var menuitem = new Gtk.MenuItem.with_label (action);
+            var menuitem = new Gtk.MenuItem.with_mnemonic (action);
             menu.add (menuitem);
 
             menuitem.activate.connect (() => {
