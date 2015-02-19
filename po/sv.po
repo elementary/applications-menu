@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2014-11-28 09:18+0000\n"
-"Last-Translator: Zahirovic Mensur <Unknown>\n"
+"PO-Revision-Date: 2015-02-18 22:51+0000\n"
+"Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-29 05:26+0000\n"
-"X-Generator: Launchpad (build 17267)\n"
+"X-Launchpad-Export-Date: 2015-02-19 05:08+0000\n"
+"X-Generator: Launchpad (build 17341)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -131,7 +131,7 @@ msgstr "Kalkylator"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Beräkna enkla uttryck."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
