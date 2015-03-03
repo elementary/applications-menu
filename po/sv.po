@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2015-02-18 22:51+0000\n"
+"PO-Revision-Date: 2015-03-02 13:40+0000\n"
 "Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-19 05:08+0000\n"
-"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-03-03 05:08+0000\n"
+"X-Generator: Launchpad (build 17361)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -83,7 +83,7 @@ msgstr "Starta program, händelse eller skript"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr "Starta i Terminalen"
+msgstr "Starta i terminalen"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
@@ -123,7 +123,7 @@ msgstr "Kör kommando"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Hitta och kör godtyckliga kommandon."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
