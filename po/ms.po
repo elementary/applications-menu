@@ -8,46 +8,46 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-16 00:16+0200\n"
-"PO-Revision-Date: 2012-11-16 05:10+0000\n"
+"PO-Revision-Date: 2015-03-09 22:50+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-16 04:39+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2015-03-10 05:09+0000\n"
+"X-Generator: Launchpad (build 17389)\n"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
-msgstr ""
+msgstr "Lain-lain"
 
 #: ../src/Widgets/SearchView.vala:165
 msgid "Text"
-msgstr ""
+msgstr "Teks"
 
 #: ../src/Widgets/SearchView.vala:168
 msgid "Applications"
-msgstr ""
+msgstr "Aplikasi"
 
 #: ../src/Widgets/SearchView.vala:171
 msgid "Files"
-msgstr ""
+msgstr "Fail"
 
 #: ../src/Widgets/SearchView.vala:174
 msgid "Actions"
-msgstr ""
+msgstr "Tindakan"
 
 #: ../src/Widgets/SearchView.vala:177
 msgid "Search"
-msgstr ""
+msgstr "Gelintar"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Contacts"
-msgstr ""
+msgstr "Kenalan"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/CategoryView.vala:29
 msgid "All Applications"
@@ -67,84 +67,84 @@ msgstr "Papar mengikut Kategori"
 
 #: ../src/SlingshotView.vala:169
 msgid "Search Apps"
-msgstr ""
+msgstr "Gelintar Aplikasi"
 
 #: ../src/Backend/App.vala:94
 msgid "Run this command…"
-msgstr ""
+msgstr "Jalankan perintah ini..."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Jalan"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Jalankan aplikasi, tindakan atau skrip"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Jalankan dalam Terminal"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Jalankan aplikasi atau perintah dalam terminal"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Buka"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Buka menggunakan aplikasi lalai"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Buka folder"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Buka folder yang mengandungi fail ini"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Salin ke Papan Keratan"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Salin pemilihan ke papan keratan"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Lakukan '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Jalankan perintah"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Cari dan lakukan perintah arbitari."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulator"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Kira ungkapan asas."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc tidak dipasang"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Gelintar dan jalankan aplikasi di dalam komputer anda."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:276
 msgid "Open with %s"
-msgstr ""
+msgstr "Buka dengan %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:278
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Buka pemilihan semasa menggunakan %s"
