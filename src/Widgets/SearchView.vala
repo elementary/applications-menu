@@ -132,6 +132,7 @@ namespace Slingshot.Widgets {
             }
 
             n_results = 0;
+            clear ();
 
             // if we're showing more than about 10 results and we have more than
             // categories, we limit the results per category to the most relevant
@@ -181,7 +182,6 @@ namespace Slingshot.Widgets {
 
                 var list = categories.get (type);
                 var old_selected = selected;
-                clear ();
                 for (var i = 0; i < limit && i < list.size; i++) {
                     var match = list.get (i);
 
@@ -291,7 +291,7 @@ namespace Slingshot.Widgets {
             else
                 selected_app = box.get_children ().nth_data (index) as SearchItem;
 
-            selected_app.set_state_flags (Gtk.StateFlags.PRELIGHT, false);
+            selected_app.set_state_flags (Gtk.StateFlags.PRELIGHT, true);
 
             Gtk.Allocation alloc;
             selected_app.get_allocation (out alloc);
