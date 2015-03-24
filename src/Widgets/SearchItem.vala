@@ -24,7 +24,7 @@ namespace Slingshot.Widgets {
 
         public Backend.App app { get; construct; }
 
-        private Gtk.Label name_label;
+        public Gtk.Label name_label;
         private Gtk.Image icon;
 
         private Cancellable? cancellable = null;
