@@ -35,6 +35,16 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
     private Backend.App application;
 
+#if HAS_PLANK
+    static construct {
+        plank_client = Plank.DBus.Client.get_instance ();
+    }
+
+    private static Plank.DBus.Client plank_client;
+    private bool docked = false;
+    private string desktop_uri;
+#endif
+
     public AppEntry (Backend.App app) {
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
@@ -42,6 +52,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         desktop_id = app.desktop_id;
         desktop_path = app.desktop_path;
+#if HAS_PLANK
+        desktop_uri = File.new_for_path (desktop_path).get_uri ();
+#endif
 
         application = app;
         app_name = app.name;
@@ -158,7 +171,44 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
                 }
             });
         }
+
+#if HAS_PLANK
+        if (plank_client != null && plank_client.is_connected) {
+            if (menu.get_children ().length () > 0)
+                menu.add (new Gtk.SeparatorMenuItem ());
+
+            menu.add (get_plank_menuitem ());
+        }
+#endif
+
         menu.show_all ();
     }
 
+#if HAS_PLANK
+    private Gtk.MenuItem get_plank_menuitem () {
+        docked = (desktop_uri in plank_client.get_persistent_applications ());
+
+        var plank_menuitem = new Gtk.MenuItem ();
+        plank_menuitem.set_use_underline (true);
+
+        if (docked)
+            plank_menuitem.set_label (_("Remove from _Dock"));
+        else
+            plank_menuitem.set_label (_("Add to _Dock"));
+
+        plank_menuitem.activate.connect (plank_menuitem_activate);
+
+        return plank_menuitem;
+    }
+
+    private void plank_menuitem_activate () {
+        if (plank_client == null || !plank_client.is_connected)
+            return;
+
+        if (docked)
+            plank_client.remove_item (desktop_uri);
+        else
+            plank_client.add_item (desktop_uri);
+    }
+#endif
 }
