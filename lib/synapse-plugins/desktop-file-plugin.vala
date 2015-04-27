@@ -173,7 +173,8 @@ namespace Synapse
         // "seto" matching "System Monitor"
         foreach (var matcher in matchers)
         {
-          if (matcher.key.match (folded_title))
+          MatchInfo info;
+          if (matcher.key.match (folded_title, 0, out info))
           {
             results.add (dfm, compute_relevancy (dfm, matcher.value));
             matched = true;
@@ -185,6 +186,12 @@ namespace Synapse
             matched = true;
             break;
           } 
+          else if (info.is_partial_match ())
+          {
+            results.add (dfm, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+            matched = true;
+            break;
+          }
         }
         if (!matched && (comment.down ().contains (q.query_string_folded) 
             || generic_name.down ().contains (q.query_string_folded)))
