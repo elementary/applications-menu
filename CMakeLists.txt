@@ -54,10 +54,17 @@ else ()
   message ("-- Zeitgeist integration disabled")
 endif ()
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};")
+find_package (PkgConfig)
+ 
+pkg_check_modules(PLANK QUIET plank>=0.8.1.1197)
+if (PLANK_FOUND)
+  set (PLANK_DEPS plank)
+  set (PLANK_OPTIONS --define=HAS_PLANK)
+endif ()
+
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};${PLANK_DEPS};")
 set (UI_DEPS "gtk+-3.0>=3.10.0;granite;${ZEITGEIST_DEPS};")
 
-find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
 
 find_package (Vala REQUIRED)
@@ -98,6 +105,7 @@ OPTIONS
     -g
     ${UNITY_OPTIONS}
     ${ZEITGEIST_OPTIONS}
+    ${PLANK_OPTIONS}
 )
 
 include_directories(${CMAKE_BINARY_DIR}/lib/synapse-core)
