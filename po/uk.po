@@ -7,71 +7,79 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-10-16 00:16+0200\n"
+"POT-Creation-Date: 2015-05-08 01:08-0500\n"
 "PO-Revision-Date: 2015-03-21 20:51+0000\n"
 "Last-Translator: lem8r <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-22 05:08+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-05-09 05:08+0000\n"
+"X-Generator: Launchpad (build 17474)\n"
 
-#: ../src/Widgets/SearchView.vala:162
-msgid "Other"
-msgstr "Інший"
+#: ../src/Backend/App.vala:108
+msgid "Run this command…"
+msgstr "Виконати цю команду..."
 
-#: ../src/Widgets/SearchView.vala:165
-msgid "Text"
-msgstr "Текст"
-
-#: ../src/Widgets/SearchView.vala:168
-msgid "Applications"
-msgstr "Застосунки"
-
-#: ../src/Widgets/SearchView.vala:171
-msgid "Files"
-msgstr "Файли"
-
-#: ../src/Widgets/SearchView.vala:174
-msgid "Actions"
-msgstr "Дії"
-
-#: ../src/Widgets/SearchView.vala:177
-msgid "Search"
-msgstr "Пошук"
-
-#: ../src/Widgets/SearchView.vala:180
-msgid "Contacts"
-msgstr "Контакти"
-
-#: ../src/Widgets/SearchView.vala:183
-msgid "Internet"
-msgstr "Інтернет"
-
-#: ../src/Widgets/CategoryView.vala:29
-msgid "All Applications"
-msgstr "Усі застосунки"
-
-#: ../src/Widgets/CategoryView.vala:30
-msgid "Create a new Filter"
-msgstr "Створити новий фільтр"
-
-#: ../src/SlingshotView.vala:156
+#: ../src/SlingshotView.vala:169
 msgid "View as Grid"
 msgstr "У вигляді сітки"
 
-#: ../src/SlingshotView.vala:160
+#: ../src/SlingshotView.vala:173
 msgid "View by Category"
 msgstr "У вигляді категорій"
 
-#: ../src/SlingshotView.vala:169
+#: ../src/SlingshotView.vala:182
 msgid "Search Apps"
 msgstr "Шукати застосунки"
 
-#: ../src/Backend/App.vala:94
-msgid "Run this command…"
-msgstr "Виконати цю команду..."
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Усі застосунки"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Створити новий фільтр"
+
+#: ../src/Widgets/AppEntry.vala:195
+msgid "Remove from _Dock"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:197
+msgid "Add to _Dock"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:149
+msgid "Other"
+msgstr "Інший"
+
+#: ../src/Widgets/SearchView.vala:152
+msgid "Text"
+msgstr "Текст"
+
+#: ../src/Widgets/SearchView.vala:155
+msgid "Applications"
+msgstr "Застосунки"
+
+#: ../src/Widgets/SearchView.vala:158
+msgid "Files"
+msgstr "Файли"
+
+#: ../src/Widgets/SearchView.vala:161
+msgid "Actions"
+msgstr "Дії"
+
+#: ../src/Widgets/SearchView.vala:164
+msgid "Search"
+msgstr "Пошук"
+
+#: ../src/Widgets/SearchView.vala:167
+msgid "Contacts"
+msgstr "Контакти"
+
+#: ../src/Widgets/SearchView.vala:170
+msgid "Internet"
+msgstr "Інтернет"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -113,6 +121,18 @@ msgstr "Скопіювати до буфера обміну"
 msgid "Copy selection to clipboard"
 msgstr "Скопіювати виділене у буфер обміну"
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
+msgid "Search for and run applications on your computer."
+msgstr "Пошук та виконання застосунків на вашому комп’ютері."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:276
+msgid "Open with %s"
+msgstr "Відкрити за допомогою  %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:278
+msgid "Opens current selection using %s"
+msgstr "Відкриває поточне виділення в %s"
+
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
 msgstr "Виконати '%s'"
@@ -136,15 +156,3 @@ msgstr "Обчислення простих виразів."
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
 msgstr "Застосунок bc не встановлено."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
-msgid "Search for and run applications on your computer."
-msgstr "Пошук та виконання застосунків на вашому комп’ютері."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:276
-msgid "Open with %s"
-msgstr "Відкрити за допомогою  %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:278
-msgid "Opens current selection using %s"
-msgstr "Відкриває поточне виділення в %s"

@@ -7,71 +7,79 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-10-16 00:16+0200\n"
+"POT-Creation-Date: 2015-05-08 01:08-0500\n"
 "PO-Revision-Date: 2014-10-16 08:20+0000\n"
 "Last-Translator: ProsjektX <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-17 05:36+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2015-05-09 05:08+0000\n"
+"X-Generator: Launchpad (build 17474)\n"
 
-#: ../src/Widgets/SearchView.vala:162
-msgid "Other"
-msgstr "Andre"
+#: ../src/Backend/App.vala:108
+msgid "Run this command…"
+msgstr "Kjør denne kommando..."
 
-#: ../src/Widgets/SearchView.vala:165
-msgid "Text"
-msgstr "Tekst"
-
-#: ../src/Widgets/SearchView.vala:168
-msgid "Applications"
-msgstr "Applikasjoner"
-
-#: ../src/Widgets/SearchView.vala:171
-msgid "Files"
-msgstr "Filer"
-
-#: ../src/Widgets/SearchView.vala:174
-msgid "Actions"
-msgstr "Handlinger"
-
-#: ../src/Widgets/SearchView.vala:177
-msgid "Search"
-msgstr "Søk"
-
-#: ../src/Widgets/SearchView.vala:180
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: ../src/Widgets/SearchView.vala:183
-msgid "Internet"
-msgstr "Internett"
-
-#: ../src/Widgets/CategoryView.vala:29
-msgid "All Applications"
-msgstr "Alle program"
-
-#: ../src/Widgets/CategoryView.vala:30
-msgid "Create a new Filter"
-msgstr "Opprett nytt filter"
-
-#: ../src/SlingshotView.vala:156
+#: ../src/SlingshotView.vala:169
 msgid "View as Grid"
 msgstr "Vis som rutenett"
 
-#: ../src/SlingshotView.vala:160
+#: ../src/SlingshotView.vala:173
 msgid "View by Category"
 msgstr "Sorter etter kategori"
 
-#: ../src/SlingshotView.vala:169
+#: ../src/SlingshotView.vala:182
 msgid "Search Apps"
 msgstr "Søk etter applikasjoner"
 
-#: ../src/Backend/App.vala:94
-msgid "Run this command…"
-msgstr "Kjør denne kommando..."
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Alle program"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Opprett nytt filter"
+
+#: ../src/Widgets/AppEntry.vala:195
+msgid "Remove from _Dock"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:197
+msgid "Add to _Dock"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:149
+msgid "Other"
+msgstr "Andre"
+
+#: ../src/Widgets/SearchView.vala:152
+msgid "Text"
+msgstr "Tekst"
+
+#: ../src/Widgets/SearchView.vala:155
+msgid "Applications"
+msgstr "Applikasjoner"
+
+#: ../src/Widgets/SearchView.vala:158
+msgid "Files"
+msgstr "Filer"
+
+#: ../src/Widgets/SearchView.vala:161
+msgid "Actions"
+msgstr "Handlinger"
+
+#: ../src/Widgets/SearchView.vala:164
+msgid "Search"
+msgstr "Søk"
+
+#: ../src/Widgets/SearchView.vala:167
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: ../src/Widgets/SearchView.vala:170
+msgid "Internet"
+msgstr "Internett"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -113,6 +121,18 @@ msgstr "Kopier til utklippstavle"
 msgid "Copy selection to clipboard"
 msgstr "Kopier utvalget til utklippstavlen"
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
+msgid "Search for and run applications on your computer."
+msgstr "Søk etter og kjør applikasjoner på datamaskinen."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:276
+msgid "Open with %s"
+msgstr "Åpne med %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:278
+msgid "Opens current selection using %s"
+msgstr "Åpner utvalget med %s"
+
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
 msgstr "Kjør '%s'"
@@ -136,15 +156,3 @@ msgstr "Kalkuler enkle uttrykk."
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
 msgstr "bc er ikke installert"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
-msgid "Search for and run applications on your computer."
-msgstr "Søk etter og kjør applikasjoner på datamaskinen."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:276
-msgid "Open with %s"
-msgstr "Åpne med %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:278
-msgid "Opens current selection using %s"
-msgstr "Åpner utvalget med %s"
