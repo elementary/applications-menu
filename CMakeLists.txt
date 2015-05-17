@@ -63,7 +63,7 @@ if (PLANK_FOUND)
 endif ()
 
 set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};${PLANK_DEPS};")
-set (UI_DEPS "gtk+-3.0>=3.10.0;granite;${ZEITGEIST_DEPS};")
+set (UI_DEPS "gtk+-3.0>=3.12.0;granite;${ZEITGEIST_DEPS};")
 
 pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
 
