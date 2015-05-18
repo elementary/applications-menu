@@ -16,92 +16,59 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-public class Slingshot.Slingshot : Granite.Application {
+public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     private SlingshotView view = null;
     public static bool silent = false;
     public static bool command_mode = false;
 
+    private Gtk.Label dynamic_icon;
+    
     public static Settings settings { get; private set; default = null; }
     //public static CssProvider style_provider { get; private set; default = null; }
     public static Gtk.IconTheme icon_theme { get; set; default = null; }
     private DBusService? dbus_service = null;
 
-    construct {
-
-        build_data_dir = Build.DATADIR;
-        build_pkg_data_dir = Build.PKGDATADIR;
-        build_release_name = Build.RELEASE_NAME;
-        build_version = Build.VERSION;
-        build_version_info = Build.VERSION_INFO;
-
-        program_name = "Slingshot";
-        exec_name = "slingshot-launcher";
-        app_copyright = "GPLv3";
-        app_icon = "";
-        app_launcher = "";
-        app_years = "2011-2012";
-        application_id = "net.launchpad.slingshot";
-        main_url = "https://launchpad.net/slingshot";
-        bug_url = "https://bugs.launchpad.net/slingshot";
-        help_url = "https://answers.launchpad.net/slingshot";
-        translate_url = "https://translations.launchpad.net/slingshot";
-
-        about_authors = {"Giulio Collura <random.cpp@gmail.com>",
-                         "Andrea Basso <andrea@elementaryos.org"};
-        about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
-                         "Daniel Foré <bunny@go-docky.com>"};
-        about_translators = "Launchpad Translators";
-        about_license_type = Gtk.License.GPL_3_0;
-
-    }
-
     public Slingshot () {
-        settings = new Settings ();
-    }
+		Object (code_name: Wingpanel.Indicator.SESSION,
+		display_name: _("Slingshot"),
+		description:_("The app-menu indicator"));
+	}
 
-    protected override void activate () {
-        if (get_windows () == null) {
-            view = new SlingshotView ();
-            view.set_application (this);
-
+    public override Gtk.Widget get_widget () {
+		if (view == null) {
+            settings = new Settings ();
+            
+            var view = new SlingshotView ();
+          
             if (dbus_service == null)
                 dbus_service = new DBusService (view);
+		}
+		
+        view.show_slingshot ();
+		return view;
+	}    
 
-            if (!silent) {
-                view.show_slingshot ();
-            }
-        } else {
-            if (view.visible && !silent)
-                view.hide ();
-            else
-                view.show_slingshot ();
-        }
-        silent = false;
-    }
+    public override Gtk.Widget get_display_widget () {
+		if (dynamic_icon == null)
+			dynamic_icon = new Gtk.Label ("Applications");
 
-    static const OptionEntry[] entries = {
-        { "silent", 's', 0, OptionArg.NONE, ref silent, "Launch Slingshot as a background process without it appearing visually.", null },
-        { "command-mode", 'c', 0, OptionArg.NONE, ref command_mode, "This feature is not implemented yet. When it is, description will be changed.", null },
-        { null }
-    };
+		return dynamic_icon;
+	}
+	
+	public override void opened () {
 
-    public static int main (string[] args) {
-        if (args.length > 1) {
-            var context = new OptionContext ("");
-            context.add_main_entries (entries, "slingshot");
-            context.add_group (Gtk.get_option_group (true));
-            
-            try {
-                context.parse (ref args);
-            } catch (Error e) {
-                print (e.message + "\n");
-            }
-        }
-        
-        var app = new Slingshot ();
+	}
 
-        return app.run (args);
-    }
+	public override void closed () {
 
+	}
+	
 }
+
+public Wingpanel.Indicator get_indicator (Module module) {
+	debug ("Activating Session Indicator");
+	var indicator = new Slingshot.Slingshot ();
+	return indicator;
+}
+
