@@ -18,57 +18,55 @@
 
 public class Slingshot.Slingshot : Wingpanel.Indicator {
 
-    private SlingshotView view = null;
-    public static bool silent = false;
-    public static bool command_mode = false;
+    private SlingshotView? view = null;
 
-    private Gtk.Label dynamic_icon;
-    
+    private Gtk.Label? indicator_label = null;
+
     public static Settings settings { get; private set; default = null; }
-    //public static CssProvider style_provider { get; private set; default = null; }
     public static Gtk.IconTheme icon_theme { get; set; default = null; }
+
     private DBusService? dbus_service = null;
 
     public Slingshot () {
-		Object (code_name: Wingpanel.Indicator.SESSION,
-		display_name: _("Slingshot"),
-		description:_("The app-menu indicator"));
-	}
+        Object (code_name: Wingpanel.Indicator.APP_LAUNCHER,
+        display_name: _("Slingshot"),
+        description:_("The app-menu indicator"));
+    }
 
     public override Gtk.Widget get_widget () {
-		if (view == null) {
+        if (view == null) {
             settings = new Settings ();
-            
+
             var view = new SlingshotView ();
-          
+
             if (dbus_service == null)
                 dbus_service = new DBusService (view);
-		}
-		
-        view.show_slingshot ();
-		return view;
-	}    
+        }
+
+        return view;
+    }
 
     public override Gtk.Widget get_display_widget () {
-		if (dynamic_icon == null)
-			dynamic_icon = new Gtk.Label ("Applications");
+        if (indicator_label == null)
+            indicator_label = new Gtk.Label ("Applications");
 
-		return dynamic_icon;
-	}
-	
-	public override void opened () {
+        return indicator_label;
+    }
 
-	}
+    public override void opened () {
+        if (view != null)
+            view.show_slingshot ();
+    }
 
-	public override void closed () {
+    public override void closed () {
+        // TODO: Do we need to do anyhting here?
+    }
 
-	}
-	
 }
 
 public Wingpanel.Indicator get_indicator (Module module) {
-	debug ("Activating Session Indicator");
-	var indicator = new Slingshot.Slingshot ();
-	return indicator;
+    debug ("Activating Slingshot");
+    var indicator = new Slingshot.Slingshot ();
+    return indicator;
 }
 
