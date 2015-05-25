@@ -99,6 +99,13 @@ namespace Slingshot.Widgets {
             box.pack_start (context_fixed, false);
 
             add_with_viewport (box);
+
+            parent.search_entry.key_press_event.connect ((e) => {
+                if (parent.search_entry.text == "")
+                    _selected = 0;
+
+                return false;
+            });
         }
 
         public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
