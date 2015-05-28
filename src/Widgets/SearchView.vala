@@ -172,7 +172,7 @@ namespace Slingshot.Widgets {
                 }
 
                 var header = new Gtk.Label (label);
-                header.xalign = 0;
+                ((Gtk.Misc) header).xalign = 0.0f;
                 header.margin_start = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;
