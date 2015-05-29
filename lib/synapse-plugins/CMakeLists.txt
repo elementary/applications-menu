@@ -14,6 +14,7 @@ set(PLUGINS_SOURCE
     calculator-plugin.vala
     command-plugin.vala
     desktop-file-plugin.vala
+    system-managment.vala
 )
 
 set(LINK_MODE STATIC)
