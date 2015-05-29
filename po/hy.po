@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 01:08-0500\n"
+"POT-Creation-Date: 2015-05-28 20:01-0500\n"
 "PO-Revision-Date: 2014-11-04 06:56+0000\n"
 "Last-Translator: Vahan Harutyunyan <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-09 05:07+0000\n"
-"X-Generator: Launchpad (build 17474)\n"
+"X-Launchpad-Export-Date: 2015-05-29 05:12+0000\n"
+"X-Generator: Launchpad (build 17532)\n"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
@@ -44,35 +44,35 @@ msgstr ""
 msgid "Add to _Dock"
 msgstr ""
 
-#: ../src/Widgets/SearchView.vala:149
+#: ../src/Widgets/SearchView.vala:156
 msgid "Other"
 msgstr "Այլ"
 
-#: ../src/Widgets/SearchView.vala:152
+#: ../src/Widgets/SearchView.vala:159
 msgid "Text"
 msgstr "Տեքստ"
 
-#: ../src/Widgets/SearchView.vala:155
+#: ../src/Widgets/SearchView.vala:162
 msgid "Applications"
 msgstr "Ծրագրեր"
 
-#: ../src/Widgets/SearchView.vala:158
+#: ../src/Widgets/SearchView.vala:165
 msgid "Files"
 msgstr "Ֆայլեր"
 
-#: ../src/Widgets/SearchView.vala:161
+#: ../src/Widgets/SearchView.vala:168
 msgid "Actions"
 msgstr "Գործողություններ"
 
-#: ../src/Widgets/SearchView.vala:164
+#: ../src/Widgets/SearchView.vala:171
 msgid "Search"
 msgstr "Որոնում"
 
-#: ../src/Widgets/SearchView.vala:167
+#: ../src/Widgets/SearchView.vala:174
 msgid "Contacts"
 msgstr "Կոնտակտներ"
 
-#: ../src/Widgets/SearchView.vala:170
+#: ../src/Widgets/SearchView.vala:177
 msgid "Internet"
 msgstr "Ինտերնետ"
 
@@ -120,11 +120,11 @@ msgstr ""
 msgid "Search for and run applications on your computer."
 msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:276
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:283
 msgid "Open with %s"
 msgstr "Բացել %s-ի միջոցով"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:278
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:285
 msgid "Opens current selection using %s"
 msgstr ""
 
@@ -151,3 +151,43 @@ msgstr ""
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
 msgstr "bc տեղադրված չէ"
+
+#: ../lib/synapse-plugins/system-managment.vala:103
+msgid "Suspend"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:104
+msgid "Put your computer into suspend mode"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:203
+msgid "Hibernate"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:204
+msgid "Put your computer into hibernation mode"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:302
+msgid "Shut Down"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:303
+msgid "Turn your computer off"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:386
+msgid "Restart"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:387
+msgid "Restart your computer"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:471
+msgid "Suspend, hibernate, restart or shutdown your computer."
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:476
+msgid "ConsoleKit wasn't found"
+msgstr ""
