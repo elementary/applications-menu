@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-05-28 20:01-0500\n"
-"PO-Revision-Date: 2014-10-16 16:10+0000\n"
+"PO-Revision-Date: 2015-05-31 06:28+0000\n"
 "Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-30 05:11+0000\n"
+"X-Launchpad-Export-Date: 2015-06-01 05:08+0000\n"
 "X-Generator: Launchpad (build 17532)\n"
 
 #: ../src/Backend/App.vala:108
@@ -43,11 +43,11 @@ msgstr "Crea un nuovo filtro"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Rimuovi dalla Dock"
 
 #: ../src/Widgets/AppEntry.vala:197
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Aggiungi alla Dock"
 
 #: ../src/Widgets/SearchView.vala:156
 msgid "Other"
@@ -159,40 +159,40 @@ msgstr "bc non è installato"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "Sospendi"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Imposta il computer nella modalità di sospensione"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Iberna"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Imposta il computer nella modalità di ibernazione"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Arresta"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Spegni il computer"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Riavvia"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr ""
+msgstr "Riavvia il computer"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr ""
+msgstr "Sospendi, iberna, riavvia o spegni il tuo computer"
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit non è stato trovato"
