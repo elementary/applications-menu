@@ -128,6 +128,10 @@ namespace Slingshot.Widgets {
                         || uri.has_prefix ("https://"))
                         type = 8;
                 }
+                // we're cheating again and assign switchboard plugs to a separate category.
+                // We assign 9 as the id for settings results
+                if (match is Synapse.SwitchboardPlugin.SwitchboardObject)
+                    type = 9;
 
                 if ((list = categories.get (type)) == null) {
                     list = new Gee.LinkedList<Synapse.Match> ();
@@ -175,6 +179,9 @@ namespace Slingshot.Widgets {
                         break;
                     case 8:
                         label = _("Internet");
+                        break;
+                    case 9:
+                        label = _("Settings");
                         break;
                 }
 
