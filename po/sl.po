@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-05-28 20:01-0500\n"
-"PO-Revision-Date: 2014-12-23 20:05+0000\n"
+"PO-Revision-Date: 2015-06-23 17:35+0000\n"
 "Last-Translator: Jernej Virag <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-30 05:11+0000\n"
-"X-Generator: Launchpad (build 17532)\n"
+"X-Launchpad-Export-Date: 2015-06-24 05:10+0000\n"
+"X-Generator: Launchpad (build 17572)\n"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
@@ -43,11 +43,11 @@ msgstr "Ustvari nov filter"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "O_dstrani s sidrišča"
 
 #: ../src/Widgets/AppEntry.vala:197
 msgid "Add to _Dock"
-msgstr ""
+msgstr "_Dodaj v sidrišče"
 
 #: ../src/Widgets/SearchView.vala:156
 msgid "Other"
@@ -159,40 +159,42 @@ msgstr "bc ni nameščen"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "V pripravljenost"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Postavi računalnik v stanje pripravljenosti"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "V mirovanje"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Postavi računalnik v mirovanje"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Izklop"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Izklopi računalnik"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Ponovni zagon"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr ""
+msgstr "Ponovno zaženi računalnik"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
 msgstr ""
+"Postavi računalnik v stanje pripravljenosti, mirovanje, ponovni zagon ali "
+"izklop."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit ni najden"
