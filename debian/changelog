@@ -1,3 +1,9 @@
+slingshot-launcher (0.8.1.1) trusty; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Thu, 20 Aug 2015 00:37:36 -0500
+
 slingshot-launcher (0.8.1) trusty; urgency=medium
 
   * New upstream release.
