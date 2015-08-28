@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-30 05:11+0000\n"
-"X-Generator: Launchpad (build 17532)\n"
+"X-Launchpad-Export-Date: 2015-08-28 05:13+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
