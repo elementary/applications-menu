@@ -37,7 +37,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         if (view == null) {
             settings = new Settings ();
 
-            var view = new SlingshotView ();
+            view = new SlingshotView ();
 
             if (dbus_service == null)
                 dbus_service = new DBusService (view);
@@ -49,6 +49,8 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_label == null)
             indicator_label = new Gtk.Label ("Applications");
+
+        visible = true;
 
         return indicator_label;
     }
