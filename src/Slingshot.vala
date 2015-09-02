@@ -33,7 +33,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         description:_("The app-menu indicator"));
     }
 
-    public override Gtk.Widget get_widget () {
+    public override Gtk.Widget? get_widget () {
         if (view == null) {
             settings = new Settings ();
 
