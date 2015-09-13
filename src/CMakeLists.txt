@@ -49,9 +49,13 @@ OPTIONS
     ${PLANK_OPTIONS}
 )
 
+add_definitions(${DEPS_CFLAGS})
+
 # Library
 add_library (${CMAKE_PROJECT_NAME} MODULE ${VALA_C})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${DEPS_LIBRARIES})
+
+target_link_libraries(${CMAKE_PROJECT_NAME} synapse-plugins)
 
 # Installation
 install (TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${PKGDATADIR})

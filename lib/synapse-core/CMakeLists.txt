@@ -31,9 +31,6 @@ set (CORE_SOURCE
     volume-service.vala
 )
 
-# Link mode
-set (LINK_MODE STATIC)
-
 # Compile
 vala_precompile (CORE_VALA_C ${CORE_LIBRARY_NAME}
     ${CORE_SOURCE}
@@ -46,7 +43,7 @@ GENERATE_HEADER
 )
 
 # Some compiler flags
-add_definitions (${CORE_DEPS_CFLAGS} -include config.h -w)
+add_definitions (${CORE_DEPS_CFLAGS} -fPIC -include config.h -w)
 link_directories (${CORE_DEPS_LIBRARY_DIRS})
 
 # Library

@@ -19,9 +19,6 @@ set (PLUGINS_SOURCE
     desktop-file-plugin.vala
 )
 
-# Link mode
-set (LINK_MODE STATIC)
-
 # Compile
 vala_precompile (PLUGINS_VALA_C ${PLUGINS_LIBRARY_NAME}
     ${PLUGINS_SOURCE}
@@ -37,7 +34,7 @@ GENERATE_HEADER
 )
 
 # Compiler flags
-add_definitions (${PLUGINS_DEPS_CFLAGS} -include config.h -w)
+add_definitions (${PLUGINS_DEPS_CFLAGS} -fPIC -include config.h -w)
 link_directories (${PLUGINS_DEPS_LIBRARY_DIRS})
 include_directories (${CMAKE_BINARY_DIR}/lib/synapse-core)
 
