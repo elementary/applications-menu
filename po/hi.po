@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-09-05 10:05+0000\n"
-"Last-Translator: Akshay Shekher <voldyman666@gmail.com>\n"
+"PO-Revision-Date: 2015-09-18 04:13+0000\n"
+"Last-Translator: Vishal Biswas <vshlbiswas@ymail.com>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-14 05:11+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-18 05:10+0000\n"
+"X-Generator: Launchpad (build 17746)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -47,11 +47,11 @@ msgstr "सम्पर्क"
 
 #: ../src/Widgets/SearchView.vala:181
 msgid "Internet"
-msgstr "इंटरनेट"
+msgstr "अंतर्जाल"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "विन्यास"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
@@ -59,19 +59,19 @@ msgstr "_डॉक से निकालें"
 
 #: ../src/Widgets/AppEntry.vala:197
 msgid "Add to _Dock"
-msgstr "ऐड तो _डॉक"
+msgstr "_डॉक में जोड़े"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr "सभी अनुप्रयोगों"
+msgstr "सभी अनुप्रयोग"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
-msgstr "एक नया फ़िल्टर बनाएं"
+msgstr "नया फ़िल्टर बनाएं"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
-msgstr "इस आदेश चलाएँ…"
+msgstr "यह आदेश चलाये"
 
 #: ../src/SlingshotView.vala:169
 msgid "View as Grid"
@@ -83,23 +83,23 @@ msgstr "श्रेणी के आधार पर देखें"
 
 #: ../src/SlingshotView.vala:182
 msgid "Search Apps"
-msgstr "खोज अनुप्रयोगों"
+msgstr "अनुप्रयोग खोजे"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr "सस्पेंड"
+msgstr "स्थगित करें"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr "अपने कंप्यूटर निलंबित मोड में डाल"
+msgstr "कंप्यूटर को स्थगित मोड में डाले"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr "हाइबरनेट"
+msgstr "सुप्तावस्था मे डालें"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr "अपने कंप्यूटर सीतनिद्रा मोड में डाल"
+msgstr "कंप्यूटर को सीतिनिद्रा मोड में डाले"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
@@ -107,27 +107,27 @@ msgstr "बंद करें"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr "अपने कंप्यूटर बंद करें"
+msgstr "कंप्यूटर को बंद करें"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr "फिर से  चालू करें"
+msgstr "पुन: प्रारंभ करें"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr "कम्प्यूटर फिर चलायें"
+msgstr "कंप्यूटर पुनः प्रारंभ करे"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr "निलंबित हाइबरनेट अपने कंप्यूटर को पुनरारंभ या बंद।"
+msgstr "कंप्यूटर को स्थगित, सीतिनिद्रा, पुनः प्रारम्भ या बंद करे"
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit नहीं मिला था"
+msgstr "ConsoleKit नहीं पाया गया"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
-msgstr "खोजें और अपने कंप्यूटर पर अनुप्रयोगों चलाते हैं।"
+msgstr "खोजें और अपने कंप्यूटर पर अनुप्रयोग चलाए"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:283
 msgid "Open with %s"
@@ -135,7 +135,7 @@ msgstr "%s के साथ खोलें"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:285
 msgid "Opens current selection using %s"
-msgstr "%s का उपयोग करके वर्तमान चयन को खोलता है"
+msgstr "%s का उपयोग करके वर्तमान चयन को खोले"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
@@ -151,7 +151,7 @@ msgstr "पता है और मनमाना आदेश पर अमल
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr "कैलकुलेटर"
+msgstr "गणक"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
@@ -159,15 +159,15 @@ msgstr "बुनियादी भाव की गणना।"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr "ईसा पूर्व स्थापित नहीं है"
+msgstr "bc उपस्थित नहीं है"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "%s सेटिंग खोले"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "स्विचबोर्ड के प्लगिन्स खोले और चयन करे"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -175,11 +175,11 @@ msgstr "चलाएँ"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "अनुप्रयोग, कार्य या लिखित निर्देश चलाए"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr "टर्मिनल में चलाया"
+msgstr "टर्मिनल में चलाये"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
@@ -191,7 +191,7 @@ msgstr "खोलें"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "डिफ़ॉल्ट अनुप्रयोग में खोले"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
@@ -199,7 +199,7 @@ msgstr "फ़ोल्डर खोलें"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr "इस फ़ाइल युक्त फ़ोल्डर खोलें"
+msgstr "यह फ़ाइल युक्त फोल्डर खोले"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
