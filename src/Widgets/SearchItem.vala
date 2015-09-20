@@ -29,12 +29,14 @@ namespace Slingshot.Widgets {
 
         private Cancellable? cancellable = null;
         public bool dragging = false; //prevent launching
+        public bool action = false;
 
         public signal bool launch_app ();
 
         public SearchItem (Backend.App app, string search_term = "", bool action = false, string action_title = "") {
             Object (app: app);
             
+            this.action = action;
             get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
             string markup;

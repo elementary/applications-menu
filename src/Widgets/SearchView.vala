@@ -361,9 +361,12 @@ namespace Slingshot.Widgets {
          * @return indicates whether slingshot should now be hidden
          */
         public bool launch_selected () {
+            if (selected_app.action) {
+                ((Synapse.DesktopFilePlugin.ActionMatch) selected_app.app.match).execute (null);
+                return true;
+            }
 
             return selected_app.launch_app ();
-
         }
 
     }
