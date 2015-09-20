@@ -35,13 +35,6 @@ namespace Synapse
       
     }
 
-    /*private struct ActionInfo {
-      string name;
-      string title;
-      string exec;
-      string icon;
-    }*/
-
     public class ActionMatch : Object, Match
     {
       public string title { get; construct set; }
@@ -69,8 +62,6 @@ namespace Synapse
 
       public void execute (Match? match)
       {
-        UriMatch uri_match = match as UriMatch;
-
         try
         {
           ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());

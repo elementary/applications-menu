@@ -250,8 +250,7 @@ namespace Slingshot.Widgets {
             app.start_search.connect ((search, target) => start_search (search, target));
             search_item.button_release_event.connect (() => {
                 if (!search_item.dragging) {
-                    var match = ((Synapse.DesktopFilePlugin.ActionMatch) app.match);
-                    match.execute (match);
+                    ((Synapse.DesktopFilePlugin.ActionMatch) app.match).execute (null);
                     app_launched ();
                 }
 
