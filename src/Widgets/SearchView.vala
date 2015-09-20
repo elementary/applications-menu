@@ -132,6 +132,8 @@ namespace Slingshot.Widgets {
                 // We assign 9 as the id for settings results
                 if (match is Synapse.SwitchboardPlugin.SwitchboardObject)
                     type = 9;
+                else if (match is Synapse.DesktopFilePlugin.ActionMatch)
+                    type = 10;
 
                 if ((list = categories.get (type)) == null) {
                     list = new Gee.LinkedList<Synapse.Match> ();
@@ -183,6 +185,9 @@ namespace Slingshot.Widgets {
                     case 9:
                         label = _("Settings");
                         break;
+                    case 10:
+                        label = _("Application Actions");
+                        break;
                 }
 
                 var header = new Gtk.Label (label);
@@ -198,6 +203,12 @@ namespace Slingshot.Widgets {
                 var old_selected = selected;
                 for (var i = 0; i < limit && i < list.size; i++) {
                     var match = list.get (i);
+
+                    if (type == 10) {
+                        show_action (new Backend.App.from_synapse_match (match));
+                        n_results++;
+                        continue;
+                    }
 
                     // expand the actions we get for UNKNOWN
                     if (match.match_type == Synapse.MatchType.UNKNOWN) {
@@ -232,6 +243,25 @@ namespace Slingshot.Widgets {
 
             items[app] = search_item;
 
+        }
+
+        private void show_action (Backend.App app) {
+            var search_item = new SearchItem (app, "", true, app.match.title);
+            app.start_search.connect ((search, target) => start_search (search, target));
+            search_item.button_release_event.connect (() => {
+                if (!search_item.dragging) {
+                    var match = ((Synapse.DesktopFilePlugin.ActionMatch) app.match);
+                    match.execute (match);
+                    app_launched ();
+                }
+
+                return true;
+            });
+
+            main_box.pack_start (search_item, false, false);
+            search_item.show_all ();
+
+            items[app] = search_item;        
         }
 
         public void toggle_context (bool show) {

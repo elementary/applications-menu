@@ -35,6 +35,53 @@ namespace Synapse
       
     }
 
+    /*private struct ActionInfo {
+      string name;
+      string title;
+      string exec;
+      string icon;
+    }*/
+
+    public class ActionMatch : Object, Match
+    {
+      public string title { get; construct set; }
+      public string icon_name { get; construct set; default = ""; }
+      public string description { get; set; default = ""; }
+      public bool has_thumbnail { get; construct set; default = false; }
+      public string thumbnail_path { get; construct set; }
+      public MatchType match_type { get; construct set; }
+      public string? filename { get; construct set; }
+
+      public AppInfo? app_info { get; set; default = null; }
+      public bool needs_terminal { get; set; default = false; }
+
+      private string action_name;
+
+      public ActionMatch (string desktop_id, string action_name)
+      {
+        var desktop_app_info = new DesktopAppInfo (desktop_id);
+        this.title = desktop_app_info.get_action_name (action_name);
+        this.icon_name = desktop_app_info.get_icon ().to_string ();
+        this.description = "";
+        this.app_info = desktop_app_info;
+        this.action_name = action_name;
+      }   
+
+      public void execute (Match? match)
+      {
+        UriMatch uri_match = match as UriMatch;
+
+        try
+        {
+          ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());
+        }
+        catch (Error err)
+        {
+          warning ("%s", err.message);
+        }
+      }       
+    }
+
     private class DesktopFileMatch: Object, Match, ApplicationMatch
     {
       // for Match interface
@@ -193,6 +240,35 @@ namespace Synapse
             break;
           }
         }
+
+        string id = dfm.desktop_id.replace ("application://", "");
+        var desktop_app_info = new DesktopAppInfo (id);
+        string[] actions = desktop_app_info.list_actions ();
+        foreach (string action in actions) {
+          string title = desktop_app_info.get_action_name (action).down ();
+          foreach (var matcher in matchers)
+          {
+            MatchInfo action_info;
+            if (matcher.key.match (title, 0, out action_info)
+                || title.contains (q.query_string_folded)
+                || title.has_prefix (q.query_string))
+            {
+              var am = new ActionMatch (id, action);
+              results.add (am, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+              matched = true;
+              break;
+            }
+
+            else if (action_info.is_partial_match ())
+            {
+              var am = new ActionMatch (id, action);
+              results.add (am, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+              matched = true;  
+              break;        
+            }
+          }
+        }
+
         if (!matched && (comment.down ().contains (q.query_string_folded) 
             || generic_name.down ().contains (q.query_string_folded)))
         {

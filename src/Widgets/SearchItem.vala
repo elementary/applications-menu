@@ -32,12 +32,16 @@ namespace Slingshot.Widgets {
 
         public signal bool launch_app ();
 
-        public SearchItem (Backend.App app, string search_term = "") {
+        public SearchItem (Backend.App app, string search_term = "", bool action = false, string action_title = "") {
             Object (app: app);
             
             get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-            var markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
+            string markup;
+            if (action)
+                markup = action_title;
+            else
+                markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
 
             name_label = new Gtk.Label (markup);
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
@@ -67,7 +71,8 @@ namespace Slingshot.Widgets {
 
             add (box);
 
-            launch_app.connect (app.launch);
+            if (!action)
+                launch_app.connect (app.launch);
 
             var app_match = app.match as Synapse.ApplicationMatch;
             if (app_match != null) {
@@ -85,7 +90,6 @@ namespace Slingshot.Widgets {
                     sel.set_uris ({File.new_for_path (app_match.filename).get_uri ()});
                 });
             }
-           
         }
 
         public override void destroy () {
