@@ -62,14 +62,7 @@ namespace Synapse
 
       public void execute (Match? match)
       {
-        try
-        {
-          ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());
-        }
-        catch (Error err)
-        {
-          warning ("%s", err.message);
-        }
+        ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());
       }       
     }
 
