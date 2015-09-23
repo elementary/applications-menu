@@ -96,7 +96,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private void add_app (Backend.App app) {
         var app_entry = new AppEntry (app);
-        app_entry.app_launched.connect (() => view.hide ());
+        app_entry.app_launched.connect (() => view.close_indicator ());
         app_view.append (app_entry);
         app_view.show_all ();
 

@@ -33,11 +33,17 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         description:_("The app-menu indicator"));
     }
 
+    void on_close_indicator () {
+        close ();
+    }
+
     public override Gtk.Widget? get_widget () {
         if (view == null) {
             settings = new Settings ();
 
             view = new SlingshotView ();
+
+            view.close_indicator.connect (on_close_indicator);
 
             if (dbus_service == null)
                 dbus_service = new DBusService (view);
