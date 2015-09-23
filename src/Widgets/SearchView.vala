@@ -99,6 +99,13 @@ namespace Slingshot.Widgets {
             box.pack_start (context_fixed, false);
 
             add_with_viewport (box);
+
+            parent.search_entry.key_press_event.connect ((e) => {
+                if (parent.search_entry.text == "")
+                    _selected = 0;
+
+                return false;
+            });
         }
 
         public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
@@ -121,6 +128,10 @@ namespace Slingshot.Widgets {
                         || uri.has_prefix ("https://"))
                         type = 8;
                 }
+                // we're cheating again and assign switchboard plugs to a separate category.
+                // We assign 9 as the id for settings results
+                if (match is Synapse.SwitchboardPlugin.SwitchboardObject)
+                    type = 9;
 
                 if ((list = categories.get (type)) == null) {
                     list = new Gee.LinkedList<Synapse.Match> ();
@@ -169,10 +180,13 @@ namespace Slingshot.Widgets {
                     case 8:
                         label = _("Internet");
                         break;
+                    case 9:
+                        label = _("Settings");
+                        break;
                 }
 
                 var header = new Gtk.Label (label);
-                header.xalign = 0;
+                ((Gtk.Misc) header).xalign = 0.0f;
                 header.margin_start = 8;
                 header.margin_bottom = 4;
                 header.use_markup = true;

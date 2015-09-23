@@ -30,6 +30,7 @@
          applications here -->
         <Not><Category>Accessibility</Category></Not>
         <Not><Category>System</Category></Not>
+        <Not><Filename>gnome-font-viewer.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Accessories -->
@@ -183,6 +184,7 @@
           <Filename>empathy-accounts.desktop</Filename>
           <Filename>orca.desktop</Filename>
           <Filename>onboard.desktop</Filename>
+          <Filename>gnome-font-viewer.desktop</Filename>
         </Not>
         <Or>
           <Not><Category>Settings</Category></Not>

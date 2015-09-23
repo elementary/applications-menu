@@ -7,15 +7,67 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-05-08 01:08-0500\n"
-"PO-Revision-Date: 2015-04-29 02:49+0000\n"
+"POT-Creation-Date: 2015-06-03 20:59+0200\n"
+"PO-Revision-Date: 2015-09-16 08:04+0000\n"
 "Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-09 05:08+0000\n"
-"X-Generator: Launchpad (build 17474)\n"
+"X-Launchpad-Export-Date: 2015-09-17 05:13+0000\n"
+"X-Generator: Launchpad (build 17737)\n"
+
+#: ../src/Widgets/SearchView.vala:160
+msgid "Other"
+msgstr "其它"
+
+#: ../src/Widgets/SearchView.vala:163
+msgid "Text"
+msgstr "文本"
+
+#: ../src/Widgets/SearchView.vala:166
+msgid "Applications"
+msgstr "应用程序"
+
+#: ../src/Widgets/SearchView.vala:169
+msgid "Files"
+msgstr "文件"
+
+#: ../src/Widgets/SearchView.vala:172
+msgid "Actions"
+msgstr "动作"
+
+#: ../src/Widgets/SearchView.vala:175
+msgid "Search"
+msgstr "搜索"
+
+#: ../src/Widgets/SearchView.vala:178
+msgid "Contacts"
+msgstr "联系人"
+
+#: ../src/Widgets/SearchView.vala:181
+msgid "Internet"
+msgstr "网络"
+
+#: ../src/Widgets/SearchView.vala:184
+msgid "Settings"
+msgstr "设置"
+
+#: ../src/Widgets/AppEntry.vala:195
+msgid "Remove from _Dock"
+msgstr "从Dock移除(_D)"
+
+#: ../src/Widgets/AppEntry.vala:197
+msgid "Add to _Dock"
+msgstr "固定至Dock(_D)"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "所有应用程序"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "创建一个新的筛选器"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
@@ -33,53 +85,89 @@ msgstr "分类视图"
 msgid "Search Apps"
 msgstr "搜索应用"
 
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "所有应用程序"
+#: ../lib/synapse-plugins/system-managment.vala:103
+msgid "Suspend"
+msgstr "挂起"
 
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "创建一个新的筛选器"
+#: ../lib/synapse-plugins/system-managment.vala:104
+msgid "Put your computer into suspend mode"
+msgstr "计算机进入挂起状态"
 
-#: ../src/Widgets/AppEntry.vala:195
-msgid "Remove from _Dock"
-msgstr ""
+#: ../lib/synapse-plugins/system-managment.vala:203
+msgid "Hibernate"
+msgstr "休眠"
 
-#: ../src/Widgets/AppEntry.vala:197
-msgid "Add to _Dock"
-msgstr ""
+#: ../lib/synapse-plugins/system-managment.vala:204
+msgid "Put your computer into hibernation mode"
+msgstr "计算机进入休眠状态"
 
-#: ../src/Widgets/SearchView.vala:149
-msgid "Other"
-msgstr "其它"
+#: ../lib/synapse-plugins/system-managment.vala:302
+msgid "Shut Down"
+msgstr "关机"
 
-#: ../src/Widgets/SearchView.vala:152
-msgid "Text"
-msgstr "文本"
+#: ../lib/synapse-plugins/system-managment.vala:303
+msgid "Turn your computer off"
+msgstr "关闭计算机"
 
-#: ../src/Widgets/SearchView.vala:155
-msgid "Applications"
-msgstr "应用程序"
+#: ../lib/synapse-plugins/system-managment.vala:386
+msgid "Restart"
+msgstr "重启"
 
-#: ../src/Widgets/SearchView.vala:158
-msgid "Files"
-msgstr "文件"
+#: ../lib/synapse-plugins/system-managment.vala:387
+msgid "Restart your computer"
+msgstr "重新启动您的计算机"
 
-#: ../src/Widgets/SearchView.vala:161
-msgid "Actions"
-msgstr "动作"
+#: ../lib/synapse-plugins/system-managment.vala:471
+msgid "Suspend, hibernate, restart or shutdown your computer."
+msgstr "挂起，休眠，重启或关机。"
 
-#: ../src/Widgets/SearchView.vala:164
-msgid "Search"
-msgstr "搜索"
+#: ../lib/synapse-plugins/system-managment.vala:476
+msgid "ConsoleKit wasn't found"
+msgstr "未发现控制台"
 
-#: ../src/Widgets/SearchView.vala:167
-msgid "Contacts"
-msgstr "联系人"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
+msgid "Search for and run applications on your computer."
+msgstr "在您的电脑中搜索和运行应用程序。"
 
-#: ../src/Widgets/SearchView.vala:170
-msgid "Internet"
-msgstr "网络"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:283
+msgid "Open with %s"
+msgstr "使用 %s 打开"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:285
+msgid "Opens current selection using %s"
+msgstr "使用 %s 打开当前选中项"
+
+#: ../lib/synapse-plugins/command-plugin.vala:56
+msgid "Execute '%s'"
+msgstr "执行 '%s'"
+
+#: ../lib/synapse-plugins/command-plugin.vala:56
+msgid "Run command"
+msgstr "运行命令"
+
+#: ../lib/synapse-plugins/command-plugin.vala:77
+msgid "Find and execute arbitrary commands."
+msgstr "查找或执行任意命令。"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "计算器"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:64
+msgid "Calculate basic expressions."
+msgstr "计算基本的数学表达式。"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:68
+msgid "bc is not installed"
+msgstr "计算插件未安装"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:55
+msgid "Open %s settings"
+msgstr "打开 %s 设置"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:71
+msgid "Find switchboard plugs and open them."
+msgstr "找到 Switchboard 插件并打开。"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -120,39 +208,3 @@ msgstr "复制到剪贴板"
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
 msgstr "复制选中内容到剪贴板"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
-msgid "Search for and run applications on your computer."
-msgstr "在您的电脑中搜索和运行应用程序。"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:276
-msgid "Open with %s"
-msgstr "使用 %s 打开"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:278
-msgid "Opens current selection using %s"
-msgstr "使用 %s 打开当前选中项"
-
-#: ../lib/synapse-plugins/command-plugin.vala:56
-msgid "Execute '%s'"
-msgstr "执行 '%s'"
-
-#: ../lib/synapse-plugins/command-plugin.vala:56
-msgid "Run command"
-msgstr "运行命令"
-
-#: ../lib/synapse-plugins/command-plugin.vala:77
-msgid "Find and execute arbitrary commands."
-msgstr "查找或执行任意命令。"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "计算器"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:64
-msgid "Calculate basic expressions."
-msgstr "计算基本的数学表达式。"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:68
-msgid "bc is not installed"
-msgstr "计算插件未安装"

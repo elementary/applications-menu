@@ -7,6 +7,7 @@ set (PLUGINS_PKG
     gio-unix-2.0
     gee-0.8
     gtk+-3.0
+    switchboard-2.0
 )
 
 # Check for dependencies
@@ -17,6 +18,8 @@ set (PLUGINS_SOURCE
     calculator-plugin.vala
     command-plugin.vala
     desktop-file-plugin.vala
+    switchboard-plugin.vala
+    system-managment.vala
 )
 
 # Compile

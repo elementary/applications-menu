@@ -14,7 +14,7 @@ set (DATADIR "${CMAKE_INSTALL_FULL_LIBDIR}/wingpanel")
 set (PKGDATADIR "${DATADIR}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Donatello")
-set (VERSION "0.8")
+set (VERSION "0.8.1.1")
 set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
@@ -64,6 +64,18 @@ add_definitions (-w)
 find_package (PkgConfig)
 
 # Check for Vala
+ 
+pkg_check_modules(PLANK QUIET plank>=0.8.1.1197)
+if (PLANK_FOUND)
+  set (PLANK_DEPS plank)
+  set (PLANK_OPTIONS --define=HAS_PLANK)
+endif ()
+
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};${PLANK_DEPS};")
+set (UI_DEPS "wingpanel-2.0;gtk+-3.0>=3.12.0;granite;${ZEITGEIST_DEPS};")
+
+pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
+
 find_package (Vala REQUIRED)
 include (ValaVersion)
 ensure_vala_version ("0.26.2" MINIMUM)

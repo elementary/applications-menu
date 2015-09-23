@@ -42,7 +42,7 @@ namespace Slingshot.Widgets {
             name_label = new Gtk.Label (markup);
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
-            name_label.xalign = 0.0f;
+            ((Gtk.Misc) name_label).xalign = 0.0f;
 
             icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
 
