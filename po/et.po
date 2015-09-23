@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-06-24 17:31+0000\n"
+"PO-Revision-Date: 2015-09-22 17:48+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-14 05:11+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-23 05:10+0000\n"
+"X-Generator: Launchpad (build 17749)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -51,7 +51,7 @@ msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "Seaded"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
@@ -164,11 +164,11 @@ msgstr "bc ei ole paigaldatud"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Ava %s seaded"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Süsteemi seadete kategooriate leidmine ja nende avamine."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
