@@ -74,7 +74,7 @@ namespace Slingshot {
 
         private int primary_monitor = 0;
 
-        public Gdk.Screen screen;
+        Gdk.Screen screen;
         
         public signal void close_indicator ();
 
@@ -89,6 +89,8 @@ namespace Slingshot {
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
+
+            screen = get_screen ();
 
             primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
