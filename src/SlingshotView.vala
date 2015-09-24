@@ -74,7 +74,9 @@ namespace Slingshot {
 
         private int primary_monitor = 0;
 
-        public Gdk.Screen screen;
+        Gdk.Screen screen;
+        
+        public signal void close_indicator ();
 
         public SlingshotView () {
             // Have the window in the right place
@@ -87,6 +89,8 @@ namespace Slingshot {
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
+
+            screen = get_screen ();
 
             primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
@@ -122,7 +126,7 @@ namespace Slingshot {
                 default_columns--;
             }
 
-            while ((calculate_grid_height () >= 2 * geometry.width / 3)) {
+            while ((calculate_grid_height () >= 2 * geometry.height / 3)) {
                 default_rows--;
             }
 
@@ -220,7 +224,7 @@ namespace Slingshot {
 
             // get_window_at_position returns null if the window belongs to another application.
             if (pointer.get_window_at_position (null, null) == null) {
-                hide ();
+                close_indicator ();
 
                 return true;
             }
@@ -257,7 +261,8 @@ namespace Slingshot {
             search_entry.grab_focus ();
             search_entry.activate.connect (search_entry_activated);
 
-            search_view.app_launched.connect (() => hide ());
+            // FIXME: signals chain up is not supported
+            search_view.app_launched.connect (() => { close_indicator (); });
 
             // This function must be after creating the page switcher
             populate_grid_view ();
@@ -320,7 +325,7 @@ namespace Slingshot {
         // Handle super+space when the user is typing in the search entry
         private bool search_entry_key_press (Gdk.EventKey event) {
             if ((event.keyval == Gdk.Key.space) && ((event.state & Gdk.ModifierType.SUPER_MASK) != 0)) {
-                hide ();
+                close_indicator ();
                 return true;
             }
 
@@ -332,13 +337,13 @@ namespace Slingshot {
                     return true;
             }
 
-            return false;
+            return on_key_press (event);
         }
 
         private void search_entry_activated () {
             if (modality == Modality.SEARCH_VIEW) {
                 if (search_view.launch_selected ())
-                    hide ();
+                    close_indicator ();
             } else {
 /* TODO
                 if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
@@ -371,7 +376,7 @@ namespace Slingshot {
             switch (key) {
                 case "F4":
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                        hide ();
+                        close_indicator ();
                     }
 
                     break;
@@ -380,7 +385,7 @@ namespace Slingshot {
                     if (search_entry.text.length > 0) {
                         search_entry.text = "";
                     } else {
-                        hide ();
+                        close_indicator ();
                     }
 
                     return true;
@@ -390,7 +395,7 @@ namespace Slingshot {
                 case "KP_Enter":
                     if (modality == Modality.SEARCH_VIEW) {
                         if (search_view.launch_selected ())
-                            hide ();
+                            close_indicator ();
                     } else {
 /* TODO
                         if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
@@ -735,7 +740,7 @@ namespace Slingshot {
             grid_view.clear ();
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
                 var app_entry = new Widgets.AppEntry (app);
-                app_entry.app_launched.connect (() => hide ());
+                app_entry.app_launched.connect (() => close_indicator ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();
             }
