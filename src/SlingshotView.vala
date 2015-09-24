@@ -126,7 +126,7 @@ namespace Slingshot {
                 default_columns--;
             }
 
-            while ((calculate_grid_height () >= 2 * geometry.width / 3)) {
+            while ((calculate_grid_height () >= 2 * geometry.height / 3)) {
                 default_rows--;
             }
 
