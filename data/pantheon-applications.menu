@@ -138,6 +138,7 @@
     <Include>
       <And>
         <Category>Office</Category>
+        <Not><Filename>evince.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Office -->
@@ -185,6 +186,7 @@
           <Filename>orca.desktop</Filename>
           <Filename>onboard.desktop</Filename>
           <Filename>gnome-font-viewer.desktop</Filename>
+          <Filename>evince.desktop</Filename>
         </Not>
         <Or>
           <Not><Category>Settings</Category></Not>
