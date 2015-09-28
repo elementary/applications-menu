@@ -141,6 +141,7 @@
     <Include>
       <And>
         <Category>Office</Category>
+        <Not><Filename>evince.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Office -->
@@ -189,6 +190,7 @@
           <Filename>onboard.desktop</Filename>
           <Filename>org.gnome.font-viewer.desktop</Filename>
           <Filename>gnome-font-viewer.desktop</Filename>
+          <Filename>evince.desktop</Filename>
           <Filename>file-roller.desktop</Filename>
           <Filename>org.gnome.FileRoller.desktop</Filename>
         </Not>
