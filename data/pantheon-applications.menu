@@ -30,7 +30,10 @@
          applications here -->
         <Not><Category>Accessibility</Category></Not>
         <Not><Category>System</Category></Not>
+        <Not><Filename>org.gnome.font-viewer.desktop</Filename></Not>
         <Not><Filename>gnome-font-viewer.desktop</Filename></Not>
+        <Not><Filename>file-roller.desktop</Filename></Not>
+        <Not><Filename>org.gnome.FileRoller.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Accessories -->
@@ -185,8 +188,11 @@
           <Filename>empathy-accounts.desktop</Filename>
           <Filename>orca.desktop</Filename>
           <Filename>onboard.desktop</Filename>
+          <Filename>org.gnome.font-viewer.desktop</Filename>
           <Filename>gnome-font-viewer.desktop</Filename>
           <Filename>evince.desktop</Filename>
+          <Filename>file-roller.desktop</Filename>
+          <Filename>org.gnome.FileRoller.desktop</Filename>
         </Not>
         <Or>
           <Not><Category>Settings</Category></Not>

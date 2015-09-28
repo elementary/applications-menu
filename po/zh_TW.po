@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-07-27 15:34+0000\n"
+"PO-Revision-Date: 2015-09-25 14:39+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-14 05:11+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-09-26 05:10+0000\n"
+"X-Generator: Launchpad (build 17754)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -51,7 +51,7 @@ msgstr "網際網路"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "設定值"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
@@ -163,11 +163,11 @@ msgstr "尚未安裝 bc"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "開啟 %s 設定值"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "尋找 swithcbard 插件並開啓之。"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
