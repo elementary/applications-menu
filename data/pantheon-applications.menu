@@ -97,6 +97,7 @@
       <And>
         <Category>Game</Category>
       </And>
+      <Filename>steam.desktop</Filename> <!-- Steam belongs only in Games category not Internet too -->
     </Include>
   </Menu> <!-- End Games -->
 
@@ -119,6 +120,7 @@
     <Include>
       <And>
         <Category>Network</Category>
+        <Not><Filename>steam.desktop</Filename></Not> <!-- Steam belongs only in Games category not Internet too -->
       </And>
     </Include>
   </Menu>   <!-- End Internet -->
