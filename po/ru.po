@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-10-19 22:58+0000\n"
+"PO-Revision-Date: 2015-10-20 05:14+0000\n"
 "Last-Translator: Yuly Nesterov <crow@rikka.io>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-20 05:10+0000\n"
+"X-Launchpad-Export-Date: 2015-10-21 05:12+0000\n"
 "X-Generator: Launchpad (build 17812)\n"
 
 #: ../src/Widgets/SearchView.vala:160
@@ -167,7 +167,7 @@ msgstr "Открыть настройки %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr "Найти плагины Switchbard и открыть их."
+msgstr "Найти плагины Switchboard и открыть их."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
