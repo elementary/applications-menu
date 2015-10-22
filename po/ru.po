@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-10-20 05:14+0000\n"
-"Last-Translator: Yuly Nesterov <crow@rikka.io>\n"
+"PO-Revision-Date: 2015-10-21 09:48+0000\n"
+"Last-Translator: Maxim Taranov <png2378@protonmail.ch>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-21 05:12+0000\n"
+"X-Launchpad-Export-Date: 2015-10-22 05:08+0000\n"
 "X-Generator: Launchpad (build 17812)\n"
 
 #: ../src/Widgets/SearchView.vala:160
@@ -55,11 +55,11 @@ msgstr "Параметры"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
-msgstr "Убрать с _Панели"
+msgstr "Убрать из _док-панели"
 
 #: ../src/Widgets/AppEntry.vala:197
 msgid "Add to _Dock"
-msgstr "Добавить в _Панель"
+msgstr "Добавить в _док-панель"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
