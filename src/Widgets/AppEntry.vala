@@ -37,10 +37,18 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
 #if HAS_PLANK
     static construct {
+#if HAS_PLANK_0_11
+        plank_client = Plank.DBusClient.get_instance ();
+#else
         plank_client = Plank.DBus.Client.get_instance ();
+#endif
     }
 
+#if HAS_PLANK_0_11
+    private static Plank.DBusClient plank_client;
+#else
     private static Plank.DBus.Client plank_client;
+#endif
     private bool docked = false;
     private string desktop_uri;
 #endif
