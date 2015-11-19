@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-07-12 13:12+0000\n"
+"PO-Revision-Date: 2015-09-30 12:03+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-14 05:11+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-11-11 05:05+0000\n"
+"X-Generator: Launchpad (build 17843)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -46,7 +46,7 @@ msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "Parametrat"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
@@ -158,7 +158,7 @@ msgstr "bc nuk është i instaluar"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Hap parametrat e %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."

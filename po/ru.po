@@ -8,18 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-09-02 16:37+0000\n"
-"Last-Translator: Artem Anufrij <Unknown>\n"
+"PO-Revision-Date: 2015-10-25 16:10+0000\n"
+"Last-Translator: zEvilz <zevilz13@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-14 05:11+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "Калькулятор"
+"X-Launchpad-Export-Date: 2015-11-11 05:05+0000\n"
+"X-Generator: Launchpad (build 17843)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -55,15 +51,15 @@ msgstr "Интернет"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "Параметры"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
-msgstr "Убрать с _Панели"
+msgstr "Убрать из _док-панели"
 
 #: ../src/Widgets/AppEntry.vala:197
 msgid "Add to _Dock"
-msgstr "Добавить в _Панель"
+msgstr "Добавить в _док-панель"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -123,7 +119,7 @@ msgstr "Перезагрузить компьютер"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr ""
+msgstr "Приостановить, усыпить, перезагрузить или выключить компьютер"
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
@@ -153,6 +149,10 @@ msgstr "Выполнить команду"
 msgid "Find and execute arbitrary commands."
 msgstr "Найти и выполнить произвольную команду"
 
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "Калькулятор"
+
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
 msgstr "Вычислить основные выражения."
@@ -163,11 +163,11 @@ msgstr "bc не установлена"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Открыть настройки %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Найти плагины Switchboard и открыть их."
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -175,7 +175,7 @@ msgstr "Выполнить"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr "Выполнить приложение, действие или скрипт"
+msgstr "Запустить приложение, действие или скрипт"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
@@ -199,7 +199,7 @@ msgstr "Открыть папку"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr "Открыть папку этого файла"
+msgstr "Открыть папку с этим файлом"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"

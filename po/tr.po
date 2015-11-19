@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-05-18 17:08+0000\n"
-"Last-Translator: Okan Türay <okan.turay@gmail.com>\n"
+"PO-Revision-Date: 2015-10-19 11:20+0000\n"
+"Last-Translator: Ayhan Kuru <ayhankuru@yandex.com.tr>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-14 05:11+0000\n"
-"X-Generator: Launchpad (build 17720)\n"
+"X-Launchpad-Export-Date: 2015-11-11 05:05+0000\n"
+"X-Generator: Launchpad (build 17843)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -51,7 +51,7 @@ msgstr "İnternet"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
@@ -87,43 +87,43 @@ msgstr "Uygulama Ara"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "Askıya Al"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Bilgisayarı Askıya Al"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Uyku Modu"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Bilgisayarı Uyku Moduna Al"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Bilgisayarı Kapat"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Bilgisayarı Kapat"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Yeniden Başlat"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr ""
+msgstr "Bilgisayarı yeniden başlat"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr ""
+msgstr "Bilgisayarı Askıya Al,Hazırda Beklet,Yeniden Başlat, yada Kapat"
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit bulunamadı"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
@@ -131,7 +131,7 @@ msgstr "Bilgisayarınızdaki uygulamaları arayın ve çalıştırın."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:283
 msgid "Open with %s"
-msgstr "%s ile aç"
+msgstr "%s ile Aç"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:285
 msgid "Opens current selection using %s"
@@ -163,11 +163,11 @@ msgstr "bc kurulu değil"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "%s Ayarlarını Aç"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Switchboard eklentilerini bul ve hepsini aç"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
@@ -179,11 +179,11 @@ msgstr "Uygulama, eylem veya betik çalıştır"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr "Uçbirimde Çalıştır"
+msgstr "Terminalde Çalıştır"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr "Uçbirimde uygulama veya komut çalıştır"
+msgstr "Termialde uygulama veya komut çalıştır"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
