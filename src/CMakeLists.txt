@@ -1,10 +1,3 @@
-# Plank
-pkg_check_modules(PLANK QUIET plank>=0.8.1.1197)
-if (PLANK_FOUND)
-  set (PLANK_DEPS plank)
-  set (PLANK_OPTIONS --define=HAS_PLANK)
-endif ()
-
 # Some dependencies
 set (CORE_DEPS "gobject-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;${UNITY_DEPS};${PLANK_DEPS};")
 set (UI_DEPS "gtk+-3.0>=3.12.0;granite;wingpanel-2.0;${ZEITGEIST_DEPS};")
