@@ -14,7 +14,7 @@ set (DATADIR "${CMAKE_INSTALL_FULL_LIBDIR}/wingpanel")
 set (PKGDATADIR "${DATADIR}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Donatello")
-set (VERSION "0.8.1.1")
+set (VERSION "0.8.2")
 set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
