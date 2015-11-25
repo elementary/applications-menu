@@ -16,8 +16,6 @@ set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
 # Files
-
-#file (GLOB stylesheets "${CMAKE_CURRENT_SOURCE_DIR}/data/style/*.css")
 file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applications.menu")
 
 # Configure file
