@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-06-03 20:59+0200\n"
-"PO-Revision-Date: 2015-02-23 15:50+0000\n"
-"Last-Translator: Tomáš Frýda <t.fryda@gmail.com>\n"
+"PO-Revision-Date: 2015-11-25 08:17+0000\n"
+"Last-Translator: Petr Dombek <dombek@oblati.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-11 05:05+0000\n"
-"X-Generator: Launchpad (build 17843)\n"
+"X-Launchpad-Export-Date: 2015-11-26 05:07+0000\n"
+"X-Generator: Launchpad (build 17850)\n"
 
 #: ../src/Widgets/SearchView.vala:160
 msgid "Other"
@@ -51,15 +51,15 @@ msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:184
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: ../src/Widgets/AppEntry.vala:195
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Odebrat z Doku"
 
 #: ../src/Widgets/AppEntry.vala:197
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Přidat do Doku"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -87,43 +87,45 @@ msgstr "Hledat aplikace"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "Uspat"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Přepnout počítač do režimu spánku"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernovat"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Přepnout počítač do režimu hibernace"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Vypnout"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Vypnout počítač"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Restartovat"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr ""
+msgstr "Restartuje počítač"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
 msgstr ""
+"Umožňuje uspat počítač do paměti nebo na disk, restartovat ho nebo ho "
+"vypnout."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit nenalezen"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:94
 msgid "Search for and run applications on your computer."
