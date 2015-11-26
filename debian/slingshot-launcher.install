@@ -1,4 +1,3 @@
-etc/xdg/menus/pantheon-applications.menu
-usr/bin/slingshot-launcher
-usr/share/glib-2.0/schemas/org.pantheon.desktop.slingshot.gschema.xml
-usr/share/locale/*
+etc/
+usr/lib
+usr/share
