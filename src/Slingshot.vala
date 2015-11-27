@@ -54,7 +54,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (indicator_label == null)
-            indicator_label = new Gtk.Label ("Applications");
+            indicator_label = new Gtk.Label (_("Applications"));
 
         visible = true;
 
