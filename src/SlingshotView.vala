@@ -24,8 +24,7 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-    public class SlingshotView : Granite.Widgets.CompositedWindow {
-
+    public class SlingshotView : Gtk.Grid {
         // Widgets
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
@@ -42,8 +41,6 @@ namespace Slingshot {
         public Gtk.Stack main_stack;
         public Gtk.Box content_area;
         private Gtk.EventBox event_box;
-        private Gtk.Popover popover;
-        private Gtk.Grid ref_grid;
 
         public Backend.AppSystem app_system;
         private Gee.ArrayList<GMenu.TreeDirectory> categories;
@@ -77,16 +74,11 @@ namespace Slingshot {
 
         private int primary_monitor = 0;
 
+        Gdk.Screen screen;
+        
+        public signal void close_indicator ();
+
         public SlingshotView () {
-
-            // Window properties
-            this.title = "Slingshot";
-            this.skip_pager_hint = true;
-            this.skip_taskbar_hint = true;
-            this.set_keep_above (true);
-            this.set_type_hint (Gdk.WindowTypeHint.MENU);
-            this.focus_on_map = true;
-
             // Have the window in the right place
             read_settings (true);
 
@@ -97,6 +89,8 @@ namespace Slingshot {
 
             categories = app_system.get_categories ();
             apps = app_system.get_apps ();
+
+            screen = get_screen ();
 
             primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
@@ -132,7 +126,7 @@ namespace Slingshot {
                 default_columns--;
             }
 
-            while ((calculate_grid_height () >= 2 * geometry.width / 3)) {
+            while ((calculate_grid_height () >= 2 * geometry.height / 3)) {
                 default_rows--;
             }
 
@@ -216,14 +210,7 @@ namespace Slingshot {
             event_box.add (container);
             // Add the container to the dialog's content area
 
-            ref_grid = new Gtk.Grid ();
-            this.add (ref_grid);
-
-            popover = new Gtk.Popover (ref_grid);
-            popover.add (event_box);
-            popover.set_position (Gtk.PositionType.TOP);
-
-            this.show.connect (() => popover.show ());
+            this.add (event_box);
 
             if (Slingshot.settings.use_category)
                 set_modality (Modality.CATEGORY_VIEW);
@@ -232,58 +219,15 @@ namespace Slingshot {
             debug ("Ui setup completed");
         }
 
-        public void grab_device () {
-            var display = Gdk.Display.get_default ();
-            var pointer = display.get_device_manager ().get_client_pointer ();
-            var keyboard = pointer.associated_device;
-            var keyboard_status = Gdk.GrabStatus.SUCCESS;
-
-            if (keyboard != null && keyboard.input_source == Gdk.InputSource.KEYBOARD) {
-                keyboard_status = keyboard.grab (get_window (), Gdk.GrabOwnership.NONE, true,
-                                                 Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK,
-                                                 null, Gdk.CURRENT_TIME);
-            }
-
-            var pointer_status = pointer.grab (get_window (), Gdk.GrabOwnership.NONE, true,
-                                               Gdk.EventMask.SMOOTH_SCROLL_MASK | Gdk.EventMask.BUTTON_PRESS_MASK |
-                                               Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
-                                               null, Gdk.CURRENT_TIME);
-
-            if (pointer_status != Gdk.GrabStatus.SUCCESS || keyboard_status != Gdk.GrabStatus.SUCCESS)  {
-                // If grab failed, retry again. Happens when "Applications" button is long held.
-                Timeout.add (100, () => {
-                    if (visible)
-                        grab_device ();
-
-                    return false;
-                });
-            }
-        }
-
         public override bool button_press_event (Gdk.EventButton event) {
             var pointer = Gdk.Display.get_default ().get_device_manager ().get_client_pointer ();
 
             // get_window_at_position returns null if the window belongs to another application.
             if (pointer.get_window_at_position (null, null) == null) {
-                hide ();
+                close_indicator ();
 
                 return true;
             }
-
-            return false;
-        }
-
-        public override void get_preferred_width (out int minimum_width, out int natural_width) {
-            popover.get_preferred_width (out minimum_width, out natural_width);
-        }
-
-        public override void get_preferred_height (out int minimum_height, out int natural_height) {
-            popover.get_preferred_height (out minimum_height, out natural_height);
-        }
-
-        public override bool map_event (Gdk.EventAny event) {
-            if (visible)
-                grab_device ();
 
             return false;
         }
@@ -309,11 +253,6 @@ namespace Slingshot {
             event_box.key_press_event.connect (on_key_press);
             search_entry.key_press_event.connect (search_entry_key_press);
             // Showing a menu reverts the effect of the grab_device function.
-            search_entry.populate_popup.connect ((menu) => {
-                menu.hide.connect (() => {
-                    grab_device ();
-                });
-            });
             search_entry.search_changed.connect (() => {
                 if (modality != Modality.SEARCH_VIEW)
                     set_modality (Modality.SEARCH_VIEW);
@@ -322,7 +261,8 @@ namespace Slingshot {
             search_entry.grab_focus ();
             search_entry.activate.connect (search_entry_activated);
 
-            search_view.app_launched.connect (() => hide ());
+            // FIXME: signals chain up is not supported
+            search_view.app_launched.connect (() => { close_indicator (); });
 
             // This function must be after creating the page switcher
             populate_grid_view ();
@@ -353,18 +293,6 @@ namespace Slingshot {
                 if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
                     setup_size ();
                 }
-                reposition ();
-            });
-            screen.monitors_changed.connect (() => {
-                reposition ();
-            });
-
-            get_style_context ().notify["direction"].connect (() => {
-                reposition ();
-            });
-
-            popover.hide.connect (() => {
-                hide ();
             });
 
             // check for change in gala settings
@@ -383,22 +311,6 @@ namespace Slingshot {
             }
         }
 
-        private void reposition () {
-            debug("Repositioning");
-
-            Gdk.Rectangle monitor_dimensions;
-            screen.get_monitor_geometry (this.screen.get_primary_monitor(), out monitor_dimensions);
-            if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                popover.set_pointing_to ({36, 0, 0, 0});
-                // Added 36px to y to be aligned with other popovers.
-                move (monitor_dimensions.x, monitor_dimensions.y + 36);
-            } else {
-                popover.set_pointing_to ({ref_grid.get_window ().get_width () - 36, 0, 0, 0});
-                // Added 36px to y to be aligned with other popovers.
-                move (monitor_dimensions.x + monitor_dimensions.width - this.get_window ().get_width (), monitor_dimensions.y + 36);
-            }
-        }
-
         private void change_view_mode (string key) {
             switch (key) {
                 case "1": // Normal view
@@ -413,7 +325,7 @@ namespace Slingshot {
         // Handle super+space when the user is typing in the search entry
         private bool search_entry_key_press (Gdk.EventKey event) {
             if ((event.keyval == Gdk.Key.space) && ((event.state & Gdk.ModifierType.SUPER_MASK) != 0)) {
-                hide ();
+                close_indicator ();
                 return true;
             }
 
@@ -425,16 +337,18 @@ namespace Slingshot {
                     return true;
             }
 
-            return false;
+            return on_key_press (event);
         }
 
         private void search_entry_activated () {
             if (modality == Modality.SEARCH_VIEW) {
                 if (search_view.launch_selected ())
-                    hide ();
+                    close_indicator ();
             } else {
+/* TODO
                 if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
                     ((Widgets.AppEntry) get_focus ()).launch_app ();
+*/
             }
         }
 
@@ -462,7 +376,7 @@ namespace Slingshot {
             switch (key) {
                 case "F4":
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                        hide ();
+                        close_indicator ();
                     }
 
                     break;
@@ -471,7 +385,7 @@ namespace Slingshot {
                     if (search_entry.text.length > 0) {
                         search_entry.text = "";
                     } else {
-                        hide ();
+                        close_indicator ();
                     }
 
                     return true;
@@ -481,10 +395,12 @@ namespace Slingshot {
                 case "KP_Enter":
                     if (modality == Modality.SEARCH_VIEW) {
                         if (search_view.launch_selected ())
-                            hide ();
+                            close_indicator ();
                     } else {
+/* TODO
                         if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
                             ((Widgets.AppEntry)get_focus ()).launch_app ();
+*/
                     }
                     return true;
 
@@ -698,14 +614,12 @@ namespace Slingshot {
         public void show_slingshot () {
             search_entry.text = "";
 
-            reposition ();
-            show_all ();
-            popover.show_all ();
-            present ();
-
+/* TODO
             set_focus (null);
+*/
+
             search_entry.grab_focus ();
-            //This is needed in order to not animate if the previous view was the search view.
+            // This is needed in order to not animate if the previous view was the search view.
             view_selector_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
             stack.transition_type = Gtk.StackTransitionType.NONE;
             set_modality ((Modality) view_selector.selected);
@@ -826,7 +740,7 @@ namespace Slingshot {
             grid_view.clear ();
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
                 var app_entry = new Widgets.AppEntry (app);
-                app_entry.app_launched.connect (() => hide ());
+                app_entry.app_launched.connect (() => close_indicator ());
                 grid_view.append (app_entry);
                 app_entry.show_all ();
             }
@@ -860,6 +774,7 @@ namespace Slingshot {
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
+/* TODO
             if (get_focus () as Widgets.AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
                 if (column_focus + delta_column < 0 || row_focus + delta_row < 0)
                     return;
@@ -891,6 +806,7 @@ namespace Slingshot {
                     grid_view.get_child_at (column_focus, 0).grab_focus ();
                 row_focus = 0;
             }
+*/
         }
 
         private void category_move_focus (int delta_column, int delta_row) {
@@ -944,6 +860,8 @@ namespace Slingshot {
             category_column_focus = 0;
             category_row_focus = 0;
         }
+        
+
     }
 
 }
