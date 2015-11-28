@@ -7,59 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-06-03 20:59+0200\n"
+"POT-Creation-Date: 2015-11-27 15:33-0200\n"
 "PO-Revision-Date: 2015-11-12 13:28+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-13 05:06+0000\n"
-"X-Generator: Launchpad (build 17845)\n"
-
-#: ../src/Widgets/SearchView.vala:160
-msgid "Other"
-msgstr "기타"
-
-#: ../src/Widgets/SearchView.vala:163
-msgid "Text"
-msgstr "텍스트"
-
-#: ../src/Widgets/SearchView.vala:166
-msgid "Applications"
-msgstr "프로그램"
-
-#: ../src/Widgets/SearchView.vala:169
-msgid "Files"
-msgstr "파일"
-
-#: ../src/Widgets/SearchView.vala:172
-msgid "Actions"
-msgstr "동작"
-
-#: ../src/Widgets/SearchView.vala:175
-msgid "Search"
-msgstr "검색"
-
-#: ../src/Widgets/SearchView.vala:178
-msgid "Contacts"
-msgstr "연락처"
-
-#: ../src/Widgets/SearchView.vala:181
-msgid "Internet"
-msgstr "인터넷"
-
-#: ../src/Widgets/SearchView.vala:184
-msgid "Settings"
-msgstr "설정"
-
-#: ../src/Widgets/AppEntry.vala:195
-msgid "Remove from _Dock"
-msgstr "독에서 제거하기"
-
-#: ../src/Widgets/AppEntry.vala:197
-msgid "Add to _Dock"
-msgstr "독에 추가하기"
+"X-Launchpad-Export-Date: 2015-11-28 04:34+0000\n"
+"X-Generator: Launchpad (build 17850)\n"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -69,21 +25,117 @@ msgstr "모든 프로그램"
 msgid "Create a new Filter"
 msgstr "새로운 필터 만들기"
 
+#: ../src/Widgets/AppEntry.vala:201
+msgid "Remove from _Dock"
+msgstr "독에서 제거하기"
+
+#: ../src/Widgets/AppEntry.vala:203
+msgid "Add to _Dock"
+msgstr "독에 추가하기"
+
+#: ../src/Widgets/SearchView.vala:162
+msgid "Other"
+msgstr "기타"
+
+#: ../src/Widgets/SearchView.vala:165
+msgid "Text"
+msgstr "텍스트"
+
+#: ../src/Widgets/SearchView.vala:168 ../src/Slingshot.vala:57
+msgid "Applications"
+msgstr "프로그램"
+
+#: ../src/Widgets/SearchView.vala:171
+msgid "Files"
+msgstr "파일"
+
+#: ../src/Widgets/SearchView.vala:174
+msgid "Actions"
+msgstr "동작"
+
+#: ../src/Widgets/SearchView.vala:177
+msgid "Search"
+msgstr "검색"
+
+#: ../src/Widgets/SearchView.vala:180
+msgid "Contacts"
+msgstr "연락처"
+
+#: ../src/Widgets/SearchView.vala:183
+msgid "Internet"
+msgstr "인터넷"
+
+#: ../src/Widgets/SearchView.vala:186
+msgid "Settings"
+msgstr "설정"
+
+#: ../src/Widgets/SearchView.vala:189
+msgid "Application Actions"
+msgstr ""
+
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
 msgstr "명령문 실행…"
 
-#: ../src/SlingshotView.vala:169
+#: ../src/Slingshot.vala:32
+msgid "Slingshot"
+msgstr ""
+
+#: ../src/Slingshot.vala:33
+msgid "The app-menu indicator"
+msgstr ""
+
+#: ../src/SlingshotView.vala:163
 msgid "View as Grid"
 msgstr "그리드로 보기"
 
-#: ../src/SlingshotView.vala:173
+#: ../src/SlingshotView.vala:167
 msgid "View by Category"
 msgstr "카테고리로 보기"
 
-#: ../src/SlingshotView.vala:182
+#: ../src/SlingshotView.vala:176
 msgid "Search Apps"
 msgstr "프로그램 검색"
+
+#: ../lib/synapse-core/common-actions.vala:77
+msgid "Run"
+msgstr "실행"
+
+#: ../lib/synapse-core/common-actions.vala:78
+msgid "Run an application, action or script"
+msgstr "응용 프로그램이나 동작, 스크립트를 실행합니다"
+
+#: ../lib/synapse-core/common-actions.vala:133
+msgid "Run in Terminal"
+msgstr "터미널에서 실행"
+
+#: ../lib/synapse-core/common-actions.vala:134
+msgid "Run application or command in terminal"
+msgstr "응용 프로그램이나 명령을 터미널에서 실행합니다."
+
+#: ../lib/synapse-core/common-actions.vala:182
+msgid "Open"
+msgstr "열기"
+
+#: ../lib/synapse-core/common-actions.vala:183
+msgid "Open using default application"
+msgstr "기본 응용 프로그램을 이용해 엽니다."
+
+#: ../lib/synapse-core/common-actions.vala:252
+msgid "Open folder"
+msgstr "폴더 열기"
+
+#: ../lib/synapse-core/common-actions.vala:253
+msgid "Open folder containing this file"
+msgstr "이 파일을 포함하고 있는 폴더를 엽니다"
+
+#: ../lib/synapse-core/common-actions.vala:293
+msgid "Copy to Clipboard"
+msgstr "클립 보드에 복사"
+
+#: ../lib/synapse-core/common-actions.vala:294
+msgid "Copy selection to clipboard"
+msgstr "선택한것을 클립보드로 복사"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
@@ -125,15 +177,35 @@ msgstr "컴퓨터를 끄거나 디시 시작하거나 최대 절전 혹은 절�
 msgid "ConsoleKit wasn't found"
 msgstr "콘솔 키트(ConsoleKit)를 찾을 수 없습니다"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
+#: ../lib/synapse-plugins/switchboard-plugin.vala:55
+msgid "Open %s settings"
+msgstr "%s 설정 열기"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:71
+msgid "Find switchboard plugs and open them."
+msgstr "스위치보드 플러그 찾아서 열기"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "계산기"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:64
+msgid "Calculate basic expressions."
+msgstr "기본 식을 계산합니다."
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:68
+msgid "bc is not installed"
+msgstr "bc를 설치하지 않았습니다"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:125
 msgid "Search for and run applications on your computer."
 msgstr "컴퓨터에서 응용 프로그램을 검색하고 실행합니다."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:283
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:343
 msgid "Open with %s"
 msgstr "다음으로 열기 %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:285
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:345
 msgid "Opens current selection using %s"
 msgstr "현재 선택한 것을 다음으로 엽니다 %s"
 
@@ -148,63 +220,3 @@ msgstr "명령 실행"
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
 msgstr "임의의 명령을 찾거나 실행합니다."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "계산기"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:64
-msgid "Calculate basic expressions."
-msgstr "기본 식을 계산합니다."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:68
-msgid "bc is not installed"
-msgstr "bc를 설치하지 않았습니다"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:55
-msgid "Open %s settings"
-msgstr "%s 설정 열기"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:71
-msgid "Find switchboard plugs and open them."
-msgstr "스위치보드 플러그 찾아서 열기"
-
-#: ../lib/synapse-core/common-actions.vala:77
-msgid "Run"
-msgstr "실행"
-
-#: ../lib/synapse-core/common-actions.vala:78
-msgid "Run an application, action or script"
-msgstr "응용 프로그램이나 동작, 스크립트를 실행합니다"
-
-#: ../lib/synapse-core/common-actions.vala:133
-msgid "Run in Terminal"
-msgstr "터미널에서 실행"
-
-#: ../lib/synapse-core/common-actions.vala:134
-msgid "Run application or command in terminal"
-msgstr "응용 프로그램이나 명령을 터미널에서 실행합니다."
-
-#: ../lib/synapse-core/common-actions.vala:182
-msgid "Open"
-msgstr "열기"
-
-#: ../lib/synapse-core/common-actions.vala:183
-msgid "Open using default application"
-msgstr "기본 응용 프로그램을 이용해 엽니다."
-
-#: ../lib/synapse-core/common-actions.vala:252
-msgid "Open folder"
-msgstr "폴더 열기"
-
-#: ../lib/synapse-core/common-actions.vala:253
-msgid "Open folder containing this file"
-msgstr "이 파일을 포함하고 있는 폴더를 엽니다"
-
-#: ../lib/synapse-core/common-actions.vala:293
-msgid "Copy to Clipboard"
-msgstr "클립 보드에 복사"
-
-#: ../lib/synapse-core/common-actions.vala:294
-msgid "Copy selection to clipboard"
-msgstr "선택한것을 클립보드로 복사"

@@ -2,59 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-03 20:59+0200\n"
+"POT-Creation-Date: 2015-11-27 15:33-0200\n"
 "PO-Revision-Date: 2015-11-16 18:03+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-17 05:06+0000\n"
-"X-Generator: Launchpad (build 17847)\n"
-
-#: ../src/Widgets/SearchView.vala:160
-msgid "Other"
-msgstr "სხვა"
-
-#: ../src/Widgets/SearchView.vala:163
-msgid "Text"
-msgstr "ტექსტი"
-
-#: ../src/Widgets/SearchView.vala:166
-msgid "Applications"
-msgstr "პროგრამები"
-
-#: ../src/Widgets/SearchView.vala:169
-msgid "Files"
-msgstr "ფაილები"
-
-#: ../src/Widgets/SearchView.vala:172
-msgid "Actions"
-msgstr "მოქმედებები"
-
-#: ../src/Widgets/SearchView.vala:175
-msgid "Search"
-msgstr "ძებნა"
-
-#: ../src/Widgets/SearchView.vala:178
-msgid "Contacts"
-msgstr "კონტაქტები"
-
-#: ../src/Widgets/SearchView.vala:181
-msgid "Internet"
-msgstr "ინტერნეტი"
-
-#: ../src/Widgets/SearchView.vala:184
-msgid "Settings"
-msgstr "პარამეტრები"
-
-#: ../src/Widgets/AppEntry.vala:195
-msgid "Remove from _Dock"
-msgstr "_დოკიდან წაშლა"
-
-#: ../src/Widgets/AppEntry.vala:197
-msgid "Add to _Dock"
-msgstr "_დოკზე დამატება"
+"X-Launchpad-Export-Date: 2015-11-28 04:33+0000\n"
+"X-Generator: Launchpad (build 17850)\n"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -64,21 +20,117 @@ msgstr "ყველა პროგრამა"
 msgid "Create a new Filter"
 msgstr "ახალი საქაღალდის შექმნა"
 
+#: ../src/Widgets/AppEntry.vala:201
+msgid "Remove from _Dock"
+msgstr "_დოკიდან წაშლა"
+
+#: ../src/Widgets/AppEntry.vala:203
+msgid "Add to _Dock"
+msgstr "_დოკზე დამატება"
+
+#: ../src/Widgets/SearchView.vala:162
+msgid "Other"
+msgstr "სხვა"
+
+#: ../src/Widgets/SearchView.vala:165
+msgid "Text"
+msgstr "ტექსტი"
+
+#: ../src/Widgets/SearchView.vala:168 ../src/Slingshot.vala:57
+msgid "Applications"
+msgstr "პროგრამები"
+
+#: ../src/Widgets/SearchView.vala:171
+msgid "Files"
+msgstr "ფაილები"
+
+#: ../src/Widgets/SearchView.vala:174
+msgid "Actions"
+msgstr "მოქმედებები"
+
+#: ../src/Widgets/SearchView.vala:177
+msgid "Search"
+msgstr "ძებნა"
+
+#: ../src/Widgets/SearchView.vala:180
+msgid "Contacts"
+msgstr "კონტაქტები"
+
+#: ../src/Widgets/SearchView.vala:183
+msgid "Internet"
+msgstr "ინტერნეტი"
+
+#: ../src/Widgets/SearchView.vala:186
+msgid "Settings"
+msgstr "პარამეტრები"
+
+#: ../src/Widgets/SearchView.vala:189
+msgid "Application Actions"
+msgstr ""
+
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
 msgstr "ამ ბრძანების გაშვება..."
 
-#: ../src/SlingshotView.vala:169
+#: ../src/Slingshot.vala:32
+msgid "Slingshot"
+msgstr ""
+
+#: ../src/Slingshot.vala:33
+msgid "The app-menu indicator"
+msgstr ""
+
+#: ../src/SlingshotView.vala:163
 msgid "View as Grid"
 msgstr "ბადედ ჩვენება"
 
-#: ../src/SlingshotView.vala:173
+#: ../src/SlingshotView.vala:167
 msgid "View by Category"
 msgstr "კატეგორიებად ჩვენება"
 
-#: ../src/SlingshotView.vala:182
+#: ../src/SlingshotView.vala:176
 msgid "Search Apps"
 msgstr "აპების ძებნა"
+
+#: ../lib/synapse-core/common-actions.vala:77
+msgid "Run"
+msgstr "გაშვება"
+
+#: ../lib/synapse-core/common-actions.vala:78
+msgid "Run an application, action or script"
+msgstr "პროგრამის, მოქმედებისა ან სცენარის გაშვება"
+
+#: ../lib/synapse-core/common-actions.vala:133
+msgid "Run in Terminal"
+msgstr "გაშვება ტერმინალში"
+
+#: ../lib/synapse-core/common-actions.vala:134
+msgid "Run application or command in terminal"
+msgstr "პროგრამის ან ბრძანების ტერმინალში გაშვება"
+
+#: ../lib/synapse-core/common-actions.vala:182
+msgid "Open"
+msgstr "გახსნა"
+
+#: ../lib/synapse-core/common-actions.vala:183
+msgid "Open using default application"
+msgstr "ნაგულისხმები პროგრამით გახსნა"
+
+#: ../lib/synapse-core/common-actions.vala:252
+msgid "Open folder"
+msgstr "საქაღალდის გასხნა"
+
+#: ../lib/synapse-core/common-actions.vala:253
+msgid "Open folder containing this file"
+msgstr "ამ ფაილის მომცველი საქაღალდის გახსნა"
+
+#: ../lib/synapse-core/common-actions.vala:293
+msgid "Copy to Clipboard"
+msgstr "ბუფერში ჩასმა"
+
+#: ../lib/synapse-core/common-actions.vala:294
+msgid "Copy selection to clipboard"
+msgstr "მონიშნულის ბუფერში კოპირება"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
@@ -120,15 +172,35 @@ msgstr "შეაჩერეთ, დააძინეთ, გადატვ�
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit ვერ მოიძებნა"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:94
+#: ../lib/synapse-plugins/switchboard-plugin.vala:55
+msgid "Open %s settings"
+msgstr "%s პარამეტრების გახსნა"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:71
+msgid "Find switchboard plugs and open them."
+msgstr "მოძებნეთ კომუტატორის შტეფსელები და გახსენით ისინი"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "კალკულატორი"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:64
+msgid "Calculate basic expressions."
+msgstr "მარტივი გამოსახულებების გამოთვლა."
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:68
+msgid "bc is not installed"
+msgstr "bc არ არის დაყენებული."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:125
 msgid "Search for and run applications on your computer."
 msgstr "მოძებნეთ და გაუშვით თქვენს კომპიტერში არსებული პროგრამები"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:283
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:343
 msgid "Open with %s"
 msgstr "%s-ის მეშვეობით გახსნა"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:285
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:345
 msgid "Opens current selection using %s"
 msgstr "არჩეულის %s-ის მეშვეობით გახსნა"
 
@@ -143,63 +215,3 @@ msgstr "ბრძანების გაშვება"
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
 msgstr "მოძებნეთ და გაუშვით პირობითი ბრძანებები."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "კალკულატორი"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:64
-msgid "Calculate basic expressions."
-msgstr "მარტივი გამოსახულებების გამოთვლა."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:68
-msgid "bc is not installed"
-msgstr "bc არ არის დაყენებული."
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:55
-msgid "Open %s settings"
-msgstr "%s პარამეტრების გახსნა"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:71
-msgid "Find switchboard plugs and open them."
-msgstr "მოძებნეთ კომუტატორის შტეფსელები და გახსენით ისინი"
-
-#: ../lib/synapse-core/common-actions.vala:77
-msgid "Run"
-msgstr "გაშვება"
-
-#: ../lib/synapse-core/common-actions.vala:78
-msgid "Run an application, action or script"
-msgstr "პროგრამის, მოქმედებისა ან სცენარის გაშვება"
-
-#: ../lib/synapse-core/common-actions.vala:133
-msgid "Run in Terminal"
-msgstr "გაშვება ტერმინალში"
-
-#: ../lib/synapse-core/common-actions.vala:134
-msgid "Run application or command in terminal"
-msgstr "პროგრამის ან ბრძანების ტერმინალში გაშვება"
-
-#: ../lib/synapse-core/common-actions.vala:182
-msgid "Open"
-msgstr "გახსნა"
-
-#: ../lib/synapse-core/common-actions.vala:183
-msgid "Open using default application"
-msgstr "ნაგულისხმები პროგრამით გახსნა"
-
-#: ../lib/synapse-core/common-actions.vala:252
-msgid "Open folder"
-msgstr "საქაღალდის გასხნა"
-
-#: ../lib/synapse-core/common-actions.vala:253
-msgid "Open folder containing this file"
-msgstr "ამ ფაილის მომცველი საქაღალდის გახსნა"
-
-#: ../lib/synapse-core/common-actions.vala:293
-msgid "Copy to Clipboard"
-msgstr "ბუფერში ჩასმა"
-
-#: ../lib/synapse-core/common-actions.vala:294
-msgid "Copy selection to clipboard"
-msgstr "მონიშნულის ბუფერში კოპირება"
