@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-11-27 15:33-0200\n"
-"PO-Revision-Date: 2015-11-23 10:50+0000\n"
+"PO-Revision-Date: 2015-12-11 11:11+0000\n"
 "Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-28 04:34+0000\n"
-"X-Generator: Launchpad (build 17850)\n"
+"X-Launchpad-Export-Date: 2015-12-12 05:08+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -71,7 +71,7 @@ msgstr "设置"
 
 #: ../src/Widgets/SearchView.vala:189
 msgid "Application Actions"
-msgstr ""
+msgstr "程序动作"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
@@ -79,11 +79,11 @@ msgstr "运行此命令..."
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
-msgstr ""
+msgstr "应用程序"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "程序菜单指示器"
 
 #: ../src/SlingshotView.vala:163
 msgid "View as Grid"
