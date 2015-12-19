@@ -66,12 +66,6 @@ namespace Slingshot {
         private int default_columns;
         private int default_rows;
 
-        private int column_focus = 0;
-        private int row_focus = 0;
-
-        private int category_column_focus = 0;
-        private int category_row_focus = 0;
-
         private int primary_monitor = 0;
 
         Gdk.Screen screen;
@@ -329,14 +323,6 @@ namespace Slingshot {
                 return true;
             }
 
-            switch (event.keyval) {
-                case Gdk.Key.Tab:
-                    // context view is disabled until we get plugins that are actually
-                    // useful with a context
-                    // search_view.toggle_context (!search_view.in_context_view);
-                    return true;
-            }
-
             return on_key_press (event);
         }
 
@@ -442,15 +428,11 @@ namespace Slingshot {
 
                 case "Tab":
                     if (modality == Modality.NORMAL_VIEW) {
-                        view_selector.selected = 1;
-                        var new_focus = category_view.app_view.get_child_at (category_column_focus, category_row_focus);
-                        if (new_focus != null)
-                            new_focus.grab_focus ();
+                        view_selector.selected = (int) Modality.CATEGORY_VIEW;
+                        category_view.app_view.top_left_focus();
                     } else if (modality == Modality.CATEGORY_VIEW) {
-                        view_selector.selected = 0;
-                        var new_focus = grid_view.get_child_at (column_focus, row_focus);
-                        if (new_focus != null)
-                            new_focus.grab_focus ();
+                        view_selector.selected = (int) Modality.NORMAL_VIEW;
+                        grid_view.top_left_focus();
                     }
                     break;
 
@@ -483,7 +465,7 @@ namespace Slingshot {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
                             if (category_view.category_switcher.selected != 0) {
                                 category_view.category_switcher.selected--;
-                                top_left_focus ();
+                                category_view.app_view.top_left_focus ();
                             }
                         } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected--;
@@ -501,7 +483,7 @@ namespace Slingshot {
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                             category_view.category_switcher.selected++;
-                            top_left_focus ();
+                            category_view.app_view.top_left_focus ();
                         } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected++;
                         } else { // the user has already selected an AppEntry
@@ -517,7 +499,7 @@ namespace Slingshot {
                         grid_view.go_to_previous ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected--;
-                        top_left_focus ();
+                        category_view.app_view.top_left_focus ();
                     }
                     break;
 
@@ -526,7 +508,7 @@ namespace Slingshot {
                         grid_view.go_to_next ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected++;
-                        top_left_focus ();
+                        category_view.app_view.top_left_focus ();
                     }
                     break;
 
@@ -551,7 +533,7 @@ namespace Slingshot {
                         grid_view.go_to_number (1);
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected = 0;
-                        top_left_focus ();
+                        category_view.app_view.top_left_focus ();
                     }
                     break;
 
@@ -564,7 +546,7 @@ namespace Slingshot {
                         grid_view.go_to_last ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.category_switcher.selected = category_view.category_switcher.cat_size - 1;
-                        top_left_focus ();
+                        category_view.app_view.top_left_focus ();
                     }
                     break;
 
@@ -659,7 +641,7 @@ namespace Slingshot {
                 if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
                     category_view.app_view.go_to_next ();
                 else if (search_entry.has_focus) // there's no AppEntry selected, the user is switching category
-                    top_left_focus ();
+                    category_view.app_view.top_left_focus ();
                 else //the user has already selected an AppEntry
                     category_move_focus (+1, 0);
             }
@@ -774,94 +756,27 @@ namespace Slingshot {
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
-/* TODO
-            if (get_focus () as Widgets.AppEntry != null) { // we check if any AppEntry has focus. If it does, we move
-                if (column_focus + delta_column < 0 || row_focus + delta_row < 0)
-                    return;
+            if (grid_view.set_focus_relative (delta_column, delta_row))
+                return;
 
-                var new_focus = grid_view.get_child_at (column_focus + delta_column, row_focus + delta_row); // we check if the new widget exists
-                if (new_focus == null) {
-                    if (delta_column <= 0)
-                        return;
-                    else {
-                        new_focus = grid_view.get_child_at (column_focus + delta_column, 0);
-                        if (new_focus == null)
-                            return;
-
-                        row_focus = -delta_row; // so it's 0 at the end
-                    }
-                }
-
-                column_focus += delta_column;
-                row_focus += delta_row;
-                if (delta_column > 0 && column_focus % grid_view.get_page_columns () == 0 ) //check if we need to change page
-                    grid_view.go_to_next ();
-                else if (delta_column < 0 && (column_focus + 1) % grid_view.get_page_columns () == 0) //check if we need to change page
-                    grid_view.go_to_previous ();
-
-                new_focus.grab_focus ();
-            } else { // we move to the first app in the top left corner of the current page
-                column_focus = (grid_view.get_current_page ()-1) * grid_view.get_page_columns ();
-                if (column_focus >= 0)
-                    grid_view.get_child_at (column_focus, 0).grab_focus ();
-                row_focus = 0;
+            if (delta_column < 0 || delta_row < 0) {
+                search_entry.grab_focus ();
             }
-*/
         }
 
         private void category_move_focus (int delta_column, int delta_row) {
-            var new_focus = category_view.app_view.get_child_at (category_column_focus + delta_column, category_row_focus + delta_row);
-            if (new_focus == null) {
-                if (delta_row < 0 && category_view.category_switcher.selected != 0) {
-                    category_view.category_switcher.selected--;
-                    top_left_focus ();
-                    return;
-                } else if (delta_row > 0 && category_view.category_switcher.selected != category_view.category_switcher.cat_size - 1) {
-                    category_view.category_switcher.selected++;
-                    top_left_focus ();
-                    return;
-                } else if (delta_column > 0 && (category_column_focus + delta_column) % category_view.app_view.get_page_columns () == 0
-                          && category_view.app_view.get_current_page ()+ 1 != category_view.app_view.get_n_pages ()) {
-                    category_view.app_view.go_to_next ();
-                    top_left_focus ();
-                    return;
-                } else if (category_column_focus == 0 && delta_column < 0) {
-                    search_entry.grab_focus ();
-                    category_column_focus = 0;
-                    category_row_focus = 0;
-                    return;
-                } else {
-                    return;
-                }
+            if (category_view.app_view.set_focus_relative (delta_column, delta_row))
+                return;
+
+            if (delta_row < 0 && category_view.category_switcher.selected > 0) {
+                category_view.category_switcher.selected--;
+                category_view.app_view.top_left_focus ();
+            } else if (delta_row > 0) {
+                category_view.category_switcher.selected++;
+                category_view.app_view.top_left_focus ();
+            } else if (delta_column < 0 || delta_row < 0) {
+                search_entry.grab_focus ();
             }
-
-            category_column_focus += delta_column;
-            category_row_focus += delta_row;
-            if (delta_column > 0 && category_column_focus % category_view.app_view.get_page_columns () == 0 ) { // check if we need to change page
-                category_view.app_view.go_to_next ();
-            } else if (delta_column < 0 && (category_column_focus + 1) % category_view.app_view.get_page_columns () == 0) {
-                // check if we need to change page
-                category_view.app_view.go_to_previous ();
-            }
-
-            new_focus.grab_focus ();
-        }
-
-        // this method moves focus to the first AppEntry in the top left corner of the current page. Works in CategoryView only
-        private void top_left_focus () {
-            // this is the first column of the current page
-            int first_column = (grid_view.get_current_page ()-1) * category_view.app_view.get_page_columns ();
-            category_view.app_view.get_child_at (first_column, 0).grab_focus ();
-            category_column_focus = first_column;
-            category_row_focus = 1;
-        }
-
-        public void reset_category_focus () {
-            category_column_focus = 0;
-            category_row_focus = 0;
-        }
-        
-
+        }   
     }
-
 }
