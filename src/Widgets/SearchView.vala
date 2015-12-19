@@ -41,7 +41,7 @@ namespace Slingshot.Widgets {
             list_box = new Gtk.ListBox ();
             list_box.activate_on_single_click = true;
             list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
-            list_box.set_header_func ((row, before) => update_header (row, before));
+            list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
             list_box.row_activated.connect ((row) => {
                 var search_item = row as SearchItem;
                 if (search_item.result_type == SearchItem.ResultType.APP_ACTIONS) {
@@ -134,6 +134,7 @@ namespace Slingshot.Widgets {
             return 0;
         }
 
+        [CCode (instance_pos = -1)]
         private void update_header (Gtk.ListBoxRow row, Gtk.ListBoxRow? before) {
             var item = row as SearchItem;
             if (before != null && ((SearchItem) before).result_type == item.result_type) {
