@@ -555,6 +555,8 @@ namespace Slingshot {
                 case "V":
                     if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
                         search_entry.paste_clipboard ();
+                    } else {
+                        return false;
                     }
                     break;
 
