@@ -59,7 +59,9 @@ namespace Slingshot.Widgets {
             name_label.use_markup = true;
             ((Gtk.Misc) name_label).xalign = 0.0f;
 
-            icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
+            icon = new Gtk.Image ();
+            icon.gicon = app.icon;
+            icon.pixel_size = ICON_SIZE;
 
             // load a favicon if we're an internet page
             var uri_match = app.match as Synapse.UriMatch;
@@ -94,7 +96,7 @@ namespace Slingshot.Widgets {
                 Gdk.DragAction.COPY);
                 this.drag_begin.connect ( (ctx) => {
                     this.dragging = true;
-                    Gtk.drag_set_icon_pixbuf (ctx, app.icon, 0, 0);
+                    Gtk.drag_set_icon_gicon (ctx, app.icon, 0, 0);
                 });
                 this.drag_end.connect ( () => {
                     this.dragging = false;
