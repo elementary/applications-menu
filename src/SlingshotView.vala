@@ -462,7 +462,11 @@ namespace Slingshot {
 
                 case "Down":
                     if (modality == Modality.NORMAL_VIEW) {
+                        if (search_entry.has_focus) {
+                            grid_view.top_left_focus ();
+                        } else {
                             normal_move_focus (0, +1);
+                        }
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                             category_view.category_switcher.selected++;
