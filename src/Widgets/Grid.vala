@@ -184,19 +184,18 @@ namespace Slingshot.Widgets {
             page.number = 1;
         }
 
-        public bool set_focus(int column, int row)
-        {
-            var targetWidget = get_child_at(column, row);
+        public bool set_focus(int column, int row) {
+            var targetWidget = get_child_at (column, row);
 
             if (targetWidget != null)
             {
-                go_to_number(((int)(column/page.columns))+1);
+                go_to_number (((int) (column / page.columns)) + 1);
 
                 focused_column = column;
                 focused_row = row;
                 focused_widget = targetWidget;
 
-                focused_widget.grab_focus();
+                focused_widget.grab_focus ();
 
                 return true;
             }
@@ -204,19 +203,16 @@ namespace Slingshot.Widgets {
             return false;
         }
 
-        public bool set_paginated_focus(int column, int row)
-        {
-            int first_column = (get_current_page ()-1) * get_page_columns ();
-            return set_focus(first_column, 0);
+        public bool set_paginated_focus(int column, int row) {
+            int first_column = (get_current_page () - 1) * get_page_columns ();
+            return set_focus (first_column, 0);
         }
 
-        public bool set_focus_relative (int delta_column, int delta_row)
-        {
-            return set_focus(focused_column + delta_column, focused_row + delta_row);
+        public bool set_focus_relative (int delta_column, int delta_row) {
+            return set_focus (focused_column + delta_column, focused_row + delta_row);
         }
 
-        public void top_left_focus()
-        {
+        public void top_left_focus() {
             set_paginated_focus(0, 0);
         }
     }

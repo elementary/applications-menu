@@ -429,10 +429,10 @@ namespace Slingshot {
                 case "Tab":
                     if (modality == Modality.NORMAL_VIEW) {
                         view_selector.selected = (int) Modality.CATEGORY_VIEW;
-                        category_view.app_view.top_left_focus();
+                        category_view.app_view.top_left_focus ();
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         view_selector.selected = (int) Modality.NORMAL_VIEW;
-                        grid_view.top_left_focus();
+                        grid_view.top_left_focus ();
                     }
                     break;
 
@@ -756,8 +756,9 @@ namespace Slingshot {
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
-            if (grid_view.set_focus_relative (delta_column, delta_row))
+            if (grid_view.set_focus_relative (delta_column, delta_row)) {
                 return;
+            }
 
             if (delta_column < 0 || delta_row < 0) {
                 search_entry.grab_focus ();
@@ -765,8 +766,9 @@ namespace Slingshot {
         }
 
         private void category_move_focus (int delta_column, int delta_row) {
-            if (category_view.app_view.set_focus_relative (delta_column, delta_row))
+            if (category_view.app_view.set_focus_relative (delta_column, delta_row)) {
                 return;
+            }
 
             if (delta_row < 0 && category_view.category_switcher.selected > 0) {
                 category_view.category_switcher.selected--;
