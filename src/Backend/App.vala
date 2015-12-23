@@ -35,9 +35,8 @@ public class Slingshot.Backend.App : Object {
     public string description { get; private set; default = ""; }
     public string desktop_id { get; construct set; }
     public string exec { get; private set; }
-    public string icon_name { get; private set; default = ""; }
     public string[] keywords { get; private set;}
-    public Gdk.Pixbuf? icon { get; private set; default = null; }
+    public Icon icon { get; private set; default = new ThemedIcon ("application-default-icon"); }
     public double popularity { get; set; }
     public double relevancy { get; set; }
     public string desktop_path { get; private set; }
@@ -49,15 +48,8 @@ public class Slingshot.Backend.App : Object {
     public Synapse.Match? target { get; private set; default = null; }
     public Gee.ArrayList<string> actions { get; private set; default = null; }
     public Gee.HashMap<string, string> actions_map { get; private set; default = null; }
-    
-    public signal void icon_changed ();
+
     public signal void launched (App app);
-
-    // seconds to wait before retrying icon check
-    private const int RECHECK_TIMEOUT = 2;
-    private bool check_icon_again = true;
-
-    private LoadableIcon loadable_icon = null;
 
     // for FDO Desktop Actions
     // see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions
@@ -75,9 +67,9 @@ public class Slingshot.Backend.App : Object {
         app_type = AppType.APP;
 
         unowned GLib.DesktopAppInfo info = entry.get_app_info ();
-        name = info.get_display_name ().dup ();
-        description = info.get_description ().dup () ?? name;
-        exec = info.get_commandline ().dup ();
+        name = info.get_display_name ();
+        description = info.get_description () ?? name;
+        exec = info.get_commandline ();
         desktop_id = entry.get_desktop_file_id ();
         desktop_path = entry.get_desktop_file_path ();
 #if HAVE_UNITY
@@ -85,19 +77,14 @@ public class Slingshot.Backend.App : Object {
 #endif
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
-
-        if (info.get_icon () is ThemedIcon) {
-            icon_name = (info.get_icon () as ThemedIcon).get_names ()[0].dup ();
-        } else if (info.get_icon () is LoadableIcon) {
-            loadable_icon = info.get_icon () as LoadableIcon;
-            icon = get_loadable_icon ();
-        } else {
-            icon_name = "application-default-icon";
+        var desktop_icon = info.get_icon ();
+        if (desktop_icon != null) {
+            icon = desktop_icon;
         }
-        if (icon == null) {
-            update_icon ();
 
-            Slingshot.icon_theme.changed.connect (update_icon);
+        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
+        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
         }
     }
 
@@ -108,159 +95,28 @@ public class Slingshot.Backend.App : Object {
         description = _("Run this command…");
         exec = command;
         desktop_id = command;
-        icon_name = "system-run";
-
-        update_icon ();
-
+        icon = new ThemedIcon ("system-run");
     }
 
     public App.from_synapse_match (Synapse.Match match, Synapse.Match? target = null) {
-
         app_type = AppType.SYNAPSE;
 
         name = match.title;
         description = match.description;
-        icon_name = match.icon_name;
+        if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
+            var file = File.new_for_path (match.thumbnail_path);
+            icon = new FileIcon (file);
+        } else if (match.icon_name != null) {
+            icon = new ThemedIcon (match.icon_name);
+        }
+
+        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
+        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
+        }
 
         this.match = match;
         this.target = target;
-
-        update_icon ();
-
-    }
-
-    ~App () {
-        Slingshot.icon_theme.changed.disconnect (update_icon);
-    }
-
-    public void update_icon () {
-        icon = load_icon (Slingshot.settings.icon_size);
-
-        icon_changed ();
-    }
-
-    private delegate void IconLoadFallback ();
-
-    private class IconLoadFallbackMethod {
-        public unowned IconLoadFallback load_icon;
-
-        public IconLoadFallbackMethod (IconLoadFallback fallback) {
-            load_icon = fallback;
-        }
-    }
-
-    public Gdk.Pixbuf? load_icon (int size) {
-        if (app_type == AppType.SYNAPSE) {
-            try {
-                // for contacts we can load the thumbnail because we expect it to be
-                // the avatar. For other types it'd be ridiculously small.
-                if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
-                    return new Gdk.Pixbuf.from_file_at_scale (match.thumbnail_path, size, size, true);
-                }
-
-                var icon = Icon.new_for_string (icon_name);
-                var info = Gtk.IconTheme.get_default ().lookup_by_gicon (icon,
-                    size, Gtk.IconLookupFlags.FORCE_SIZE);
-
-                if (info == null)
-                    throw new IconError.NOT_FOUND ("Not found");
-
-                return info.load_icon ();
-            } catch (Error e) {
-                warning ("Failed to load icon: %s\n", e.message);
-            }
-
-            try {
-                return Slingshot.icon_theme.load_icon ("application-default-icon",
-                    size, Gtk.IconLookupFlags.FORCE_SIZE);
-            } catch (Error e) {
-                critical (e.message);
-            }
-        }
-
-        Gdk.Pixbuf icon = null;
-        var flags = Gtk.IconLookupFlags.FORCE_SIZE;
-
-        if (loadable_icon != null)
-            return get_loadable_icon ();
-
-        IconLoadFallbackMethod[] fallbacks = {
-            new IconLoadFallbackMethod (() => {
-                try {
-                    icon = Slingshot.icon_theme.load_icon (icon_name, size, flags);
-                } catch (Error e) {
-                    warning ("Could not load icon. Falling back to method 2");
-                }
-            }),
-
-            new IconLoadFallbackMethod (() => {
-                // Since the best method didn't work retry after some time
-                if (check_icon_again) {
-                    // only recheck once
-                    check_icon_again = false;
-
-                    Timeout.add_seconds (RECHECK_TIMEOUT, () => {
-                        Slingshot.icon_theme.rescan_if_needed ();
-                        update_icon ();
-                        return false;
-                    });
-                }
-            }),
-
-            new IconLoadFallbackMethod (() => {
-                try {
-                    if (icon_name.last_index_of (".") > 0) {
-                        var name = icon_name[0:icon_name.last_index_of (".")];
-                        icon = Slingshot.icon_theme.load_icon (name, size, flags);
-                    }
-                } catch (Error e) {
-                    warning ("Could not load icon. Falling back to method 3");
-                }
-            }),
-
-            new IconLoadFallbackMethod (() => {
-                try {
-                    icon = new Gdk.Pixbuf.from_file_at_scale (icon_name, size, size, false);
-                } catch (Error e) {
-                    warning ("Could not load icon. Falling back to method 4");
-                }
-            }),
-
-            new IconLoadFallbackMethod (() => {
-                try {
-                    icon = Slingshot.icon_theme.load_icon ("application-default-icon", size, flags);
-                 } catch (Error e) {
-                     warning ("Could not load icon. Falling back to method 5");
-                 }
-            }),
-
-            new IconLoadFallbackMethod (() => {
-                 try {
-                    icon = Slingshot.icon_theme.load_icon ("gtk-missing-image", size, flags);
-                 } catch (Error e) {
-                    error ("Could not find a fallback icon to load");
-                 }
-            })
-        };
-        foreach (IconLoadFallbackMethod fallback in fallbacks) {
-            fallback.load_icon ();
-            if (icon != null)
-                break;
-        }
-
-        return icon;
-    }
-
-    public Gdk.Pixbuf? get_loadable_icon () {
-        Gdk.Pixbuf? tmp_loadable_icon;
-        try {
-            var icon_stream = loadable_icon.load (0, null, null);
-            tmp_loadable_icon = new Gdk.Pixbuf.from_stream_at_scale (icon_stream, Slingshot.settings.icon_size,
-                                                                     Slingshot.settings.icon_size, true, null);
-        } catch (Error e) {
-            tmp_loadable_icon = null;
-        }
-        return tmp_loadable_icon;
     }
 
     public bool launch () {
