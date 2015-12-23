@@ -53,6 +53,7 @@ namespace Synapse
     public string generic_name { get; construct set; }
     public string comment { get; set; default = ""; }
     public string icon_name { get; construct set; default = ""; }
+    public string gettext_domain { get; construct set; }
 
     public bool needs_terminal { get; set; default = false; }
     public string filename { get; construct set; }
@@ -73,6 +74,7 @@ namespace Synapse
     
     public EnvironmentType show_in { get; set; default = EnvironmentType.ALL; }
 
+    private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
     private static const string GROUP = "Desktop Entry";
 
     public DesktopFileInfo.for_keyfile (string path, KeyFile keyfile,
@@ -123,6 +125,12 @@ namespace Synapse
           if ("Screensaver" in categories)
           {
             throw new DesktopFileError.UNINTERESTING_ENTRY ("Screensaver desktop entry");
+          }
+        }
+        foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS) {
+          if (keyfile.has_key (GROUP, domain_key)) {
+            gettext_domain = keyfile.get_string (GROUP, domain_key);
+            break;
           }
         }
 

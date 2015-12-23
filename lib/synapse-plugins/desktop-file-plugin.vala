@@ -48,12 +48,25 @@ namespace Synapse
       public AppInfo? app_info { get; set; default = null; }
       public bool needs_terminal { get; set; default = false; }
 
+      private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
       private string action_name;
 
       public ActionMatch (string desktop_id, string action_name)
       {
         var desktop_app_info = new DesktopAppInfo (desktop_id);
+        string? textdomain = null;
+        foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS) {
+          textdomain = desktop_app_info.get_string (domain_key);
+          if (textdomain != null) {
+            break;
+          }
+        }
+
         this.title = desktop_app_info.get_action_name (action_name);
+        if (textdomain != null) {
+          this.title = GLib.dgettext (textdomain, this.title);
+        }
+
         this.icon_name = desktop_app_info.get_icon ().to_string ();
         this.description = "";
         this.app_info = desktop_app_info;
@@ -71,6 +84,7 @@ namespace Synapse
       // for Match interface
       public string title { get; construct set; }
       public string description { get; set; default = ""; }
+      public string? gettext_domain { get; construct set; default = null; }
       public string icon_name { get; construct set; default = ""; }
       public bool has_thumbnail { get; construct set; default = false; }
       public string thumbnail_path { get; construct set; }
@@ -114,6 +128,7 @@ namespace Synapse
         this.title_unaccented = Utils.remove_accents (this.title_folded);
         this.desktop_id = "application://" + info.desktop_id;
         this.generic_name = info.generic_name;
+        this.gettext_domain = info.gettext_domain;
       }
     }
 
@@ -197,6 +212,7 @@ namespace Synapse
         unowned string unaccented_title = dfm.title_unaccented;
         unowned string comment = dfm.description;
         unowned string generic_name = dfm.generic_name;
+        unowned string gettext_domain = dfm.gettext_domain;
 
         bool matched = false;
         // FIXME: we need to do much smarter relevancy computation in fuzzy re
@@ -229,7 +245,13 @@ namespace Synapse
         var desktop_app_info = new DesktopAppInfo (id);
         string[] actions = desktop_app_info.list_actions ();
         foreach (string action in actions) {
-          string title = desktop_app_info.get_action_name (action).down ();
+          string title = desktop_app_info.get_action_name (action);
+          if (gettext_domain != null) {
+            title = GLib.dgettext (gettext_domain, title).down ();
+          } else {
+            title = title.down ();
+          }
+
           foreach (var matcher in matchers)
           {
             MatchInfo action_info;
