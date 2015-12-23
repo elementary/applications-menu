@@ -25,6 +25,11 @@ namespace Slingshot.Widgets {
     }
 
     public class Grid : Gtk.Box {
+
+        public int focused_column { get; private set; }
+        public int focused_row { get; private set; }
+
+        public Gtk.Widget? focused_widget { get; private set; }
         
         public Widgets.Switcher page_switcher;
         
@@ -177,6 +182,37 @@ namespace Slingshot.Widgets {
             page.rows = rows;
             page.columns = columns;
             page.number = 1;
+        }
+
+        public bool set_focus (int column, int row) {
+            var targetWidget = get_child_at (column, row);
+
+            if (targetWidget != null) {
+                go_to_number (((int) (column / page.columns)) + 1);
+
+                focused_column = column;
+                focused_row = row;
+                focused_widget = targetWidget;
+
+                focused_widget.grab_focus ();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool set_paginated_focus (int column, int row) {
+            int first_column = (get_current_page () - 1) * get_page_columns ();
+            return set_focus (first_column, 0);
+        }
+
+        public bool set_focus_relative (int delta_column, int delta_row) {
+            return set_focus (focused_column + delta_column, focused_row + delta_row);
+        }
+
+        public void top_left_focus () {
+            set_paginated_focus (0, 0);
         }
     }
 }
