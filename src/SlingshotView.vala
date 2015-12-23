@@ -379,18 +379,8 @@ namespace Slingshot {
                 case "Enter": // "KP_Enter"
                 case "Return":
                 case "KP_Enter":
-                    if (modality == Modality.SEARCH_VIEW) {
-                        if (search_view.launch_selected ())
-                            close_indicator ();
-                    } else {
-/* TODO
-                        if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
-                            ((Widgets.AppEntry)get_focus ()).launch_app ();
-*/
-                    }
-                    return true;
-
-
+                    return false;
+                    
                 case "Alt_L":
                 case "Alt_R":
                     break;
