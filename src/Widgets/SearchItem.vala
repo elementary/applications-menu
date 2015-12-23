@@ -17,40 +17,51 @@
 //
 
 namespace Slingshot.Widgets {
-
-    public class SearchItem : Gtk.Button {
+    public class SearchItem : Gtk.ListBoxRow {
+        public enum ResultType {
+            UNKNOWN = 0,
+            TEXT,
+            APPLICATION,
+            GENERIC_URI,
+            ACTION,
+            SEARCH,
+            CONTACT,
+            INTERNET,
+            SETTINGS,
+            APP_ACTIONS
+        }
 
         const int ICON_SIZE = 32;
 
+        public signal bool launch_app ();
+
         public Backend.App app { get; construct; }
+        public ResultType result_type { public get; construct; }
+
+        public bool dragging = false; //prevent launching
 
         private Gtk.Label name_label;
         private Gtk.Image icon;
-
         private Cancellable? cancellable = null;
-        public bool dragging = false; //prevent launching
-        public bool action = false;
 
-        public signal bool launch_app ();
-
-        public SearchItem (Backend.App app, string search_term = "", bool action = false, string action_title = "") {
-            Object (app: app);
-            
-            this.action = action;
-            get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        public SearchItem (Backend.App app, string search_term = "", ResultType result_type = ResultType.UNKNOWN) {
+            Object (app: app, result_type: result_type);
 
             string markup;
-            if (action)
-                markup = action_title;
-            else
+            if (result_type == SearchItem.ResultType.APP_ACTIONS) {
+                markup = app.match.title;
+            } else {
                 markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
+            }
 
             name_label = new Gtk.Label (markup);
             name_label.set_ellipsize (Pango.EllipsizeMode.END);
             name_label.use_markup = true;
             ((Gtk.Misc) name_label).xalign = 0.0f;
 
-            icon = new Gtk.Image.from_pixbuf (app.load_icon (ICON_SIZE));
+            icon = new Gtk.Image ();
+            icon.gicon = app.icon;
+            icon.pixel_size = ICON_SIZE;
 
             // load a favicon if we're an internet page
             var uri_match = app.match as Synapse.UriMatch;
@@ -65,15 +76,17 @@ namespace Slingshot.Widgets {
                 });
             }
 
-            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-            box.pack_start (icon, false);
-            box.pack_start (name_label, true);
-            box.margin_start = 12;
-            box.margin_top = box.margin_bottom = 3;
+            var grid = new Gtk.Grid ();
+            grid.orientation = Gtk.Orientation.HORIZONTAL;
+            grid.column_spacing = 12;
+            grid.add (icon);
+            grid.add (name_label);
+            grid.margin = 6;
+            grid.margin_start = 18;
 
-            add (box);
+            add (grid);
 
-            if (!action)
+            if (result_type != SearchItem.ResultType.APP_ACTIONS)
                 launch_app.connect (app.launch);
 
             var app_match = app.match as Synapse.ApplicationMatch;
@@ -83,7 +96,7 @@ namespace Slingshot.Widgets {
                 Gdk.DragAction.COPY);
                 this.drag_begin.connect ( (ctx) => {
                     this.dragging = true;
-                    Gtk.drag_set_icon_pixbuf (ctx, app.icon, 0, 0);
+                    Gtk.drag_set_icon_gicon (ctx, app.icon, 0, 0);
                 });
                 this.drag_end.connect ( () => {
                     this.dragging = false;
@@ -95,9 +108,7 @@ namespace Slingshot.Widgets {
         }
 
         public override void destroy () {
-
             base.destroy ();
-
             if (cancellable != null)
                 cancellable.cancel ();
         }

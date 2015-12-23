@@ -19,20 +19,35 @@
 public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private static Gtk.Menu menu;
 
-    public Gtk.Label app_label;
-    private Gdk.Pixbuf icon;
-    private new Gtk.Image image;
-
-    public string exec_name;
-    public string app_name;
-    public string desktop_id;
-    public int icon_size;
-    public string desktop_path;
-
     public signal void app_launched ();
 
-    private bool dragging = false; //prevent launching
+    public Gtk.Label app_label;
+    public unowned string exec_name {
+        get {
+            return application.exec;
+        }
+    }
 
+    public unowned string app_name {
+        get {
+            return application.name;
+        }
+    }
+
+    public unowned string desktop_id {
+        get {
+            return application.desktop_id;
+        }
+    }
+
+    public unowned string desktop_path {
+        get {
+            return application.desktop_path;
+        }
+    }
+
+    private new Gtk.Image image;
+    private bool dragging = false; //prevent launching
     private Backend.App application;
 
 #if HAS_PLANK
@@ -50,7 +65,11 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private static Plank.DBus.Client plank_client;
 #endif
     private bool docked = false;
-    private string desktop_uri;
+    private string desktop_uri {
+        owned get {
+            return File.new_for_path (desktop_path).get_uri ();
+        }
+    }
 #endif
 
     public AppEntry (Backend.App app) {
@@ -58,18 +77,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
 
-        desktop_id = app.desktop_id;
-        desktop_path = app.desktop_path;
-#if HAS_PLANK
-        desktop_uri = File.new_for_path (desktop_path).get_uri ();
-#endif
-
         application = app;
-        app_name = app.name;
         tooltip_text = app.description;
-        exec_name = app.exec;
-        icon_size = Slingshot.settings.icon_size;
-        icon = app.icon;
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
@@ -81,8 +90,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app_label.set_single_line_mode (false);
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-        image = new Gtk.Image.from_pixbuf (icon);
-        image.icon_size = icon_size;
+        image = new Gtk.Image ();
+        image.gicon = app.icon;
+        image.pixel_size = 64;
         image.margin_top = 12;
 
         var grid = new Gtk.Grid ();
@@ -94,7 +104,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         grid.add (app_label);
 
         add (grid);
-        set_size_request (Pixels.ITEM_SIZE, Pixels.ITEM_SIZE);
 
         this.clicked.connect (launch_app);
 
@@ -112,7 +121,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         this.drag_begin.connect ( (ctx) => {
             this.dragging = true;
-            Gtk.drag_set_icon_pixbuf (ctx, icon, 0, 0);
+            Gtk.drag_set_icon_gicon (ctx, app.icon, 0, 0);
         });
 
         this.drag_end.connect ( () => {
@@ -124,11 +133,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
         });
 
-        app.icon_changed.connect (() => {
-            icon = app.icon;
-            image.set_from_pixbuf (icon);
+        app.notify["icon"].connect (() => {
+            ((Gtk.Image) image).gicon = app.icon;
         });
-
     }
 
     public override void get_preferred_width (out int minimum_width, out int natural_width) {

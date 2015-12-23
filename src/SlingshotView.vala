@@ -189,8 +189,7 @@ namespace Slingshot {
             stack.add_named (category_view, "category");
 
             // Create the "SEARCH_VIEW"
-            search_view = new Widgets.SearchView (this);
-            search_view.margin_end = 6;
+            search_view = new Widgets.SearchView ();
             search_view.start_search.connect ((match, target) => {
                 search.begin (search_entry.text, match, target);
             });
@@ -328,13 +327,7 @@ namespace Slingshot {
 
         private void search_entry_activated () {
             if (modality == Modality.SEARCH_VIEW) {
-                if (search_view.launch_selected ())
-                    close_indicator ();
-            } else {
-/* TODO
-                if (get_focus () as Widgets.AppEntry != null) // checking the selected widget is an AppEntry
-                    ((Widgets.AppEntry) get_focus ()).launch_app ();
-*/
+                search_view.activate_selection ();
             }
         }
 
@@ -463,7 +456,7 @@ namespace Slingshot {
                           category_move_focus (0, -1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
-                        search_view.up ();
+                        return false;
                     }
                     break;
 
@@ -480,7 +473,7 @@ namespace Slingshot {
                             category_move_focus (0, +1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
-                        search_view.down ();
+                        return false;
                     }
                     break;
 
@@ -544,6 +537,8 @@ namespace Slingshot {
                 case "V":
                     if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
                         search_entry.paste_clipboard ();
+                    } else {
+                        return false;
                     }
                     break;
 
