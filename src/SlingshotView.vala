@@ -212,19 +212,6 @@ namespace Slingshot {
             debug ("Ui setup completed");
         }
 
-        public override bool button_press_event (Gdk.EventButton event) {
-            var pointer = Gdk.Display.get_default ().get_device_manager ().get_client_pointer ();
-
-            // get_window_at_position returns null if the window belongs to another application.
-            if (pointer.get_window_at_position (null, null) == null) {
-                close_indicator ();
-
-                return true;
-            }
-
-            return false;
-        }
-
         private bool hotcorner_trigger (Gdk.EventMotion event) {
             if (can_trigger_hotcorner && event.x_root <= 0 && event.y_root <= 0) {
                 Gdk.Display.get_default ().get_device_manager ().get_client_pointer ().ungrab (event.time);
