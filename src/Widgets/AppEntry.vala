@@ -126,7 +126,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         this.drag_end.connect ( () => {
             this.dragging = false;
-            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
         });
 
         this.drag_data_get.connect ( (ctx, sel, info, time) => {
@@ -164,11 +163,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         }
 
         menu = new Gtk.Menu ();
-
-        // Showing a menu reverts the effect of the grab_device function.
-        menu.hide.connect (() => {
-            var slingshot_app = (Gtk.Application) GLib.Application.get_default ();
-        });
 
         foreach (var action in application.actions) {
             var menuitem = new Gtk.MenuItem.with_mnemonic (action);

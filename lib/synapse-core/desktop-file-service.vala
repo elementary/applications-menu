@@ -332,20 +332,6 @@ namespace Synapse
       }
     }
 
-    private string? get_cache_file_name (string dir_name)
-    {
-      // FIXME: should we use this? it's Ubuntu-specific
-      string? locale = Intl.setlocale (LocaleCategory.MESSAGES, null);
-      if (locale == null) return null;
-
-      // even though this is what the patch in gnome-menus does, the name 
-      // of the file is different here (utf is uppercase)
-      string filename = "desktop.%s.cache".printf (
-        locale.replace (".UTF-8", ".utf8"));
-
-      return Path.build_filename (dir_name, filename, null);
-    }
-    
     private async void process_directory (File directory,
                                           string id_prefix,
                                           Gee.Set<File> monitored_dirs)
