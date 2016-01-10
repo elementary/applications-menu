@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-11-27 15:33-0200\n"
-"PO-Revision-Date: 2015-09-06 19:52+0000\n"
-"Last-Translator: Adam Lukacovic <lukacovic.adam@gmail.com>\n"
+"PO-Revision-Date: 2016-01-09 11:40+0000\n"
+"Last-Translator: Lukáš Papík <stereo839@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-07 05:07+0000\n"
-"X-Generator: Launchpad (build 17876)\n"
+"X-Launchpad-Export-Date: 2016-01-10 05:07+0000\n"
+"X-Generator: Launchpad (build 17881)\n"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -67,11 +67,11 @@ msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:186
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: ../src/Widgets/SearchView.vala:189
 msgid "Application Actions"
-msgstr ""
+msgstr "Akcie aplikácie"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
@@ -79,11 +79,11 @@ msgstr "Spustiť tento príkaz"
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "Indikátor menu aplikácie"
 
 #: ../src/SlingshotView.vala:163
 msgid "View as Grid"
@@ -179,11 +179,11 @@ msgstr "ConsoleKit nebol nájdený"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Otvoriť %s nastavenia"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Nájsť prepínač pluginov a otvoriť ich."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
