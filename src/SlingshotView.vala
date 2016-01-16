@@ -231,6 +231,7 @@ namespace Slingshot {
             });
 
             event_box.key_press_event.connect (on_key_press);
+            search_entry.key_press_event.connect (on_key_press);
             // Showing a menu reverts the effect of the grab_device function.
             search_entry.search_changed.connect (() => {
                 if (modality != Modality.SEARCH_VIEW)
