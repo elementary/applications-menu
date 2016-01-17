@@ -88,6 +88,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app_label.set_line_wrap (true);
         app_label.lines = 2;
         app_label.set_single_line_mode (false);
+        app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
         image = new Gtk.Image ();
