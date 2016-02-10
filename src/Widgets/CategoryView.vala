@@ -44,9 +44,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         category_switcher = new Sidebar ();
 
+        var scrolled_category = new Gtk.ScrolledWindow (null, null);
+        scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+        scrolled_category.add (category_switcher);
+
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
 
-        container.add (category_switcher);
+        container.add (scrolled_category);
         container.add (separator);
         container.add (app_view);
         add (container);
@@ -70,6 +74,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
             n++;
         }
+
         category_switcher.show_all ();
 
         int minimum_width;
@@ -98,17 +103,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         app_entry.app_launched.connect (() => view.close_indicator ());
         app_view.append (app_entry);
         app_view.show_all ();
-
     }
 
     public void show_filtered_apps (string category) {
-
         app_view.clear ();
         foreach (Backend.App app in view.apps[category])
             add_app (app);
 
         current_position = 0;
-
     }
-
 }
