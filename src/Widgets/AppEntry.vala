@@ -47,6 +47,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 
     private new Gtk.Image image;
+    private Gtk.Image count_image;
     private bool dragging = false; //prevent launching
     private Backend.App application;
 
@@ -60,6 +61,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 
 #if HAS_PLANK_0_11
+    private const int SURFACE_SIZE = 48;
+    private static Plank.DockTheme plank_theme = new Plank.DockTheme ("Gtk+");
+
     private static Plank.DBusClient plank_client;
 #else
     private static Plank.DBus.Client plank_client;
@@ -96,12 +100,22 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         image.pixel_size = 64;
         image.margin_top = 12;
 
+        count_image = new Gtk.Image ();
+        count_image.no_show_all = true;
+        count_image.visible = false;
+        count_image.margin_start = 18;
+        count_image.margin_bottom = 12;
+
+        var overlay = new Gtk.Overlay ();
+        overlay.add (image);
+        overlay.add_overlay (count_image);
+
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
         grid.row_spacing = 6;
         grid.expand = true;
         grid.halign = Gtk.Align.CENTER;
-        grid.add (image);
+        grid.add (overlay);
         grid.add (app_label);
 
         add (grid);
@@ -133,6 +147,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
         });
 
+#if HAS_PLANK_0_11
+        app.unity_update_info.connect (update_unity_icon);
+#endif
+
         app.notify["icon"].connect (() => {
             ((Gtk.Image) image).gicon = app.icon;
         });
@@ -152,6 +170,20 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         application.launch ();
         app_launched ();
     }
+
+#if HAS_PLANK_0_11
+    private void update_unity_icon () {
+        var visible = application.count_visible;
+        count_image.visible = visible;
+        if (!visible)
+            return;
+
+        var surface = new Plank.Surface (SURFACE_SIZE, SURFACE_SIZE);
+        plank_theme.draw_item_count (surface, SURFACE_SIZE, { 0.85, 0.23, 0.29, 0.89 }, application.current_count);
+
+        count_image.set_from_surface (surface.Internal);
+    }
+#endif     
 
     private void create_menu () {
         // Display the apps static quicklist items in a popover menu
