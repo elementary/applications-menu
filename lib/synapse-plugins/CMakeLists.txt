@@ -20,6 +20,7 @@ set (PLUGINS_SOURCE
     desktop-file-plugin.vala
     switchboard-plugin.vala
     system-managment.vala
+    link-plugin.vala
 )
 
 # Compile
