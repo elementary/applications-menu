@@ -110,7 +110,7 @@ namespace Synapse
     {
       try
       {
-        regex = new Regex ("(http(s?)://|[a-zA-Z0-9\\-]+\\.)[a-zA-Z0-9/~\\-]+\\.[a-zA-Z0-9/~\\-_,&\\?\\.;]+[^\\.,\\s<]",
+        regex = new Regex ("[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)",
                          RegexCompileFlags.OPTIMIZE);
       } catch (Error e) {
         Utils.Logger.error (this, "Error creating regexp.");
