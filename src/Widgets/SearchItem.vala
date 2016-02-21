@@ -28,7 +28,8 @@ namespace Slingshot.Widgets {
             CONTACT,
             INTERNET,
             SETTINGS,
-            APP_ACTIONS
+            APP_ACTIONS,
+            LINK
         }
 
         const int ICON_SIZE = 32;

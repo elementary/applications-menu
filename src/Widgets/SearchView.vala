@@ -44,8 +44,8 @@ namespace Slingshot.Widgets {
             list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
             list_box.row_activated.connect ((row) => {
                 var search_item = row as SearchItem;
-                if (search_item.result_type == SearchItem.ResultType.APP_ACTIONS) {
-                    ((Synapse.DesktopFilePlugin.ActionMatch) search_item.app.match).execute (null);
+                if (search_item.result_type == SearchItem.ResultType.APP_ACTIONS || search_item.result_type == SearchItem.ResultType.LINK) {
+                    search_item.app.match.execute (null);
                 } else {
                     search_item.app.launch ();
                 }
@@ -70,6 +70,8 @@ namespace Slingshot.Widgets {
                     if (uri.has_prefix ("http://") || uri.has_prefix ("ftp://") || uri.has_prefix ("https://")) {
                         result_type = SearchItem.ResultType.INTERNET;
                     }
+                } else if (match is Synapse.LinkPlugin.Result) {
+                    result_type = SearchItem.ResultType.LINK;
                 }
 
                 if (result_type == SearchItem.ResultType.UNKNOWN) {
@@ -153,6 +155,7 @@ namespace Slingshot.Widgets {
                 case SearchItem.ResultType.GENERIC_URI:
                     label = _("Files");
                     break;
+                case SearchItem.ResultType.LINK:
                 case SearchItem.ResultType.ACTION:
                     label = _("Actions");
                     break;
