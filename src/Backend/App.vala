@@ -44,12 +44,22 @@ public class Slingshot.Backend.App : Object {
     public string generic_name { get; private set; default = ""; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
+#if HAS_PLANK_0_11
+    public string? unity_sender_name = null;
+    public bool count_visible = false;
+    public int64 current_count = 0;
+#endif
+
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
     public Gee.ArrayList<string> actions { get; private set; default = null; }
     public Gee.HashMap<string, string> actions_map { get; private set; default = null; }
 
     public signal void launched (App app);
+
+#if HAS_PLANK_0_11
+    public signal void unity_update_info ();
+#endif
 
     // for FDO Desktop Actions
     // see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions
@@ -151,7 +161,7 @@ public class Slingshot.Backend.App : Object {
     }
 
     // Quicklist code from Plank
-    public void init_actions () throws KeyFileError  {
+    public void init_actions () throws KeyFileError {
         actions = new Gee.ArrayList<string> ();
         actions_map = new Gee.HashMap<string, string> ();
 
@@ -231,4 +241,30 @@ public class Slingshot.Backend.App : Object {
             }
         }
     }
+
+#if HAS_PLANK_0_11
+    public void perform_unity_update (string sender_name, VariantIter prop_iter) {
+        unity_sender_name = sender_name;
+
+        string prop_key;
+        Variant prop_value;
+        while (prop_iter.next ("{sv}", out prop_key, out prop_value)) {
+            if (prop_key == "count") {
+                current_count = prop_value.get_int64 ();
+            } else if (prop_key == "count-visible") {
+                count_visible = prop_value.get_boolean ();
+            }
+        }
+
+        unity_update_info ();
+    }
+
+    public void unity_reset () {
+        unity_sender_name = null;
+        count_visible = false;
+        current_count = 0;
+
+        unity_update_info ();
+    }
+#endif
 }

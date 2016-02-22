@@ -24,7 +24,11 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
+#if HAS_PLANK_0_11
+    public class SlingshotView : Gtk.Grid, Plank.UnityClient {
+#else
     public class SlingshotView : Gtk.Grid {
+#endif
         // Widgets
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
@@ -224,7 +228,6 @@ namespace Slingshot {
         }
 
         private void connect_signals () {
-
             this.focus_in_event.connect (() => {
                 search_entry.grab_focus ();
                 return false;
@@ -282,6 +285,39 @@ namespace Slingshot {
             // hotcorner management
             motion_notify_event.connect (hotcorner_trigger);
         }
+
+#if HAS_PLANK_0_11
+        public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
+            if (!is_retry) {
+                // Wait to let further update requests come in to catch the case where one application
+                // sends out multiple LauncherEntry-updates with different application-uris, e.g. Nautilus
+                Idle.add (() => {
+                    update_launcher_entry (sender_name, parameters, true);
+                    return false;
+                });
+                
+                return;
+            }
+
+            string app_uri;
+            VariantIter prop_iter;
+            parameters.get ("(sa{sv})", out app_uri, out prop_iter);
+
+            foreach (var app in app_system.get_apps_by_name ()) {
+                if (app_uri == "application://" + app.desktop_id) {
+                    app.perform_unity_update (sender_name, prop_iter);
+                }
+            }
+        }
+
+        public void remove_launcher_entry (string sender_name) {
+            foreach (var app in app_system.get_apps_by_name ()) {
+                if (app.unity_sender_name == sender_name) {
+                    app.unity_reset ();
+                }
+            }
+        }
+#endif
 
         private void gala_settings_changed () {
             if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
