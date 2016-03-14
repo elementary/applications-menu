@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-11-27 15:33-0200\n"
-"PO-Revision-Date: 2015-01-09 03:50+0000\n"
-"Last-Translator: marcos <mrock96@outlook.com>\n"
+"PO-Revision-Date: 2016-03-13 08:04+0000\n"
+"Last-Translator: Thureos <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-07 05:07+0000\n"
-"X-Generator: Launchpad (build 17876)\n"
+"X-Launchpad-Export-Date: 2016-03-14 05:15+0000\n"
+"X-Generator: Launchpad (build 17939)\n"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -27,11 +27,11 @@ msgstr "Crear un filtro nuevo"
 
 #: ../src/Widgets/AppEntry.vala:201
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Quitar del _dock"
 
 #: ../src/Widgets/AppEntry.vala:203
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Añadir al _dock"
 
 #: ../src/Widgets/SearchView.vala:162
 msgid "Other"
@@ -67,11 +67,11 @@ msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:186
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #: ../src/Widgets/SearchView.vala:189
 msgid "Application Actions"
-msgstr ""
+msgstr "Acciones de la aplicación"
 
 #: ../src/Backend/App.vala:108
 msgid "Run this command…"
@@ -79,11 +79,11 @@ msgstr "Ejecutar esta orden…"
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "El indicador del menú de aplicación"
 
 #: ../src/SlingshotView.vala:163
 msgid "View as Grid"
@@ -139,51 +139,51 @@ msgstr "Copiar selección en el portapapeles"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Poner el equipo en modo de suspensión"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Poner el equipo en modo de hibernación"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Apagar"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Apagar el equipo"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr ""
+msgstr "Reiniciar el equipo"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr ""
+msgstr "Suspender, hibernar, reiniciar o apagar el equipo."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "No se encontró ConsoleKit"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Abrir la configuración de %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Encontrar conectores para switchboard y abrirlos."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
