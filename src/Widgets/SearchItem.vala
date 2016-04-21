@@ -64,6 +64,8 @@ namespace Slingshot.Widgets {
             icon.gicon = app.icon;
             icon.pixel_size = ICON_SIZE;
 
+            tooltip_text = app.description;
+
             // load a favicon if we're an internet page
             var uri_match = app.match as Synapse.UriMatch;
             if (uri_match != null && uri_match.uri.has_prefix ("http")) {
