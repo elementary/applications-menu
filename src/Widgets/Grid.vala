@@ -83,12 +83,15 @@ namespace Slingshot.Widgets {
             stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
 
             // Fake grids in case there are not enough apps to fill the grid
-            current_grid.attach (new Gtk.Grid (), 0, 0, (int)page.columns, (int)page.rows);
+            for (var row = 0; row < page.rows; row++)
+                for (var column = 0; column < page.columns; column++)
+                    current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
         }
 
         public void append (Gtk.Widget widget) {
             update_position ();
 
+            current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
             current_grid.attach (widget, (int)current_col, (int)current_row, 1, 1);
             current_col++;
             current_grid.show ();
