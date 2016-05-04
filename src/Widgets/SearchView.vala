@@ -28,15 +28,19 @@ namespace Slingshot.Widgets {
         public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
         public signal void app_launched ();
 
+        private Gtk.Stack stack;
+        private Granite.Widgets.AlertView alert_view;
         private Gtk.ListBox list_box;
         Gee.HashMap<SearchItem.ResultType, uint> limitator;
 
         public SearchView () {
-            
+
         }
 
         construct {
             hscrollbar_policy = Gtk.PolicyType.NEVER;
+
+            // list box
             limitator = new Gee.HashMap<SearchItem.ResultType, uint> ();
             list_box = new Gtk.ListBox ();
             list_box.activate_on_single_click = true;
@@ -53,39 +57,55 @@ namespace Slingshot.Widgets {
                 app_launched ();
             });
 
-            add (list_box);
+            // alert view
+            alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
+
+            // stack
+            stack = new Gtk.Stack ();
+            stack.add_named (list_box, "results");
+            stack.add_named (alert_view, "alert");
+
+            add (stack);
         }
 
         public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
             clear ();
-            foreach (var match in matches) {
-                Backend.App app = new Backend.App.from_synapse_match (match);
-                SearchItem.ResultType result_type = (SearchItem.ResultType) match.match_type;
-                if (match is Synapse.DesktopFilePlugin.ActionMatch) {
-                    result_type = SearchItem.ResultType.APP_ACTIONS;
-                } else if (match is Synapse.SwitchboardPlugin.SwitchboardObject) {
-                    result_type = SearchItem.ResultType.SETTINGS;
-                } else if (match.match_type == Synapse.MatchType.GENERIC_URI) {
-                    var uri = (match as Synapse.UriMatch).uri;
-                    if (uri.has_prefix ("http://") || uri.has_prefix ("ftp://") || uri.has_prefix ("https://")) {
-                        result_type = SearchItem.ResultType.INTERNET;
-                    }
-                } else if (match is Synapse.LinkPlugin.Result) {
-                    result_type = SearchItem.ResultType.LINK;
-                }
-
-                if (result_type == SearchItem.ResultType.UNKNOWN) {
-                    var actions = Backend.SynapseSearch.find_actions_for_match (match);
-                    foreach (var action in actions) {
-                        app = new Backend.App.from_synapse_match (action, match);
-                        create_item (app, search_term, (SearchItem.ResultType) app.match.match_type);
+            if (matches.size > 0) {
+                foreach (var match in matches) {
+                    Backend.App app = new Backend.App.from_synapse_match (match);
+                    SearchItem.ResultType result_type = (SearchItem.ResultType) match.match_type;
+                    if (match is Synapse.DesktopFilePlugin.ActionMatch) {
+                        result_type = SearchItem.ResultType.APP_ACTIONS;
+                    } else if (match is Synapse.SwitchboardPlugin.SwitchboardObject) {
+                        result_type = SearchItem.ResultType.SETTINGS;
+                    } else if (match.match_type == Synapse.MatchType.GENERIC_URI) {
+                        var uri = (match as Synapse.UriMatch).uri;
+                        if (uri.has_prefix ("http://") || uri.has_prefix ("ftp://") || uri.has_prefix ("https://")) {
+                            result_type = SearchItem.ResultType.INTERNET;
+                        }
+                    } else if (match is Synapse.LinkPlugin.Result) {
+                        result_type = SearchItem.ResultType.LINK;
                     }
 
-                    continue;
+                    if (result_type == SearchItem.ResultType.UNKNOWN) {
+                        var actions = Backend.SynapseSearch.find_actions_for_match (match);
+                        foreach (var action in actions) {
+                            app = new Backend.App.from_synapse_match (action, match);
+                            create_item (app, search_term, (SearchItem.ResultType) app.match.match_type);
+                        }
+
+                        continue;
+                    }
+
+                    create_item (app, search_term, result_type);
                 }
 
-                create_item (app, search_term, result_type);
+                stack.set_visible_child_name ("results");
+            } else {
+                alert_view.title = _("No Results for “%s”".printf (search_term));
+                stack.set_visible_child_name ("alert");
             }
+
 
             weak Gtk.ListBoxRow? first = list_box.get_row_at_index (0);
             if (first != null) {
