@@ -7,73 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-11-27 15:33-0200\n"
+"POT-Creation-Date: 2016-05-04 02:13-0500\n"
 "PO-Revision-Date: 2015-09-18 04:13+0000\n"
 "Last-Translator: Vishal Biswas <vshlbiswas@ymail.com>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-29 05:14+0000\n"
+"X-Launchpad-Export-Date: 2016-05-05 05:13+0000\n"
 "X-Generator: Launchpad (build 17995)\n"
 
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "सभी अनुप्रयोग"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "नया फ़िल्टर बनाएं"
-
-#: ../src/Widgets/AppEntry.vala:201
-msgid "Remove from _Dock"
-msgstr "_डॉक से निकालें"
-
-#: ../src/Widgets/AppEntry.vala:203
-msgid "Add to _Dock"
-msgstr "_डॉक में जोड़े"
-
-#: ../src/Widgets/SearchView.vala:162
-msgid "Other"
-msgstr "अन्य"
-
-#: ../src/Widgets/SearchView.vala:165
-msgid "Text"
-msgstr "अक्षर"
-
-#: ../src/Widgets/SearchView.vala:168 ../src/Slingshot.vala:57
-msgid "Applications"
-msgstr "अनुप्रयोग"
-
-#: ../src/Widgets/SearchView.vala:171
-msgid "Files"
-msgstr "फ़ाइलें"
-
-#: ../src/Widgets/SearchView.vala:174
-msgid "Actions"
-msgstr "क्रियाएँ"
-
-#: ../src/Widgets/SearchView.vala:177
-msgid "Search"
-msgstr "खोजें"
-
-#: ../src/Widgets/SearchView.vala:180
-msgid "Contacts"
-msgstr "सम्पर्क"
-
-#: ../src/Widgets/SearchView.vala:183
-msgid "Internet"
-msgstr "अंतर्जाल"
-
-#: ../src/Widgets/SearchView.vala:186
-msgid "Settings"
-msgstr "विन्यास"
-
-#: ../src/Widgets/SearchView.vala:189
-msgid "Application Actions"
-msgstr ""
-
-#: ../src/Backend/App.vala:108
+#: ../src/Backend/App.vala:105
 msgid "Run this command…"
 msgstr "यह आदेश चलाये"
 
@@ -85,57 +29,81 @@ msgstr ""
 msgid "The app-menu indicator"
 msgstr ""
 
-#: ../src/SlingshotView.vala:163
+#: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
+msgid "Applications"
+msgstr "अनुप्रयोग"
+
+#: ../src/SlingshotView.vala:161
 msgid "View as Grid"
 msgstr "ग्रिड के रूप में देखें"
 
-#: ../src/SlingshotView.vala:167
+#: ../src/SlingshotView.vala:165
 msgid "View by Category"
 msgstr "श्रेणी के आधार पर देखें"
 
-#: ../src/SlingshotView.vala:176
+#: ../src/SlingshotView.vala:174
 msgid "Search Apps"
 msgstr "अनुप्रयोग खोजे"
 
-#: ../lib/synapse-core/common-actions.vala:77
-msgid "Run"
-msgstr "चलाएँ"
+#: ../src/Widgets/AppEntry.vala:235
+msgid "Remove from _Dock"
+msgstr "_डॉक से निकालें"
 
-#: ../lib/synapse-core/common-actions.vala:78
-msgid "Run an application, action or script"
-msgstr "अनुप्रयोग, कार्य या लिखित निर्देश चलाए"
+#: ../src/Widgets/AppEntry.vala:237
+msgid "Add to _Dock"
+msgstr "_डॉक में जोड़े"
 
-#: ../lib/synapse-core/common-actions.vala:133
-msgid "Run in Terminal"
-msgstr "टर्मिनल में चलाये"
+#: ../src/Widgets/SearchView.vala:61
+msgid "Try changing search terms."
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:134
-msgid "Run application or command in terminal"
-msgstr "टर्मिनल में आवेदन या आदेश चलाएँ"
+#: ../src/Widgets/SearchView.vala:105
+msgid "No Results for “%s”"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:182
-msgid "Open"
-msgstr "खोलें"
+#: ../src/Widgets/SearchView.vala:170
+msgid "Text"
+msgstr "अक्षर"
 
-#: ../lib/synapse-core/common-actions.vala:183
-msgid "Open using default application"
-msgstr "डिफ़ॉल्ट अनुप्रयोग में खोले"
+#: ../src/Widgets/SearchView.vala:176
+msgid "Files"
+msgstr "फ़ाइलें"
 
-#: ../lib/synapse-core/common-actions.vala:252
-msgid "Open folder"
-msgstr "फ़ोल्डर खोलें"
+#: ../src/Widgets/SearchView.vala:180
+msgid "Actions"
+msgstr "क्रियाएँ"
 
-#: ../lib/synapse-core/common-actions.vala:253
-msgid "Open folder containing this file"
-msgstr "यह फ़ाइल युक्त फोल्डर खोले"
+#: ../src/Widgets/SearchView.vala:183
+msgid "Search"
+msgstr "खोजें"
 
-#: ../lib/synapse-core/common-actions.vala:293
-msgid "Copy to Clipboard"
-msgstr "क्लिपबोर्ड पर प्रति बनाएँ"
+#: ../src/Widgets/SearchView.vala:186
+msgid "Contacts"
+msgstr "सम्पर्क"
 
-#: ../lib/synapse-core/common-actions.vala:294
-msgid "Copy selection to clipboard"
-msgstr "चुने हुए की प्रति क्लिपबोर्ड पर बनाएँ"
+#: ../src/Widgets/SearchView.vala:189
+msgid "Internet"
+msgstr "अंतर्जाल"
+
+#: ../src/Widgets/SearchView.vala:192
+msgid "Settings"
+msgstr "विन्यास"
+
+#: ../src/Widgets/SearchView.vala:195
+msgid "Application Actions"
+msgstr ""
+
+#: ../src/Widgets/SearchView.vala:198
+msgid "Other"
+msgstr "अन्य"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "सभी अनुप्रयोग"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "नया फ़िल्टर बनाएं"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
@@ -177,6 +145,38 @@ msgstr "कंप्यूटर को स्थगित, सीतिनि�
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit नहीं पाया गया"
 
+#: ../lib/synapse-plugins/link-plugin.vala:56
+msgid "Open %s in default web browser"
+msgstr ""
+
+#: ../lib/synapse-plugins/link-plugin.vala:62
+msgid "Open %s in %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/link-plugin.vala:68
+msgid "Open this link in default browser"
+msgstr ""
+
+#: ../lib/synapse-plugins/link-plugin.vala:95
+msgid "Link"
+msgstr ""
+
+#: ../lib/synapse-plugins/link-plugin.vala:96
+msgid "Open link in default browser"
+msgstr ""
+
+#: ../lib/synapse-plugins/command-plugin.vala:56
+msgid "Execute '%s'"
+msgstr "'%s' निष्पादित"
+
+#: ../lib/synapse-plugins/command-plugin.vala:56
+msgid "Run command"
+msgstr "कमांड चलाएँ"
+
+#: ../lib/synapse-plugins/command-plugin.vala:77
+msgid "Find and execute arbitrary commands."
+msgstr "पता है और मनमाना आदेश पर अमल।"
+
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
 msgstr "%s सेटिंग खोले"
@@ -184,6 +184,18 @@ msgstr "%s सेटिंग खोले"
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
 msgstr "स्विचबोर्ड के प्लगिन्स खोले और चयन करे"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
+msgid "Search for and run applications on your computer."
+msgstr "खोजें और अपने कंप्यूटर पर अनुप्रयोग चलाए"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:365
+msgid "Open with %s"
+msgstr "%s के साथ खोलें"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:367
+msgid "Opens current selection using %s"
+msgstr "%s का उपयोग करके वर्तमान चयन को खोले"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
@@ -197,26 +209,42 @@ msgstr "बुनियादी भाव की गणना।"
 msgid "bc is not installed"
 msgstr "bc उपस्थित नहीं है"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:125
-msgid "Search for and run applications on your computer."
-msgstr "खोजें और अपने कंप्यूटर पर अनुप्रयोग चलाए"
+#: ../lib/synapse-core/common-actions.vala:77
+msgid "Run"
+msgstr "चलाएँ"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:343
-msgid "Open with %s"
-msgstr "%s के साथ खोलें"
+#: ../lib/synapse-core/common-actions.vala:78
+msgid "Run an application, action or script"
+msgstr "अनुप्रयोग, कार्य या लिखित निर्देश चलाए"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:345
-msgid "Opens current selection using %s"
-msgstr "%s का उपयोग करके वर्तमान चयन को खोले"
+#: ../lib/synapse-core/common-actions.vala:133
+msgid "Run in Terminal"
+msgstr "टर्मिनल में चलाये"
 
-#: ../lib/synapse-plugins/command-plugin.vala:56
-msgid "Execute '%s'"
-msgstr "'%s' निष्पादित"
+#: ../lib/synapse-core/common-actions.vala:134
+msgid "Run application or command in terminal"
+msgstr "टर्मिनल में आवेदन या आदेश चलाएँ"
 
-#: ../lib/synapse-plugins/command-plugin.vala:56
-msgid "Run command"
-msgstr "कमांड चलाएँ"
+#: ../lib/synapse-core/common-actions.vala:182
+msgid "Open"
+msgstr "खोलें"
 
-#: ../lib/synapse-plugins/command-plugin.vala:77
-msgid "Find and execute arbitrary commands."
-msgstr "पता है और मनमाना आदेश पर अमल।"
+#: ../lib/synapse-core/common-actions.vala:183
+msgid "Open using default application"
+msgstr "डिफ़ॉल्ट अनुप्रयोग में खोले"
+
+#: ../lib/synapse-core/common-actions.vala:252
+msgid "Open folder"
+msgstr "फ़ोल्डर खोलें"
+
+#: ../lib/synapse-core/common-actions.vala:253
+msgid "Open folder containing this file"
+msgstr "यह फ़ाइल युक्त फोल्डर खोले"
+
+#: ../lib/synapse-core/common-actions.vala:293
+msgid "Copy to Clipboard"
+msgstr "क्लिपबोर्ड पर प्रति बनाएँ"
+
+#: ../lib/synapse-core/common-actions.vala:294
+msgid "Copy selection to clipboard"
+msgstr "चुने हुए की प्रति क्लिपबोर्ड पर बनाएँ"
