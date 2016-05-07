@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-05-04 08:40+0000\n"
-"Last-Translator: Sergey Kislyakov <Unknown>\n"
+"PO-Revision-Date: 2016-05-07 00:51+0000\n"
+"Last-Translator: Artem Anufrij <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-05 05:13+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-05-07 04:31+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -55,11 +55,11 @@ msgstr "Добавить на _док-панель"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Попробуйте изменить запрос."
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Нет результатов по запросу «%s»"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
@@ -159,7 +159,7 @@ msgstr "Открыть эту ссылку в браузере по-умолча
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "Ссылка"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
@@ -195,7 +195,7 @@ msgstr "Открыть в %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
-msgstr "Открыть выделенное в %s"
+msgstr "Открыть выделенное с помощью %s"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
@@ -231,7 +231,7 @@ msgstr "Открыть"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr "Открыть используя приложение по умолчанию"
+msgstr "Открыть, используя приложение по-умолчанию"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
@@ -239,7 +239,7 @@ msgstr "Открыть папку"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr "Открыть папку с этим файлом"
+msgstr "Открыть папку, содержащую этот файл"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
