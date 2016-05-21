@@ -17,8 +17,7 @@
 //
 
 public class Slingshot.Slingshot : Wingpanel.Indicator {
-
-    private SlingshotView? view = null;
+    private static SlingshotView? view = null;
 
     private Gtk.Label? indicator_label = null;
 
@@ -58,6 +57,10 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         return view;
     }
 
+    public static void request_close () {
+        view.close_indicator ();
+    }
+
     public override Gtk.Widget get_display_widget () {
         if (indicator_label == null)
             indicator_label = new Gtk.Label (_("Applications"));
@@ -75,7 +78,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     public override void closed () {
         // TODO: Do we need to do anyhting here?
     }
-
 }
 
 public Wingpanel.Indicator get_indicator (Module module) {

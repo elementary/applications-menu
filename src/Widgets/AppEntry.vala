@@ -134,9 +134,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             return false;
         });
 
-        this.drag_begin.connect ( (ctx) => {
+        this.drag_begin.connect ((ctx) => {
             this.dragging = true;
-            Gtk.drag_set_icon_gicon (ctx, app.icon, 0, 0);
+            Gtk.drag_set_icon_gicon (ctx, this.image.gicon, 16, 16);
+            Slingshot.request_close ();
         });
 
         this.drag_end.connect ( () => {
@@ -183,7 +184,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         count_image.set_from_surface (surface.Internal);
     }
-#endif     
+#endif
 
     private void create_menu () {
         // Display the apps static quicklist items in a popover menu
