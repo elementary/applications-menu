@@ -275,6 +275,29 @@ namespace Synapse
           }
         }
 
+        foreach (unowned string keyword in desktop_app_info.get_keywords ()) {
+          string _keyword = keyword.down ();
+          foreach (var matcher in matchers)
+          {
+            MatchInfo action_info;
+            if (matcher.key.match (_keyword, 0, out action_info)
+                || _keyword.contains (q.query_string_folded)
+                || _keyword.has_prefix (q.query_string))
+            {
+              results.add (dfm, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+              matched = true;
+              break;
+            }
+
+            else if (action_info.is_partial_match ())
+            {
+              results.add (dfm, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+              matched = true;  
+              break;        
+            }
+          }          
+        }
+
         if (!matched && (comment.down ().contains (q.query_string_folded) 
             || generic_name.down ().contains (q.query_string_folded)))
         {
