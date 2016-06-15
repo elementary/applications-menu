@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2015-12-07 12:42+0000\n"
+"PO-Revision-Date: 2016-06-14 21:33+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-05 05:13+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-06-15 05:14+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -43,7 +43,7 @@ msgstr "Wyświetla aktywatory rozmieszczone w kategoriach"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
-msgstr "Szukaj aplikacji"
+msgstr "Wyszukaj programów"
 
 #: ../src/Widgets/AppEntry.vala:235
 msgid "Remove from _Dock"
@@ -55,11 +55,11 @@ msgstr "Dodaj do _doku"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Spróbuj zmienić kryteria wyszukiwania."
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Brak wyników dla zapytania “%s”"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
@@ -107,7 +107,7 @@ msgstr "Utwórz nowy filtr"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr "Uśpienie"
+msgstr "Uśpij"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
@@ -115,7 +115,7 @@ msgstr "Przejdź do stanu uśpienia"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr "Hibernacja"
+msgstr "Hibernuj"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
@@ -123,7 +123,7 @@ msgstr "Przejdź do trybu hibernacji"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Wyłączenie komputera"
+msgstr "Wyłącz komputer"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
@@ -148,23 +148,23 @@ msgstr "Nie odnaleziono ConsoleKit"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Otwórz %s w domyślnej przeglądarce internetowej"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Otwórz %s w %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Otwórz ten odnośnik w domyślnej przeglądarce"
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "Odnośnik"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Otwórz odnośnik w domyślnej przeglądarce"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
