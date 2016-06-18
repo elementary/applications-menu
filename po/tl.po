@@ -1,26 +1,25 @@
-# French translation for slingshot
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Tagalog translation for slingshot
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-06-17 15:36+0000\n"
-"Last-Translator: neodyme <neodyme@mailoo.org>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2016-06-17 20:54+0000\n"
+"Last-Translator: yavinfour <anjelo.passionist@gmail.com>\n"
+"Language-Team: Tagalog <tl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2016-06-18 05:15+0000\n"
 "X-Generator: Launchpad (build 18097)\n"
-"Language: fr\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
-msgstr "Lancer cette commande..."
+msgstr "I-run ang command na ito..."
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
@@ -28,224 +27,224 @@ msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr "L'indicateur du menu des applications"
+msgstr ""
 
 #: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
 msgid "Applications"
-msgstr "Applications"
+msgstr "Mga Application"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
-msgstr "Vue en grille"
+msgstr "Tignan bilang Grid"
 
 #: ../src/SlingshotView.vala:165
 msgid "View by Category"
-msgstr "Vue par catégories"
+msgstr "Tignan sa kada Kategorya"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
-msgstr "Rechercher des applications"
+msgstr "Maghanap ng mga App"
 
 #: ../src/Widgets/AppEntry.vala:235
 msgid "Remove from _Dock"
-msgstr "Retirer du _Dock"
+msgstr "Tanggalin mula sa _Dock"
 
 #: ../src/Widgets/AppEntry.vala:237
 msgid "Add to _Dock"
-msgstr "Ajouter au _Dock"
+msgstr "Idagdag sa _Dock"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr "Essayez de modifier les termes de la recherche."
+msgstr ""
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr "Aucun résultat pour “%s”"
+msgstr "Walang Resulta para sa  “%s”"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
-msgstr "Texte"
+msgstr ""
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Files"
-msgstr "Fichiers"
+msgstr "Mga File"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Actions"
-msgstr "Actions"
+msgstr "Mga Aksyon"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Search"
-msgstr "Rechercher"
+msgstr "Maghanap"
 
 #: ../src/Widgets/SearchView.vala:186
 msgid "Contacts"
-msgstr "Contacts"
+msgstr "Mga Contact"
 
 #: ../src/Widgets/SearchView.vala:189
 msgid "Internet"
-msgstr "Internet"
+msgstr ""
 
 #: ../src/Widgets/SearchView.vala:192
 msgid "Settings"
-msgstr "Paramètres"
+msgstr ""
 
 #: ../src/Widgets/SearchView.vala:195
 msgid "Application Actions"
-msgstr "Actions des applications"
+msgstr ""
 
 #: ../src/Widgets/SearchView.vala:198
 msgid "Other"
-msgstr "Autre"
+msgstr "Iba Pa"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr "Toutes les applications"
+msgstr "Lahat ng mga Application"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
-msgstr "Créer un nouveau filtre"
+msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr "Mettre en veille"
+msgstr "Isuspinde"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr "Mettre votre ordinateur en veille"
+msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr "Hiberner"
+msgstr "I-hibernate"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr "Mettre votre ordinateur en veille prolongée"
+msgstr "Ilagay ang iyong kompyuter sa hibernation mode"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Éteindre"
+msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr "Éteindre votre ordinateur"
+msgstr "Pataying ang iyong kompyuter"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr "Redémarrer"
+msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr "Redémarrer votre ordinateur"
+msgstr "I-restart ang iyong kompyuter"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr "Mettre en veille, hiberner, redémarrer ou éteindre votre ordinateur."
+msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit est introuvable"
+msgstr ""
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr "Ouvrir « %s » dans le naviguateur par défaut"
+msgstr ""
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr "Ouvrir « %s » dans %s"
+msgstr ""
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr "Ouvrir ce lien dans le navigateur par défaut"
+msgstr ""
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr "Lien"
+msgstr ""
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr "Ouvrir le lien dans le navigateur par défaut"
+msgstr ""
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr "Exécuter '%s'"
+msgstr ""
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr "Exécuter la commande"
+msgstr ""
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr "Trouver et exécuter des commandes arbitraires."
+msgstr ""
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr "Ouvrir les paramètres de %s"
+msgstr ""
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr "Chercher dans les plugs switchboard et les ouvrir"
+msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:140
 msgid "Search for and run applications on your computer."
-msgstr "Rechercher et lancer des applications sur votre ordinateur."
+msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
-msgstr "Ouvrir avec %s"
+msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
-msgstr "Ouvre la sélection en cours en utilisant %s"
+msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr "Calculatrice"
+msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr "Calculer des expressions de base."
+msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr "bc n'est pas installé"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr "Éxécuter"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr "Éxécuter une application, une action ou un script"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr "Éxécuter dans un terminal"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr "Éxécuter l'application ou la commande dans le terminal"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr "Ouvrir"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr "Ouvrir en utilisant l'application par défaut"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr "Ouvrir le dossier"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr "Ouvrir le dossier contenant ce fichier"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr "Copier dans le presse-papier"
+msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr "Copier la sélection vers le presse-papier"
+msgstr ""
