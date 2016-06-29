@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-06-17 15:53+0000\n"
+"PO-Revision-Date: 2016-06-28 14:40+0000\n"
 "Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-18 05:15+0000\n"
-"X-Generator: Launchpad (build 18097)\n"
+"X-Launchpad-Export-Date: 2016-06-29 05:17+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -35,11 +35,11 @@ msgstr "Applicazioni"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
-msgstr "Visualizza come Griglia"
+msgstr "Visualizza come griglia"
 
 #: ../src/SlingshotView.vala:165
 msgid "View by Category"
-msgstr "Visualizza per Categoria"
+msgstr "Visualizza per categoria"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
