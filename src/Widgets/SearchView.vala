@@ -79,7 +79,7 @@ namespace Slingshot.Widgets {
                 if (sr.length () > 0) {
                     var di = (SearchItem)(sr.first ().data);
                     drag_uri = di.app_uri;
-                    if (drag_uri != null);
+                    if (drag_uri != null) {
                         dragging = true;
                         Gtk.drag_set_icon_gicon (ctx, di.icon.gicon, 0, 0);
                     }
