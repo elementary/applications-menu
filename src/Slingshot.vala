@@ -17,7 +17,6 @@
 //
 
 public class Slingshot.Slingshot : Wingpanel.Indicator {
-
     private SlingshotView? view = null;
 
     private Gtk.Label? indicator_label = null;
@@ -75,7 +74,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     public override void closed () {
         // TODO: Do we need to do anyhting here?
     }
-
 }
 
 public Wingpanel.Indicator get_indicator (Module module) {

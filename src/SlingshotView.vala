@@ -73,7 +73,7 @@ namespace Slingshot {
         private int primary_monitor = 0;
 
         Gdk.Screen screen;
-        
+
         public signal void close_indicator ();
 
         public SlingshotView () {
@@ -223,7 +223,6 @@ namespace Slingshot {
             } else if (event.x_root >= 1 || event.y_root >= 1) {
                 can_trigger_hotcorner = true;
             }
-
             return false;
         }
 
@@ -295,7 +294,7 @@ namespace Slingshot {
                     update_launcher_entry (sender_name, parameters, true);
                     return false;
                 });
-                
+
                 return;
             }
 
@@ -386,7 +385,7 @@ namespace Slingshot {
                 case "Return":
                 case "KP_Enter":
                     return false;
-                    
+
                 case "Alt_L":
                 case "Alt_R":
                     break;
@@ -781,6 +780,6 @@ namespace Slingshot {
             } else if (delta_column < 0 || delta_row < 0) {
                 search_entry.grab_focus ();
             }
-        }   
+        }
     }
 }
