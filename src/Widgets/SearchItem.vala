@@ -39,10 +39,9 @@ namespace Slingshot.Widgets {
         public Backend.App app { get; construct; }
         public ResultType result_type { public get; construct; }
 
-        public bool dragging = false; //prevent launching
-
         private Gtk.Label name_label;
-        private Gtk.Image icon;
+        public Gtk.Image icon { public get; private set; }
+        public string? app_uri { get; private set; }
         private Cancellable? cancellable = null;
 
         public SearchItem (Backend.App app, string search_term = "", ResultType result_type = ResultType.UNKNOWN) {
@@ -89,24 +88,14 @@ namespace Slingshot.Widgets {
 
             add (grid);
 
-            if (result_type != SearchItem.ResultType.APP_ACTIONS)
+            if (result_type != SearchItem.ResultType.APP_ACTIONS) {
                 launch_app.connect (app.launch);
+            }
 
+            app_uri = null;
             var app_match = app.match as Synapse.ApplicationMatch;
             if (app_match != null) {
-                Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-                Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-                Gdk.DragAction.COPY);
-                this.drag_begin.connect ( (ctx) => {
-                    this.dragging = true;
-                    Gtk.drag_set_icon_gicon (ctx, app.icon, 0, 0);
-                });
-                this.drag_end.connect ( () => {
-                    this.dragging = false;
-                });
-                this.drag_data_get.connect ( (ctx, sel, info, time) => {
-                    sel.set_uris ({File.new_for_path (app_match.filename).get_uri ()});
-                });
+                app_uri = File.new_for_path (app_match.filename).get_uri ();
             }
         }
 
