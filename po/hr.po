@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2015-11-27 18:45+0000\n"
-"Last-Translator: Ivan Vrljić <vrlja92@gmail.com>\n"
+"PO-Revision-Date: 2016-07-04 21:06+0000\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-05 05:13+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-07-05 05:16+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -23,11 +23,11 @@ msgstr "Pokreni naredbu..."
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "Indikator izbornika aplikacija"
 
 #: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
 msgid "Applications"
@@ -39,27 +39,27 @@ msgstr "Pogled ikona"
 
 #: ../src/SlingshotView.vala:165
 msgid "View by Category"
-msgstr "Kategorijski pregled"
+msgstr "Pogled kategorija"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
-msgstr "Pretaži aplikacije"
+msgstr "Pretraži aplikacije"
 
 #: ../src/Widgets/AppEntry.vala:235
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Ukloni s _doka"
 
 #: ../src/Widgets/AppEntry.vala:237
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Dodaj na _dok"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Pokušaj promijeniti izraz pretrage."
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Nema rezultata za “%s”"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
@@ -71,11 +71,11 @@ msgstr "Datoteke"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Actions"
-msgstr "Akcije"
+msgstr "Radnje"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Search"
-msgstr "Traži"
+msgstr "Pretraga"
 
 #: ../src/Widgets/SearchView.vala:186
 msgid "Contacts"
@@ -91,7 +91,7 @@ msgstr "Postavke"
 
 #: ../src/Widgets/SearchView.vala:195
 msgid "Application Actions"
-msgstr ""
+msgstr "Radnje aplikacije"
 
 #: ../src/Widgets/SearchView.vala:198
 msgid "Other"
@@ -107,39 +107,40 @@ msgstr "Stvori novi filter"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr "Suspenzija"
+msgstr "Suspendiraj"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Stavite svoje računalo u stanje suspenzije"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr "Hibernacija"
+msgstr "Hiberniraj"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr "Stavljanje računala u stanje hibernacije"
+msgstr "Stavite svoje računalo u stanje hibernacije"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Isključivanje"
+msgstr "Isključi"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr "Gašenje računala"
+msgstr "Isključite svoje računalo"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr "Ponovo pokreni"
+msgstr "Ponovno pokreni"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr "Ponovno pokretanje računala"
+msgstr "Ponovno pokrenite svoje računalo"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
 msgstr ""
+"Suspendirajte, hibernirajte, ponovno pokrenite ili isključite svoje računalo."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
@@ -147,27 +148,27 @@ msgstr "ConsoleKit nije pronađen"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Otvori %s u zadanom web pregledniku"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Otvori %s u %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Otvori ovu poveznicu u zadanom pregledniku"
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "Poveznica"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Otvori poveznicu u zadanom pregledniku"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr "Izvedi '%s'"
+msgstr "Pokreni '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
@@ -175,23 +176,23 @@ msgstr "Pokreni naredbu"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr "Nađi i pokreni proizvoljne naredbe."
+msgstr "Pronađi i pokreni proizvoljne naredbe."
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Otvori %s postavke"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Pronađi Switchboard priključke i otvori ih."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:140
 msgid "Search for and run applications on your computer."
-msgstr "Pretraga i pokretanje programa na računalu."
+msgstr "Pretraga i pokretanje aplikacija na vašem računalu."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
-msgstr "Otvori pomoću %s"
+msgstr "Otvori s %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
@@ -203,7 +204,7 @@ msgstr "Kalkulator"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr "Računanje temeljnih izraza."
+msgstr "Izračunavanje temeljnih izraza."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
@@ -215,7 +216,7 @@ msgstr "Pokreni"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr "Pokreni aplikaciju, akciju ili skriptu"
+msgstr "Pokreni aplikaciju, radnju ili skriptu"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
@@ -231,7 +232,7 @@ msgstr "Otvori"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr "Otvori koristeći  zadanu aplikaciju"
+msgstr "Otvori pomoću  zadane aplikacije"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
@@ -239,7 +240,7 @@ msgstr "Otvori mapu"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr "Otvori mapu s ovom datotekom"
+msgstr "Otvori mapu koja sadrži ovu datoteku"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
