@@ -82,6 +82,7 @@ namespace Slingshot.Widgets {
                     if (drag_uri != null) {
                         dragging = true;
                         Gtk.drag_set_icon_gicon (ctx, di.icon.gicon, 16, 16);
+                        app_launched ();
                     }
                 }
             });

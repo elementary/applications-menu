@@ -137,6 +137,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         this.drag_begin.connect ((ctx) => {
             this.dragging = true;
             Gtk.drag_set_icon_gicon (ctx, this.image.gicon, 16, 16);
+            app_launched ();
         });
 
         this.drag_end.connect ( () => {
