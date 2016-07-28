@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-06-22 12:22+0000\n"
-"Last-Translator: mporten <Unknown>\n"
+"PO-Revision-Date: 2016-07-27 14:55+0000\n"
+"Last-Translator: UweS <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-15 05:14+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"X-Launchpad-Export-Date: 2016-07-28 05:18+0000\n"
+"X-Generator: Launchpad (build 18153)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Keine Ergebnisse für »%s«"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
@@ -140,8 +140,8 @@ msgstr "Starten Sie Ihren Computer neu"
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
 msgstr ""
-"Computer in Bereitschaftsmodus oder Ruhezustand versetzen, Neu starten oder "
-"Herunterfahren."
+"Rechner in Bereitschaftsmodus oder Ruhezustand versetzen, neu starten oder "
+"herunterfahren."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
@@ -149,23 +149,23 @@ msgstr "ConsoleKit wurde nicht gefunden"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "%s im Standard-Internet-Browser öffnen"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "%s in %s öffnen"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Diesen Verweis im Standard-Browser öffnen"
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "Verweis"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Verweis im Standard-Browser öffnen"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
@@ -177,19 +177,19 @@ msgstr "Befehl ausführen"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr "Finden und führen Sie beliebige Befehle aus."
+msgstr "Beliebige Befehle suchen und ausführen"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr "Öffne %s Einstellungen"
+msgstr "%s Einstellungen öffnen"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr "Suche Switchboard-Plugs und öffne diese."
+msgstr "Switchboard-Plugs suchen und öffnen."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:140
 msgid "Search for and run applications on your computer."
-msgstr "Suchen und starten Sie Anwendungen auf Ihrem Computer."
+msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
@@ -205,7 +205,7 @@ msgstr "Taschenrechner"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr "Berechne Basisausdrücke."
+msgstr "Grundrechenarten"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
