@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-08-02 01:40+0000\n"
+"PO-Revision-Date: 2016-08-03 04:10+0000\n"
 "Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-02 05:16+0000\n"
+"X-Launchpad-Export-Date: 2016-08-03 05:15+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/Backend/App.vala:105
@@ -47,11 +47,11 @@ msgstr "アプリの検索"
 
 #: ../src/Widgets/AppEntry.vala:235
 msgid "Remove from _Dock"
-msgstr "ドックから削除(_D)"
+msgstr "ドックから削除 (_D)"
 
 #: ../src/Widgets/AppEntry.vala:237
 msgid "Add to _Dock"
-msgstr "ドックに追加(_D)"
+msgstr "ドックに追加 (_D)"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
@@ -59,7 +59,7 @@ msgstr "検索用語を変更してみてください。"
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr "\"%s\"は結果がありません。"
+msgstr "\"%s\" は結果がありません。"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
@@ -71,7 +71,7 @@ msgstr "ファイル"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Search"
@@ -103,7 +103,7 @@ msgstr "すべてのアプリケーション"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
-msgstr "新規フィルタを作成"
+msgstr "新しいフィルタを作成"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
@@ -143,15 +143,15 @@ msgstr "コンピューターをサスペンド・バイバネート・再起動
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKitが見つかりません"
+msgstr "ConsoleKit が見つかりません"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr "デフォルトWebブラウザで%sを開く"
+msgstr "デフォルト Web ブラウザで %s を開く"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "%s を %s で開く"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
@@ -167,7 +167,7 @@ msgstr "リンクをデフォルトブラウザで開く"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr "'%s'を実行"
+msgstr "'%s' を実行"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
@@ -179,7 +179,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr "%s設定を開く"
+msgstr "%s 設定を開く"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
@@ -191,7 +191,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
-msgstr "%sで開く"
+msgstr "%s で開く"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
@@ -207,7 +207,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr "bcはインストールされていません"
+msgstr "bc はインストールされていません"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
