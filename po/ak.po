@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-06-27 16:49+0000\n"
+"PO-Revision-Date: 2016-08-03 19:10+0000\n"
 "Last-Translator: laberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <ak@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-15 05:14+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"X-Launchpad-Export-Date: 2016-08-04 05:19+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -39,7 +39,7 @@ msgstr "Hwɛ Bɔ Mu"
 
 #: ../src/SlingshotView.vala:165
 msgid "View by Category"
-msgstr ""
+msgstr "Hwɛ No Akuoakuo"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
@@ -55,7 +55,7 @@ msgstr "Fa hyɛ _Dock no mu."
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr "Sesa nsɛm a wobɔ de hwehwɛ biribi"
+msgstr "Sesa nsɛm a wobɔ de hwehwɛ biribi no hwɛ"
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
@@ -91,7 +91,7 @@ msgstr "Nhyehyeɛ"
 
 #: ../src/Widgets/SearchView.vala:195
 msgid "Application Actions"
-msgstr "Dwumadi Dwuma Ahoroɔ"
+msgstr "Dwumadi Yi Ho Dwuma Ahoroɔ"
 
 #: ../src/Widgets/SearchView.vala:198
 msgid "Other"
@@ -111,15 +111,15 @@ msgstr "Twe san"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Twe wo kɔmputa no san"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernate"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Fa wo kɔmputa no to hibernation mode"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
@@ -127,119 +127,119 @@ msgstr "Dum No"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr "Dum Computer No"
+msgstr "Dum kɔmputa no"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr "Dum Sɔ"
+msgstr "Dum sɔ"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr "Dum computer no na san sɔ"
+msgstr "Dum kɔmputa no na san sɔ"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr ""
+msgstr "Twe san, hibernate, dum sɔ anaa dum wo kɔmputa no."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "Ɛnhu ConsoleKit"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Bue %s wɔ wo Intanɛt browser no mu"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Bue %s wɔ %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Bue link wei wɔ wo Intanɛt browser no mu"
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Bue link no wɔ wo Intanɛt browser no mu"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Fa '%s' di dwuma"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Fa command di dwuma"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Hwehwɛ command bi  a wɔtaa de di dwuma na fa di dwuma."
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Bue %s nhyehyɛeɛ"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Hwehwɛ switchboard plugs bi na bue"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:140
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Hwehwɛ dwumadi bi wɔ wo kɔmputa no so na fa di dwuma."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
-msgstr ""
+msgstr "Fa %s bue"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Fa %s bue nhyehyɛeɛ a ɛwɔ hɔ sesei"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Kakuleta"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Kakulete biribi."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc nni wo kɔmputa no so"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Fa di dwuma"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Fa dwumadi, dwuma anaa script bi di dwuma."
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Fa di dwuma wɔ Terminal no mu"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Fa dwumadi anaa command bi di dwuma wɔ terminal mu"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Bue"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Fa dwumadi a wahyɛ ama no no di dwuma"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Bue folder"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Bue folder a file yi wɔ mu no"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
