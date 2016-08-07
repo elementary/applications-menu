@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2015-09-25 14:39+0000\n"
+"PO-Revision-Date: 2016-08-06 10:19+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-15 05:14+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"X-Launchpad-Export-Date: 2016-08-07 05:15+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -23,11 +23,11 @@ msgstr "執行此指令…"
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "程式選單指示器"
 
 #: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
 msgid "Applications"
@@ -55,11 +55,11 @@ msgstr "加到 _Dock 中"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr ""
+msgstr "嘗試搜尋其他字詞。"
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "找不到「%s」的結果"
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
@@ -91,7 +91,7 @@ msgstr "設定值"
 
 #: ../src/Widgets/SearchView.vala:195
 msgid "Application Actions"
-msgstr ""
+msgstr "應用程式動作"
 
 #: ../src/Widgets/SearchView.vala:198
 msgid "Other"
@@ -147,23 +147,23 @@ msgstr "找不到 ConsoleKit"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "在預設網路瀏覽器中開啟 %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "在 %2$s 中開啟 %1$s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "在預設瀏覽器中開啟此連結"
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "連結"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr ""
+msgstr "在預設瀏覽器中開啟連結"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
