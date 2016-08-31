@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2016-08-06 11:18+0000\n"
+"PO-Revision-Date: 2016-08-31 01:47+0000\n"
 "Last-Translator: Ryo Nakano <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-22 05:14+0000\n"
-"X-Generator: Launchpad (build 18176)\n"
+"X-Launchpad-Export-Date: 2016-08-31 05:47+0000\n"
+"X-Generator: Launchpad (build 18179)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
@@ -183,11 +183,11 @@ msgstr "%s 設定を開く"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "システム設定の項目を探してそれらを開いてください。"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:140
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "コンピューター上のアプリケーションを検索して実行してください。"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
@@ -195,7 +195,7 @@ msgstr "%s で開く"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "現在選択しているものを %s を使用して開く"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
@@ -203,7 +203,7 @@ msgstr "計算機"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "基本的な表現を計算します。"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
@@ -215,7 +215,7 @@ msgstr "実行"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "アプリケーション、アクションやスクリプトを実行します"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
