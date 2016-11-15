@@ -44,7 +44,6 @@ namespace Slingshot {
         public Gtk.Grid container;
         public Gtk.Stack main_stack;
         public Gtk.Box content_area;
-        private Gtk.EventBox event_box;
 
         public Backend.AppSystem app_system;
         private Gee.ArrayList<GMenu.TreeDirectory> categories;
@@ -203,11 +202,9 @@ namespace Slingshot {
             container.attach (top, 0, 0, 1, 1);
             container.attach (stack, 0, 1, 1, 1);
 
-            event_box = new Gtk.EventBox ();
-            event_box.add (container);
             // Add the container to the dialog's content area
 
-            this.add (event_box);
+            this.add (container);
 
             if (Slingshot.settings.use_category)
                 set_modality (Modality.CATEGORY_VIEW);
@@ -232,8 +229,6 @@ namespace Slingshot {
                 return false;
             });
 
-            event_box.key_press_event.connect (on_key_press);
-            search_entry.key_press_event.connect (on_key_press);
             // Showing a menu reverts the effect of the grab_device function.
             search_entry.search_changed.connect (() => {
                 if (modality != Modality.SEARCH_VIEW)
@@ -343,15 +338,7 @@ namespace Slingshot {
             }
         }
 
-        /*
-          Overriding the default handler results in infinite loop of error messages
-          when an input method is in use (Gtk3 bug?).  Key press events are
-          captured by an Event Box and passed to this function instead.
-
-          Events not dealt with here are propagated to the search_entry by the
-          usual mechanism.
-        */
-        public bool on_key_press (Gdk.EventKey event) {
+        public override bool key_press_event (Gdk.EventKey event) {
             var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
             event.state &= (Gdk.ModifierType.SHIFT_MASK |
@@ -562,7 +549,7 @@ namespace Slingshot {
                     if (!search_entry.has_focus) {
                         search_entry.grab_focus ();
                         search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
-                        search_entry.key_press_event (event);
+                        search_entry.im_context_filter_keypress (event);
                     }
                     return false;
 
