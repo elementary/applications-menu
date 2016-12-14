@@ -1,0 +1,251 @@
+# Uyghur translation for slingshot
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# This file is distributed under the same license as the slingshot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: slingshot\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2016-05-04 02:13-0500\n"
+"PO-Revision-Date: 2016-12-13 16:36+0000\n"
+"Last-Translator: ablimet <Unknown>\n"
+"Language-Team: Uyghur <ug@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-12-14 04:31+0000\n"
+"X-Generator: Launchpad (build 18293)\n"
+"Language: ug\n"
+
+#: ../src/Backend/App.vala:105
+msgid "Run this command…"
+msgstr "بۇ كوماندىنى ئىجرا قىلىش...."
+
+#: ../src/Slingshot.vala:32
+msgid "Slingshot"
+msgstr "ئەپ"
+
+#: ../src/Slingshot.vala:33
+msgid "The app-menu indicator"
+msgstr "ئەپ تىزىملىكى كۆرسەتكۈچى"
+
+#: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
+msgid "Applications"
+msgstr "ئەپلەر"
+
+#: ../src/SlingshotView.vala:161
+msgid "View as Grid"
+msgstr "كاتەكچە شەكلىدە كۆرۈش"
+
+#: ../src/SlingshotView.vala:165
+msgid "View by Category"
+msgstr "تۈرلەر بويىچە كۆرۈش"
+
+#: ../src/SlingshotView.vala:174
+msgid "Search Apps"
+msgstr "ئەپلەرنى ئىزدەش"
+
+#: ../src/Widgets/AppEntry.vala:235
+msgid "Remove from _Dock"
+msgstr "Dock تىن چىقىرىۋىتىش"
+
+#: ../src/Widgets/AppEntry.vala:237
+msgid "Add to _Dock"
+msgstr "Dock قا قىتىش"
+
+#: ../src/Widgets/SearchView.vala:61
+msgid "Try changing search terms."
+msgstr "ئىزدەش مەزمۇنىنى ئۆزگەرتىش"
+
+#: ../src/Widgets/SearchView.vala:105
+msgid "No Results for “%s”"
+msgstr "“%s” نىڭ ئىزدەش نەتىجىسى تىپىلمىدى."
+
+#: ../src/Widgets/SearchView.vala:170
+msgid "Text"
+msgstr "تېكىست"
+
+#: ../src/Widgets/SearchView.vala:176
+msgid "Files"
+msgstr "ھۆججەتلەر"
+
+#: ../src/Widgets/SearchView.vala:180
+msgid "Actions"
+msgstr "ھەركەتلەر"
+
+#: ../src/Widgets/SearchView.vala:183
+msgid "Search"
+msgstr "ئىزدەش"
+
+#: ../src/Widgets/SearchView.vala:186
+msgid "Contacts"
+msgstr "ئالاقىلاشقۇچىلار"
+
+#: ../src/Widgets/SearchView.vala:189
+msgid "Internet"
+msgstr "ئېنتىرنىت"
+
+#: ../src/Widgets/SearchView.vala:192
+msgid "Settings"
+msgstr "تەڭشەكلەر"
+
+#: ../src/Widgets/SearchView.vala:195
+msgid "Application Actions"
+msgstr "ئەپ ھەركەتلىرى"
+
+#: ../src/Widgets/SearchView.vala:198
+msgid "Other"
+msgstr "باشقا"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "بارلىق ئەپلەر"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "يىڭى سۈزگۈچ قۇرۇش"
+
+#: ../lib/synapse-plugins/system-managment.vala:103
+msgid "Suspend"
+msgstr "ئىسىش"
+
+#: ../lib/synapse-plugins/system-managment.vala:104
+msgid "Put your computer into suspend mode"
+msgstr "كومپىيۇتىرىڭىزنى ئىسىش ھالىتىگە كىرگۈزۈڭ"
+
+#: ../lib/synapse-plugins/system-managment.vala:203
+msgid "Hibernate"
+msgstr "ئۇخلىتىش"
+
+#: ../lib/synapse-plugins/system-managment.vala:204
+msgid "Put your computer into hibernation mode"
+msgstr "كومپىيۇتىرىڭىزنى ئۇخلىتىش ھالىتىگە كىرگۈزۈڭ"
+
+#: ../lib/synapse-plugins/system-managment.vala:302
+msgid "Shut Down"
+msgstr "تاقاش"
+
+#: ../lib/synapse-plugins/system-managment.vala:303
+msgid "Turn your computer off"
+msgstr "كومپىيۇتىرىڭىزنى تاقاڭ"
+
+#: ../lib/synapse-plugins/system-managment.vala:386
+msgid "Restart"
+msgstr "قايتا قوزغىتىش"
+
+#: ../lib/synapse-plugins/system-managment.vala:387
+msgid "Restart your computer"
+msgstr "كومپىيۇتىرىڭىزنى قايتا قوزغىتىڭ"
+
+#: ../lib/synapse-plugins/system-managment.vala:471
+msgid "Suspend, hibernate, restart or shutdown your computer."
+msgstr "كومپىيۇتىرىڭىزنى ئىسىپ قويۇڭ، ئۇخلىتىڭ، قايتا قوزغىتىڭ ياكى تاقاڭ."
+
+#: ../lib/synapse-plugins/system-managment.vala:476
+msgid "ConsoleKit wasn't found"
+msgstr "كونترول سەھنىسى تىپىلمىدى"
+
+#: ../lib/synapse-plugins/link-plugin.vala:56
+msgid "Open %s in default web browser"
+msgstr "“%s” نورمال توركۆرگۈچتە ئىچىڭ"
+
+#: ../lib/synapse-plugins/link-plugin.vala:62
+msgid "Open %s in %s"
+msgstr "%s نى %s دا ئىچىڭ"
+
+#: ../lib/synapse-plugins/link-plugin.vala:68
+msgid "Open this link in default browser"
+msgstr "بۇ ئۇلىنىشنى نورمالدىكى توركۆرگۈچتە ئىچىڭ"
+
+#: ../lib/synapse-plugins/link-plugin.vala:95
+msgid "Link"
+msgstr "ئۇلانما"
+
+#: ../lib/synapse-plugins/link-plugin.vala:96
+msgid "Open link in default browser"
+msgstr "ئۇلىنىشنى نورمالدىكى توركۆرگۈچتە ئىچىڭ"
+
+#: ../lib/synapse-plugins/command-plugin.vala:56
+msgid "Execute '%s'"
+msgstr "'%s' نى ئىجرا قىلىش"
+
+#: ../lib/synapse-plugins/command-plugin.vala:56
+msgid "Run command"
+msgstr "كوماندىنى ئىجرا قىلىش"
+
+#: ../lib/synapse-plugins/command-plugin.vala:77
+msgid "Find and execute arbitrary commands."
+msgstr "خالىغان كوماندىنى ئىزدەڭ ياكى ئىجرا قىلىڭ."
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:55
+msgid "Open %s settings"
+msgstr "%s تەڭشەكلىرىنى ئىچىش"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:71
+msgid "Find switchboard plugs and open them."
+msgstr "يۆتكەش تاختىسى قىستۇرمىلىرىنى ئىزدەڭ ۋە ئىچىڭ."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
+msgid "Search for and run applications on your computer."
+msgstr "كومپىيۇتىرىڭىزدىكى ئەپلەرنى تىپىڭ ۋە ئىجرا قىلىڭ."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:365
+msgid "Open with %s"
+msgstr "%s بىلەن ئىچىڭ"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:367
+msgid "Opens current selection using %s"
+msgstr "ھازىرقى تاللاشنى %s ئىچىڭ"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "ھىسابلىغۇچ"
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:64
+msgid "Calculate basic expressions."
+msgstr "ئاددىي ئىپادىلەرنى ھىسابلاش."
+
+#: ../lib/synapse-plugins/calculator-plugin.vala:68
+msgid "bc is not installed"
+msgstr "bc ئورنىتىلمىغان"
+
+#: ../lib/synapse-core/common-actions.vala:77
+msgid "Run"
+msgstr "ئىجرا قىلىش"
+
+#: ../lib/synapse-core/common-actions.vala:78
+msgid "Run an application, action or script"
+msgstr "بىر ئەپنى، ھەركەتنى، ياكى پروگراممىنى ئىجرا قىلىڭ"
+
+#: ../lib/synapse-core/common-actions.vala:133
+msgid "Run in Terminal"
+msgstr "تېرمىنالدا ئىجرا قىلىش"
+
+#: ../lib/synapse-core/common-actions.vala:134
+msgid "Run application or command in terminal"
+msgstr "ئەپ ياكى كوماندىنى تېرمىنالدا ئىجرا قىلىش"
+
+#: ../lib/synapse-core/common-actions.vala:182
+msgid "Open"
+msgstr "ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:183
+msgid "Open using default application"
+msgstr "نورمالدىكى ئەپ بىلەن ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:252
+msgid "Open folder"
+msgstr "مۇندەرىجىنى ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:253
+msgid "Open folder containing this file"
+msgstr "بۇ ھۆججەتنى ئۆزئىچىگە ئالغان مۇندەرىجىنى ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:293
+msgid "Copy to Clipboard"
+msgstr "چاپلاش تاختىسىغا كۆچۈرۈش"
+
+#: ../lib/synapse-core/common-actions.vala:294
+msgid "Copy selection to clipboard"
+msgstr "تاللانغان تۈرنى چاپلاش تاختىسىغا كۆچۈرۈش"
