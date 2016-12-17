@@ -8,243 +8,243 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:13-0500\n"
-"PO-Revision-Date: 2011-12-30 09:36+0000\n"
-"Last-Translator: rodislav <rodearo@yahoo.com>\n"
+"PO-Revision-Date: 2016-12-16 09:28+0000\n"
+"Last-Translator: Marius Albina <marius.albina@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-11-29 04:32+0000\n"
-"X-Generator: Launchpad (build 18282)\n"
+"X-Launchpad-Export-Date: 2016-12-17 04:34+0000\n"
+"X-Generator: Launchpad (build 18298)\n"
 
 #: ../src/Backend/App.vala:105
 msgid "Run this command…"
-msgstr ""
+msgstr "Rulează această comandă..."
 
 #: ../src/Slingshot.vala:32
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:33
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "Meniu indicator aplicație"
 
 #: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
 msgid "Applications"
-msgstr ""
+msgstr "Aplicații"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
-msgstr ""
+msgstr "Arată ca grilă"
 
 #: ../src/SlingshotView.vala:165
 msgid "View by Category"
-msgstr ""
+msgstr "Vizualizează după categorie"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
-msgstr ""
+msgstr "Caută aplicații"
 
 #: ../src/Widgets/AppEntry.vala:235
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Elimină din _Dock"
 
 #: ../src/Widgets/AppEntry.vala:237
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Adaugă în_Dock"
 
 #: ../src/Widgets/SearchView.vala:61
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Schimbă termenii căutării."
 
 #: ../src/Widgets/SearchView.vala:105
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Nu sunt rezultate pentu \"%s\""
 
 #: ../src/Widgets/SearchView.vala:170
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/Widgets/SearchView.vala:176
 msgid "Files"
-msgstr ""
+msgstr "Fișiere"
 
 #: ../src/Widgets/SearchView.vala:180
 msgid "Actions"
-msgstr ""
+msgstr "Acțiuni"
 
 #: ../src/Widgets/SearchView.vala:183
 msgid "Search"
-msgstr ""
+msgstr "Căutare"
 
 #: ../src/Widgets/SearchView.vala:186
 msgid "Contacts"
-msgstr ""
+msgstr "Contacte"
 
 #: ../src/Widgets/SearchView.vala:189
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:192
 msgid "Settings"
-msgstr ""
+msgstr "Setări"
 
 #: ../src/Widgets/SearchView.vala:195
 msgid "Application Actions"
-msgstr ""
+msgstr "Acțiunile aplicației"
 
 #: ../src/Widgets/SearchView.vala:198
 msgid "Other"
-msgstr ""
+msgstr "Altele"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr "Toate aplicațiile"
+msgstr "Toate aplicaţiile"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
-msgstr ""
+msgstr "Crează un nou Filtru"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendă"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Suspendă calculatorul"
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernează"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Pune calculatorul în hibernare"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Închide"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Oprește calculatorul"
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Reporneşte"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
-msgstr ""
+msgstr "Repornește calculatorul"
 
 #: ../lib/synapse-plugins/system-managment.vala:471
 msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr ""
+msgstr "Suspendă, hibernează, repornește sau oprește calculatorul."
 
 #: ../lib/synapse-plugins/system-managment.vala:476
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit nu a fost găsit"
 
 #: ../lib/synapse-plugins/link-plugin.vala:56
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Deschide %s în navigatorul implicit"
 
 #: ../lib/synapse-plugins/link-plugin.vala:62
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Deschide %s in %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:68
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Deschide acestă legătură în navigatorul implicit"
 
 #: ../lib/synapse-plugins/link-plugin.vala:95
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: ../lib/synapse-plugins/link-plugin.vala:96
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Deschide legătura în navigatorul implicit"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Execută '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:56
 msgid "Run command"
-msgstr ""
+msgstr "Rulează comandă"
 
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Găseşte şi execută comenzi arbitrare."
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:55
 msgid "Open %s settings"
-msgstr ""
+msgstr "Deschide setările %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:71
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Găseste comutatoarele și deschide-le"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:140
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Caută și execută aplicații pe calculator."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:365
 msgid "Open with %s"
-msgstr ""
+msgstr "Deschide cu %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:367
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Deschide selecția curentă folosind %s"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:63
 msgid "Calculator"
-msgstr ""
+msgstr "Calculator"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:64
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Calculează expresii de bază"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:68
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc nu este instalat"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
-msgstr ""
+msgstr "Execută"
 
 #: ../lib/synapse-core/common-actions.vala:78
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Rulează o aplicaţie, acţiune sau script"
 
 #: ../lib/synapse-core/common-actions.vala:133
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Execută în terminal"
 
 #: ../lib/synapse-core/common-actions.vala:134
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Rulează aplicaţia sau comanda în terminal"
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Deschide"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Deschide utilizând aplicația implicită"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Deschide dosarul"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Deschide dosarul care conține acest fișier"
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiază în memorie"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Copiază zona selectată în memorie"
