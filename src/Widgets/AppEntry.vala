@@ -60,6 +60,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
     }
 
+    private const int ICON_SIZE = 64;
+
 #if HAS_PLANK_0_11
     private const int SURFACE_SIZE = 48;
     private static Plank.DockTheme plank_theme = new Plank.DockTheme ("Gtk+");
@@ -97,14 +99,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         image = new Gtk.Image ();
         image.gicon = app.icon;
-        image.pixel_size = 64;
+        image.pixel_size = ICON_SIZE;
         image.margin_top = 12;
 
         count_image = new Gtk.Image ();
         count_image.no_show_all = true;
         count_image.visible = false;
-        count_image.margin_start = 18;
-        count_image.margin_bottom = 12;
+        count_image.margin_start = ICON_SIZE - SURFACE_SIZE;
+        count_image.margin_bottom = ICON_SIZE - SURFACE_SIZE;
 
         var overlay = new Gtk.Overlay ();
         overlay.add (image);
