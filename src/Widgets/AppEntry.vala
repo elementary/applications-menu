@@ -53,6 +53,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
 #if HAS_PLANK
     static construct {
+        Plank.Paths.initialize ("plank", Build.PKGDATADIR);
+        plank_theme = new Plank.DockTheme (Plank.Theme.GTK_THEME_NAME);
 #if HAS_PLANK_0_11
         plank_client = Plank.DBusClient.get_instance ();
 #else
@@ -64,7 +66,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
 #if HAS_PLANK_0_11
     private const int SURFACE_SIZE = 48;
-    private static Plank.DockTheme plank_theme = new Plank.DockTheme ("Gtk+");
+    private static Plank.DockTheme plank_theme;
 
     private static Plank.DBusClient plank_client;
 #else
