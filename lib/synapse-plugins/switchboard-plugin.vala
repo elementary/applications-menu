@@ -99,14 +99,12 @@ public class SwitchboardPlugin : Object, Activatable, ItemProvider {
 
         foreach (var plug in Switchboard.PlugsManager.get_default ().get_plugs ()) {
             var settings = plug.supported_settings;
-            if (settings == null) {
+            if (settings == null || settings.size <= 0) {
               continue;
             }
 
-            string? uri = settings.keys.to_array ()[0];
-            if (uri != null) {
-              plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
-            }
+            string uri = settings.keys.to_array ()[0];
+            plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
         }
 
         loading_in_progress = false;
