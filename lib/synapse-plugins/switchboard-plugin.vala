@@ -36,7 +36,7 @@ public class SwitchboardPlugin : Object, Activatable, ItemProvider {
 
     }
 
-    public class SwitchboardObject: Object, Match, ApplicationMatch {
+    public class SwitchboardObject: Object, Match {
       // for Match interface
       public string title { get; construct set; }
       public string description { get; set; default = ""; }
@@ -45,22 +45,16 @@ public class SwitchboardPlugin : Object, Activatable, ItemProvider {
       public string thumbnail_path { get; construct set; }
       public MatchType match_type { get; construct set; }
 
-      // for ApplicationMatch
-      public AppInfo? app_info { get; set; default = null; }
-      public bool needs_terminal { get; set; default = false; }
-      public string? filename { get; construct set; default = null; }
       public string plug { get; construct set; }
+      public string uri { get; construct set; }
 
       public SwitchboardObject (PlugInfo plug_info) {
         Object (title: plug_info.title, description: _ ("Open %s settings").printf (plug_info.title),
-                plug: plug_info.code_name, icon_name: plug_info.icon, match_type: MatchType.APPLICATION);
+                plug: plug_info.code_name, icon_name: plug_info.icon, match_type: MatchType.APPLICATION, uri: plug_info.uri);
+      }
 
-        try {
-            var cmd = "/usr/bin/switchboard -o %s".printf (plug_info.code_name);
-            app_info = AppInfo.create_from_commandline (cmd, null, 0);
-        } catch (Error err) {
-            warning ("%s", err.message);
-        }
+      public void execute (Match? match) {
+        Gtk.show_uri (null, "settings://%s".printf (uri), Gdk.CURRENT_TIME);
       }
     }
 
@@ -88,9 +82,10 @@ public class SwitchboardPlugin : Object, Activatable, ItemProvider {
         public string title { get; construct set; }
         public string code_name { get; construct set; }
         public string icon { get; construct set; }
+        public string uri { get; construct set; }
 
-        public PlugInfo (string plug_title, string code_name, string icon) {
-          Object (title: plug_title, code_name: code_name, icon: icon);
+        public PlugInfo (string plug_title, string code_name, string icon, string uri) {
+          Object (title: plug_title, code_name: code_name, icon: icon, uri: uri);
         }
     }
 
@@ -103,8 +98,17 @@ public class SwitchboardPlugin : Object, Activatable, ItemProvider {
         yield;
 
         foreach (var plug in Switchboard.PlugsManager.get_default ().get_plugs ()) {
-            plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon));
+            var settings = plug.supported_settings;
+            if (settings == null) {
+              continue;
+            }
+
+            string? uri = settings.keys.to_array ()[0];
+            if (uri != null) {
+              plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
+            }
         }
+
         loading_in_progress = false;
         load_complete ();
     }
