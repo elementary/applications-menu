@@ -53,10 +53,15 @@ namespace Slingshot.Widgets {
             list_box.row_activated.connect ((row) => {
                 var search_item = row as SearchItem;
                 if (!dragging) {
-                    if (search_item.result_type == SearchItem.ResultType.APP_ACTIONS || search_item.result_type == SearchItem.ResultType.LINK) {
-                        search_item.app.match.execute (null);
-                    } else {
-                        search_item.app.launch ();
+                    switch (search_item.result_type) {
+                        case SearchItem.ResultType.APP_ACTIONS:
+                        case SearchItem.ResultType.LINK:
+                        case SearchItem.ResultType.SETTINGS:
+                            search_item.app.match.execute (null);    
+                            break;
+                        default:
+                            search_item.app.launch ();
+                            break;
                     }
 
                     app_launched ();
