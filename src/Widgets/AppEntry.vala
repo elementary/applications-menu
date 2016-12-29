@@ -103,9 +103,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         tooltip_text = app.description;
 
         appstream_pool.get_components ().foreach ((comp) => {
-            if (desktop_id == comp.get_desktop_id () && comp.get_pkgname () != null) {
+            if (appstream_comp_id == null && desktop_id == comp.get_desktop_id () && comp.get_pkgname () != null) {
                 appstream_comp_id = comp.get_id ();
-                return;
             }
         });
 
