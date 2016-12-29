@@ -270,17 +270,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         try {
             Gtk.show_uri (null, "appstream://%s".printf (appstream_comp_id), Gdk.CURRENT_TIME);
         } catch (Error e) {
-            var message_dialog = new Gtk.MessageDialog (null,
-                                                        0,
-                                                        Gtk.MessageType.ERROR,
-                                                        Gtk.ButtonsType.CLOSE,
-                                                        _("%s Cannot Be Uninstalled"),
-                                                        app_name);
-            message_dialog.deletable = false;
-            message_dialog.skip_taskbar_hint = true;
-            message_dialog.skip_pager_hint = true;
-            message_dialog.response.connect (() => message_dialog.destroy ());
-            message_dialog.show_all ();
+            warning (e.message);
         }
 
         app_launched ();
