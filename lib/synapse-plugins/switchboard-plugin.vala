@@ -54,7 +54,11 @@ public class SwitchboardPlugin : Object, Activatable, ItemProvider {
       }
 
       public void execute (Match? match) {
-        Gtk.show_uri (null, "settings://%s".printf (uri), Gdk.CURRENT_TIME);
+        try {
+          Gtk.show_uri (null, "settings://%s".printf (uri), Gdk.CURRENT_TIME);
+        } catch (Error e) {
+          warning ("Failed to show URI for %s: %s\n".printf (uri, e.message));
+        }
       }
     }
 
