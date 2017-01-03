@@ -191,25 +191,17 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
 
     private void create_menu () {
-        // Display the apps static quicklist items in a popover menu
-        if (application.actions == null) {
-            try {
-                application.init_actions ();
-            } catch (KeyFileError e) {
-                critical ("%s: %s", desktop_path, e.message);
-            }
-        }
-
         menu = new Gtk.Menu ();
 
-        foreach (var action in application.actions) {
-            var menuitem = new Gtk.MenuItem.with_mnemonic (action);
+        var app_info = new DesktopAppInfo (desktop_id);
+        foreach (unowned string _action in app_info.list_actions ()) {
+            string action = _action.dup ();
+            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
             menu.add (menuitem);
 
             menuitem.activate.connect (() => {
                 try {
-                    var values = application.actions_map.get (action).split (";;");
-                    AppInfo.create_from_commandline (values[0], null, AppInfoCreateFlags.NONE).launch (null, null);
+                    app_info.launch_action (action, new AppLaunchContext ());
                     app_launched ();
                 } catch (Error e) {
                     critical ("%s: %s", desktop_path, e.message);
