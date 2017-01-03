@@ -1,3 +1,9 @@
+slingshot-launcher (2.0.1) xenial; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Mon, 02 Jan 2017 19:41:52 -0600
+
 slingshot-launcher (2.0) xenial; urgency=medium
 
   * New upstream release.
