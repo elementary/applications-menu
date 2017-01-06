@@ -343,20 +343,8 @@ namespace Slingshot {
             }
         }
 
-        /*
-          Overriding the default handler results in infinite loop of error messages
-          when an input method is in use (Gtk3 bug?).  Key press events are
-          captured by an Event Box and passed to this function instead.
-
-          Events not dealt with here are propagated to the search_entry by the
-          usual mechanism.
-        */
         public bool on_key_press (Gdk.EventKey event) {
             var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
-
-            event.state &= (Gdk.ModifierType.SHIFT_MASK |
-                            Gdk.ModifierType.MOD1_MASK |
-                            Gdk.ModifierType.CONTROL_MASK);
 
             if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
                 (key == "1" || key == "2")) {
