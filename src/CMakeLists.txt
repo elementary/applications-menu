@@ -44,8 +44,11 @@ OPTIONS
 
 add_definitions(${DEPS_CFLAGS})
 
+include (GResource)
+glib_compile_resources (GLIB_RESOURCES_ICONS SOURCE ../data/icons.gresource.xml)
+
 # Library
-add_library (${CMAKE_PROJECT_NAME} MODULE ${VALA_C})
+add_library (${CMAKE_PROJECT_NAME} MODULE ${VALA_C} ${GLIB_RESOURCES_ICONS})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${DEPS_LIBRARIES})
 
 target_link_libraries(${CMAKE_PROJECT_NAME} synapse-plugins)
