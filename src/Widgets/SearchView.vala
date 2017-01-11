@@ -151,7 +151,7 @@ namespace Slingshot.Widgets {
 
                 stack.set_visible_child_name ("results");
             } else {
-                alert_view.title = _("No Results for “%s”".printf (search_term));
+                alert_view.title = _("No Results for “%s”").printf (search_term);
                 stack.set_visible_child_name ("alert");
             }
 
