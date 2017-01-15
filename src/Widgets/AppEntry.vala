@@ -200,12 +200,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             menu.add (menuitem);
 
             menuitem.activate.connect (() => {
-                try {
-                    app_info.launch_action (action, new AppLaunchContext ());
-                    app_launched ();
-                } catch (Error e) {
-                    critical ("%s: %s", desktop_path, e.message);
-                }
+                app_info.launch_action (action, new AppLaunchContext ());
+                app_launched ();
             });
         }
 

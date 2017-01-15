@@ -75,7 +75,7 @@ namespace Synapse
     public EnvironmentType show_in { get; set; default = EnvironmentType.ALL; }
 
     private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
-    private static const string GROUP = "Desktop Entry";
+    private const string GROUP = "Desktop Entry";
 
     public DesktopFileInfo.for_keyfile (string path, KeyFile keyfile,
                                         string desktop_id)
