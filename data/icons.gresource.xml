@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/pantheon/slingshot/icons">
+    <file alias="pager-checked-symbolic.svg" compressed="true" preprocess="xml-stripblanks">pager-checked-symbolic.svg</file>
+    <file alias="view-filter-symbolic.svg" compressed="true" preprocess="xml-stripblanks">view-filter-symbolic.svg</file>
+    <file alias="view-filter-symbolic-rtl.svg" compressed="true" preprocess="xml-stripblanks">view-filter-symbolic-rtl.svg</file>
+  </gresource>
+</gresources>

@@ -32,6 +32,11 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         description:_("The app-menu indicator"));
     }
 
+    construct {
+        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+        default_theme.add_resource_path ("/org/pantheon/slingshot/icons");
+    }
+
     void on_close_indicator () {
         close ();
     }

@@ -19,6 +19,19 @@
 
 public class Slingshot.Widgets.Switcher : Gtk.Box {
 
+    const string SWITCHER_STYLE_CSS = """
+        .switcher {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            opacity: 0.4;
+        }
+
+        .switcher:checked {
+            opacity: 1;
+        }
+    """;
+
     public int size {
         get {
             return (int) buttons.size;
@@ -38,6 +51,16 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
         pack_end (new Gtk.Grid (), true, true, 0);
     }
 
+    construct {
+        var provider = new Gtk.CssProvider ();
+        try {
+            provider.load_from_data (SWITCHER_STYLE_CSS, SWITCHER_STYLE_CSS.length);
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (Error e) {
+            critical (e.message);
+        }
+    }
+
     public void set_stack (Gtk.Stack stack) {
         if (this.stack != null) {
             clear_children ();
@@ -49,9 +72,9 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
     }
 
     private void add_child (Gtk.Widget widget) {
-        var button = new Gtk.ToggleButton.with_label ((buttons.size +1).to_string ());
-        button.width_request = 30;
-        button.can_focus = false;
+        var button = new Gtk.ToggleButton ();
+        button.image = new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU);
+        button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         button.get_style_context ().add_class ("switcher");
         button.button_release_event.connect (() => {
             foreach (var entry in buttons.entries) {
