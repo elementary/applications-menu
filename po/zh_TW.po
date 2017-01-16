@@ -7,31 +7,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-04 02:13-0500\n"
+"POT-Creation-Date: 2017-01-16 00:01+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-08 05:22+0000\n"
+"X-Launchpad-Export-Date: 2017-01-16 05:24+0000\n"
 "X-Generator: Launchpad (build 18302)\n"
 
-#: ../src/Backend/App.vala:105
-msgid "Run this command…"
-msgstr "執行此指令…"
+#: ../src/Widgets/SearchView.vala:110
+msgid "Try changing search terms."
+msgstr "嘗試搜尋其他字詞。"
 
-#: ../src/Slingshot.vala:32
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../src/Widgets/SearchView.vala:154
+msgid "No Results for “%s”"
+msgstr "找不到「%s」的結果"
 
-#: ../src/Slingshot.vala:33
-msgid "The app-menu indicator"
-msgstr "程式選單指示器"
+#: ../src/Widgets/SearchView.vala:219
+msgid "Text"
+msgstr "文字"
 
-#: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
+#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
 msgid "Applications"
 msgstr "應用程式"
+
+#: ../src/Widgets/SearchView.vala:225
+msgid "Files"
+msgstr "檔案"
+
+#: ../src/Widgets/SearchView.vala:229
+msgid "Actions"
+msgstr "動作"
+
+#: ../src/Widgets/SearchView.vala:232
+msgid "Search"
+msgstr "搜尋"
+
+#: ../src/Widgets/SearchView.vala:235
+msgid "Contacts"
+msgstr "聯絡人"
+
+#: ../src/Widgets/SearchView.vala:238
+msgid "Internet"
+msgstr "網際網路"
+
+#: ../src/Widgets/SearchView.vala:241
+msgid "Settings"
+msgstr "設定值"
+
+#: ../src/Widgets/SearchView.vala:244
+msgid "Application Actions"
+msgstr "應用程式動作"
+
+#: ../src/Widgets/SearchView.vala:247
+msgid "Other"
+msgstr "其他"
+
+#: ../src/Widgets/AppEntry.vala:228
+msgid "Remove from _Dock"
+msgstr "從 _Dock 移除"
+
+#: ../src/Widgets/AppEntry.vala:230
+msgid "Add to _Dock"
+msgstr "加到 _Dock 中"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "所有應用程式"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "建立新的過慮器"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "執行此指令…"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -45,65 +97,45 @@ msgstr "分類檢視"
 msgid "Search Apps"
 msgstr "搜尋程式"
 
-#: ../src/Widgets/AppEntry.vala:235
-msgid "Remove from _Dock"
-msgstr "從 _Dock 移除"
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
 
-#: ../src/Widgets/AppEntry.vala:237
-msgid "Add to _Dock"
-msgstr "加到 _Dock 中"
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "程式選單指示器"
 
-#: ../src/Widgets/SearchView.vala:61
-msgid "Try changing search terms."
-msgstr "嘗試搜尋其他字詞。"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:52
+msgid "Open %s settings"
+msgstr "開啟 %s 設定值"
 
-#: ../src/Widgets/SearchView.vala:105
-msgid "No Results for “%s”"
-msgstr "找不到「%s」的結果"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:69
+msgid "Find switchboard plugs and open them."
+msgstr "尋找 swithcbard 插件並開啓之。"
 
-#: ../src/Widgets/SearchView.vala:170
-msgid "Text"
-msgstr "文字"
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "計算機"
 
-#: ../src/Widgets/SearchView.vala:176
-msgid "Files"
-msgstr "檔案"
+#: ../lib/synapse-plugins/calculator-plugin.vala:64
+msgid "Calculate basic expressions."
+msgstr "計算基本運算式。"
 
-#: ../src/Widgets/SearchView.vala:180
-msgid "Actions"
-msgstr "動作"
+#: ../lib/synapse-plugins/calculator-plugin.vala:68
+msgid "bc is not installed"
+msgstr "尚未安裝 bc"
 
-#: ../src/Widgets/SearchView.vala:183
-msgid "Search"
-msgstr "搜尋"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
+msgid "Search for and run applications on your computer."
+msgstr "搜尋並執行電腦中的應用程式。"
 
-#: ../src/Widgets/SearchView.vala:186
-msgid "Contacts"
-msgstr "聯絡人"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:388
+msgid "Open with %s"
+msgstr "以 %s 開啟"
 
-#: ../src/Widgets/SearchView.vala:189
-msgid "Internet"
-msgstr "網際網路"
-
-#: ../src/Widgets/SearchView.vala:192
-msgid "Settings"
-msgstr "設定值"
-
-#: ../src/Widgets/SearchView.vala:195
-msgid "Application Actions"
-msgstr "應用程式動作"
-
-#: ../src/Widgets/SearchView.vala:198
-msgid "Other"
-msgstr "其他"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "所有應用程式"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "建立新的過慮器"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:390
+msgid "Opens current selection using %s"
+msgstr "以 %s 開啟目前的選項"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
@@ -176,38 +208,6 @@ msgstr "執行指令"
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
 msgstr "尋找並執行任意指令。"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:55
-msgid "Open %s settings"
-msgstr "開啟 %s 設定值"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:71
-msgid "Find switchboard plugs and open them."
-msgstr "尋找 swithcbard 插件並開啓之。"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
-msgid "Search for and run applications on your computer."
-msgstr "搜尋並執行電腦中的應用程式。"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:365
-msgid "Open with %s"
-msgstr "以 %s 開啟"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:367
-msgid "Opens current selection using %s"
-msgstr "以 %s 開啟目前的選項"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "計算機"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:64
-msgid "Calculate basic expressions."
-msgstr "計算基本運算式。"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:68
-msgid "bc is not installed"
-msgstr "尚未安裝 bc"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"

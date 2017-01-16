@@ -7,31 +7,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-04 02:13-0500\n"
+"POT-Creation-Date: 2017-01-16 00:01+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-08 05:22+0000\n"
+"X-Launchpad-Export-Date: 2017-01-16 05:24+0000\n"
 "X-Generator: Launchpad (build 18302)\n"
 
-#: ../src/Backend/App.vala:105
-msgid "Run this command…"
-msgstr "Zaženi..."
+#: ../src/Widgets/SearchView.vala:110
+msgid "Try changing search terms."
+msgstr "Poskusite spremeniti iskalni niz."
 
-#: ../src/Slingshot.vala:32
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../src/Widgets/SearchView.vala:154
+msgid "No Results for “%s”"
+msgstr "Ni rezultatov za “%s”"
 
-#: ../src/Slingshot.vala:33
-msgid "The app-menu indicator"
-msgstr "Indikator z aplikacijami"
+#: ../src/Widgets/SearchView.vala:219
+msgid "Text"
+msgstr "Besedilo"
 
-#: ../src/Slingshot.vala:63 ../src/Widgets/SearchView.vala:173
+#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
 msgid "Applications"
 msgstr "Aplikacije"
+
+#: ../src/Widgets/SearchView.vala:225
+msgid "Files"
+msgstr "Datoteke"
+
+#: ../src/Widgets/SearchView.vala:229
+msgid "Actions"
+msgstr "Akcije"
+
+#: ../src/Widgets/SearchView.vala:232
+msgid "Search"
+msgstr "Iskanje"
+
+#: ../src/Widgets/SearchView.vala:235
+msgid "Contacts"
+msgstr "Stiki"
+
+#: ../src/Widgets/SearchView.vala:238
+msgid "Internet"
+msgstr "Internet"
+
+#: ../src/Widgets/SearchView.vala:241
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: ../src/Widgets/SearchView.vala:244
+msgid "Application Actions"
+msgstr "Akcije v aplikacijah"
+
+#: ../src/Widgets/SearchView.vala:247
+msgid "Other"
+msgstr "Drugo"
+
+#: ../src/Widgets/AppEntry.vala:228
+msgid "Remove from _Dock"
+msgstr "O_dstrani s sidrišča"
+
+#: ../src/Widgets/AppEntry.vala:230
+msgid "Add to _Dock"
+msgstr "_Dodaj v sidrišče"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Vsi programi"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Ustvari nov filter"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Zaženi..."
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -45,65 +97,45 @@ msgstr "Pogled v kategorijah"
 msgid "Search Apps"
 msgstr "Iskanje programov"
 
-#: ../src/Widgets/AppEntry.vala:235
-msgid "Remove from _Dock"
-msgstr "O_dstrani s sidrišča"
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
 
-#: ../src/Widgets/AppEntry.vala:237
-msgid "Add to _Dock"
-msgstr "_Dodaj v sidrišče"
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Indikator z aplikacijami"
 
-#: ../src/Widgets/SearchView.vala:61
-msgid "Try changing search terms."
-msgstr "Poskusite spremeniti iskalni niz."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:52
+msgid "Open %s settings"
+msgstr "Odpri nastavitve za %s"
 
-#: ../src/Widgets/SearchView.vala:105
-msgid "No Results for “%s”"
-msgstr "Ni rezultatov za “%s”"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:69
+msgid "Find switchboard plugs and open them."
+msgstr "Poišči dodatke in jih odpri."
 
-#: ../src/Widgets/SearchView.vala:170
-msgid "Text"
-msgstr "Besedilo"
+#: ../lib/synapse-plugins/calculator-plugin.vala:63
+msgid "Calculator"
+msgstr "Računalo"
 
-#: ../src/Widgets/SearchView.vala:176
-msgid "Files"
-msgstr "Datoteke"
+#: ../lib/synapse-plugins/calculator-plugin.vala:64
+msgid "Calculate basic expressions."
+msgstr "Osnovno računalo"
 
-#: ../src/Widgets/SearchView.vala:180
-msgid "Actions"
-msgstr "Akcije"
+#: ../lib/synapse-plugins/calculator-plugin.vala:68
+msgid "bc is not installed"
+msgstr "bc ni nameščen"
 
-#: ../src/Widgets/SearchView.vala:183
-msgid "Search"
-msgstr "Iskanje"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
+msgid "Search for and run applications on your computer."
+msgstr "Išči in zaženi aplikacije na vašem računalniku"
 
-#: ../src/Widgets/SearchView.vala:186
-msgid "Contacts"
-msgstr "Stiki"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:388
+msgid "Open with %s"
+msgstr "Odpri z %s"
 
-#: ../src/Widgets/SearchView.vala:189
-msgid "Internet"
-msgstr "Internet"
-
-#: ../src/Widgets/SearchView.vala:192
-msgid "Settings"
-msgstr "Nastavitve"
-
-#: ../src/Widgets/SearchView.vala:195
-msgid "Application Actions"
-msgstr "Akcije v aplikacijah"
-
-#: ../src/Widgets/SearchView.vala:198
-msgid "Other"
-msgstr "Drugo"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Vsi programi"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Ustvari nov filter"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:390
+msgid "Opens current selection using %s"
+msgstr "Odpre trenutno izbiro z %s"
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
@@ -178,38 +210,6 @@ msgstr "Zaženi ukaz"
 #: ../lib/synapse-plugins/command-plugin.vala:77
 msgid "Find and execute arbitrary commands."
 msgstr "Najdi in izvedi poljubne ukaze"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:55
-msgid "Open %s settings"
-msgstr "Odpri nastavitve za %s"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:71
-msgid "Find switchboard plugs and open them."
-msgstr "Poišči dodatke in jih odpri."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
-msgid "Search for and run applications on your computer."
-msgstr "Išči in zaženi aplikacije na vašem računalniku"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:365
-msgid "Open with %s"
-msgstr "Odpri z %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:367
-msgid "Opens current selection using %s"
-msgstr "Odpre trenutno izbiro z %s"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "Računalo"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:64
-msgid "Calculate basic expressions."
-msgstr "Osnovno računalo"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:68
-msgid "bc is not installed"
-msgstr "bc ni nameščen"
 
 #: ../lib/synapse-core/common-actions.vala:77
 msgid "Run"
