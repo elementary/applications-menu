@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-16 00:01+0100\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"PO-Revision-Date: 2017-01-22 19:04+0000\n"
+"Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-16 05:24+0000\n"
+"X-Launchpad-Export-Date: 2017-01-23 05:23+0000\n"
 "X-Generator: Launchpad (build 18302)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
@@ -55,7 +55,7 @@ msgstr "Διαδίκτυο"
 
 #: ../src/Widgets/SearchView.vala:241
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 #: ../src/Widgets/SearchView.vala:244
 msgid "Application Actions"
@@ -83,7 +83,7 @@ msgstr "Δημιουργία νέου Φίλτρου"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr ""
+msgstr "Εκτέλεση αυτής της εντολής..."
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -95,7 +95,7 @@ msgstr "Προβολή ανά Κατηγορία"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
-msgstr ""
+msgstr "Αναζήτηση εφαρμογών"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
@@ -131,7 +131,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:388
 msgid "Open with %s"
-msgstr ""
+msgstr "Άνοιγμα με %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:390
 msgid "Opens current selection using %s"
@@ -139,7 +139,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:103
 msgid "Suspend"
-msgstr ""
+msgstr "Αναστολή"
 
 #: ../lib/synapse-plugins/system-managment.vala:104
 msgid "Put your computer into suspend mode"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:203
 msgid "Hibernate"
-msgstr ""
+msgstr "Αδρανοποίηση"
 
 #: ../lib/synapse-plugins/system-managment.vala:204
 msgid "Put your computer into hibernation mode"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Τερματισμός"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:386
 msgid "Restart"
-msgstr ""
+msgstr "Επανεκκίνηση"
 
 #: ../lib/synapse-plugins/system-managment.vala:387
 msgid "Restart your computer"
@@ -227,15 +227,15 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:182
 msgid "Open"
-msgstr ""
+msgstr "Άνοιγμα"
 
 #: ../lib/synapse-core/common-actions.vala:183
 msgid "Open using default application"
-msgstr ""
+msgstr "Άνοιγμα με την προεπιλεγμένη εφαρμογή"
 
 #: ../lib/synapse-core/common-actions.vala:252
 msgid "Open folder"
-msgstr ""
+msgstr "Άνοιγμα φακέλου"
 
 #: ../lib/synapse-core/common-actions.vala:253
 msgid "Open folder containing this file"
@@ -243,8 +243,8 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:293
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Αντιγραφή στο πρόχειρο"
 
 #: ../lib/synapse-core/common-actions.vala:294
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Αντιγραφή επιλογής στο πρόχειρο"
