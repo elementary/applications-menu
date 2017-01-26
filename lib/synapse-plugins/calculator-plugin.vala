@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
+*				2017 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -47,12 +48,12 @@ namespace Synapse {
 
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (CalculatorPlugin),
-                                                                    _ ("Calculator"),
-                                                                    _ ("Calculate basic expressions."),
+                                                                    _("Calculator"),
+                                                                    _("Calculate basic expressions."),
                                                                     "accessories-calculator",
                                                                     register_plugin,
                                                                     Environment.find_program_in_path ("bc") != null,
-                                                                    _ ("bc is not installed"));
+                                                                    _("bc is not installed"));
         }
 
         static construct {

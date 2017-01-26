@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
+*				2017 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -123,7 +124,7 @@ namespace Synapse {
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (DesktopFilePlugin),
                                                                     "Application Search",
-                                                                    _ ("Search for and run applications on your computer."),
+                                                                    _("Search for and run applications on your computer."),
                                                                     "system-run",
                                                                     register_plugin);
         }
@@ -328,9 +329,9 @@ namespace Synapse {
             }
 
             private void init_with_info (DesktopFileInfo info) {
-                this.title = _ ("Open with %s").printf (info.name);
+                this.title = _("Open with %s").printf (info.name);
                 this.icon_name = info.icon_name;
-                this.description = _ ("Opens current selection using %s").printf (info.name);
+                this.description = _("Opens current selection using %s").printf (info.name);
                 this.desktop_info = info;
             }
 

@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
+*				2017 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -78,7 +79,7 @@ namespace Synapse {
             public void register_plugin (Type plugin_type, string title, string description, string icon_name, PluginRegisterFunc reg_func, bool runnable = true, string runnable_error = "") {
                 // FIXME: how about a frickin Type -> PluginInfo map?!
                 int index = -1;
-                for (int i=0; i < plugins.size; i++) {
+                for (int i = 0; i < plugins.size; i++) {
                     if (plugins[i].plugin_type == plugin_type) {
                         index = i;
                         break;

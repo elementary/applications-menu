@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2015 Peter Arnold
+*               2017 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -42,7 +43,7 @@ namespace Synapse {
             public string uri { get; construct set; }
 
             public SwitchboardObject (PlugInfo plug_info) {
-                Object (title: plug_info.title, description: _ ("Open %s settings").printf (plug_info.title),
+                Object (title: plug_info.title, description: _("Open %s settings").printf (plug_info.title),
                         plug: plug_info.code_name, icon_name: plug_info.icon, match_type: MatchType.APPLICATION, uri: plug_info.uri);
             }
 
@@ -58,7 +59,7 @@ namespace Synapse {
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (SwitchboardPlugin),
                                                                     "Switchboard Search",
-                                                                    _ ("Find switchboard plugs and open them."),
+                                                                    _("Find switchboard plugs and open them."),
                                                                     "preferences-desktop",
                                                                     register_plugin);
         }

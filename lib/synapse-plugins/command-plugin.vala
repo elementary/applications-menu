@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
+*				2017 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -43,7 +44,7 @@ namespace Synapse {
 			public string command { get; construct set; }
 
 			public CommandObject (string cmd) {
-				Object (title: _("Execute '%s'").printf (cmd), description: _ ("Run command"), command: cmd,
+				Object (title: _("Execute '%s'").printf (cmd), description: _("Run command"), command: cmd,
 						icon_name: "application-x-executable",
 						match_type: MatchType.APPLICATION,
 						needs_terminal: cmd.has_prefix ("sudo "));
@@ -59,7 +60,7 @@ namespace Synapse {
 		static void register_plugin () {
 			DataSink.PluginRegistry.get_default ().register_plugin (typeof (CommandPlugin),
 																	"Command Search",
-																	_ ("Find and execute arbitrary commands."),
+																	_("Find and execute arbitrary commands."),
 																	"system-run",
 																	register_plugin);
 		}
