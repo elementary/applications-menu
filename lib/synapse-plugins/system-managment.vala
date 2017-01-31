@@ -105,7 +105,7 @@ namespace Synapse {
         private class LockAction : SystemAction {
             public LockAction () {
                 Object (title: _("Lock"), match_type: MatchType.ACTION,
-                        description: _("Lock your computer"),
+                        description: _("Lock this device"),
                         icon_name: "system-lock-screen", has_thumbnail: false);
             }
 
