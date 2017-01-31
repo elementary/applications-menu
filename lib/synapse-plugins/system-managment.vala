@@ -45,6 +45,23 @@ namespace Synapse {
         public abstract async bool can_stop () throws IOError;
     }
 
+    [DBus (name = "org.freedesktop.ScreenSaver")]
+    public interface LockObject : Object {
+        public const string UNIQUE_NAME = "org.freedesktop.ScreenSaver";
+        public const string OBJECT_PATH = "/org/freedesktop/ScreenSaver";
+
+        public abstract void lock () throws IOError;
+        public abstract bool get_active () throws IOError;
+    }
+
+    [DBus (name = "org.freedesktop.login1.User")]
+    interface LogOutObject : Object {
+        public const string UNIQUE_NAME = "org.freedesktop.login1";
+        public const string OBJECT_PATH = "/org/freedesktop/login1/user/self";
+
+        public abstract void terminate () throws IOError;
+    }
+
     [DBus (name = "org.freedesktop.login1.Manager")]
     public interface SystemdObject : Object {
         public const string UNIQUE_NAME = "org.freedesktop.login1";
@@ -85,6 +102,60 @@ namespace Synapse {
             }
         }
 
+        private class LockAction : SystemAction {
+            public LockAction () {
+                Object (title: _("Lock"), match_type: MatchType.ACTION,
+                        description: _("Lock your computer"),
+                        icon_name: "system-lock-screen", has_thumbnail: false);
+            }
+
+            public override bool action_allowed () {
+                return true;
+            }
+
+            private async void do_lock () {
+                try {
+                    LockObject dbus_interface = Bus.get_proxy_sync (BusType.SESSION, LockObject.UNIQUE_NAME, LockObject.OBJECT_PATH);
+
+                    dbus_interface.lock ();
+                    return;
+                } catch (IOError err) {
+                    warning ("%s", err.message);
+                }
+            }
+
+            public override void do_action () {
+                do_lock.begin ();
+            }
+        }
+
+        private class LogOutAction : SystemAction {
+            public LogOutAction () {
+                Object (title: _("Log Out"), match_type: MatchType.ACTION,
+                        description: _("Close all open applications and quit"),
+                        icon_name: "system-log-out", has_thumbnail: false);
+            }
+
+            public override bool action_allowed () {
+                return true;
+            }
+
+            private async void do_log_out () {
+                try {
+                    LogOutObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, LogOutObject.UNIQUE_NAME, LogOutObject.OBJECT_PATH);
+
+                    dbus_interface.terminate ();
+                    return;
+                } catch (IOError err) {
+                    warning ("%s", err.message);
+                }
+            }
+
+            public override void do_action () {
+                do_log_out.begin ();
+            }
+        }
+
         private class SuspendAction : SystemAction {
             public SuspendAction () {
                 Object (title: _("Suspend"), match_type: MatchType.ACTION,
@@ -98,9 +169,7 @@ namespace Synapse {
 
             private async void check_allowed (){
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     allowed = (dbus_interface.can_suspend () == "yes");
                     return;
@@ -110,9 +179,7 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    UPowerObject.UNIQUE_NAME,
-                    UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.suspend_allowed ();
                 } catch (IOError err) {
@@ -129,9 +196,7 @@ namespace Synapse {
 
             private async void do_suspend () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     dbus_interface.suspend (true);
                     return;
@@ -140,9 +205,7 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    UPowerObject.UNIQUE_NAME,
-                    UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
 
                     try {
                         yield dbus_interface.about_to_sleep ();
@@ -177,9 +240,7 @@ namespace Synapse {
 
             private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     allowed = (dbus_interface.can_hibernate () == "yes");
                     return;
@@ -189,9 +250,7 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    UPowerObject.UNIQUE_NAME,
-                    UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.hibernate_allowed ();
                 } catch (IOError err) {
@@ -208,9 +267,7 @@ namespace Synapse {
 
             private async void do_hibernate () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     dbus_interface.hibernate (true);
                     return;
@@ -219,9 +276,7 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    UPowerObject.UNIQUE_NAME,
-                    UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
 
                     try {
                         yield dbus_interface.about_to_sleep ();
@@ -255,9 +310,7 @@ namespace Synapse {
 
             private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     allowed = (dbus_interface.can_power_off () == "yes");
                     return;
@@ -267,9 +320,7 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    ConsoleKitObject.UNIQUE_NAME,
-                    ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.can_stop ();
                 } catch (IOError err) {
@@ -286,9 +337,7 @@ namespace Synapse {
 
             public override void do_action () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     dbus_interface.power_off (true);
                     return;
@@ -297,9 +346,7 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    ConsoleKitObject.UNIQUE_NAME,
-                    ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     dbus_interface.stop ();
                 } catch (IOError err) {
@@ -321,9 +368,7 @@ namespace Synapse {
 
             private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     allowed = (dbus_interface.can_reboot () == "yes");
                 return;
@@ -333,9 +378,7 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    ConsoleKitObject.UNIQUE_NAME,
-                    ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.can_restart ();
                 } catch (IOError err) {
@@ -352,9 +395,7 @@ namespace Synapse {
 
             public override void do_action () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    SystemdObject.UNIQUE_NAME,
-                    SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     dbus_interface.reboot (true);
                     return;
@@ -363,9 +404,7 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM,
-                    ConsoleKitObject.UNIQUE_NAME,
-                    ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     dbus_interface.restart ();
                 } catch (IOError err) {
@@ -377,7 +416,7 @@ namespace Synapse {
         static void register_plugin () {
         DataSink.PluginRegistry.get_default ().register_plugin (typeof (SystemManagementPlugin),
                                                                 "System Management",
-                                                                _("Suspend, hibernate, restart or shutdown your computer."),
+                                                                _("Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown your computer."),
                                                                 "system-restart",
                                                                 register_plugin,
                                                                 DBusService.get_default ().service_is_available (SystemdObject.UNIQUE_NAME) ||
@@ -393,6 +432,8 @@ namespace Synapse {
 
         construct {
             actions = new Gee.LinkedList<SystemAction> ();
+            actions.add (new LockAction ());
+            actions.add (new LogOutAction ());
             actions.add (new SuspendAction ());
             actions.add (new HibernateAction ());
             actions.add (new ShutdownAction ());
