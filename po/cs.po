@@ -7,15 +7,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-16 00:01+0100\n"
+"POT-Creation-Date: 2017-01-24 21:34+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-16 05:24+0000\n"
-"X-Generator: Launchpad (build 18302)\n"
+"X-Launchpad-Export-Date: 2017-01-31 05:29+0000\n"
+"X-Generator: Launchpad (build 18315)\n"
+
+#: ../src/SlingshotView.vala:161
+msgid "View as Grid"
+msgstr "Zobrazit v mřížce"
+
+#: ../src/SlingshotView.vala:165
+msgid "View by Category"
+msgstr "Zobrazit dle kategorie"
+
+#: ../src/SlingshotView.vala:174
+msgid "Search Apps"
+msgstr "Hledat aplikace"
+
+#: ../src/Widgets/AppEntry.vala:228
+msgid "Remove from _Dock"
+msgstr "Odebrat z Doku"
+
+#: ../src/Widgets/AppEntry.vala:230
+msgid "Add to _Dock"
+msgstr "Přidat do Doku"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -65,14 +85,6 @@ msgstr "Akce aplikace"
 msgid "Other"
 msgstr "Ostatní"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Odebrat z Doku"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Přidat do Doku"
-
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
 msgstr "Všechny aplikace"
@@ -80,22 +92,6 @@ msgstr "Všechny aplikace"
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
 msgstr "Vytvořit nový filtr"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Spustit příkaz..."
-
-#: ../src/SlingshotView.vala:161
-msgid "View as Grid"
-msgstr "Zobrazit v mřížce"
-
-#: ../src/SlingshotView.vala:165
-msgid "View by Category"
-msgstr "Zobrazit dle kategorie"
-
-#: ../src/SlingshotView.vala:174
-msgid "Search Apps"
-msgstr "Hledat aplikace"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
@@ -105,148 +101,152 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Indikátor menu aplikace"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:52
-msgid "Open %s settings"
-msgstr "Otevřít %s nastavení"
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Spustit příkaz..."
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:69
-msgid "Find switchboard plugs and open them."
-msgstr "Najít přepínač pluginů a otevřít je."
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Spustit"
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:63
-msgid "Calculator"
-msgstr "Kalkulačka"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Spustit aplikaci, činnost nebo skript"
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:64
-msgid "Calculate basic expressions."
-msgstr "Umožňuje výpočet základních matematických výrazů."
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Spustit v příkazové řádce"
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:68
-msgid "bc is not installed"
-msgstr "bc není nainstalováno"
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Spustit aplikaci nebo příkaz v příkazové řádce"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:140
-msgid "Search for and run applications on your computer."
-msgstr "Vyhledat a spustit aplikace na Vašem počítači."
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Otevřít"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:388
-msgid "Open with %s"
-msgstr "Otevřít pomocí %s"
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Otevřít pomocí výchozí aplikace"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:390
-msgid "Opens current selection using %s"
-msgstr "Otevřít vybrané pomocí %s"
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Otevřít složku"
 
-#: ../lib/synapse-plugins/system-managment.vala:103
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Otevřít složku obsahující tento soubor"
+
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Kopírovat do schránky"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Kopírovat výběr do schránky"
+
+#: ../lib/synapse-plugins/link-plugin.vala:46
+msgid "Open %s in default web browser"
+msgstr "Otevřít %s ve výchozím prohlížeči"
+
+#: ../lib/synapse-plugins/link-plugin.vala:51
+msgid "Open %s in %s"
+msgstr "Otevřít %s v %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:57
+msgid "Open this link in default browser"
+msgstr "Otevřít tento odkaz ve výchozím prohlížeči"
+
+#: ../lib/synapse-plugins/link-plugin.vala:79
+msgid "Link"
+msgstr "Odkaz"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Open link in default browser"
+msgstr "Otevřít odkaz ve výchozím prohlížeči"
+
+#: ../lib/synapse-plugins/system-managment.vala:89
 msgid "Suspend"
 msgstr "Uspat"
 
-#: ../lib/synapse-plugins/system-managment.vala:104
+#: ../lib/synapse-plugins/system-managment.vala:90
 msgid "Put your computer into suspend mode"
 msgstr "Přepnout počítač do režimu spánku"
 
-#: ../lib/synapse-plugins/system-managment.vala:203
+#: ../lib/synapse-plugins/system-managment.vala:168
 msgid "Hibernate"
 msgstr "Hibernovat"
 
-#: ../lib/synapse-plugins/system-managment.vala:204
+#: ../lib/synapse-plugins/system-managment.vala:169
 msgid "Put your computer into hibernation mode"
 msgstr "Přepnout počítač do režimu hibernace"
 
-#: ../lib/synapse-plugins/system-managment.vala:302
+#: ../lib/synapse-plugins/system-managment.vala:246
 msgid "Shut Down"
 msgstr "Vypnout"
 
-#: ../lib/synapse-plugins/system-managment.vala:303
+#: ../lib/synapse-plugins/system-managment.vala:247
 msgid "Turn your computer off"
 msgstr "Vypnout počítač"
 
-#: ../lib/synapse-plugins/system-managment.vala:386
+#: ../lib/synapse-plugins/system-managment.vala:312
 msgid "Restart"
 msgstr "Restartovat"
 
-#: ../lib/synapse-plugins/system-managment.vala:387
+#: ../lib/synapse-plugins/system-managment.vala:313
 msgid "Restart your computer"
 msgstr "Restartuje počítač"
 
-#: ../lib/synapse-plugins/system-managment.vala:471
+#: ../lib/synapse-plugins/system-managment.vala:379
 msgid "Suspend, hibernate, restart or shutdown your computer."
 msgstr ""
 "Umožňuje uspat počítač do paměti nebo na disk, restartovat ho nebo ho "
 "vypnout."
 
-#: ../lib/synapse-plugins/system-managment.vala:476
+#: ../lib/synapse-plugins/system-managment.vala:384
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit nenalezen"
 
-#: ../lib/synapse-plugins/link-plugin.vala:56
-msgid "Open %s in default web browser"
-msgstr "Otevřít %s ve výchozím prohlížeči"
+#: ../lib/synapse-plugins/calculator-plugin.vala:50
+msgid "Calculator"
+msgstr "Kalkulačka"
 
-#: ../lib/synapse-plugins/link-plugin.vala:62
-msgid "Open %s in %s"
-msgstr "Otevřít %s v %s"
+#: ../lib/synapse-plugins/calculator-plugin.vala:51
+msgid "Calculate basic expressions."
+msgstr "Umožňuje výpočet základních matematických výrazů."
 
-#: ../lib/synapse-plugins/link-plugin.vala:68
-msgid "Open this link in default browser"
-msgstr "Otevřít tento odkaz ve výchozím prohlížeči"
+#: ../lib/synapse-plugins/calculator-plugin.vala:55
+msgid "bc is not installed"
+msgstr "bc není nainstalováno"
 
-#: ../lib/synapse-plugins/link-plugin.vala:95
-msgid "Link"
-msgstr "Odkaz"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:126
+msgid "Search for and run applications on your computer."
+msgstr "Vyhledat a spustit aplikace na Vašem počítači."
 
-#: ../lib/synapse-plugins/link-plugin.vala:96
-msgid "Open link in default browser"
-msgstr "Otevřít odkaz ve výchozím prohlížeči"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:331
+msgid "Open with %s"
+msgstr "Otevřít pomocí %s"
 
-#: ../lib/synapse-plugins/command-plugin.vala:56
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Opens current selection using %s"
+msgstr "Otevřít vybrané pomocí %s"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:45
+msgid "Open %s settings"
+msgstr "Otevřít %s nastavení"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:61
+msgid "Find switchboard plugs and open them."
+msgstr "Najít přepínač pluginů a otevřít je."
+
+#: ../lib/synapse-plugins/command-plugin.vala:46
 msgid "Execute '%s'"
 msgstr "Spustit '%s'"
 
-#: ../lib/synapse-plugins/command-plugin.vala:56
+#: ../lib/synapse-plugins/command-plugin.vala:46
 msgid "Run command"
 msgstr "Spustit příkaz"
 
-#: ../lib/synapse-plugins/command-plugin.vala:77
+#: ../lib/synapse-plugins/command-plugin.vala:62
 msgid "Find and execute arbitrary commands."
 msgstr "Vyhledává a umožňuje spouštět libovolné příkazy."
-
-#: ../lib/synapse-core/common-actions.vala:77
-msgid "Run"
-msgstr "Spustit"
-
-#: ../lib/synapse-core/common-actions.vala:78
-msgid "Run an application, action or script"
-msgstr "Spustit aplikaci, činnost nebo skript"
-
-#: ../lib/synapse-core/common-actions.vala:133
-msgid "Run in Terminal"
-msgstr "Spustit v příkazové řádce"
-
-#: ../lib/synapse-core/common-actions.vala:134
-msgid "Run application or command in terminal"
-msgstr "Spustit aplikaci nebo příkaz v příkazové řádce"
-
-#: ../lib/synapse-core/common-actions.vala:182
-msgid "Open"
-msgstr "Otevřít"
-
-#: ../lib/synapse-core/common-actions.vala:183
-msgid "Open using default application"
-msgstr "Otevřít pomocí výchozí aplikace"
-
-#: ../lib/synapse-core/common-actions.vala:252
-msgid "Open folder"
-msgstr "Otevřít složku"
-
-#: ../lib/synapse-core/common-actions.vala:253
-msgid "Open folder containing this file"
-msgstr "Otevřít složku obsahující tento soubor"
-
-#: ../lib/synapse-core/common-actions.vala:293
-msgid "Copy to Clipboard"
-msgstr "Kopírovat do schránky"
-
-#: ../lib/synapse-core/common-actions.vala:294
-msgid "Copy selection to clipboard"
-msgstr "Kopírovat výběr do schránky"
