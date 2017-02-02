@@ -7,15 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-24 21:34+0100\n"
+"POT-Creation-Date: 2017-01-31 19:56+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-31 05:29+0000\n"
+"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Рогатка"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Індикатор меню додатків"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Додатки"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -37,6 +49,14 @@ msgstr "Вилучити з _доку"
 msgid "Add to _Dock"
 msgstr "Додати в д_ок"
 
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Усі додатки"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Створити новий фільтр"
+
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
 msgstr "Спробуйте змінити пошукові терміни"
@@ -48,10 +68,6 @@ msgstr "Результати для “%s” відсутні"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Текст"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Додатки"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -84,22 +100,6 @@ msgstr "Дії додатків"
 #: ../src/Widgets/SearchView.vala:247
 msgid "Other"
 msgstr "Інший"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Усі додатки"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Створити новий фільтр"
-
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Рогатка"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Індикатор меню додатків"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
@@ -145,106 +145,124 @@ msgstr "Скопіювати до буфера обміну"
 msgid "Copy selection to clipboard"
 msgstr "Скопіювати виділене у буфер обміну"
 
-#: ../lib/synapse-plugins/link-plugin.vala:46
-msgid "Open %s in default web browser"
-msgstr "Відкрити %s у веб-браузері за замовчуванням"
-
-#: ../lib/synapse-plugins/link-plugin.vala:51
-msgid "Open %s in %s"
-msgstr "Відкрити %s в %s"
-
-#: ../lib/synapse-plugins/link-plugin.vala:57
-msgid "Open this link in default browser"
-msgstr "Відкрити це посилання у веб-браузері за замовчуванням"
-
-#: ../lib/synapse-plugins/link-plugin.vala:79
-msgid "Link"
-msgstr "Посилання"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Open link in default browser"
-msgstr "Відкрити посилання у веб-браузері за замовчуванням"
-
-#: ../lib/synapse-plugins/system-managment.vala:89
-msgid "Suspend"
-msgstr "Призупинити"
-
-#: ../lib/synapse-plugins/system-managment.vala:90
-msgid "Put your computer into suspend mode"
-msgstr "Перевести комп’ютер в режим очікування"
-
-#: ../lib/synapse-plugins/system-managment.vala:168
-msgid "Hibernate"
-msgstr "Приспати"
-
-#: ../lib/synapse-plugins/system-managment.vala:169
-msgid "Put your computer into hibernation mode"
-msgstr "Перевести комп’ютер в режим сну"
-
-#: ../lib/synapse-plugins/system-managment.vala:246
-msgid "Shut Down"
-msgstr "Вимкнути"
-
-#: ../lib/synapse-plugins/system-managment.vala:247
-msgid "Turn your computer off"
-msgstr "Вимкнути ваш комп’ютер"
-
-#: ../lib/synapse-plugins/system-managment.vala:312
-msgid "Restart"
-msgstr "Перезавантажити"
-
-#: ../lib/synapse-plugins/system-managment.vala:313
-msgid "Restart your computer"
-msgstr "Перезавантажити ваш комп’ютер"
-
-#: ../lib/synapse-plugins/system-managment.vala:379
-msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr "Призупинити, приспати, перезавантажити або вимкнути ваш комп’ютер"
-
-#: ../lib/synapse-plugins/system-managment.vala:384
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit не знайдено"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:50
-msgid "Calculator"
-msgstr "Калькулятор"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:51
-msgid "Calculate basic expressions."
-msgstr "Обчислення простих виразів."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:55
-msgid "bc is not installed"
-msgstr "Додаток bc не встановлено."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:126
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
 msgstr "Пошук та виконання додатків на вашому комп’ютері."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:331
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
 msgid "Open with %s"
 msgstr "Відкрити за допомогою  %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
 msgid "Opens current selection using %s"
 msgstr "Відкриває поточне виділення в %s"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:45
-msgid "Open %s settings"
-msgstr "Відкрити %s налаштування"
+#: ../lib/synapse-plugins/calculator-plugin.vala:51
+msgid "Calculator"
+msgstr "Калькулятор"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:61
-msgid "Find switchboard plugs and open them."
-msgstr "Знайти додатки системних налаштувань та вікрити їх"
+#: ../lib/synapse-plugins/calculator-plugin.vala:52
+msgid "Calculate basic expressions."
+msgstr "Обчислення простих виразів."
 
-#: ../lib/synapse-plugins/command-plugin.vala:46
+#: ../lib/synapse-plugins/calculator-plugin.vala:56
+msgid "bc is not installed"
+msgstr "Додаток bc не встановлено."
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
 msgstr "Виконати '%s'"
 
-#: ../lib/synapse-plugins/command-plugin.vala:46
+#: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
 msgstr "Виконати команду"
 
-#: ../lib/synapse-plugins/command-plugin.vala:62
+#: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Пошук та виконання довільних команд."
+
+#: ../lib/synapse-plugins/system-managment.vala:107
+msgid "Lock"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:108
+msgid "Lock this device"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:134
+msgid "Log Out"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:135
+msgid "Close all open applications and quit"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:161
+msgid "Suspend"
+msgstr "Призупинити"
+
+#: ../lib/synapse-plugins/system-managment.vala:162
+msgid "Put your computer into suspend mode"
+msgstr "Перевести комп’ютер в режим очікування"
+
+#: ../lib/synapse-plugins/system-managment.vala:232
+msgid "Hibernate"
+msgstr "Приспати"
+
+#: ../lib/synapse-plugins/system-managment.vala:233
+msgid "Put your computer into hibernation mode"
+msgstr "Перевести комп’ютер в режим сну"
+
+#: ../lib/synapse-plugins/system-managment.vala:302
+msgid "Shut Down"
+msgstr "Вимкнути"
+
+#: ../lib/synapse-plugins/system-managment.vala:303
+msgid "Turn your computer off"
+msgstr "Вимкнути ваш комп’ютер"
+
+#: ../lib/synapse-plugins/system-managment.vala:360
+msgid "Restart"
+msgstr "Перезавантажити"
+
+#: ../lib/synapse-plugins/system-managment.vala:361
+msgid "Restart your computer"
+msgstr "Перезавантажити ваш комп’ютер"
+
+#: ../lib/synapse-plugins/system-managment.vala:419
+msgid ""
+"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
+"your computer."
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:424
+msgid "ConsoleKit wasn't found"
+msgstr "ConsoleKit не знайдено"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "Відкрити %s у веб-браузері за замовчуванням"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "Відкрити %s в %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Відкрити це посилання у веб-браузері за замовчуванням"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Посилання"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Відкрити посилання у веб-браузері за замовчуванням"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Відкрити %s налаштування"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Знайти додатки системних налаштувань та вікрити їх"

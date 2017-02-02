@@ -7,15 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-24 21:34+0100\n"
+"POT-Creation-Date: 2017-01-31 19:56+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-31 05:29+0000\n"
+"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "L'indicador de menú d'aplicacions"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Aplicacions"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -37,6 +49,14 @@ msgstr "Elimina de l'acobla_dor"
 msgid "Add to _Dock"
 msgstr "Afegeix a l'acobla_dor"
 
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Totes les aplicacions"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Crea un filtre nou"
+
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
 msgstr "Proveu de canviar els termes de la cerca."
@@ -48,10 +68,6 @@ msgstr "Cap resultat per a “%s”"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Text"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Aplicacions"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -84,22 +100,6 @@ msgstr "Accions de l'aplicació"
 #: ../src/Widgets/SearchView.vala:247
 msgid "Other"
 msgstr "Altres"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Totes les aplicacions"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Crea un filtre nou"
-
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "L'indicador de menú d'aplicacions"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
@@ -145,106 +145,124 @@ msgstr "Copia al porta-retalls"
 msgid "Copy selection to clipboard"
 msgstr "Copia la selecció al porta-retalls"
 
-#: ../lib/synapse-plugins/link-plugin.vala:46
-msgid "Open %s in default web browser"
-msgstr "Obre %s al navegador per defecte"
-
-#: ../lib/synapse-plugins/link-plugin.vala:51
-msgid "Open %s in %s"
-msgstr "Obre %s amb %s"
-
-#: ../lib/synapse-plugins/link-plugin.vala:57
-msgid "Open this link in default browser"
-msgstr "Obre aquest enllaç amb el navegador per defecte"
-
-#: ../lib/synapse-plugins/link-plugin.vala:79
-msgid "Link"
-msgstr "Enllaç"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Open link in default browser"
-msgstr "Obre l'enllaç al navegador per defecte"
-
-#: ../lib/synapse-plugins/system-managment.vala:89
-msgid "Suspend"
-msgstr "Suspèn"
-
-#: ../lib/synapse-plugins/system-managment.vala:90
-msgid "Put your computer into suspend mode"
-msgstr "Posa l'ordinador en mode de suspensió"
-
-#: ../lib/synapse-plugins/system-managment.vala:168
-msgid "Hibernate"
-msgstr "Hiberna"
-
-#: ../lib/synapse-plugins/system-managment.vala:169
-msgid "Put your computer into hibernation mode"
-msgstr "Posa l'ordinador en mode d'hibernació"
-
-#: ../lib/synapse-plugins/system-managment.vala:246
-msgid "Shut Down"
-msgstr "Atura"
-
-#: ../lib/synapse-plugins/system-managment.vala:247
-msgid "Turn your computer off"
-msgstr "Atura l'ordinador"
-
-#: ../lib/synapse-plugins/system-managment.vala:312
-msgid "Restart"
-msgstr "Reinicia"
-
-#: ../lib/synapse-plugins/system-managment.vala:313
-msgid "Restart your computer"
-msgstr "Reinicia l'ordinador"
-
-#: ../lib/synapse-plugins/system-managment.vala:379
-msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr "Suspèn, hiberna, reinicia o atura l'ordinador."
-
-#: ../lib/synapse-plugins/system-managment.vala:384
-msgid "ConsoleKit wasn't found"
-msgstr "No s'ha trobat ConsoleKit"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:50
-msgid "Calculator"
-msgstr "Calculadora"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:51
-msgid "Calculate basic expressions."
-msgstr "Calcula expressions bàsiques."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:55
-msgid "bc is not installed"
-msgstr "El bc no està instal·lat"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:126
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
 msgstr "Cerqueu i executeu aplicacions l'ordinador."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:331
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
 msgid "Open with %s"
 msgstr "Obre amb %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
 msgid "Opens current selection using %s"
 msgstr "Obre la selecció actual amb %s"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:45
-msgid "Open %s settings"
-msgstr "Obre els paràmetres de %s"
+#: ../lib/synapse-plugins/calculator-plugin.vala:51
+msgid "Calculator"
+msgstr "Calculadora"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:61
-msgid "Find switchboard plugs and open them."
-msgstr "Troba interruptors i obre'ls."
+#: ../lib/synapse-plugins/calculator-plugin.vala:52
+msgid "Calculate basic expressions."
+msgstr "Calcula expressions bàsiques."
 
-#: ../lib/synapse-plugins/command-plugin.vala:46
+#: ../lib/synapse-plugins/calculator-plugin.vala:56
+msgid "bc is not installed"
+msgstr "El bc no està instal·lat"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
 msgstr "Executa «%s»"
 
-#: ../lib/synapse-plugins/command-plugin.vala:46
+#: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
 msgstr "Executa una ordre"
 
-#: ../lib/synapse-plugins/command-plugin.vala:62
+#: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Trobeu i executeu ordres arbitràries."
+
+#: ../lib/synapse-plugins/system-managment.vala:107
+msgid "Lock"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:108
+msgid "Lock this device"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:134
+msgid "Log Out"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:135
+msgid "Close all open applications and quit"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:161
+msgid "Suspend"
+msgstr "Suspèn"
+
+#: ../lib/synapse-plugins/system-managment.vala:162
+msgid "Put your computer into suspend mode"
+msgstr "Posa l'ordinador en mode de suspensió"
+
+#: ../lib/synapse-plugins/system-managment.vala:232
+msgid "Hibernate"
+msgstr "Hiberna"
+
+#: ../lib/synapse-plugins/system-managment.vala:233
+msgid "Put your computer into hibernation mode"
+msgstr "Posa l'ordinador en mode d'hibernació"
+
+#: ../lib/synapse-plugins/system-managment.vala:302
+msgid "Shut Down"
+msgstr "Atura"
+
+#: ../lib/synapse-plugins/system-managment.vala:303
+msgid "Turn your computer off"
+msgstr "Atura l'ordinador"
+
+#: ../lib/synapse-plugins/system-managment.vala:360
+msgid "Restart"
+msgstr "Reinicia"
+
+#: ../lib/synapse-plugins/system-managment.vala:361
+msgid "Restart your computer"
+msgstr "Reinicia l'ordinador"
+
+#: ../lib/synapse-plugins/system-managment.vala:419
+msgid ""
+"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
+"your computer."
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:424
+msgid "ConsoleKit wasn't found"
+msgstr "No s'ha trobat ConsoleKit"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "Obre %s al navegador per defecte"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "Obre %s amb %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Obre aquest enllaç amb el navegador per defecte"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Enllaç"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Obre l'enllaç al navegador per defecte"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Obre els paràmetres de %s"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Troba interruptors i obre'ls."

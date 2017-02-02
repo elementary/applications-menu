@@ -7,15 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-24 21:34+0100\n"
+"POT-Creation-Date: 2017-01-31 19:56+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-31 05:29+0000\n"
+"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Uygulama menüsü göstergesi"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Uygulamalar"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -37,6 +49,14 @@ msgstr "_Rıhtım'dan kaldır"
 msgid "Add to _Dock"
 msgstr "_Rıhtım'a ekle"
 
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Tüm Uygulamalar"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Yeni bir Filtre oluştur"
+
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
 msgstr "Arama terimlerini değiştirmeyi deneyin."
@@ -48,10 +68,6 @@ msgstr "“%s” için sonuç bulunamadı"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Metin"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Uygulamalar"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -84,22 +100,6 @@ msgstr "Uygulama Eylemleri"
 #: ../src/Widgets/SearchView.vala:247
 msgid "Other"
 msgstr "Diğer"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Tüm Uygulamalar"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Yeni bir Filtre oluştur"
-
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Uygulama menüsü göstergesi"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
@@ -145,106 +145,124 @@ msgstr "Panoya Kopyala"
 msgid "Copy selection to clipboard"
 msgstr "Seçimi panoya kopyala"
 
-#: ../lib/synapse-plugins/link-plugin.vala:46
-msgid "Open %s in default web browser"
-msgstr "%s adresini varsayılan web tarayıcısında aç"
-
-#: ../lib/synapse-plugins/link-plugin.vala:51
-msgid "Open %s in %s"
-msgstr "%s adresini %s içinde aç"
-
-#: ../lib/synapse-plugins/link-plugin.vala:57
-msgid "Open this link in default browser"
-msgstr "Bu linki varsayılan tarayıcıda aç"
-
-#: ../lib/synapse-plugins/link-plugin.vala:79
-msgid "Link"
-msgstr "Link"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Open link in default browser"
-msgstr "Linki varsayılan tarayıcıda aç"
-
-#: ../lib/synapse-plugins/system-managment.vala:89
-msgid "Suspend"
-msgstr "Askıya Al"
-
-#: ../lib/synapse-plugins/system-managment.vala:90
-msgid "Put your computer into suspend mode"
-msgstr "Bilgisayarı Askıya Al"
-
-#: ../lib/synapse-plugins/system-managment.vala:168
-msgid "Hibernate"
-msgstr "Uyku Modu"
-
-#: ../lib/synapse-plugins/system-managment.vala:169
-msgid "Put your computer into hibernation mode"
-msgstr "Bilgisayarı Uyku Moduna Al"
-
-#: ../lib/synapse-plugins/system-managment.vala:246
-msgid "Shut Down"
-msgstr "Bilgisayarı Kapat"
-
-#: ../lib/synapse-plugins/system-managment.vala:247
-msgid "Turn your computer off"
-msgstr "Bilgisayarı Kapat"
-
-#: ../lib/synapse-plugins/system-managment.vala:312
-msgid "Restart"
-msgstr "Yeniden Başlat"
-
-#: ../lib/synapse-plugins/system-managment.vala:313
-msgid "Restart your computer"
-msgstr "Bilgisayarı yeniden başlat"
-
-#: ../lib/synapse-plugins/system-managment.vala:379
-msgid "Suspend, hibernate, restart or shutdown your computer."
-msgstr "Bilgisayarı Askıya Al,Hazırda Beklet,Yeniden Başlat, yada Kapat"
-
-#: ../lib/synapse-plugins/system-managment.vala:384
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit bulunamadı"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:50
-msgid "Calculator"
-msgstr "Hesap Makinesi"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:51
-msgid "Calculate basic expressions."
-msgstr "Basit ifadeleri hesapla."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:55
-msgid "bc is not installed"
-msgstr "bc kurulu değil"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:126
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
 msgstr "Bilgisayarınızdaki uygulamaları arayın ve çalıştırın."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:331
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
 msgid "Open with %s"
 msgstr "%s ile Aç"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
 msgid "Opens current selection using %s"
 msgstr "Seçili ögeyi %s kullanarak açar"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:45
-msgid "Open %s settings"
-msgstr "%s Ayarlarını Aç"
+#: ../lib/synapse-plugins/calculator-plugin.vala:51
+msgid "Calculator"
+msgstr "Hesap Makinesi"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:61
-msgid "Find switchboard plugs and open them."
-msgstr "Switchboard eklentilerini bul ve hepsini aç"
+#: ../lib/synapse-plugins/calculator-plugin.vala:52
+msgid "Calculate basic expressions."
+msgstr "Basit ifadeleri hesapla."
 
-#: ../lib/synapse-plugins/command-plugin.vala:46
+#: ../lib/synapse-plugins/calculator-plugin.vala:56
+msgid "bc is not installed"
+msgstr "bc kurulu değil"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
 msgstr "'%s' dosyasını çalıştır"
 
-#: ../lib/synapse-plugins/command-plugin.vala:46
+#: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
 msgstr "Komut çalıştır"
 
-#: ../lib/synapse-plugins/command-plugin.vala:62
+#: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Seçmeli komutları bul ve çalıştır."
+
+#: ../lib/synapse-plugins/system-managment.vala:107
+msgid "Lock"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:108
+msgid "Lock this device"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:134
+msgid "Log Out"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:135
+msgid "Close all open applications and quit"
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:161
+msgid "Suspend"
+msgstr "Askıya Al"
+
+#: ../lib/synapse-plugins/system-managment.vala:162
+msgid "Put your computer into suspend mode"
+msgstr "Bilgisayarı Askıya Al"
+
+#: ../lib/synapse-plugins/system-managment.vala:232
+msgid "Hibernate"
+msgstr "Uyku Modu"
+
+#: ../lib/synapse-plugins/system-managment.vala:233
+msgid "Put your computer into hibernation mode"
+msgstr "Bilgisayarı Uyku Moduna Al"
+
+#: ../lib/synapse-plugins/system-managment.vala:302
+msgid "Shut Down"
+msgstr "Bilgisayarı Kapat"
+
+#: ../lib/synapse-plugins/system-managment.vala:303
+msgid "Turn your computer off"
+msgstr "Bilgisayarı Kapat"
+
+#: ../lib/synapse-plugins/system-managment.vala:360
+msgid "Restart"
+msgstr "Yeniden Başlat"
+
+#: ../lib/synapse-plugins/system-managment.vala:361
+msgid "Restart your computer"
+msgstr "Bilgisayarı yeniden başlat"
+
+#: ../lib/synapse-plugins/system-managment.vala:419
+msgid ""
+"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
+"your computer."
+msgstr ""
+
+#: ../lib/synapse-plugins/system-managment.vala:424
+msgid "ConsoleKit wasn't found"
+msgstr "ConsoleKit bulunamadı"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "%s adresini varsayılan web tarayıcısında aç"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "%s adresini %s içinde aç"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Bu linki varsayılan tarayıcıda aç"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Link"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Linki varsayılan tarayıcıda aç"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "%s Ayarlarını Aç"
+
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Switchboard eklentilerini bul ve hepsini aç"
