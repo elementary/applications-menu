@@ -134,6 +134,8 @@ namespace Slingshot.Widgets {
                         }
                     } else if (match is Synapse.LinkPlugin.Result) {
                         result_type = SearchItem.ResultType.LINK;
+                    } else if (match is Synapse.AppcenterPlugin.Result) {
+                        result_type = SearchItem.ResultType.APPCENTER;
                     }
 
                     if (result_type == SearchItem.ResultType.UNKNOWN) {
@@ -242,6 +244,9 @@ namespace Slingshot.Widgets {
                     break;
                 case SearchItem.ResultType.APP_ACTIONS:
                     label = _("Application Actions");
+                    break;
+                case SearchItem.ResultType.APPCENTER:
+                    label = _("AppCenter");
                     break;
                 default:
                     label = _("Other");

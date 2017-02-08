@@ -21,6 +21,7 @@ set (PLUGINS_SOURCE
     switchboard-plugin.vala
     system-managment.vala
     link-plugin.vala
+    appcenter-plugin.vala
 )
 
 # Compile
