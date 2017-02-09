@@ -232,14 +232,17 @@ namespace Slingshot {
                 return false;
             });
 
-            event_box.key_press_event.connect (on_key_press);
-            search_entry.key_press_event.connect (on_key_press);
+            event_box.key_press_event.connect (on_event_box_key_press);
+            search_entry.key_press_event.connect (on_search_view_key_press);
+            search_entry.key_press_event.connect_after (on_key_press);
+
             // Showing a menu reverts the effect of the grab_device function.
             search_entry.search_changed.connect (() => {
                 if (modality != Modality.SEARCH_VIEW)
                     set_modality (Modality.SEARCH_VIEW);
                 search.begin (search_entry.text);
             });
+
             search_entry.grab_focus ();
             search_entry.activate.connect (search_entry_activated);
 
@@ -343,19 +346,26 @@ namespace Slingshot {
             }
         }
 
-        public bool on_key_press (Gdk.EventKey event) {
+        /* These keys do not work if connect_after used; the rest of the key events
+         * are dealt with after the default handler in order that CJK input methods
+         * work properly */  
+        public bool on_search_view_key_press (Gdk.EventKey event) {
             var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
-            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
-                (key == "1" || key == "2")) {
-                change_view_mode (key);
-                return true;
-            }
-
             switch (key) {
+                case "1":
+                case "2":
+                    if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                        change_view_mode (key);
+                        return true;
+                    }
+
+                    break;
+
                 case "F4":
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                         close_indicator ();
+                        return true;
                     }
 
                     break;
@@ -369,6 +379,24 @@ namespace Slingshot {
 
                     return true;
 
+                default:
+                    break;
+            }
+
+            return false;
+        }
+
+        public bool on_event_box_key_press (Gdk.EventKey event) {
+            if (!on_search_view_key_press (event)) {
+                return on_key_press (event);
+            } else {
+                return true;
+            }
+        }
+
+        public bool on_key_press (Gdk.EventKey event) {
+            var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
+            switch (key) {
                 case "Enter": // "KP_Enter"
                 case "Return":
                 case "KP_Enter":
@@ -557,7 +585,6 @@ namespace Slingshot {
             }
 
             return true;
-
         }
 
         public override bool scroll_event (Gdk.EventScroll event) {
