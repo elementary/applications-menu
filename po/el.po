@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-31 19:56+0100\n"
-"PO-Revision-Date: 2017-01-22 19:04+0000\n"
+"PO-Revision-Date: 2017-02-09 15:32+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
+"X-Launchpad-Export-Date: 2017-02-10 05:25+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
@@ -31,11 +31,11 @@ msgstr "Εφαρμογές"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
-msgstr "Προβολή σε Πλέγμα"
+msgstr "Προβολή σε πλέγμα"
 
 #: ../src/SlingshotView.vala:165
 msgid "View by Category"
-msgstr "Προβολή ανά Κατηγορία"
+msgstr "Προβολή ανά κατηγορία"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
@@ -51,11 +51,11 @@ msgstr ""
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr "Όλες οι Εφαρμογές"
+msgstr "Όλες οι εφαρμογές"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
-msgstr "Δημιουργία νέου Φίλτρου"
+msgstr "Δημιουργία νέου φίλτρου"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -63,7 +63,7 @@ msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζή�
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Κανένα αποτέλεσμα για “%s”"
 
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
@@ -75,7 +75,7 @@ msgstr "Αρχεία"
 
 #: ../src/Widgets/SearchView.vala:229
 msgid "Actions"
-msgstr "Δραστηριότητες"
+msgstr "Ενέργειες"
 
 #: ../src/Widgets/SearchView.vala:232
 msgid "Search"
@@ -95,7 +95,7 @@ msgstr "Ρυθμίσεις"
 
 #: ../src/Widgets/SearchView.vala:244
 msgid "Application Actions"
-msgstr ""
+msgstr "Ενέργειες εφαρμογών"
 
 #: ../src/Widgets/SearchView.vala:247
 msgid "Other"
@@ -107,7 +107,7 @@ msgstr "Εκτέλεση αυτής της εντολής..."
 
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr ""
+msgstr "Εκτέλεση"
 
 #: ../lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
@@ -115,11 +115,11 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Εκτέλεση στο Τερματικό"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Εκτέλεση εφαρμογής ή εντολής στο τερματικό"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -135,7 +135,7 @@ msgstr "Άνοιγμα φακέλου"
 
 #: ../lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Άνοιγμα φακέλου που περιέχει αυτό το αρχείο"
 
 #: ../lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
@@ -171,11 +171,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Εκτέλεση '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr ""
+msgstr "Εκτέλεση εντολής"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
@@ -183,15 +183,15 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
-msgstr ""
+msgstr "Κλείδωμα"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
-msgstr ""
+msgstr "Κλείδωμα αυτής της συσκευής"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
