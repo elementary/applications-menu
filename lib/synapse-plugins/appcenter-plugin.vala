@@ -57,7 +57,7 @@ namespace Synapse {
 
                 this.title = _title;
                 this.icon_name = _icon_name;
-                this.description = _("Manage this application in the app store");
+                this.description = _("Search the app store");
                 this.has_thumbnail = false;
                 this.match_type = MatchType.ACTION;
             }
@@ -68,7 +68,7 @@ namespace Synapse {
                 }
 
                 var list = new List<string> ();
-                list.append ("search://" + Uri.escape_string (search_term));
+                list.append ("appstream://" + Uri.escape_string (search_term));
 
                 try {
                     appinfo.launch_uris (list, null);
@@ -90,8 +90,8 @@ namespace Synapse {
             }
 
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (AppcenterPlugin),
-                                            _("Appcenter"),
-                                            _("Open application information"),
+                                            _("AppCenter"),
+                                            _("Search for applications"),
                                             "system-software-install",
                                             register_plugin,
                                             appcenter_installed,
