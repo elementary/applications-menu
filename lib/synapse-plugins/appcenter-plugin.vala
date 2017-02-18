@@ -108,8 +108,8 @@ namespace Synapse {
 
         public async ResultSet? search (Query query) throws SearchError {
             ResultSet results = new ResultSet ();
-            Result search_result = new Result(query.query_string);
-            results.add(search_result, Match.Score.INCREMENT_MINOR);
+            Result search_result = new Result (query.query_string);
+            results.add (search_result, Match.Score.INCREMENT_MINOR);
 
             return results;
         }
