@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-31 19:56+0100\n"
-"PO-Revision-Date: 2017-02-01 09:44+0000\n"
+"PO-Revision-Date: 2017-02-17 19:25+0000\n"
 "Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
+"X-Launchpad-Export-Date: 2017-02-18 05:26+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
@@ -59,7 +59,7 @@ msgstr "Crea un nuovo filtro"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
-msgstr "Prova a cambiare i termini di ricerca."
+msgstr "Prova a modificare i termini di ricerca."
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
@@ -203,7 +203,7 @@ msgstr "Sospendi"
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
-msgstr "Imposta il computer nella modalità di sospensione"
+msgstr "Metti il computer in stato di sospensione"
 
 #: ../lib/synapse-plugins/system-managment.vala:232
 msgid "Hibernate"
@@ -211,7 +211,7 @@ msgstr "Iberna"
 
 #: ../lib/synapse-plugins/system-managment.vala:233
 msgid "Put your computer into hibernation mode"
-msgstr "Imposta il computer nella modalità di ibernazione"
+msgstr "Metti il computer in stato di ibernazione"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
