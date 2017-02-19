@@ -133,7 +133,7 @@ namespace Slingshot.Widgets {
                             result_type = SearchItem.ResultType.INTERNET;
                         }
                     } else if (match is Synapse.LinkPlugin.Result) {
-                        result_type = SearchItem.ResultType.LINK;
+                        result_type = SearchItem.ResultType.INTERNET;
                     }
 
                     if (result_type == SearchItem.ResultType.UNKNOWN) {
