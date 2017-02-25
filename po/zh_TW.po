@@ -7,55 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-31 19:56+0100\n"
+"POT-Creation-Date: 2017-02-23 08:57+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
-
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "程式選單指示器"
-
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
-msgid "Applications"
-msgstr "應用程式"
-
-#: ../src/SlingshotView.vala:161
-msgid "View as Grid"
-msgstr "格狀檢視"
-
-#: ../src/SlingshotView.vala:165
-msgid "View by Category"
-msgstr "分類檢視"
-
-#: ../src/SlingshotView.vala:174
-msgid "Search Apps"
-msgstr "搜尋程式"
-
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "從 _Dock 移除"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "加到 _Dock 中"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "所有應用程式"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "建立新的過慮器"
+"X-Launchpad-Export-Date: 2017-02-25 05:29+0000\n"
+"X-Generator: Launchpad (build 18328)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -68,6 +28,10 @@ msgstr "找不到「%s」的結果"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "文字"
+
+#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
+msgid "Applications"
+msgstr "應用程式"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -101,61 +65,73 @@ msgstr "應用程式動作"
 msgid "Other"
 msgstr "其他"
 
+#: ../src/Widgets/AppEntry.vala:228
+msgid "Remove from _Dock"
+msgstr "從 _Dock 移除"
+
+#: ../src/Widgets/AppEntry.vala:230
+msgid "Add to _Dock"
+msgstr "加到 _Dock 中"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "所有應用程式"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "建立新的過慮器"
+
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
 msgstr "執行此指令…"
 
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "執行"
+#: ../src/SlingshotView.vala:161
+msgid "View as Grid"
+msgstr "格狀檢視"
 
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "執行應用程式、動作或指令稿"
+#: ../src/SlingshotView.vala:165
+msgid "View by Category"
+msgstr "分類檢視"
 
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "在終端機中執行"
+#: ../src/SlingshotView.vala:174
+msgid "Search Apps"
+msgstr "搜尋程式"
 
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "執行應用程式或在終端機中執行指令"
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
 
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "開啟"
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "程式選單指示器"
 
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "使用預設應用程式開啟"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "開啟 %s 設定值"
 
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "開啟資料夾"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "尋找 swithcbard 插件並開啓之。"
 
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "開啟此檔案所在的資料夾"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "複製到剪貼簿"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "將選擇內容複製到剪貼簿"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:94
+msgid "AppCenter"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "搜尋並執行電腦中的應用程式。"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "Search for applications"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "以 %s 開啟"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "以 %s 開啟目前的選項"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:99
+msgid "AppCenter is not installed"
+msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -169,17 +145,17 @@ msgstr "計算基本運算式。"
 msgid "bc is not installed"
 msgstr "尚未安裝 bc"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "執行「%s」"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "搜尋並執行電腦中的應用程式。"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "執行指令"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
+msgid "Open with %s"
+msgstr "以 %s 開啟"
 
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "尋找並執行任意指令。"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
+msgid "Opens current selection using %s"
+msgstr "以 %s 開啟目前的選項"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -259,10 +235,54 @@ msgstr "連結"
 msgid "Open link in default browser"
 msgstr "在預設瀏覽器中開啟連結"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "開啟 %s 設定值"
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "執行「%s」"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "尋找 swithcbard 插件並開啓之。"
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "執行指令"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "尋找並執行任意指令。"
+
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "執行"
+
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "執行應用程式、動作或指令稿"
+
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "在終端機中執行"
+
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "執行應用程式或在終端機中執行指令"
+
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "開啟"
+
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "使用預設應用程式開啟"
+
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "開啟資料夾"
+
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "開啟此檔案所在的資料夾"
+
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "複製到剪貼簿"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "將選擇內容複製到剪貼簿"

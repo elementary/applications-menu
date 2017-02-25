@@ -7,56 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-31 19:56+0100\n"
+"POT-Creation-Date: 2017-02-23 08:57+0100\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-02 05:26+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
+"X-Launchpad-Export-Date: 2017-02-25 05:29+0000\n"
+"X-Generator: Launchpad (build 18328)\n"
 "Language: ug\n"
-
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "ئەپ"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "ئەپ تىزىملىكى كۆرسەتكۈچى"
-
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
-msgid "Applications"
-msgstr "ئەپلەر"
-
-#: ../src/SlingshotView.vala:161
-msgid "View as Grid"
-msgstr "كاتەكچە شەكلىدە كۆرۈش"
-
-#: ../src/SlingshotView.vala:165
-msgid "View by Category"
-msgstr "تۈرلەر بويىچە كۆرۈش"
-
-#: ../src/SlingshotView.vala:174
-msgid "Search Apps"
-msgstr "ئەپلەرنى ئىزدەش"
-
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Dock تىن چىقىرىۋىتىش"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Dock قا قىتىش"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "بارلىق ئەپلەر"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "يىڭى سۈزگۈچ قۇرۇش"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -69,6 +29,10 @@ msgstr "“%s” نىڭ ئىزدەش نەتىجىسى تىپىلمىدى."
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "تېكىست"
+
+#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
+msgid "Applications"
+msgstr "ئەپلەر"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -102,61 +66,73 @@ msgstr "ئەپ ھەركەتلىرى"
 msgid "Other"
 msgstr "باشقا"
 
+#: ../src/Widgets/AppEntry.vala:228
+msgid "Remove from _Dock"
+msgstr "Dock تىن چىقىرىۋىتىش"
+
+#: ../src/Widgets/AppEntry.vala:230
+msgid "Add to _Dock"
+msgstr "Dock قا قىتىش"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "بارلىق ئەپلەر"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "يىڭى سۈزگۈچ قۇرۇش"
+
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
 msgstr "بۇ كوماندىنى ئىجرا قىلىش...."
 
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "ئىجرا قىلىش"
+#: ../src/SlingshotView.vala:161
+msgid "View as Grid"
+msgstr "كاتەكچە شەكلىدە كۆرۈش"
 
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "بىر ئەپنى، ھەركەتنى، ياكى پروگراممىنى ئىجرا قىلىڭ"
+#: ../src/SlingshotView.vala:165
+msgid "View by Category"
+msgstr "تۈرلەر بويىچە كۆرۈش"
 
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "تېرمىنالدا ئىجرا قىلىش"
+#: ../src/SlingshotView.vala:174
+msgid "Search Apps"
+msgstr "ئەپلەرنى ئىزدەش"
 
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "ئەپ ياكى كوماندىنى تېرمىنالدا ئىجرا قىلىش"
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "ئەپ"
 
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "ئىچىش"
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "ئەپ تىزىملىكى كۆرسەتكۈچى"
 
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "نورمالدىكى ئەپ بىلەن ئىچىش"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "%s تەڭشەكلىرىنى ئىچىش"
 
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "مۇندەرىجىنى ئىچىش"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "يۆتكەش تاختىسى قىستۇرمىلىرىنى ئىزدەڭ ۋە ئىچىڭ."
 
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "بۇ ھۆججەتنى ئۆزئىچىگە ئالغان مۇندەرىجىنى ئىچىش"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "چاپلاش تاختىسىغا كۆچۈرۈش"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "تاللانغان تۈرنى چاپلاش تاختىسىغا كۆچۈرۈش"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:94
+msgid "AppCenter"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "كومپىيۇتىرىڭىزدىكى ئەپلەرنى تىپىڭ ۋە ئىجرا قىلىڭ."
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "Search for applications"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "%s بىلەن ئىچىڭ"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "ھازىرقى تاللاشنى %s ئىچىڭ"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:99
+msgid "AppCenter is not installed"
+msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -170,17 +146,17 @@ msgstr "ئاددىي ئىپادىلەرنى ھىسابلاش."
 msgid "bc is not installed"
 msgstr "bc ئورنىتىلمىغان"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "'%s' نى ئىجرا قىلىش"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "كومپىيۇتىرىڭىزدىكى ئەپلەرنى تىپىڭ ۋە ئىجرا قىلىڭ."
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "كوماندىنى ئىجرا قىلىش"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
+msgid "Open with %s"
+msgstr "%s بىلەن ئىچىڭ"
 
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "خالىغان كوماندىنى ئىزدەڭ ياكى ئىجرا قىلىڭ."
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
+msgid "Opens current selection using %s"
+msgstr "ھازىرقى تاللاشنى %s ئىچىڭ"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -260,10 +236,54 @@ msgstr "ئۇلانما"
 msgid "Open link in default browser"
 msgstr "ئۇلىنىشنى نورمالدىكى توركۆرگۈچتە ئىچىڭ"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "%s تەڭشەكلىرىنى ئىچىش"
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "'%s' نى ئىجرا قىلىش"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "يۆتكەش تاختىسى قىستۇرمىلىرىنى ئىزدەڭ ۋە ئىچىڭ."
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "كوماندىنى ئىجرا قىلىش"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "خالىغان كوماندىنى ئىزدەڭ ياكى ئىجرا قىلىڭ."
+
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "ئىجرا قىلىش"
+
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "بىر ئەپنى، ھەركەتنى، ياكى پروگراممىنى ئىجرا قىلىڭ"
+
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "تېرمىنالدا ئىجرا قىلىش"
+
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "ئەپ ياكى كوماندىنى تېرمىنالدا ئىجرا قىلىش"
+
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "نورمالدىكى ئەپ بىلەن ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "مۇندەرىجىنى ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "بۇ ھۆججەتنى ئۆزئىچىگە ئالغان مۇندەرىجىنى ئىچىش"
+
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "چاپلاش تاختىسىغا كۆچۈرۈش"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "تاللانغان تۈرنى چاپلاش تاختىسىغا كۆچۈرۈش"

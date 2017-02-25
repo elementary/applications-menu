@@ -7,55 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-01-31 19:56+0100\n"
+"POT-Creation-Date: 2017-02-23 08:57+0100\n"
 "PO-Revision-Date: 2017-02-08 16:28+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-09 05:26+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
-
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "L'indicador de menú d'aplicacions"
-
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
-msgid "Applications"
-msgstr "Aplicacions"
-
-#: ../src/SlingshotView.vala:161
-msgid "View as Grid"
-msgstr "Visualitza com a graella"
-
-#: ../src/SlingshotView.vala:165
-msgid "View by Category"
-msgstr "Visualitza per categories"
-
-#: ../src/SlingshotView.vala:174
-msgid "Search Apps"
-msgstr "Cerca aplicacions"
-
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Elimina de l'acobla_dor"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Afegeix a l'acobla_dor"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Totes les aplicacions"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Crea un filtre nou"
+"X-Launchpad-Export-Date: 2017-02-25 05:28+0000\n"
+"X-Generator: Launchpad (build 18328)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -68,6 +28,10 @@ msgstr "Cap resultat per a “%s”"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Text"
+
+#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
+msgid "Applications"
+msgstr "Aplicacions"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -101,61 +65,73 @@ msgstr "Accions de l'aplicació"
 msgid "Other"
 msgstr "Altres"
 
+#: ../src/Widgets/AppEntry.vala:228
+msgid "Remove from _Dock"
+msgstr "Elimina de l'acobla_dor"
+
+#: ../src/Widgets/AppEntry.vala:230
+msgid "Add to _Dock"
+msgstr "Afegeix a l'acobla_dor"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Totes les aplicacions"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Crea un filtre nou"
+
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
 msgstr "Executa aquesta ordre…"
 
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Executa"
+#: ../src/SlingshotView.vala:161
+msgid "View as Grid"
+msgstr "Visualitza com a graella"
 
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "Executa una aplicació, una acció o un script"
+#: ../src/SlingshotView.vala:165
+msgid "View by Category"
+msgstr "Visualitza per categories"
 
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Executa en un terminal"
+#: ../src/SlingshotView.vala:174
+msgid "Search Apps"
+msgstr "Cerca aplicacions"
 
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Executa l'aplicació o l'ordre en un terminal"
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
 
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Obre"
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "L'indicador de menú d'aplicacions"
 
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Obre amb l'aplicació per defecte"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Obre els paràmetres de %s"
 
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Obre la carpeta"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Troba interruptors i obre'ls."
 
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Obre la carpeta que conté aquest fitxer"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "Copia al porta-retalls"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
 
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "Copia la selecció al porta-retalls"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:94
+msgid "AppCenter"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Cerqueu i executeu aplicacions l'ordinador."
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "Search for applications"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Obre amb %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "Obre la selecció actual amb %s"
+#: ../lib/synapse-plugins/appcenter-plugin.vala:99
+msgid "AppCenter is not installed"
+msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -169,17 +145,17 @@ msgstr "Calcula expressions bàsiques."
 msgid "bc is not installed"
 msgstr "El bc no està instal·lat"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "Executa «%s»"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Cerqueu i executeu aplicacions l'ordinador."
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "Executa una ordre"
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
+msgid "Open with %s"
+msgstr "Obre amb %s"
 
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "Trobeu i executeu ordres arbitràries."
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
+msgid "Opens current selection using %s"
+msgstr "Obre la selecció actual amb %s"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -261,10 +237,54 @@ msgstr "Enllaç"
 msgid "Open link in default browser"
 msgstr "Obre l'enllaç al navegador per defecte"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "Obre els paràmetres de %s"
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "Executa «%s»"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "Troba interruptors i obre'ls."
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "Executa una ordre"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "Trobeu i executeu ordres arbitràries."
+
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Executa"
+
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Executa una aplicació, una acció o un script"
+
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Executa en un terminal"
+
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Executa l'aplicació o l'ordre en un terminal"
+
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Obre"
+
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Obre amb l'aplicació per defecte"
+
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Obre la carpeta"
+
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Obre la carpeta que conté aquest fitxer"
+
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Copia al porta-retalls"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Copia la selecció al porta-retalls"
