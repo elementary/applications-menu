@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-19 12:48+0000\n"
+"PO-Revision-Date: 2017-02-27 21:32+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-25 05:28+0000\n"
-"X-Generator: Launchpad (build 18328)\n"
+"X-Launchpad-Export-Date: 2017-02-28 04:35+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -103,7 +103,7 @@ msgstr ""
 
 #: ../src/Slingshot.vala:32
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "Ο δείκτης του μενού εφαρμογών"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
@@ -123,19 +123,19 @@ msgstr ""
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "Κέντρο εφαρμογών"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Αναζήτηση για εφαρμογές"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "Το Κέντρο εφαρμογών δεν είναι εγκατεστημένο"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
-msgstr ""
+msgstr "Αριθμομηχανή"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
@@ -147,7 +147,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Αναζήτηση και εκτέλεση εφαρμογών στον υπολογιστή σας."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:332
 msgid "Open with %s"
@@ -171,7 +171,7 @@ msgstr "Αποσύνδεση"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Κλείσιμο όλων των ανοιχτών εφαρμογών και έξοδος"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
@@ -225,11 +225,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Ανοίξτε αυτόν τον σύνδεσμο στον προεπιλεγμένο σας περιηγητή"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr ""
+msgstr "Σύνδεσμος"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
