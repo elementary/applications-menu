@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-26 10:25+0000\n"
-"Last-Translator: ShintakuNobuhiro <Unknown>\n"
+"PO-Revision-Date: 2017-02-28 13:54+0000\n"
+"Last-Translator: Ryo Nakano <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-27 05:28+0000\n"
-"X-Generator: Launchpad (build 18328)\n"
+"X-Launchpad-Export-Date: 2017-03-01 05:25+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -115,7 +115,7 @@ msgstr "システム設定の項目を探してそれらを開いてください
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "%s で %s を検索する"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
@@ -123,11 +123,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "アプリケーションを検索する"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
