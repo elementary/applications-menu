@@ -206,10 +206,14 @@ namespace Synapse {
                         matched = true;
                         break;
                     }  else if (info.is_partial_match ()) {
-                        results.add (dfm, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+                        results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE));
                         matched = true;
                         break;
                     }
+                }
+
+                if (matched) {
+                    continue;
                 }
 
                 string id = dfm.desktop_id.replace ("application://", "");
@@ -227,16 +231,20 @@ namespace Synapse {
                         MatchInfo action_info;
                         if (matcher.key.match (title, 0, out action_info) || title.contains (q.query_string_folded) || title.has_prefix (q.query_string)) {
                             var am = new ActionMatch (id, action);
-                            results.add (am, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+                            results.add (am, compute_relevancy (dfm, matcher.value - Match.Score.INCREMENT_LARGE));
                             matched = true;
                             break;
                         } else if (action_info.is_partial_match ()) {
                             var am = new ActionMatch (id, action);
-                            results.add (am, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+                            results.add (am, compute_relevancy (dfm, Match.Score.BELOW_AVERAGE));
                             matched = true;  
                             break;        
                         }
                     }
+                }
+
+                if (matched) {
+                    continue;
                 }
 
                 foreach (unowned string keyword in desktop_app_info.get_keywords ()) {
@@ -244,21 +252,25 @@ namespace Synapse {
                     foreach (var matcher in matchers) {
                         MatchInfo action_info;
                         if (matcher.key.match (_keyword, 0, out action_info) || _keyword.contains (q.query_string_folded) || _keyword.has_prefix (q.query_string)) {
-                            results.add (dfm, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+                            results.add (dfm, compute_relevancy (dfm, matcher.value - (Match.Score.INCREMENT_LARGE + Match.Score.INCREMENT_SMALL)));
                             matched = true;
                             break;
                         } else if (action_info.is_partial_match ()) {
-                            results.add (dfm, compute_relevancy (dfm, Match.Score.INCREMENT_SMALL));
+                            results.add (dfm, compute_relevancy (dfm, Match.Score.POOR));
                             matched = true;  
                             break;        
                         }
                     }          
                 }
 
-                if (!matched && (comment.down ().contains (q.query_string_folded) || generic_name.down ().contains (q.query_string_folded))) {
+                if (matched) {
+                    continue;
+                }
+
+                if (comment.down ().contains (q.query_string_folded) || generic_name.down ().contains (q.query_string_folded)) {
                     results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE - Match.Score.INCREMENT_MEDIUM));
                     matched = true;
-                } if (!matched && dfm.exec.has_prefix (q.query_string)) {
+                } else if (dfm.exec.has_prefix (q.query_string)) {
                     results.add (dfm, compute_relevancy (dfm, dfm.exec == q.query_string ?
                     Match.Score.VERY_GOOD : Match.Score.AVERAGE - Match.Score.INCREMENT_SMALL));
                 }
