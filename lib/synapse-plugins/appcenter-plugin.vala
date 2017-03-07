@@ -80,6 +80,8 @@ namespace Synapse {
         }
 
         private static AppInfo? appinfo;
+        private static Regex regex;
+        private static Regex link_regex;
 
         static void register_plugin () {
             bool appcenter_installed = false;
@@ -101,6 +103,15 @@ namespace Synapse {
 
         static construct {
             register_plugin ();
+            
+            try {
+                // 2 or more characters, must contain at least one letter
+                regex = new Regex ("""^(?=\pL).{2,}$""", RegexCompileFlags.OPTIMIZE);
+                link_regex = new Regex ("[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)",
+                RegexCompileFlags.OPTIMIZE);
+            } catch (Error e) {
+                error ("Error creating regexp.");
+            }
         }
 
         public bool handles_query (Query query) {
@@ -108,11 +119,15 @@ namespace Synapse {
         }
 
         public async ResultSet? search (Query query) throws SearchError {
-            ResultSet results = new ResultSet ();
-            Result search_result = new Result (query.query_string);
-            results.add (search_result, Match.Score.INCREMENT_MINOR);
+            if (regex.match (query.query_string) && !link_regex.match (query.query_string)) {
+                ResultSet results = new ResultSet ();
+                Result search_result = new Result (query.query_string);
+                results.add (search_result, Match.Score.INCREMENT_MINOR);
 
-            return results;
+                return results;
+            } else {
+                return null;
+            }
         }
     }
 }
