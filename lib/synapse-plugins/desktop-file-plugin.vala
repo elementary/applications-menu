@@ -191,12 +191,40 @@ namespace Synapse {
                 unowned string generic_name = dfm.generic_name;
                 unowned string gettext_domain = dfm.gettext_domain;
 
+                string id = dfm.desktop_id.replace ("application://", "");
+                var desktop_app_info = new DesktopAppInfo (id);
+
+                MatchInfo info;
+
+                // Populate actions
+                foreach (string action in desktop_app_info.list_actions ()) {
+                    string title = desktop_app_info.get_action_name (action);
+                    if (gettext_domain != null) {
+                        title = GLib.dgettext (gettext_domain, title).down ();
+                    } else {
+                        title = title.down ();
+                    }   
+
+                    foreach (var matcher in matchers) {
+                        if (matcher.key.match (title, 0, out info)) {
+                            var am = new ActionMatch (id, action);
+                            results.add (am, compute_relevancy (dfm, matcher.value));
+                            break;
+                        } else if (info.is_partial_match ()) {
+                            var am = new ActionMatch (id, action);
+                            results.add (am, compute_relevancy (dfm, Match.Score.AVERAGE));      
+                            break;
+                        }
+                    }
+                }
+
+                // Populate apps
                 bool matched = false;
-                // FIXME: we need to do much smarter relevancy computation in fuzzy re
-                // "sysmon" matching "System Monitor" is very good as opposed to
-                // "seto" matching "System Monitor"
+                unowned string[] keywords = desktop_app_info.get_keywords ();
                 foreach (var matcher in matchers) {
-                    MatchInfo info;
+                    // FIXME: we need to do much smarter relevancy computation in fuzzy re
+                    // "sysmon" matching "System Monitor" is very good as opposed to
+                    // "seto" matching "System Monitor"
                     if (matcher.key.match (folded_title, 0, out info)) {
                         results.add (dfm, compute_relevancy (dfm, matcher.value));
                         matched = true;
@@ -205,62 +233,24 @@ namespace Synapse {
                         results.add (dfm, compute_relevancy (dfm, matcher.value - Match.Score.INCREMENT_SMALL));
                         matched = true;
                         break;
-                    }  else if (info.is_partial_match ()) {
+                    } else if (info.is_partial_match ()) {
                         results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE));
                         matched = true;
                         break;
                     }
-                }
 
-                if (matched) {
-                    continue;
-                }
-
-                string id = dfm.desktop_id.replace ("application://", "");
-                var desktop_app_info = new DesktopAppInfo (id);
-                string[] actions = desktop_app_info.list_actions ();
-                foreach (string action in actions) {
-                    string title = desktop_app_info.get_action_name (action);
-                    if (gettext_domain != null) {
-                        title = GLib.dgettext (gettext_domain, title).down ();
-                    } else {
-                        title = title.down ();
-                    }
-
-                    foreach (var matcher in matchers) {
-                        MatchInfo action_info;
-                        if (matcher.key.match (title, 0, out action_info) || title.contains (q.query_string_folded) || title.has_prefix (q.query_string)) {
-                            var am = new ActionMatch (id, action);
-                            results.add (am, compute_relevancy (dfm, matcher.value - Match.Score.INCREMENT_LARGE));
+                    foreach (string keyword in keywords) {
+                        keyword = keyword.down ();
+                        if (matcher.key.match (keyword, 0, out info)) {
+                            results.add (dfm, compute_relevancy (dfm, matcher.value - Match.Score.INCREMENT_LARGE));
                             matched = true;
                             break;
-                        } else if (action_info.is_partial_match ()) {
-                            var am = new ActionMatch (id, action);
-                            results.add (am, compute_relevancy (dfm, Match.Score.BELOW_AVERAGE));
+                        } else if (info.is_partial_match ()) {
+                            results.add (dfm, compute_relevancy (dfm, Match.Score.POOR - Match.Score.INCREMENT_LARGE));
                             matched = true;  
                             break;        
-                        }
+                        }                         
                     }
-                }
-
-                if (matched) {
-                    continue;
-                }
-
-                foreach (unowned string keyword in desktop_app_info.get_keywords ()) {
-                    string _keyword = keyword.down ();
-                    foreach (var matcher in matchers) {
-                        MatchInfo action_info;
-                        if (matcher.key.match (_keyword, 0, out action_info) || _keyword.contains (q.query_string_folded) || _keyword.has_prefix (q.query_string)) {
-                            results.add (dfm, compute_relevancy (dfm, matcher.value - (Match.Score.INCREMENT_LARGE + Match.Score.INCREMENT_SMALL)));
-                            matched = true;
-                            break;
-                        } else if (action_info.is_partial_match ()) {
-                            results.add (dfm, compute_relevancy (dfm, Match.Score.POOR));
-                            matched = true;  
-                            break;        
-                        }
-                    }          
                 }
 
                 if (matched) {
@@ -268,8 +258,7 @@ namespace Synapse {
                 }
 
                 if (comment.down ().contains (q.query_string_folded) || generic_name.down ().contains (q.query_string_folded)) {
-                    results.add (dfm, compute_relevancy (dfm, Match.Score.AVERAGE - Match.Score.INCREMENT_MEDIUM));
-                    matched = true;
+                    results.add (dfm, compute_relevancy (dfm, Match.Score.BELOW_AVERAGE - Match.Score.INCREMENT_MEDIUM));
                 } else if (dfm.exec.has_prefix (q.query_string)) {
                     results.add (dfm, compute_relevancy (dfm, dfm.exec == q.query_string ?
                     Match.Score.VERY_GOOD : Match.Score.AVERAGE - Match.Score.INCREMENT_SMALL));
