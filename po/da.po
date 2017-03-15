@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"PO-Revision-Date: 2017-03-14 17:48+0000\n"
+"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-25 05:28+0000\n"
-"X-Generator: Launchpad (build 18328)\n"
+"X-Launchpad-Export-Date: 2017-03-15 05:27+0000\n"
+"X-Generator: Launchpad (build 18331)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -67,11 +67,11 @@ msgstr ""
 
 #: ../src/Widgets/AppEntry.vala:228
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Fjern fra _dok"
 
 #: ../src/Widgets/AppEntry.vala:230
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Tilføj til _dok"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -99,11 +99,11 @@ msgstr ""
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:32
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "Programmenu-indikatoren"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
