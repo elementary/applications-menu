@@ -8,62 +8,62 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-03-14 17:48+0000\n"
+"PO-Revision-Date: 2017-03-17 16:31+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-03-15 05:27+0000\n"
-"X-Generator: Launchpad (build 18331)\n"
+"X-Launchpad-Export-Date: 2017-03-19 05:19+0000\n"
+"X-Generator: Launchpad (build 18332)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Prøv at ændre søgetermer."
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Ingen resultater for \"%s\""
 
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
 msgid "Applications"
-msgstr ""
+msgstr "Programmer"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: ../src/Widgets/SearchView.vala:229
 msgid "Actions"
-msgstr ""
+msgstr "Handlinger"
 
 #: ../src/Widgets/SearchView.vala:232
 msgid "Search"
-msgstr ""
+msgstr "Søgning"
 
 #: ../src/Widgets/SearchView.vala:235
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakter"
 
 #: ../src/Widgets/SearchView.vala:238
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:241
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 #: ../src/Widgets/SearchView.vala:244
 msgid "Application Actions"
-msgstr ""
+msgstr "Programhandlinger"
 
 #: ../src/Widgets/SearchView.vala:247
 msgid "Other"
-msgstr ""
+msgstr "Anden"
 
 #: ../src/Widgets/AppEntry.vala:228
 msgid "Remove from _Dock"
@@ -83,7 +83,7 @@ msgstr "Opret et nyt Filter"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr "Kør denne kommando..."
+msgstr "Kør denne kommando…"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -95,7 +95,7 @@ msgstr "Vis efter Kategori"
 
 #: ../src/SlingshotView.vala:174
 msgid "Search Apps"
-msgstr ""
+msgstr "Søg efter programmer"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
@@ -107,35 +107,35 @@ msgstr "Programmenu-indikatoren"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr ""
+msgstr "Åbn %s-indstillinger"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Find switchboardstik og åbn dem."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Søg efter %s i %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Søg i programbutikken"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "Programcenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Søg efter programmer"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "Programcenter er ikke installeret"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
-msgstr ""
+msgstr "Lommeregner"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
@@ -151,89 +151,91 @@ msgstr "Søg efter og kør applikationerne på din computer."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:332
 msgid "Open with %s"
-msgstr ""
+msgstr "Åbn med %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:334
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Åbner valgte med %s"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
-msgstr ""
+msgstr "Lås"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
-msgstr ""
+msgstr "Lås denne enhed"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr ""
+msgstr "Log ud"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Luk alle åbne programmer og afslut"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
-msgstr ""
+msgstr "Hvile"
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Sæt din computer i hviletilstand"
 
 #: ../lib/synapse-plugins/system-managment.vala:232
 msgid "Hibernate"
-msgstr ""
+msgstr "Dvale"
 
 #: ../lib/synapse-plugins/system-managment.vala:233
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Sæt din computer i dvaletilstand"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Luk ned"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Sluk din computer"
 
 #: ../lib/synapse-plugins/system-managment.vala:360
 msgid "Restart"
-msgstr ""
+msgstr "Genstart"
 
 #: ../lib/synapse-plugins/system-managment.vala:361
 msgid "Restart your computer"
-msgstr ""
+msgstr "Genstart din computer"
 
 #: ../lib/synapse-plugins/system-managment.vala:419
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Lås sessionen eller log ud fra den. Hvil, dvale, genstart eller luk din "
+"computer."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit blev ikke fundet"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Åbn %s i standardwebbrowser"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Åbn %s i %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Åbn dette link i standardbrowser"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Åbn link i standardbrowser"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
@@ -241,7 +243,7 @@ msgstr "Udfør '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr ""
+msgstr "Kør kommando"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
@@ -249,40 +251,40 @@ msgstr "Find og udfør vilkårlige kommandoer."
 
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr ""
+msgstr "Kør"
 
 #: ../lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Kør et program, handling eller skript"
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Kør i terminal"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Kør program eller kommando i terminal"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
-msgstr ""
+msgstr "Åbn"
 
 #: ../lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr ""
+msgstr "Åbn med standardprogram"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr ""
+msgstr "Åbn mappe"
 
 #: ../lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Åbn mappen der indeholder denne fil"
 
 #: ../lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopiér til udklipsholder"
 
 #: ../lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Kopiér markering til udklipsholder"
