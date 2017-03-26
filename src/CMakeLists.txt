@@ -29,6 +29,7 @@ PACKAGES
     ${UI_DEPS}
     synapse-core
     synapse-plugins
+    appstream
 CUSTOM_VAPIS
     ../vapi/config.vapi
 OPTIONS

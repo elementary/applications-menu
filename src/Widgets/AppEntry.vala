@@ -50,9 +50,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private Gtk.Image count_image;
     private bool dragging = false; //prevent launching
     private Backend.App application;
+    private string? appstream_comp_id = null;
 
-#if HAS_PLANK
     static construct {
+#if HAS_PLANK        
         Plank.Paths.initialize ("plank", Build.PKGDATADIR);
         plank_theme = new Plank.DockTheme (Plank.Theme.GTK_THEME_NAME);
 #if HAS_PLANK_0_11
@@ -60,10 +61,23 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #else
         plank_client = Plank.DBus.Client.get_instance ();
 #endif
+#endif
+
+        has_appstream_handler = AppInfo.get_default_for_uri_scheme ("appstream") != null;
+        appstream_pool = new AppStream.Pool ();
+        try {
+            appstream_pool.load ();
+        } catch (Error e) {
+            warning (e.message);
+        }
     }
 
     private const int ICON_SIZE = 64;
 
+    private static AppStream.Pool appstream_pool;
+    private static bool has_appstream_handler = false;
+
+#if HAS_PLANK
 #if HAS_PLANK_0_11
     private const int SURFACE_SIZE = 48;
     private static Plank.DockTheme plank_theme;
@@ -87,6 +101,12 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         application = app;
         tooltip_text = app.description;
+
+        appstream_pool.get_components ().foreach ((comp) => {
+            if (appstream_comp_id == null && desktop_id == comp.get_desktop_id () && comp.get_pkgname () != null) {
+                appstream_comp_id = comp.get_id ();
+            }
+        });
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
@@ -205,6 +225,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             });
         }
 
+        if (has_appstream_handler && appstream_comp_id != null) {
+            if (menu.get_children ().length () > 0) {
+                menu.add (new Gtk.SeparatorMenuItem ());
+            }
+
+            menu.add (get_uninstall_menuitem ());
+        }
+
 #if HAS_PLANK
         if (plank_client != null && plank_client.is_connected) {
             if (menu.get_children ().length () > 0)
@@ -215,6 +243,24 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
 
         menu.show_all ();
+    }
+
+    private Gtk.MenuItem get_uninstall_menuitem () {
+        var uninstall_menuitem = new Gtk.MenuItem ();
+        uninstall_menuitem.set_label (_("Uninstall"));
+        uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
+
+        return uninstall_menuitem;
+    }
+
+    private void uninstall_menuitem_activate () {
+        try {
+            Gtk.show_uri (null, "appstream://%s".printf (appstream_comp_id), Gdk.CURRENT_TIME);
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        app_launched ();
     }
 
 #if HAS_PLANK
