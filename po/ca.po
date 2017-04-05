@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-08 16:28+0000\n"
+"PO-Revision-Date: 2017-03-27 15:00+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-25 05:28+0000\n"
-"X-Generator: Launchpad (build 18328)\n"
+"X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
+"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -115,23 +115,23 @@ msgstr "Troba interruptors i obre'ls."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Cerca %s a %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Cerca a la botiga d'aplicacions"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "Centre d'aplicacions"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Cerca aplicacions"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "El Centre d'aplicacions no està instal·lat."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
