@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-14 17:34+0000\n"
-"Last-Translator: Damian Woźniak <fiszet@gmail.com>\n"
+"PO-Revision-Date: 2017-04-18 09:49+0000\n"
+"Last-Translator: Piotr Strębski <strebski@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
+"X-Launchpad-Export-Date: 2017-04-19 05:20+0000\n"
+"X-Generator: Launchpad (build 18354)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -115,23 +115,23 @@ msgstr "Znajdź wtyczki Switchboarda i otwórz je."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Szukaj %s w %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Szukaj w sklepie z programami"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "Centrum programów"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Szukaj programów"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "Centrum programów nie jest zainstalowane"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
