@@ -43,7 +43,10 @@ public class Slingshot.Backend.AppSystem : Object {
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
         categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
 
-        update_app_system ();
+        new Thread<void*> ("menu-loader", () => {
+            update_app_system ();
+            return null;
+        });
     }
 
     private void update_app_system () {
