@@ -17,6 +17,29 @@
 //
 
 public class Slingshot.Widgets.AppEntry : Gtk.Button {
+    private const string BADGE_CSS = """
+        .badge {
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    shade (
+                        @error_color,
+                        1.3
+                    ),
+                    @error_color
+                );
+            border: 1px solid shade (@error_color, 0.9);
+            border-radius: 12px;
+            box-shadow:
+                inset 0 0 0 1px alpha (#fff, 0.05),
+                inset 0 1px 0 0 alpha (#fff, 0.25),
+                inset 0 -1px 0 0 alpha (#fff, 0.1);
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 0 1px 1px alpha (#000, 0.3);
+        }
+    """;
+
     private static Gtk.Menu menu;
 
     public signal void app_launched ();
@@ -122,7 +145,24 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         image = new Gtk.Image ();
         image.gicon = app.icon;
         image.pixel_size = ICON_SIZE;
-        image.margin_top = 12;
+        image.margin_top = 9;
+        image.margin_end = 6;
+        image.margin_start = 6;
+
+        var provider = new Gtk.CssProvider ();
+        try {
+            provider.load_from_data (BADGE_CSS, BADGE_CSS.length);
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (Error e) {
+            critical (e.message);
+        }
+
+        var badge = new Gtk.Label ("!");
+        badge.height_request = 24;
+        badge.width_request = 24;
+        badge.halign = Gtk.Align.END;
+        badge.valign = Gtk.Align.START;
+        badge.get_style_context ().add_class ("badge");
 
         count_image = new Gtk.Image ();
         count_image.no_show_all = true;
@@ -131,8 +171,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         count_image.margin_bottom = ICON_SIZE - SURFACE_SIZE;
 
         var overlay = new Gtk.Overlay ();
+        overlay.halign = Gtk.Align.CENTER;
         overlay.add (image);
-        overlay.add_overlay (count_image);
+        overlay.add_overlay (badge);
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
