@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-05-06 09:57+0000\n"
+"PO-Revision-Date: 2017-05-06 10:00+0000\n"
 "Last-Translator: Yuly <crow@rikka.io>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel"
 "/applications-menu/ru/>\n"
@@ -127,7 +127,7 @@ msgstr "Поиск в магазине приложений"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr "Центр приложений"
+msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
