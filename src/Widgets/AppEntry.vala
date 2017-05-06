@@ -48,7 +48,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
     private new Gtk.Image image;
     private Gtk.Image count_image;
-    private Gtk.MenuItem uninstall_menuitem;
     private bool dragging = false; //prevent launching
     private Backend.App application;
     private string appstream_comp_id { get; set; default = ""; }
@@ -113,10 +112,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         count_image.visible = false;
         count_image.margin_start = ICON_SIZE - SURFACE_SIZE;
         count_image.margin_bottom = ICON_SIZE - SURFACE_SIZE;
-
-        uninstall_menuitem = new Gtk.MenuItem ();
-        uninstall_menuitem.set_label (_("Uninstall"));
-        uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
         var overlay = new Gtk.Overlay ();
         overlay.add (image);
@@ -237,11 +232,11 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 
     private Gtk.MenuItem get_uninstall_menuitem () {
-        uninstall_menuitem = new Gtk.MenuItem ();
+        var uninstall_menuitem = new Gtk.MenuItem ();
         uninstall_menuitem.set_label (_("Uninstall"));
         uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
-        return uninstall_menuitem;      
+        return uninstall_menuitem;
     }
 
     private void uninstall_menuitem_activate () {
