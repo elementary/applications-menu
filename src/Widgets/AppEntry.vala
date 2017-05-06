@@ -50,7 +50,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private Gtk.Image count_image;
     private bool dragging = false; //prevent launching
     private Backend.App application;
-    private string appstream_comp_id { get; set; default = ""; }
+    private string appstream_comp_id = "";
 
     static construct {
 #if HAS_PLANK        
