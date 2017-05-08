@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-27 19:31+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementaryos.org>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2017-05-08 20:49+0000\n"
+"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/wingpanel"
+"/applications-menu/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -84,7 +86,7 @@ msgstr "Créer un nouveau filtre"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr "Lancer cette commande..."
+msgstr "Lancer cette commande…"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -112,7 +114,7 @@ msgstr "Ouvrir les paramètres de %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr "Chercher dans les plugs switchboard et les ouvrir"
+msgstr "Chercher dans les plugs switchboard et les ouvrir."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
