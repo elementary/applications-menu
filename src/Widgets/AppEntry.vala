@@ -70,7 +70,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 
     private new Gtk.Image image;
-    private Gtk.Image count_image;
+    private Gtk.Label badge;
     private bool dragging = false; //prevent launching
     private Backend.App application;
     private string? appstream_comp_id = null;
@@ -157,18 +157,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             critical (e.message);
         }
 
-        var badge = new Gtk.Label ("!");
+        badge = new Gtk.Label ("!");
+        badge.no_show_all = true;
+        badge.visible = false;
         badge.height_request = 24;
         badge.width_request = 24;
         badge.halign = Gtk.Align.END;
         badge.valign = Gtk.Align.START;
         badge.get_style_context ().add_class ("badge");
-
-        count_image = new Gtk.Image ();
-        count_image.no_show_all = true;
-        count_image.visible = false;
-        count_image.margin_start = ICON_SIZE - SURFACE_SIZE;
-        count_image.margin_bottom = ICON_SIZE - SURFACE_SIZE;
 
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
@@ -239,15 +235,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
 #if HAS_PLANK_0_11
     private void update_unity_icon () {
-        var visible = application.count_visible;
-        count_image.visible = visible;
-        if (!visible)
-            return;
+        badge.no_show_all = application.current_count <= 0;
+        if (application.current_count <= 0) {
+            badge.hide ();
+        } else {
+            badge.show_all ();
+        }
 
-        var surface = new Plank.Surface (SURFACE_SIZE, SURFACE_SIZE);
-        plank_theme.draw_item_count (surface, SURFACE_SIZE, { 0.85, 0.23, 0.29, 0.89 }, application.current_count);
-
-        count_image.set_from_surface (surface.Internal);
+        badge.label = "%lld".printf (application.current_count);
     }
 #endif
 
