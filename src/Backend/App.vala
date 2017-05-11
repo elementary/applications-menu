@@ -45,19 +45,15 @@ public class Slingshot.Backend.App : Object {
     public AppType app_type { get; private set; default = AppType.APP; }
 
 #if HAS_PLANK_0_11
-    public string? unity_sender_name = null;
-    public bool count_visible = false;
-    public int64 current_count = 0;
+    private string? unity_sender_name = null;
+    public bool count_visible { get; private set; default = false; }
+    public int64 current_count { get; private set; default = 0; }
 #endif
 
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
 
     public signal void launched (App app);
-
-#if HAS_PLANK_0_11
-    public signal void unity_update_info ();
-#endif
 
     public App (GMenu.TreeEntry entry) {
         app_type = AppType.APP;
@@ -159,16 +155,18 @@ public class Slingshot.Backend.App : Object {
                 count_visible = prop_value.get_boolean ();
             }
         }
-
-        unity_update_info ();
     }
 
     public void unity_reset () {
         unity_sender_name = null;
         count_visible = false;
         current_count = 0;
+    }
 
-        unity_update_info ();
+    public void remove_launcher_entry (string sender_name) {
+        if (unity_sender_name == sender_name) {
+            unity_reset ();
+        }
     }
 #endif
 }

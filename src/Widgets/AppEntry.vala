@@ -158,7 +158,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         }
 
         badge = new Gtk.Label ("!");
-        badge.no_show_all = true;
         badge.visible = false;
         badge.height_request = 24;
         badge.width_request = 24;
@@ -210,7 +209,21 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         });
 
 #if HAS_PLANK_0_11
-        app.unity_update_info.connect (update_unity_icon);
+        app.notify["current-count"].connect (() => {
+            badge.label = "%lld".printf (application.current_count);
+        });
+
+        badge.label = "%lld".printf (application.current_count);
+        app.notify["count-visible"].connect (() => {
+            badge.no_show_all = !app.count_visible;
+            if (app.count_visible) {
+                badge.hide ();
+            } else {
+                badge.show_all ();
+            }
+        });
+
+        badge.no_show_all = !app.count_visible;
 #endif
 
         app.notify["icon"].connect (() => {
@@ -232,19 +245,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         application.launch ();
         app_launched ();
     }
-
-#if HAS_PLANK_0_11
-    private void update_unity_icon () {
-        badge.no_show_all = application.current_count <= 0;
-        if (application.current_count <= 0) {
-            badge.hide ();
-        } else {
-            badge.show_all ();
-        }
-
-        badge.label = "%lld".printf (application.current_count);
-    }
-#endif
 
     private void create_menu () {
         menu = new Gtk.Menu ();
