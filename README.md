@@ -5,6 +5,7 @@
 
 You'll need the following dependencies:
 * cmake
+* libappstream-dev
 * libgee-0.8-dev
 * libgnome-menu-3-dev
 * libgranite-dev
