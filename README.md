@@ -6,7 +6,7 @@
 You'll need the following dependencies:
 * cmake
 * libgee-0.8-dev
-* libgnome-menu-dev
+* libgnome-menu-3-dev
 * libgranite-dev
 * libgtk-3-dev
 * libjson-glib-dev
