@@ -51,7 +51,6 @@ namespace Slingshot {
         public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
 
         private Modality modality;
-        private bool can_trigger_hotcorner = true;
 
         private Backend.SynapseSearch synapse;
 
@@ -216,16 +215,6 @@ namespace Slingshot {
             debug ("Ui setup completed");
         }
 
-        private bool hotcorner_trigger (Gdk.EventMotion event) {
-            if (can_trigger_hotcorner && event.x_root <= 0 && event.y_root <= 0) {
-                Gdk.Display.get_default ().get_device_manager ().get_client_pointer ().ungrab (event.time);
-                can_trigger_hotcorner = false;
-            } else if (event.x_root >= 1 || event.y_root >= 1) {
-                can_trigger_hotcorner = true;
-            }
-            return false;
-        }
-
         private void connect_signals () {
             this.focus_in_event.connect (() => {
                 search_entry.grab_focus ();
@@ -279,13 +268,6 @@ namespace Slingshot {
                     setup_size ();
                 }
             });
-
-            // check for change in gala settings
-            Slingshot.settings.gala_settings.changed.connect (gala_settings_changed);
-            gala_settings_changed ();
-
-            // hotcorner management
-            motion_notify_event.connect (hotcorner_trigger);
         }
 
 #if HAS_PLANK_0_11
@@ -320,14 +302,6 @@ namespace Slingshot {
             }
         }
 #endif
-
-        private void gala_settings_changed () {
-            if (Slingshot.settings.gala_settings.hotcorner_topleft == "open-launcher") {
-                can_trigger_hotcorner = true;
-            } else {
-                can_trigger_hotcorner = false;
-            }
-        }
 
         private void change_view_mode (string key) {
             switch (key) {
