@@ -215,8 +215,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         badge.label = "%lld".printf (application.current_count);
         app.notify["count-visible"].connect (() => {
-            badge.no_show_all = !app.count_visible;
-            if (app.count_visible) {
+            var count_visible = app.count_visible;
+            badge.no_show_all = !count_visible;
+            if (count_visible) {
                 badge.hide ();
             } else {
                 badge.show_all ();
