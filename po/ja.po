@@ -6,16 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-28 13:54+0000\n"
-"Last-Translator: Ryo Nakano <Unknown>\n"
-"Language-Team: Japanese <ja@li.org>\n"
+"PO-Revision-Date: 2017-05-06 05:23+0000\n"
+"Last-Translator: Ryo Nakano <nscnskichiro0911@gmail.com>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel"
+"/applications-menu/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -135,7 +138,7 @@ msgstr "AppCenter がインストールされていません"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
-msgstr "計算機"
+msgstr "電卓"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
@@ -209,7 +212,9 @@ msgstr "コンピューターを再起動します"
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
-msgstr "セッションをロックまたはログアウトします。お使いのコンピューターをサスペンド、ハイバーネート、再起動、及びシャットダウンします。"
+msgstr ""
+"セッションをロックまたはログアウトします。お使いのコンピューターをサスペン"
+"ド、ハイバーネート、再起動、及びシャットダウンします。"
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
