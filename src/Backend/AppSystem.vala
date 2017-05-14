@@ -43,10 +43,7 @@ public class Slingshot.Backend.AppSystem : Object {
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
         categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
 
-        new Thread<void*> ("menu-loader", () => {
-            update_app_system ();
-            return null;
-        });
+        update_app_system ();
     }
 
     private void update_app_system () {
@@ -61,9 +58,10 @@ public class Slingshot.Backend.AppSystem : Object {
         }
 
         update_categories_index ();
-        update_apps ();
-
-        changed ();
+        update_apps.begin ((obj, res) => {
+            update_apps.end (res);
+            changed ();
+        });
     }
 
     private void update_categories_index () {
@@ -88,10 +86,13 @@ public class Slingshot.Backend.AppSystem : Object {
     }
 #endif
 
-    private void update_apps () {
-        apps.clear ();
-        foreach (var cat in categories)
-            apps.set (cat.get_name (), get_apps_by_category (cat));
+    private async void update_apps () {
+        lock (apps) {
+            apps.clear ();
+            foreach (var cat in categories) {
+                apps.set (cat.get_name (), get_apps_by_category (cat));
+            }
+        }
     }
 
     public Gee.ArrayList<GMenu.TreeDirectory> get_categories () {
