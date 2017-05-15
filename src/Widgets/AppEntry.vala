@@ -211,17 +211,20 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             });
         }
 
+        bool has_system_item = false;
 #if HAS_PLANK
         if (plank_client != null && plank_client.is_connected) {
-            if (menu.get_children ().length () > 0)
+            if (menu.get_children ().length () > 0) {
                 menu.add (new Gtk.SeparatorMenuItem ());
+            }
 
+            has_system_item = true;
             menu.add (get_plank_menuitem ());
         }
 #endif
 
         if (appstream_comp_id != "") {
-            if (menu.get_children ().length () > 0) {
+            if (!has_system_item && menu.get_children ().length () > 0) {
                 menu.add (new Gtk.SeparatorMenuItem ());
             }
 
@@ -250,8 +253,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         } catch (IOError e) {
             warning (e.message);
         }
-
-        app_launched ();
     }
 
 #if HAS_PLANK
