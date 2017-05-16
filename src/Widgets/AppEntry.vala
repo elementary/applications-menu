@@ -73,7 +73,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
     private Backend.App application;
-    private string? appstream_comp_id = null;
+    private string appstream_comp_id = "";
 
     static construct {
 #if HAS_PLANK        
@@ -85,20 +85,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         plank_client = Plank.DBus.Client.get_instance ();
 #endif
 #endif
-
-        has_appstream_handler = AppInfo.get_default_for_uri_scheme ("appstream") != null;
-        appstream_pool = new AppStream.Pool ();
-        try {
-            appstream_pool.load ();
-        } catch (Error e) {
-            warning (e.message);
-        }
     }
 
     private const int ICON_SIZE = 64;
-
-    private static AppStream.Pool appstream_pool;
-    private static bool has_appstream_handler = false;
 
 #if HAS_PLANK
 #if HAS_PLANK_0_11
@@ -124,12 +113,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         application = app;
         tooltip_text = app.description;
-
-        appstream_pool.get_components ().foreach ((comp) => {
-            if (appstream_comp_id == null && desktop_id == comp.get_desktop_id () && comp.get_pkgname () != null) {
-                appstream_comp_id = comp.get_id ();
-            }
-        });
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
@@ -230,6 +213,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app.notify["icon"].connect (() => {
             ((Gtk.Image) image).gicon = app.icon;
         });
+
+        var appcenter = Backend.AppCenter.get_default ();
+        appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed (appcenter));
     }
 
     public override void get_preferred_width (out int minimum_width, out int natural_width) {
@@ -262,22 +248,25 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             });
         }
 
-        if (has_appstream_handler && appstream_comp_id != null) {
+        bool has_system_item = false;
+#if HAS_PLANK
+        if (plank_client != null && plank_client.is_connected) {
             if (menu.get_children ().length () > 0) {
+                menu.add (new Gtk.SeparatorMenuItem ());
+            }
+
+            has_system_item = true;
+            menu.add (get_plank_menuitem ());
+        }
+#endif
+
+        if (appstream_comp_id != "") {
+            if (!has_system_item && menu.get_children ().length () > 0) {
                 menu.add (new Gtk.SeparatorMenuItem ());
             }
 
             menu.add (get_uninstall_menuitem ());
         }
-
-#if HAS_PLANK
-        if (plank_client != null && plank_client.is_connected) {
-            if (menu.get_children ().length () > 0)
-                menu.add (new Gtk.SeparatorMenuItem ());
-
-            menu.add (get_plank_menuitem ());
-        }
-#endif
 
         menu.show_all ();
     }
@@ -291,13 +280,16 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 
     private void uninstall_menuitem_activate () {
-        try {
-            Gtk.show_uri (null, "appstream://%s".printf (appstream_comp_id), Gdk.CURRENT_TIME);
-        } catch (Error e) {
-            warning (e.message);
+        var appcenter = Backend.AppCenter.get_default ();
+        if (appcenter.dbus == null) {
+            return;
         }
 
-        app_launched ();
+        try {
+            appcenter.dbus.uninstall (appstream_comp_id);
+        } catch (IOError e) {
+            warning (e.message);
+        }
     }
 
 #if HAS_PLANK
@@ -327,4 +319,16 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             plank_client.add_item (desktop_uri);
     }
 #endif
+
+    private void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
+        if (appcenter.dbus != null) {
+            try {
+                appstream_comp_id = appcenter.dbus.get_component_from_desktop_id (desktop_id);
+            } catch (IOError e) {
+                warning (e.message);
+            }
+        } else {
+            appstream_comp_id = "";
+        }
+    }
 }

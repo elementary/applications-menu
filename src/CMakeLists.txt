@@ -17,6 +17,7 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
     Backend/App.vala
     Backend/RelevancyService.vala
     Backend/SynapseSearch.vala
+    Backend/AppCenter.vala
     Widgets/AppEntry.vala
     Widgets/Grid.vala
     Widgets/Switcher.vala
