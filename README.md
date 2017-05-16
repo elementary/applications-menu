@@ -3,7 +3,7 @@
 
 The lightweight and stylish app launcher from elementary.
 
-![AppCenter Screenshot](data/screenshot.png?raw=true)
+![Screenshot](data/screenshot.png?raw=true)
 
 ## Building and Installation
 
