@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-27 00:22+0000\n"
+"PO-Revision-Date: 2017-05-18 19:31+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel"
+"/applications-menu/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -84,7 +86,7 @@ msgstr "Vytvořit nový filtr"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr "Spustit příkaz..."
+msgstr "Spustit příkaz…"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -116,11 +118,11 @@ msgstr "Najít přepínač pluginů a otevřít je."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Hledat %s v %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Hledat v centru aplikací"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
@@ -172,7 +174,7 @@ msgstr "Odhlásit se"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Zavřít všechny běžící aplikace a skončit"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
@@ -211,6 +213,8 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Zamknout sezení nebo se z něj odhlásit. Uspat, hibernovat, restartovat nebo "
+"vypnout počítač."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
