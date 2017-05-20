@@ -86,7 +86,7 @@ msgstr "יצירת מסנן חדש"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr "הרצת פקודה זו..."
+msgstr "הרצת פקודה זו…"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
