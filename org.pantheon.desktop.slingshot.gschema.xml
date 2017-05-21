@@ -10,16 +10,6 @@
             <summary>The default number of rows</summary>
             <description>This value needs to be greater than 1 to be effective.</description>
         </key>
-        <key name="icon-size" type="i">
-            <default>64</default>
-            <summary>The default icon size of apps</summary>
-            <description>This value manages the size of the icons in Slingshot.</description>
-        </key>
-        <key name="show-category-filter" type="b">
-            <default>true</default>
-            <summary>Show the category switcher or not</summary>
-            <description>This value handles the category switcher.</description>
-        </key>
         <key name="use-category" type="b">
             <default>false</default>
             <summary>Show the category view by default</summary>

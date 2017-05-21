@@ -175,9 +175,7 @@ namespace Slingshot {
             search_entry.margin_start = 6;
             search_entry.margin_end = 6;
 
-            if (Slingshot.settings.show_category_filter) {
-                top.add (view_selector_revealer);
-            }
+            top.add (view_selector_revealer);
             top.add (search_entry);
 
             stack = new Gtk.Stack ();
