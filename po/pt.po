@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
+"PO-Revision-Date: 2017-05-22 08:49+0000\n"
+"Last-Translator: Luís Lima <geral@liqensoft.com>\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel"
+"/applications-menu/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -116,23 +118,23 @@ msgstr "Encontrar e abrir definições"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Pesquisar por %s em %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Pesquisar na loja de aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Pesquisar por aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "O AppCenter não está instalado"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -160,19 +162,19 @@ msgstr "Abre a seleção actual com %s"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
-msgstr ""
+msgstr "Bloquear este dispositivo"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr ""
+msgstr "Terminar Sessão"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Fechar todas as aplicações abertas e sair"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
@@ -211,6 +213,8 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Bloquear ou terminar a sessão. Suspender, hibernar, reiniciar ou encerrar o "
+"computador."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
