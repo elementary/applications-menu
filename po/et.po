@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-05-23 09:58+0000\n"
+"PO-Revision-Date: 2017-05-23 09:59+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.elementary.io/projects/wingpanel"
 "/applications-menu/et/>\n"
@@ -86,7 +86,7 @@ msgstr "Loo uus filter"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr "Käivita see"
+msgstr "Käivita sisestatud käsk…"
 
 #: ../src/SlingshotView.vala:161
 msgid "View as Grid"
@@ -150,7 +150,7 @@ msgstr "bc ei ole paigaldatud"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr "Rakenduste otsimine ja käivitamine"
+msgstr "Rakenduste otsimine ja käivitamine."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:332
 msgid "Open with %s"
