@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-05-21 02:30+0000\n"
+"PO-Revision-Date: 2017-05-23 20:05+0000\n"
 "Last-Translator: Fernando da Silva Sousa <wild.nando@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.elementary.io/projects/wingpanel/applications-menu/pt_BR/>\n"
@@ -118,14 +118,13 @@ msgstr "Encontre plugs do switchboard e abra-os."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr "Procurar por %s em %s"
+msgstr "Pesquisar por %s em %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
 msgstr "Pesquisar na loja de aplicativos"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
-#, fuzzy
 msgid "AppCenter"
 msgstr "AppCenter"
 
