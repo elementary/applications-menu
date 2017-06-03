@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-06-03 08:12+0000\n"
+"PO-Revision-Date: 2017-06-03 08:13+0000\n"
 "Last-Translator: renato <renatomonroy.95@outlook.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel"
 "/applications-menu/es/>\n"
@@ -102,7 +102,7 @@ msgstr "Buscar aplicaciones"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
-msgstr "Slingshot"
+msgstr "SlingShot"
 
 #: ../src/Slingshot.vala:32
 msgid "The app-menu indicator"
