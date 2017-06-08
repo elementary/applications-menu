@@ -281,7 +281,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
     private void uninstall_menuitem_activate () {
         var appcenter = Backend.AppCenter.get_default ();
-        if (appcenter.dbus == null) {
+        if (appcenter.dbus == null || appstream_comp_id == "") {
             return;
         }
 

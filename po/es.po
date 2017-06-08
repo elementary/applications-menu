@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
-"PO-Revision-Date: 2017-02-05 03:09+0000\n"
-"Last-Translator: Haggen <h2gn@openmailbox.org>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2017-06-03 08:13+0000\n"
+"Last-Translator: renato <renatomonroy.95@outlook.com>\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel"
+"/applications-menu/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -100,7 +102,7 @@ msgstr "Buscar aplicaciones"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
-msgstr "Slingshot"
+msgstr "SlingShot"
 
 #: ../src/Slingshot.vala:32
 msgid "The app-menu indicator"
@@ -116,23 +118,23 @@ msgstr "Encontrar conectores para switchboard y abrirlos."
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Buscar por %s en %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Buscar en la tienda"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:94
 msgid "AppCenter"
-msgstr ""
+msgstr "Centro de Aplicaciones"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Buscar applicacion"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "El Centro de Aplicaciones no esta instalado"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -168,7 +170,7 @@ msgstr "Bloquear este dispositivo"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr ""
+msgstr "Cerrar Sesión"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
@@ -211,6 +213,8 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Bloquear o Cerrar la sesión. Suspender, Hibernar, Reiniciar o Apagar la "
+"computadora."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
