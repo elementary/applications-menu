@@ -157,15 +157,11 @@ public class Slingshot.Backend.App : Object {
         }
     }
 
-    public void unity_reset () {
-        unity_sender_name = null;
-        count_visible = false;
-        current_count = 0;
-    }
-
     public void remove_launcher_entry (string sender_name) {
         if (unity_sender_name == sender_name) {
-            unity_reset ();
+            unity_sender_name = null;
+            count_visible = false;
+            current_count = 0;
         }
     }
 #endif
