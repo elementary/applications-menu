@@ -85,6 +85,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         plank_client = Plank.DBus.Client.get_instance ();
 #endif
 #endif
+
+        var provider = new Gtk.CssProvider ();
+        try {
+            provider.load_from_data (BADGE_CSS, BADGE_CSS.length);
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (Error e) {
+            critical (e.message);
+        }
     }
 
     private const int ICON_SIZE = 64;
@@ -131,14 +139,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         image.margin_top = 9;
         image.margin_end = 6;
         image.margin_start = 6;
-
-        var provider = new Gtk.CssProvider ();
-        try {
-            provider.load_from_data (BADGE_CSS, BADGE_CSS.length);
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        } catch (Error e) {
-            critical (e.message);
-        }
 
         badge = new Gtk.Label ("!");
         badge.visible = false;
