@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
 "PO-Revision-Date: 2017-06-24 18:55+0000\n"
-"Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
+"Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel"
 "/applications-menu/nl/>\n"
 "Language: nl\n"
@@ -130,11 +130,11 @@ msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "Search for applications"
-msgstr ""
+msgstr "Zoek voor applicaties"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:99
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "App centrum is niet geïnstalleerd"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
