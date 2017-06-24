@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-23 08:57+0100\n"
 "PO-Revision-Date: 2017-06-24 18:58+0000\n"
-"Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
+"Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel"
 "/applications-menu/nl/>\n"
 "Language: nl\n"
@@ -234,11 +234,11 @@ msgstr "Open deze link in de standaard internetbrowser"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Open link in de standaard browser"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
