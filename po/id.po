@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-07-06 14:50+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -17,6 +17,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.0.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Indikator menu-aplikasi"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Aplikasi"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Jalankan perintah ini…"
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr "Hapus dari _Dock"
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr "Tambah ke _Dock"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Semua Aplikasi"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Buat Penyaring baru"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -29,10 +65,6 @@ msgstr "Tidak ada hasil untuk \"%s\""
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Teks"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Aplikasi"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -66,73 +98,57 @@ msgstr "Aksi Aplikasi"
 msgid "Other"
 msgstr "Lainnya"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Hapus dari _Dock"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Tambah ke _Dock"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Semua Aplikasi"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Buat Penyaring baru"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Jalankan perintah ini…"
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Tampilan Kisi"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Tampilan Kategori"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Cari Aplikasi"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Jalankan"
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Indikator menu-aplikasi"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Jalankan aplikasi, aksi atau skrip"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "Buka pengaturan %s"
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Jalankan di Terminal"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "Temukan colokan switchboard dan buka."
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Jalankan aplikasi atau perintah di terminal"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "Cari %s di %s"
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Buka"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "Cari di toko aplikasi"
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Buka dengan aplikasi bawaan"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
-msgstr "AppCenter"
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Buka folder"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
-msgstr "Cari aplikasi"
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Buka folder yang berisi berkas ini"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
-msgstr "AppCenter tidak terpasang"
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Salin ke Papan Klip"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Salin pilihan ke papan klip"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -146,17 +162,13 @@ msgstr "Hitung ekspresi dasar."
 msgid "bc is not installed"
 msgstr "Bc tidak terpasang"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Cari dan jalankan aplikasi di komputer Anda."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Buka pengaturan %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Buka dengan %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "Buka pilihan saat ini menggunakan %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Temukan colokan switchboard dan buka."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -218,6 +230,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit tidak ditemukan"
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Cari dan jalankan aplikasi di komputer Anda."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Buka dengan %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Buka pilihan saat ini menggunakan %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr "Cari %s di %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "Cari di toko aplikasi"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "AppCenter"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Cari aplikasi"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "AppCenter tidak terpasang"
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr "Buka %s di peramban web bawaan"
@@ -249,43 +293,3 @@ msgstr "Jalankan perintah"
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Temukan dan jalankan perintah semaunya."
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Jalankan"
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "Jalankan aplikasi, aksi atau skrip"
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Jalankan di Terminal"
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Jalankan aplikasi atau perintah di terminal"
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Buka"
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Buka dengan aplikasi bawaan"
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Buka folder"
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Buka folder yang berisi berkas ini"
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "Salin ke Papan Klip"
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "Salin pilihan ke papan klip"
