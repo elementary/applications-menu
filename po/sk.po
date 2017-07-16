@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Slovak <>\n"
@@ -18,6 +18,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Indikátor menu aplikácie"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Aplikácie"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Spustiť tento príkaz"
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr "Odstrániť z_Docku"
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr "Pridať do_Docku"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Všetky aplikácie"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Vytvoriť nový filter"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -30,10 +66,6 @@ msgstr "Žiadne výsledky pre “%s”"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Text"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Aplikácie"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -67,73 +99,57 @@ msgstr "Akcie aplikácie"
 msgid "Other"
 msgstr "Iné"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Odstrániť z_Docku"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Pridať do_Docku"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Všetky aplikácie"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Vytvoriť nový filter"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Spustiť tento príkaz"
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Zobraziť v mriežke"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Zobraziť podľa kategórie"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Hľadať aplikácie"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Spustiť"
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Indikátor menu aplikácie"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Spustiť aplikáciu, činnosť alebo skript"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "Otvoriť %s nastavenia"
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Spustiť v termináli"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "Nájsť prepínač pluginov a otvoriť ich."
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Spustiť aplikáciu alebo príkaz v termináli"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Otvoriť"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Otvoriť pomocou predvolenej aplikácie"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Otvoriť priečinok"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Otvoriť priečinok obsahujúci tento súbor"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Kopírovať do schránky"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Kopírovať výber do schránky"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -147,17 +163,13 @@ msgstr "Vypočítať základné výrazy"
 msgid "bc is not installed"
 msgstr "bc nie je nainštalované"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Nájsť a spustiť aplikácie na vašom počítači."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Otvoriť %s nastavenia"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Otvoriť pomocou %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "Otvoriť aktuálny výber použitím %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Nájsť prepínač pluginov a otvoriť ich."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -217,6 +229,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit nebol nájdený"
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Nájsť a spustiť aplikácie na vašom počítači."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Otvoriť pomocou %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Otvoriť aktuálny výber použitím %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr ""
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr "Otvoriť %s v predvolenom prehliadači"
@@ -248,43 +292,3 @@ msgstr "Spustiť príkaz"
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Nájsť a spustiť ľubovoľné príkazy"
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Spustiť"
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "Spustiť aplikáciu, činnosť alebo skript"
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Spustiť v termináli"
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Spustiť aplikáciu alebo príkaz v termináli"
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Otvoriť"
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Otvoriť pomocou predvolenej aplikácie"
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Otvoriť priečinok"
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Otvoriť priečinok obsahujúci tento súbor"
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "Kopírovať do schránky"
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "Kopírovať výber do schránky"

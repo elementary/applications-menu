@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-02-27 21:32+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -17,6 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr ""
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Ο δείκτης του μενού εφαρμογών"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Εφαρμογές"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Εκτέλεση αυτής της εντολής..."
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr "Αφαίρεση από το _Dock"
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr "Προσθήκη στο _Dock"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Όλες οι εφαρμογές"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Δημιουργία νέου φίλτρου"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -29,10 +65,6 @@ msgstr "Κανένα αποτέλεσμα για “%s”"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Κείμενο"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Εφαρμογές"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -66,73 +98,57 @@ msgstr "Ενέργειες εφαρμογών"
 msgid "Other"
 msgstr "Άλλα"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Αφαίρεση από το _Dock"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Προσθήκη στο _Dock"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Όλες οι εφαρμογές"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Δημιουργία νέου φίλτρου"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Εκτέλεση αυτής της εντολής..."
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Προβολή σε πλέγμα"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Προβολή ανά κατηγορία"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Αναζήτηση εφαρμογών"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Εκτέλεση"
+
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
 msgstr ""
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Ο δείκτης του μενού εφαρμογών"
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Εκτέλεση στο Τερματικό"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Εκτέλεση εφαρμογής ή εντολής στο τερματικό"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Άνοιγμα"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Άνοιγμα με την προεπιλεγμένη εφαρμογή"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Άνοιγμα φακέλου"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
-msgstr "Κέντρο εφαρμογών"
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Άνοιγμα φακέλου που περιέχει αυτό το αρχείο"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
-msgstr "Αναζήτηση για εφαρμογές"
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Αντιγραφή στο πρόχειρο"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
-msgstr "Το Κέντρο εφαρμογών δεν είναι εγκατεστημένο"
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -146,16 +162,12 @@ msgstr ""
 msgid "bc is not installed"
 msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Αναζήτηση και εκτέλεση εφαρμογών στον υπολογιστή σας."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Άνοιγμα με %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
 msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:107
@@ -216,6 +228,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr ""
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Αναζήτηση και εκτέλεση εφαρμογών στον υπολογιστή σας."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Άνοιγμα με %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "Κέντρο εφαρμογών"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Αναζήτηση για εφαρμογές"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "Το Κέντρο εφαρμογών δεν είναι εγκατεστημένο"
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr ""
@@ -247,43 +291,3 @@ msgstr "Εκτέλεση εντολής"
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Εκτέλεση"
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Εκτέλεση στο Τερματικό"
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Εκτέλεση εφαρμογής ή εντολής στο τερματικό"
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Άνοιγμα"
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Άνοιγμα με την προεπιλεγμένη εφαρμογή"
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Άνοιγμα φακέλου"
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Άνοιγμα φακέλου που περιέχει αυτό το αρχείο"
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "Αντιγραφή στο πρόχειρο"
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "Αντιγραφή επιλογής στο πρόχειρο"
