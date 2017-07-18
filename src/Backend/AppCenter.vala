@@ -42,7 +42,7 @@ public class Slingshot.Backend.AppCenter : Object {
     public AppCenterDBus? dbus { public get; private set; default = null; }
 
     construct {
-        Bus.watch_name (BusType.SESSION, DBUS_NAME, BusNameWatcherFlags.NONE,
+        Bus.watch_name (BusType.SESSION, DBUS_NAME, BusNameWatcherFlags.AUTO_START,
                         name_appeared_callback, name_vanished_callback);
     }
 
