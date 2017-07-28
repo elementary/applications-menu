@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,6 +12,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr ""
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Programet"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Ekzekuto këtë komandë..."
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr ""
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Të gjitha programet"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Krijo një filtër të ri"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -24,10 +60,6 @@ msgstr "Asnjë rezultat për “%s”"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Tekst"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Programet"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -61,72 +93,56 @@ msgstr "Veprimet e programit"
 msgid "Other"
 msgstr "Tjetër"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr ""
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr ""
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Të gjitha programet"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Krijo një filtër të ri"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Ekzekuto këtë komandë..."
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Paraqitje me rrjetë"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Paraqitje me kategori"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Kërko programe"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Ekzekuto"
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Ekzekuto një program, veprim ose script"
+
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Ekzekuto në terminal"
+
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Ekzekuto program ose komandë në terminal"
+
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Hap"
+
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Hape me programin e parazgjedhur"
+
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Hape dosjen"
+
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Hape dosjen që përmban këtë skedar"
+
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
 msgstr ""
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "Hap parametrat e %s"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr ""
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr ""
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr ""
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
-msgstr ""
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
-msgstr ""
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
 msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
@@ -141,17 +157,13 @@ msgstr "Llogarit shprehje themelore."
 msgid "bc is not installed"
 msgstr "bc nuk është i instaluar"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Kërko dhe ekzekuto programe në kompjuterin tënd."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Hap parametrat e %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Hap me %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "Hap përzgjedhjen e tanishme me %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -211,6 +223,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit nuk u gjet."
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Kërko dhe ekzekuto programe në kompjuterin tënd."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Hap me %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Hap përzgjedhjen e tanishme me %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr ""
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr "Hap %s në shfletuesin ueb të parazgjedhur"
@@ -242,43 +286,3 @@ msgstr "Ekzekuto komandë"
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Gjeni dhe ekzekutoni komanda arbitrare."
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Ekzekuto"
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "Ekzekuto një program, veprim ose script"
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Ekzekuto në terminal"
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Ekzekuto program ose komandë në terminal"
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Hap"
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Hape me programin e parazgjedhur"
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Hape dosjen"
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Hape dosjen që përmban këtë skedar"
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr ""

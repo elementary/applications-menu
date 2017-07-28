@@ -7,19 +7,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-05-15 15:33+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel"
-"/applications-menu/lt/>\n"
+"Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"(n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "Programų meniu indikatorius"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Programos"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Vykdyti šią komandą…"
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr "Šalinti iš sky_delio"
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr "Pridėti į sky_delį"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Visos programos"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Sukurti naują filtrą"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -32,10 +68,6 @@ msgstr "“%s” negrąžino jokių rezultatų"
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Tekstas"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Programos"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -69,73 +101,57 @@ msgstr "Programų veiksmai"
 msgid "Other"
 msgstr "Kita"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Šalinti iš sky_delio"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Pridėti į sky_delį"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Visos programos"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Sukurti naują filtrą"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Vykdyti šią komandą…"
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Rodyti kaip tinklelį"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Rodyti pagal kategorijas"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Ieškoti programų"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Vykdyti"
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Programų meniu indikatorius"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Vykdyti programą, veiksmą ar scenarijų"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "Atverti %s nustatymus"
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Vykdyti terminale"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "Rasti Switchboard kištukus ir juos atverti."
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Vykdyti programą ar komandą terminale"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "Ieškoti %s, programoje %s"
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Atverti"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "Ieškoti programų parduotuvėje"
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Atverti, naudojant numatytąją programą"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
-msgstr "Programų centras"
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Atverti aplanką"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
-msgstr "Ieškoti programų"
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Atverti aplanką, kuriame yra šis failas"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
-msgstr "Programų centras nėra įdiegtas"
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Kopijuoti į iškarpinę"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Kopijuoti žymėjimą į iškarpinę"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -149,17 +165,13 @@ msgstr "Apskaičiuoti pagrindinius reiškinius."
 msgid "bc is not installed"
 msgstr "bc nėra įdiegta"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Ieškoti ir vykdyti programas jūsų kompiuteryje."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Atverti %s nustatymus"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Atverti, naudojant %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "Atveria esamą pasirinkimą, naudojant %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Rasti Switchboard kištukus ir juos atverti."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -221,6 +233,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit nebuvo rasta"
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Ieškoti ir vykdyti programas jūsų kompiuteryje."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Atverti, naudojant %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Atveria esamą pasirinkimą, naudojant %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr "Ieškoti %s, programoje %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "Ieškoti programų parduotuvėje"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "Programų centras"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Ieškoti programų"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "Programų centras nėra įdiegtas"
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr "Atverti %s numatytojoje saityno naršyklėje"
@@ -252,43 +296,3 @@ msgstr "Vykdyti komandą"
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Rasti ir vykdyti pasirinktines komandas."
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Vykdyti"
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "Vykdyti programą, veiksmą ar scenarijų"
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Vykdyti terminale"
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Vykdyti programą ar komandą terminale"
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Atverti"
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Atverti, naudojant numatytąją programą"
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Atverti aplanką"
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Atverti aplanką, kuriame yra šis failas"
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "Kopijuoti į iškarpinę"
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "Kopijuoti žymėjimą į iškarpinę"

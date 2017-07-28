@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Norwegian Nynorsk <nn@li.org>\n"
@@ -17,6 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr ""
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr ""
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr ""
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr ""
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Alle Applikasjonar"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Lag eit nytt filter"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -28,10 +64,6 @@ msgstr ""
 
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
-msgstr ""
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
 msgstr ""
 
 #: ../src/Widgets/SearchView.vala:225
@@ -66,72 +98,56 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr ""
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr ""
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Alle Applikasjonar"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Lag eit nytt filter"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr ""
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Vis som rutenett"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Vis etter kategori"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr ""
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
 msgstr ""
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
 msgstr ""
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
 msgstr ""
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
 msgstr ""
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
 msgstr ""
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
 msgstr ""
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
 msgstr ""
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
 msgstr ""
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
 msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
@@ -146,16 +162,12 @@ msgstr ""
 msgid "bc is not installed"
 msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
 msgstr ""
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr ""
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
 msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:107
@@ -216,6 +228,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr ""
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr ""
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr ""
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr ""
@@ -246,44 +290,4 @@ msgstr ""
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr ""
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
 msgstr ""

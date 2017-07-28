@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:57+0100\n"
+"POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,6 +12,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
+
+#: ../src/Slingshot.vala:31
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:32
+msgid "The app-menu indicator"
+msgstr "індыкатар меню прыкладання"
+
+#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Праграмы"
+
+#: ../src/Backend/App.vala:91
+msgid "Run this command…"
+msgstr "Кіруйце гэтай камандай …"
+
+#: ../src/Widgets/AppEntry.vala:239
+msgid "Uninstall"
+msgstr ""
+
+#: ../src/Widgets/AppEntry.vala:266
+msgid "Remove from _Dock"
+msgstr "Выдаліце з _Дока"
+
+#: ../src/Widgets/AppEntry.vala:268
+msgid "Add to _Dock"
+msgstr "Дадаць у _Док"
+
+#: ../src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Усе праграмы"
+
+#: ../src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Стварыць новы фільтр"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
@@ -24,10 +60,6 @@ msgstr ""
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
 msgstr "Тэкст"
-
-#: ../src/Widgets/SearchView.vala:222 ../src/Slingshot.vala:67
-msgid "Applications"
-msgstr "Праграмы"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
@@ -61,73 +93,57 @@ msgstr "Дзеянні над прыкладаннем"
 msgid "Other"
 msgstr "Іншыя"
 
-#: ../src/Widgets/AppEntry.vala:228
-msgid "Remove from _Dock"
-msgstr "Выдаліце з _Дока"
-
-#: ../src/Widgets/AppEntry.vala:230
-msgid "Add to _Dock"
-msgstr "Дадаць у _Док"
-
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Усе праграмы"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Стварыць новы фільтр"
-
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "Кіруйце гэтай камандай …"
-
-#: ../src/SlingshotView.vala:161
+#: ../src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Сеткай"
 
-#: ../src/SlingshotView.vala:165
+#: ../src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Катэгорыямі"
 
-#: ../src/SlingshotView.vala:174
+#: ../src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Пошук прыкладанняў"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
+#: ../lib/synapse-core/common-actions.vala:65
+msgid "Run"
+msgstr "Выканаць"
 
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "індыкатар меню прыкладання"
+#: ../lib/synapse-core/common-actions.vala:66
+msgid "Run an application, action or script"
+msgstr "Выканаць прыкладанне, дзеянне ці скрыпт"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
-msgid "Open %s settings"
-msgstr "Адкрыць налады %s"
+#: ../lib/synapse-core/common-actions.vala:110
+msgid "Run in Terminal"
+msgstr "Выканаць у тэрмінале"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
-msgid "Find switchboard plugs and open them."
-msgstr "Знайдзіце падключэннікамутатара і адкрыйце іх."
+#: ../lib/synapse-core/common-actions.vala:111
+msgid "Run application or command in terminal"
+msgstr "Выканаць прыкладанне ці каманду ў тэрмінале"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:150
+msgid "Open"
+msgstr "Адчыніць"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:151
+msgid "Open using default application"
+msgstr "Адкрыць выкарыстоўваючы стандартнае прыкладанне"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:94
-msgid "AppCenter"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:201
+msgid "Open folder"
+msgstr "Адкрыць папку"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "Search for applications"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:202
+msgid "Open folder containing this file"
+msgstr "Адчыніць папку, што змяшчае файл"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:99
-msgid "AppCenter is not installed"
-msgstr ""
+#: ../lib/synapse-core/common-actions.vala:238
+msgid "Copy to Clipboard"
+msgstr "Капіяваць у буфер абмену"
+
+#: ../lib/synapse-core/common-actions.vala:239
+msgid "Copy selection to clipboard"
+msgstr "Капіяваць вылучанае ў буфэр абмену"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -141,17 +157,13 @@ msgstr "Вылічыць асноўныя выразы."
 msgid "bc is not installed"
 msgstr "bc не ўсталяваны"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Шукаць прыкладанні на кампутары"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+msgid "Open %s settings"
+msgstr "Адкрыць налады %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:332
-msgid "Open with %s"
-msgstr "Адкрыць у %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:334
-msgid "Opens current selection using %s"
-msgstr "Адкрыць бягучы выбар, выкарыстоўваючы %s"
+#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+msgid "Find switchboard plugs and open them."
+msgstr "Знайдзіце падключэннікамутатара і адкрыйце іх."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -211,6 +223,38 @@ msgstr ""
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit не знойдзены"
 
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Шукаць прыкладанні на кампутары"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Адкрыць у %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Адкрыць бягучы выбар, выкарыстоўваючы %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr ""
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr ""
+
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
 msgstr ""
@@ -242,43 +286,3 @@ msgstr "Выканаць  каманду"
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Знайдзіце і выканайце адвольныя каманды."
-
-#: ../lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "Выканаць"
-
-#: ../lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "Выканаць прыкладанне, дзеянне ці скрыпт"
-
-#: ../lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "Выканаць у тэрмінале"
-
-#: ../lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "Выканаць прыкладанне ці каманду ў тэрмінале"
-
-#: ../lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "Адчыніць"
-
-#: ../lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "Адкрыць выкарыстоўваючы стандартнае прыкладанне"
-
-#: ../lib/synapse-core/common-actions.vala:201
-msgid "Open folder"
-msgstr "Адкрыць папку"
-
-#: ../lib/synapse-core/common-actions.vala:202
-msgid "Open folder containing this file"
-msgstr "Адчыніць папку, што змяшчае файл"
-
-#: ../lib/synapse-core/common-actions.vala:238
-msgid "Copy to Clipboard"
-msgstr "Капіяваць у буфер абмену"
-
-#: ../lib/synapse-core/common-actions.vala:239
-msgid "Copy selection to clipboard"
-msgstr "Капіяваць вылучанае ў буфэр абмену"
