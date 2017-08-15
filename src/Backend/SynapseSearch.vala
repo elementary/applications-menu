@@ -125,7 +125,7 @@ namespace Slingshot.Backend {
             Gdk.Pixbuf? pixbuf = null;
             try {
                 var file = File.new_for_path (match.icon_name);
-                if (!file.query_exists ()) {
+                if (file.query_exists ()) {
                     pixbuf = new Gdk.Pixbuf.from_file_at_scale (match.icon_name, size, size, true);
                 }
             } catch (Error e) {
