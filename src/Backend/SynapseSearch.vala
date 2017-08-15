@@ -104,7 +104,9 @@ namespace Slingshot.Backend {
                     if (pixbuf.width < size)
                         pixbuf = null;
                 }
-            } catch (Error e) {}
+            } catch (Error e) {
+                warning (e.message);
+            }
 
             if (cancellable.is_cancelled ())
                 return null;
@@ -116,19 +118,20 @@ namespace Slingshot.Backend {
             return pixbuf;
         }
 
-        public static async Gdk.Pixbuf? get_pathicon_for_match (Synapse.Match match, int size,
-            Cancellable? cancellable = null) {
-
-            if (!match.icon_name.has_prefix ("/"))
+        public static Gdk.Pixbuf? get_pathicon_for_match (Synapse.Match match, int size) {
+            if (!match.icon_name.has_prefix (Path.DIR_SEPARATOR_S))
                 return null;
 
             Gdk.Pixbuf? pixbuf = null;
             try {
-                 pixbuf = new Gdk.Pixbuf.from_file_at_scale (match.icon_name, size, size, true);
-            } catch (Error e) {}
+                var file = File.new_for_path (match.icon_name);
+                if (!file.query_exists ()) {
+                    pixbuf = new Gdk.Pixbuf.from_file_at_scale (match.icon_name, size, size, true);
+                }
+            } catch (Error e) {
+                warning (e.message);
+            }
 
-            if (cancellable.is_cancelled ())
-                return null;
             return pixbuf;
         }
 
