@@ -119,9 +119,6 @@ namespace Slingshot.Backend {
         }
 
         public static Gdk.Pixbuf? get_pathicon_for_match (Synapse.Match match, int size) {
-            if (!match.icon_name.has_prefix (Path.DIR_SEPARATOR_S))
-                return null;
-
             Gdk.Pixbuf? pixbuf = null;
             try {
                 var file = File.new_for_path (match.icon_name);
