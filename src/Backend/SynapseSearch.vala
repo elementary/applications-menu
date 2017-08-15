@@ -116,6 +116,22 @@ namespace Slingshot.Backend {
             return pixbuf;
         }
 
+        public static async Gdk.Pixbuf? get_pathicon_for_match (Synapse.Match match, int size,
+            Cancellable? cancellable = null) {
+
+            if (!match.icon_name.has_prefix ("/"))
+                return null;
+
+            Gdk.Pixbuf? pixbuf = null;
+            try {
+                 pixbuf = new Gdk.Pixbuf.from_file_at_scale (match.icon_name, size, size, true);
+            } catch (Error e) {}
+
+            if (cancellable.is_cancelled ())
+                return null;
+            return pixbuf;
+        }
+
         // copied from synapse-ui with some slight changes
         public static string markup_string_with_search (string text, string pattern) {
 

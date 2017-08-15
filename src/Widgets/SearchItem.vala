@@ -69,12 +69,19 @@ namespace Slingshot.Widgets {
             var uri_match = app.match as Synapse.UriMatch;
             if (uri_match != null && uri_match.uri.has_prefix ("http")) {
                 cancellable = new Cancellable ();
-                Backend.SynapseSearch.get_favicon_for_match.begin (uri_match,
-                    ICON_SIZE, cancellable, (obj, res) => {
-
+                Backend.SynapseSearch.get_favicon_for_match.begin (uri_match, ICON_SIZE, cancellable, (obj, res) => {
                     var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
-                    if (pixbuf != null)
+                    if (pixbuf != null) {
                         icon.set_from_pixbuf (pixbuf);
+                    }
+                });
+            } else if (app.match != null && app.match.icon_name.has_prefix ("/")) {
+                cancellable = new Cancellable ();
+                Backend.SynapseSearch.get_pathicon_for_match.begin (app.match, ICON_SIZE, cancellable, (obj, res) => {
+                    var pixbuf = Backend.SynapseSearch.get_pathicon_for_match.end (res);
+                    if (pixbuf != null) {
+                        icon.set_from_pixbuf (pixbuf);
+                    }
                 });
             }
 
@@ -105,5 +112,4 @@ namespace Slingshot.Widgets {
                 cancellable.cancel ();
         }
     }
-
 }
