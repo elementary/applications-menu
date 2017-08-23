@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2017-08-22 11:45+0000\n"
+"PO-Revision-Date: 2017-08-23 11:20+0000\n"
 "Last-Translator: Aprianto Nursetiawan <noersetiawan@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/id/>\n"
@@ -261,11 +261,11 @@ msgstr "Cari aplikasi"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "AppCenter tidak terpasang"
+msgstr "TokoApl tidak terpasang"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "Buka %s di peramban web bawaan"
+msgstr "Buka %s di peramban web default"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
