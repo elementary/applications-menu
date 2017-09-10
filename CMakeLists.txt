@@ -63,7 +63,21 @@ add_definitions (-w)
 # Load PkgConfig
 find_package (PkgConfig)
 
-set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};appstream>=0.10.0;")
+# Check for Vala
+ 
+pkg_check_modules(PLANK011 QUIET plank>=0.10.9)
+if (PLANK011_FOUND)
+  set (PLANK_DEPS plank)
+  set (PLANK_OPTIONS --define=HAS_PLANK --define=HAS_PLANK_0_11)
+else ()
+  pkg_check_modules(PLANK QUIET plank>=0.9.0)
+  if (PLANK_FOUND)
+    set (PLANK_DEPS plank)
+    set (PLANK_OPTIONS --define=HAS_PLANK)
+  endif ()
+endif ()
+
+set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};${PLANK_DEPS};appstream>=0.10.0;")
 set (UI_DEPS "wingpanel-2.0;gtk+-3.0>=3.12.0;granite;${ZEITGEIST_DEPS};")
 
 pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)

@@ -1,5 +1,5 @@
 # Some dependencies
-set (CORE_DEPS "gobject-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;${UNITY_DEPS};")
+set (CORE_DEPS "gobject-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;${UNITY_DEPS};${PLANK_DEPS};")
 set (UI_DEPS "gtk+-3.0>=3.12.0;granite;wingpanel-2.0;${ZEITGEIST_DEPS};")
 
 # Check for these dependencies
@@ -41,6 +41,7 @@ OPTIONS
     -g
     ${UNITY_OPTIONS}
     ${ZEITGEIST_OPTIONS}
+    ${PLANK_OPTIONS}
 )
 
 add_definitions(${DEPS_CFLAGS})
