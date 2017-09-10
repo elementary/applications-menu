@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2017-07-06 14:50+0700\n"
+"PO-Revision-Date: 2017-07-19 13:57+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "Language: id\n"
@@ -36,7 +36,7 @@ msgstr "Jalankan perintah ini…"
 
 #: ../src/Widgets/AppEntry.vala:239
 msgid "Uninstall"
-msgstr ""
+msgstr "Hapus Pemasangan"
 
 #: ../src/Widgets/AppEntry.vala:266
 msgid "Remove from _Dock"
