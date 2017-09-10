@@ -15,7 +15,6 @@ You'll need the following dependencies:
 * libgranite-dev
 * libgtk-3-dev
 * libjson-glib-dev
-* libplank-dev
 * libsoup2.4-dev
 * libswitchboard-2.0-dev
 * libunity-dev
