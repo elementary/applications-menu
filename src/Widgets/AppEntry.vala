@@ -17,29 +17,6 @@
 //
 
 public class Slingshot.Widgets.AppEntry : Gtk.Button {
-    private const string BADGE_CSS = """
-        .badge {
-            background-image:
-                linear-gradient(
-                    to bottom,
-                    shade (
-                        @error_color,
-                        1.3
-                    ),
-                    @error_color
-                );
-            border: 1px solid shade (@error_color, 0.9);
-            border-radius: 12px;
-            box-shadow:
-                inset 0 0 0 1px alpha (#fff, 0.05),
-                inset 0 1px 0 0 alpha (#fff, 0.25),
-                inset 0 -1px 0 0 alpha (#fff, 0.1);
-            color: #fff;
-            font-weight: 700;
-            text-shadow: 0 1px 1px alpha (#000, 0.3);
-        }
-    """;
-
     private static Gtk.Menu menu;
 
     public signal void app_launched ();
@@ -86,13 +63,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
 #endif
 
-        var provider = new Gtk.CssProvider ();
-        try {
-            provider.load_from_data (BADGE_CSS, BADGE_CSS.length);
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        } catch (Error e) {
-            critical (e.message);
-        }
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("org/pantheon/slingshot/applications-menu.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
     private const int ICON_SIZE = 64;
@@ -201,9 +174,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             var count_visible = app.count_visible;
             badge.no_show_all = !count_visible;
             if (count_visible) {
-                badge.hide ();
-            } else {
                 badge.show_all ();
+            } else {
+                badge.hide ();
             }
         });
 
