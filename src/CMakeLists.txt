@@ -25,6 +25,7 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
     Widgets/SearchItem.vala
     Widgets/Sidebar.vala
     Widgets/CategoryView.vala
+    Widgets/PageChecker.vala
 PACKAGES
     ${CORE_DEPS}
     ${UI_DEPS}

@@ -112,10 +112,6 @@ namespace Slingshot.Widgets {
 
         public void clear () {
             foreach (Gtk.Grid grid in grids.values) {
-                foreach (Gtk.Widget widget in grid.get_children ()) {
-                    widget.destroy ();
-                }
-
                 grid.destroy ();
             }
 
@@ -158,26 +154,20 @@ namespace Slingshot.Widgets {
             int page_number = get_current_page ()+1;
             if (page_number <= get_n_pages ())
                 stack.set_visible_child_name (page_number.to_string ());
-
-            page_switcher.update_selected ();
         }
 
         public void go_to_previous () {
             int page_number = get_current_page ()-1;
             if (page_number > 0)
                 stack.set_visible_child_name (page_number.to_string ());
-
-            page_switcher.update_selected ();
         }
 
         public void go_to_last () {
             stack.set_visible_child_name (get_n_pages ().to_string ());
-            page_switcher.update_selected ();
         }
 
         public void go_to_number (int number) {
             stack.set_visible_child_name (number.to_string ());
-            page_switcher.update_selected ();
         }
 
         public void resize (int rows, int columns) {
