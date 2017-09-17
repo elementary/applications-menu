@@ -17,134 +17,55 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-public class Slingshot.Widgets.Switcher : Gtk.Box {
-
-    const string SWITCHER_STYLE_CSS = """
-        .switcher {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-            opacity: 0.4;
-        }
-
-        .switcher:checked {
-            opacity: 1;
-        }
-    """;
-
-    public int size {
+public class Slingshot.Widgets.Switcher : Gtk.Grid {
+    private bool has_enough_children {
         get {
-            return (int) buttons.size;
+            return get_children ().length () > 1;
         }
     }
 
     private Gtk.Stack stack;
-    private Gee.HashMap<Gtk.Widget, Gtk.ToggleButton> buttons;
     public signal void on_stack_changed ();
-    
-    public Switcher () {
-        orientation = Gtk.Orientation.HORIZONTAL;
-        spacing = 2;
-        can_focus = false;
-        buttons = new Gee.HashMap<Gtk.Widget, Gtk.ToggleButton> (null, null);
-        pack_start (new Gtk.Grid (), true, true, 0);
-        pack_end (new Gtk.Grid (), true, true, 0);
-    }
 
     construct {
-        var provider = new Gtk.CssProvider ();
-        try {
-            provider.load_from_data (SWITCHER_STYLE_CSS, SWITCHER_STYLE_CSS.length);
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        } catch (Error e) {
-            critical (e.message);
-        }
+        halign = Gtk.Align.CENTER;
+        orientation = Gtk.Orientation.HORIZONTAL;
+        column_spacing = 3;
+        can_focus = false;
+        show_all ();
     }
 
     public void set_stack (Gtk.Stack stack) {
         if (this.stack != null) {
-            clear_children ();
+            get_children ().foreach ((child) => {
+                child.destroy ();
+            });
         }
+
         this.stack = stack;
-        populate_switcher ();
-        connect_stack_signals ();
-        update_selected ();
-    }
-
-    private void add_child (Gtk.Widget widget) {
-        var button = new Gtk.ToggleButton ();
-        button.image = new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU);
-        button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-        button.get_style_context ().add_class ("switcher");
-        button.button_release_event.connect (() => {
-            foreach (var entry in buttons.entries) {
-                if (entry.value == button)
-                    on_button_clicked (entry.key);
-                entry.value.active = false;
-            }
-            button.active = true;
-            return true;
-        });
-
-        add (button);
-        buttons.set (widget, button);
-        if (buttons.size == 1)
-            button.active = true;
-
-        // show all children after update
-        show_all ();
-    }
-    
-    public override void show () {
-        base.show ();
-        if (buttons.size <= 1)
-            hide ();
-    }
-
-    
-    public override void show_all () {
-        base.show_all ();
-        if (buttons.size <= 1)
-            hide ();
-    }
-
-    private void on_button_clicked (Gtk.Widget widget) {
-        stack.set_visible_child (widget);
-        on_stack_changed ();
-    }
-
-    private void populate_switcher () {
         foreach (var child in stack.get_children ()) {
             add_child (child);
         }
-    }
 
-    private void on_stack_child_removed (Gtk.Widget widget) {
-        var button = buttons.get (widget);
-        remove (button);
-        buttons.unset (widget);
-    }
-
-    private void connect_stack_signals () {
         stack.add.connect_after (add_child);
-        stack.remove.connect_after (on_stack_child_removed);
     }
 
-    public void clear_children () {
-        foreach (weak Gtk.Widget button in get_children ()) {
-            button.hide ();
-            if (button.get_parent () != null)
-                remove (button);
+    private void add_child (Gtk.Widget widget) {
+        var button = new PageChecker (widget);
+        add (button);
+    }
+
+    public override void show () {
+        base.show ();
+        if (!has_enough_children) {
+            hide ();
         }
     }
-    
-    public void update_selected () {
-        foreach (var entry in buttons.entries) {
-            if (entry.key == stack.get_visible_child ()) {
-                entry.value.active = true;
-            } else {
-                entry.value.active = false;
-            }
+
+    public override void show_all () {
+        base.show_all ();
+        if (!has_enough_children) {
+            hide ();
         }
     }
 }
