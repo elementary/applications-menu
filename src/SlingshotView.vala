@@ -294,9 +294,7 @@ namespace Slingshot {
 
         public void remove_launcher_entry (string sender_name) {
             foreach (var app in app_system.get_apps_by_name ()) {
-                if (app.unity_sender_name == sender_name) {
-                    app.unity_reset ();
-                }
+                app.remove_launcher_entry (sender_name);
             }
         }
 #endif
