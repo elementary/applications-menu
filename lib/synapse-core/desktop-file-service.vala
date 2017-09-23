@@ -107,7 +107,10 @@ namespace Synapse {
                         break;
                     case "ROX": result |= EnvironmentType.ROX; break;
                     case "TDE": result |= EnvironmentType.TDE; break;
-                    case "UNITY": result |= EnvironmentType.UNITY; break;
+                    case "UNITY":
+                    case "UNITY7":
+                        result |= EnvironmentType.UNITY;
+                        break;
                     case "XFCE": result |= EnvironmentType.XFCE; break;
                     case "OLD": result |= EnvironmentType.OLD; break;
                     default: warning ("%s is not understood", env); break;
