@@ -5,4 +5,7 @@
     <file alias="view-filter-symbolic.svg" compressed="true" preprocess="xml-stripblanks">view-filter-symbolic.svg</file>
     <file alias="view-filter-symbolic-rtl.svg" compressed="true" preprocess="xml-stripblanks">view-filter-symbolic-rtl.svg</file>
   </gresource>
+  <gresource prefix="/org/pantheon/slingshot">
+    <file alias="applications-menu.css" compressed="true">applications-menu.css</file>
+  </gresource>
 </gresources>
