@@ -104,7 +104,9 @@ namespace Slingshot.Backend {
                     if (pixbuf.width < size)
                         pixbuf = null;
                 }
-            } catch (Error e) {}
+            } catch (Error e) {
+                warning (e.message);
+            }
 
             if (cancellable.is_cancelled ())
                 return null;
@@ -112,6 +114,20 @@ namespace Slingshot.Backend {
             // we set the cache in any case, even if things failed. No need to
             // try requesting an icon again and again
             favicon_cache.set (soup_uri.host, pixbuf);
+
+            return pixbuf;
+        }
+
+        public static Gdk.Pixbuf? get_pathicon_for_match (Synapse.Match match, int size) {
+            Gdk.Pixbuf? pixbuf = null;
+            try {
+                var file = File.new_for_path (match.icon_name);
+                if (file.query_exists ()) {
+                    pixbuf = new Gdk.Pixbuf.from_file_at_scale (match.icon_name, size, size, true);
+                }
+            } catch (Error e) {
+                warning (e.message);
+            }
 
             return pixbuf;
         }
