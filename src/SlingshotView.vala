@@ -557,21 +557,27 @@ namespace Slingshot {
             return true;
         }
 
-        public override bool scroll_event (Gdk.EventScroll event) {
-            switch (event.direction.to_string ()) {
+        public override bool scroll_event (Gdk.EventScroll scroll_event) {
+            if (grid_view.stack.transition_running || category_view.app_view.stack.transition_running) {
+                return false;
+            }
+
+            switch (scroll_event.direction.to_string ()) {
                 case "GDK_SCROLL_UP":
                 case "GDK_SCROLL_LEFT":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW) {
                         grid_view.go_to_previous ();
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.app_view.go_to_previous ();
+                    }
                     break;
                 case "GDK_SCROLL_DOWN":
                 case "GDK_SCROLL_RIGHT":
-                    if (modality == Modality.NORMAL_VIEW)
+                    if (modality == Modality.NORMAL_VIEW) {
                         grid_view.go_to_next ();
-                    else if (modality == Modality.CATEGORY_VIEW)
+                    } else if (modality == Modality.CATEGORY_VIEW) {
                         category_view.app_view.go_to_next ();
+                    }
                     break;
 
             }
