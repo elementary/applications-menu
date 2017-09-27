@@ -564,11 +564,11 @@ namespace Slingshot {
             if (is_smooth_scrolling) {
                 return false;
             } else {
-				is_smooth_scrolling = true;
-				Timeout.add (SMOOTH_SCROLL_DELAY, () => {
-					is_smooth_scrolling = false;
-					return false;
-				});
+                is_smooth_scrolling = true;
+                Timeout.add (SMOOTH_SCROLL_DELAY, () => {
+                    is_smooth_scrolling = false;
+                    return false;
+                });
             }
 
             switch (scroll_event.direction.to_string ()) {
