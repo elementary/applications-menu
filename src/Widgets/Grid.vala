@@ -32,8 +32,7 @@ namespace Slingshot.Widgets {
         public Gtk.Widget? focused_widget { get; private set; }
         
         public Widgets.Switcher page_switcher;
-        
-        private Gtk.Stack stack;
+        public Gtk.Stack stack;
         private Gtk.Grid current_grid;
         private Gee.HashMap<int, Gtk.Grid> grids;
 

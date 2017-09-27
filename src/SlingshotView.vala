@@ -24,9 +24,6 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-    private bool scroll_locked = false;
-    private const int SMOOTH_SCROLL_DELAY = 500;
-
 #if HAS_PLANK_0_11
     public class SlingshotView : Gtk.Grid, Plank.UnityClient {
 #else
@@ -561,14 +558,8 @@ namespace Slingshot {
         }
 
         public override bool scroll_event (Gdk.EventScroll scroll_event) {
-            if (scroll_locked) {
+            if (grid_view.stack.transition_running || category_view.app_view.stack.transition_running) {
                 return false;
-            } else {
-                scroll_locked = true;
-                Timeout.add (SMOOTH_SCROLL_DELAY, () => {
-                    scroll_locked = false;
-                    return false;
-                });
             }
 
             switch (scroll_event.direction.to_string ()) {
