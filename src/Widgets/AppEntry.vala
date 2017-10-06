@@ -46,7 +46,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         }
     }
 
-    private new Gtk.Image image;
+    private new Granite.AsyncImage image;
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
     private Backend.App application;
@@ -102,8 +102,13 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-        image = new Gtk.Image ();
-        image.gicon = app.icon;
+        image = new Granite.AsyncImage ();
+        try {
+            image.set_from_gicon_async (app.icon, ICON_SIZE);
+        } catch (Error e) {
+            warning (e.message);
+        }
+
         image.pixel_size = ICON_SIZE;
         image.margin_top = 9;
         image.margin_end = 6;
@@ -180,7 +185,11 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
 
         app.notify["icon"].connect (() => {
-            ((Gtk.Image) image).gicon = app.icon;
+            try {
+                image.set_from_gicon_async (app.icon, ICON_SIZE);
+            } catch (Error e) {
+                warning (e.message);
+            }
         });
 
         var appcenter = Backend.AppCenter.get_default ();
