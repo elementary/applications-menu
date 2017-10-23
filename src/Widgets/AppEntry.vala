@@ -102,12 +102,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-        image = new Granite.AsyncImage ();
-        try {
-            image.set_from_gicon_async (app.icon, ICON_SIZE);
-        } catch (Error e) {
-            warning (e.message);
-        }
+        image = new Granite.AsyncImage.from_gicon_async (app.icon, ICON_SIZE);
 
         image.pixel_size = ICON_SIZE;
         image.margin_top = 9;
@@ -184,13 +179,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         badge.no_show_all = !app.count_visible;
 #endif
 
-        app.notify["icon"].connect (() => {
-            try {
-                image.set_from_gicon_async (app.icon, ICON_SIZE);
-            } catch (Error e) {
-                warning (e.message);
-            }
-        });
+        app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
 
         var appcenter = Backend.AppCenter.get_default ();
         appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed (appcenter));
