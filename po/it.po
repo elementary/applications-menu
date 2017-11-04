@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
 "PO-Revision-Date: 2017-11-04 20:09+0000\n"
-"Last-Translator: Mattias Ezequiel Mignone <memignone@gmail.com>\n"
+"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/it/>\n"
 "Language: it\n"
@@ -38,7 +38,7 @@ msgstr "Esegui questo comando…"
 
 #: ../src/Widgets/AppEntry.vala:239
 msgid "Uninstall"
-msgstr "Disinstallare"
+msgstr "Rimuovi"
 
 #: ../src/Widgets/AppEntry.vala:266
 msgid "Remove from _Dock"
