@@ -24,16 +24,6 @@ file (GLOB applications_menu "${CMAKE_CURRENT_SOURCE_DIR}/data/pantheon-applicat
 # Configuration file
 configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/lib/synapse-core/config.h)
 
-# Add 'make dist' command for creating release tarball
-set (CPACK_PACKAGE_VERSION ${VERSION})
-set (CPACK_SOURCE_GENERATOR "TGZ")
-set (CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${CPACK_PACKAGE_VERSION}")
-set (CPACK_SOURCE_IGNORE_FILES "/build/;/.git/;/.gitignore;~$;${CPACK_SOURCE_IGNORE_FILES}")
-
-# Include CPack
-include (CPack)
-add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
-
 # Option to configure the use of the unity integration
 option (USE_UNITY "Use Unity integration" ON)
 if (USE_UNITY)
