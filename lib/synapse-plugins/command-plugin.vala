@@ -50,7 +50,7 @@ namespace Synapse {
 						needs_terminal: cmd.has_prefix ("sudo "));
 
 				try {
-					app_info = AppInfo.create_from_commandline (cmd, null, 0);
+					app_info = AppInfo.create_from_commandline ("sh -c \"" + cmd.replace ("\"", "\\\"") + "\"", null, 0);
 				} catch (Error err) {
 					warning ("%s", err.message);
 				}
