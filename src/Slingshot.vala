@@ -65,6 +65,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_label == null)
             indicator_label = new Gtk.Label (_("Applications"));
+            indicator_label.tooltip_text = (_("Open and search apps (⌘ + Space)"));
 
         visible = true;
 
