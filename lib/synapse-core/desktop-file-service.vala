@@ -300,6 +300,16 @@ namespace Synapse {
             }
         }
 
+        private bool get_list_has_desktop_id (string desktop_id) {
+            foreach (var dfi in all_desktop_files) {
+                if (dfi.desktop_id == desktop_id) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private async void process_directory (File directory, string id_prefix, Gee.Set<File> monitored_dirs) {
             try {
                 string path = directory.get_path ();
@@ -349,8 +359,10 @@ namespace Synapse {
         }
 
         private async void load_all_desktop_files () {
-            string[] data_dirs = Environment.get_system_data_dirs ();
-            data_dirs += Environment.get_user_data_dir ();
+            string[] data_dirs = { Environment.get_user_data_dir () };
+            foreach (unowned string dir in Environment.get_system_data_dirs ()) {
+                data_dirs += dir;
+            }
 
             Gee.Set<File> desktop_file_dirs = new Gee.HashSet<File> ();
             mimetype_parent_map.clear ();
@@ -414,6 +426,10 @@ namespace Synapse {
                     file_contents.length, 0);
 
                     var desktop_id = "%s%s".printf (id_prefix, file.get_basename ());
+                    if (get_list_has_desktop_id (desktop_id)) {
+                        return;
+                    }
+
                     var dfi = new DesktopFileInfo.for_keyfile (file.get_path (), keyfile, desktop_id);
                     if (dfi.is_valid) {
                         all_desktop_files.add (dfi);
