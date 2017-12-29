@@ -202,6 +202,10 @@ namespace Slingshot {
 
             event_box = new Gtk.EventBox ();
             event_box.add (container);
+
+            // Adding a scroll mask to the event box
+            event_box.add_events(Gdk.EventMask.SCROLL_MASK);
+
             // Add the container to the dialog's content area
 
             this.add (event_box);
