@@ -67,6 +67,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (indicator_grid == null) {
             indicator_label = new Gtk.Label (_("Applications"));
+            indicator_label.vexpand = true;
             indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic", Gtk.IconSize.MENU);
 
             indicator_grid = new Gtk.Grid ();
