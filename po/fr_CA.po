@@ -3,286 +3,290 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-12-20 21:11+0000\n"
+"Last-Translator: Marcio <marcio.pelegrini@gmail.com>\n"
+"Language-Team: French (Canada) "
+"<https://weblate.elementary.io/projects/wingpanel/applications-menu/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Slingshot.vala:31
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:32
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "L'indicateur du menu des applications"
 
 #: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 #: ../src/Backend/App.vala:91
 msgid "Run this command…"
-msgstr ""
+msgstr "Lancer cette commande…"
 
 #: ../src/Widgets/AppEntry.vala:239
 msgid "Uninstall"
-msgstr ""
+msgstr "Désinstaller"
 
 #: ../src/Widgets/AppEntry.vala:266
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Retirer du _Dock"
 
 #: ../src/Widgets/AppEntry.vala:268
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Ajouter au _Dock"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr ""
+msgstr "Toutes les applications"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
-msgstr ""
+msgstr "Créer un nouveau filtre"
 
 #: ../src/Widgets/SearchView.vala:110
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Essayez de modifier les termes de la recherche."
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Aucun résultat pour \"%s\""
 
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
-msgstr ""
+msgstr "Fichiers"
 
 #: ../src/Widgets/SearchView.vala:229
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: ../src/Widgets/SearchView.vala:232
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #: ../src/Widgets/SearchView.vala:235
 msgid "Contacts"
-msgstr ""
+msgstr "Contacts"
 
 #: ../src/Widgets/SearchView.vala:238
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:241
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: ../src/Widgets/SearchView.vala:244
 msgid "Application Actions"
-msgstr ""
+msgstr "Actions des applications"
 
 #: ../src/Widgets/SearchView.vala:247
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
-msgstr ""
+msgstr "Vue en grille"
 
 #: ../src/SlingshotView.vala:164
 msgid "View by Category"
-msgstr ""
+msgstr "Vue par catégories"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr ""
+msgstr "Rechercher des applications"
 
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr ""
+msgstr "Exécuter"
 
 #: ../lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Exécuter une application, action ou script"
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Exécuter dans le terminal"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Exécuter l'application ou la commande dans le terminal"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
-msgstr ""
+msgstr "Ouvrir"
 
 #: ../lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr ""
+msgstr "Ouvrir en utilisant l'application par défaut"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr ""
+msgstr "Ouvrir le dossier"
 
 #: ../lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Ouvrir le dossier contenant ce fichier"
 
 #: ../lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copier dans le presse-papier"
 
 #: ../lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Copier la sélection vers le presse-papier"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
-msgstr ""
+msgstr "Calculatrice"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Calculer des expressions de base."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc n'est pas installé"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr ""
+msgstr "Ouvrir les paramètres de %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Rechercher dans les plugs switchboard et les ouvrir."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
-msgstr ""
+msgstr "Verrouiller"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
-msgstr ""
+msgstr "Verrouiller ce périphérique"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr ""
+msgstr "Fermer la session"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Fermer toutes les applications et quitter"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
-msgstr ""
+msgstr "Mettre en veille"
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Mettre votre ordinateur en veille"
 
 #: ../lib/synapse-plugins/system-managment.vala:232
 msgid "Hibernate"
-msgstr ""
+msgstr "Hiberner"
 
 #: ../lib/synapse-plugins/system-managment.vala:233
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Mettre votre ordinateur en veille prolongée"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "Éteindre"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Éteindre votre ordinateur"
 
 #: ../lib/synapse-plugins/system-managment.vala:360
 msgid "Restart"
-msgstr ""
+msgstr "Redémarrer"
 
 #: ../lib/synapse-plugins/system-managment.vala:361
 msgid "Restart your computer"
-msgstr ""
+msgstr "Redémarrer votre ordinateur"
 
 #: ../lib/synapse-plugins/system-managment.vala:419
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Verrouiller la session ou s'y déconnecter. Suspendre, hiberner, redémarrer "
+"ou éteindre votre ordinateur."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit est introuvable"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Rechercher et lancer des applications sur votre ordinateur."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
-msgstr ""
+msgstr "Ouvrir avec %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:335
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Ouvre la sélection en cours en utilisant %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Rechercher %s dans %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Rechercher la boutique d'Applications"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr ""
+msgstr "Boutique d'Applications"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr ""
+msgstr "Rechercher des applications"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "Boutique d'Applications n'est pas installé"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Ouvrir %s dans le navigateur par défaut"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Ouvrir %s dans %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Ouvrir ce lien dans le navigateur par défaut"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Ouvrir le lien dans le navigateur par défaut"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Exécuter '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr ""
+msgstr "Exécuter la commande"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Trouver et exécuter des commandes arbitraires."
