@@ -20,8 +20,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     private SlingshotView? view = null;
 
     private Gtk.Grid? indicator_grid = null;
-    private Gtk.Image? indicator_icon = null;
-    private Gtk.Label? indicator_label = null;
 
     public static Settings settings { get; private set; default = null; }
     public static Gtk.IconTheme icon_theme { get; set; default = null; }
@@ -66,9 +64,10 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (indicator_grid == null) {
-            indicator_label = new Gtk.Label (_("Applications"));
+            var indicator_label = new Gtk.Label (_("Applications"));
             indicator_label.vexpand = true;
-            indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic", Gtk.IconSize.MENU);
+
+            var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic", Gtk.IconSize.MENU);
 
             indicator_grid = new Gtk.Grid ();
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
