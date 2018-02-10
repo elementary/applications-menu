@@ -17,6 +17,8 @@
 //
 
 public class Slingshot.Slingshot : Wingpanel.Indicator {
+    private const string KEYBINDING_SCHEMA = "org.gnome.desktop.wm.keybindings";
+
     private SlingshotView? view = null;
 
     private Gtk.Grid? indicator_grid = null;
@@ -26,10 +28,18 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     private DBusService? dbus_service = null;
 
+    private static GLib.Settings? keybinding_settings;
+
     public Slingshot () {
         Object (code_name: Wingpanel.Indicator.APP_LAUNCHER,
         display_name: _("Slingshot"),
         description:_("The app-menu indicator"));
+    }
+
+    static construct {
+        if (SettingsSchemaSource.get_default ().lookup (KEYBINDING_SCHEMA, true) != null) {
+            keybinding_settings = new GLib.Settings (KEYBINDING_SCHEMA);
+        }
     }
 
     construct {
@@ -43,6 +53,12 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (view == null) {
+            keybinding_settings.changed.connect ((key) => {
+                if (key == "panel-main-menu") {
+                    update_tooltip ();
+                }
+            });
+
             settings = new Settings ();
 
             view = new SlingshotView ();
@@ -70,9 +86,9 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
             var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic", Gtk.IconSize.MENU);
 
             indicator_grid = new Gtk.Grid ();
-            indicator_grid.tooltip_text = (_("Open and search apps (⌘ + Space)"));
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
             indicator_grid.attach (indicator_label, 1, 0, 1, 1);
+            update_tooltip ();
         }
 
         visible = true;
@@ -88,6 +104,53 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     public override void closed () {
         // TODO: Do we need to do anyhting here?
     }
+
+    private void update_tooltip () {
+        if (keybinding_settings == null) {
+            return;
+        }
+
+        string[] accels = keybinding_settings.get_strv ("panel-main-menu");
+        if (accels.length > 0) {
+            string shortcut = accel_to_string (accels[0]);
+            indicator_grid.tooltip_text = (_("Open and search apps (%s)").printf (shortcut));
+        }
+    }
+
+    private static string accel_to_string (string accel) {
+        string[] keys = parse_accelerator (accel);
+        return string.joinv (_(" + "), keys);
+    }
+
+    private static string[] parse_accelerator (string accel) {
+        uint accel_key;
+        Gdk.ModifierType accel_mods;
+        Gtk.accelerator_parse (accel, out accel_key, out accel_mods);
+
+        string[] arr = {};
+        if (Gdk.ModifierType.SUPER_MASK in accel_mods) {
+            arr += _("⌘");
+        }
+
+        if (Gdk.ModifierType.SHIFT_MASK in accel_mods) {
+            arr += _("Shift");
+        }
+
+        if (Gdk.ModifierType.CONTROL_MASK in accel_mods) {
+            arr += _("Ctrl");
+        }
+
+        if (Gdk.ModifierType.MOD1_MASK in accel_mods) {
+            arr += _("Alt");
+        }
+
+        string? key = Gdk.keyval_name (accel_key);
+        if (key != null) {
+            arr += key;
+        }
+
+        return arr;
+    }    
 }
 
 public Wingpanel.Indicator get_indicator (Module module) {
