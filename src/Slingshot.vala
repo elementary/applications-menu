@@ -121,7 +121,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     private static string accel_to_string (string accel) {
         string[] keys = parse_accelerator (accel);
-        return string.joinv (_(" + "), keys);
+        return string.joinv (" + ", keys);
     }
 
     private static string[] parse_accelerator (string accel) {
@@ -131,7 +131,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
         string[] arr = {};
         if (Gdk.ModifierType.SUPER_MASK in accel_mods) {
-            arr += _("⌘");
+            arr += "⌘";
         }
 
         if (Gdk.ModifierType.SHIFT_MASK in accel_mods) {
@@ -148,6 +148,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
         string? key = Gdk.keyval_name (accel_key);
         if (key != null) {
+            key = key[0].toupper ().to_string () + key[1:key.length];
             arr += key;
         }
 
