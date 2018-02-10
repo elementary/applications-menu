@@ -19,7 +19,7 @@
 public class Slingshot.Slingshot : Wingpanel.Indicator {
     private SlingshotView? view = null;
 
-    private Gtk.Label? indicator_label = null;
+    private Gtk.Grid? indicator_grid = null;
 
     public static Settings settings { get; private set; default = null; }
     public static Gtk.IconTheme icon_theme { get; set; default = null; }
@@ -63,13 +63,21 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget get_display_widget () {
-        if (indicator_label == null)
-            indicator_label = new Gtk.Label (_("Applications"));
-            indicator_label.tooltip_text = (_("Open and search apps (⌘ + Space)"));
+        if (indicator_grid == null) {
+            var indicator_label = new Gtk.Label (_("Applications"));
+            indicator_label.vexpand = true;
+
+            var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic", Gtk.IconSize.MENU);
+
+            indicator_grid = new Gtk.Grid ();
+            indicator_grid.tooltip_text = (_("Open and search apps (⌘ + Space)"));
+            indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
+            indicator_grid.attach (indicator_label, 1, 0, 1, 1);
+        }
 
         visible = true;
 
-        return indicator_label;
+        return indicator_grid;
     }
 
     public override void opened () {
