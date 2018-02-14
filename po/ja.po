@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2018-01-10 00:07+0000\n"
+"PO-Revision-Date: 2018-02-18 11:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/ja/>\n"
@@ -266,7 +266,7 @@ msgstr "AppCenter がインストールされていません"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "デフォルト Web ブラウザで %s を開く"
+msgstr "デフォルト Web ブラウザーで %s を開く"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
@@ -274,7 +274,7 @@ msgstr "%s を %s で開く"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr "このリンクをデフォルトブラウザで開く"
+msgstr "このリンクをデフォルトブラウザーで開く"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
@@ -282,7 +282,7 @@ msgstr "リンク"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr "リンクをデフォルトブラウザで開く"
+msgstr "リンクをデフォルトブラウザーで開く"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
