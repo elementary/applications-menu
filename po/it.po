@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2017-11-04 20:09+0000\n"
+"PO-Revision-Date: 2018-02-21 00:10+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Slingshot.vala:31
@@ -166,7 +166,7 @@ msgstr "bc non è installato"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr "Apri %s"
+msgstr "Apri le impostazioni di %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
@@ -250,7 +250,7 @@ msgstr "Cerca %s nel %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr "Cerca nell'app store"
+msgstr "Cerca nel centro applicazioni"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
