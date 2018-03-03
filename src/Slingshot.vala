@@ -130,6 +130,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         Gtk.accelerator_parse (accel, out accel_key, out accel_mods);
 
         string[] arr = {};
+
         if (Gdk.ModifierType.SUPER_MASK in accel_mods) {
             arr += "⌘";
         }
@@ -146,11 +147,23 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
             arr += _("Alt");
         }
 
-        string? key = Gdk.keyval_name (accel_key);
-        if (key != null) {
-            key = key[0].toupper ().to_string () + key[1:key.length];
-            arr += key;
-        }
+        switch (accel_key) {
+            case Gdk.Key.Up:
+                arr += "↑";
+                break;
+            case Gdk.Key.Down:
+                arr += "↓";
+                break;
+            case Gdk.Key.Left:
+                arr += "←";
+                break;
+            case Gdk.Key.Right:
+                arr += "→";
+                break;
+            default:
+                arr += Gtk.accelerator_get_label (accel_key, 0);
+                break;
+         }
 
         return arr;
     }    
