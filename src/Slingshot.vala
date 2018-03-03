@@ -130,7 +130,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         Gtk.accelerator_parse (accel, out accel_key, out accel_mods);
 
         string[] arr = {};
-
         if (Gdk.ModifierType.SUPER_MASK in accel_mods) {
             arr += "⌘";
         }
