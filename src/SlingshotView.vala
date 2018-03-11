@@ -238,11 +238,6 @@ namespace Slingshot {
                 populate_grid_view ();
                 category_view.setup_sidebar ();
             });
-
-            // position on the right monitor when settings changed
-            screen.monitors_changed.connect (() => {
-                primary_monitor = screen.get_primary_monitor ();
-            });
         }
 
 #if HAS_PLANK_0_11
