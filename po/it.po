@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2018-02-21 00:10+0000\n"
+"PO-Revision-Date: 2018-03-10 00:06+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/it/>\n"
@@ -250,11 +250,11 @@ msgstr "Cerca %s nel %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr "Cerca nel centro applicazioni"
+msgstr "Cerca nel Centro Applicazioni"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Centro applicazioni"
+msgstr "Centro Applicazioni"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
@@ -262,11 +262,11 @@ msgstr "Cerca le applicazioni"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "Il centro applicazioni non è installato"
+msgstr "Il Centro Applicazioni non è installato"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "Apri %s nel browser internet predefinito"
+msgstr "Apri %s nel browser Internet predefinito"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
@@ -274,7 +274,7 @@ msgstr "Apri %s in %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr "Apri questo collegamento nel browser internet predefinito"
+msgstr "Apri questo collegamento nel browser Internet predefinito"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
