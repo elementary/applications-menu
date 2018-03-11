@@ -79,15 +79,6 @@ namespace Slingshot {
             default_columns = Slingshot.settings.columns;
             default_rows = Slingshot.settings.rows;
 
-            setup_ui ();
-
-            grid_view.resize (default_rows, default_columns);
-            populate_grid_view ();
-            height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
-
-            category_view.app_view.resize (default_rows, default_columns);
-            category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
-
             Slingshot.icon_theme = Gtk.IconTheme.get_default ();
 
             app_system = new Backend.AppSystem ();
@@ -101,6 +92,7 @@ namespace Slingshot {
             primary_monitor = screen.get_primary_monitor ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
+            setup_ui ();
 
             connect_signals ();
             debug ("Apps loaded");
@@ -229,10 +221,12 @@ namespace Slingshot {
 
             Slingshot.settings.changed["rows"].connect (() => {
                 default_rows = Slingshot.settings.rows;
+                change_grid_size ();
             });
 
             Slingshot.settings.changed["columns"].connect (() => {
                 default_columns = Slingshot.settings.columns;
+                change_grid_size ();
             });
 
             // Auto-update applications grid
@@ -246,7 +240,7 @@ namespace Slingshot {
             });
 
             // position on the right monitor when settings changed
-            screen.size_changed.connect (() => {
+            screen.monitors_changed.connect (() => {
                 primary_monitor = screen.get_primary_monitor ();
             });
         }
@@ -703,6 +697,15 @@ namespace Slingshot {
             }
 
             stack.set_visible_child_name ("normal");
+        }
+
+        private void change_grid_size () {
+            grid_view.resize (default_rows, default_columns);
+            populate_grid_view ();
+            height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
+
+            category_view.app_view.resize (default_rows, default_columns);
+            category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
