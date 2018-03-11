@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 22:42+0300\n"
-"PO-Revision-Date: 2017-07-19 04:45+0000\n"
+"PO-Revision-Date: 2018-03-11 09:30+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
 "Language-Team: Russian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Slingshot.vala:31
@@ -267,7 +267,7 @@ msgstr "AppCenter не установлен"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "Открыть %s в браузере по-умолчанию"
+msgstr "Открыть %s в браузере по умолчанию"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
@@ -275,7 +275,7 @@ msgstr "Открыть %s в %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr "Открыть эту ссылку в браузере по-умолчанию"
+msgstr "Открыть эту ссылку в браузере по умолчанию"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
@@ -283,7 +283,7 @@ msgstr "Ссылка"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr "Открыть ссылку в браузере по-умолчанию"
+msgstr "Открыть ссылку в браузере по умолчанию"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
