@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 22:42+0300\n"
+"POT-Creation-Date: 2018-03-11 13:23-0700\n"
 "PO-Revision-Date: 2017-07-19 07:30+0000\n"
 "Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
-"Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/pl/>\n"
+"Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +21,59 @@ msgstr ""
 "X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-19 05:20+0000\n"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Menu programów Slingshot"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Wskaźnik menu programów"
-
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
-msgid "Applications"
-msgstr "Aplikacje"
-
-#: ../src/Backend/App.vala:91
+#: ../src/Backend/App.vala:87
 msgid "Run this command…"
 msgstr "Uruchom tę komendę"
 
-#: ../src/Widgets/AppEntry.vala:239
+#: ../src/Slingshot.vala:35
+msgid "Slingshot"
+msgstr "Menu programów Slingshot"
+
+#: ../src/Slingshot.vala:36
+msgid "The app-menu indicator"
+msgstr "Wskaźnik menu programów"
+
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Aplikacje"
+
+#: ../src/Slingshot.vala:118
+msgid "Open and search apps (%s)"
+msgstr ""
+
+#: ../src/Slingshot.vala:138
+msgid "Shift"
+msgstr ""
+
+#: ../src/Slingshot.vala:142
+msgid "Ctrl"
+msgstr ""
+
+#: ../src/Slingshot.vala:146
+msgid "Alt"
+msgstr ""
+
+#: ../src/SlingshotView.vala:160
+msgid "View as Grid"
+msgstr "Wyświetla aktywatory rozmieszczone na siatce"
+
+#: ../src/SlingshotView.vala:164
+msgid "View by Category"
+msgstr "Wyświetla aktywatory rozmieszczone w kategoriach"
+
+#: ../src/SlingshotView.vala:173
+msgid "Search Apps"
+msgstr "Wyszukaj programów"
+
+#: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
 msgstr "Odinstaluj"
 
-#: ../src/Widgets/AppEntry.vala:266
+#: ../src/Widgets/AppEntry.vala:270
 msgid "Remove from _Dock"
 msgstr "Usuń z _doku"
 
-#: ../src/Widgets/AppEntry.vala:268
+#: ../src/Widgets/AppEntry.vala:272
 msgid "Add to _Dock"
 msgstr "Dodaj do _doku"
 
@@ -101,18 +129,6 @@ msgstr "Działania programu"
 msgid "Other"
 msgstr "Inne"
 
-#: ../src/SlingshotView.vala:160
-msgid "View as Grid"
-msgstr "Wyświetla aktywatory rozmieszczone na siatce"
-
-#: ../src/SlingshotView.vala:164
-msgid "View by Category"
-msgstr "Wyświetla aktywatory rozmieszczone w kategoriach"
-
-#: ../src/SlingshotView.vala:173
-msgid "Search Apps"
-msgstr "Wyszukaj programów"
-
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
 msgstr "Uruchom"
@@ -153,6 +169,26 @@ msgstr "Skopiuj do schowka"
 msgid "Copy selection to clipboard"
 msgstr "Skopiuj zaznaczenie do schowka"
 
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr "Szukaj %s w %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "Szukaj w sklepie z programami"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "Centrum programów"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Szukaj programów"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "Centrum programów nie jest zainstalowane"
+
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
 msgstr "Kalkulator"
@@ -164,6 +200,50 @@ msgstr "Obliczaj podstawowe działania."
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
 msgstr "bc nie jest zainstalowane"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "Uruchom '%s'"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "Wykonaj polecenie"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "Znajdź i wykonaj dowolne polecenia"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Wyszukaj i uruchom aplikacje na tym komputerze."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Otwórz przy pomocy %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Otwiera obecnie wybrane przy pomocy %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "Otwórz %s w domyślnej przeglądarce internetowej"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "Otwórz %s w %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Otwórz ten odnośnik w domyślnej przeglądarce"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Odnośnik"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Otwórz odnośnik w domyślnej przeglądarce"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
@@ -232,67 +312,3 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "Nie odnaleziono ConsoleKit"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Wyszukaj i uruchom aplikacje na tym komputerze."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
-msgid "Open with %s"
-msgstr "Otwórz przy pomocy %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
-msgid "Opens current selection using %s"
-msgstr "Otwiera obecnie wybrane przy pomocy %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "Szukaj %s w %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "Szukaj w sklepie z programami"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "AppCenter"
-msgstr "Centrum programów"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "Search for applications"
-msgstr "Szukaj programów"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:100
-msgid "AppCenter is not installed"
-msgstr "Centrum programów nie jest zainstalowane"
-
-#: ../lib/synapse-plugins/link-plugin.vala:47
-msgid "Open %s in default web browser"
-msgstr "Otwórz %s w domyślnej przeglądarce internetowej"
-
-#: ../lib/synapse-plugins/link-plugin.vala:52
-msgid "Open %s in %s"
-msgstr "Otwórz %s w %s"
-
-#: ../lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "Otwórz ten odnośnik w domyślnej przeglądarce"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "Odnośnik"
-
-#: ../lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "Otwórz odnośnik w domyślnej przeglądarce"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "Uruchom '%s'"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "Wykonaj polecenie"
-
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "Znajdź i wykonaj dowolne polecenia"
