@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 22:42+0300\n"
+"POT-Creation-Date: 2018-03-11 13:23-0700\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
-"Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/bn/>\n"
+"Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,32 +15,60 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: ../src/Slingshot.vala:31
+#: ../src/Backend/App.vala:87
+msgid "Run this command…"
+msgstr "এই কমান্ডটি  রান করুন…"
+
+#: ../src/Slingshot.vala:35
 msgid "Slingshot"
 msgstr "স্লিংশট"
 
-#: ../src/Slingshot.vala:32
+#: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
 msgstr "অ্যাপ-মেনু ইনডিকেটর"
 
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
 #, fuzzy
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
 
-#: ../src/Backend/App.vala:91
-msgid "Run this command…"
-msgstr "এই কমান্ডটি  রান করুন…"
+#: ../src/Slingshot.vala:118
+msgid "Open and search apps (%s)"
+msgstr ""
 
-#: ../src/Widgets/AppEntry.vala:239
+#: ../src/Slingshot.vala:138
+msgid "Shift"
+msgstr ""
+
+#: ../src/Slingshot.vala:142
+msgid "Ctrl"
+msgstr ""
+
+#: ../src/Slingshot.vala:146
+msgid "Alt"
+msgstr ""
+
+#: ../src/SlingshotView.vala:160
+msgid "View as Grid"
+msgstr "গ্রিড হিসাবে দেখুন"
+
+#: ../src/SlingshotView.vala:164
+msgid "View by Category"
+msgstr "বিভাগ দ্বারা দেখুন"
+
+#: ../src/SlingshotView.vala:173
+msgid "Search Apps"
+msgstr "এপ্স অনুসন্ধান করুন"
+
+#: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
 msgstr "আনইনস্টল"
 
-#: ../src/Widgets/AppEntry.vala:266
+#: ../src/Widgets/AppEntry.vala:270
 msgid "Remove from _Dock"
 msgstr "_ডক থেকে অপসারণ করুন"
 
-#: ../src/Widgets/AppEntry.vala:268
+#: ../src/Widgets/AppEntry.vala:272
 msgid "Add to _Dock"
 msgstr "_ডকে যোগ করুন"
 
@@ -96,18 +124,6 @@ msgstr "অ্যাপ্লিকেশনের ক্রিয়াকল�
 msgid "Other"
 msgstr "অন্য"
 
-#: ../src/SlingshotView.vala:160
-msgid "View as Grid"
-msgstr "গ্রিড হিসাবে দেখুন"
-
-#: ../src/SlingshotView.vala:164
-msgid "View by Category"
-msgstr "বিভাগ দ্বারা দেখুন"
-
-#: ../src/SlingshotView.vala:173
-msgid "Search Apps"
-msgstr "এপ্স অনুসন্ধান করুন"
-
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
 msgstr "চালু করুন"
@@ -148,6 +164,26 @@ msgstr "ক্লিপবোর্ডে অনুলিপি করুন"
 msgid "Copy selection to clipboard"
 msgstr "ক্লিপবোর্ডে সেলেক্শনটি অনুলিপি করুন"
 
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr "%s_এর জন্য অনুসন্ধান করুন %s_এর মধ্যে"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "অ্যাপসেন্টারে অনুসন্ধান করুন"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "অ্যাপসেন্টার"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "অ্যাপ্লিকেশনগুলি  অনুসন্ধান করুন"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "অ্যাপসেন্টার ইন্সটল করা নেই"
+
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
 msgstr "গণক"
@@ -160,6 +196,50 @@ msgstr "মৌলিক এক্সপ্রেশন গণনা করুন
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
 msgstr "bc ইনস্টল করা নেই"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "'%s' চালনা করুন"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "কম্যান্ড চালনা করুন"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "ইচ্ছামত কমান্ডস খুজুন এবং চালান।"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "এই কম্পিউটারের  অ্যাপ্লিকেশনগুলি খুজুন এবং চালনা করুন।"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "%s_এর দ্বারা খুলুন"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "%s ব্যবহার করে বর্তমান নির্বাচনটি খুলুন"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "%s আপনার ডিফল্ট ওয়েব ব্রাউজারে খুলুন"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "%s  %s_এর দ্বারা খুলুন"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "এই লিংকটি ডিফল্ট ব্রাউজারে খুলুন"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "লিংক"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "লিংকটি ডিফল্ট ব্রাউজারে খুলুন"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
@@ -223,73 +303,9 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"এই সেশনটি লক অথবা বন্ধ করুন। কম্পিউটারটি স্থগিত, হাইবারনেট, বন্ধ অথবা পুনরায় "
-"চালু করুন।"
+"এই সেশনটি লক অথবা বন্ধ করুন। কম্পিউটারটি স্থগিত, হাইবারনেট, বন্ধ অথবা পুনরায় চালু "
+"করুন।"
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit পাওয়া যায়নি"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "এই কম্পিউটারের  অ্যাপ্লিকেশনগুলি খুজুন এবং চালনা করুন।"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
-msgid "Open with %s"
-msgstr "%s_এর দ্বারা খুলুন"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
-msgid "Opens current selection using %s"
-msgstr "%s ব্যবহার করে বর্তমান নির্বাচনটি খুলুন"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "%s_এর জন্য অনুসন্ধান করুন %s_এর মধ্যে"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "অ্যাপসেন্টারে অনুসন্ধান করুন"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "AppCenter"
-msgstr "অ্যাপসেন্টার"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "Search for applications"
-msgstr "অ্যাপ্লিকেশনগুলি  অনুসন্ধান করুন"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:100
-msgid "AppCenter is not installed"
-msgstr "অ্যাপসেন্টার ইন্সটল করা নেই"
-
-#: ../lib/synapse-plugins/link-plugin.vala:47
-msgid "Open %s in default web browser"
-msgstr "%s আপনার ডিফল্ট ওয়েব ব্রাউজারে খুলুন"
-
-#: ../lib/synapse-plugins/link-plugin.vala:52
-msgid "Open %s in %s"
-msgstr "%s  %s_এর দ্বারা খুলুন"
-
-#: ../lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "এই লিংকটি ডিফল্ট ব্রাউজারে খুলুন"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "লিংক"
-
-#: ../lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "লিংকটি ডিফল্ট ব্রাউজারে খুলুন"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "'%s' চালনা করুন"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "কম্যান্ড চালনা করুন"
-
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "ইচ্ছামত কমান্ডস খুজুন এবং চালান।"

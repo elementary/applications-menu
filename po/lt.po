@@ -7,45 +7,73 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 22:42+0300\n"
+"POT-Creation-Date: 2018-03-11 13:23-0700\n"
 "PO-Revision-Date: 2017-07-19 15:13+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/lt/>\n"
+"Language-Team: Lithuanian <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
-"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
 "X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Programų meniu indikatorius"
-
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
-msgid "Applications"
-msgstr "Programos"
-
-#: ../src/Backend/App.vala:91
+#: ../src/Backend/App.vala:87
 msgid "Run this command…"
 msgstr "Vykdyti šią komandą…"
 
-#: ../src/Widgets/AppEntry.vala:239
+#: ../src/Slingshot.vala:35
+msgid "Slingshot"
+msgstr "Slingshot"
+
+#: ../src/Slingshot.vala:36
+msgid "The app-menu indicator"
+msgstr "Programų meniu indikatorius"
+
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Programos"
+
+#: ../src/Slingshot.vala:118
+msgid "Open and search apps (%s)"
+msgstr ""
+
+#: ../src/Slingshot.vala:138
+msgid "Shift"
+msgstr ""
+
+#: ../src/Slingshot.vala:142
+msgid "Ctrl"
+msgstr ""
+
+#: ../src/Slingshot.vala:146
+msgid "Alt"
+msgstr ""
+
+#: ../src/SlingshotView.vala:160
+msgid "View as Grid"
+msgstr "Rodyti kaip tinklelį"
+
+#: ../src/SlingshotView.vala:164
+msgid "View by Category"
+msgstr "Rodyti pagal kategorijas"
+
+#: ../src/SlingshotView.vala:173
+msgid "Search Apps"
+msgstr "Ieškoti programų"
+
+#: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
 msgstr "Šalinti programą"
 
-#: ../src/Widgets/AppEntry.vala:266
+#: ../src/Widgets/AppEntry.vala:270
 msgid "Remove from _Dock"
 msgstr "Šalinti iš sky_delio"
 
-#: ../src/Widgets/AppEntry.vala:268
+#: ../src/Widgets/AppEntry.vala:272
 msgid "Add to _Dock"
 msgstr "Pridėti į sky_delį"
 
@@ -101,18 +129,6 @@ msgstr "Programų veiksmai"
 msgid "Other"
 msgstr "Kita"
 
-#: ../src/SlingshotView.vala:160
-msgid "View as Grid"
-msgstr "Rodyti kaip tinklelį"
-
-#: ../src/SlingshotView.vala:164
-msgid "View by Category"
-msgstr "Rodyti pagal kategorijas"
-
-#: ../src/SlingshotView.vala:173
-msgid "Search Apps"
-msgstr "Ieškoti programų"
-
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
 msgstr "Vykdyti"
@@ -153,6 +169,26 @@ msgstr "Kopijuoti į iškarpinę"
 msgid "Copy selection to clipboard"
 msgstr "Kopijuoti žymėjimą į iškarpinę"
 
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr "Ieškoti %s, programoje %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "Ieškoti programų parduotuvėje"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "Programų centras"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Ieškoti programų"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "Programų centras nėra įdiegtas"
+
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
 msgstr "Skaičiuotuvas"
@@ -164,6 +200,50 @@ msgstr "Apskaičiuoti pagrindinius reiškinius."
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
 msgstr "bc nėra įdiegta"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "Vykdyti \"%s\""
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "Vykdyti komandą"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "Rasti ir vykdyti pasirinktines komandas."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Ieškoti ir vykdyti programas jūsų kompiuteryje."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Atverti, naudojant %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Atveria esamą pasirinkimą, naudojant %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "Atverti %s numatytojoje saityno naršyklėje"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "Atverti %s, naudojant %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Atverti šią nuorodą numatytojoje naršyklėje"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Nuoroda"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Atverti nuorodą numatytojoje naršyklėje"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
@@ -232,67 +312,3 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit nebuvo rasta"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Ieškoti ir vykdyti programas jūsų kompiuteryje."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
-msgid "Open with %s"
-msgstr "Atverti, naudojant %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
-msgid "Opens current selection using %s"
-msgstr "Atveria esamą pasirinkimą, naudojant %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "Ieškoti %s, programoje %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "Ieškoti programų parduotuvėje"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "AppCenter"
-msgstr "Programų centras"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "Search for applications"
-msgstr "Ieškoti programų"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:100
-msgid "AppCenter is not installed"
-msgstr "Programų centras nėra įdiegtas"
-
-#: ../lib/synapse-plugins/link-plugin.vala:47
-msgid "Open %s in default web browser"
-msgstr "Atverti %s numatytojoje saityno naršyklėje"
-
-#: ../lib/synapse-plugins/link-plugin.vala:52
-msgid "Open %s in %s"
-msgstr "Atverti %s, naudojant %s"
-
-#: ../lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "Atverti šią nuorodą numatytojoje naršyklėje"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "Nuoroda"
-
-#: ../lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "Atverti nuorodą numatytojoje naršyklėje"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "Vykdyti \"%s\""
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "Vykdyti komandą"
-
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "Rasti ir vykdyti pasirinktines komandas."
