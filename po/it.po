@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-10 00:06+0000\n"
+"PO-Revision-Date: 2018-03-12 18:27+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
-"Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel/"
-"applications-menu/it/>\n"
+"Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel"
+"/applications-menu/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,19 +38,19 @@ msgstr "Applicazioni"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
-msgstr ""
+msgstr "Apri e cerca applicazioni (%s)"
 
 #: ../src/Slingshot.vala:138
 msgid "Shift"
-msgstr ""
+msgstr "Maiusc"
 
 #: ../src/Slingshot.vala:142
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
 #: ../src/Slingshot.vala:146
 msgid "Alt"
-msgstr ""
+msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
