@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 22:42+0300\n"
+"POT-Creation-Date: 2018-03-11 13:23-0700\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Hải Hồ <hochihai1997@gmail.com>\n"
-"Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/vi/>\n"
+"Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,31 +20,59 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: ../src/Slingshot.vala:31
-msgid "Slingshot"
-msgstr ""
-
-#: ../src/Slingshot.vala:32
-msgid "The app-menu indicator"
-msgstr "Chỉ thị menu ứng dụng"
-
-#: ../src/Slingshot.vala:67 ../src/Widgets/SearchView.vala:222
-msgid "Applications"
-msgstr "Ứng dụng"
-
-#: ../src/Backend/App.vala:91
+#: ../src/Backend/App.vala:87
 msgid "Run this command…"
 msgstr "Chạy lệnh này…"
 
-#: ../src/Widgets/AppEntry.vala:239
+#: ../src/Slingshot.vala:35
+msgid "Slingshot"
+msgstr ""
+
+#: ../src/Slingshot.vala:36
+msgid "The app-menu indicator"
+msgstr "Chỉ thị menu ứng dụng"
+
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+msgid "Applications"
+msgstr "Ứng dụng"
+
+#: ../src/Slingshot.vala:118
+msgid "Open and search apps (%s)"
+msgstr ""
+
+#: ../src/Slingshot.vala:138
+msgid "Shift"
+msgstr ""
+
+#: ../src/Slingshot.vala:142
+msgid "Ctrl"
+msgstr ""
+
+#: ../src/Slingshot.vala:146
+msgid "Alt"
+msgstr ""
+
+#: ../src/SlingshotView.vala:160
+msgid "View as Grid"
+msgstr "Xem dạng lưới"
+
+#: ../src/SlingshotView.vala:164
+msgid "View by Category"
+msgstr "Xem theo loại"
+
+#: ../src/SlingshotView.vala:173
+msgid "Search Apps"
+msgstr "Tìm kiếm ứng dụng"
+
+#: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
 msgstr "Gỡ cài đặt"
 
-#: ../src/Widgets/AppEntry.vala:266
+#: ../src/Widgets/AppEntry.vala:270
 msgid "Remove from _Dock"
 msgstr "Xóa khỏi _Dock"
 
-#: ../src/Widgets/AppEntry.vala:268
+#: ../src/Widgets/AppEntry.vala:272
 msgid "Add to _Dock"
 msgstr "Thêm vào _Dock"
 
@@ -100,18 +128,6 @@ msgstr "Hành động ứng dụng"
 msgid "Other"
 msgstr "Khác"
 
-#: ../src/SlingshotView.vala:160
-msgid "View as Grid"
-msgstr "Xem dạng lưới"
-
-#: ../src/SlingshotView.vala:164
-msgid "View by Category"
-msgstr "Xem theo loại"
-
-#: ../src/SlingshotView.vala:173
-msgid "Search Apps"
-msgstr "Tìm kiếm ứng dụng"
-
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
 msgstr "Chạy"
@@ -152,6 +168,26 @@ msgstr "Sao chép vào Clipboard"
 msgid "Copy selection to clipboard"
 msgstr "Sao chép mục đã chọn đến clipboard"
 
+#: ../lib/synapse-plugins/appcenter-plugin.vala:55
+msgid "Search for %s in %s"
+msgstr "Tìm %s trong %s"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "Tìm kiếm trong cửa hàng ứng dụng"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "Trung tâm ứng dụng"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Tìm kiếm ứng dụng"
+
+#: ../lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "Trung tâm ứng dụng không được cài đặt"
+
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
 msgstr "Máy tính"
@@ -163,6 +199,50 @@ msgstr "Tính toán các biểu thức cơ bản."
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
 msgstr "bc không được cài đặt"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Execute '%s'"
+msgstr "Thực thi '%s'"
+
+#: ../lib/synapse-plugins/command-plugin.vala:47
+msgid "Run command"
+msgstr "Chạy lệnh"
+
+#: ../lib/synapse-plugins/command-plugin.vala:63
+msgid "Find and execute arbitrary commands."
+msgstr "Tìm và thực thi các lệnh tùy ý."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+msgid "Search for and run applications on your computer."
+msgstr "Tìm kiếm và chạy các ứng dụng trên máy tính của bạn."
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+msgid "Open with %s"
+msgstr "Mở với %s"
+
+#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+msgid "Opens current selection using %s"
+msgstr "Mở lựa chọn hiện tại bằng %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:47
+msgid "Open %s in default web browser"
+msgstr "Mở %s trong trình duyệt mặc định"
+
+#: ../lib/synapse-plugins/link-plugin.vala:52
+msgid "Open %s in %s"
+msgstr "Mở %s trong %s"
+
+#: ../lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Mở liên kết này trong trình duyệt mặc định"
+
+#: ../lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Liên kết"
+
+#: ../lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Mở liên kết trong trình duyệt mặc định"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
@@ -232,67 +312,3 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "Không tìm thấy ConsoleKit"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
-msgid "Search for and run applications on your computer."
-msgstr "Tìm kiếm và chạy các ứng dụng trên máy tính của bạn."
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
-msgid "Open with %s"
-msgstr "Mở với %s"
-
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
-msgid "Opens current selection using %s"
-msgstr "Mở lựa chọn hiện tại bằng %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "Tìm %s trong %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "Tìm kiếm trong cửa hàng ứng dụng"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "AppCenter"
-msgstr "Trung tâm ứng dụng"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "Search for applications"
-msgstr "Tìm kiếm ứng dụng"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:100
-msgid "AppCenter is not installed"
-msgstr "Trung tâm ứng dụng không được cài đặt"
-
-#: ../lib/synapse-plugins/link-plugin.vala:47
-msgid "Open %s in default web browser"
-msgstr "Mở %s trong trình duyệt mặc định"
-
-#: ../lib/synapse-plugins/link-plugin.vala:52
-msgid "Open %s in %s"
-msgstr "Mở %s trong %s"
-
-#: ../lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "Mở liên kết này trong trình duyệt mặc định"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "Liên kết"
-
-#: ../lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "Mở liên kết trong trình duyệt mặc định"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Execute '%s'"
-msgstr "Thực thi '%s'"
-
-#: ../lib/synapse-plugins/command-plugin.vala:47
-msgid "Run command"
-msgstr "Chạy lệnh"
-
-#: ../lib/synapse-plugins/command-plugin.vala:63
-msgid "Find and execute arbitrary commands."
-msgstr "Tìm và thực thi các lệnh tùy ý."
