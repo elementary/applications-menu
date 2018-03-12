@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-12 13:24+0000\n"
+"PO-Revision-Date: 2018-03-12 18:27+0000\n"
 "Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/pl/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr "Uruchom tę komendę"
+msgstr "Uruchom te polecenie…"
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
@@ -35,7 +35,7 @@ msgstr "Wskaźnik menu programów"
 
 #: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
 msgid "Applications"
-msgstr "Aplikacje"
+msgstr "Programy"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
@@ -63,7 +63,7 @@ msgstr "Wyświetla aktywatory rozmieszczone w kategoriach"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "Wyszukaj programów"
+msgstr "Wyszukaj programy"
 
 #: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
@@ -79,7 +79,7 @@ msgstr "Dodaj do _doku"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr "Wszystkie"
+msgstr "Wszystkie programy"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
@@ -103,7 +103,7 @@ msgstr "Pliki"
 
 #: ../src/Widgets/SearchView.vala:229
 msgid "Actions"
-msgstr "Akcje"
+msgstr "Działania"
 
 #: ../src/Widgets/SearchView.vala:232
 msgid "Search"
@@ -135,7 +135,7 @@ msgstr "Uruchom"
 
 #: ../lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
-msgstr "Uruchom aplikacje, akcję lub skrypt"
+msgstr "Uruchom program, działanie lub skrypt"
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
@@ -143,7 +143,7 @@ msgstr "Uruchom w terminalu"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr "Uruchom aplikacje lub polecenie w konsoli"
+msgstr "Uruchom program lub polecenie w konsoli"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -151,7 +151,7 @@ msgstr "Otwórz"
 
 #: ../lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr "Otwórz używając domyślnej aplikacji"
+msgstr "Otwórz używając domyślnego programu"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
@@ -211,11 +211,11 @@ msgstr "Wykonaj polecenie"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr "Znajdź i wykonaj dowolne polecenia"
+msgstr "Wyszukaj i wykonaj dowolne polecenia."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr "Wyszukaj i uruchom aplikacje na tym komputerze."
+msgstr "Wyszukaj i uruchom programy na tym komputerze."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
@@ -279,7 +279,7 @@ msgstr "Przejdź do stanu uśpienia"
 
 #: ../lib/synapse-plugins/system-managment.vala:232
 msgid "Hibernate"
-msgstr "Hibernuj"
+msgstr "Zahibernuj"
 
 #: ../lib/synapse-plugins/system-managment.vala:233
 msgid "Put your computer into hibernation mode"
@@ -287,7 +287,7 @@ msgstr "Przejdź do trybu hibernacji"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Wyłącz komputer"
+msgstr "Wyłącz"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
