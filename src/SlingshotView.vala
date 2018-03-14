@@ -565,7 +565,7 @@ namespace Slingshot {
 
             if (scroll_event.direction != Gdk.ScrollDirection.DOWN &&
                 scroll_event.direction != Gdk.ScrollDirection.UP &&
-                grid_view.stack.transition_running || category_view.app_view.stack.transition_running) {
+                (grid_view.stack.transition_running || category_view.app_view.stack.transition_running)) {
                 return false;
             }
 
