@@ -93,7 +93,8 @@ namespace Synapse {
             Idle.add_full (Priority.LOW, load_plugs.callback);
             yield;
 
-            foreach (var plug in Switchboard.PlugsManager.get_default ().get_plugs ()) {
+            var plugs_manager = Switchboard.PlugsManager.get_default ();
+            foreach (var plug in plugs_manager.get_plugs ()) {
                 var settings = plug.supported_settings;
                 if (settings == null || settings.size <= 0) {
                     continue;
@@ -102,6 +103,9 @@ namespace Synapse {
                 string uri = settings.keys.to_array ()[0];
                 plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
             }
+
+            // Unload all the plugs
+            plugs_manager.unref ();
 
             loading_in_progress = false;
             load_complete ();
