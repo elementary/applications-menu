@@ -560,7 +560,9 @@ namespace Slingshot {
         }
 
         public override bool scroll_event (Gdk.EventScroll scroll_event) {
-            if (grid_view.stack.transition_running || category_view.app_view.stack.transition_running) {
+            var tool = scroll_event.get_device_tool ();
+            if ((tool != null && tool.get_tool_type () != Gdk.DeviceToolType.MOUSE)
+                && (grid_view.stack.transition_running || category_view.app_view.stack.transition_running)) {
                 return false;
             }
 
