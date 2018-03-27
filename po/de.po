@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-27 21:35+0000\n"
+"PO-Revision-Date: 2018-03-28 00:05+0000\n"
 "Last-Translator: Justin <justin.hucke@t-online.de>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/de/>\n"
@@ -29,12 +29,13 @@ msgid "Slingshot"
 msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
+#, fuzzy
 msgid "The app-menu indicator"
 msgstr "Anwendungsmenüanzeige"
 
 #: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
 msgid "Applications"
-msgstr "Anwendungen"
+msgstr "Apps"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
@@ -54,7 +55,7 @@ msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
-msgstr "Tabellenansicht"
+msgstr "Als Tabelle anzeigen"
 
 #: ../src/SlingshotView.vala:164
 msgid "View by Category"
@@ -62,23 +63,25 @@ msgstr "Ansicht nach Kategorie"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "Anwendungen durchsuchen"
+msgstr "Apps durchsuchen"
 
 #: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
-msgstr "Vom Rechner entfernen"
+msgstr "Deinstallieren"
 
 #: ../src/Widgets/AppEntry.vala:270
+#, fuzzy
 msgid "Remove from _Dock"
 msgstr "Aus dem _Dock entfernen"
 
 #: ../src/Widgets/AppEntry.vala:272
+#, fuzzy
 msgid "Add to _Dock"
 msgstr "Zum _Dock hinzufügen"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
-msgstr "Alle Anwendungen"
+msgstr "Alle Apps"
 
 #: ../src/Widgets/CategoryView.vala:28
 msgid "Create a new Filter"
