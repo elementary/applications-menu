@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-28 00:05+0000\n"
-"Last-Translator: Justin <justin.hucke@t-online.de>\n"
+"PO-Revision-Date: 2018-04-01 07:30+0000\n"
+"Last-Translator: Jörg Arnold <j0ar@posteo.de>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/de/>\n"
 "Language: de\n"
@@ -29,9 +29,8 @@ msgid "Slingshot"
 msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
-#, fuzzy
 msgid "The app-menu indicator"
-msgstr "Anwendungsmenüanzeige"
+msgstr "Der App-Menü-Indikator"
 
 #: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
 msgid "Applications"
@@ -70,12 +69,10 @@ msgid "Uninstall"
 msgstr "Deinstallieren"
 
 #: ../src/Widgets/AppEntry.vala:270
-#, fuzzy
 msgid "Remove from _Dock"
 msgstr "Aus dem _Dock entfernen"
 
 #: ../src/Widgets/AppEntry.vala:272
-#, fuzzy
 msgid "Add to _Dock"
 msgstr "Zum _Dock hinzufügen"
 
