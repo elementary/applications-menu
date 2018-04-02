@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-12 07:57+0000\n"
+"PO-Revision-Date: 2018-03-25 00:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/ja/>\n"
@@ -30,7 +30,7 @@ msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr "アプリメニューの通知"
+msgstr "アプリメニューインジケーター"
 
 #: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
 msgid "Applications"
@@ -70,11 +70,11 @@ msgstr "アンインストール"
 
 #: ../src/Widgets/AppEntry.vala:270
 msgid "Remove from _Dock"
-msgstr "ドックから削除 (_D)"
+msgstr "Dock から削除 (_D)"
 
 #: ../src/Widgets/AppEntry.vala:272
 msgid "Add to _Dock"
-msgstr "ドックに追加 (_D)"
+msgstr "Dock に追加 (_D)"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
