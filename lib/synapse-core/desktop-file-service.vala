@@ -185,7 +185,7 @@ namespace Synapse {
                     is_hidden = false;
                 }
             } catch (Error err) {
-                Utils.Logger.warning (this, "%s", err.message);
+                critical (err.message);
                 is_valid = false;
             }
         }
@@ -322,7 +322,7 @@ namespace Synapse {
                     return;
                 }
 
-                Utils.Logger.debug (this, "Searching for desktop files in: %s", path);
+                debug ("Searching for desktop files in: %s", path);
                 bool exists = yield Utils.query_exists_async (directory);
                 if (!exists) {
                     return;
@@ -464,7 +464,7 @@ namespace Synapse {
 		        try {
 		        	exec = exec_re.replace_literal (dfi.exec, -1, 0, "");
 		        } catch (RegexError err) {
-		        	Utils.Logger.error (this, "%s", err.message);
+                    critical (err.message);
 		        }
 		        exec = exec.strip ();
 		        // update exec map
