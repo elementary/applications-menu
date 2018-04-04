@@ -75,7 +75,7 @@ public class Slingshot.Backend.App : Object {
         }
 
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
     }
@@ -103,7 +103,7 @@ public class Slingshot.Backend.App : Object {
         }
 
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 
