@@ -175,7 +175,7 @@ namespace Synapse {
             float popularity = rs.get_application_popularity (dfm.desktop_id);
 
             int r = RelevancyService.compute_relevancy (base_relevancy, popularity);
-            Utils.Logger.debug (this, "relevancy for %s: %d", dfm.desktop_id, r);
+            debug ("relevancy for %s: %d", dfm.desktop_id, r);
 
             return r;
         }

@@ -60,14 +60,14 @@ namespace Synapse {
         public abstract MatchType match_type { get; construct set; }
 
         public virtual void execute (Match? match) {
-            Utils.Logger.error (this, "execute () is not implemented");
+            critical ("execute () is not implemented");
         }
 
         public virtual void execute_with_target (Match? source, Match? target = null) {
             if (target == null) {
                 execute (source);
             } else {
-                Utils.Logger.error (this, "execute () is not implemented");
+                critical ("execute () is not implemented");
             }
         }
 
