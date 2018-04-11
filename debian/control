@@ -26,7 +26,7 @@ Homepage: http://launchpad.net/slingshot
 
 Package: slingshot-launcher
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: zeitgeist-core, ${misc:Depends}, ${shlibs:Depends}
 Provides: netbook-launcher
 Description: Lightweight and stylish app launcher
  Slingshot is an application launcher for Pantheon,
