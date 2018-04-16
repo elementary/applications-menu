@@ -76,8 +76,8 @@ namespace Slingshot {
         public signal void close_indicator ();
 
         public SlingshotView () {
-            // Have the window in the right place
-            read_settings (true);
+            default_columns = Slingshot.settings.columns;
+            default_rows = Slingshot.settings.rows;
 
             Slingshot.icon_theme = Gtk.IconTheme.get_default ();
 
@@ -90,10 +90,6 @@ namespace Slingshot {
             screen = get_screen ();
 
             primary_monitor = screen.get_primary_monitor ();
-            Gdk.Rectangle geometry;
-            screen.get_monitor_geometry (primary_monitor, out geometry);
-            if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)")
-                setup_size ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
             setup_ui ();
@@ -109,29 +105,6 @@ namespace Slingshot {
 
         public int calculate_grid_width () {
             return (int) default_columns * Pixels.ITEM_SIZE + 24;
-        }
-
-        private void setup_size () {
-            debug ("In setup_size ()");
-            primary_monitor = screen.get_primary_monitor ();
-            Gdk.Rectangle geometry;
-            screen.get_monitor_geometry (primary_monitor, out geometry);
-            Slingshot.settings.screen_resolution = @"$(geometry.width)x$(geometry.height)";
-            default_columns = 5;
-            default_rows = 3;
-            while ((calculate_grid_width () >= 2 * geometry.width / 3)) {
-                default_columns--;
-            }
-
-            while ((calculate_grid_height () >= 2 * geometry.height / 3)) {
-                default_rows--;
-            }
-
-            if (Slingshot.settings.columns != default_columns) {
-                Slingshot.settings.columns = default_columns;
-            }
-            if (Slingshot.settings.rows != default_rows)
-                Slingshot.settings.rows = default_rows;
         }
 
         private void setup_ui () {
@@ -246,9 +219,15 @@ namespace Slingshot {
                 set_modality ((Modality) view_selector.selected);
             });
 
-            // Auto-update settings when changed
-            Slingshot.settings.changed["rows"].connect ( () => {read_settings (false, false, true);});
-            Slingshot.settings.changed["columns"].connect ( () => {read_settings (false, true, false);});
+            Slingshot.settings.changed["rows"].connect (() => {
+                default_rows = Slingshot.settings.rows;
+                change_grid_size ();
+            });
+
+            Slingshot.settings.changed["columns"].connect (() => {
+                default_columns = Slingshot.settings.columns;
+                change_grid_size ();
+            });
 
             // Auto-update applications grid
             app_system.changed.connect (() => {
@@ -258,15 +237,6 @@ namespace Slingshot {
 
                 populate_grid_view ();
                 category_view.setup_sidebar ();
-            });
-
-            // position on the right monitor when settings changed
-            screen.size_changed.connect (() => {
-                Gdk.Rectangle geometry;
-                screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
-                if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
-                    setup_size ();
-                }
             });
         }
 
@@ -724,29 +694,13 @@ namespace Slingshot {
             stack.set_visible_child_name ("normal");
         }
 
-        private void read_settings (bool first_start = false, bool check_columns = true, bool check_rows = true) {
-            if (check_columns) {
-                if (Slingshot.settings.columns > 3)
-                    default_columns = Slingshot.settings.columns;
-                else
-                    default_columns = Slingshot.settings.columns = 4;
-            }
+        private void change_grid_size () {
+            grid_view.resize (default_rows, default_columns);
+            populate_grid_view ();
+            height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
 
-            if (check_rows) {
-                if (Slingshot.settings.rows > 1)
-                    default_rows = Slingshot.settings.rows;
-                else
-                    default_rows = Slingshot.settings.rows = 2;
-            }
-
-            if (!first_start) {
-                grid_view.resize (default_rows, default_columns);
-                populate_grid_view ();
-                height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
-
-                category_view.app_view.resize (default_rows, default_columns);
-                category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
-            }
+            category_view.app_view.resize (default_rows, default_columns);
+            category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
         }
 
         private void normal_move_focus (int delta_column, int delta_row) {
