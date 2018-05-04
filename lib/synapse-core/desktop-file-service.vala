@@ -189,9 +189,11 @@ namespace Synapse {
             } catch (Error err) {
                 string name = "Unidentified";
 
-                if (keyfile.has_key (GROUP, "Name")) {
-                    name = keyfile.get_string (GROUP, "Name");
-                }
+                try {
+                    if (keyfile.has_key (GROUP, "Name")) {
+                        name = keyfile.get_string (GROUP, "Name");
+                    }
+                } catch (GLib.KeyFileError e) {}
 
                 if (err is DesktopFileError.UNINTERESTING_ENTRY) {
                     debug ("Error initializing DesktopFileInfo from keyfile %s - %s", name, err.message);
