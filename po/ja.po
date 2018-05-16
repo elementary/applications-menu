@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-25 00:11+0000\n"
+"PO-Revision-Date: 2018-05-15 00:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/ja/>\n"
@@ -90,7 +90,7 @@ msgstr "検索用語を変更してみてください。"
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
-msgstr "\"%s\" は結果がありません"
+msgstr "\"%s\" という検索結果はありません"
 
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
