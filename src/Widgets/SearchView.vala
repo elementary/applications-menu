@@ -40,14 +40,12 @@ namespace Slingshot.Widgets {
                 uint n_children = get_children ().length ();
 
                 int current = selected.get_index ();
-                int target = 0;
+                int target = current + count;
 
-                if (count < 0 && current <= -count - 1) {
-                    target = (int)n_children - 1;
-                } else if (count > 0 && current >= n_children - count) {
-                    target = 0;
-                } else {
-                    target = current + count;
+                if (target < 0) {
+                    target = (int)n_children + count;
+                } else if (target >= n_children) {
+                    target = count - 1;
                 }
 
                 unowned Gtk.ListBoxRow? target_row = get_row_at_index (target);
