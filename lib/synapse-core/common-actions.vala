@@ -83,7 +83,7 @@ namespace Synapse {
 
                         RelevancyService.get_default ().application_launched (app);
                     } catch (Error err) {
-                        Utils.Logger.warning (this, "%s", err.message);
+                        critical (err.message);
                     }
                 } else { // MatchType.ACTION
                     match.execute (null);
@@ -129,7 +129,7 @@ namespace Synapse {
                         var display = Gdk.Display.get_default ();
                         app.launch (null, display.get_app_launch_context ());
                     } catch (Error err) {
-                        Utils.Logger.warning (this, "%s", err.message);
+                        critical (err.message);
                     }
                 }
             }
@@ -191,7 +191,7 @@ namespace Synapse {
                     web_uri = new Regex ("^(ftp|http(s)?)://[^.]+\\.[^.]+", RegexCompileFlags.OPTIMIZE);
                     file_path = new Regex ("^(/|~/)[^/]+", RegexCompileFlags.OPTIMIZE);
                 } catch (Error err) {
-                    Utils.Logger.warning (this, "%s", err.message);
+                    critical (err.message);
                 }
             }
         }
@@ -217,7 +217,7 @@ namespace Synapse {
                     var display = Gdk.Display.get_default ();
                     app_info.launch (files, display.get_app_launch_context ());
                 } catch (Error err) {
-                    Utils.Logger.warning (this, "%s", err.message);
+                    critical (err.message);
                 }
             }
 
@@ -336,7 +336,7 @@ namespace Synapse {
                 var display = Gdk.Display.get_default ();
                 app_info.launch (files, display.get_app_launch_context ());
             } catch (Error err) {
-                Utils.Logger.warning (null, "%s", err.message);
+                critical (err.message);
             }
         }
     }

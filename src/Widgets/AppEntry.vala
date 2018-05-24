@@ -148,7 +148,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         this.drag_begin.connect ((ctx) => {
             this.dragging = true;
-            Gtk.drag_set_icon_gicon (ctx, this.image.gicon, 16, 16);
+            Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
             app_launched ();
         });
 
@@ -161,22 +161,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         });
 
 #if HAS_PLANK_0_11
-        app.notify["current-count"].connect (() => {
-            badge.label = "%lld".printf (application.current_count);
-        });
+        app.notify["current-count"].connect (update_badge_count);
+        app.notify["count-visible"].connect (update_badge_visibility);
 
-        badge.label = "%lld".printf (application.current_count);
-        app.notify["count-visible"].connect (() => {
-            var count_visible = app.count_visible;
-            badge.no_show_all = !count_visible;
-            if (count_visible) {
-                badge.show_all ();
-            } else {
-                badge.hide ();
-            }
-        });
-
-        badge.no_show_all = !app.count_visible;
+        update_badge_count ();
 #endif
 
         app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
@@ -286,6 +274,21 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             plank_client.add_item (desktop_uri);
     }
 #endif
+
+    private void update_badge_count () {
+        badge.label = "%lld".printf (application.current_count);
+        update_badge_visibility ();
+    }
+
+    private void update_badge_visibility () {
+        var count_visible = application.count_visible && application.current_count > 0;
+        badge.no_show_all = !count_visible;
+        if (count_visible) {
+            badge.show_all ();
+        } else {
+            badge.hide ();
+        }
+    }
 
     private void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {

@@ -143,7 +143,7 @@ namespace Synapse {
                         changed_signal_id = _volume.changed.connect (this.update_state);
                     }
 
-                    Utils.Logger.debug (this, "vo[%p]: %s [%s], has_mount: %d, uri: %s", this, title, icon_name, (value.get_mount () != null ? 1 : 0), uri);
+                    debug ("vo[%p]: %s [%s], has_mount: %d, uri: %s", this, title, icon_name, (value.get_mount () != null ? 1 : 0), uri);
                 }
             }
 

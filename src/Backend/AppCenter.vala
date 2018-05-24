@@ -19,11 +19,11 @@
 
 [DBus (name = "io.elementary.appcenter")]
 public interface AppCenterDBus : Object {
-    public abstract void install (string component_id) throws IOError;
-    public abstract void update (string component_id) throws IOError;
-    public abstract void uninstall (string component_id) throws IOError;
-    public abstract string get_component_from_desktop_id (string desktop_id) throws IOError;
-    public abstract string[] search_components (string query) throws IOError;
+    public abstract void install (string component_id) throws GLib.Error;
+    public abstract void update (string component_id) throws GLib.Error;
+    public abstract void uninstall (string component_id) throws GLib.Error;
+    public abstract string get_component_from_desktop_id (string desktop_id) throws GLib.Error;
+    public abstract string[] search_components (string query) throws GLib.Error;
 }
 
 public class Slingshot.Backend.AppCenter : Object {
@@ -53,7 +53,7 @@ public class Slingshot.Backend.AppCenter : Object {
     private void name_appeared_callback (DBusConnection connection, string name, string name_owner) {
         try {
             dbus = Bus.get_proxy_sync (BusType.SESSION, DBUS_NAME, DBUS_PATH);
-        } catch (IOError e) {
+        } catch (Error e) {
             warning (e.message);
         }
     }
