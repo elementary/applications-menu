@@ -88,6 +88,7 @@ namespace Synapse {
                 string env_up = env.up ();
                 switch (env_up) {
                     case "GNOME":
+                    case "X-CINNAMON":
                         result |= EnvironmentType.GNOME;
                         break;
                     case "PANTHEON":
