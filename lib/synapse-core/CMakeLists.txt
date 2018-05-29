@@ -4,15 +4,11 @@ set (CORE_LIB_SOVERSION 0)
 set (CORE_LIBRARY_NAME synapse-core)
 set (CORE_PKG
     glib-2.0
-    zeitgeist-2.0
     gio-unix-2.0
     json-glib-1.0
     gee-0.8
     gtk+-3.0
 )
-
-# Check for dependencies
-pkg_check_modules (CORE_DEPS REQUIRED ${CORE_PKG})
 
 # Source files
 set (CORE_SOURCE
@@ -24,12 +20,19 @@ set (CORE_SOURCE
     match.vala
     plugin.vala
     query.vala
-    relevancy-backend-zg.vala
     relevancy-service.vala
     result-set.vala
     utils.vala
     volume-service.vala
 )
+
+if (USE_ZEITGEIST)
+	list (APPEND CORE_PKG zeitgeist-2.0)
+	list (APPEND CORE_SOURCE relevancy-backend-zg.vala)
+endif ()
+
+# Check for dependencies
+pkg_check_modules (CORE_DEPS REQUIRED ${CORE_PKG})
 
 # Compile
 vala_precompile (CORE_VALA_C ${CORE_LIBRARY_NAME}
