@@ -95,7 +95,7 @@ file (GLOB resources "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
 
 # Settings schema
 include (GSettings)
-add_schema ("org.pantheon.desktop.slingshot.gschema.xml")
+add_schema ("io.elementary.desktop.wingpanel.applications-menu.gschema.xml")
 
 # Directories
 add_subdirectory (lib/synapse-core)

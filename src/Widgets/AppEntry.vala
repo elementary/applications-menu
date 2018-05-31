@@ -63,7 +63,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
 
         var css_provider = new Gtk.CssProvider ();
-        css_provider.load_from_resource ("org/pantheon/slingshot/applications-menu.css");
+        css_provider.load_from_resource ("io/elementary/desktop/wingpanel/applications-menu/applications-menu.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 

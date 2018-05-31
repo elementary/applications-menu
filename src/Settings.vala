@@ -23,7 +23,7 @@ public class Slingshot.Settings : Granite.Services.Settings {
     public string screen_resolution { get; set; }
 
     public Settings () {
-        base ("org.pantheon.desktop.slingshot");
+        base ("io.elementary.desktop.wingpanel.applications-menu");
     }
 
 }
