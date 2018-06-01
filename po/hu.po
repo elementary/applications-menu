@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-05-29 00:15+0000\n"
+"PO-Revision-Date: 2018-06-02 00:10+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/hu/>\n"
@@ -202,7 +202,7 @@ msgstr "bc nincs telepítve"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
-msgstr "'%s' futtatása"
+msgstr "A(z) '%s' futtatása"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
@@ -226,7 +226,7 @@ msgstr "A kijelöltek megnyitása ezzel: %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "%s megnyitása az alapértelmezett webböngészőben"
+msgstr "A(z) %s megnyitása az alapértelmezett webböngészőben"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
@@ -238,7 +238,7 @@ msgstr "Hivatkozás megnyitása az alapértelmezett böngészőben"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr "Link"
+msgstr "Hivatkozás"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
@@ -246,7 +246,7 @@ msgstr "Hivatkozás megnyitása az alapértelmezett böngészőben"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr "%s beállításainak megnyitása"
+msgstr "A(z) %s beállításainak megnyitása"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
