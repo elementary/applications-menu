@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-06-04 00:11+0000\n"
+"PO-Revision-Date: 2018-06-14 08:50+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/hu/>\n"
@@ -250,7 +250,7 @@ msgstr "A(z) %s beállításainak megnyitása"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Keressen a kapcsolótáblák között és nyissa meg őket."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
