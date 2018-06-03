@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-06-02 00:10+0000\n"
+"PO-Revision-Date: 2018-06-04 00:11+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/hu/>\n"
@@ -174,11 +174,11 @@ msgstr "%s keresése a következőben: %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr "Keresés az alkalmazásközpontban"
+msgstr "Keresés az alkalmazás üzletben"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Alkalmazásközpont"
+msgstr "AppKözpont"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
@@ -186,7 +186,7 @@ msgstr "Alkalmazások keresése"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "Az Alkalmazásközpont nincs telepítve"
+msgstr "Az AppKözpont nincs telepítve"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
