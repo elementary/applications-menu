@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-06-06 00:11+0000\n"
+"PO-Revision-Date: 2018-06-08 00:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/ja/>\n"
@@ -154,11 +154,11 @@ msgstr "デフォルトのアプリケーションで開きます"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr "フォルダを開く"
+msgstr "フォルダーを開く"
 
 #: ../lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr "このファイルを含むフォルダを開きます"
+msgstr "このファイルを含むフォルダーを開きます"
 
 #: ../lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
