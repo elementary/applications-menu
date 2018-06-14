@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-06-14 08:50+0000\n"
+"PO-Revision-Date: 2018-06-15 00:13+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/hu/>\n"
@@ -98,7 +98,7 @@ msgstr "Szöveg"
 
 #: ../src/Widgets/SearchView.vala:225
 msgid "Files"
-msgstr "Fájlok"
+msgstr "Fájlkezelő"
 
 #: ../src/Widgets/SearchView.vala:229
 msgid "Actions"
