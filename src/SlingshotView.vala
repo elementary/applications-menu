@@ -560,11 +560,10 @@ namespace Slingshot {
         }
 
         public override bool scroll_event (Gdk.EventScroll scroll_event) {
-            print ("Direction: %s\n", scroll_event.direction.to_string ());
-            print ("Device input souce: %s\n", scroll_event.device.get_source ().to_string ());
+            unowned Gdk.Device? device = scroll_event.get_source_device ();
 
-            if (scroll_event.direction != Gdk.ScrollDirection.DOWN &&
-                scroll_event.direction != Gdk.ScrollDirection.UP &&
+            if ((device == null ||
+                (device.input_source != Gdk.InputSource.MOUSE && device.input_source != Gdk.InputSource.KEYBOARD)) &&
                 (grid_view.stack.transition_running || category_view.app_view.stack.transition_running)) {
                 return false;
             }
