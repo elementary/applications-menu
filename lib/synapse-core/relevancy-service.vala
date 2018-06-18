@@ -49,7 +49,9 @@ namespace Synapse {
         private RelevancyBackend backend;
 
         private void initialize_relevancy_backend () {
+#if HAVE_ZEITGEIST
             backend = new ZeitgeistRelevancyBackend ();
+#endif
         }
 
         public float get_application_popularity (string desktop_id) {
@@ -67,7 +69,7 @@ namespace Synapse {
         }
 
         public void application_launched (AppInfo app_info) {
-            Utils.Logger.debug (this, "application launched");
+            debug ("application launched");
             if (backend == null) {
                 return;
             }

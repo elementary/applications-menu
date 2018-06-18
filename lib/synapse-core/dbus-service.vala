@@ -26,13 +26,13 @@ namespace Synapse {
 		public const string UNIQUE_NAME = "org.freedesktop.DBus";
 		public const string OBJECT_PATH = "/org/freedesktop/DBus";
 
-		public abstract async string[] list_queued_owners (string name) throws IOError;
-		public abstract async string[] list_names () throws IOError;
-		public abstract async string[] list_activatable_names () throws IOError;
-		public abstract async bool name_has_owner (string name) throws IOError;
+		public abstract async string[] list_queued_owners (string name) throws Error;
+		public abstract async string[] list_names () throws Error;
+		public abstract async string[] list_activatable_names () throws Error;
+		public abstract async bool name_has_owner (string name) throws Error;
 		public signal void name_owner_changed (string name, string old_owner, string new_owner);
-		public abstract async uint32 start_service_by_name (string name, uint32 flags) throws IOError;
-		public abstract async string get_name_owner (string name) throws IOError;
+		public abstract async uint32 start_service_by_name (string name, uint32 flags) throws Error;
+		public abstract async string get_name_owner (string name) throws Error;
 	}
 
 	public class DBusService : Object {

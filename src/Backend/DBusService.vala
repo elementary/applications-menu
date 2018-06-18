@@ -18,7 +18,7 @@
 
 public class Slingshot.DBusService : Object {
 
-    [DBus (name = "org.pantheon.desktop.AppLauncherService")]
+    [DBus (name = "io.elementary.desktop.AppLauncherService")]
     private class Service : Object {
         public signal void visibility_changed (bool launcher_visible);
         private Gtk.Widget? view = null;
@@ -41,7 +41,7 @@ public class Slingshot.DBusService : Object {
         // Own bus name
         // try to register service name in session bus
         Bus.own_name (BusType.SESSION,
-                      "org.pantheon.desktop.AppLauncherService",
+                      "io.elementary.desktop.AppLauncherService",
                       BusNameOwnerFlags.NONE,
                       (conn) => { on_bus_aquired (conn, view); },
                       name_acquired_handler,
@@ -53,7 +53,7 @@ public class Slingshot.DBusService : Object {
         try {
             // start service and register it as dbus object
             service = new Service (view);
-            connection.register_object ("/org/pantheon/desktop/AppLauncherService", service);
+            connection.register_object ("/io/elementary/desktop/AppLauncherService", service);
         } catch (IOError e) {
             critical ("Could not register service: %s", e.message);
             return_if_reached ();

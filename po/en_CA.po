@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2017-07-19 14:04+0000\n"
-"Last-Translator: Mattias Ezequiel Mignone <memignone@gmail.com>\n"
-"Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
-"wingpanel/applications-menu/en_CA/>\n"
+"PO-Revision-Date: 2018-03-22 13:44+0000\n"
+"Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
+"Language-Team: English (Canada) "
+"<https://weblate.elementary.io/projects/wingpanel/applications-menu/en_CA/>\n"
 "Language: en_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -38,19 +38,19 @@ msgstr "Applications"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
-msgstr ""
+msgstr "Open and search apps (%s)"
 
 #: ../src/Slingshot.vala:138
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
 #: ../src/Slingshot.vala:142
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
 #: ../src/Slingshot.vala:146
 msgid "Alt"
-msgstr ""
+msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"

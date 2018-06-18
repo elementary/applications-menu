@@ -88,6 +88,7 @@ namespace Synapse {
                 string env_up = env.up ();
                 switch (env_up) {
                     case "GNOME":
+                    case "X-CINNAMON":
                         result |= EnvironmentType.GNOME;
                         break;
                     case "PANTHEON":
@@ -131,6 +132,7 @@ namespace Synapse {
                         throw new DesktopFileError.UNINTERESTING_ENTRY ("Screensaver desktop entry");
                     }
                 }
+
                 foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS) {
                     if (keyfile.has_key (GROUP, domain_key)) {
                         gettext_domain = keyfile.get_string (GROUP, domain_key);
@@ -148,6 +150,7 @@ namespace Synapse {
                 name = app_info.get_name ();
                 generic_name = app_info.get_generic_name () ?? "";     
                 exec = app_info.get_commandline ();
+
                 if (exec == null) {
                     throw new DesktopFileError.UNINTERESTING_ENTRY ("Unable to get exec for %s".printf (name));
                 }
@@ -185,7 +188,20 @@ namespace Synapse {
                     is_hidden = false;
                 }
             } catch (Error err) {
-                Utils.Logger.warning (this, "%s", err.message);
+                string name = "Unidentified";
+
+                try {
+                    if (keyfile.has_key (GROUP, "Name")) {
+                        name = keyfile.get_string (GROUP, "Name");
+                    }
+                } catch (GLib.KeyFileError e) {}
+
+                if (err is DesktopFileError.UNINTERESTING_ENTRY) {
+                    debug ("Error initializing DesktopFileInfo from keyfile %s - %s", name, err.message);
+                } else {
+                    critical ("Error initializing DesktopFileInfo from keyfile %s - %s", keyfile.to_data (), err.message);
+                }
+
                 is_valid = false;
             }
         }
@@ -322,7 +338,7 @@ namespace Synapse {
                     return;
                 }
 
-                Utils.Logger.debug (this, "Searching for desktop files in: %s", path);
+                debug ("Searching for desktop files in: %s", path);
                 bool exists = yield Utils.query_exists_async (directory);
                 if (!exists) {
                     return;
@@ -464,7 +480,7 @@ namespace Synapse {
 		        try {
 		        	exec = exec_re.replace_literal (dfi.exec, -1, 0, "");
 		        } catch (RegexError err) {
-		        	Utils.Logger.error (this, "%s", err.message);
+                    critical (err.message);
 		        }
 		        exec = exec.strip ();
 		        // update exec map

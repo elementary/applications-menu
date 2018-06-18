@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-03-12 07:57+0000\n"
+"PO-Revision-Date: 2018-06-18 00:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
 "/applications-menu/ja/>\n"
@@ -30,7 +30,7 @@ msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr "アプリメニューの通知"
+msgstr "アプリメニューインジケーター"
 
 #: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
 msgid "Applications"
@@ -62,7 +62,7 @@ msgstr "カテゴリ表示"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "アプリの検索"
+msgstr "アプリを検索"
 
 #: ../src/Widgets/AppEntry.vala:243
 msgid "Uninstall"
@@ -70,11 +70,11 @@ msgstr "アンインストール"
 
 #: ../src/Widgets/AppEntry.vala:270
 msgid "Remove from _Dock"
-msgstr "ドックから削除 (_D)"
+msgstr "ドックから削除(_D)"
 
 #: ../src/Widgets/AppEntry.vala:272
 msgid "Add to _Dock"
-msgstr "ドックに追加 (_D)"
+msgstr "ドックに追加(_D)"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -90,7 +90,7 @@ msgstr "検索用語を変更してみてください。"
 
 #: ../src/Widgets/SearchView.vala:154
 msgid "No Results for “%s”"
-msgstr "\"%s\" は結果がありません"
+msgstr "\"%s\" という検索結果はありません"
 
 #: ../src/Widgets/SearchView.vala:219
 msgid "Text"
@@ -110,7 +110,7 @@ msgstr "検索"
 
 #: ../src/Widgets/SearchView.vala:235
 msgid "Contacts"
-msgstr "コンタクト"
+msgstr "連絡先"
 
 #: ../src/Widgets/SearchView.vala:238
 msgid "Internet"
@@ -142,7 +142,7 @@ msgstr "ターミナルで実行"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr "ターミナル内でアプリケーションまたはコマンドを実行"
+msgstr "ターミナルでアプリケーションまたはコマンドを実行します"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -150,15 +150,15 @@ msgstr "開く"
 
 #: ../lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr "デフォルトアプリケーションで開く"
+msgstr "デフォルトのアプリケーションで開きます"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr "フォルダを開く"
+msgstr "フォルダーを開く"
 
 #: ../lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr "このファイルを含むフォルダを開く"
+msgstr "このファイルを含むフォルダーを開きます"
 
 #: ../lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
@@ -166,7 +166,7 @@ msgstr "クリップボードへコピー"
 
 #: ../lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
-msgstr "選択範囲をクリップボードへコピー"
+msgstr "選択範囲をクリップボードへコピーします"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
@@ -174,7 +174,7 @@ msgstr "%s で %s を検索する"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr "ストアでアプリを検索する"
+msgstr "ストアでアプリを検索します"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
@@ -206,7 +206,7 @@ msgstr "'%s' を実行"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr "コマンドを実行"
+msgstr "コマンドを実行します"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
@@ -222,11 +222,11 @@ msgstr "%s で開く"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:335
 msgid "Opens current selection using %s"
-msgstr "現在選択しているものを %s を使用して開く"
+msgstr "現在選択しているものを %s で開きます"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "デフォルト Web ブラウザーで %s を開く"
+msgstr "デフォルトの Web ブラウザーで %s を開きます"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
@@ -234,7 +234,7 @@ msgstr "%s を %s で開く"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr "このリンクをデフォルトブラウザーで開く"
+msgstr "このリンクをデフォルトのブラウザーで開きます"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
@@ -242,11 +242,11 @@ msgstr "リンク"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr "リンクをデフォルトブラウザーで開く"
+msgstr "リンクをデフォルトのブラウザーで開きます"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr "%s 設定を開く"
+msgstr "%s の設定を開きます"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
@@ -258,7 +258,7 @@ msgstr "ロック"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
-msgstr "このデバイスをロックする"
+msgstr "このデバイスをロックします"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
@@ -266,7 +266,7 @@ msgstr "ログアウト"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr "すべてのアプリケーションを閉じて終了する"
+msgstr "すべてのアプリケーションを閉じて終了します"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
@@ -310,4 +310,4 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit が見つかりません"
+msgstr "ConsoleKit が見つかりませんでした"
