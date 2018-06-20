@@ -1,3 +1,9 @@
+slingshot-launcher (2.3.0) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Wed, 20 Jun 2018 00:30:30 -0500
+
 slingshot-launcher (2.2.0) xenial; urgency=medium
 
   * New upstream release.
