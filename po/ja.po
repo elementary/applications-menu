@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-06-18 00:07+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/ja/>\n"
+"PO-Revision-Date: 2018-06-26 00:02+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -58,7 +58,7 @@ msgstr "グリット表示"
 
 #: ../src/SlingshotView.vala:164
 msgid "View by Category"
-msgstr "カテゴリ表示"
+msgstr "カテゴリー表示"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
