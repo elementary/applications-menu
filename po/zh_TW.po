@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-11 13:23-0700\n"
+"POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-03-13 02:52+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) "
-"<https://weblate.elementary.io/projects/wingpanel/applications-menu/zh_TW/>\n"
+"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
+"wingpanel/applications-menu/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "程式選單指示器"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "應用程式"
 
@@ -64,15 +64,15 @@ msgstr "分類檢視"
 msgid "Search Apps"
 msgstr "搜尋程式"
 
-#: ../src/Widgets/AppEntry.vala:243
+#: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
 msgstr "解除安裝"
 
-#: ../src/Widgets/AppEntry.vala:270
+#: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
 msgstr "從 _Dock 移除"
 
-#: ../src/Widgets/AppEntry.vala:272
+#: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
 msgstr "加到 _Dock 中"
 
@@ -84,47 +84,47 @@ msgstr "所有應用程式"
 msgid "Create a new Filter"
 msgstr "建立新的過慮器"
 
-#: ../src/Widgets/SearchView.vala:110
+#: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "嘗試搜尋其他字詞。"
 
-#: ../src/Widgets/SearchView.vala:154
+#: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
 msgstr "找不到「%s」的結果"
 
-#: ../src/Widgets/SearchView.vala:219
+#: ../src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "文字"
 
-#: ../src/Widgets/SearchView.vala:225
+#: ../src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "檔案"
 
-#: ../src/Widgets/SearchView.vala:229
+#: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "動作"
 
-#: ../src/Widgets/SearchView.vala:232
+#: ../src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "搜尋"
 
-#: ../src/Widgets/SearchView.vala:235
+#: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "聯絡人"
 
-#: ../src/Widgets/SearchView.vala:238
+#: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "網際網路"
 
-#: ../src/Widgets/SearchView.vala:241
+#: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "設定值"
 
-#: ../src/Widgets/SearchView.vala:244
+#: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "應用程式動作"
 
-#: ../src/Widgets/SearchView.vala:247
+#: ../src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "其他"
 

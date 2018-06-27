@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-11 13:23-0700\n"
+"POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Slovak <>\n"
@@ -31,7 +31,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Indikátor menu aplikácie"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplikácie"
 
@@ -63,15 +63,15 @@ msgstr "Zobraziť podľa kategórie"
 msgid "Search Apps"
 msgstr "Hľadať aplikácie"
 
-#: ../src/Widgets/AppEntry.vala:243
+#: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
 msgstr ""
 
-#: ../src/Widgets/AppEntry.vala:270
+#: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
 msgstr "Odstrániť z_Docku"
 
-#: ../src/Widgets/AppEntry.vala:272
+#: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
 msgstr "Pridať do_Docku"
 
@@ -83,47 +83,47 @@ msgstr "Všetky aplikácie"
 msgid "Create a new Filter"
 msgstr "Vytvoriť nový filter"
 
-#: ../src/Widgets/SearchView.vala:110
+#: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "Pokús sa zmeniť hľadané výrazy."
 
-#: ../src/Widgets/SearchView.vala:154
+#: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
 msgstr "Žiadne výsledky pre “%s”"
 
-#: ../src/Widgets/SearchView.vala:219
+#: ../src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "Text"
 
-#: ../src/Widgets/SearchView.vala:225
+#: ../src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "Súbory"
 
-#: ../src/Widgets/SearchView.vala:229
+#: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "Operácie"
 
-#: ../src/Widgets/SearchView.vala:232
+#: ../src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "Hľadať"
 
-#: ../src/Widgets/SearchView.vala:235
+#: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: ../src/Widgets/SearchView.vala:238
+#: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "Internet"
 
-#: ../src/Widgets/SearchView.vala:241
+#: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: ../src/Widgets/SearchView.vala:244
+#: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "Akcie aplikácie"
 
-#: ../src/Widgets/SearchView.vala:247
+#: ../src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "Iné"
 

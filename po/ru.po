@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-11 13:23-0700\n"
+"POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-03-23 15:22+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
-"Language-Team: Russian <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/ru/>\n"
+"Language-Team: Russian <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
@@ -33,7 +33,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Индикатор меню приложений"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Приложения"
 
@@ -65,15 +65,15 @@ msgstr "В виде категорий"
 msgid "Search Apps"
 msgstr "Поиск приложений"
 
-#: ../src/Widgets/AppEntry.vala:243
+#: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
 msgstr "Удалить"
 
-#: ../src/Widgets/AppEntry.vala:270
+#: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
 msgstr "Убрать из _док-панели"
 
-#: ../src/Widgets/AppEntry.vala:272
+#: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
 msgstr "Добавить на _док-панель"
 
@@ -85,47 +85,47 @@ msgstr "Все приложения"
 msgid "Create a new Filter"
 msgstr "Создать новый фильтр"
 
-#: ../src/Widgets/SearchView.vala:110
+#: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "Попробуйте изменить запрос."
 
-#: ../src/Widgets/SearchView.vala:154
+#: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
 msgstr "Нет результатов по запросу «%s»"
 
-#: ../src/Widgets/SearchView.vala:219
+#: ../src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "Текст"
 
-#: ../src/Widgets/SearchView.vala:225
+#: ../src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "Файлы"
 
-#: ../src/Widgets/SearchView.vala:229
+#: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "Действия"
 
-#: ../src/Widgets/SearchView.vala:232
+#: ../src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "Поиск"
 
-#: ../src/Widgets/SearchView.vala:235
+#: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "Контакты"
 
-#: ../src/Widgets/SearchView.vala:238
+#: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "Интернет"
 
-#: ../src/Widgets/SearchView.vala:241
+#: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "Параметры"
 
-#: ../src/Widgets/SearchView.vala:244
+#: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "Действия приложения"
 
-#: ../src/Widgets/SearchView.vala:247
+#: ../src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "Прочие"
 

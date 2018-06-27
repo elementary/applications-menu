@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-11 13:23-0700\n"
+"POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-06-26 00:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel/"
@@ -32,7 +32,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "アプリメニューインジケーター"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "アプリケーション"
 
@@ -64,15 +64,15 @@ msgstr "カテゴリー表示"
 msgid "Search Apps"
 msgstr "アプリを検索"
 
-#: ../src/Widgets/AppEntry.vala:243
+#: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
 msgstr "アンインストール"
 
-#: ../src/Widgets/AppEntry.vala:270
+#: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
 msgstr "ドックから削除(_D)"
 
-#: ../src/Widgets/AppEntry.vala:272
+#: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
 msgstr "ドックに追加(_D)"
 
@@ -84,47 +84,47 @@ msgstr "すべてのアプリケーション"
 msgid "Create a new Filter"
 msgstr "新しいフィルタを作成"
 
-#: ../src/Widgets/SearchView.vala:110
+#: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "検索用語を変更してみてください。"
 
-#: ../src/Widgets/SearchView.vala:154
+#: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
 msgstr "\"%s\" という検索結果はありません"
 
-#: ../src/Widgets/SearchView.vala:219
+#: ../src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "テキスト"
 
-#: ../src/Widgets/SearchView.vala:225
+#: ../src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "ファイル"
 
-#: ../src/Widgets/SearchView.vala:229
+#: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "操作"
 
-#: ../src/Widgets/SearchView.vala:232
+#: ../src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "検索"
 
-#: ../src/Widgets/SearchView.vala:235
+#: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "連絡先"
 
-#: ../src/Widgets/SearchView.vala:238
+#: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "インターネット"
 
-#: ../src/Widgets/SearchView.vala:241
+#: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "設定"
 
-#: ../src/Widgets/SearchView.vala:244
+#: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "アプリケーションの操作"
 
-#: ../src/Widgets/SearchView.vala:247
+#: ../src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "その他"
 
