@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-03-24 21:24+0000\n"
+"POT-Creation-Date: 2018-03-11 13:23-0700\n"
+"PO-Revision-Date: 2018-06-28 00:11+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/da/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -178,7 +178,7 @@ msgstr "Søg i programbutikken"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Programcenter"
+msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
@@ -186,7 +186,7 @@ msgstr "Søg efter programmer"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "Programcenter er ikke installeret"
+msgstr "AppCenter er ikke installeret"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
