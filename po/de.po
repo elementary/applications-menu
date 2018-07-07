@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-11 13:23-0700\n"
+"POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-04-01 07:30+0000\n"
 "Last-Translator: Jörg Arnold <j0ar@posteo.de>\n"
-"Language-Team: German <https://weblate.elementary.io/projects/wingpanel"
-"/applications-menu/de/>\n"
+"Language-Team: German <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Der App-Menü-Indikator"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Apps"
 
@@ -64,15 +64,15 @@ msgstr "Ansicht nach Kategorie"
 msgid "Search Apps"
 msgstr "Apps durchsuchen"
 
-#: ../src/Widgets/AppEntry.vala:243
+#: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: ../src/Widgets/AppEntry.vala:270
+#: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
 msgstr "Aus dem _Dock entfernen"
 
-#: ../src/Widgets/AppEntry.vala:272
+#: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
 msgstr "Zum _Dock hinzufügen"
 
@@ -84,47 +84,47 @@ msgstr "Alle Apps"
 msgid "Create a new Filter"
 msgstr "Neuen Filter erstellen"
 
-#: ../src/Widgets/SearchView.vala:110
+#: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "Versuchen Sie es mit anderen Suchbegriffen."
 
-#: ../src/Widgets/SearchView.vala:154
+#: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
 msgstr "Keine Ergebnisse für »%s«"
 
-#: ../src/Widgets/SearchView.vala:219
+#: ../src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "Text"
 
-#: ../src/Widgets/SearchView.vala:225
+#: ../src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "Dateien"
 
-#: ../src/Widgets/SearchView.vala:229
+#: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "Aktionen"
 
-#: ../src/Widgets/SearchView.vala:232
+#: ../src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "Suche"
 
-#: ../src/Widgets/SearchView.vala:235
+#: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "Kontakte"
 
-#: ../src/Widgets/SearchView.vala:238
+#: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "Internet"
 
-#: ../src/Widgets/SearchView.vala:241
+#: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../src/Widgets/SearchView.vala:244
+#: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "Aktionen der Anwendung"
 
-#: ../src/Widgets/SearchView.vala:247
+#: ../src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "Andere"
 
