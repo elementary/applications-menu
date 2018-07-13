@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-02-09 19:46+0000\n"
+"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"PO-Revision-Date: 2018-07-09 20:55+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/sl/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -33,47 +33,47 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Indikator z aplikacijami"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:222
+#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplikacije"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
-msgstr ""
+msgstr "Zaženi in išči aplikacije (%s)"
 
 #: ../src/Slingshot.vala:138
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
 #: ../src/Slingshot.vala:142
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
 #: ../src/Slingshot.vala:146
 msgid "Alt"
-msgstr ""
+msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
-msgstr "Pogled mreže"
+msgstr "Ikone v mreži"
 
 #: ../src/SlingshotView.vala:164
 msgid "View by Category"
-msgstr "Pogled v kategorijah"
+msgstr "Ikone po kategorijah"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "Iskanje programov"
+msgstr "Iskanje aplikacij"
 
-#: ../src/Widgets/AppEntry.vala:243
+#: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
 msgstr "Odstrani"
 
-#: ../src/Widgets/AppEntry.vala:270
+#: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
 msgstr "O_dstrani s sidrišča"
 
-#: ../src/Widgets/AppEntry.vala:272
+#: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
 msgstr "_Dodaj v sidrišče"
 
@@ -85,47 +85,47 @@ msgstr "Vsi programi"
 msgid "Create a new Filter"
 msgstr "Ustvari nov filter"
 
-#: ../src/Widgets/SearchView.vala:110
+#: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "Poskusite spremeniti iskalni niz."
 
-#: ../src/Widgets/SearchView.vala:154
+#: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
 msgstr "Ni rezultatov za “%s”"
 
-#: ../src/Widgets/SearchView.vala:219
+#: ../src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "Besedilo"
 
-#: ../src/Widgets/SearchView.vala:225
+#: ../src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "Datoteke"
 
-#: ../src/Widgets/SearchView.vala:229
+#: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "Akcije"
 
-#: ../src/Widgets/SearchView.vala:232
+#: ../src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "Iskanje"
 
-#: ../src/Widgets/SearchView.vala:235
+#: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "Stiki"
 
-#: ../src/Widgets/SearchView.vala:238
+#: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "Internet"
 
-#: ../src/Widgets/SearchView.vala:241
+#: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: ../src/Widgets/SearchView.vala:244
+#: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "Akcije v aplikacijah"
 
-#: ../src/Widgets/SearchView.vala:247
+#: ../src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "Drugo"
 
