@@ -718,9 +718,9 @@ namespace Slingshot {
                 var app_entry = new Widgets.AppEntry (app);
                 app_entry.app_launched.connect (() => close_indicator ());
                 grid_view.append (app_entry);
-                app_entry.show_all ();
             }
 
+            grid_view.show_all ();
             stack.set_visible_child_name ("normal");
         }
 
