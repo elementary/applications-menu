@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-08-19 00:10+0000\n"
-"Last-Translator: Julian Raschke <julian@raschke.de>\n"
+"PO-Revision-Date: 2018-08-29 00:04+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
 "Language: de\n"
@@ -42,7 +42,7 @@ msgstr "Apps suchen und öffnen (%s)"
 
 #: ../src/Slingshot.vala:138
 msgid "Shift"
-msgstr "Shift"
+msgstr "Umschalttaste"
 
 #: ../src/Slingshot.vala:142
 msgid "Ctrl"
@@ -226,7 +226,7 @@ msgstr "Öffnet die momentane Auswahl mittels %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr "%s im Standard-Internet-Browser öffnen"
+msgstr "%s im Standard-Webbrowser öffnen"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
