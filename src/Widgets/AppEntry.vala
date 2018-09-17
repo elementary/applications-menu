@@ -171,6 +171,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         var appcenter = Backend.AppCenter.get_default ();
         appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed (appcenter));
+        on_appcenter_dbus_changed (appcenter);
     }
 
     public override void get_preferred_width (out int minimum_width, out int natural_width) {
