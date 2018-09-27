@@ -249,7 +249,6 @@ namespace Slingshot.Widgets {
                     label = _("Text");
                     break;
                 case SearchItem.ResultType.APPLICATION:
-                case SearchItem.ResultType.COMMAND:
                     label = _("Applications");
                     break;
                 case SearchItem.ResultType.GENERIC_URI:
@@ -271,7 +270,10 @@ namespace Slingshot.Widgets {
                 case SearchItem.ResultType.SETTINGS:
                     label = _("Settings");
                     break;
-                case SearchItem.ResultType.APP_ACTIONS:
+                case SearchItem.ResultType.COMMAND:
+                    label = _("Commands");
+                    break;
+                    case SearchItem.ResultType.APP_ACTIONS:
                     label = _("Application Actions");
                     break;
                 default:
