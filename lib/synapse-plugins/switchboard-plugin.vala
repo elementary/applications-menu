@@ -99,9 +99,38 @@ namespace Synapse {
                 if (settings == null || settings.size <= 0) {
                     continue;
                 }
-
+                
                 string uri = settings.keys.to_array ()[0];
                 plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
+                
+                // Using search to get sub settings
+                var sub_settings = new Gee.TreeMap<string, string?> (null, null);
+                var search_results = yield plug.search ("");
+                foreach (var result in search_results.entries) {
+                    var title = result.key;
+                    var view =  result.value;
+                    if (view == "") continue;
+                    
+                    // ignore 3th level results
+                    string [] tmp = title.split(" → ");
+                    if (tmp.length > 2) continue;
+                    
+                    // get uri from plug's supported_settings
+                    string? sub_uri = null;
+                    foreach (var setting in settings.entries) {
+                        if (setting.value == view) {
+                            sub_uri = setting.key;
+                            break;
+                        }
+                    }
+                    if (sub_uri == null) continue;
+                    
+                    // ignore results pointing to the same uri
+                    if (sub_settings.has_key(sub_uri)) continue;
+                    sub_settings[sub_uri] = title;
+                    
+                    plugs.add (new PlugInfo (title, "", plug.icon, sub_uri));
+                }
             }
 
             // Unload all the plugs
