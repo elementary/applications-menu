@@ -160,6 +160,8 @@ namespace Slingshot.Widgets {
                         if (uri.has_prefix ("http://") || uri.has_prefix ("ftp://") || uri.has_prefix ("https://")) {
                             result_type = SearchItem.ResultType.INTERNET;
                         }
+                    } else if (match.match_type == Synapse.MatchType.COMMAND) {
+                        result_type = SearchItem.ResultType.COMMAND;
                     } else if (match is Synapse.LinkPlugin.Result) {
                         result_type = SearchItem.ResultType.INTERNET;
                     }
@@ -247,6 +249,7 @@ namespace Slingshot.Widgets {
                     label = _("Text");
                     break;
                 case SearchItem.ResultType.APPLICATION:
+                case SearchItem.ResultType.COMMAND:
                     label = _("Applications");
                     break;
                 case SearchItem.ResultType.GENERIC_URI:

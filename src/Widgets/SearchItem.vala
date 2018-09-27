@@ -29,6 +29,7 @@ namespace Slingshot.Widgets {
             INTERNET,
             SETTINGS,
             APP_ACTIONS,
+            COMMAND,
             LINK
         }
 

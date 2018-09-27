@@ -26,6 +26,7 @@ namespace Synapse {
         UNKNOWN = 0,
         TEXT,
         APPLICATION,
+        COMMAND,
         GENERIC_URI,
         ACTION,
         SEARCH,
