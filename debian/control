@@ -26,7 +26,7 @@ Homepage: http://launchpad.net/slingshot
 
 Package: slingshot-launcher
 Architecture: any
-Depends: zeitgeist-core, ${misc:Depends}, ${shlibs:Depends}
+Depends: zeitgeist-core, ${misc:Depends}, ${shlibs:Depends}, qalc
 Provides: netbook-launcher
 Description: Lightweight and stylish app launcher
  Slingshot is an application launcher for Pantheon,
@@ -39,7 +39,7 @@ Package: slingshot-launcher-dbg
 Architecture: any
 Section: debug
 Priority: extra
-Depends: slingshot-launcher (= ${binary:Version}), ${misc:Depends}
+Depends: slingshot-launcher (= ${binary:Version}), ${misc:Depends}, qalc
 Enhances: slingshot-launcher
 Description: Lightweight and stylish app launcher (debugging symbols)
  Slingshot is an application launcher for Pantheon,
