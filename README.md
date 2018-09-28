@@ -23,6 +23,7 @@ You'll need the following dependencies:
 * libwnck-3-dev
 * libzeitgeist-2.0-dev
 * pkg-config
+* qalc
 * valac
 
 It's recommended to create a clean build environment
