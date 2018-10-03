@@ -109,18 +109,19 @@ namespace Synapse {
                 foreach (var result in search_results.entries) {
                     var title = result.key;
                     var view =  result.value;
-                    if (view == "") continue;
                                         
                     // get uri from plug's supported_settings
-                    string? sub_uri = null;
-                    foreach (var setting in settings.entries) {
-                        if (setting.value == view) {
-                            sub_uri = setting.key;
-                            break;
+                    // Use main plug uri as fallback
+                    string sub_uri = uri;
+                    if (view != "") {
+                        foreach (var setting in settings.entries) {
+                            if (setting.value == view) {
+                                sub_uri = setting.key;
+                                break;
+                            }
                         }
                     }
-                    if (sub_uri == null) continue;
-                    
+
                     string[] path = title.split(" → ");
                     
                     plugs.add (new PlugInfo (title, "", plug.icon, sub_uri, path));
