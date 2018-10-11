@@ -79,9 +79,10 @@ namespace Synapse {
             public string code_name { get; construct set; }
             public string icon { get; construct set; }
             public string uri { get; construct set; }
+            public string[] path { get; construct set; }
 
-            public PlugInfo (string plug_title, string code_name, string icon, string uri) {
-                Object (title: plug_title, code_name: code_name, icon: icon, uri: uri);
+            public PlugInfo (string plug_title, string code_name, string icon, string uri, string[] path = {}) {
+                Object (title: plug_title, code_name: code_name, icon: icon, uri: uri, path: path);
             }
         }
 
@@ -104,32 +105,26 @@ namespace Synapse {
                 plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
                 
                 // Using search to get sub settings
-                var sub_settings = new Gee.TreeMap<string, string?> (null, null);
                 var search_results = yield plug.search ("");
                 foreach (var result in search_results.entries) {
                     var title = result.key;
                     var view =  result.value;
-                    if (view == "") continue;
-                    
-                    // ignore 3th level results
-                    string [] tmp = title.split(" → ");
-                    if (tmp.length > 2) continue;
-                    
+                                        
                     // get uri from plug's supported_settings
-                    string? sub_uri = null;
-                    foreach (var setting in settings.entries) {
-                        if (setting.value == view) {
-                            sub_uri = setting.key;
-                            break;
+                    // Use main plug uri as fallback
+                    string sub_uri = uri;
+                    if (view != "") {
+                        foreach (var setting in settings.entries) {
+                            if (setting.value == view) {
+                                sub_uri = setting.key;
+                                break;
+                            }
                         }
                     }
-                    if (sub_uri == null) continue;
+
+                    string[] path = title.split(" → ");
                     
-                    // ignore results pointing to the same uri
-                    if (sub_settings.has_key(sub_uri)) continue;
-                    sub_settings[sub_uri] = title;
-                    
-                    plugs.add (new PlugInfo (title, "", plug.icon, sub_uri));
+                    plugs.add (new PlugInfo (title, "", plug.icon, sub_uri, path));
                 }
             }
 
@@ -168,9 +163,11 @@ namespace Synapse {
             }
 
             foreach (var plug in plugs) {
+                // Retrieve the string that this plug/setting can be searched by
+                string searchable_name = plug.path.length > 0 ? plug.path[plug.path.length-1] : plug.title;
                 foreach (var matcher in matchers) {
                     MatchInfo info;
-                    if (matcher.key.match (plug.title.down (), 0, out info)) {
+                    if (matcher.key.match (searchable_name.down(), 0, out info)) {
                         result.add (new SwitchboardObject (plug), Match.Score.AVERAGE + Match.Score.INCREMENT_MEDIUM);
                         break;
                     }
