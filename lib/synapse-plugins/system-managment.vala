@@ -412,6 +412,14 @@ namespace Synapse {
                 }
             }
         }
+        
+        private class RebootAction : RestartAction {
+            public RebootAction () {
+                Object (title: _("Reboot"), match_type: MatchType.ACTION,
+                        description: _("Reboot your computer"),
+                        icon_name: "system-restart", has_thumbnail: false);
+            }
+        }
 
         static void register_plugin () {
         DataSink.PluginRegistry.get_default ().register_plugin (typeof (SystemManagementPlugin),
@@ -438,6 +446,7 @@ namespace Synapse {
             actions.add (new HibernateAction ());
             actions.add (new ShutdownAction ());
             actions.add (new RestartAction ());
+            actions.add (new RebootAction ());
         }
 
         public async ResultSet? search (Query q) throws SearchError {
