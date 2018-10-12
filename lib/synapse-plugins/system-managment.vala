@@ -92,6 +92,7 @@ namespace Synapse {
             public bool has_thumbnail { get; construct set; default = false; }
             public string thumbnail_path { get; construct set; }
             public MatchType match_type { get; construct set; }
+            public List<string>? keywords = new List<string> ();
 
             public abstract void do_action ();
 
@@ -302,6 +303,7 @@ namespace Synapse {
                 Object (title: _("Shut Down"), match_type: MatchType.ACTION,
                         description: _("Turn your computer off"),
                         icon_name: "system-shutdown", has_thumbnail: false);
+                this.keywords.append (_("turn off"));
             }
 
             construct {
@@ -360,6 +362,7 @@ namespace Synapse {
                 Object (title: _("Restart"), match_type: MatchType.ACTION,
                         description: _("Restart your computer"),
                         icon_name: "system-restart", has_thumbnail: false);
+            	this.keywords.append (_("reboot"));
             }
 
             construct {
@@ -455,7 +458,7 @@ namespace Synapse {
                     continue;
                 }
                 foreach (var matcher in matchers) {
-                    if (matcher.key.match (action.title)) {
+                    if (match(action, matcher)) {
                         result.add (action, matcher.value - Match.Score.INCREMENT_SMALL);
                         break;
                     }
@@ -466,5 +469,18 @@ namespace Synapse {
 
             return result;
         }
+
+        private bool match (SystemAction action, Gee.Map.Entry<Regex, int> matcher) {
+            if (matcher.key.match (action.title)) {
+                return true;
+            }
+            foreach (var keyword in action.keywords) {
+                if (matcher.key.match (keyword)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
     }
 }
