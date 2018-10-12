@@ -92,7 +92,7 @@ namespace Synapse {
             public bool has_thumbnail { get; construct set; default = false; }
             public string thumbnail_path { get; construct set; }
             public MatchType match_type { get; construct set; }
-            public List<string>? keywords = new List<string> ();
+            public string keywords { get; construct set; } // ; seperated list
 
             public abstract void do_action ();
 
@@ -107,7 +107,8 @@ namespace Synapse {
             public LockAction () {
                 Object (title: _("Lock"), match_type: MatchType.ACTION,
                         description: _("Lock this device"),
-                        icon_name: "system-lock-screen", has_thumbnail: false);
+                        icon_name: "system-lock-screen", has_thumbnail: false,
+                        keywords: _(""));
             }
 
             public override bool action_allowed () {
@@ -134,7 +135,8 @@ namespace Synapse {
             public LogOutAction () {
                 Object (title: _("Log Out"), match_type: MatchType.ACTION,
                         description: _("Close all open applications and quit"),
-                        icon_name: "system-log-out", has_thumbnail: false);
+                        icon_name: "system-log-out", has_thumbnail: false,
+                        keywords: _(""));
             }
 
             public override bool action_allowed () {
@@ -161,7 +163,8 @@ namespace Synapse {
             public SuspendAction () {
                 Object (title: _("Suspend"), match_type: MatchType.ACTION,
                         description: _("Put your computer into suspend mode"),
-                        icon_name: "system-suspend", has_thumbnail: false);
+                        icon_name: "system-suspend", has_thumbnail: false,
+                        keywords: _(""));
             }
 
             construct {
@@ -232,7 +235,8 @@ namespace Synapse {
             public HibernateAction () {
                 Object (title: _("Hibernate"), match_type: MatchType.ACTION,
                         description: _("Put your computer into hibernation mode"),
-                        icon_name: "system-hibernate", has_thumbnail: false);
+                        icon_name: "system-hibernate", has_thumbnail: false,
+                        keywords: _(""));
             }
 
             construct {
@@ -302,8 +306,8 @@ namespace Synapse {
             public ShutdownAction () {
                 Object (title: _("Shut Down"), match_type: MatchType.ACTION,
                         description: _("Turn your computer off"),
-                        icon_name: "system-shutdown", has_thumbnail: false);
-                this.keywords.append (_("turn off"));
+                        icon_name: "system-shutdown", has_thumbnail: false,
+                        keywords: _("turn off"));
             }
 
             construct {
@@ -361,8 +365,8 @@ namespace Synapse {
             public RestartAction () {
                 Object (title: _("Restart"), match_type: MatchType.ACTION,
                         description: _("Restart your computer"),
-                        icon_name: "system-restart", has_thumbnail: false);
-            	this.keywords.append (_("reboot"));
+                        icon_name: "system-restart", has_thumbnail: false,
+                        keywords: _("reboot"));
             }
 
             construct {
@@ -474,7 +478,8 @@ namespace Synapse {
             if (matcher.key.match (action.title)) {
                 return true;
             }
-            foreach (var keyword in action.keywords) {
+            var keywords = action.keywords.split(";");
+            foreach (var keyword in keywords) {
                 if (matcher.key.match (keyword)) {
                     return true;
                 }
