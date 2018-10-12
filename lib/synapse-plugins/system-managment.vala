@@ -108,7 +108,7 @@ namespace Synapse {
                 Object (title: _("Lock"), match_type: MatchType.ACTION,
                         description: _("Lock this device"),
                         icon_name: "system-lock-screen", has_thumbnail: false,
-                        keywords: _(""));
+                        keywords: C_("keywords", ""));
             }
 
             public override bool action_allowed () {
@@ -136,7 +136,7 @@ namespace Synapse {
                 Object (title: _("Log Out"), match_type: MatchType.ACTION,
                         description: _("Close all open applications and quit"),
                         icon_name: "system-log-out", has_thumbnail: false,
-                        keywords: _(""));
+                        keywords: C_("keywords", ""));
             }
 
             public override bool action_allowed () {
@@ -164,7 +164,7 @@ namespace Synapse {
                 Object (title: _("Suspend"), match_type: MatchType.ACTION,
                         description: _("Put your computer into suspend mode"),
                         icon_name: "system-suspend", has_thumbnail: false,
-                        keywords: _(""));
+                        keywords: C_("keywords", ""));
             }
 
             construct {
@@ -236,7 +236,7 @@ namespace Synapse {
                 Object (title: _("Hibernate"), match_type: MatchType.ACTION,
                         description: _("Put your computer into hibernation mode"),
                         icon_name: "system-hibernate", has_thumbnail: false,
-                        keywords: _(""));
+                        keywords: C_("keywords", ""));
             }
 
             construct {
@@ -307,7 +307,7 @@ namespace Synapse {
                 Object (title: _("Shut Down"), match_type: MatchType.ACTION,
                         description: _("Turn your computer off"),
                         icon_name: "system-shutdown", has_thumbnail: false,
-                        keywords: _("turn off"));
+                        keywords: C_("keywords", "turn off"));
             }
 
             construct {
@@ -366,7 +366,7 @@ namespace Synapse {
                 Object (title: _("Restart"), match_type: MatchType.ACTION,
                         description: _("Restart your computer"),
                         icon_name: "system-restart", has_thumbnail: false,
-                        keywords: _("reboot"));
+                        keywords: C_("keywords", "reboot"));
             }
 
             construct {
