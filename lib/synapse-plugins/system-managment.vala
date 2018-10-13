@@ -92,11 +92,16 @@ namespace Synapse {
             public bool has_thumbnail { get; construct set; default = false; }
             public string thumbnail_path { get; construct set; }
             public MatchType match_type { get; construct set; }
-            public string keywords { get; construct set; } // ; seperated list
+            public Gee.ArrayList<string> keywords { get; set; default = new Gee.ArrayList<string> (); }
 
             public abstract void do_action ();
 
             public abstract bool action_allowed ();
+
+            protected void add_keywords (string keywords_list) {
+                keywords.add_all_array (keywords_list.split (";"));
+                keywords.add_all_array (dpgettext2(null, "system_management_action_keyword", keywords_list).split (";"));
+            }
 
             public void execute (Match? match) {
                 do_action ();
@@ -107,8 +112,8 @@ namespace Synapse {
             public LockAction () {
                 Object (title: _("Lock"), match_type: MatchType.ACTION,
                         description: _("Lock this device"),
-                        icon_name: "system-lock-screen", has_thumbnail: false,
-                        keywords: C_("keywords", ""));
+                        icon_name: "system-lock-screen", has_thumbnail: false);
+                add_keywords (NC_("system_management_action_keyword", "lock"));
             }
 
             public override bool action_allowed () {
@@ -135,8 +140,8 @@ namespace Synapse {
             public LogOutAction () {
                 Object (title: _("Log Out"), match_type: MatchType.ACTION,
                         description: _("Close all open applications and quit"),
-                        icon_name: "system-log-out", has_thumbnail: false,
-                        keywords: C_("keywords", ""));
+                        icon_name: "system-log-out", has_thumbnail: false);
+                add_keywords (NC_("system_management_action_keyword", "logout"));
             }
 
             public override bool action_allowed () {
@@ -163,8 +168,8 @@ namespace Synapse {
             public SuspendAction () {
                 Object (title: _("Suspend"), match_type: MatchType.ACTION,
                         description: _("Put your computer into suspend mode"),
-                        icon_name: "system-suspend", has_thumbnail: false,
-                        keywords: C_("keywords", ""));
+                        icon_name: "system-suspend", has_thumbnail: false);
+                add_keywords (NC_("system_management_action_keyword", "suspend"));
             }
 
             construct {
@@ -235,8 +240,8 @@ namespace Synapse {
             public HibernateAction () {
                 Object (title: _("Hibernate"), match_type: MatchType.ACTION,
                         description: _("Put your computer into hibernation mode"),
-                        icon_name: "system-hibernate", has_thumbnail: false,
-                        keywords: C_("keywords", ""));
+                        icon_name: "system-hibernate", has_thumbnail: false);
+                add_keywords (NC_("system_management_action_keyword", "hibernate"));
             }
 
             construct {
@@ -306,8 +311,8 @@ namespace Synapse {
             public ShutdownAction () {
                 Object (title: _("Shut Down"), match_type: MatchType.ACTION,
                         description: _("Turn your computer off"),
-                        icon_name: "system-shutdown", has_thumbnail: false,
-                        keywords: C_("keywords", "turn off"));
+                        icon_name: "system-shutdown", has_thumbnail: false);
+                add_keywords (NC_("system_management_action_keyword", "shutdown;turn off"));
             }
 
             construct {
@@ -365,8 +370,8 @@ namespace Synapse {
             public RestartAction () {
                 Object (title: _("Restart"), match_type: MatchType.ACTION,
                         description: _("Restart your computer"),
-                        icon_name: "system-restart", has_thumbnail: false,
-                        keywords: C_("keywords", "reboot"));
+                        icon_name: "system-restart", has_thumbnail: false);
+                add_keywords (NC_("system_management_action_keyword", "restart;reboot"));
             }
 
             construct {
@@ -478,8 +483,7 @@ namespace Synapse {
             if (matcher.key.match (action.title)) {
                 return true;
             }
-            var keywords = action.keywords.split(";");
-            foreach (var keyword in keywords) {
+            foreach (var keyword in action.keywords) {
                 if (matcher.key.match (keyword)) {
                     return true;
                 }
