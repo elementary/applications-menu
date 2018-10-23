@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-10-19 18:32+0000\n"
+"PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/sv/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr "Kör detta kommando..."
+msgstr "Kör detta kommando…"
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
@@ -214,7 +214,7 @@ msgstr "Hitta och kör godtyckliga kommandon."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr "Sök och starta program på din dator"
+msgstr "Sök efter och kör program på din dator."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
