@@ -114,8 +114,9 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
         string[] accels = keybinding_settings.get_strv ("panel-main-menu");
         if (accels.length > 0) {
+            string description = _("Open and search apps");
             string shortcut = accel_to_string (accels[0]);
-            indicator_grid.tooltip_markup = (_("Open and search apps\n<span weight=\"600\" size=\"smaller\">%s</span>").printf (shortcut));
+            indicator_grid.tooltip_markup = ("%s\n<span weight=\"600\" size=\"smaller\" alpha=\"75%\">%s</span>").printf (description, shortcut);
         }
     }
 
