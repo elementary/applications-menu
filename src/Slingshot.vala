@@ -114,58 +114,8 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
         string[] accels = keybinding_settings.get_strv ("panel-main-menu");
         if (accels.length > 0) {
-            string description = _("Open and search apps");
-            string shortcut = accel_to_string (accels[0]);
-            indicator_grid.tooltip_markup = ("%s\n<span weight=\"600\" size=\"smaller\" alpha=\"75%\">%s</span>").printf (description, shortcut);
+            indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (_("Open and search apps"), accels);
         }
-    }
-
-    private static string accel_to_string (string accel) {
-        string[] keys = parse_accelerator (accel);
-        return string.joinv (" + ", keys);
-    }
-
-    private static string[] parse_accelerator (string accel) {
-        uint accel_key;
-        Gdk.ModifierType accel_mods;
-        Gtk.accelerator_parse (accel, out accel_key, out accel_mods);
-
-        string[] arr = {};
-        if (Gdk.ModifierType.SUPER_MASK in accel_mods) {
-            arr += "⌘";
-        }
-
-        if (Gdk.ModifierType.SHIFT_MASK in accel_mods) {
-            arr += _("Shift");
-        }
-
-        if (Gdk.ModifierType.CONTROL_MASK in accel_mods) {
-            arr += _("Ctrl");
-        }
-
-        if (Gdk.ModifierType.MOD1_MASK in accel_mods) {
-            arr += _("Alt");
-        }
-
-        switch (accel_key) {
-            case Gdk.Key.Up:
-                arr += "↑";
-                break;
-            case Gdk.Key.Down:
-                arr += "↓";
-                break;
-            case Gdk.Key.Left:
-                arr += "←";
-                break;
-            case Gdk.Key.Right:
-                arr += "→";
-                break;
-            default:
-                arr += Gtk.accelerator_get_label (accel_key, 0);
-                break;
-         }
-
-        return arr;
     }
 }
 
