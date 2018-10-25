@@ -114,7 +114,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
         string[] accels = keybinding_settings.get_strv ("panel-main-menu");
         if (accels.length > 0) {
-            indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (_("Open and search apps"), accels);
+            indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
         }
     }
 }
