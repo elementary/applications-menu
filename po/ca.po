@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-03-12 15:41+0000\n"
+"PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -70,7 +70,7 @@ msgstr "Desinstal·la"
 
 #: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
-msgstr "Elimina de l'acobla_dor"
+msgstr "Suprimeix de l'acobla_dor"
 
 #: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"

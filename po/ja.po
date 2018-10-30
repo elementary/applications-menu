@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-07-13 00:04+0000\n"
+"PO-Revision-Date: 2018-10-17 00:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -182,7 +182,7 @@ msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr "アプリケーションを検索する"
+msgstr "アプリケーションを検索します"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
@@ -198,7 +198,7 @@ msgstr "基本的な式を計算します。"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
-msgstr "bc はインストールされていません"
+msgstr "bc がインストールされていません"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
@@ -210,11 +210,11 @@ msgstr "コマンドを実行します"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr "任意のコマンドを検索し、実行してください。"
+msgstr "任意のコマンドを検索して実行します。"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr "コンピューター上のアプリケーションを検索して実行してください。"
+msgstr "コンピューター上のアプリケーションを検索して実行します。"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
@@ -250,7 +250,7 @@ msgstr "%s の設定を開きます"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr "システム設定の項目を探してそれらを開いてください。"
+msgstr "システム設定の項目を検索して開きます。"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -304,9 +304,7 @@ msgstr "コンピューターを再起動します"
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
-msgstr ""
-"セッションをロックまたはログアウトします。お使いのコンピューターをサスペン"
-"ド、ハイバーネート、再起動、及びシャットダウンします。"
+msgstr "セッションをロックまたはログアウトします。お使いのコンピューターをサスペンド、ハイバーネート、再起動、およびシャットダウンします。"
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"

@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Esperanto <eo@li.org>\n"
+"PO-Revision-Date: 2018-10-23 19:04+0000\n"
+"Last-Translator: Jesse ALTER <jesse@jessealter.com>\n"
+"Language-Team: Esperanto <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
@@ -292,11 +294,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:360
 msgid "Restart"
-msgstr ""
+msgstr "Restartigi"
 
 #: ../lib/synapse-plugins/system-managment.vala:361
 msgid "Restart your computer"
-msgstr ""
+msgstr "Restartigi vian komputilon"
 
 #: ../lib/synapse-plugins/system-managment.vala:419
 msgid ""
