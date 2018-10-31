@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-06-28 00:11+0000\n"
+"PO-Revision-Date: 2018-10-18 00:11+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/da/>\n"
@@ -34,7 +34,7 @@ msgstr "Programmenu-indikatoren"
 
 #: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
-msgstr "Programmer"
+msgstr "Applikationer"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
@@ -182,7 +182,7 @@ msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr "Søg efter programmer"
+msgstr "Søg efter applikationer"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
@@ -266,7 +266,7 @@ msgstr "Log ud"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr "Luk alle åbne programmer og afslut"
+msgstr "Luk alle åbne applikationer og afslut"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
