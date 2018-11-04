@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-11-04 22:10+0000\n"
+"PO-Revision-Date: 2018-11-06 16:59+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/bs/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr "Pokreni ovu komandu…"
+msgstr "Pokreni ovu naredbu…"
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
