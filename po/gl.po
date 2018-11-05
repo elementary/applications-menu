@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2017-09-08 16:19+0000\n"
-"Last-Translator: Thiago Galvani <thiagopaiva99@gmail.com>\n"
+"PO-Revision-Date: 2018-10-28 14:05+0000\n"
+"Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/gl/>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -26,7 +26,7 @@ msgstr "Executar esta orde..."
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
@@ -38,19 +38,19 @@ msgstr "Aplicativos"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
-msgstr ""
+msgstr "Abra e busque aplicativos (%s)"
 
 #: ../src/Slingshot.vala:138
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
 #: ../src/Slingshot.vala:142
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
 #: ../src/Slingshot.vala:146
 msgid "Alt"
-msgstr ""
+msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -66,15 +66,15 @@ msgstr "Busca de aplicativos"
 
 #: ../src/Widgets/AppEntry.vala:231
 msgid "Uninstall"
-msgstr ""
+msgstr "Desinstalar"
 
 #: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Eliminar da Doca"
 
 #: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Añadir á Doca"
 
 #: ../src/Widgets/CategoryView.vala:27
 msgid "All Applications"
@@ -86,11 +86,11 @@ msgstr "Crear un novo filtro"
 
 #: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Proba cambiando os termos de busca."
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Ningún resultado para \"%s\""
 
 #: ../src/Widgets/SearchView.vala:247
 msgid "Text"
@@ -118,11 +118,11 @@ msgstr "Internet"
 
 #: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 #: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
-msgstr ""
+msgstr "Accións de Aplicativo"
 
 #: ../src/Widgets/SearchView.vala:275
 msgid "Other"
@@ -170,23 +170,23 @@ msgstr "Copiar a selección ao portapapeis"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Busca %s en %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Busca na tenda de aplicativos"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCenter"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr ""
+msgstr "Busca aplicativos"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "AppCenter non está instalado"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -226,27 +226,27 @@ msgstr "Abrir a selección actual usando %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Abrir %s no navegador por defecto"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Abrir %s en %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Abrir esta ligazón no navegador por defecto"
 
 #: ../lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr ""
+msgstr "Ligazón"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Abrir ligazón no navegador por defecto"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr ""
+msgstr "Abrir axustes de %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
@@ -254,11 +254,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
-msgstr "bloqueo"
+msgstr "Bloquear"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
-msgstr ""
+msgstr "Bloquear este dispositivo"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
@@ -266,7 +266,7 @@ msgstr "Saír"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Pechar todos os aplicativos e saír"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
@@ -274,23 +274,23 @@ msgstr "Suspender..."
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Poñer en modo suspensión"
 
 #: ../lib/synapse-plugins/system-managment.vala:232
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 #: ../lib/synapse-plugins/system-managment.vala:233
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Poñer en modo hibernación"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Desligar"
+msgstr "Apagar"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Apagar o ordenador"
 
 #: ../lib/synapse-plugins/system-managment.vala:360
 msgid "Restart"
@@ -298,14 +298,16 @@ msgstr "Reiniciar"
 
 #: ../lib/synapse-plugins/system-managment.vala:361
 msgid "Restart your computer"
-msgstr ""
+msgstr "Reiniciar o teu ordenador"
 
 #: ../lib/synapse-plugins/system-managment.vala:419
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Bloquea a sesión ou sae dela. Suspende, hiberna, reinicia ou apaga o "
+"ordenador."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "Non se pudo atopar ConsoleKit"
