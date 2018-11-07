@@ -38,8 +38,13 @@ public class Slingshot.Backend.AppSystem : Object {
 #endif
 
         apps_menu = new GMenu.Tree ("pantheon-applications.menu", GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME);
-        apps_menu.changed.connect (update_app_system);
-        
+        apps_menu.changed.connect (() => {
+        Timeout.add_seconds (5, () => { update_app_system ();
+            });
+        Timeout.add_seconds (40, () => { update_app_system ();
+            });
+        });
+
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
         categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
 
