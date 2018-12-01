@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-12-01 23:59+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
+"Last-Translator: Khalid <kmoj86@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -179,19 +179,19 @@ msgstr "البحث في متجر التطبيقات"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr ""
+msgstr "مركز التطبيقات"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr ""
+msgstr "البحث عن تطبيقات"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "مركز التطبيقات غير مثبت"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
-msgstr ""
+msgstr "الحاسبة"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
@@ -219,11 +219,11 @@ msgstr ""
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
-msgstr ""
+msgstr "فتح باستخدام %s"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:335
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "فتح ما تم تحديده باستخدام %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
