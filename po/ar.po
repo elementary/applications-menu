@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-12-01 23:32+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
+"Last-Translator: Khalid <kmoj86@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -95,11 +95,11 @@ msgstr "لا توجد نتائج لـ “%s”"
 
 #: ../src/Widgets/SearchView.vala:247
 msgid "Text"
-msgstr ""
+msgstr "نص"
 
 #: ../src/Widgets/SearchView.vala:253
 msgid "Files"
-msgstr ""
+msgstr "ملفات"
 
 #: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
@@ -107,7 +107,7 @@ msgstr ""
 
 #: ../src/Widgets/SearchView.vala:260
 msgid "Search"
-msgstr ""
+msgstr "بحث"
 
 #: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
@@ -115,11 +115,11 @@ msgstr ""
 
 #: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
-msgstr ""
+msgstr "الإنترنت"
 
 #: ../src/Widgets/SearchView.vala:269
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 #: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: ../src/Widgets/SearchView.vala:275
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -147,11 +147,11 @@ msgstr ""
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
-msgstr ""
+msgstr "فتح"
 
 #: ../lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr ""
+msgstr "فتح باستخدام التطبيق الافتراضي"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
