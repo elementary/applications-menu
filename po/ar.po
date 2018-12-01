@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-12-01 23:59+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
+"Last-Translator: Khalid <kmoj86@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -227,7 +227,7 @@ msgstr "فتح ما تم تحديده بإستخدام %s"
 
 #: ../lib/synapse-plugins/link-plugin.vala:47
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "فتح %s بالمتصفح الويب الافتراضي"
 
 #: ../lib/synapse-plugins/link-plugin.vala:52
 msgid "Open %s in %s"
