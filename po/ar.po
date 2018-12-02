@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-12-02 00:15+0000\n"
-"Last-Translator: Khalid <kmoj86@gmail.com>\n"
+"PO-Revision-Date: 2018-12-06 02:04+0000\n"
+"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -87,7 +87,7 @@ msgstr "إنشاء فلتر جديد"
 
 #: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
-msgstr "الرجاء محاولة تغيير كلمات البحث"
+msgstr "الرجاء محاولة تغيير كلمات البحث."
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
@@ -312,4 +312,4 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
-msgstr "لم يتم العثور على ConsoleKit "
+msgstr "لم يتم العثور على ConsoleKit"
