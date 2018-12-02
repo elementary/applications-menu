@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-12-02 00:00+0000\n"
-"Last-Translator: Khalid <kmoj86@gmail.com>\n"
+"PO-Revision-Date: 2018-12-02 00:15+0000\n"
+"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr ""
+msgstr "طبق هذا الأمر…"
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
@@ -39,7 +39,7 @@ msgstr "التطبيقات"
 
 #: ../src/Slingshot.vala:118
 msgid "Open and search apps (%s)"
-msgstr ""
+msgstr "إفتح وإبحث عن التطبيقات (%s)"
 
 #: ../src/Slingshot.vala:138
 msgid "Shift"
@@ -111,7 +111,7 @@ msgstr "بحث"
 
 #: ../src/Widgets/SearchView.vala:263
 msgid "Contacts"
-msgstr ""
+msgstr "تواصل"
 
 #: ../src/Widgets/SearchView.vala:266
 msgid "Internet"
@@ -131,19 +131,20 @@ msgstr "أخرى"
 
 #: ../lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr ""
+msgstr "طبق"
 
 #: ../lib/synapse-core/common-actions.vala:66
+#, fuzzy
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "طبق التطبيق، أمر أو سكربت"
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
-msgstr ""
+msgstr "طبق في الطرفية"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "طبق التطبيق أو الأمر في الطرفية"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -163,11 +164,11 @@ msgstr "فتح المجلد الحاوي لهذا الملف"
 
 #: ../lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "إنسخ إلى الحافظة"
 
 #: ../lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "إنسخ المحدد للحافظة"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:55
 msgid "Search for %s in %s"
@@ -199,23 +200,23 @@ msgstr ""
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc غير مثبت"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Execute '%s'"
-msgstr ""
+msgstr "نفذ '%s'"
 
 #: ../lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr ""
+msgstr "طبق الأمر"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "إبحث ونفذ أوامر عشوائية."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "إبحث عن وطبق التطبيقات على حاسبك."
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
@@ -247,7 +248,7 @@ msgstr "فتح الرابط في المتصفح الافتراضي"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
-msgstr ""
+msgstr "إفتح إعدادات %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
@@ -263,7 +264,7 @@ msgstr "قفل هذا الجهاز"
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr "الخروج"
+msgstr "تسجيل خروج"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
@@ -271,19 +272,19 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
-msgstr ""
+msgstr "سكون"
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "ضع حاسبك في وضع السكون"
 
 #: ../lib/synapse-plugins/system-managment.vala:232
 msgid "Hibernate"
-msgstr ""
+msgstr "ثبات"
 
 #: ../lib/synapse-plugins/system-managment.vala:233
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "ضع حاسبك في وضع الثبات"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
@@ -306,6 +307,8 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"أقفل الجسلة او سجل خروجك منها. سكون، ثبات، إعادة تشغيل، أو إيقاف تشغيل "
+"حاسوبك."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
