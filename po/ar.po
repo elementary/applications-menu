@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
 "PO-Revision-Date: 2018-12-02 00:15+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
+"Last-Translator: Khalid <kmoj86@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -71,7 +71,7 @@ msgstr "إلغاء التثبيت"
 
 #: ../src/Widgets/AppEntry.vala:258
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "إزالة من قاعدة التطبيقات"
 
 #: ../src/Widgets/AppEntry.vala:260
 msgid "Add to _Dock"
@@ -268,7 +268,7 @@ msgstr "تسجيل خروج"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "إغلاق جميع التطبيقات والخروج"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
@@ -288,19 +288,19 @@ msgstr "ضع حاسبك في وضع الثبات"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "إيقاف التشغيل"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
-msgstr ""
+msgstr "إغلاق الجهاز"
 
 #: ../lib/synapse-plugins/system-managment.vala:360
 msgid "Restart"
-msgstr ""
+msgstr "إعادة التشغيل"
 
 #: ../lib/synapse-plugins/system-managment.vala:361
 msgid "Restart your computer"
-msgstr ""
+msgstr "إعادة تشغيل جهازك"
 
 #: ../lib/synapse-plugins/system-managment.vala:419
 msgid ""
@@ -312,4 +312,4 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "لم يتم العثور على ConsoleKit "
