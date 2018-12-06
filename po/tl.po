@@ -8,15 +8,18 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Tagalog <tl@li.org>\n"
+"PO-Revision-Date: 2018-11-21 18:10+0000\n"
+"Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
+"Language-Team: Tagalog <https://weblate.elementary.io/projects/wingpanel/"
+"applications-menu/tl/>\n"
 "Language: tl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
@@ -252,7 +255,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
-msgstr ""
+msgstr "I-Lock"
 
 #: ../lib/synapse-plugins/system-managment.vala:108
 msgid "Lock this device"
@@ -260,7 +263,7 @@ msgstr ""
 
 #: ../lib/synapse-plugins/system-managment.vala:134
 msgid "Log Out"
-msgstr ""
+msgstr "Mag-Log Out"
 
 #: ../lib/synapse-plugins/system-managment.vala:135
 msgid "Close all open applications and quit"
@@ -284,7 +287,7 @@ msgstr "Ilagay ang iyong kompyuter sa hibernation mode"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr ""
+msgstr "I-Shut Down"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
@@ -292,7 +295,7 @@ msgstr "Pataying ang iyong kompyuter"
 
 #: ../lib/synapse-plugins/system-managment.vala:360
 msgid "Restart"
-msgstr ""
+msgstr "I-Restart"
 
 #: ../lib/synapse-plugins/system-managment.vala:361
 msgid "Restart your computer"
