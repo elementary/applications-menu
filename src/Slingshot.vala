@@ -53,14 +53,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (view == null) {
-            if (keybinding_settings != null) {
-                keybinding_settings.changed.connect ((key) => {
-                    if (key == "panel-main-menu") {
-                        update_tooltip ();
-                    }
-                });
-            }
-
             settings = new Settings ();
 
             view = new SlingshotView ();
@@ -91,6 +83,14 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
             indicator_grid.attach (indicator_label, 1, 0, 1, 1);
             update_tooltip ();
+
+            if (keybinding_settings != null) {
+                keybinding_settings.changed.connect ((key) => {
+                    if (key == "panel-main-menu") {
+                        update_tooltip ();
+                    }
+                });
+            }
         }
 
         visible = true;
@@ -114,8 +114,9 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
         string[] accels = keybinding_settings.get_strv ("panel-main-menu");
         if (accels.length > 0) {
+            string description = _("Open and search apps");
             string shortcut = accel_to_string (accels[0]);
-            indicator_grid.tooltip_text = (_("Open and search apps (%s)").printf (shortcut));
+            indicator_grid.tooltip_markup = ("%s\n<span weight=\"600\" size=\"smaller\" alpha=\"75%\">%s</span>").printf (description, shortcut);
         }
     }
 
@@ -165,7 +166,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
          }
 
         return arr;
-    }    
+    }
 }
 
 public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
@@ -176,4 +177,3 @@ public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorMana
     var indicator = new Slingshot.Slingshot ();
     return indicator;
 }
-
