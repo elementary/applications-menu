@@ -108,14 +108,16 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        if (keybinding_settings == null || indicator_grid == null) {
-            return;
+        string[] accels = {};
+
+        if (keybinding_settings != null && indicator_grid != null) {
+            var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
+            foreach (string raw_accel in raw_accels) {
+                if (raw_accel != "") accels += raw_accel;
+            }
         }
 
-        string[] accels = keybinding_settings.get_strv ("panel-main-menu");
-        if (accels.length > 0) {
-            indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
-        }
+        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
     }
 }
 
