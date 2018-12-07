@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-09-07 00:07+0000\n"
-"Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
+"PO-Revision-Date: 2018-12-11 11:04+0000\n"
+"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/it/>\n"
 "Language: it\n"
@@ -174,7 +174,7 @@ msgstr "Cerca %s nel %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr "Cerca nel Centro Applicazioni"
+msgstr "Cerca nel centro applicazioni"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
