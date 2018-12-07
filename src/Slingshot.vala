@@ -53,14 +53,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (view == null) {
-            if (keybinding_settings != null) {
-                keybinding_settings.changed.connect ((key) => {
-                    if (key == "panel-main-menu") {
-                        update_tooltip ();
-                    }
-                });
-            }
-
             settings = new Settings ();
 
             view = new SlingshotView ();
@@ -91,6 +83,14 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
             indicator_grid.attach (indicator_label, 1, 0, 1, 1);
             update_tooltip ();
+
+            if (keybinding_settings != null) {
+                keybinding_settings.changed.connect ((key) => {
+                    if (key == "panel-main-menu") {
+                        update_tooltip ();
+                    }
+                });
+            }
         }
 
         visible = true;
@@ -127,4 +127,3 @@ public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorMana
     var indicator = new Slingshot.Slingshot ();
     return indicator;
 }
-
