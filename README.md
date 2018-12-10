@@ -12,7 +12,7 @@ You'll need the following dependencies:
 * libappstream-dev
 * libgee-0.8-dev
 * libgnome-menu-3-dev
-* libgranite-dev
+* libgranite-dev >= 5.2.1
 * libgtk-3-dev
 * libjson-glib-dev
 * libplank-dev
