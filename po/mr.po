@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "PO-Revision-Date: 2018-11-03 09:10+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/wingpanel/"
@@ -27,25 +27,14 @@ msgstr "स्लिंगशॉट"
 msgid "The app-menu indicator"
 msgstr "अनुप्रयोग-मेन्यू सूचक"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "अनुप्रयोग"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
+#: ../src/Slingshot.vala:120
+#, fuzzy
+msgid "Open and search apps"
 msgstr "उघडा आणि अॅप्स शोधा (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -59,15 +48,15 @@ msgstr "श्रेणीनुसार पहा"
 msgid "Search Apps"
 msgstr "अनुप्रयोग शोधा"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "विस्थापित (अनइंस्टॉल) करा"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "(_D)डॉकमधून काढा"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "(_D)डॉकमध्ये जोडा"
 
@@ -304,3 +293,12 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr ""
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

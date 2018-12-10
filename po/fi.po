@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "PO-Revision-Date: 2018-03-25 17:15+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/wingpanel/"
@@ -32,25 +32,14 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Sovellusvalikkoilmaisin"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Sovellukset"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
+#: ../src/Slingshot.vala:120
+#, fuzzy
+msgid "Open and search apps"
 msgstr "Avaa ja etsi sovelluksia (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +53,15 @@ msgstr "Näytä luokittain"
 msgid "Search Apps"
 msgstr "Etsi sovelluksia"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Poista asennus"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Poista t_elakasta"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Lisää _telakkaan"
 
@@ -311,3 +300,12 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit-taustapalvelua ei löytynyt"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

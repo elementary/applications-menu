@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "PO-Revision-Date: 2018-09-22 00:11+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/wingpanel/"
@@ -32,25 +32,14 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Der App-Menü-Indikator"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Apps"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
+#: ../src/Slingshot.vala:120
+#, fuzzy
+msgid "Open and search apps"
 msgstr "Apps suchen und öffnen (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Umschalttaste"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Strg"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +53,15 @@ msgstr "Ansicht nach Kategorie"
 msgid "Search Apps"
 msgstr "Apps durchsuchen"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Aus dem _Dock entfernen"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Zum _Dock hinzufügen"
 
@@ -311,3 +300,12 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit wurde nicht gefunden"
+
+#~ msgid "Shift"
+#~ msgstr "Umschalttaste"
+
+#~ msgid "Ctrl"
+#~ msgstr "Strg"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

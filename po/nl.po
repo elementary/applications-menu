@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "PO-Revision-Date: 2017-09-13 20:47+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/wingpanel/"
@@ -32,24 +32,12 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "De applicatie-menu indicator"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Toepassingen"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr ""
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr ""
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr ""
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
 msgstr ""
 
 #: ../src/SlingshotView.vala:160
@@ -64,15 +52,15 @@ msgstr "Bekijk per categorie"
 msgid "Search Apps"
 msgstr "Zoek apps"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Verwijderen"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Verwijderen uit _dock"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Toevoegen aan _dock"
 
