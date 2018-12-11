@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-12-11 11:04+0000\n"
+"PO-Revision-Date: 2018-12-11 11:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -37,9 +37,8 @@ msgid "Applications"
 msgstr "アプリケーション"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "開いてアプリを検索します (%s)"
+msgstr "開いてアプリを検索します"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
