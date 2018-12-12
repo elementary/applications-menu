@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-06-04 00:05+0000\n"
+"PO-Revision-Date: 2018-12-12 00:12+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ko/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -37,9 +37,8 @@ msgid "Applications"
 msgstr "애플리케이션"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "실행 및 앱 검색 (%s)"
+msgstr "실행 및 앱 검색"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
