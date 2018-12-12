@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-11-01 00:03+0000\n"
+"PO-Revision-Date: 2018-12-12 18:34+0000\n"
 "Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -37,9 +37,8 @@ msgid "Applications"
 msgstr "Uygulamalar"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Uygulamaları ara ve aç (%s)"
+msgstr "Uygulamaları ara ve aç"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
