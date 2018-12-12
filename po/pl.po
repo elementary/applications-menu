@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-03-12 18:27+0000\n"
-"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
+"PO-Revision-Date: 2018-12-12 07:24+0000\n"
+"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-19 05:20+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -38,9 +38,8 @@ msgid "Applications"
 msgstr "Programy"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Otwórz i wyszukaj programy (%s)"
+msgstr "Otwórz i wyszukaj programy"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
