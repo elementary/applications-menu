@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-12-11 11:04+0000\n"
+"PO-Revision-Date: 2018-12-17 01:03+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/da/>\n"
@@ -275,7 +275,7 @@ msgstr "Sæt din computer i dvaletilstand"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Luk ned"
+msgstr "Sluk"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
@@ -294,7 +294,7 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"Lås sessionen eller log ud fra den. Hvil, dvale, genstart eller luk din "
+"Lås sessionen eller log ud fra den. Hvil, dvale, genstart eller sluk din "
 "computer."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
