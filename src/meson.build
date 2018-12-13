@@ -38,10 +38,10 @@ dependencies = [
     dependency('zeitgeist-2.0'),
     dependency('libgnome-menu-3.0'),
     dependency('libsoup-2.4'),
-    dependency('unity'),
-    dependency('plank'),
     dependency('appstream'),
     meson.get_compiler('vala').find_library('posix'),
+    plank_dep,
+    unity_dep,
     wingpanel_dep
 ]
 

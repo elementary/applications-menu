@@ -109,7 +109,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         image.margin_end = 6;
         image.margin_start = 6;
 
-        badge = new Gtk.Label ("");
+        badge = new Gtk.Label ("!");
         badge.visible = false;
         badge.height_request = 24;
         badge.width_request = 24;

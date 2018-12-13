@@ -14,10 +14,28 @@ synapse_core_sources = [
     'volume-service.vala'
     ]
 
+#
+# Configuration file
+#
+config_data = configuration_data()
+config_data.set('DATADIR', join_paths(get_option('prefix'), get_option('libdir'), 'wingpanel'))
+config_data.set('PKGDATADIR', join_paths(get_option('prefix'), get_option('libdir'), 'wingpanel'))
+config_data.set('GETTEXT_PACKAGE', meson.project_name())
+config_data.set('RELEASE_NAME', 'Donatello')
+config_data.set('VERSION', meson.project_version())
+config_data.set('VERSION_INFO', 'Release')
+
+config_file = configure_file(
+    input: 'config.h.in',
+    output: 'config.h',
+    configuration: config_data
+)
+
 synapse_core_dir = include_directories('.')
     
 synapse_core = static_library('synapse-core',
                         synapse_core_sources,
+                        config_file,
                         include_directories : synapse_core_dir,
                         dependencies :  [
                             dependency('glib-2.0'),
