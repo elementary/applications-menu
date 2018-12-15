@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-12-15 16:00+0000\n"
+"PO-Revision-Date: 2018-12-15 16:01+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/mr/>\n"
@@ -32,9 +32,8 @@ msgid "Applications"
 msgstr "अनुप्रयोग"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "उघडा आणि अॅप्स शोधा (%s)"
+msgstr "उघडा आणि अॅप्स शोधा"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -289,6 +288,8 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"सत्र लॉक करा किंवा त्यातून लॉग आउट करा. आपला संगणक सस्पेंड, हायबरनेट, "
+"रीस्टार्ट किंवा बंद करा."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
