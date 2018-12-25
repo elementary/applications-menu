@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-12-06 02:04+0000\n"
+"PO-Revision-Date: 2018-12-22 00:09+0000\n"
 "Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
@@ -26,21 +26,21 @@ msgid "Run this command…"
 msgstr "طبق هذا الأمر…"
 
 #: ../src/Slingshot.vala:35
+#, fuzzy
 msgid "Slingshot"
-msgstr ""
+msgstr "المقلاع"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "مؤشر قائمة التطبيقات"
 
 #: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "التطبيقات"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "إفتح وإبحث عن التطبيقات (%s)"
+msgstr "إفتح وإبحث عن التطبيقات"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -92,7 +92,7 @@ msgstr "ملفات"
 
 #: ../src/Widgets/SearchView.vala:257
 msgid "Actions"
-msgstr ""
+msgstr "الأوامر"
 
 #: ../src/Widgets/SearchView.vala:260
 msgid "Search"
@@ -112,7 +112,7 @@ msgstr "الإعدادات"
 
 #: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
-msgstr ""
+msgstr "أوامر التطبيق"
 
 #: ../src/Widgets/SearchView.vala:275
 msgid "Other"
@@ -123,9 +123,8 @@ msgid "Run"
 msgstr "طبق"
 
 #: ../lib/synapse-core/common-actions.vala:66
-#, fuzzy
 msgid "Run an application, action or script"
-msgstr "طبق التطبيق، أمر أو سكربت"
+msgstr "شغل التطبيق، أمر أو سكربت"
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
@@ -185,7 +184,7 @@ msgstr "الحاسبة"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "إحسب حسابات بسيطة."
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
@@ -241,7 +240,7 @@ msgstr "إفتح إعدادات %s"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "إبحث عن إضافات لوحة التحكم وإفتحهم."
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-10-28 14:05+0000\n"
+"PO-Revision-Date: 2018-12-22 00:09+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/gl/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr "Executar esta orde..."
+msgstr "Executar esta orde…"
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
@@ -30,16 +30,15 @@ msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "O indicador de menú"
 
 #: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplicativos"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Abra e busque aplicativos (%s)"
+msgstr "Abra e busque aplicativos"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -259,7 +258,7 @@ msgstr "Pechar todos os aplicativos e saír"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
-msgstr "Suspender..."
+msgstr "Suspender"
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
