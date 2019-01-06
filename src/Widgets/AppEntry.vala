@@ -243,7 +243,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         try {
             appcenter.dbus.uninstall (appstream_comp_id);
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             warning (e.message);
         }
     }
@@ -295,7 +295,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         if (appcenter.dbus != null) {
             try {
                 appstream_comp_id = appcenter.dbus.get_component_from_desktop_id (desktop_id);
-            } catch (IOError e) {
+            } catch (GLib.Error e) {
                 warning (e.message);
             }
         } else {
