@@ -65,10 +65,10 @@ namespace Synapse {
 			return exists;
 		}
 
-		public string extract_type_name (Type obj_type) {
-			string obj_class = obj_type.name ();
+		public unowned string extract_type_name (Type obj_type) {
+			unowned string obj_class = obj_type.name ();
 			if (obj_class.has_prefix ("Synapse")) {
-				return obj_class.substring (7);
+				return obj_class.offset (7);
 			}
 
 			return obj_class;
