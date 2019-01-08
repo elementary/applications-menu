@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -27,25 +27,13 @@ msgstr "স্লিংশট"
 msgid "The app-menu indicator"
 msgstr "অ্যাপ-মেনু ইনডিকেটর"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 #, fuzzy
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr ""
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr ""
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr ""
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
 msgstr ""
 
 #: ../src/SlingshotView.vala:160
@@ -60,15 +48,15 @@ msgstr "বিভাগ দ্বারা দেখুন"
 msgid "Search Apps"
 msgstr "এপ্স অনুসন্ধান করুন"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "আনইনস্টল"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "_ডক থেকে অপসারণ করুন"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "_ডকে যোগ করুন"
 
