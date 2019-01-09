@@ -127,7 +127,7 @@ namespace Synapse {
                     return true;
                 }
                 unowned string plugin_name = t.name ();
-                foreach (string s in _disabled_plugins) {
+                foreach (unowned string s in _disabled_plugins) {
                     if (s == plugin_name) {
                         return false;
                     }
@@ -144,7 +144,7 @@ namespace Synapse {
                 }
 
                 string[] cpy = {};
-                foreach (string s in _disabled_plugins) {
+                foreach (unowned string s in _disabled_plugins) {
                     if (s != name) {
                         cpy += s;
                     }
@@ -443,7 +443,7 @@ namespace Synapse {
 
             if (cancellable != null) {
                 cancellable.connect (() => {
-                    foreach (var c in cancellables) {
+                    foreach (unowned GLib.Cancellable c in cancellables) {
                         c.cancel ();
                     }
                 });

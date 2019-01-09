@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-11 13:23-0700\n"
-"PO-Revision-Date: 2018-10-18 00:11+0000\n"
+"PO-Revision-Date: 2018-12-17 01:03+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/da/>\n"
@@ -30,27 +30,16 @@ msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr "Programmenu-indikatoren"
+msgstr "Appmenu-indikatoren"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Applikationer"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
+#: ../src/Slingshot.vala:120
+#, fuzzy
+msgid "Open and search apps"
 msgstr "Åbn og søg apps (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -62,17 +51,17 @@ msgstr "Vis efter Kategori"
 
 #: ../src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "Søg efter programmer"
+msgstr "Søg efter Apps"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Afinstaller"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Fjern fra _dok"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Tilføj til _dok"
 
@@ -122,7 +111,7 @@ msgstr "Indstillinger"
 
 #: ../src/Widgets/SearchView.vala:272
 msgid "Application Actions"
-msgstr "Programhandlinger"
+msgstr "Applikationshandlinger"
 
 #: ../src/Widgets/SearchView.vala:275
 msgid "Other"
@@ -134,7 +123,7 @@ msgstr "Kør"
 
 #: ../lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
-msgstr "Kør et program, handling eller skript"
+msgstr "Kør en applikation, handling eller skript"
 
 #: ../lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
@@ -142,7 +131,7 @@ msgstr "Kør i terminal"
 
 #: ../lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr "Kør program eller kommando i terminal"
+msgstr "Kør applikation eller kommando i terminalen"
 
 #: ../lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -150,7 +139,7 @@ msgstr "Åbn"
 
 #: ../lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr "Åbn med standardprogram"
+msgstr "Åbn med standard applikation"
 
 #: ../lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
@@ -174,7 +163,7 @@ msgstr "Søg efter %s i %s"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr "Søg i programbutikken"
+msgstr "Søg i app butikken"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
@@ -286,7 +275,7 @@ msgstr "Sæt din computer i dvaletilstand"
 
 #: ../lib/synapse-plugins/system-managment.vala:302
 msgid "Shut Down"
-msgstr "Luk ned"
+msgstr "Sluk"
 
 #: ../lib/synapse-plugins/system-managment.vala:303
 msgid "Turn your computer off"
@@ -305,9 +294,18 @@ msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"Lås sessionen eller log ud fra den. Hvil, dvale, genstart eller luk din "
+"Lås sessionen eller log ud fra den. Hvil, dvale, genstart eller sluk din "
 "computer."
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit blev ikke fundet"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

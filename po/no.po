@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-16 12:27-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -18,24 +18,12 @@ msgstr ""
 msgid "The app-menu indicator"
 msgstr ""
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr ""
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr ""
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr ""
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr ""
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
 msgstr ""
 
 #: ../src/SlingshotView.vala:160
@@ -50,15 +38,15 @@ msgstr ""
 msgid "Search Apps"
 msgstr ""
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr ""
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr ""
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr ""
 

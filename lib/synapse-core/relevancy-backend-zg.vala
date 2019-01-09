@@ -247,7 +247,7 @@ namespace Synapse {
             if (app_info.get_id () != null) {
                 app_uri = "application://" + app_info.get_id ();
             } else if (app_info is DesktopAppInfo) {
-                string? filename = (app_info as DesktopAppInfo).get_filename ();
+                unowned string? filename = (app_info as DesktopAppInfo).get_filename ();
                 if (filename == null) {
                     return;
                 }
