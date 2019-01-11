@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-12-11 17:34+0000\n"
-"Last-Translator: Nuno Alexandre MS Ribeiro <nuno.anarresti@gmail.com>\n"
+"PO-Revision-Date: 2019-01-11 00:07+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
 "Language: pt\n"
@@ -166,7 +166,7 @@ msgstr "Pesquisar na loja de aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Central de Aplicativos"
+msgstr "Centro de Aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
@@ -174,7 +174,7 @@ msgstr "Pesquisar por aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "O AppCenter não está instalado"
+msgstr "O Centro de Aplicações não está instalado"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -230,7 +230,7 @@ msgstr "Hiperligação"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr "Abrir hiperligação no navegador web"
+msgstr "Abrir hiperligação no navegador web padrão"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
