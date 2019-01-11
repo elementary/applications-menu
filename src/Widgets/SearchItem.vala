@@ -48,7 +48,7 @@ namespace Slingshot.Widgets {
             Object (app: app, result_type: result_type);
 
             string markup;
-            if (result_type == SearchItem.ResultType.APP_ACTIONS) {
+            if (result_type == SearchItem.ResultType.APP_ACTIONS || result_type == SearchItem.ResultType.TEXT) {
                 markup = app.match.title;
             } else {
                 markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);

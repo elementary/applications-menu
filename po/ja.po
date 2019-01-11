@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-10-17 00:08+0000\n"
+"PO-Revision-Date: 2018-12-11 11:06+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -32,25 +32,13 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "アプリメニューインジケーター"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr "開いてアプリを検索します (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
+msgstr "開いてアプリを検索します"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +52,15 @@ msgstr "カテゴリー表示"
 msgid "Search Apps"
 msgstr "アプリを検索"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "アンインストール"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "ドックから削除(_D)"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "ドックに追加(_D)"
 
@@ -90,7 +78,7 @@ msgstr "検索用語を変更してみてください。"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
-msgstr "\"%s\" という検索結果はありません"
+msgstr "“%s” という検索結果はありません"
 
 #: ../src/Widgets/SearchView.vala:247
 msgid "Text"
@@ -304,8 +292,19 @@ msgstr "コンピューターを再起動します"
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
-msgstr "セッションをロックまたはログアウトします。お使いのコンピューターをサスペンド、ハイバーネート、再起動、およびシャットダウンします。"
+msgstr ""
+"セッションをロックまたはログアウトします。お使いのコンピューターをサスペン"
+"ド、ハイバーネート、再起動、およびシャットダウンします。"
 
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit が見つかりませんでした"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"
