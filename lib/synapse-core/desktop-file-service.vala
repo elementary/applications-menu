@@ -133,7 +133,7 @@ namespace Synapse {
                     }
                 }
 
-                foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS) {
+                foreach (unowned string domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS) {
                     if (keyfile.has_key (GROUP, domain_key)) {
                         gettext_domain = keyfile.get_string (GROUP, domain_key);
                         break;
@@ -352,7 +352,7 @@ namespace Synapse {
                 monitored_dirs.add (directory);
                 var enumerator = yield directory.enumerate_children_async (FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE, 0, 0);
                 var files = yield enumerator.next_files_async (1024, 0);
-                foreach (var f in files) {
+                foreach (unowned GLib.FileInfo f in files) {
                     unowned string name = f.get_name ();
                     if (f.get_file_type () == FileType.DIRECTORY) {
                         // FIXME: this could cause too many open files error, or?
@@ -419,7 +419,7 @@ namespace Synapse {
             timer_id = Timeout.add (5000, () => {
                 timer_id = 0;
                 reload_desktop_files.begin ();
-                return false;
+                return GLib.Source.REMOVE;
             });
         }
 

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-07-19 00:03+0000\n"
-"Last-Translator: Christophe Silva <Christophesilva80@gmail.com>\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
+"PO-Revision-Date: 2019-01-11 00:07+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
 "Language: pt\n"
@@ -32,25 +32,13 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "O indicador de menu de aplicações"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplicações"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr "Abrir e pesquisar aplicativos"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
+msgstr "Abrir e pesquisar aplicações"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +52,15 @@ msgstr "Ver por Categoria"
 msgid "Search Apps"
 msgstr "Procurar Aplicações"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Remover da _Dock"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Adicionar à _Dock"
 
@@ -178,7 +166,7 @@ msgstr "Pesquisar na loja de aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Central de Aplicativos"
+msgstr "Centro de Aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
@@ -186,7 +174,7 @@ msgstr "Pesquisar por aplicações"
 
 #: ../lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "O AppCenter não está instalado"
+msgstr "O Centro de Aplicações não está instalado"
 
 #: ../lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -242,7 +230,7 @@ msgstr "Hiperligação"
 
 #: ../lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr "Abrir hiperligação no navegador web"
+msgstr "Abrir hiperligação no navegador web padrão"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:46
 msgid "Open %s settings"
@@ -311,3 +299,12 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "O ConsoleKit não foi encontrado"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

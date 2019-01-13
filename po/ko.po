@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-06-04 00:05+0000\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
+"PO-Revision-Date: 2018-12-12 00:12+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ko/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: ../src/Backend/App.vala:87
@@ -32,25 +32,13 @@ msgstr "슬링샷"
 msgid "The app-menu indicator"
 msgstr "앱 메뉴 표시기"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "애플리케이션"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr "실행 및 앱 검색 (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
+msgstr "실행 및 앱 검색"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +52,15 @@ msgstr "카테고리로 보기"
 msgid "Search Apps"
 msgstr "앱 검색"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "프로그램 제거"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "플랭크에서 내리기"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "플랭크에 올리기"
 
@@ -310,3 +298,12 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "콘솔 키트(ConsoleKit)를 찾을 수 없습니다"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

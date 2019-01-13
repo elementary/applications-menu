@@ -26,12 +26,12 @@ namespace Synapse {
         public const string UNIQUE_NAME = "org.freedesktop.UPower";
         public const string OBJECT_PATH = "/org/freedesktop/UPower";
 
-        public abstract async void hibernate () throws IOError;
-        public abstract async void suspend () throws IOError;
-        public abstract async bool hibernate_allowed () throws IOError;
-        public abstract async bool suspend_allowed () throws IOError;
+        public abstract async void hibernate () throws GLib.Error;
+        public abstract async void suspend () throws GLib.Error;
+        public abstract async bool hibernate_allowed () throws GLib.Error;
+        public abstract async bool suspend_allowed () throws GLib.Error;
 
-        public abstract async void about_to_sleep () throws IOError;
+        public abstract async void about_to_sleep () throws GLib.Error;
     }
 
     [DBus (name = "org.freedesktop.ConsoleKit.Manager")]
@@ -39,10 +39,10 @@ namespace Synapse {
         public const string UNIQUE_NAME = "org.freedesktop.ConsoleKit";
         public const string OBJECT_PATH = "/org/freedesktop/ConsoleKit/Manager";
 
-        public abstract void restart () throws IOError;
-        public abstract void stop () throws IOError;
-        public abstract async bool can_restart () throws IOError;
-        public abstract async bool can_stop () throws IOError;
+        public abstract void restart () throws GLib.Error;
+        public abstract void stop () throws GLib.Error;
+        public abstract async bool can_restart () throws GLib.Error;
+        public abstract async bool can_stop () throws GLib.Error;
     }
 
     [DBus (name = "org.freedesktop.ScreenSaver")]
@@ -50,8 +50,8 @@ namespace Synapse {
         public const string UNIQUE_NAME = "org.freedesktop.ScreenSaver";
         public const string OBJECT_PATH = "/org/freedesktop/ScreenSaver";
 
-        public abstract void lock () throws IOError;
-        public abstract bool get_active () throws IOError;
+        public abstract void lock () throws GLib.Error;
+        public abstract bool get_active () throws GLib.Error;
     }
 
     [DBus (name = "org.freedesktop.login1.User")]
@@ -59,7 +59,7 @@ namespace Synapse {
         public const string UNIQUE_NAME = "org.freedesktop.login1";
         public const string OBJECT_PATH = "/org/freedesktop/login1/user/self";
 
-        public abstract void terminate () throws IOError;
+        public abstract void terminate () throws GLib.Error;
     }
 
     [DBus (name = "org.freedesktop.login1.Manager")]
@@ -67,14 +67,14 @@ namespace Synapse {
         public const string UNIQUE_NAME = "org.freedesktop.login1";
         public const string OBJECT_PATH = "/org/freedesktop/login1";
 
-        public abstract void reboot (bool interactive) throws IOError;
-        public abstract void suspend (bool interactive) throws IOError;
-        public abstract void hibernate (bool interactive) throws IOError;
-        public abstract void power_off (bool interactive) throws IOError;
-        public abstract string can_suspend () throws IOError;
-        public abstract string can_hibernate () throws IOError;
-        public abstract string can_reboot () throws IOError;
-        public abstract string can_power_off () throws IOError;
+        public abstract void reboot (bool interactive) throws GLib.Error;
+        public abstract void suspend (bool interactive) throws GLib.Error;
+        public abstract void hibernate (bool interactive) throws GLib.Error;
+        public abstract void power_off (bool interactive) throws GLib.Error;
+        public abstract string can_suspend () throws GLib.Error;
+        public abstract string can_hibernate () throws GLib.Error;
+        public abstract string can_reboot () throws GLib.Error;
+        public abstract string can_power_off () throws GLib.Error;
     }
 
     public class SystemManagementPlugin : Object, Activatable, ItemProvider {
@@ -127,7 +127,7 @@ namespace Synapse {
 
                     dbus_interface.lock ();
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
             }
@@ -156,7 +156,7 @@ namespace Synapse {
 
                     dbus_interface.terminate ();
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
             }
@@ -185,7 +185,7 @@ namespace Synapse {
 
                     allowed = (dbus_interface.can_suspend () == "yes");
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -194,7 +194,7 @@ namespace Synapse {
                     UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.suspend_allowed ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -212,7 +212,7 @@ namespace Synapse {
 
                     dbus_interface.suspend (true);
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
 
@@ -229,7 +229,7 @@ namespace Synapse {
                     yield;
 
                     yield dbus_interface.suspend ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
             }
@@ -258,7 +258,7 @@ namespace Synapse {
 
                     allowed = (dbus_interface.can_hibernate () == "yes");
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -267,7 +267,7 @@ namespace Synapse {
                     UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.hibernate_allowed ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -285,7 +285,7 @@ namespace Synapse {
 
                     dbus_interface.hibernate (true);
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
 
@@ -301,7 +301,7 @@ namespace Synapse {
                     Timeout.add (2000, do_hibernate.callback);
                     yield;
                     dbus_interface.hibernate.begin ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
             }
@@ -330,7 +330,7 @@ namespace Synapse {
 
                     allowed = (dbus_interface.can_power_off () == "yes");
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -339,7 +339,7 @@ namespace Synapse {
                     ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.can_stop ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -357,7 +357,7 @@ namespace Synapse {
 
                     dbus_interface.power_off (true);
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
 
@@ -365,7 +365,7 @@ namespace Synapse {
                     ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     dbus_interface.stop ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
             }
@@ -390,7 +390,7 @@ namespace Synapse {
 
                     allowed = (dbus_interface.can_reboot () == "yes");
                 return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -399,7 +399,7 @@ namespace Synapse {
                     ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     allowed = yield dbus_interface.can_restart ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
                 }
@@ -417,7 +417,7 @@ namespace Synapse {
 
                     dbus_interface.reboot (true);
                     return;
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
 
@@ -425,7 +425,7 @@ namespace Synapse {
                     ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
 
                     dbus_interface.restart ();
-                } catch (IOError err) {
+                } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }
             }
