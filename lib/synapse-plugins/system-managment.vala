@@ -113,7 +113,7 @@ namespace Synapse {
                 Object (title: _("Lock"), match_type: MatchType.ACTION,
                         description: _("Lock this device"),
                         icon_name: "system-lock-screen", has_thumbnail: false);
-                ///TRANSLATORS ; seperated list of keywords
+                // ; seperated list of keywords
                 add_keywords (NC_("system_management_action_keyword", "lock"));
             }
 
@@ -142,7 +142,7 @@ namespace Synapse {
                 Object (title: _("Log Out"), match_type: MatchType.ACTION,
                         description: _("Close all open applications and quit"),
                         icon_name: "system-log-out", has_thumbnail: false);
-                ///TRANSLATORS ; seperated list of keywords
+                // ; seperated list of keywords
                 add_keywords (NC_("system_management_action_keyword", "logout"));
             }
 
@@ -171,7 +171,7 @@ namespace Synapse {
                 Object (title: _("Suspend"), match_type: MatchType.ACTION,
                         description: _("Put your computer into suspend mode"),
                         icon_name: "system-suspend", has_thumbnail: false);
-                ///TRANSLATORS ; seperated list of keywords
+                // ; seperated list of keywords
                 add_keywords (NC_("system_management_action_keyword", "suspend"));
             }
 
@@ -244,7 +244,7 @@ namespace Synapse {
                 Object (title: _("Hibernate"), match_type: MatchType.ACTION,
                         description: _("Put your computer into hibernation mode"),
                         icon_name: "system-hibernate", has_thumbnail: false);
-                ///TRANSLATORS ; seperated list of keywords
+                // ; seperated list of keywords
                 add_keywords (NC_("system_management_action_keyword", "hibernate"));
             }
 
@@ -316,7 +316,7 @@ namespace Synapse {
                 Object (title: _("Shut Down"), match_type: MatchType.ACTION,
                         description: _("Turn your computer off"),
                         icon_name: "system-shutdown", has_thumbnail: false);
-                ///TRANSLATORS ; seperated list of keywords
+                // ; seperated list of keywords
                 add_keywords (NC_("system_management_action_keyword", "shutdown;turn off"));
             }
 
@@ -376,7 +376,7 @@ namespace Synapse {
                 Object (title: _("Restart"), match_type: MatchType.ACTION,
                         description: _("Restart your computer"),
                         icon_name: "system-restart", has_thumbnail: false);
-                ///TRANSLATORS ; seperated list of keywords
+                // ; seperated list of keywords
                 add_keywords (NC_("system_management_action_keyword", "restart;reboot"));
             }
 
