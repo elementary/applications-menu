@@ -100,7 +100,7 @@ namespace Synapse {
 
             protected void add_keywords (string keywords_list) {
                 keywords.add_all_array (keywords_list.split (";"));
-                keywords.add_all_array (dpgettext2(null, "system_management_action_keyword", keywords_list).split (";"));
+                keywords.add_all_array (dpgettext2 (null, "system_management_action_keyword", keywords_list).split (";"));
             }
 
             public void execute (Match? match) {
@@ -296,7 +296,7 @@ namespace Synapse {
                         yield dbus_interface.about_to_sleep ();
                     } catch (Error not_there_error) { }
                     // yea kinda nasty
-                    //GnomeScreenSaverPlugin.lock_screen ();
+                    // GnomeScreenSaverPlugin.lock_screen ();
                     // wait 2 seconds
                     Timeout.add (2000, do_hibernate.callback);
                     yield;
@@ -389,7 +389,7 @@ namespace Synapse {
                     SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
 
                     allowed = (dbus_interface.can_reboot () == "yes");
-                return;
+                    return;
                 } catch (GLib.Error err) {
                     warning ("%s", err.message);
                     allowed = false;
@@ -472,8 +472,9 @@ namespace Synapse {
                 if (!action.action_allowed ()) {
                     continue;
                 }
+
                 foreach (var matcher in matchers) {
-                    if (match(action, matcher)) {
+                    if (match (action, matcher)) {
                         result.add (action, matcher.value - Match.Score.INCREMENT_SMALL);
                         break;
                     }
@@ -489,6 +490,7 @@ namespace Synapse {
             if (matcher.key.match (action.title)) {
                 return true;
             }
+
             foreach (var keyword in action.keywords) {
                 if (matcher.key.match (keyword)) {
                     return true;
