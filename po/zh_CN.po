@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 08:54-0800\n"
-"PO-Revision-Date: 2018-08-12 14:12+0000\n"
+"PO-Revision-Date: 2019-01-15 13:39+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "wingpanel/applications-menu/zh_Hans/>\n"
@@ -37,9 +37,8 @@ msgid "Applications"
 msgstr "应用程序"
 
 #: ../src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "打开并搜索应用（%s）"
+msgstr "打开并搜索应用"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
