@@ -1,3 +1,9 @@
+slingshot-launcher (2.4.2) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <codygarver@gmail.com>  Tue, 22 Jan 2019 03:51:45 -0600
+
 slingshot-launcher (2.4.1) bionic; urgency=medium
 
   * New upstream release.
