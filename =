@@ -1,0 +1,116 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cmake is already the newest version (3.10.2-1ubuntu2).
+libgee-0.8-dev is already the newest version (0.20.1-1).
+libgtk-3-dev is already the newest version (3.22.30-1ubuntu1).
+libappstream-dev is already the newest version (0.12.0-3ubuntu1).
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies.
+ libghc-profunctors-dev : Depends: libghc-base-dev-4.9.1.0-d28d6
+                          Depends: libghc-base-orphans-dev-0.6-9bc77
+                          Depends: libghc-bifunctors-dev-5.4.2-df769
+                          Depends: libghc-comonad-dev-5.0.2-f63c3
+                          Depends: libghc-contravariant-dev-1.4-2e883
+                          Depends: libghc-distributive-dev-0.5.3-29e64
+                          Depends: libghc-tagged-dev-0.8.5-34ae5
+                          Depends: libghc-transformers-dev-0.5.2.0-1d020
+                          Conflicts: libghc-profunctors-dev:i386 but 5.2.1-1build1 is to be installed
+ libghc-profunctors-dev:i386 : Depends: libghc-base-dev-4.9.1.0-5a696:i386
+                               Depends: libghc-base-orphans-dev-0.6-9cb49:i386
+                               Depends: libghc-bifunctors-dev-5.4.2-a264c:i386
+                               Depends: libghc-comonad-dev-5.0.2-07b5b:i386
+                               Depends: libghc-contravariant-dev-1.4-7d1dc:i386
+                               Depends: libghc-distributive-dev-0.5.3-0e714:i386
+                               Depends: libghc-tagged-dev-0.8.5-4c51f:i386
+                               Depends: libghc-transformers-dev-0.5.2.0-e204f:i386
+                               Conflicts: libghc-profunctors-dev but 5.2.1-1build1 is to be installed
+ libghc-profunctors-prof : Depends: libghc-base-prof-4.9.1.0-d28d6
+                           Depends: libghc-base-orphans-prof-0.6-9bc77
+                           Depends: libghc-bifunctors-prof-5.4.2-df769
+                           Depends: libghc-comonad-prof-5.0.2-f63c3
+                           Depends: libghc-contravariant-prof-1.4-2e883
+                           Depends: libghc-distributive-prof-0.5.3-29e64
+                           Depends: libghc-tagged-prof-0.8.5-34ae5
+                           Depends: libghc-transformers-prof-0.5.2.0-1d020
+                           Conflicts: libghc-profunctors-prof:i386 but 5.2.1-1build1 is to be installed
+ libghc-profunctors-prof:i386 : Depends: libghc-base-prof-4.9.1.0-5a696:i386
+                                Depends: libghc-base-orphans-prof-0.6-9cb49:i386
+                                Depends: libghc-bifunctors-prof-5.4.2-a264c:i386
+                                Depends: libghc-comonad-prof-5.0.2-07b5b:i386
+                                Depends: libghc-contravariant-prof-1.4-7d1dc:i386
+                                Depends: libghc-distributive-prof-0.5.3-0e714:i386
+                                Depends: libghc-tagged-prof-0.8.5-4c51f:i386
+                                Depends: libghc-transformers-prof-0.5.2.0-e204f:i386
+                                Conflicts: libghc-profunctors-prof but 5.2.1-1build1 is to be installed
+ libghc-regex-posix-dev:i386 : Depends: libghc-array-dev-0.5.1.1-4c8b7:i386
+                               Depends: libghc-base-dev-4.9.1.0-5a696:i386
+                               Depends: libghc-bytestring-dev-0.10.8.1-a98c5:i386
+                               Depends: libghc-containers-dev-0.5.7.1-ed950:i386
+                               Depends: libghc-regex-base-dev-0.93.2-1f1b6:i386
+ libghc-regex-posix-prof:i386 : Depends: libghc-array-prof-0.5.1.1-4c8b7:i386
+                                Depends: libghc-base-prof-4.9.1.0-5a696:i386
+                                Depends: libghc-bytestring-prof-0.10.8.1-a98c5:i386
+                                Depends: libghc-containers-prof-0.5.7.1-ed950:i386
+                                Depends: libghc-regex-base-prof-0.93.2-1f1b6:i386
+ libghc-semigroupoids-dev : Depends: libghc-base-dev-4.9.1.0-d28d6
+                            Depends: libghc-base-orphans-dev-0.6-9bc77
+                            Depends: libghc-bifunctors-dev-5.4.2-df769
+                            Depends: libghc-comonad-dev-5.0.2-f63c3
+                            Depends: libghc-containers-dev-0.5.7.1-cd211
+                            Depends: libghc-contravariant-dev-1.4-2e883
+                            Depends: libghc-distributive-dev-0.5.3-29e64
+                            Depends: libghc-hashable-dev-1.2.6.1-04604
+                            Depends: libghc-semigroups-dev-0.18.3-16af2
+                            Depends: libghc-tagged-dev-0.8.5-34ae5
+                            Depends: libghc-transformers-dev-0.5.2.0-1d020
+                            Depends: libghc-transformers-compat-dev-0.5.1.4-1d91d
+                            Depends: libghc-unordered-containers-dev-0.2.8.0-40548
+                            Conflicts: libghc-semigroupoids-dev:i386 but 5.2.1-1build1 is to be installed
+ libghc-semigroupoids-dev:i386 : Depends: libghc-base-dev-4.9.1.0-5a696:i386
+                                 Depends: libghc-base-orphans-dev-0.6-9cb49:i386
+                                 Depends: libghc-bifunctors-dev-5.4.2-a264c:i386
+                                 Depends: libghc-comonad-dev-5.0.2-07b5b:i386
+                                 Depends: libghc-containers-dev-0.5.7.1-ed950:i386
+                                 Depends: libghc-contravariant-dev-1.4-7d1dc:i386
+                                 Depends: libghc-distributive-dev-0.5.3-0e714:i386
+                                 Depends: libghc-hashable-dev-1.2.6.1-86b66:i386
+                                 Depends: libghc-semigroups-dev-0.18.3-06c76:i386
+                                 Depends: libghc-tagged-dev-0.8.5-4c51f:i386
+                                 Depends: libghc-transformers-dev-0.5.2.0-e204f:i386
+                                 Depends: libghc-transformers-compat-dev-0.5.1.4-1d91d:i386
+                                 Depends: libghc-unordered-containers-dev-0.2.8.0-8dcba:i386
+                                 Conflicts: libghc-semigroupoids-dev but 5.2.1-1build1 is to be installed
+ libghc-semigroupoids-prof : Depends: libghc-base-prof-4.9.1.0-d28d6
+                             Depends: libghc-base-orphans-prof-0.6-9bc77
+                             Depends: libghc-bifunctors-prof-5.4.2-df769
+                             Depends: libghc-comonad-prof-5.0.2-f63c3
+                             Depends: libghc-containers-prof-0.5.7.1-cd211
+                             Depends: libghc-contravariant-prof-1.4-2e883
+                             Depends: libghc-distributive-prof-0.5.3-29e64
+                             Depends: libghc-hashable-prof-1.2.6.1-04604
+                             Depends: libghc-semigroups-prof-0.18.3-16af2
+                             Depends: libghc-tagged-prof-0.8.5-34ae5
+                             Depends: libghc-transformers-prof-0.5.2.0-1d020
+                             Depends: libghc-transformers-compat-prof-0.5.1.4-1d91d
+                             Depends: libghc-unordered-containers-prof-0.2.8.0-40548
+                             Conflicts: libghc-semigroupoids-prof:i386 but 5.2.1-1build1 is to be installed
+ libghc-semigroupoids-prof:i386 : Depends: libghc-base-prof-4.9.1.0-5a696:i386
+                                  Depends: libghc-base-orphans-prof-0.6-9cb49:i386
+                                  Depends: libghc-bifunctors-prof-5.4.2-a264c:i386
+                                  Depends: libghc-comonad-prof-5.0.2-07b5b:i386
+                                  Depends: libghc-containers-prof-0.5.7.1-ed950:i386
+                                  Depends: libghc-contravariant-prof-1.4-7d1dc:i386
+                                  Depends: libghc-distributive-prof-0.5.3-0e714:i386
+                                  Depends: libghc-hashable-prof-1.2.6.1-86b66:i386
+                                  Depends: libghc-semigroups-prof-0.18.3-06c76:i386
+                                  Depends: libghc-tagged-prof-0.8.5-4c51f:i386
+                                  Depends: libghc-transformers-prof-0.5.2.0-e204f:i386
+                                  Depends: libghc-transformers-compat-prof-0.5.1.4-1d91d:i386
+                                  Depends: libghc-unordered-containers-prof-0.2.8.0-8dcba:i386
+                                  Conflicts: libghc-semigroupoids-prof but 5.2.1-1build1 is to be installed

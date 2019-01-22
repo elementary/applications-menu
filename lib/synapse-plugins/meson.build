@@ -5,7 +5,8 @@ synapse_plugins_sources = [
     'switchboard-plugin.vala',
     'system-managment.vala',
     'link-plugin.vala',
-    'appcenter-plugin.vala'
+    'appcenter-plugin.vala',
+    'searchengine-plugin.vala'
     ]
 
 synapse_plugins_deps = [
