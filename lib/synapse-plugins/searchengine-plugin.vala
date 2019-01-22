@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2017 David Hewitt <davidmhewitt@gmail.com>
+* Copyright (c) 2017 biswaz
 *               2017 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
@@ -17,7 +17,7 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 *
-* Authored by: David Hewitt <davidmhewitt@gmail.com>
+* Authored by: biswaz
 */
 
 namespace Synapse {
@@ -49,16 +49,16 @@ namespace Synapse {
                 string _title = "";
                 string _icon_name = "";
 
-                appinfo = AppInfo.get_default_for_type ("text/html", false);
+                appinfo = AppInfo.get_default_for_type ("text/html", false); //This gets the default browser set using switchboard settings
                 if (appinfo != null) {
-                    // TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
+                    // TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of the browser
                     _title = _("Search for %s in %s".printf (search_term, appinfo.get_display_name ()));
                     _icon_name = appinfo.get_icon ().to_string ();
                 }
 
                 this.title = _title;
                 this.icon_name = _icon_name;
-                this.description = _("Search the app store");
+                this.description = _("Search online");
                 this.has_thumbnail = false;
                 this.match_type = MatchType.ACTION;
             }
@@ -83,21 +83,21 @@ namespace Synapse {
         private static Regex regex;
 
         static void register_plugin () {
-            bool appcenter_installed = false;
+            bool browser_installed = false;
 
             appinfo = AppInfo.get_default_for_type ("text/html", false);
-            // Only register the plugin if we have an application that supports appstream://
+            // Only register the plugin if we have an application that supports text/html
             if (appinfo != null) {
-                appcenter_installed = true;
+                browser_installed = true;
             }
 
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (SearchenginePlugin),
-                                            _("AppCenter"),
-                                            _("Search for applications"),
+                                            _("Search online"),
+                                            _("Opens search engine with the given search term"),
                                             "system-software-install",
                                             register_plugin,
-                                            appcenter_installed,
-                                            _("AppCenter is not installed"));
+                                            browser_installed,
+                                            _("Browser is not installed"));
         }
 
         static construct {
