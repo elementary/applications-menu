@@ -49,6 +49,13 @@ if get_option('with-unity')
     endif
 endif
 
+zeitgeist_dep = []
+
+if get_option('with-zeitgeist')
+    zeitgeist_dep = dependency('zeitgeist-2.0')
+    add_project_arguments('--define=HAVE_ZEITGEIST', language: 'vala')
+endif
+
 subdir('lib')
 subdir('src')
 subdir('data')
