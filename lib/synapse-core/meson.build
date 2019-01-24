@@ -1,3 +1,11 @@
+zeitgeist_backend_source = []
+
+if get_option('with-zeitgeist')
+    zeitgeist_backend_source = [
+        'relevancy-backend-zg.vala'
+    ]
+endif
+
 synapse_core_sources = [
     'common-actions.vala',
     'config-service.vala',
@@ -10,7 +18,8 @@ synapse_core_sources = [
     'relevancy-service.vala',
     'result-set.vala',
     'utils.vala',
-    'volume-service.vala'
+    'volume-service.vala',
+    zeitgeist_backend_source
     ]
 
 #
