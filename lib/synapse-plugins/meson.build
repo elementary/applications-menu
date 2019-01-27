@@ -5,7 +5,8 @@ synapse_plugins_sources = [
     'switchboard-plugin.vala',
     'system-managment.vala',
     'link-plugin.vala',
-    'appcenter-plugin.vala'
+    'appcenter-plugin.vala',
+    'web-plugin.vala'
     ]
 
 synapse_plugins_deps = [
@@ -14,6 +15,7 @@ synapse_plugins_deps = [
     json_glib_dep,
     gee_dep,
     gtk_dep,
+    granite_dep,
     switchboard_dep,
     synapse_core_dep
 ]

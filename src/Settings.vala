@@ -25,5 +25,4 @@ public class Slingshot.Settings : Granite.Services.Settings {
     public Settings () {
         base ("io.elementary.desktop.wingpanel.applications-menu");
     }
-
 }

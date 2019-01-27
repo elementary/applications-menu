@@ -40,3 +40,4 @@ lib/synapse-plugins/switchboard-plugin.vala
 lib/synapse-plugins/system-managment.vala
 lib/synapse-plugins/link-plugin.vala
 lib/synapse-plugins/appcenter-plugin.vala
+lib/synapse-plugins/web-plugin.vala

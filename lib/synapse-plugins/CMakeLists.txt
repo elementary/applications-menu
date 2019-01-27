@@ -22,6 +22,7 @@ set (PLUGINS_SOURCE
     system-managment.vala
     link-plugin.vala
     appcenter-plugin.vala
+    web-plugin.vala
 )
 
 # Compile

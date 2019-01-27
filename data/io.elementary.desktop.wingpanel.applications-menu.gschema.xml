@@ -1,24 +1,36 @@
 <schemalist>
-	<schema path="/io/elementary/desktop/wingpanel/applications-menu/" id="io.elementary.desktop.wingpanel.applications-menu">
-        <key name="columns" type="i">
-            <default>5</default>
-            <summary>The default number of columns</summary>
-            <description>This value needs to be greater than 3 to be effective.</description>
-        </key>
-        <key name="rows" type="i">
-            <default>3</default>
-            <summary>The default number of rows</summary>
-            <description>This value needs to be greater than 1 to be effective.</description>
-        </key>
-        <key name="use-category" type="b">
-            <default>false</default>
-            <summary>Show the category view by default</summary>
-            <description>Save the current view of the launcher.</description>
-        </key>
-        <key name="screen-resolution" type="s">
-            <default>""</default>
-            <summary>The last resolution of the screen</summary>
-            <description>This value makes slingshot able to adapt to each screen.</description>
-        </key>
-	</schema>
+    <schema path="/io/elementary/desktop/wingpanel/applications-menu/" id="io.elementary.desktop.wingpanel.applications-menu">
+    <key name="columns" type="i">
+        <default>5</default>
+        <summary>The default number of columns</summary>
+        <description>This value needs to be greater than 3 to be effective.</description>
+    </key>
+    <key name="rows" type="i">
+        <default>3</default>
+        <summary>The default number of rows</summary>
+        <description>This value needs to be greater than 1 to be effective.</description>
+    </key>
+    <key name="use-category" type="b">
+        <default>false</default>
+        <summary>Show the category view by default</summary>
+        <description>Save the current view of the launcher.</description>
+    </key>
+    <key name="screen-resolution" type="s">
+        <default>""</default>
+        <summary>The last resolution of the screen</summary>
+        <description>This value makes slingshot able to adapt to each screen.</description>
+    </key>
+    <key name="web-search-engine-id" type="s">
+        <default>"duckduckgo"</default>
+        <summary>String ID of the web search engine used by the Applications menu. Enter "custom" to utilize web-search-custom-url.</summary>
+    </key>
+    <key name="web-search-custom-url" type="s">
+        <default>"https://example.com/?q={query}"</default>
+        <summary>Custom search URL with the string {query} placed where the search terms should be inserted.</summary>
+    </key>
+    <key name="web-search-enabled" type="b">
+        <default>true</default>
+        <summary>Whether or not to enable Applications menu's web search.</summary>
+    </key>
+    </schema>
 </schemalist>
