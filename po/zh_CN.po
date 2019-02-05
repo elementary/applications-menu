@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-08-12 14:12+0000\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
+"PO-Revision-Date: 2019-01-16 00:04+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "wingpanel/applications-menu/zh_Hans/>\n"
@@ -32,25 +32,13 @@ msgstr "应用程序"
 msgid "The app-menu indicator"
 msgstr "程序菜单指示器"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "应用程序"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr "打开并搜索应用（%s）"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
+msgstr "打开并搜索应用"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +52,15 @@ msgstr "分类视图"
 msgid "Search Apps"
 msgstr "搜索应用"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "卸载"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "从 Dock 移除"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "固定至 Dock"
 
@@ -86,7 +74,7 @@ msgstr "创建新筛选器"
 
 #: ../src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
-msgstr "尝试更改搜索内容"
+msgstr "尝试更改搜索内容。"
 
 #: ../src/Widgets/SearchView.vala:182
 msgid "No Results for “%s”"
@@ -210,11 +198,11 @@ msgstr "运行命令"
 
 #: ../lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr "查找或执行任意命令"
+msgstr "查找或执行任意命令。"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr "在您的电脑中搜索和运行应用程序"
+msgstr "在您的电脑中搜索和运行应用程序。"
 
 #: ../lib/synapse-plugins/desktop-file-plugin.vala:333
 msgid "Open with %s"
@@ -250,7 +238,7 @@ msgstr "打开 %s 设置"
 
 #: ../lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr "找到 Switchboard 插件并打开"
+msgstr "找到对应设置界面并打开。"
 
 #: ../lib/synapse-plugins/system-managment.vala:107
 msgid "Lock"
@@ -309,3 +297,12 @@ msgstr "锁定或注销会话；挂起、休眠、重启及关闭电脑。"
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "未发现控制台"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

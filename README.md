@@ -12,7 +12,7 @@ You'll need the following dependencies:
 * libappstream-dev
 * libgee-0.8-dev
 * libgnome-menu-3-dev
-* libgranite-dev
+* libgranite-dev >= 5.2.1
 * libgtk-3-dev
 * libjson-glib-dev
 * libplank-dev
@@ -26,16 +26,12 @@ You'll need the following dependencies:
 * qalc
 * valac
 
-It's recommended to create a clean build environment
+Run `meson` to configure the build environment and then `ninja` to build
 
-    mkdir build
-    cd build/
+    meson build --prefix=/usr
+    cd build
+    ninja
 
-Run `cmake` to configure the build environment and then `make` to build
+To install, use `ninja install`
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-
-To install, use `make install`
-
-    sudo make install
+    sudo ninja install

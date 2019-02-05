@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-10-28 14:05+0000\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
+"PO-Revision-Date: 2018-12-22 00:09+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/gl/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr "Executar esta orde..."
+msgstr "Executar esta orde…"
 
 #: ../src/Slingshot.vala:35
 msgid "Slingshot"
@@ -30,27 +30,15 @@ msgstr "Slingshot"
 
 #: ../src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "O indicador de menú"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplicativos"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr "Abra e busque aplicativos (%s)"
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Shift"
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
+msgstr "Abra e busque aplicativos"
 
 #: ../src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -64,15 +52,15 @@ msgstr "Ver por categoría"
 msgid "Search Apps"
 msgstr "Busca de aplicativos"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Eliminar da Doca"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Añadir á Doca"
 
@@ -270,7 +258,7 @@ msgstr "Pechar todos os aplicativos e saír"
 
 #: ../lib/synapse-plugins/system-managment.vala:161
 msgid "Suspend"
-msgstr "Suspender..."
+msgstr "Suspender"
 
 #: ../lib/synapse-plugins/system-managment.vala:162
 msgid "Put your computer into suspend mode"
@@ -311,3 +299,12 @@ msgstr ""
 #: ../lib/synapse-plugins/system-managment.vala:424
 msgid "ConsoleKit wasn't found"
 msgstr "Non se pudo atopar ConsoleKit"
+
+#~ msgid "Shift"
+#~ msgstr "Shift"
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"

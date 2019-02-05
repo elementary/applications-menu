@@ -183,10 +183,10 @@ namespace Synapse {
                 }
             }
 
-            private Regex web_uri;
-            private Regex file_path;
+            private static Regex web_uri;
+            private static Regex file_path;
 
-            construct {
+            static construct {
                 try {
                     web_uri = new Regex ("^(ftp|http(s)?)://[^.]+\\.[^.]+", RegexCompileFlags.OPTIMIZE);
                     file_path = new Regex ("^(/|~/)[^/]+", RegexCompileFlags.OPTIMIZE);
@@ -259,7 +259,7 @@ namespace Synapse {
                     cb.set_text (uri_match.uri, -1);
                 } else if (match.match_type == MatchType.TEXT) {
                     TextMatch? text_match = match as TextMatch;
-                    string content = text_match != null ? text_match.get_text () : match.title;
+                    unowned string content = text_match != null ? text_match.get_text () : match.title;
 
                     cb.set_text (content, -1);
                 }
@@ -331,7 +331,7 @@ namespace Synapse {
             var f = File.new_for_uri (uri);
             try {
                 var app_info = f.query_default_handler (null);
-                List<File> files = new List<File> ();
+                var files = new GLib.List<File> ();
                 files.prepend (f);
                 var display = Gdk.Display.get_default ();
                 app_info.launch (files, display.get_app_launch_context ());

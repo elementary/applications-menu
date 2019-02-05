@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
+"POT-Creation-Date: 2018-12-10 08:54-0800\n"
 "PO-Revision-Date: 2018-03-10 00:06+0000\n"
 "Last-Translator: Plugaru Tudor <plugaru.tudor@gmail.com>\n"
 "Language-Team: Romanian <https://weblate.elementary.io/projects/wingpanel/"
@@ -33,24 +33,12 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Meniu indicator aplicație"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplicații"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr ""
-
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr ""
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr ""
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
+#: ../src/Slingshot.vala:120
+msgid "Open and search apps"
 msgstr ""
 
 #: ../src/SlingshotView.vala:160
@@ -65,15 +53,15 @@ msgstr "Vizualizează după categorie"
 msgid "Search Apps"
 msgstr "Caută aplicații"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: ../src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Dezinstalează"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: ../src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Elimină din _Dock"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: ../src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Adaugă în_Dock"
 
