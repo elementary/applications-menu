@@ -24,8 +24,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public Widgets.Grid app_view;
     private SlingshotView view;
 
-    private const string ALL_APPLICATIONS = _("All Applications");
-    private const string NEW_FILTER = _("Create a new Filter");
     private const string SWITCHBOARD_CATEGORY = "switchboard";
 
     private int current_position = 0;
