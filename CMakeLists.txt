@@ -14,7 +14,7 @@ set (DATADIR "${CMAKE_INSTALL_FULL_LIBDIR}/wingpanel")
 set (PKGDATADIR "${DATADIR}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Donatello")
-set (VERSION "2.4.1")
+set (VERSION "2.4.2")
 set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
@@ -95,7 +95,7 @@ file (GLOB resources "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
 
 # Settings schema
 include (GSettings)
-add_schema ("io.elementary.desktop.wingpanel.applications-menu.gschema.xml")
+add_schema ("data/io.elementary.desktop.wingpanel.applications-menu.gschema.xml")
 
 # Directories
 add_subdirectory (lib/synapse-core)

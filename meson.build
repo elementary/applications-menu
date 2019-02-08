@@ -1,7 +1,7 @@
 project(
   'slingshot',
   'vala', 'c',
-  version : '2.1.2'
+  version : '2.4.2'
 )
 
 i18n = import('i18n')
@@ -47,6 +47,13 @@ if get_option('with-unity')
     if plank_dep.version().version_compare('>=0.9.0')
         add_project_arguments('--define=HAS_PLANK', language: 'vala')
     endif
+endif
+
+zeitgeist_dep = []
+
+if get_option('with-zeitgeist')
+    zeitgeist_dep = dependency('zeitgeist-2.0')
+    add_project_arguments('--define=HAVE_ZEITGEIST', language: 'vala')
 endif
 
 subdir('lib')
