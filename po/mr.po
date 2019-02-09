@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-15 16:01+0000\n"
+"PO-Revision-Date: 2019-02-09 06:45+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/mr/>\n"
@@ -213,7 +213,7 @@ msgstr "हे डिव्हाइस लॉक करा"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "नक्की करा"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -227,7 +227,7 @@ msgstr "सर्व उघडे अप्लिकेशन बंद कर�
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "लॉगआउट"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -239,7 +239,6 @@ msgstr "आपला संगणक निलंबन मोडमध्ये
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "स्थगित करा"
@@ -254,7 +253,6 @@ msgstr "संगणकाला निष्क्रिय मोडमध्�
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
 msgstr "निष्क्रिय करा"
@@ -271,7 +269,7 @@ msgstr "आपला संगणक बंद करा"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "बंद करा"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -285,7 +283,7 @@ msgstr "आपला संगणक पुन्हा सुरू करा"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "पुन्हा सुरु करा"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
