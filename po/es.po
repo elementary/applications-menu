@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-03-17 05:09+0000\n"
-"Last-Translator: Alain M. <alain23@protonmail.com>\n"
+"PO-Revision-Date: 2019-02-11 20:28+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
@@ -33,9 +33,8 @@ msgid "Applications"
 msgstr "Aplicaciones"
 
 #: src/Slingshot.vala:120
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Abrir y buscar aplicaciones (%s)"
+msgstr "Abrir y buscar aplicaciones"
 
 #: src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -245,10 +244,9 @@ msgstr "Poner el equipo en modo de suspensión"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Suspender"
+msgstr "suspend"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -260,10 +258,9 @@ msgstr "Poner el equipo en modo de hibernación"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hibernar"
+msgstr "hibernate"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
