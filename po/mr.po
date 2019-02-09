@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-10 08:54-0800\n"
+"POT-Creation-Date: 2019-02-08 16:01-0800\n"
 "PO-Revision-Date: 2018-12-15 16:01+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,285 +15,333 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: ../src/Backend/App.vala:87
-msgid "Run this command…"
-msgstr "हा आदेश चालवा …"
-
-#: ../src/Slingshot.vala:35
+#: src/Slingshot.vala:35
 msgid "Slingshot"
 msgstr "स्लिंगशॉट"
 
-#: ../src/Slingshot.vala:36
+#: src/Slingshot.vala:36
 msgid "The app-menu indicator"
 msgstr "अनुप्रयोग-मेन्यू सूचक"
 
-#: ../src/Slingshot.vala:77 ../src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "अनुप्रयोग"
 
-#: ../src/Slingshot.vala:120
+#: src/Slingshot.vala:120
 msgid "Open and search apps"
 msgstr "उघडा आणि अॅप्स शोधा"
 
-#: ../src/SlingshotView.vala:160
+#: src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "ग्रिड म्हणून पहा"
 
-#: ../src/SlingshotView.vala:164
+#: src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "श्रेणीनुसार पहा"
 
-#: ../src/SlingshotView.vala:173
+#: src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "अनुप्रयोग शोधा"
 
-#: ../src/Widgets/AppEntry.vala:232
+#: src/Backend/App.vala:87
+msgid "Run this command…"
+msgstr "हा आदेश चालवा …"
+
+#: src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "विस्थापित (अनइंस्टॉल) करा"
 
-#: ../src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "(_D)डॉकमधून काढा"
 
-#: ../src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "(_D)डॉकमध्ये जोडा"
 
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "सर्व अनुप्रयोग"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "एक नवीन फिल्टर तयार करा"
-
-#: ../src/Widgets/SearchView.vala:138
+#. alert view
+#: src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "शोध संज्ञा बदलण्याचा प्रयत्न करा."
 
-#: ../src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:182
+#, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
 
-#: ../src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "टेक्स्ट"
 
-#: ../src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "फायली"
 
-#: ../src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "क्रिया"
 
-#: ../src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "शोधा"
 
-#: ../src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "संपर्क"
 
-#: ../src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "इंटरनेट"
 
-#: ../src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "सेटिंग्ज"
 
-#: ../src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "अप्लिकेशन क्रिया"
 
-#: ../src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "इतर"
 
-#: ../lib/synapse-core/common-actions.vala:65
+#: src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "सर्व अनुप्रयोग"
+
+#: src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "एक नवीन फिल्टर तयार करा"
+
+#: lib/synapse-core/common-actions.vala:65
 msgid "Run"
 msgstr "चालवा"
 
-#: ../lib/synapse-core/common-actions.vala:66
+#: lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
 msgstr "अप्लिकेशन, क्रिया किंवा स्क्रिप्ट चालवा"
 
-#: ../lib/synapse-core/common-actions.vala:110
+#: lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
 msgstr "टर्मिनल मध्ये चालवा"
 
-#: ../lib/synapse-core/common-actions.vala:111
+#: lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
 msgstr "टर्मिनलमध्ये अप्लिकेशन किंवा आज्ञा चालवा"
 
-#: ../lib/synapse-core/common-actions.vala:150
+#: lib/synapse-core/common-actions.vala:150
 msgid "Open"
 msgstr "उघडा"
 
-#: ../lib/synapse-core/common-actions.vala:151
+#: lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
 msgstr "डीफॉल्ट अनुप्रयोग वापरून उघडा"
 
-#: ../lib/synapse-core/common-actions.vala:201
+#: lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
 msgstr "फोल्डर उघडा"
 
-#: ../lib/synapse-core/common-actions.vala:202
+#: lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
 msgstr "ही फाइल असलेला फोल्डर उघडा"
 
-#: ../lib/synapse-core/common-actions.vala:238
+#: lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
 msgstr "क्लिपबोर्डवर कॉपी करा"
 
-#: ../lib/synapse-core/common-actions.vala:239
+#: lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
 msgstr "निवडलेले क्लिपबोर्डवर कॉपी करा"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "%s मध्ये % s शोधा"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "अॅप स्टोअरवर शोधा"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "AppCenter"
-msgstr "अॅपसेंटर"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "Search for applications"
-msgstr "अप्लिकेशन शोधा"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:100
-msgid "AppCenter is not installed"
-msgstr "AppCenter इन्स्टॉल केलेले नाही"
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:51
+#: lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
 msgstr "कॅल्क्युलेटर"
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:52
+#: lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
 msgstr "साधारण पदावली सोडवा."
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:56
+#: lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
 msgstr "bc स्थापित नाही"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
+#: lib/synapse-plugins/command-plugin.vala:47
+#, c-format
 msgid "Execute '%s'"
 msgstr "'%s' चालवा"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
+#: lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
 msgstr "कमांड चालवा"
 
-#: ../lib/synapse-plugins/command-plugin.vala:63
+#: lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "अनियंत्रित आदेश शोधा आणि चालवा."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+#: lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
 msgstr "आपल्या संगणकावर अनुप्रयोग शोधा आणि चालवा."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+#: lib/synapse-plugins/desktop-file-plugin.vala:333
+#, c-format
 msgid "Open with %s"
 msgstr "%s वापरून उघडा"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+#: lib/synapse-plugins/desktop-file-plugin.vala:335
+#, c-format
 msgid "Opens current selection using %s"
 msgstr "सध्या निवडलेले %s वापरून उघडा"
 
-#: ../lib/synapse-plugins/link-plugin.vala:47
-msgid "Open %s in default web browser"
-msgstr "%s डिफॉल्ट ब्राउझरमध्ये उघडा"
-
-#: ../lib/synapse-plugins/link-plugin.vala:52
-msgid "Open %s in %s"
-msgstr "%s %s मध्ये उघडा"
-
-#: ../lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "ही लिंक डिफॉल्ट ब्राउझरमध्ये उघडा"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "लिंक"
-
-#: ../lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "लिंक डिफॉल्ट ब्राउझरमध्ये उघडा"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+#: lib/synapse-plugins/switchboard-plugin.vala:46
+#, c-format
 msgid "Open %s settings"
 msgstr "%s सेटिंग्ज उघडा"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+#: lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
 msgstr "स्विचबोर्ड प्लग शोधा आणि त्यांना उघडा."
 
-#: ../lib/synapse-plugins/system-managment.vala:107
+#: lib/synapse-plugins/system-managment.vala:113
 msgid "Lock"
 msgstr "लॉक करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:108
+#: lib/synapse-plugins/system-managment.vala:114
 msgid "Lock this device"
 msgstr "हे डिव्हाइस लॉक करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:134
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:117
+msgctxt "system_management_action_keyword"
+msgid "lock"
+msgstr ""
+
+#: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
 msgstr "बाहेर पडा"
 
-#: ../lib/synapse-plugins/system-managment.vala:135
+#: lib/synapse-plugins/system-managment.vala:143
 msgid "Close all open applications and quit"
 msgstr "सर्व उघडे अप्लिकेशन बंद करा आणि आपला संगणक बंद करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:161
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:146
+msgctxt "system_management_action_keyword"
+msgid "logout"
+msgstr ""
+
+#: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
 msgstr "स्थगित करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:162
+#: lib/synapse-plugins/system-managment.vala:172
 msgid "Put your computer into suspend mode"
 msgstr "आपला संगणक निलंबन मोडमध्ये ठेवा"
 
-#: ../lib/synapse-plugins/system-managment.vala:232
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:175
+#, fuzzy
+msgctxt "system_management_action_keyword"
+msgid "suspend"
+msgstr "स्थगित करा"
+
+#: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
 msgstr "निष्क्रिय करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:233
+#: lib/synapse-plugins/system-managment.vala:245
 msgid "Put your computer into hibernation mode"
 msgstr "संगणकाला निष्क्रिय मोडमध्ये ठेवा"
 
-#: ../lib/synapse-plugins/system-managment.vala:302
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:248
+#, fuzzy
+msgctxt "system_management_action_keyword"
+msgid "hibernate"
+msgstr "निष्क्रिय करा"
+
+#: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
 msgstr "बंद करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:303
+#: lib/synapse-plugins/system-managment.vala:317
 msgid "Turn your computer off"
 msgstr "आपला संगणक बंद करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:360
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:320
+msgctxt "system_management_action_keyword"
+msgid "shutdown;turn off"
+msgstr ""
+
+#: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
 msgstr "पुन्हा सुरू करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:361
+#: lib/synapse-plugins/system-managment.vala:377
 msgid "Restart your computer"
 msgstr "आपला संगणक पुन्हा सुरू करा"
 
-#: ../lib/synapse-plugins/system-managment.vala:419
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:380
+msgctxt "system_management_action_keyword"
+msgid "restart;reboot"
+msgstr ""
+
+#: lib/synapse-plugins/system-managment.vala:437
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"सत्र लॉक करा किंवा त्यातून लॉग आउट करा. आपला संगणक सस्पेंड, हायबरनेट, "
-"रीस्टार्ट किंवा बंद करा."
+"सत्र लॉक करा किंवा त्यातून लॉग आउट करा. आपला संगणक सस्पेंड, हायबरनेट, रीस्टार्ट किंवा बंद "
+"करा."
 
-#: ../lib/synapse-plugins/system-managment.vala:424
+#: lib/synapse-plugins/system-managment.vala:442
 msgid "ConsoleKit wasn't found"
 msgstr "कंसोलकिट सापडली नाही"
+
+#: lib/synapse-plugins/link-plugin.vala:47
+#, c-format
+msgid "Open %s in default web browser"
+msgstr "%s डिफॉल्ट ब्राउझरमध्ये उघडा"
+
+#: lib/synapse-plugins/link-plugin.vala:52
+#, c-format
+msgid "Open %s in %s"
+msgstr "%s %s मध्ये उघडा"
+
+#: lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "ही लिंक डिफॉल्ट ब्राउझरमध्ये उघडा"
+
+#: lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "लिंक"
+
+#: lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "लिंक डिफॉल्ट ब्राउझरमध्ये उघडा"
+
+#. TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
+#: lib/synapse-plugins/appcenter-plugin.vala:55
+#, c-format
+msgid "Search for %s in %s"
+msgstr "%s मध्ये % s शोधा"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "अॅप स्टोअरवर शोधा"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "अॅपसेंटर"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "अप्लिकेशन शोधा"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "AppCenter इन्स्टॉल केलेले नाही"
 
 #~ msgid "Shift"
 #~ msgstr "Shift"
