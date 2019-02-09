@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-12 00:12+0000\n"
+"PO-Revision-Date: 2019-02-09 12:15+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ko/>\n"
@@ -218,7 +218,7 @@ msgstr "장치 잠그기"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "잠그기"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -232,7 +232,7 @@ msgstr "실행 중인 모든 애플리케이션 닫고 끝내기"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "로그아웃"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -244,7 +244,6 @@ msgstr "컴퓨터를 절전 모드로 만듭니다"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "절전모드"
@@ -259,10 +258,9 @@ msgstr "컴퓨터를 최대 절전 모드로 만듭니다"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "최대 절전 모드"
+msgstr "잠자기"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -276,7 +274,7 @@ msgstr "컴퓨터의 전원을 끕니다"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "컴퓨터 끄기;끄기"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -290,7 +288,7 @@ msgstr "컴퓨터를 다시 시작합니다"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "다시 시작;다시 시작"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
