@@ -54,7 +54,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         category_switcher.selection_changed.connect ((name, nth) => {
             string category = category_ids.get (nth);
-            show_filtered_apps (category);
+            show_filtered_apps (category_ids[nth]);
         });
 
         setup_sidebar ();
