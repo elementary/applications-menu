@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-11 12:15+0000\n"
+"PO-Revision-Date: 2019-02-10 08:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/he/>\n"
@@ -218,7 +218,7 @@ msgstr "נעילת ההתקן הזה"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "נעילה"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -232,7 +232,7 @@ msgstr "סגירת כל היישומים הפתוחים ויציאה"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "יציאה"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -244,7 +244,6 @@ msgstr "הכנסת המחשב למצב השהיה"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "השהיה"
@@ -255,14 +254,13 @@ msgstr "תרדמה"
 
 #: lib/synapse-plugins/system-managment.vala:245
 msgid "Put your computer into hibernation mode"
-msgstr "הכנסת המחשב למצב תרדמה"
+msgstr "הכנסת המחשב למצב תרדמת"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "תרדמה"
+msgstr "תרדמת"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -276,7 +274,7 @@ msgstr "כיבוי המחשב"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "כיבוי"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -290,7 +288,7 @@ msgstr "הפעלת המחשב מחדש"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "הפעלה מחדש;ריבוט;ריסטארט;אתחול"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""

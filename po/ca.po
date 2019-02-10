@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-11 14:53+0000\n"
+"PO-Revision-Date: 2019-02-10 12:58+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ca/>\n"
@@ -218,7 +218,7 @@ msgstr "Bloqueja aquest dispositiu"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "bloqueja"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -232,7 +232,7 @@ msgstr "Tanca totes les aplicacions obertes i surt"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "surt"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -244,10 +244,9 @@ msgstr "Posa el l'ordinador en mode d'aturada temporal"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Atura temporalment"
+msgstr "suspèn"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -259,10 +258,9 @@ msgstr "Posa l'ordinador en mode d'hibernació"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hiberna"
+msgstr "hiberna"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -276,7 +274,7 @@ msgstr "Atura l'ordinador"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "atura"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -290,7 +288,7 @@ msgstr "Reinicia l'ordinador"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reinicia"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""

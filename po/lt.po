@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-11 21:14+0000\n"
+"PO-Revision-Date: 2019-02-09 17:25+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/lt/>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
@@ -219,7 +219,7 @@ msgstr "Užrakinti šį įrenginį"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "užrakinti;uzrakinti;rakinti"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -233,7 +233,7 @@ msgstr "Užverti visas atvertas programas ir išeiti"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "atsijungti"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -245,10 +245,9 @@ msgstr "Įvesti kompiuterį į pristabdytą veikseną"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Pristabdyti"
+msgstr "pristabdyti;miego veiksena"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -260,10 +259,9 @@ msgstr "Įvesti kompiuterį į užmigdytą veikseną"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Užmigdyti"
+msgstr "užmigdyti"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -277,7 +275,7 @@ msgstr "Išjungti jūsų kompiuterį"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "išjungti"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -291,7 +289,7 @@ msgstr "Paleisti jūsų kompiuterį iš naujo"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "paleisti iš naujo;restartuoti;perkrauti"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
