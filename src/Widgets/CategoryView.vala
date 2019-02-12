@@ -17,30 +17,24 @@
 //
 
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
+    public SlingshotView view { get; construct; }
 
-    private Gtk.Grid container;
     public Sidebar category_switcher;
-    public Gtk.Separator separator;
     public Widgets.Grid app_view;
-    private SlingshotView view;
-
-    private const string ALL_APPLICATIONS = _("All Applications");
-    private const string NEW_FILTER = _("Create a new Filter");
-    private const string SWITCHBOARD_CATEGORY = "switchboard";
 
     private int current_position = 0;
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
-    public CategoryView (SlingshotView parent) {
-        view = parent;
+    public CategoryView (SlingshotView view) {
+        Object (view: view);
+    }
+
+    construct {
         set_visible_window (false);
         hexpand = true;
 
-        container = new Gtk.Grid ();
-        container.hexpand = true;
-        container.orientation = Gtk.Orientation.HORIZONTAL;
-        separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
         category_switcher = new Sidebar ();
 
@@ -50,12 +44,18 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
 
+        var container = new Gtk.Grid ();
+        container.hexpand = true;
+        container.orientation = Gtk.Orientation.HORIZONTAL;
         container.add (scrolled_category);
         container.add (separator);
         container.add (app_view);
         add (container);
 
-        connect_events ();
+        category_switcher.selection_changed.connect ((name, nth) => {
+            show_filtered_apps (category_ids[nth]);
+        });
+
         setup_sidebar ();
     }
 
@@ -67,7 +67,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         // Fill the sidebar
         int n = 0;
         foreach (string cat_name in view.apps.keys) {
-            if (cat_name == SWITCHBOARD_CATEGORY)
+            if (cat_name == "switchboard")
                 continue;
 
             category_ids.set (n, cat_name);
@@ -89,13 +89,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         app_view.resize (view.rows, columns);
 
         category_switcher.selected = old_selected;
-    }
-
-    private void connect_events () {
-        category_switcher.selection_changed.connect ((name, nth) => {
-            string category = category_ids.get (nth);
-            show_filtered_apps (category);
-        });
     }
 
     private void add_app (Backend.App app) {
