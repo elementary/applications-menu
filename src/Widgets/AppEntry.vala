@@ -120,7 +120,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
         overlay.add (image);
+#if HAS_PLANK
         overlay.add_overlay (badge);
+#endif
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
