@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2019-01-11 00:07+0000\n"
+"PO-Revision-Date: 2019-02-22 00:06+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
 "wingpanel/applications-menu/nb/>\n"
@@ -218,7 +218,7 @@ msgstr "Lås denne enheten"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "lås"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -232,7 +232,7 @@ msgstr "Lukk alle åpne programmer og avslutt"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "logg ut"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -276,7 +276,7 @@ msgstr "Slå av datamaskinen"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "avslutt;slå av"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -290,7 +290,7 @@ msgstr "Start datamaskinen på nytt"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "omstart;start på ny"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
