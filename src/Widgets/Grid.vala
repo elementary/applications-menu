@@ -17,7 +17,6 @@
 //
 
 namespace Slingshot.Widgets {
-
     struct Page {
         public uint rows;
         public uint columns;
@@ -25,41 +24,38 @@ namespace Slingshot.Widgets {
     }
 
     public class Grid : Gtk.Box {
-
-        public int focused_column { get; private set; }
-        public int focused_row { get; private set; }
-
-        public Gtk.Widget? focused_widget { get; private set; }
-        
-        public Widgets.Switcher page_switcher;
         public Gtk.Stack stack;
-        private Gtk.Grid current_grid;
-        private Gee.HashMap<int, Gtk.Grid> grids;
 
+        private Gtk.Grid current_grid;
+        private Gtk.Widget? focused_widget;
+        private Gee.HashMap<int, Gtk.Grid> grids;
+        private Page page;
+        private Widgets.Switcher page_switcher;
+
+        private int focused_column;
+        private int focused_row;
         private uint current_row = 0;
         private uint current_col = 0;
-
-        private Page page;
 
         public Grid (int rows, int columns) {
             page.rows = rows;
             page.columns = columns;
             page.number = 1;
+
+            stack = new Gtk.Stack ();
+            stack.expand = true;
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
+            page_switcher = new Widgets.Switcher ();
+            page_switcher.set_stack (stack);
+
             var main_grid = new Gtk.Grid ();
             main_grid.orientation = Gtk.Orientation.VERTICAL;
             main_grid.row_spacing = 6;
             main_grid.margin_bottom = 12;
-            stack = new Gtk.Stack ();
-            stack.expand = true;
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            page_switcher = new Widgets.Switcher ();
-            page_switcher.set_stack (stack);
-            var fake_grid = new Gtk.Grid ();
-            fake_grid.expand = true;
-
             main_grid.add (stack);
-            main_grid.add (fake_grid);
             main_grid.add (page_switcher);
+
             add (main_grid);
 
             grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
