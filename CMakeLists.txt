@@ -14,7 +14,7 @@ set (DATADIR "${CMAKE_INSTALL_FULL_LIBDIR}/wingpanel")
 set (PKGDATADIR "${DATADIR}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Donatello")
-set (VERSION "2.4.0")
+set (VERSION "2.4.2")
 set (VERSION_INFO "Release")
 set (CMAKE_C_FLAGS "-ggdb")
 
@@ -54,7 +54,7 @@ add_definitions (-w)
 find_package (PkgConfig)
 
 # Check for Vala
- 
+
 pkg_check_modules(PLANK011 QUIET plank>=0.10.9)
 if (PLANK011_FOUND)
   set (PLANK_DEPS plank)
@@ -68,7 +68,7 @@ else ()
 endif ()
 
 set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};${PLANK_DEPS};appstream>=0.10.0;")
-set (UI_DEPS "wingpanel-2.0;gtk+-3.0>=3.12.0;granite>=0.5;${ZEITGEIST_DEPS};")
+set (UI_DEPS "wingpanel-2.0;gtk+-3.0>=3.12.0;granite>=5.2.1;${ZEITGEIST_DEPS};")
 
 pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
 
@@ -95,7 +95,7 @@ file (GLOB resources "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
 
 # Settings schema
 include (GSettings)
-add_schema ("io.elementary.desktop.wingpanel.applications-menu.gschema.xml")
+add_schema ("data/io.elementary.desktop.wingpanel.applications-menu.gschema.xml")
 
 # Directories
 add_subdirectory (lib/synapse-core)

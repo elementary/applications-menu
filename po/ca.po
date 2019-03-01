@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:41-0700\n"
-"PO-Revision-Date: 2018-10-23 19:04+0000\n"
+"POT-Creation-Date: 2019-02-08 16:01-0800\n"
+"PO-Revision-Date: 2019-02-10 12:58+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/ca/>\n"
@@ -20,287 +20,277 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: ../src/Backend/App.vala:87
-msgid "Run this command…"
-msgstr "Executa aquesta ordre…"
-
-#: ../src/Slingshot.vala:35
+#: src/Slingshot.vala:35
 msgid "Slingshot"
 msgstr "Slingshot"
 
-#: ../src/Slingshot.vala:36
+#: src/Slingshot.vala:36
 msgid "The app-menu indicator"
 msgstr "L'indicador de menú d'aplicacions"
 
-#: ../src/Slingshot.vala:85 ../src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
 msgid "Applications"
 msgstr "Aplicacions"
 
-#: ../src/Slingshot.vala:118
-msgid "Open and search apps (%s)"
-msgstr "Cerqueu i obriu aplicacions (%s)"
+#: src/Slingshot.vala:120
+msgid "Open and search apps"
+msgstr "Cerqueu i obriu aplicacions"
 
-#: ../src/Slingshot.vala:138
-msgid "Shift"
-msgstr "Maj."
-
-#: ../src/Slingshot.vala:142
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: ../src/Slingshot.vala:146
-msgid "Alt"
-msgstr "Alt"
-
-#: ../src/SlingshotView.vala:160
+#: src/SlingshotView.vala:160
 msgid "View as Grid"
 msgstr "Visualitza com a graella"
 
-#: ../src/SlingshotView.vala:164
+#: src/SlingshotView.vala:164
 msgid "View by Category"
 msgstr "Visualitza per categories"
 
-#: ../src/SlingshotView.vala:173
+#: src/SlingshotView.vala:173
 msgid "Search Apps"
 msgstr "Cerca aplicacions"
 
-#: ../src/Widgets/AppEntry.vala:231
+#: src/Backend/App.vala:87
+msgid "Run this command…"
+msgstr "Executa aquesta ordre…"
+
+#: src/Widgets/AppEntry.vala:232
 msgid "Uninstall"
 msgstr "Desinstal·la"
 
-#: ../src/Widgets/AppEntry.vala:258
+#: src/Widgets/AppEntry.vala:259
 msgid "Remove from _Dock"
 msgstr "Suprimeix de l'acobla_dor"
 
-#: ../src/Widgets/AppEntry.vala:260
+#: src/Widgets/AppEntry.vala:261
 msgid "Add to _Dock"
 msgstr "Afegeix a l'acobla_dor"
 
-#: ../src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Totes les aplicacions"
-
-#: ../src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Crea un filtre nou"
-
-#: ../src/Widgets/SearchView.vala:138
+#. alert view
+#: src/Widgets/SearchView.vala:138
 msgid "Try changing search terms."
 msgstr "Proveu de canviar els termes de la cerca."
 
-#: ../src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:182
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
 
-#: ../src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:247
 msgid "Text"
 msgstr "Text"
 
-#: ../src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:253
 msgid "Files"
 msgstr "Fitxers"
 
-#: ../src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:257
 msgid "Actions"
 msgstr "Accions"
 
-#: ../src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:260
 msgid "Search"
 msgstr "Cerca"
 
-#: ../src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:263
 msgid "Contacts"
 msgstr "Contactes"
 
-#: ../src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:266
 msgid "Internet"
 msgstr "Internet"
 
-#: ../src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:269
 msgid "Settings"
 msgstr "Configuració"
 
-#: ../src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:272
 msgid "Application Actions"
 msgstr "Accions de l'aplicació"
 
-#: ../src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:275
 msgid "Other"
 msgstr "Altres"
 
-#: ../lib/synapse-core/common-actions.vala:65
+#: src/Widgets/CategoryView.vala:27
+msgid "All Applications"
+msgstr "Totes les aplicacions"
+
+#: src/Widgets/CategoryView.vala:28
+msgid "Create a new Filter"
+msgstr "Crea un filtre nou"
+
+#: lib/synapse-core/common-actions.vala:65
 msgid "Run"
 msgstr "Executa"
 
-#: ../lib/synapse-core/common-actions.vala:66
+#: lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
 msgstr "Executa una aplicació, una acció o un script"
 
-#: ../lib/synapse-core/common-actions.vala:110
+#: lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
 msgstr "Executa en un terminal"
 
-#: ../lib/synapse-core/common-actions.vala:111
+#: lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
 msgstr "Executa l'aplicació o l'ordre en un terminal"
 
-#: ../lib/synapse-core/common-actions.vala:150
+#: lib/synapse-core/common-actions.vala:150
 msgid "Open"
 msgstr "Obre"
 
-#: ../lib/synapse-core/common-actions.vala:151
+#: lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
 msgstr "Obre amb l'aplicació per defecte"
 
-#: ../lib/synapse-core/common-actions.vala:201
+#: lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
 msgstr "Obre la carpeta"
 
-#: ../lib/synapse-core/common-actions.vala:202
+#: lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
 msgstr "Obre la carpeta que conté aquest fitxer"
 
-#: ../lib/synapse-core/common-actions.vala:238
+#: lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
 msgstr "Copia al porta-retalls"
 
-#: ../lib/synapse-core/common-actions.vala:239
+#: lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
 msgstr "Copia la selecció al porta-retalls"
 
-#: ../lib/synapse-plugins/appcenter-plugin.vala:55
-msgid "Search for %s in %s"
-msgstr "Cerca %s a %s"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:61
-msgid "Search the app store"
-msgstr "Cerca a la botiga d'aplicacions"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:95
-msgid "AppCenter"
-msgstr "Centre d'aplicacions"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "Search for applications"
-msgstr "Cerca aplicacions"
-
-#: ../lib/synapse-plugins/appcenter-plugin.vala:100
-msgid "AppCenter is not installed"
-msgstr "El Centre d'aplicacions no està instal·lat."
-
-#: ../lib/synapse-plugins/calculator-plugin.vala:51
+#: lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
 msgstr "Calculadora"
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:52
+#: lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
 msgstr "Calcula expressions bàsiques."
 
-#: ../lib/synapse-plugins/calculator-plugin.vala:56
+#: lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
 msgstr "El bc no està instal·lat"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
+#: lib/synapse-plugins/command-plugin.vala:47
+#, c-format
 msgid "Execute '%s'"
 msgstr "Executa «%s»"
 
-#: ../lib/synapse-plugins/command-plugin.vala:47
+#: lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
 msgstr "Executa una ordre"
 
-#: ../lib/synapse-plugins/command-plugin.vala:63
+#: lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
 msgstr "Trobeu i executeu ordres arbitràries."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:127
+#: lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
 msgstr "Cerqueu i executeu aplicacions l'ordinador."
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:333
+#: lib/synapse-plugins/desktop-file-plugin.vala:333
+#, c-format
 msgid "Open with %s"
 msgstr "Obre amb %s"
 
-#: ../lib/synapse-plugins/desktop-file-plugin.vala:335
+#: lib/synapse-plugins/desktop-file-plugin.vala:335
+#, c-format
 msgid "Opens current selection using %s"
 msgstr "Obre la selecció actual amb %s"
 
-#: ../lib/synapse-plugins/link-plugin.vala:47
-msgid "Open %s in default web browser"
-msgstr "Obre %s al navegador per defecte"
-
-#: ../lib/synapse-plugins/link-plugin.vala:52
-msgid "Open %s in %s"
-msgstr "Obre %s amb %s"
-
-#: ../lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "Obre aquest enllaç amb el navegador per defecte"
-
-#: ../lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "Enllaç"
-
-#: ../lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "Obre l'enllaç al navegador per defecte"
-
-#: ../lib/synapse-plugins/switchboard-plugin.vala:46
+#: lib/synapse-plugins/switchboard-plugin.vala:46
+#, c-format
 msgid "Open %s settings"
 msgstr "Obre els paràmetres de %s"
 
-#: ../lib/synapse-plugins/switchboard-plugin.vala:62
+#: lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
 msgstr "Troba interruptors i obre'ls."
 
-#: ../lib/synapse-plugins/system-managment.vala:107
+#: lib/synapse-plugins/system-managment.vala:113
 msgid "Lock"
 msgstr "Bloqueja"
 
-#: ../lib/synapse-plugins/system-managment.vala:108
+#: lib/synapse-plugins/system-managment.vala:114
 msgid "Lock this device"
 msgstr "Bloqueja aquest dispositiu"
 
-#: ../lib/synapse-plugins/system-managment.vala:134
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:117
+msgctxt "system_management_action_keyword"
+msgid "lock"
+msgstr "bloqueja"
+
+#: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
 msgstr "Surt"
 
-#: ../lib/synapse-plugins/system-managment.vala:135
+#: lib/synapse-plugins/system-managment.vala:143
 msgid "Close all open applications and quit"
 msgstr "Tanca totes les aplicacions obertes i surt"
 
-#: ../lib/synapse-plugins/system-managment.vala:161
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:146
+msgctxt "system_management_action_keyword"
+msgid "logout"
+msgstr "surt"
+
+#: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
 msgstr "Atura temporalment"
 
-#: ../lib/synapse-plugins/system-managment.vala:162
+#: lib/synapse-plugins/system-managment.vala:172
 msgid "Put your computer into suspend mode"
 msgstr "Posa el l'ordinador en mode d'aturada temporal"
 
-#: ../lib/synapse-plugins/system-managment.vala:232
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:175
+msgctxt "system_management_action_keyword"
+msgid "suspend"
+msgstr "suspèn"
+
+#: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
 msgstr "Hiberna"
 
-#: ../lib/synapse-plugins/system-managment.vala:233
+#: lib/synapse-plugins/system-managment.vala:245
 msgid "Put your computer into hibernation mode"
 msgstr "Posa l'ordinador en mode d'hibernació"
 
-#: ../lib/synapse-plugins/system-managment.vala:302
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:248
+msgctxt "system_management_action_keyword"
+msgid "hibernate"
+msgstr "hiberna"
+
+#: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
 msgstr "Atura"
 
-#: ../lib/synapse-plugins/system-managment.vala:303
+#: lib/synapse-plugins/system-managment.vala:317
 msgid "Turn your computer off"
 msgstr "Atura l'ordinador"
 
-#: ../lib/synapse-plugins/system-managment.vala:360
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:320
+msgctxt "system_management_action_keyword"
+msgid "shutdown;turn off"
+msgstr "atura"
+
+#: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
 msgstr "Reinicia"
 
-#: ../lib/synapse-plugins/system-managment.vala:361
+#: lib/synapse-plugins/system-managment.vala:377
 msgid "Restart your computer"
 msgstr "Reinicia l'ordinador"
 
-#: ../lib/synapse-plugins/system-managment.vala:419
+#. ; seperated list of keywords
+#: lib/synapse-plugins/system-managment.vala:380
+msgctxt "system_management_action_keyword"
+msgid "restart;reboot"
+msgstr "reinicia"
+
+#: lib/synapse-plugins/system-managment.vala:437
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
@@ -308,6 +298,59 @@ msgstr ""
 "Bloqueja la sessió o sortiu-ne. Atureu temporalment, hiberneu, reinicieu o "
 "atureu l'ordinador."
 
-#: ../lib/synapse-plugins/system-managment.vala:424
+#: lib/synapse-plugins/system-managment.vala:442
 msgid "ConsoleKit wasn't found"
 msgstr "No s'ha trobat ConsoleKit"
+
+#: lib/synapse-plugins/link-plugin.vala:47
+#, c-format
+msgid "Open %s in default web browser"
+msgstr "Obre %s al navegador per defecte"
+
+#: lib/synapse-plugins/link-plugin.vala:52
+#, c-format
+msgid "Open %s in %s"
+msgstr "Obre %s amb %s"
+
+#: lib/synapse-plugins/link-plugin.vala:58
+msgid "Open this link in default browser"
+msgstr "Obre aquest enllaç amb el navegador per defecte"
+
+#: lib/synapse-plugins/link-plugin.vala:80
+msgid "Link"
+msgstr "Enllaç"
+
+#: lib/synapse-plugins/link-plugin.vala:81
+msgid "Open link in default browser"
+msgstr "Obre l'enllaç al navegador per defecte"
+
+#. TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
+#: lib/synapse-plugins/appcenter-plugin.vala:55
+#, c-format
+msgid "Search for %s in %s"
+msgstr "Cerca %s a %s"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:61
+msgid "Search the app store"
+msgstr "Cerca a la botiga d'aplicacions"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:95
+msgid "AppCenter"
+msgstr "Centre d'aplicacions"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:96
+msgid "Search for applications"
+msgstr "Cerca aplicacions"
+
+#: lib/synapse-plugins/appcenter-plugin.vala:100
+msgid "AppCenter is not installed"
+msgstr "El Centre d'aplicacions no està instal·lat."
+
+#~ msgid "Shift"
+#~ msgstr "Maj."
+
+#~ msgid "Ctrl"
+#~ msgstr "Ctrl"
+
+#~ msgid "Alt"
+#~ msgstr "Alt"
