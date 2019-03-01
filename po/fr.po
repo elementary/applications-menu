@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2019-01-14 00:11+0000\n"
+"PO-Revision-Date: 2019-02-16 18:13+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://weblate.elementary.io/projects/wingpanel/"
 "applications-menu/fr/>\n"
@@ -218,7 +218,7 @@ msgstr "Verrouiller ce périphérique"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "verrouiller"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -232,7 +232,7 @@ msgstr "Fermer toutes les applications et quitter"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "se déconnecter"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -244,10 +244,9 @@ msgstr "Mettre votre ordinateur en veille"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Mettre en veille"
+msgstr "mettre en veille"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -259,10 +258,9 @@ msgstr "Mettre votre ordinateur en veille prolongée"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hiberner"
+msgstr "mettre en veille prolongée"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -276,7 +274,7 @@ msgstr "Éteindre votre ordinateur"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "éteindre"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -290,7 +288,7 @@ msgstr "Redémarrer votre ordinateur"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "redémarrer"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
