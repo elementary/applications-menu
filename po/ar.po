@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-22 00:09+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
-"Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2019-03-12 15:27+0000\n"
+"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
@@ -36,7 +36,7 @@ msgstr "التطبيقات"
 
 #: src/Slingshot.vala:120
 msgid "Open and search apps"
-msgstr "إفتح وإبحث عن التطبيقات"
+msgstr "إفتح و إبحث عن التطبيقات"
 
 #: src/SlingshotView.vala:160
 msgid "View as Grid"
