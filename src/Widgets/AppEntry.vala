@@ -120,7 +120,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
         overlay.add (image);
+#if HAS_PLANK
         overlay.add_overlay (badge);
+#endif
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
@@ -274,8 +276,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         else
             plank_client.add_item (desktop_uri);
     }
-#endif
 
+#if HAS_PLANK_0_11
     private void update_badge_count () {
         badge.label = "%lld".printf (application.current_count);
         update_badge_visibility ();
@@ -290,6 +292,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             badge.hide ();
         }
     }
+#endif
+#endif
 
     private void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {

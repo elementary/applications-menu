@@ -5,5 +5,5 @@ install_data(
 
 install_data(
     'pantheon-applications.menu',
-    install_dir:join_paths('/etc', 'xdg', 'menus')
+    install_dir: join_paths(get_option('sysconfdir'), 'xdg', 'menus')
 )
