@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2019-04-05 21:52+0000\n"
+"PO-Revision-Date: 2019-04-06 22:53+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -312,19 +312,19 @@ msgstr "%s adresini varsayılan web tarayıcısında aç"
 #: lib/synapse-plugins/link-plugin.vala:52
 #, c-format
 msgid "Open %s in %s"
-msgstr "%s adresini %s içinde aç"
+msgstr "%s adresini %s ile aç"
 
 #: lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr "Bu linki varsayılan tarayıcıda aç"
+msgstr "Bu bağlantıyı varsayılan tarayıcıda aç"
 
 #: lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr "Link"
+msgstr "Bağlantı"
 
 #: lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr "Linki varsayılan tarayıcıda aç"
+msgstr "Bağlantıyı varsayılan tarayıcıda aç"
 
 #. TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
 #: lib/synapse-plugins/appcenter-plugin.vala:55
