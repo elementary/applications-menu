@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2019-04-06 22:53+0000\n"
+"PO-Revision-Date: 2019-04-10 20:53+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -34,7 +34,7 @@ msgstr "Uygulamalar"
 
 #: src/Slingshot.vala:120
 msgid "Open and search apps"
-msgstr "Uygulamaları ara ve aç"
+msgstr "Uygulama açın ve arayın"
 
 #: src/SlingshotView.vala:160
 msgid "View as Grid"
@@ -124,7 +124,7 @@ msgstr "Çalıştır"
 
 #: lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
-msgstr "Uygulama, eylem veya betik çalıştır"
+msgstr "Bir uygulama, eylem veya betik çalıştırın"
 
 #: lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
@@ -132,7 +132,7 @@ msgstr "Terminal'de Çalıştır"
 
 #: lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr "Terminalde uygulama veya komut çalıştır"
+msgstr "Terminalde uygulamayı veya komutu çalıştırın"
 
 #: lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -144,11 +144,11 @@ msgstr "Varsayılan uygulama ile aç"
 
 #: lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr "Dizini aç"
+msgstr "Klasörü aç"
 
 #: lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr "Bu dosyayı içeren dizini aç"
+msgstr "Bu dosyayı içeren klasörü aç"
 
 #: lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
@@ -173,7 +173,7 @@ msgstr "bc kurulu değil"
 #: lib/synapse-plugins/command-plugin.vala:47
 #, c-format
 msgid "Execute '%s'"
-msgstr "'%s' dosyasını çalıştır"
+msgstr "'%s' komutunu çalıştır"
 
 #: lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
@@ -181,7 +181,7 @@ msgstr "Komut çalıştır"
 
 #: lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr "Seçmeli komutları bul ve çalıştır."
+msgstr "İsteğe bağlı komutları bulun ve çalıştırın."
 
 #: lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
@@ -200,15 +200,15 @@ msgstr "Seçili ögeyi %s kullanarak açar"
 #: lib/synapse-plugins/switchboard-plugin.vala:46
 #, c-format
 msgid "Open %s settings"
-msgstr "%s Ayarlarını Aç"
+msgstr "%s ayarlarını aç"
 
 #: lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr "Switchboard eklentilerini bul ve hepsini aç."
+msgstr "Switchboard eklentilerini bulun ve açın."
 
 #: lib/synapse-plugins/system-managment.vala:113
 msgid "Lock"
-msgstr "Kilit"
+msgstr "Kilitle"
 
 #: lib/synapse-plugins/system-managment.vala:114
 msgid "Lock this device"
@@ -218,21 +218,21 @@ msgstr "Bu cihazı kilitle"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "lock;kilitle;kilit"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
-msgstr "Çıkış Yap"
+msgstr "Oturumu Kapat"
 
 #: lib/synapse-plugins/system-managment.vala:143
 msgid "Close all open applications and quit"
-msgstr "Açık uygulamaları kapatın ve çıkın"
+msgstr "Tüm açık uygulamaları kapatın ve çıkın"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "logout;oturumu kapat;çık"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -240,29 +240,27 @@ msgstr "Askıya Al"
 
 #: lib/synapse-plugins/system-managment.vala:172
 msgid "Put your computer into suspend mode"
-msgstr "Bilgisayarı Askıya Al"
+msgstr "Bilgisayarınızı askıya alın"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Askıya Al"
+msgstr "suspend;askıya al"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
-msgstr "Uyku Modu"
+msgstr "Hazırda Beklet"
 
 #: lib/synapse-plugins/system-managment.vala:245
 msgid "Put your computer into hibernation mode"
-msgstr "Bilgisayarı Uyku Moduna Al"
+msgstr "Bilgisayarınızı hazırda bekletme moduna alın"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Uyku Modu"
+msgstr "hibernate;hazırda beklet"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -270,13 +268,13 @@ msgstr "Bilgisayarı Kapat"
 
 #: lib/synapse-plugins/system-managment.vala:317
 msgid "Turn your computer off"
-msgstr "Bilgisayarı Kapat"
+msgstr "Bilgisayarınızı kapatın"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "shutdown;turn off;bilgisayarı kapat;gücü kapat;kapat"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -284,20 +282,20 @@ msgstr "Yeniden Başlat"
 
 #: lib/synapse-plugins/system-managment.vala:377
 msgid "Restart your computer"
-msgstr "Bilgisayarı yeniden başlat"
+msgstr "Bilgisayarınızı yeniden başlatın"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "restart;reboot;yeniden başlat"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"Oturumu kilitleyin veya oturumdan çıkın. Bilgisayarınızı askıya alın, "
+"Oturumu kilitleyin veya oturumu kapatın. Bilgisayarınızı askıya alın, "
 "hazırda bekletin, yeniden başlatın veya kapatın."
 
 #: lib/synapse-plugins/system-managment.vala:442
