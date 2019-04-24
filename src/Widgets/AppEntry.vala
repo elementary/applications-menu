@@ -120,7 +120,9 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
         overlay.add (image);
+#if HAS_PLANK
         overlay.add_overlay (badge);
+#endif
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
@@ -171,6 +173,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         var appcenter = Backend.AppCenter.get_default ();
         appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed (appcenter));
+        on_appcenter_dbus_changed (appcenter);
     }
 
     public override void get_preferred_width (out int minimum_width, out int natural_width) {
@@ -242,7 +245,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 
         try {
             appcenter.dbus.uninstall (appstream_comp_id);
-        } catch (IOError e) {
+        } catch (GLib.Error e) {
             warning (e.message);
         }
     }
@@ -273,8 +276,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         else
             plank_client.add_item (desktop_uri);
     }
-#endif
 
+#if HAS_PLANK_0_11
     private void update_badge_count () {
         badge.label = "%lld".printf (application.current_count);
         update_badge_visibility ();
@@ -289,12 +292,14 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             badge.hide ();
         }
     }
+#endif
+#endif
 
     private void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {
             try {
                 appstream_comp_id = appcenter.dbus.get_component_from_desktop_id (desktop_id);
-            } catch (IOError e) {
+            } catch (GLib.Error e) {
                 warning (e.message);
             }
         } else {

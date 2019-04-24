@@ -53,14 +53,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (view == null) {
-            if (keybinding_settings != null) {
-                keybinding_settings.changed.connect ((key) => {
-                    if (key == "panel-main-menu") {
-                        update_tooltip ();
-                    }
-                });
-            }
-
             settings = new Settings ();
 
             view = new SlingshotView ();
@@ -91,6 +83,14 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
             indicator_grid.attach (indicator_label, 1, 0, 1, 1);
             update_tooltip ();
+
+            if (keybinding_settings != null) {
+                keybinding_settings.changed.connect ((key) => {
+                    if (key == "panel-main-menu") {
+                        update_tooltip ();
+                    }
+                });
+            }
         }
 
         visible = true;
@@ -108,69 +108,24 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        if (keybinding_settings == null || indicator_grid == null) {
-            return;
+        string[] accels = {};
+
+        if (keybinding_settings != null && indicator_grid != null) {
+            var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
+            foreach (string raw_accel in raw_accels) {
+                if (raw_accel != "") accels += raw_accel;
+            }
         }
 
-        string[] accels = keybinding_settings.get_strv ("panel-main-menu");
-        if (accels.length > 0) {
-            string shortcut = accel_to_string (accels[0]);
-            indicator_grid.tooltip_text = (_("Open and search apps (%s)").printf (shortcut));
-        }
+        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
     }
-
-    private static string accel_to_string (string accel) {
-        string[] keys = parse_accelerator (accel);
-        return string.joinv (" + ", keys);
-    }
-
-    private static string[] parse_accelerator (string accel) {
-        uint accel_key;
-        Gdk.ModifierType accel_mods;
-        Gtk.accelerator_parse (accel, out accel_key, out accel_mods);
-
-        string[] arr = {};
-        if (Gdk.ModifierType.SUPER_MASK in accel_mods) {
-            arr += "⌘";
-        }
-
-        if (Gdk.ModifierType.SHIFT_MASK in accel_mods) {
-            arr += _("Shift");
-        }
-
-        if (Gdk.ModifierType.CONTROL_MASK in accel_mods) {
-            arr += _("Ctrl");
-        }
-
-        if (Gdk.ModifierType.MOD1_MASK in accel_mods) {
-            arr += _("Alt");
-        }
-
-        switch (accel_key) {
-            case Gdk.Key.Up:
-                arr += "↑";
-                break;
-            case Gdk.Key.Down:
-                arr += "↓";
-                break;
-            case Gdk.Key.Left:
-                arr += "←";
-                break;
-            case Gdk.Key.Right:
-                arr += "→";
-                break;
-            default:
-                arr += Gtk.accelerator_get_label (accel_key, 0);
-                break;
-         }
-
-        return arr;
-    }    
 }
 
-public Wingpanel.Indicator get_indicator (Module module) {
+public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Slingshot");
+    if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER){
+        return null;
+    }
     var indicator = new Slingshot.Slingshot ();
     return indicator;
 }
-

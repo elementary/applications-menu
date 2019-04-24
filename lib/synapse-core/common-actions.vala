@@ -183,10 +183,10 @@ namespace Synapse {
                 }
             }
 
-            private Regex web_uri;
-            private Regex file_path;
+            private static Regex web_uri;
+            private static Regex file_path;
 
-            construct {
+            static construct {
                 try {
                     web_uri = new Regex ("^(ftp|http(s)?)://[^.]+\\.[^.]+", RegexCompileFlags.OPTIMIZE);
                     file_path = new Regex ("^(/|~/)[^/]+", RegexCompileFlags.OPTIMIZE);
@@ -331,7 +331,7 @@ namespace Synapse {
             var f = File.new_for_uri (uri);
             try {
                 var app_info = f.query_default_handler (null);
-                List<File> files = new List<File> ();
+                var files = new GLib.List<File> ();
                 files.prepend (f);
                 var display = Gdk.Display.get_default ();
                 app_info.launch (files, display.get_app_launch_context ());
