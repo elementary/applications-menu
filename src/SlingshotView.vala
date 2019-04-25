@@ -758,9 +758,10 @@ namespace Slingshot {
             }
 
             int pages = grid_view.get_n_pages ();
+            int current = grid_view.get_current_page ();
             int columns = grid_view.get_page_columns ();
 
-            if (delta_column > 0 && grid_view.set_focus ((pages - 1) * columns, 0)) {
+            if (delta_column > 0 && current < pages && grid_view.set_focus ((pages - 1) * columns, 0)) {
                 return;
             }
 
