@@ -44,7 +44,7 @@ namespace Synapse {
 
             public Result (string link) {
                 uri = link;
-                string _title = _("Open %s in default web browser".printf (uri));
+                string _title = _("Open %s in default web browser").printf (uri);
                 string _icon_name = "web-browser";
 
                 appinfo = AppInfo.get_default_for_type ("x-scheme-handler/http", false);
