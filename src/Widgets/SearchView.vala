@@ -79,21 +79,25 @@ namespace Slingshot.Widgets {
             list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
             list_box.set_selection_mode (Gtk.SelectionMode.BROWSE);
             list_box.row_activated.connect ((row) => {
-                var search_item = row as SearchItem;
-                if (!dragging) {
-                    switch (search_item.result_type) {
-                        case SearchItem.ResultType.APP_ACTIONS:
-                        case SearchItem.ResultType.LINK:
-                        case SearchItem.ResultType.SETTINGS:
-                            search_item.app.match.execute (null);    
-                            break;
-                        default:
-                            search_item.app.launch ();
-                            break;
+                Idle.add (() => {
+                    var search_item = row as SearchItem;
+                    if (!dragging) {
+                        switch (search_item.result_type) {
+                            case SearchItem.ResultType.APP_ACTIONS:
+                            case SearchItem.ResultType.LINK:
+                            case SearchItem.ResultType.SETTINGS:
+                                search_item.app.match.execute (null);    
+                                break;
+                            default:
+                                search_item.app.launch ();
+                                break;
+                        }
+
+                        app_launched ();
                     }
 
-                    app_launched ();
-                }
+                    return false;
+                });
             });
 
             // Drag support
