@@ -114,13 +114,15 @@ namespace Slingshot.Widgets {
             list_box.drag_begin.connect ( (ctx) => {
                 var sr = list_box.get_selected_rows ();
                 if (sr.length () > 0) {
+                    dragging = true;
+
                     var di = (SearchItem)(sr.first ().data);
                     drag_uri = di.app_uri;
                     if (drag_uri != null) {
-                        dragging = true;
                         Gtk.drag_set_icon_gicon (ctx, di.icon.gicon, 16, 16);
-                        app_launched ();
                     }
+
+                    app_launched ();
                 }
             });
 
