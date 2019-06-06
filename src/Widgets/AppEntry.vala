@@ -172,8 +172,8 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
         app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
 
         var appcenter = Backend.AppCenter.get_default ();
-        appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed (appcenter));
-        on_appcenter_dbus_changed (appcenter);
+        appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
+        on_appcenter_dbus_changed.begin (appcenter);
     }
 
     public override void get_preferred_width (out int minimum_width, out int natural_width) {
@@ -243,11 +243,13 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             return;
         }
 
-        try {
-            appcenter.dbus.uninstall (appstream_comp_id);
-        } catch (GLib.Error e) {
-            warning (e.message);
-        }
+        appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
+            try {
+                appcenter.dbus.uninstall.end (res);
+            } catch (GLib.Error e) {
+                warning (e.message);
+            }
+        });
     }
 
 #if HAS_PLANK
@@ -295,10 +297,10 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
 #endif
 #endif
 
-    private void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
+    private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {
             try {
-                appstream_comp_id = appcenter.dbus.get_component_from_desktop_id (desktop_id);
+                appstream_comp_id = yield appcenter.dbus.get_component_from_desktop_id (desktop_id);
             } catch (GLib.Error e) {
                 warning (e.message);
             }
