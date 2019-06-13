@@ -32,6 +32,7 @@ zeitgeist_dep = dependency('zeitgeist-2.0')
 switchboard_dep = dependency('switchboard-2.0')
 libgnome_menu_dep = dependency('libgnome-menu-3.0')
 wingpanel_dep = dependency('wingpanel-2.0', version: '>=2.1.0')
+wnck_dep = dependency('libwnck-3.0', required: true)
 
 unity_dep = []
 

@@ -271,6 +271,9 @@ namespace Slingshot.Widgets {
                 case SearchItem.ResultType.INTERNET:
                     label = _("Internet");
                     break;
+                case SearchItem.ResultType.WINDOW:
+                    label = _("Windows");
+                    break;
                 case SearchItem.ResultType.SETTINGS:
                     label = _("Settings");
                     break;

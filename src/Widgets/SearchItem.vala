@@ -26,6 +26,7 @@ namespace Slingshot.Widgets {
             ACTION,
             SEARCH,
             CONTACT,
+            WINDOW,
             INTERNET,
             SETTINGS,
             APP_ACTIONS,

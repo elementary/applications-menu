@@ -5,7 +5,8 @@ synapse_plugins_sources = [
     'switchboard-plugin.vala',
     'system-managment.vala',
     'link-plugin.vala',
-    'appcenter-plugin.vala'
+    'appcenter-plugin.vala',
+    'window-switcher-plugin.vala'
     ]
 
 synapse_plugins_deps = [
@@ -15,14 +16,16 @@ synapse_plugins_deps = [
     gee_dep,
     gtk_dep,
     switchboard_dep,
-    synapse_core_dep
+    synapse_core_dep,
+    wnck_dep
 ]
+
 
 synapse_plugins = static_library('synapse-plugins',
                         synapse_plugins_sources,
                         link_with: synapse_core,
                         dependencies: synapse_plugins_deps,
-                        c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
+                        c_args : ['-DGMENU_I_KNOW_THIS_IS_UNSTABLE','-DWNCK_I_KNOW_THIS_IS_UNSTABLE'],
                         install : true)
 
 synapse_plugins_dep = declare_dependency(

@@ -27,7 +27,8 @@ namespace Slingshot.Backend {
             typeof (Synapse.SwitchboardPlugin),
             typeof (Synapse.SystemManagementPlugin),
             typeof (Synapse.LinkPlugin),
-            typeof (Synapse.AppcenterPlugin)
+            typeof (Synapse.AppcenterPlugin),
+            typeof (Synapse.WindowSwitcherPlugin)
         };
 
         private static Synapse.DataSink? sink = null;
