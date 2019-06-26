@@ -1,28 +1,20 @@
-# Kurdish translation for slingshot
-# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
-# This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 23:17+0200\n"
-"PO-Revision-Date: 2018-02-11 00:08+0000\n"
-"Last-Translator: Rokar <mail@rokar.de>\n"
-"Language-Team: Kurdish <https://weblate.elementary.io/projects/wingpanel/"
-"applications-menu/ku/>\n"
-"Language: ku\n"
+"PO-Revision-Date: 2019-06-26 18:53+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: szl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
-"X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: src/Slingshot.vala:35
 msgid "Slingshot"
-msgstr "slingshot"
+msgstr ""
 
 #: src/Slingshot.vala:36
 msgid "The app-menu indicator"
@@ -30,7 +22,7 @@ msgstr ""
 
 #: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
-msgstr "Bername"
+msgstr ""
 
 #: src/Slingshot.vala:120
 msgid "Open and search apps"
@@ -46,7 +38,7 @@ msgstr ""
 
 #: src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "bername lê bigere"
+msgstr ""
 
 #: src/Backend/App.vala:87
 msgid "Run this command…"
@@ -76,31 +68,31 @@ msgstr ""
 
 #: src/Widgets/SearchView.vala:253
 msgid "Text"
-msgstr "Nivîs"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:259
 msgid "Files"
-msgstr "Dosya"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:263
 msgid "Actions"
-msgstr "Tevger"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:266
 msgid "Search"
-msgstr "Lê bigere"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:269
 msgid "Contacts"
-msgstr "Têkilî"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:272
 msgid "Internet"
-msgstr "Tor"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:275
 msgid "Settings"
-msgstr "Mîheng"
+msgstr ""
 
 #: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
@@ -108,11 +100,11 @@ msgstr ""
 
 #: src/Widgets/SearchView.vala:281
 msgid "Other"
-msgstr "Wekî Din"
+msgstr ""
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr "Bixebitîne"
+msgstr ""
 
 #: lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
@@ -128,7 +120,7 @@ msgstr ""
 
 #: lib/synapse-core/common-actions.vala:150
 msgid "Open"
-msgstr "Veke"
+msgstr ""
 
 #: lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
@@ -136,7 +128,7 @@ msgstr ""
 
 #: lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr "Peldankê veke"
+msgstr ""
 
 #: lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
@@ -152,7 +144,7 @@ msgstr ""
 
 #: lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
-msgstr "Makîneya Hesaban"
+msgstr ""
 
 #: lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
@@ -165,7 +157,7 @@ msgstr ""
 #: lib/synapse-plugins/command-plugin.vala:47
 #, c-format
 msgid "Execute '%s'"
-msgstr "'%s' bi cih anîn"
+msgstr ""
 
 #: lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
@@ -182,7 +174,7 @@ msgstr ""
 #: lib/synapse-plugins/desktop-file-plugin.vala:333
 #, c-format
 msgid "Open with %s"
-msgstr "Bi %s veke"
+msgstr ""
 
 #: lib/synapse-plugins/desktop-file-plugin.vala:335
 #, c-format
@@ -200,7 +192,7 @@ msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:113
 msgid "Lock"
-msgstr "Qufl Bike"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:114
 msgid "Lock this device"
@@ -214,7 +206,7 @@ msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
-msgstr "Der bikeve"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:143
 msgid "Close all open applications and quit"
@@ -228,7 +220,7 @@ msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
-msgstr "Rawestîne"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:172
 msgid "Put your computer into suspend mode"
@@ -236,14 +228,13 @@ msgstr ""
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Rawestîne"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
-msgstr "Bide Sekinandin"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:245
 msgid "Put your computer into hibernation mode"
@@ -251,14 +242,13 @@ msgstr ""
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Bide Sekinandin"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
-msgstr "Bigire"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:317
 msgid "Turn your computer off"
@@ -272,11 +262,11 @@ msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
-msgstr "Nûdestpêbike"
+msgstr ""
 
 #: lib/synapse-plugins/system-managment.vala:377
 msgid "Restart your computer"
-msgstr "Komputera xwe ji nû ve bide dest pê kirin"
+msgstr ""
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:380
@@ -310,7 +300,7 @@ msgstr ""
 
 #: lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr "Rêya Çûnê"
+msgstr ""
 
 #: lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
@@ -328,7 +318,7 @@ msgstr ""
 
 #: lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Dikanê bername"
+msgstr ""
 
 #: lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
@@ -337,6 +327,3 @@ msgstr ""
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr ""
-
-#~ msgid "All Applications"
-#~ msgstr "Hemû sepan"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 16:01-0800\n"
+"POT-Creation-Date: 2019-06-26 23:17+0200\n"
 "PO-Revision-Date: 2019-02-09 06:45+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,7 +23,7 @@ msgstr "स्लिंगशॉट"
 msgid "The app-menu indicator"
 msgstr "अनुप्रयोग-मेन्यू सूचक"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
 msgstr "अनुप्रयोग"
 
@@ -47,71 +47,63 @@ msgstr "अनुप्रयोग शोधा"
 msgid "Run this command…"
 msgstr "हा आदेश चालवा …"
 
-#: src/Widgets/AppEntry.vala:232
+#: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
 msgstr "विस्थापित (अनइंस्टॉल) करा"
 
-#: src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
 msgstr "(_D)डॉकमधून काढा"
 
-#: src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
 msgstr "(_D)डॉकमध्ये जोडा"
 
 #. alert view
-#: src/Widgets/SearchView.vala:138
+#: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
 msgstr "शोध संज्ञा बदलण्याचा प्रयत्न करा."
 
-#: src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
 
-#: src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:253
 msgid "Text"
 msgstr "टेक्स्ट"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:259
 msgid "Files"
 msgstr "फायली"
 
-#: src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:263
 msgid "Actions"
 msgstr "क्रिया"
 
-#: src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:266
 msgid "Search"
 msgstr "शोधा"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:269
 msgid "Contacts"
 msgstr "संपर्क"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:272
 msgid "Internet"
 msgstr "इंटरनेट"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:275
 msgid "Settings"
 msgstr "सेटिंग्ज"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
 msgstr "अप्लिकेशन क्रिया"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:281
 msgid "Other"
 msgstr "इतर"
-
-#: src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "सर्व अनुप्रयोग"
-
-#: src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "एक नवीन फिल्टर तयार करा"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -340,6 +332,12 @@ msgstr "अप्लिकेशन शोधा"
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr "AppCenter इन्स्टॉल केलेले नाही"
+
+#~ msgid "All Applications"
+#~ msgstr "सर्व अनुप्रयोग"
+
+#~ msgid "Create a new Filter"
+#~ msgstr "एक नवीन फिल्टर तयार करा"
 
 #~ msgid "Shift"
 #~ msgstr "Shift"
