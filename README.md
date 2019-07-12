@@ -20,7 +20,6 @@ You'll need the following dependencies:
 * libswitchboard-2.0-dev
 * libunity-dev
 * libwingpanel-2.0-dev
-* libwnck-3-dev
 * libzeitgeist-2.0-dev
 * pkg-config
 * valac

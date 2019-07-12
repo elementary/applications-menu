@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 16:01-0800\n"
+"POT-Creation-Date: 2019-06-26 23:17+0200\n"
 "PO-Revision-Date: 2017-03-01 16:05+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Indikator izbornika aplikacija"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
 msgstr "Aplikacije"
 
@@ -50,71 +50,63 @@ msgstr "Pretraži aplikacije"
 msgid "Run this command…"
 msgstr "Pokreni naredbu..."
 
-#: src/Widgets/AppEntry.vala:232
+#: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
 msgstr "Ukloni s _doka"
 
-#: src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
 msgstr "Dodaj na _dok"
 
 #. alert view
-#: src/Widgets/SearchView.vala:138
+#: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
 msgstr "Pokušaj promijeniti izraz pretrage."
 
-#: src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nema rezultata za “%s”"
 
-#: src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:253
 msgid "Text"
 msgstr "Tekst"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:259
 msgid "Files"
 msgstr "Datoteke"
 
-#: src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:263
 msgid "Actions"
 msgstr "Radnje"
 
-#: src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:266
 msgid "Search"
 msgstr "Pretraga"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:269
 msgid "Contacts"
 msgstr "Kontakti"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:272
 msgid "Internet"
 msgstr "Internet"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:275
 msgid "Settings"
 msgstr "Postavke"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
 msgstr "Radnje aplikacije"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:281
 msgid "Other"
 msgstr "Ostalo"
-
-#: src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Sve aplikacije"
-
-#: src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Stvori novi filter"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -345,3 +337,9 @@ msgstr "Pretraži aplikacije"
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr "Centar aplikacija nije instaliran"
+
+#~ msgid "All Applications"
+#~ msgstr "Sve aplikacije"
+
+#~ msgid "Create a new Filter"
+#~ msgstr "Stvori novi filter"

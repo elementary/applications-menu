@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 16:01-0800\n"
+"POT-Creation-Date: 2019-06-26 23:17+0200\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,7 +23,7 @@ msgstr "স্লিংশট"
 msgid "The app-menu indicator"
 msgstr "অ্যাপ-মেনু ইনডিকেটর"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 #, fuzzy
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
@@ -48,71 +48,63 @@ msgstr "এপ্স অনুসন্ধান করুন"
 msgid "Run this command…"
 msgstr "এই কমান্ডটি  রান করুন…"
 
-#: src/Widgets/AppEntry.vala:232
+#: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
 msgstr "আনইনস্টল"
 
-#: src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
 msgstr "_ডক থেকে অপসারণ করুন"
 
-#: src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
 msgstr "_ডকে যোগ করুন"
 
 #. alert view
-#: src/Widgets/SearchView.vala:138
+#: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
 msgstr "অনুসন্ধানের জন্য বাক্যগুলি পাল্টে দেখুন।"
 
-#: src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" জন্য কোনো ফলাফল পাওয়া যায়নি"
 
-#: src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:253
 msgid "Text"
 msgstr "অক্ষর"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:259
 msgid "Files"
 msgstr "ফাইলস"
 
-#: src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:263
 msgid "Actions"
 msgstr "ক্রিয়াকলাপ"
 
-#: src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:266
 msgid "Search"
 msgstr "অনুসন্ধান"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:269
 msgid "Contacts"
 msgstr "যোগাযোগ"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:272
 msgid "Internet"
 msgstr "ইন্টারনেট"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:275
 msgid "Settings"
 msgstr "বিন্যাস"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
 msgstr "অ্যাপ্লিকেশনের ক্রিয়াকলাপ"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:281
 msgid "Other"
 msgstr "অন্য"
-
-#: src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "সব অ্যাপ্লিকেশনগুলি"
-
-#: src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "একটি নতুন ফিল্টার বানান"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -345,3 +337,9 @@ msgstr "অ্যাপ্লিকেশনগুলি  অনুসন্ধ�
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr "অ্যাপসেন্টার ইন্সটল করা নেই"
+
+#~ msgid "All Applications"
+#~ msgstr "সব অ্যাপ্লিকেশনগুলি"
+
+#~ msgid "Create a new Filter"
+#~ msgstr "একটি নতুন ফিল্টার বানান"

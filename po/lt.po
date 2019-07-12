@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 16:01-0800\n"
+"POT-Creation-Date: 2019-06-26 23:17+0200\n"
 "PO-Revision-Date: 2019-02-09 17:25+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/wingpanel/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
-"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
@@ -29,7 +29,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Programų meniu indikatorius"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
 msgstr "Programos"
 
@@ -53,71 +53,63 @@ msgstr "Ieškoti programų"
 msgid "Run this command…"
 msgstr "Vykdyti šią komandą…"
 
-#: src/Widgets/AppEntry.vala:232
+#: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
 msgstr "Šalinti programą"
 
-#: src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
 msgstr "Šalinti iš sky_delio"
 
-#: src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
 msgstr "Pridėti į sky_delį"
 
 #. alert view
-#: src/Widgets/SearchView.vala:138
+#: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
 msgstr "Pabandykite pakeisti paieškos žodžius."
 
-#: src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” negrąžino jokių rezultatų"
 
-#: src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:253
 msgid "Text"
 msgstr "Tekstas"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:259
 msgid "Files"
 msgstr "Failai"
 
-#: src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:263
 msgid "Actions"
 msgstr "Veiksmai"
 
-#: src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:266
 msgid "Search"
 msgstr "Ieškoti"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:269
 msgid "Contacts"
 msgstr "Kontaktai"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:272
 msgid "Internet"
 msgstr "Internetas"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:275
 msgid "Settings"
 msgstr "Nustatymai"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
 msgstr "Programų veiksmai"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:281
 msgid "Other"
 msgstr "Kita"
-
-#: src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Visos programos"
-
-#: src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Sukurti naują filtrą"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -346,6 +338,12 @@ msgstr "Ieškoti programų"
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr "Programų centras nėra įdiegtas"
+
+#~ msgid "All Applications"
+#~ msgstr "Visos programos"
+
+#~ msgid "Create a new Filter"
+#~ msgstr "Sukurti naują filtrą"
 
 #~ msgid "Shift"
 #~ msgstr "Shift (Lyg2)"

@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 16:01-0800\n"
-"PO-Revision-Date: 2018-12-13 14:14+0000\n"
-"Last-Translator: Daniel Zvir <zvir.daniel@seznam.cz>\n"
-"Language-Team: Czech <https://weblate.elementary.io/projects/wingpanel/"
+"POT-Creation-Date: 2019-06-26 23:17+0200\n"
+"PO-Revision-Date: 2019-04-22 19:32+0000\n"
+"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
@@ -28,7 +28,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "Indikátor menu aplikace"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
 msgstr "Aplikace"
 
@@ -52,71 +52,63 @@ msgstr "Hledat aplikace"
 msgid "Run this command…"
 msgstr "Spustit příkaz…"
 
-#: src/Widgets/AppEntry.vala:232
+#: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
 msgstr "Odinstalovat"
 
-#: src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
 msgstr "Odebrat z lišty"
 
-#: src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
 msgstr "Přidat na lištu"
 
 #. alert view
-#: src/Widgets/SearchView.vala:138
+#: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
 msgstr "Zkuste změnit vyhledávaný výraz."
 
-#: src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Žádné výsledky pro „%s“"
 
-#: src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:253
 msgid "Text"
 msgstr "Text"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:259
 msgid "Files"
 msgstr "Soubory"
 
-#: src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:263
 msgid "Actions"
 msgstr "Akce"
 
-#: src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:266
 msgid "Search"
 msgstr "Hledat"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:269
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:272
 msgid "Internet"
 msgstr "Internet"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:275
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
 msgstr "Akce aplikace"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:281
 msgid "Other"
 msgstr "Ostatní"
-
-#: src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Všechny aplikace"
-
-#: src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Vytvořit nový filtr"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -218,7 +210,7 @@ msgstr "Zamknout toto zařízení"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "zamknout"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -232,7 +224,7 @@ msgstr "Zavřít všechny běžící aplikace a skončit"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "odhlásit; logout"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -244,10 +236,9 @@ msgstr "Přepnout počítač do režimu spánku"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Uspat"
+msgstr "uspat"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -259,10 +250,9 @@ msgstr "Přepnout počítač do režimu hibernace"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hibernovat"
+msgstr "hibernovat"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -276,7 +266,7 @@ msgstr "Vypnout počítač"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "vypnout"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -290,7 +280,7 @@ msgstr "Restartuje počítač"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "restartovat;rebootovat"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
@@ -347,6 +337,12 @@ msgstr "Hledat aplikace"
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr "AppCentrum není nainstalováno"
+
+#~ msgid "All Applications"
+#~ msgstr "Všechny aplikace"
+
+#~ msgid "Create a new Filter"
+#~ msgstr "Vytvořit nový filtr"
 
 #~ msgid "Shift"
 #~ msgstr "Shift"

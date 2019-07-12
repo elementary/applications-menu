@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 16:01-0800\n"
+"POT-Creation-Date: 2019-06-26 23:17+0200\n"
 "PO-Revision-Date: 2019-03-05 17:27+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,7 +28,7 @@ msgstr "Slingshot"
 msgid "The app-menu indicator"
 msgstr "O indicador de menu de aplicações"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:250
+#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
 msgstr "Aplicações"
 
@@ -52,71 +52,63 @@ msgstr "Procurar Aplicações"
 msgid "Run this command…"
 msgstr "Executar este comando…"
 
-#: src/Widgets/AppEntry.vala:232
+#: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: src/Widgets/AppEntry.vala:259
+#: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
 msgstr "Remover da _Dock"
 
-#: src/Widgets/AppEntry.vala:261
+#: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
 msgstr "Adicionar à _Dock"
 
 #. alert view
-#: src/Widgets/SearchView.vala:138
+#: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
 msgstr "Tente mudar os termos de pesquisa."
 
-#: src/Widgets/SearchView.vala:182
+#: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Sem resultados para \"%s\""
 
-#: src/Widgets/SearchView.vala:247
+#: src/Widgets/SearchView.vala:253
 msgid "Text"
 msgstr "Texto"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/SearchView.vala:259
 msgid "Files"
 msgstr "Ficheiros"
 
-#: src/Widgets/SearchView.vala:257
+#: src/Widgets/SearchView.vala:263
 msgid "Actions"
 msgstr "Ações"
 
-#: src/Widgets/SearchView.vala:260
+#: src/Widgets/SearchView.vala:266
 msgid "Search"
 msgstr "Procurar"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchView.vala:269
 msgid "Contacts"
 msgstr "Contactos"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchView.vala:272
 msgid "Internet"
 msgstr "Internet"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchView.vala:275
 msgid "Settings"
 msgstr "Definições"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
 msgstr "Ações de aplicações"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchView.vala:281
 msgid "Other"
 msgstr "Outros"
-
-#: src/Widgets/CategoryView.vala:27
-msgid "All Applications"
-msgstr "Todas as aplicações"
-
-#: src/Widgets/CategoryView.vala:28
-msgid "Create a new Filter"
-msgstr "Criar um novo filtro"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
@@ -345,6 +337,12 @@ msgstr "Pesquisar por aplicações"
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
 msgstr "O Centro de Aplicações não está instalado"
+
+#~ msgid "All Applications"
+#~ msgstr "Todas as aplicações"
+
+#~ msgid "Create a new Filter"
+#~ msgstr "Criar um novo filtro"
 
 #~ msgid "Shift"
 #~ msgstr "Shift"
