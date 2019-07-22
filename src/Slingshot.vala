@@ -23,7 +23,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     private Gtk.Grid? indicator_grid = null;
 
-    public static Settings settings { get; private set; default = null; }
     public static Gtk.IconTheme icon_theme { get; set; default = null; }
 
     private DBusService? dbus_service = null;
@@ -53,8 +52,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (view == null) {
-            settings = new Settings ();
-
             view = new SlingshotView ();
 
 #if HAS_PLANK_0_11
