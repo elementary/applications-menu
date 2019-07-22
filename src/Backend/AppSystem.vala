@@ -140,12 +140,16 @@ public class Slingshot.Backend.AppSystem : Object {
                 
 
                 if (!(app.exec in sorted_apps_execs)) {
-                    sorted_apps.insert_sorted_with_data (app, Utils.sort_apps_by_name);
+                    sorted_apps.insert_sorted_with_data (app, sort_apps_by_name);
                     sorted_apps_execs += app.exec;
                 }
             }
         }
 
         return sorted_apps;
+    }
+
+    private static int sort_apps_by_name (Backend.App a, Backend.App b) {
+        return a.name.collate (b.name);
     }
 }
