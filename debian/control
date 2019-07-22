@@ -1,13 +1,12 @@
 Source: slingshot-launcher
 Section: x11
 Priority: optional
-Maintainer: Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
-Build-Depends: cmake (>= 2.6),
-               debhelper (>= 9),
+Maintainer: elementary, Inc. <builds@elementary.io>
+Build-Depends: debhelper (>= 10.5.1),
                libappstream-dev,
                libgee-0.8-dev,
                libgnome-menu-3-dev,
-               libgranite-dev (>= 0.3.0~),
+               libgranite-dev (>= 5.2.1),
                libgtk-3-dev (>= 3.14.0),
                libjson-glib-dev,
                libplank-dev (>= 0.9.0),
@@ -16,17 +15,15 @@ Build-Depends: cmake (>= 2.6),
                libunity-dev,
                libwingpanel-2.0-dev,
                libzeitgeist-2.0-dev,
+               meson (>= 0.46.1),
                pkg-config,
                valac (>= 0.32.1)
-Standards-Version: 3.9.6
-Vcs-Bzr: lp:~pantheon-debian/pantheon-debian/slingshot-launcher
-Vcs-Browser: https://code.launchpad.net/~pantheon-debian/pantheon-debian/slingshot-launcher
-Homepage: http://launchpad.net/slingshot
+Standards-Version: 4.1.1
+Homepage: https://github.com/elementary/applications-menu
 
 Package: slingshot-launcher
 Architecture: any
 Depends: zeitgeist-core, ${misc:Depends}, ${shlibs:Depends}
-Provides: netbook-launcher
 Description: Lightweight and stylish app launcher
  Slingshot is an application launcher for Pantheon,
  written in Vala and utilizing GTK+ and Cairo.
