@@ -9,7 +9,6 @@ pkg_check_modules (DEPS REQUIRED "${CORE_DEPS}${UI_DEPS}" gthread-2.0)
 vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
     Slingshot.vala
     SlingshotView.vala
-    Utils.vala
     Pixels.vala
     Backend/AppSystem.vala
     Backend/DBusService.vala

@@ -24,11 +24,7 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-#if HAS_PLANK_0_11
     public class SlingshotView : Gtk.Grid, Plank.UnityClient {
-#else
-    public class SlingshotView : Gtk.Grid {
-#endif
         // Widgets
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
@@ -40,10 +36,6 @@ namespace Slingshot {
         private Widgets.SearchView search_view;
         private Widgets.CategoryView category_view;
 
-        public Gtk.Grid top;
-        public Gtk.Grid container;
-        public Gtk.Stack main_stack;
-        public Gtk.Box content_area;
         private Gtk.EventBox event_box;
 
         public Backend.AppSystem app_system;
@@ -68,12 +60,10 @@ namespace Slingshot {
 
         private int default_columns;
         private int default_rows;
-
         private int primary_monitor = 0;
+        private Gdk.Screen screen;
 
         private static GLib.Settings settings { get; private set; default = null; }
-
-        Gdk.Screen screen;
 
         public signal void close_indicator ();
 
@@ -98,7 +88,68 @@ namespace Slingshot {
                 setup_size ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
-            setup_ui ();
+
+            var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
+            grid_image .tooltip_text = _("View as Grid");
+
+            var category_image = new Gtk.Image.from_icon_name ("view-filter-symbolic", Gtk.IconSize.MENU);
+            category_image.tooltip_text = _("View by Category");
+
+            view_selector = new Granite.Widgets.ModeButton ();
+            view_selector.margin_end = 12;
+            view_selector.append (grid_image);
+            view_selector.append (category_image);
+
+            view_selector_revealer = new Gtk.Revealer ();
+            view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
+            view_selector_revealer.add (view_selector);
+
+            search_entry = new Gtk.SearchEntry ();
+            search_entry.placeholder_text = _("Search Apps");
+            search_entry.hexpand = true;
+
+            var top = new Gtk.Grid ();
+            top.margin_start = 12;
+            top.margin_end = 12;
+            top.add (view_selector_revealer);
+            top.add (search_entry);
+
+            grid_view = new Widgets.Grid (default_rows, default_columns);
+
+            category_view = new Widgets.CategoryView (this);
+
+            search_view = new Widgets.SearchView ();
+
+            stack = new Gtk.Stack ();
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+            stack.add_named (grid_view, "normal");
+            stack.add_named (category_view, "category");
+            stack.add_named (search_view, "search");
+
+            var container = new Gtk.Grid ();
+            container.row_spacing = 12;
+            container.margin_top = 12;
+            container.attach (top, 0, 0);
+            container.attach (stack, 0, 1);
+
+            event_box = new Gtk.EventBox ();
+            event_box.add (container);
+            event_box.add_events (Gdk.EventMask.SCROLL_MASK);
+
+            // Add the container to the dialog's content area
+            this.add (event_box);
+
+            if (settings.get_boolean ("use-category")) {
+                view_selector.selected = 1;
+                set_modality (Modality.CATEGORY_VIEW);
+            } else {
+                view_selector.selected = 0;
+                set_modality (Modality.NORMAL_VIEW);
+            }
+
+            search_view.start_search.connect ((match, target) => {
+                search.begin (search_entry.text, match, target);
+            });
 
             connect_signals ();
             debug ("Apps loaded");
@@ -139,87 +190,6 @@ namespace Slingshot {
             if (settings.get_int ("rows") != default_rows) {
                 settings.set_int ("rows", default_rows);
             }
-        }
-
-        private void setup_ui () {
-
-            debug ("In setup_ui ()");
-
-            // Create the base container
-            container = new Gtk.Grid ();
-            container.row_spacing = 12;
-            container.margin_top = 12;
-
-            // Add top bar
-            top = new Gtk.Grid ();
-            top.orientation = Gtk.Orientation.HORIZONTAL;
-            top.margin_start = 6;
-            top.margin_end = 6;
-
-            view_selector = new Granite.Widgets.ModeButton ();
-            view_selector.margin_end = 6;
-            view_selector.margin_start = 6;
-            view_selector_revealer = new Gtk.Revealer ();
-            view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-            view_selector_revealer.add (view_selector);
-
-            var image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
-            image.tooltip_text = _("View as Grid");
-            view_selector.append (image);
-
-            image = new Gtk.Image.from_icon_name ("view-filter-symbolic", Gtk.IconSize.MENU);
-            image.tooltip_text = _("View by Category");
-            view_selector.append (image);
-
-            if (settings.get_boolean ("use-category"))
-                view_selector.selected = 1;
-            else
-                view_selector.selected = 0;
-
-            search_entry = new Gtk.SearchEntry ();
-            search_entry.placeholder_text = _("Search Apps");
-            search_entry.hexpand = true;
-            search_entry.margin_start = 6;
-            search_entry.margin_end = 6;
-
-            top.add (view_selector_revealer);
-            top.add (search_entry);
-
-            stack = new Gtk.Stack ();
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-
-            // Create the "NORMAL_VIEW"
-            grid_view = new Widgets.Grid (default_rows, default_columns);
-            stack.add_named (grid_view, "normal");
-
-            // Create the "CATEGORY_VIEW"
-            category_view = new Widgets.CategoryView (this);
-            stack.add_named (category_view, "category");
-
-            // Create the "SEARCH_VIEW"
-            search_view = new Widgets.SearchView ();
-            search_view.start_search.connect ((match, target) => {
-                search.begin (search_entry.text, match, target);
-            });
-
-            stack.add_named (search_view, "search");
-
-            container.attach (top, 0, 0, 1, 1);
-            container.attach (stack, 0, 1, 1, 1);
-
-            event_box = new Gtk.EventBox ();
-            event_box.add (container);
-            event_box.add_events (Gdk.EventMask.SCROLL_MASK);
-
-            // Add the container to the dialog's content area
-
-            this.add (event_box);
-
-            if (settings.get_boolean ("use-category"))
-                set_modality (Modality.CATEGORY_VIEW);
-            else
-                set_modality (Modality.NORMAL_VIEW);
-            debug ("Ui setup completed");
         }
 
         private void connect_signals () {
@@ -277,7 +247,6 @@ namespace Slingshot {
             });
         }
 
-#if HAS_PLANK_0_11
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
             if (!is_retry) {
                 // Wait to let further update requests come in to catch the case where one application
@@ -306,7 +275,6 @@ namespace Slingshot {
                 app.remove_launcher_entry (sender_name);
             }
         }
-#endif
 
         private void change_view_mode (string key) {
             switch (key) {

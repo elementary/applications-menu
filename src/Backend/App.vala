@@ -44,11 +44,9 @@ public class Slingshot.Backend.App : Object {
     public string generic_name { get; private set; default = ""; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
-#if HAS_PLANK_0_11
     private string? unity_sender_name = null;
     public bool count_visible { get; private set; default = false; }
     public int64 current_count { get; private set; default = 0; }
-#endif
 
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
@@ -64,9 +62,7 @@ public class Slingshot.Backend.App : Object {
         exec = info.get_commandline ();
         desktop_id = entry.get_desktop_file_id ();
         desktop_path = entry.get_desktop_file_path ();
-#if HAVE_UNITY
-        keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
-#endif
+        keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
         var desktop_icon = info.get_icon ();
@@ -142,7 +138,6 @@ public class Slingshot.Backend.App : Object {
         return true;
     }
 
-#if HAS_PLANK_0_11
     public void perform_unity_update (string sender_name, VariantIter prop_iter) {
         unity_sender_name = sender_name;
 
@@ -164,5 +159,4 @@ public class Slingshot.Backend.App : Object {
             current_count = 0;
         }
     }
-#endif
 }

@@ -1,7 +1,6 @@
 sources = [
     'Slingshot.vala',
     'SlingshotView.vala',
-    'Utils.vala',
     'Pixels.vala',
 
     'Backend/AppSystem.vala',
