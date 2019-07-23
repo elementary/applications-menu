@@ -1,0 +1,10 @@
+.switcher {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 0.4;
+}
+
+.switcher:checked {
+    opacity: 1;
+}
