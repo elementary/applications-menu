@@ -10,7 +10,6 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
     Slingshot.vala
     SlingshotView.vala
     Settings.vala
-    Utils.vala
     Pixels.vala
     Backend/AppSystem.vala
     Backend/DBusService.vala
