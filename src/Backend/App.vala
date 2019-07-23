@@ -62,9 +62,7 @@ public class Slingshot.Backend.App : Object {
         exec = info.get_commandline ();
         desktop_id = entry.get_desktop_file_id ();
         desktop_path = entry.get_desktop_file_path ();
-#if HAVE_UNITY
-        keywords = Unity.AppInfoManager.get_default ().get_keywords (desktop_id);
-#endif
+        keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
         var desktop_icon = info.get_icon ();

@@ -91,17 +91,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         category_switcher.selected = old_selected;
     }
 
-    private void add_app (Backend.App app) {
-        var app_entry = new AppEntry (app);
-        app_entry.app_launched.connect (() => view.close_indicator ());
-        app_view.append (app_entry);
-        app_view.show_all ();
-    }
-
     public void show_filtered_apps (string category) {
         app_view.clear ();
-        foreach (Backend.App app in view.apps[category])
-            add_app (app);
+        foreach (Backend.App app in view.apps[category]) {
+            var app_entry = new AppEntry (app);
+            app_entry.app_launched.connect (() => view.close_indicator ());
+            app_view.append (app_entry);
+            app_view.show_all ();
+        }
 
         current_position = 0;
     }
