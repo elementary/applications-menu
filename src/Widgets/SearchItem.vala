@@ -37,6 +37,7 @@ namespace Slingshot.Widgets {
         public signal bool launch_app ();
 
         public Backend.App app { get; construct; }
+        public string search_term { get; construct; }
         public ResultType result_type { public get; construct; }
 
         private Gtk.Label name_label;
@@ -45,8 +46,14 @@ namespace Slingshot.Widgets {
         private Cancellable? cancellable = null;
 
         public SearchItem (Backend.App app, string search_term = "", ResultType result_type = ResultType.UNKNOWN) {
-            Object (app: app, result_type: result_type);
+            Object (
+                app: app,
+                search_term: search_term,
+                result_type: result_type
+            );
+        }
 
+        construct {
             string markup;
             if (result_type == SearchItem.ResultType.APP_ACTIONS || result_type == SearchItem.ResultType.TEXT) {
                 markup = app.match.title;
