@@ -44,7 +44,7 @@ msgstr "عرض كشبكة"
 
 #: src/SlingshotView.vala:164
 msgid "View by Category"
-msgstr "عرض حسب الفئة"
+msgstr "عرض حسب التصنيف"
 
 #: src/SlingshotView.vala:173
 msgid "Search Apps"
@@ -52,7 +52,7 @@ msgstr "بحث عن التطبيقات"
 
 #: src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr "طبق هذا الأمر…"
+msgstr "جارى تنفيذ هذا الأمر…"
 
 #: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
@@ -69,7 +69,7 @@ msgstr "إضافة إلى قاعدة التطبيقات"
 #. alert view
 #: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
-msgstr "الرجاء محاولة تغيير كلمات البحث."
+msgstr "من فضلك ابحث بكلمات أخرى."
 
 #: src/Widgets/SearchView.vala:188
 #, c-format
@@ -114,7 +114,7 @@ msgstr "أخرى"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr "طبق"
+msgstr "تنفيذ"
 
 #: lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
@@ -122,11 +122,11 @@ msgstr "شغل التطبيق، أمر أو سكربت"
 
 #: lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
-msgstr "طبق في الطرفية"
+msgstr "تنفيذ فى الطرفية"
 
 #: lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr "طبق التطبيق أو الأمر في الطرفية"
+msgstr "تشغيل التطبيق أو الأمر في الطرفية"
 
 #: lib/synapse-core/common-actions.vala:150
 msgid "Open"
@@ -171,7 +171,7 @@ msgstr "نفذ '%s'"
 
 #: lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr "طبق الأمر"
+msgstr "نفذ الأمر"
 
 #: lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
