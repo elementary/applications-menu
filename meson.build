@@ -41,11 +41,7 @@ if get_option('with-unity')
 endif
 
 plank_dep = dependency('plank', required: false)
-
 if plank_dep.version().version_compare('>=0.10.9')
-    add_project_arguments('--define=HAS_PLANK_0_11', language: 'vala')
-endif
-if plank_dep.version().version_compare('>=0.9.0')
     add_project_arguments('--define=HAS_PLANK', language: 'vala')
 endif
 

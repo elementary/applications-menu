@@ -24,7 +24,7 @@ namespace Slingshot.Widgets {
     }
 
     public class Grid : Gtk.Box {
-        public Gtk.Stack stack;
+        public Gtk.Stack stack { get; private set; }
 
         private Gtk.Grid current_grid;
         private Gtk.Widget? focused_widget;
@@ -118,7 +118,7 @@ namespace Slingshot.Widgets {
             stack.set_visible_child (current_grid);
         }
 
-        public Gtk.Widget? get_child_at (int column, int row) {
+        private Gtk.Widget? get_child_at (int column, int row) {
             var col = ((int)(column/page.columns))+1;
 
             var grid = grids.get (col);
@@ -190,7 +190,7 @@ namespace Slingshot.Widgets {
             return false;
         }
 
-        public bool set_paginated_focus (int column, int row) {
+        private bool set_paginated_focus (int column, int row) {
             int first_column = (get_current_page () - 1) * get_page_columns ();
             return set_focus (first_column, 0);
         }

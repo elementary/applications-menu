@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 elementary LLC.
+ * Copyright (c) 2017-2019 elementary, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -20,39 +20,27 @@
  */
 
 public class Slingshot.Widgets.PageChecker : Gtk.ToggleButton {
-    const string SWITCHER_STYLE_CSS = """
-        .switcher {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-            opacity: 0.4;
-        }
-
-        .switcher:checked {
-            opacity: 1;
-        }
-    """;
-
     public unowned Gtk.Widget referred_widget { get; construct; }
+
+    private static Gtk.CssProvider provider;
+
     public PageChecker (Gtk.Widget referred_widget) {
         Object (referred_widget: referred_widget);
     }
 
     static construct {
-        var provider = new Gtk.CssProvider ();
-        try {
-            provider.load_from_data (SWITCHER_STYLE_CSS, SWITCHER_STYLE_CSS.length);
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        } catch (Error e) {
-            critical (e.message);
-        }
+        provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/io/elementary/desktop/wingpanel/applications-menu/PageChecker.css");
     }
 
     construct {
-        add (new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU));
         unowned Gtk.StyleContext style_context = get_style_context ();
         style_context.add_class (Gtk.STYLE_CLASS_FLAT);
         style_context.add_class ("switcher");
+        style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+        add (new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU));
+
         var stack = (Gtk.Stack) referred_widget.parent;
         active = stack.visible_child == referred_widget;
 
