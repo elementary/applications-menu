@@ -233,6 +233,7 @@ namespace Slingshot {
 
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
+                setup_size ();
             });
         }
 
