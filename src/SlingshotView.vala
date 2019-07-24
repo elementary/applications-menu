@@ -36,10 +36,7 @@ namespace Slingshot {
         private Widgets.SearchView search_view;
         private Widgets.CategoryView category_view;
 
-        private Gtk.EventBox event_box;
-
         public Backend.AppSystem app_system;
-        private Gee.ArrayList<GMenu.TreeDirectory> categories;
         public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
 
         private Modality modality;
@@ -76,7 +73,7 @@ namespace Slingshot {
             app_system = new Backend.AppSystem ();
             synapse = new Backend.SynapseSearch ();
 
-            categories = app_system.get_categories ();
+            var categories = app_system.get_categories ();
             apps = app_system.get_apps ();
 
             screen = get_screen ();
@@ -132,7 +129,10 @@ namespace Slingshot {
             container.attach (top, 0, 0);
             container.attach (stack, 0, 1);
 
-            event_box = new Gtk.EventBox ();
+            // This function must be after creating the page switcher
+            populate_grid_view ();
+
+            var event_box = new Gtk.EventBox ();
             event_box.add (container);
             event_box.add_events (Gdk.EventMask.SCROLL_MASK);
 
@@ -151,7 +151,58 @@ namespace Slingshot {
                 search.begin (search_entry.text, match, target);
             });
 
-            connect_signals ();
+            focus_in_event.connect (() => {
+                search_entry.grab_focus ();
+                return false;
+            });
+
+            event_box.key_press_event.connect (on_event_box_key_press);
+            search_entry.key_press_event.connect (on_search_view_key_press);
+            search_entry.key_press_event.connect_after (on_key_press);
+
+            // Showing a menu reverts the effect of the grab_device function.
+            search_entry.search_changed.connect (() => {
+                if (modality != Modality.SEARCH_VIEW) {
+                    set_modality (Modality.SEARCH_VIEW);
+                }
+                search.begin (search_entry.text);
+            });
+
+            search_entry.grab_focus ();
+            search_entry.activate.connect (search_entry_activated);
+
+            // FIXME: signals chain up is not supported
+            search_view.app_launched.connect (() => { close_indicator (); });
+
+            view_selector.mode_changed.connect (() => {
+                set_modality ((Modality) view_selector.selected);
+            });
+
+            // Auto-update settings when changed
+            Slingshot.settings.changed["rows"].connect (() => {
+                read_settings (false, false, true);
+            });
+            Slingshot.settings.changed["columns"].connect (() => {
+                read_settings (false, true, false);
+            });
+
+            // Auto-update applications grid
+            app_system.changed.connect (() => {
+                categories = app_system.get_categories ();
+                apps = app_system.get_apps ();
+
+                populate_grid_view ();
+                category_view.setup_sidebar ();
+            });
+
+            // position on the right monitor when settings changed
+            screen.size_changed.connect (() => {
+                screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
+                if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
+                    setup_size ();
+                }
+            });
+
             debug ("Apps loaded");
         }
 
@@ -185,61 +236,6 @@ namespace Slingshot {
             }
             if (Slingshot.settings.rows != default_rows)
                 Slingshot.settings.rows = default_rows;
-        }
-
-        private void connect_signals () {
-            this.focus_in_event.connect (() => {
-                search_entry.grab_focus ();
-                return false;
-            });
-
-            event_box.key_press_event.connect (on_event_box_key_press);
-            search_entry.key_press_event.connect (on_search_view_key_press);
-            search_entry.key_press_event.connect_after (on_key_press);
-
-            // Showing a menu reverts the effect of the grab_device function.
-            search_entry.search_changed.connect (() => {
-                if (modality != Modality.SEARCH_VIEW)
-                    set_modality (Modality.SEARCH_VIEW);
-                search.begin (search_entry.text);
-            });
-
-            search_entry.grab_focus ();
-            search_entry.activate.connect (search_entry_activated);
-
-            // FIXME: signals chain up is not supported
-            search_view.app_launched.connect (() => { close_indicator (); });
-
-            // This function must be after creating the page switcher
-            populate_grid_view ();
-
-            view_selector.mode_changed.connect (() => {
-
-                set_modality ((Modality) view_selector.selected);
-            });
-
-            // Auto-update settings when changed
-            Slingshot.settings.changed["rows"].connect ( () => {read_settings (false, false, true);});
-            Slingshot.settings.changed["columns"].connect ( () => {read_settings (false, true, false);});
-
-            // Auto-update applications grid
-            app_system.changed.connect (() => {
-
-                categories = app_system.get_categories ();
-                apps = app_system.get_apps ();
-
-                populate_grid_view ();
-                category_view.setup_sidebar ();
-            });
-
-            // position on the right monitor when settings changed
-            screen.size_changed.connect (() => {
-                Gdk.Rectangle geometry;
-                screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
-                if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
-                    setup_size ();
-                }
-            });
         }
 
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
