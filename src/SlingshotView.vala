@@ -61,8 +61,6 @@ namespace Slingshot {
         private int default_columns;
         private int default_rows;
 
-        private int primary_monitor = 0;
-
         private Gdk.Screen screen;
 
         public signal void close_indicator ();
@@ -161,11 +159,10 @@ namespace Slingshot {
         }
 
         private void setup_size () {
-            primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
-            screen.get_monitor_geometry (primary_monitor, out geometry);
-            var geometry_string = "%ix%i".printf (geometry.width, geometry.height);
+            screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
 
+            var geometry_string = "%ix%i".printf (geometry.width, geometry.height);
             if (Slingshot.settings.screen_resolution == geometry_string) {
                 return;
             } else {
