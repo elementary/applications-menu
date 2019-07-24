@@ -81,11 +81,7 @@ namespace Slingshot {
 
             screen = get_screen ();
 
-            primary_monitor = screen.get_primary_monitor ();
-            Gdk.Rectangle geometry;
-            screen.get_monitor_geometry (primary_monitor, out geometry);
-            if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)")
-                setup_size ();
+            setup_size ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
 
@@ -165,11 +161,17 @@ namespace Slingshot {
         }
 
         private void setup_size () {
-            debug ("In setup_size ()");
             primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
             screen.get_monitor_geometry (primary_monitor, out geometry);
-            Slingshot.settings.screen_resolution = @"$(geometry.width)x$(geometry.height)";
+            var geometry_string = "%ix%i".printf (geometry.width, geometry.height);
+
+            if (Slingshot.settings.screen_resolution == geometry_string) {
+                return;
+            } else {
+                Slingshot.settings.screen_resolution = geometry_string;
+            }
+
             default_columns = 5;
             default_rows = 3;
             while ((calculate_grid_width () >= 2 * geometry.width / 3)) {
@@ -234,11 +236,6 @@ namespace Slingshot {
 
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
-                Gdk.Rectangle geometry;
-                screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
-                if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
-                    setup_size ();
-                }
             });
         }
 
