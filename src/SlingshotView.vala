@@ -57,10 +57,10 @@ namespace Slingshot {
 
         private int default_columns;
         private int default_rows;
-
         private int primary_monitor = 0;
-
         private Gdk.Screen screen;
+
+        private static GLib.Settings settings { get; private set; default = null; }
 
         public signal void close_indicator ();
 
@@ -81,7 +81,7 @@ namespace Slingshot {
             primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
             screen.get_monitor_geometry (primary_monitor, out geometry);
-            if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)")
+            if (settings.get_string ("screen-resolution") != @"$(geometry.width)x$(geometry.height)")
                 setup_size ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
@@ -139,7 +139,7 @@ namespace Slingshot {
             // Add the container to the dialog's content area
             this.add (event_box);
 
-            if (Slingshot.settings.use_category) {
+            if (settings.get_boolean ("use-category")) {
                 view_selector.selected = 1;
                 set_modality (Modality.CATEGORY_VIEW);
             } else {
@@ -179,12 +179,8 @@ namespace Slingshot {
             });
 
             // Auto-update settings when changed
-            Slingshot.settings.changed["rows"].connect (() => {
-                read_settings (false, false, true);
-            });
-            Slingshot.settings.changed["columns"].connect (() => {
-                read_settings (false, true, false);
-            });
+            settings.changed["rows"].connect ( () => {read_settings (false, false, true);});
+            settings.changed["columns"].connect ( () => {read_settings (false, true, false);});
 
             // Auto-update applications grid
             app_system.changed.connect (() => {
@@ -198,12 +194,14 @@ namespace Slingshot {
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
                 screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
-                if (Slingshot.settings.screen_resolution != @"$(geometry.width)x$(geometry.height)") {
+                if (settings.get_string ("screen_resolution") != @"$(geometry.width)x$(geometry.height)") {
                     setup_size ();
                 }
             });
+        }
 
-            debug ("Apps loaded");
+        static construct {
+            settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
         }
 
         public int calculate_grid_height () {
@@ -220,7 +218,7 @@ namespace Slingshot {
             primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
             screen.get_monitor_geometry (primary_monitor, out geometry);
-            Slingshot.settings.screen_resolution = @"$(geometry.width)x$(geometry.height)";
+            settings.set_string ("screen-resolution", @"$(geometry.width)x$(geometry.height)");
             default_columns = 5;
             default_rows = 3;
             while ((calculate_grid_width () >= 2 * geometry.width / 3)) {
@@ -231,11 +229,12 @@ namespace Slingshot {
                 default_rows--;
             }
 
-            if (Slingshot.settings.columns != default_columns) {
-                Slingshot.settings.columns = default_columns;
+            if (settings.get_int ("columns") != default_columns) {
+                settings.set_int ("columns", default_columns);
             }
-            if (Slingshot.settings.rows != default_rows)
-                Slingshot.settings.rows = default_rows;
+            if (settings.get_int ("rows") != default_rows) {
+                settings.set_int ("rows", default_rows);
+            }
         }
 
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
@@ -616,9 +615,10 @@ namespace Slingshot {
 
             switch (modality) {
                 case Modality.NORMAL_VIEW:
+                    if (settings.get_boolean ("use-category")) {
+                        settings.set_boolean ("use-category", false);
+                    }
 
-                    if (Slingshot.settings.use_category)
-                        Slingshot.settings.use_category = false;
                     view_selector_revealer.set_reveal_child (true);
                     stack.set_visible_child_name ("normal");
 
@@ -626,9 +626,10 @@ namespace Slingshot {
                     break;
 
                 case Modality.CATEGORY_VIEW:
+                    if (!settings.get_boolean ("use-category")) {
+                        settings.set_boolean ("use-category", true);
+                    }
 
-                    if (!Slingshot.settings.use_category)
-                        Slingshot.settings.use_category = true;
                     view_selector_revealer.set_reveal_child (true);
                     stack.set_visible_child_name ("category");
 
@@ -695,17 +696,23 @@ namespace Slingshot {
 
         private void read_settings (bool first_start = false, bool check_columns = true, bool check_rows = true) {
             if (check_columns) {
-                if (Slingshot.settings.columns > 3)
-                    default_columns = Slingshot.settings.columns;
-                else
-                    default_columns = Slingshot.settings.columns = 4;
+                var columns = settings.get_int ("columns");
+                if (columns > 3) {
+                    default_columns = columns;
+                } else {
+                    default_columns = 4;
+                    settings.set_int ("columns", 4);
+                }
             }
 
             if (check_rows) {
-                if (Slingshot.settings.rows > 1)
-                    default_rows = Slingshot.settings.rows;
-                else
-                    default_rows = Slingshot.settings.rows = 2;
+                var rows = settings.get_int ("rows");
+                if (rows > 1) {
+                    default_rows = rows;
+                } else {
+                    default_rows = 2;
+                    settings.set_int ("rows", 2);
+                }
             }
 
             if (!first_start) {
