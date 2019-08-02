@@ -44,7 +44,7 @@ public class Slingshot.Backend.App : Object {
     public string generic_name { get; private set; default = ""; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
-#if HAS_PLANK_0_11
+#if HAS_PLANK
     private string? unity_sender_name = null;
     public bool count_visible { get; private set; default = false; }
     public int64 current_count { get; private set; default = 0; }
@@ -140,7 +140,7 @@ public class Slingshot.Backend.App : Object {
         return true;
     }
 
-#if HAS_PLANK_0_11
+#if HAS_PLANK
     public void perform_unity_update (string sender_name, VariantIter prop_iter) {
         unity_sender_name = sender_name;
 

@@ -24,7 +24,7 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
-#if HAS_PLANK_0_11
+#if HAS_PLANK
     public class SlingshotView : Gtk.Grid, Plank.UnityClient {
 #else
     public class SlingshotView : Gtk.Grid {
@@ -247,7 +247,7 @@ namespace Slingshot {
             });
         }
 
-#if HAS_PLANK_0_11
+#if HAS_PLANK
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
             if (!is_retry) {
                 // Wait to let further update requests come in to catch the case where one application

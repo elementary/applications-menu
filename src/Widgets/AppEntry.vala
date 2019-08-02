@@ -55,11 +55,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     static construct {
 #if HAS_PLANK        
         Plank.Paths.initialize ("plank", Build.PKGDATADIR);
-#if HAS_PLANK_0_11
         plank_client = Plank.DBusClient.get_instance ();
-#else
-        plank_client = Plank.DBus.Client.get_instance ();
-#endif
 #endif
 
         var css_provider = new Gtk.CssProvider ();
@@ -70,11 +66,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     private const int ICON_SIZE = 64;
 
 #if HAS_PLANK
-#if HAS_PLANK_0_11
     private static Plank.DBusClient plank_client;
-#else
-    private static Plank.DBus.Client plank_client;
-#endif
     private bool docked = false;
     private string desktop_uri {
         owned get {
@@ -162,7 +154,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
         });
 
-#if HAS_PLANK_0_11
+#if HAS_PLANK
         app.notify["current-count"].connect (update_badge_count);
         app.notify["count-visible"].connect (update_badge_visibility);
 
@@ -279,7 +271,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             plank_client.add_item (desktop_uri);
     }
 
-#if HAS_PLANK_0_11
     private void update_badge_count () {
         badge.label = "%lld".printf (application.current_count);
         update_badge_visibility ();
@@ -294,7 +285,6 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             badge.hide ();
         }
     }
-#endif
 #endif
 
     private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
