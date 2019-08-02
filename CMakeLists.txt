@@ -55,7 +55,11 @@ find_package (PkgConfig)
 
 # Check for Vala
 
-set (PLANK_DEPS plank)
+pkg_check_modules(PLANK QUIET plank>=0.10.9)
+if (PLANK_FOUND)
+  set (PLANK_DEPS plank)
+  set (PLANK_OPTIONS --define=HAS_PLANK)
+endif ()
 
 set (CORE_DEPS "gobject-2.0;glib-2.0;gio-2.0;gio-unix-2.0;libsoup-2.4;gee-0.8;libgnome-menu-3.0;json-glib-1.0;${UNITY_DEPS};${PLANK_DEPS};appstream>=0.10.0;")
 set (UI_DEPS "wingpanel-2.0;gtk+-3.0>=3.12.0;granite>=5.2.1;${ZEITGEIST_DEPS};")

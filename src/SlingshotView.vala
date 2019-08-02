@@ -24,7 +24,11 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
+#if HAS_PLANK
     public class SlingshotView : Gtk.Grid, Plank.UnityClient {
+#else
+    public class SlingshotView : Gtk.Grid {
+#endif
         // Widgets
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
@@ -243,6 +247,7 @@ namespace Slingshot {
             });
         }
 
+#if HAS_PLANK
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
             if (!is_retry) {
                 // Wait to let further update requests come in to catch the case where one application
@@ -271,6 +276,7 @@ namespace Slingshot {
                 app.remove_launcher_entry (sender_name);
             }
         }
+#endif
 
         private void change_view_mode (string key) {
             switch (key) {
