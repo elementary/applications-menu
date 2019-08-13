@@ -22,6 +22,7 @@ You'll need the following dependencies:
 * libwingpanel-2.0-dev
 * libzeitgeist-2.0-dev
 * pkg-config
+* qalc
 * valac
 
 Run `meson` to configure the build environment and then `ninja` to build

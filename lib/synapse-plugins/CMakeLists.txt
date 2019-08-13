@@ -16,6 +16,7 @@ pkg_check_modules (PLUGINS_DEPS REQUIRED ${PLUGINS_PKG})
 # Source files
 set (PLUGINS_SOURCE
     calculator-plugin.vala
+    conversion-plugin.vala
     command-plugin.vala
     desktop-file-plugin.vala
     switchboard-plugin.vala
