@@ -6,8 +6,8 @@
 %:
 	dh $@ --buildsystem=meson
 
-override_dh_install:
-	dh_missing --list-missing
+override_dh_missing:
+	dh_missing --list-missing --fail-missing
 
 override_dh_strip:
 	dh_strip --dbg-package=slingshot-launcher-dbg
