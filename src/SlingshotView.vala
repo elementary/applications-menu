@@ -24,7 +24,11 @@ namespace Slingshot {
         SEARCH_VIEW
     }
 
+#if HAS_PLANK
     public class SlingshotView : Gtk.Grid, Plank.UnityClient {
+#else
+    public class SlingshotView : Gtk.Grid {
+#endif
         // Widgets
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
@@ -57,7 +61,6 @@ namespace Slingshot {
 
         private int default_columns;
         private int default_rows;
-        private int primary_monitor = 0;
         private Gdk.Screen screen;
 
         private static GLib.Settings settings { get; private set; default = null; }
@@ -78,11 +81,7 @@ namespace Slingshot {
 
             screen = get_screen ();
 
-            primary_monitor = screen.get_primary_monitor ();
-            Gdk.Rectangle geometry;
-            screen.get_monitor_geometry (primary_monitor, out geometry);
-            if (settings.get_string ("screen-resolution") != @"$(geometry.width)x$(geometry.height)")
-                setup_size ();
+            setup_size ();
 
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
 
@@ -172,15 +171,21 @@ namespace Slingshot {
             search_entry.activate.connect (search_entry_activated);
 
             // FIXME: signals chain up is not supported
-            search_view.app_launched.connect (() => { close_indicator (); });
+            search_view.app_launched.connect (() => {
+                close_indicator ();
+            });
 
             view_selector.mode_changed.connect (() => {
                 set_modality ((Modality) view_selector.selected);
             });
 
             // Auto-update settings when changed
-            settings.changed["rows"].connect ( () => {read_settings (false, false, true);});
-            settings.changed["columns"].connect ( () => {read_settings (false, true, false);});
+            settings.changed["rows"].connect ( () => {
+                read_settings (false, false, true);
+            });
+            settings.changed["columns"].connect ( () => {
+                read_settings (false, true, false);
+            });
 
             // Auto-update applications grid
             app_system.changed.connect (() => {
@@ -193,10 +198,7 @@ namespace Slingshot {
 
             // position on the right monitor when settings changed
             screen.size_changed.connect (() => {
-                screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
-                if (settings.get_string ("screen_resolution") != @"$(geometry.width)x$(geometry.height)") {
-                    setup_size ();
-                }
+                setup_size ();
             });
         }
 
@@ -214,11 +216,16 @@ namespace Slingshot {
         }
 
         private void setup_size () {
-            debug ("In setup_size ()");
-            primary_monitor = screen.get_primary_monitor ();
             Gdk.Rectangle geometry;
-            screen.get_monitor_geometry (primary_monitor, out geometry);
-            settings.set_string ("screen-resolution", @"$(geometry.width)x$(geometry.height)");
+            screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
+
+            var geometry_string = "%ix%i".printf (geometry.width, geometry.height);
+            if (settings.get_string ("screen-resolution") == geometry_string) {
+                return;
+            } else {
+                settings.set_string ("screen-resolution", geometry_string);
+            }
+
             default_columns = 5;
             default_rows = 3;
             while ((calculate_grid_width () >= 2 * geometry.width / 3)) {
@@ -237,6 +244,7 @@ namespace Slingshot {
             }
         }
 
+#if HAS_PLANK
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
             if (!is_retry) {
                 // Wait to let further update requests come in to catch the case where one application
@@ -265,6 +273,7 @@ namespace Slingshot {
                 app.remove_launcher_entry (sender_name);
             }
         }
+#endif
 
         private void change_view_mode (string key) {
             switch (key) {

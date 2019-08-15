@@ -54,8 +54,10 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         if (view == null) {
             view = new SlingshotView ();
 
+#if HAS_PLANK
             unowned Plank.Unity client = Plank.Unity.get_default ();
             client.add_client (view);
+#endif
 
             view.close_indicator.connect (on_close_indicator);
 
