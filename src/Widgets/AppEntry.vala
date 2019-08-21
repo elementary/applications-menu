@@ -154,10 +154,12 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
             sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
         });
 
+#if HAS_PLANK
         app.notify["current-count"].connect (update_badge_count);
         app.notify["count-visible"].connect (update_badge_visibility);
 
         update_badge_count ();
+#endif
 
         app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
 

@@ -23,7 +23,6 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     private Gtk.Grid? indicator_grid = null;
 
-    public static Settings settings { get; private set; default = null; }
     public static Gtk.IconTheme icon_theme { get; set; default = null; }
 
     private DBusService? dbus_service = null;
@@ -53,12 +52,12 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (view == null) {
-            settings = new Settings ();
-
             view = new SlingshotView ();
 
+#if HAS_PLANK
             unowned Plank.Unity client = Plank.Unity.get_default ();
             client.add_client (view);
+#endif
 
             view.close_indicator.connect (on_close_indicator);
 
