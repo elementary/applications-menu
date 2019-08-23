@@ -48,12 +48,14 @@ synapse_core_deps = [
     zeitgeist_dep
 ]
    
-synapse_core = static_library('synapse-core',
-                        synapse_core_sources,
-                        config_file,
-                        dependencies: synapse_core_deps,
-                        c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
-                        install : true)
+synapse_core = static_library(
+    'synapse-core',
+    synapse_core_sources,
+    config_file,
+    dependencies: synapse_core_deps,
+    c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
+    install : false
+)
 
 synapse_core_dep = declare_dependency(
     link_with: synapse_core,
