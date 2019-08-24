@@ -18,6 +18,10 @@ asresources = gnome.compile_resources(
     c_name: 'as'
 )
 
+prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
+libdir = join_paths(prefix, get_option('libdir'))
+
 glib_dep = dependency('glib-2.0')
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0')
