@@ -8,25 +8,25 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 23:17+0200\n"
-"PO-Revision-Date: 2018-10-23 19:04+0000\n"
-"Last-Translator: Jesse ALTER <jesse@jessealter.com>\n"
-"Language-Team: Esperanto <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2019-08-26 21:22+0000\n"
+"Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
 msgid "Slingshot"
-msgstr ""
+msgstr "Aplikaĵa menuo Slingshot"
 
 #: src/Slingshot.vala:36
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "La indikilo de la aplikaĵa menuo"
 
 #: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
 msgid "Applications"
@@ -34,45 +34,45 @@ msgstr "Aplikaĵoj"
 
 #: src/Slingshot.vala:120
 msgid "Open and search apps"
-msgstr ""
+msgstr "Malfermi kaj serĉi aplikaĵojn"
 
 #: src/SlingshotView.vala:160
 msgid "View as Grid"
-msgstr ""
+msgstr "Prezenti laŭ krado"
 
 #: src/SlingshotView.vala:164
 msgid "View by Category"
-msgstr ""
+msgstr "Prezenti laŭ kategorioj"
 
 #: src/SlingshotView.vala:173
 msgid "Search Apps"
-msgstr "Serĉi aplikaĵoj"
+msgstr "Serĉi aplikaĵojn"
 
 #: src/Backend/App.vala:87
 msgid "Run this command…"
-msgstr ""
+msgstr "Lanĉi ĉi komandon…"
 
 #: src/Widgets/AppEntry.vala:234
 msgid "Uninstall"
-msgstr ""
+msgstr "Malinstali"
 
 #: src/Widgets/AppEntry.vala:263
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Forigi el _Butonbreto"
 
 #: src/Widgets/AppEntry.vala:265
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Aldoni al _Butonbreto"
 
 #. alert view
 #: src/Widgets/SearchView.vala:144
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Provu ŝangi la serĉatajn vortojn."
 
 #: src/Widgets/SearchView.vala:188
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Neniu rezultato por „%s“"
 
 #: src/Widgets/SearchView.vala:253
 msgid "Text"
@@ -100,11 +100,11 @@ msgstr "Interreto"
 
 #: src/Widgets/SearchView.vala:275
 msgid "Settings"
-msgstr ""
+msgstr "Agordoj"
 
 #: src/Widgets/SearchView.vala:278
 msgid "Application Actions"
-msgstr ""
+msgstr "Aplikaĵaj agoj"
 
 #: src/Widgets/SearchView.vala:281
 msgid "Other"
@@ -112,43 +112,43 @@ msgstr "Aliaj"
 
 #: lib/synapse-core/common-actions.vala:65
 msgid "Run"
-msgstr ""
+msgstr "Lanĉi"
 
 #: lib/synapse-core/common-actions.vala:66
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Lanĉi aplikaĵon, agon aŭ komandon"
 
 #: lib/synapse-core/common-actions.vala:110
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Lanĉi en la Terminalo"
 
 #: lib/synapse-core/common-actions.vala:111
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Lanĉi aplikaĵon aŭ komandon en la terminalo"
 
 #: lib/synapse-core/common-actions.vala:150
 msgid "Open"
-msgstr ""
+msgstr "Malfermi"
 
 #: lib/synapse-core/common-actions.vala:151
 msgid "Open using default application"
-msgstr ""
+msgstr "Malfermi per la apriora aplikaĵo"
 
 #: lib/synapse-core/common-actions.vala:201
 msgid "Open folder"
-msgstr ""
+msgstr "Malfermi dosierujon"
 
 #: lib/synapse-core/common-actions.vala:202
 msgid "Open folder containing this file"
-msgstr ""
+msgstr "Malfermi la dosierujon entenanta ĉi dosieron"
 
 #: lib/synapse-core/common-actions.vala:238
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopii en la tondujo"
 
 #: lib/synapse-core/common-actions.vala:239
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Kopii elektaĵon en la tondujo"
 
 #: lib/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculator"
@@ -156,117 +156,117 @@ msgstr "Kalkulilo"
 
 #: lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Kalkuli simplajn esprimojn."
 
 #: lib/synapse-plugins/calculator-plugin.vala:56
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc ne estas instalita"
 
 #: lib/synapse-plugins/command-plugin.vala:47
 #, c-format
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Lanĉi „%s“"
 
 #: lib/synapse-plugins/command-plugin.vala:47
 msgid "Run command"
-msgstr ""
+msgstr "Lanĉi komandon"
 
 #: lib/synapse-plugins/command-plugin.vala:63
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Trovi kaj lanĉi arbitran komandon."
 
 #: lib/synapse-plugins/desktop-file-plugin.vala:127
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Serĉi kaj lanĉi aplikaĵojn ĉe via komputilo."
 
 #: lib/synapse-plugins/desktop-file-plugin.vala:333
 #, c-format
 msgid "Open with %s"
-msgstr ""
+msgstr "Malfermi per %s"
 
 #: lib/synapse-plugins/desktop-file-plugin.vala:335
 #, c-format
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Malfermi la aktivan elektaĵon per %s"
 
 #: lib/synapse-plugins/switchboard-plugin.vala:46
 #, c-format
 msgid "Open %s settings"
-msgstr ""
+msgstr "Malfermi la agordojn de %s"
 
 #: lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Trovi kromprogramojn de Switchboard, kaj malfermi ilin."
 
 #: lib/synapse-plugins/system-managment.vala:113
 msgid "Lock"
-msgstr ""
+msgstr "Ŝlosi"
 
 #: lib/synapse-plugins/system-managment.vala:114
 msgid "Lock this device"
-msgstr ""
+msgstr "Ŝlosi la aparaton"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "ŝlosi"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
-msgstr ""
+msgstr "Elsaluti"
 
 #: lib/synapse-plugins/system-managment.vala:143
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Fermi ĉiujn aplikaĵojn kaj eliri"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "elsaluti"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
-msgstr ""
+msgstr "Paŭzigi"
 
 #: lib/synapse-plugins/system-managment.vala:172
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Paŭzigu vian komputilon"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr ""
+msgstr "paŭzigo;paŭzo;halteto"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
-msgstr ""
+msgstr "Letargiigi"
 
 #: lib/synapse-plugins/system-managment.vala:245
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Letargiigi la komputilon"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr ""
+msgstr "letargiigi"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
-msgstr ""
+msgstr "Malŝalti"
 
 #: lib/synapse-plugins/system-managment.vala:317
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Malŝalti la komputilon"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "malŝalti"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -280,61 +280,63 @@ msgstr "Restartigi vian komputilon"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "restartigi"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Ŝlosi la seancon aŭ elsaluti. Paŭzigi, letargiigi, restartigi aŭ malŝalti la "
+"komputilon."
 
 #: lib/synapse-plugins/system-managment.vala:442
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "No troveblas la programo ConsoleKit"
 
 #: lib/synapse-plugins/link-plugin.vala:47
 #, c-format
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Malfermi %s en la apriora foliumilo"
 
 #: lib/synapse-plugins/link-plugin.vala:52
 #, c-format
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Malfermi %s en %s"
 
 #: lib/synapse-plugins/link-plugin.vala:58
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Malfermi ĉi ligilon en la apriora foliumilo"
 
 #: lib/synapse-plugins/link-plugin.vala:80
 msgid "Link"
-msgstr ""
+msgstr "Ligilo"
 
 #: lib/synapse-plugins/link-plugin.vala:81
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Malfermi la ligilon en la apriora foliumilo"
 
 #. TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
 #: lib/synapse-plugins/appcenter-plugin.vala:55
 #, c-format
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Serĉi %s en %s"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:61
 msgid "Search the app store"
-msgstr ""
+msgstr "Serĉi en la Aplikaĵa Centro"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr ""
+msgstr "Aplikaĵa Centro"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr ""
+msgstr "Serĉi aplikaĵojn"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "La Aplikaĵa Centro ne estis instalita"
 
 #~ msgid "All Applications"
 #~ msgstr "Ĉiuj aplikaĵoj"
