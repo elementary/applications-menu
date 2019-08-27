@@ -18,12 +18,14 @@ synapse_plugins_deps = [
     synapse_core_dep
 ]
 
-synapse_plugins = static_library('synapse-plugins',
-                        synapse_plugins_sources,
-                        link_with: synapse_core,
-                        dependencies: synapse_plugins_deps,
-                        c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
-                        install : true)
+synapse_plugins = static_library(
+    'synapse-plugins',
+    synapse_plugins_sources,
+    link_with: synapse_core,
+    dependencies: synapse_plugins_deps,
+    c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
+    install : false
+)
 
 synapse_plugins_dep = declare_dependency(
     link_with: synapse_plugins,
