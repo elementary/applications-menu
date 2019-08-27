@@ -1,20 +1,23 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Copyright 2019 elementary, Inc. (http://elementary.io)
+ *           2011-2012 Giulio Collura
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public
+ * License along with this program; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA
+ *
+ */
 
 namespace Slingshot {
 
@@ -29,33 +32,20 @@ namespace Slingshot {
 #else
     public class SlingshotView : Gtk.Grid {
 #endif
-        // Widgets
+        public signal void close_indicator ();
+
+        public Backend.AppSystem app_system;
+        public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
         public Gtk.SearchEntry search_entry;
         public Gtk.Stack stack;
         public Granite.Widgets.ModeButton view_selector;
-        private Gtk.Revealer view_selector_revealer;
 
-        // Views
-        private Widgets.Grid grid_view;
-        private Widgets.SearchView search_view;
-        private Widgets.CategoryView category_view;
-
-        private Gtk.EventBox event_box;
-
-        public Backend.AppSystem app_system;
-        private Gee.ArrayList<GMenu.TreeDirectory> categories;
-        public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
-
-        private Modality modality;
-
-        private Backend.SynapseSearch synapse;
-
-        // Sizes
         public int columns {
             get {
                 return grid_view.get_page_columns ();
             }
         }
+
         public int rows {
             get {
                 return grid_view.get_page_rows ();
@@ -64,14 +54,25 @@ namespace Slingshot {
 
         private int default_columns;
         private int default_rows;
+
+        private Backend.SynapseSearch synapse;
         private Gdk.Screen screen;
+        private Gee.ArrayList<GMenu.TreeDirectory> categories;
+        private Gtk.EventBox event_box;
+        private Gtk.Revealer view_selector_revealer;
+        private Modality modality;
+
+        private Widgets.Grid grid_view;
+        private Widgets.SearchView search_view;
+        private Widgets.CategoryView category_view;
 
         private static GLib.Settings settings { get; private set; default = null; }
 
-        public signal void close_indicator ();
+        static construct {
+            settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        }
 
-        public SlingshotView () {
-            // Have the window in the right place
+        construct {
             read_settings (true);
 
             Slingshot.icon_theme = Gtk.IconTheme.get_default ();
@@ -89,7 +90,7 @@ namespace Slingshot {
             height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
 
             var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
-            grid_image .tooltip_text = _("View as Grid");
+            grid_image.tooltip_text = _("View as Grid");
 
             var category_image = new Gtk.Image.from_icon_name ("view-filter-symbolic", Gtk.IconSize.MENU);
             category_image.tooltip_text = _("View by Category");
@@ -107,12 +108,6 @@ namespace Slingshot {
             search_entry.placeholder_text = _("Search Apps");
             search_entry.hexpand = true;
 
-            var top = new Gtk.Grid ();
-            top.margin_start = 12;
-            top.margin_end = 12;
-            top.add (view_selector_revealer);
-            top.add (search_entry);
-
             grid_view = new Widgets.Grid (default_rows, default_columns);
 
             category_view = new Widgets.CategoryView (this);
@@ -125,6 +120,12 @@ namespace Slingshot {
             stack.add_named (category_view, "category");
             stack.add_named (search_view, "search");
 
+            var top = new Gtk.Grid ();
+            top.margin_start = 12;
+            top.margin_end = 12;
+            top.add (view_selector_revealer);
+            top.add (search_entry);
+
             var container = new Gtk.Grid ();
             container.row_spacing = 12;
             container.margin_top = 12;
@@ -135,8 +136,7 @@ namespace Slingshot {
             event_box.add (container);
             event_box.add_events (Gdk.EventMask.SCROLL_MASK);
 
-            // Add the container to the dialog's content area
-            this.add (event_box);
+            add (event_box);
 
             if (settings.get_boolean ("use-category")) {
                 view_selector.selected = 1;
@@ -150,12 +150,61 @@ namespace Slingshot {
                 search.begin (search_entry.text, match, target);
             });
 
-            connect_signals ();
-            debug ("Apps loaded");
-        }
+            focus_in_event.connect (() => {
+                search_entry.grab_focus ();
+                return false;
+            });
 
-        static construct {
-            settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
+            event_box.key_press_event.connect (on_event_box_key_press);
+            search_entry.key_press_event.connect (on_search_view_key_press);
+            search_entry.key_press_event.connect_after (on_key_press);
+
+            // Showing a menu reverts the effect of the grab_device function.
+            search_entry.search_changed.connect (() => {
+                if (modality != Modality.SEARCH_VIEW) {
+                    set_modality (Modality.SEARCH_VIEW);
+                }
+                search.begin (search_entry.text);
+            });
+
+            search_entry.grab_focus ();
+            search_entry.activate.connect (search_entry_activated);
+
+            // FIXME: signals chain up is not supported
+            search_view.app_launched.connect (() => {
+                close_indicator ();
+            });
+
+            // This function must be after creating the page switcher
+            populate_grid_view ();
+
+            view_selector.mode_changed.connect (() => {
+                set_modality ((Modality) view_selector.selected);
+            });
+
+            // Auto-update settings when changed
+            settings.changed["rows"].connect (() => {
+                read_settings (false, false, true);
+            });
+            settings.changed["columns"].connect (() => {
+                read_settings (false, true, false);
+            });
+
+            // Auto-update applications grid
+            app_system.changed.connect (() => {
+                categories = app_system.get_categories ();
+                apps = app_system.get_apps ();
+
+                populate_grid_view ();
+                category_view.setup_sidebar ();
+            });
+
+            // position on the right monitor when settings changed
+            screen.size_changed.connect (() => {
+                setup_size ();
+            });
+
+            debug ("Apps loaded");
         }
 
         public int calculate_grid_height () {
@@ -196,57 +245,6 @@ namespace Slingshot {
             }
         }
 
-        private void connect_signals () {
-            this.focus_in_event.connect (() => {
-                search_entry.grab_focus ();
-                return false;
-            });
-
-            event_box.key_press_event.connect (on_event_box_key_press);
-            search_entry.key_press_event.connect (on_search_view_key_press);
-            search_entry.key_press_event.connect_after (on_key_press);
-
-            // Showing a menu reverts the effect of the grab_device function.
-            search_entry.search_changed.connect (() => {
-                if (modality != Modality.SEARCH_VIEW)
-                    set_modality (Modality.SEARCH_VIEW);
-                search.begin (search_entry.text);
-            });
-
-            search_entry.grab_focus ();
-            search_entry.activate.connect (search_entry_activated);
-
-            // FIXME: signals chain up is not supported
-            search_view.app_launched.connect (() => { close_indicator (); });
-
-            // This function must be after creating the page switcher
-            populate_grid_view ();
-
-            view_selector.mode_changed.connect (() => {
-
-                set_modality ((Modality) view_selector.selected);
-            });
-
-            // Auto-update settings when changed
-            settings.changed["rows"].connect ( () => {read_settings (false, false, true);});
-            settings.changed["columns"].connect ( () => {read_settings (false, true, false);});
-
-            // Auto-update applications grid
-            app_system.changed.connect (() => {
-
-                categories = app_system.get_categories ();
-                apps = app_system.get_apps ();
-
-                populate_grid_view ();
-                category_view.setup_sidebar ();
-            });
-
-            // position on the right monitor when settings changed
-            screen.size_changed.connect (() => {
-                setup_size ();
-            });
-        }
-
 #if HAS_PLANK
         public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
             if (!is_retry) {
@@ -278,17 +276,6 @@ namespace Slingshot {
         }
 #endif
 
-        private void change_view_mode (string key) {
-            switch (key) {
-                case "1": // Normal view
-                    view_selector.selected = 0;
-                    break;
-                default: // Category view
-                    view_selector.selected = 1;
-                    break;
-            }
-        }
-
         private void search_entry_activated () {
             if (modality == Modality.SEARCH_VIEW) {
                 search_view.activate_selection ();
@@ -303,14 +290,19 @@ namespace Slingshot {
 
             switch (key) {
                 case "1":
-                case "2":
                     if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                        change_view_mode (key);
+                        view_selector.selected = 0;
                         return true;
                     }
 
                     break;
+                case "2":
+                    if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                        view_selector.selected = 1;
+                        return true;
+                    }
 
+                    break;
                 case "F4":
                     if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                         close_indicator ();
@@ -318,7 +310,6 @@ namespace Slingshot {
                     }
 
                     break;
-
                 case "Escape":
                     if (search_entry.text.length > 0) {
                         search_entry.text = "";
@@ -327,7 +318,6 @@ namespace Slingshot {
                     }
 
                     return true;
-
                 default:
                     break;
             }
