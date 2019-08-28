@@ -43,11 +43,13 @@ dependencies = [
     meson.get_compiler('vala').find_library('config', dirs: join_paths(meson.source_root(), 'vapi'))
 ]
 
+wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
+
 shared_module(
     meson.project_name(),
     sources,
     dependencies: dependencies,
     c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
     install: true,
-    install_dir: wingpanel_dep.get_pkgconfig_variable('indicatorsdir')
+    install_dir: wingpanel_indicatorsdir
 )
