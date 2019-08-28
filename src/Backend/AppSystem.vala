@@ -95,10 +95,6 @@ public class Slingshot.Backend.AppSystem : Object {
         }
     }
 
-    public Gee.ArrayList<GMenu.TreeDirectory> get_categories () {
-        return categories;
-    }
-
     public Gee.ArrayList<App> get_apps_by_category (GMenu.TreeDirectory category) {
         var app_list = new Gee.ArrayList<App> ();
 
