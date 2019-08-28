@@ -1,26 +1,23 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Copyright 2019 elementary, Inc. (https://elementary.io)
+ *           2011-2012 Giulio Collura
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
-
-    private Gtk.TreeStore store;
-
-    private Gtk.TreeIter entry_iter;
+    public signal void selection_changed (string entry_name, int nth);
 
     public int cat_size {
         get {
@@ -41,16 +38,16 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         }
     }
 
+    private Gtk.TreeStore store;
+    private Gtk.TreeIter entry_iter;
+
     private enum Columns {
         INT,
         TEXT,
         N_COLUMNS
     }
 
-    public signal void selection_changed (string entry_name, int nth);
-
-    public Sidebar () {
-
+    construct {
         store = new Gtk.TreeStore (Columns.N_COLUMNS, typeof (int), typeof (string));
         store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
         set_model (store);
@@ -60,7 +57,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         set_level_indentation (8);
 
         hexpand = true;
-        get_style_context ().add_class ("sidebar");
+        get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
         var cell = new Gtk.CellRendererText ();
         cell.xpad = Pixels.PADDING;
@@ -82,8 +79,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         store.clear ();
     }
 
-    public void selection_change () {
-
+    private void selection_change () {
         Gtk.TreeModel model;
         Gtk.TreeIter sel_iter;
         string name;
@@ -97,22 +93,21 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
 
     }
 
-    public bool select_nth (int nth) {
-
+    private bool select_nth (int nth) {
         Gtk.TreeIter iter;
 
-        if (nth < cat_size)
+        if (nth < cat_size) {
             store.iter_nth_child (out iter, null, nth);
-        else
+        } else {
             return false;
+        }
 
         get_selection ().select_iter (iter);
-        return true;
 
+        return true;
     }
 
     protected override bool scroll_event (Gdk.EventScroll event) {
-
         switch (event.direction.to_string ()) {
             case "GDK_SCROLL_UP":
             case "GDK_SCROLL_LEFT":
@@ -126,7 +121,5 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         }
 
         return false;
-
     }
-
 }

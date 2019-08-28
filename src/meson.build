@@ -10,13 +10,14 @@ sources = [
     'Backend/SynapseSearch.vala',
     'Backend/AppCenter.vala',
 
+    'Views/CategoryView.vala',
+    'Views/GridView.vala',
+    'Views/SearchView.vala',
+
     'Widgets/AppEntry.vala',
-    'Widgets/Grid.vala',
     'Widgets/Switcher.vala',
-    'Widgets/SearchView.vala',
     'Widgets/SearchItem.vala',
     'Widgets/Sidebar.vala',
-    'Widgets/CategoryView.vala',
     'Widgets/PageChecker.vala',
     asresources
 ]
