@@ -29,25 +29,14 @@ namespace Slingshot {
 #else
     public class SlingshotView : Gtk.Grid {
 #endif
-        // Widgets
-        public Gtk.SearchEntry search_entry;
-        public Gtk.Stack stack;
-        public Granite.Widgets.ModeButton view_selector;
-        private Gtk.Revealer view_selector_revealer;
-
-        // Views
-        private Widgets.Grid grid_view;
-        private Widgets.SearchView search_view;
-        private Widgets.CategoryView category_view;
+        public signal void close_indicator ();
 
         public Backend.AppSystem app_system;
         public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
+        public Gtk.SearchEntry search_entry;
+        public Gtk.Stack stack;
+        public Granite.Widgets.ModeButton view_selector;
 
-        private Modality modality;
-
-        private Backend.SynapseSearch synapse;
-
-        // Sizes
         public int columns {
             get {
                 return grid_view.get_page_columns ();
@@ -61,13 +50,21 @@ namespace Slingshot {
 
         private int default_columns;
         private int default_rows;
+        private Backend.SynapseSearch synapse;
         private Gdk.Screen screen;
+        private Gtk.Revealer view_selector_revealer;
+        private Modality modality;
+        private Widgets.Grid grid_view;
+        private Widgets.SearchView search_view;
+        private Widgets.CategoryView category_view;
 
         private static GLib.Settings settings { get; private set; default = null; }
 
-        public signal void close_indicator ();
+        static construct {
+            settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        }
 
-        public SlingshotView () {
+        construct {
             // Have the window in the right place
             read_settings (true);
 
@@ -200,10 +197,6 @@ namespace Slingshot {
             screen.size_changed.connect (() => {
                 setup_size ();
             });
-        }
-
-        static construct {
-            settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
         }
 
         public int calculate_grid_height () {
