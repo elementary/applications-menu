@@ -363,6 +363,8 @@ namespace Slingshot {
                             grid_view.go_to_last ();
                         else
                             grid_view.go_to_number (page);
+                    } else if (modality == Modality.CATEGORY_VIEW) {
+                        return Gdk.EVENT_PROPAGATE;
                     } else {
                         return false;
                     }
@@ -406,6 +408,8 @@ namespace Slingshot {
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (search_entry.has_focus) {
                             category_view.category_switcher.selected--;
+                        } else {
+                            return Gdk.EVENT_PROPAGATE;
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
                         return false;
@@ -422,6 +426,8 @@ namespace Slingshot {
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (search_entry.has_focus) {
                             category_view.category_switcher.selected++;
+                        } else {
+                            return Gdk.EVENT_PROPAGATE;
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
                         return false;
