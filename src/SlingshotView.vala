@@ -76,7 +76,6 @@ namespace Slingshot {
             app_system = new Backend.AppSystem ();
             synapse = new Backend.SynapseSearch ();
 
-            var categories = app_system.get_categories ();
             apps = app_system.get_apps ();
 
             screen = get_screen ();
@@ -189,7 +188,6 @@ namespace Slingshot {
 
             // Auto-update applications grid
             app_system.changed.connect (() => {
-                categories = app_system.get_categories ();
                 apps = app_system.get_apps ();
 
                 populate_grid_view ();
