@@ -68,8 +68,6 @@ namespace Slingshot {
             // Have the window in the right place
             read_settings (true);
 
-            Slingshot.icon_theme = Gtk.IconTheme.get_default ();
-
             app_system = new Backend.AppSystem ();
             synapse = new Backend.SynapseSearch ();
 

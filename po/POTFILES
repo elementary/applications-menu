@@ -1,4 +1,4 @@
-src/Slingshot.vala
+src/Indicator.vala
 src/SlingshotView.vala
 src/Settings.vala
 src/Utils.vala
