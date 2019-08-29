@@ -11,6 +11,10 @@ src/Backend/RelevancyService.vala
 src/Backend/SynapseSearch.vala
 src/Backend/AppCenter.vala
 
+src/Views/CategoryView.vala
+src/Views/GridView.vala
+src/Views/SearchView.vala
+
 src/Widgets/AppEntry.vala
 src/Widgets/Grid.vala
 src/Widgets/Switcher.vala
