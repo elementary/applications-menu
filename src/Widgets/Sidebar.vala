@@ -86,7 +86,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         int nth;
 
         if (get_selection ().get_selected (out model, out sel_iter)) {
-            store.get (sel_iter, Columns.INT, out nth, Columns.TEXT, out name);
+            store.get (sel_iter, Columns.INT, out nth);
             _selected = nth;
             selection_changed (nth);
         }
