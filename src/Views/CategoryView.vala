@@ -94,7 +94,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public void show_filtered_apps (string category) {
         app_view.clear ();
         foreach (Backend.App app in view.apps[category]) {
-            var app_entry = new AppEntry (app);
+            var app_entry = new AppButton (app);
             app_entry.app_launched.connect (() => view.close_indicator ());
             app_view.append (app_entry);
             app_view.show_all ();

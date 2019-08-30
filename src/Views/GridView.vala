@@ -123,7 +123,7 @@ namespace Slingshot.Widgets {
 
             var grid = grids.get (col);
             if (grid != null) {
-                return grid.get_child_at (column - (int)page.columns*(col-1), row) as Widgets.AppEntry;
+                return grid.get_child_at (column - (int)page.columns*(col-1), row) as Widgets.AppButton;
             } else {
                 return null;
             }

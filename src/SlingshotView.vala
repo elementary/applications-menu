@@ -436,7 +436,7 @@ namespace Slingshot {
                             category_view.app_view.top_left_focus ();
                         } else if (search_entry.has_focus) {
                             category_view.category_switcher.selected++;
-                        } else { // the user has already selected an AppEntry
+                        } else { // the user has already selected an AppButton
                             category_move_focus (0, +1);
                         }
                     } else if (modality == Modality.SEARCH_VIEW) {
@@ -583,7 +583,7 @@ namespace Slingshot {
             } else if (modality == Modality.CATEGORY_VIEW) {
                 if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Left
                     category_view.app_view.go_to_previous ();
-                else if (!search_entry.has_focus) {//the user has already selected an AppEntry
+                else if (!search_entry.has_focus) {//the user has already selected an AppButton
                     category_move_focus (-1, 0);
                 }
             }
@@ -601,9 +601,9 @@ namespace Slingshot {
             } else if (modality == Modality.CATEGORY_VIEW) {
                 if (event.state == Gdk.ModifierType.SHIFT_MASK) // Shift + Right
                     category_view.app_view.go_to_next ();
-                else if (search_entry.has_focus) // there's no AppEntry selected, the user is switching category
+                else if (search_entry.has_focus) // there's no AppButton selected, the user is switching category
                     category_view.app_view.top_left_focus ();
-                else //the user has already selected an AppEntry
+                else //the user has already selected an AppButton
                     category_move_focus (+1, 0);
             }
         }
@@ -684,7 +684,7 @@ namespace Slingshot {
         public void populate_grid_view () {
             grid_view.clear ();
             foreach (Backend.App app in app_system.get_apps_by_name ()) {
-                var app_entry = new Widgets.AppEntry (app);
+                var app_entry = new Widgets.AppButton (app);
                 app_entry.app_launched.connect (() => close_indicator ());
                 grid_view.append (app_entry);
             }
