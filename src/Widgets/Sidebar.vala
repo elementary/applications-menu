@@ -82,7 +82,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
     private void selection_change () {
         Gtk.TreeModel model;
         Gtk.TreeIter sel_iter;
-        string name;
         int nth;
 
         if (get_selection ().get_selected (out model, out sel_iter)) {
