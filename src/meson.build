@@ -1,5 +1,5 @@
 sources = [
-    'Slingshot.vala',
+    'Indicator.vala',
     'SlingshotView.vala',
     'Pixels.vala',
 

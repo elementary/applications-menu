@@ -1,35 +1,31 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Copyright 2019 elementary, Inc. (https://elementary.io)
+ *           2011-2012 Giulio Collura
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
-public class Slingshot.Slingshot : Wingpanel.Indicator {
+public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "org.gnome.desktop.wm.keybindings";
 
-    private SlingshotView? view = null;
-
-    private Gtk.Grid? indicator_grid = null;
-
-    public static Gtk.IconTheme icon_theme { get; set; default = null; }
-
     private DBusService? dbus_service = null;
+    private Gtk.Grid? indicator_grid = null;
+    private SlingshotView? view = null;
 
     private static GLib.Settings? keybinding_settings;
 
-    public Slingshot () {
+    public Indicator () {
         Object (code_name: Wingpanel.Indicator.APP_LAUNCHER,
         display_name: _("Slingshot"),
         description:_("The app-menu indicator"));
@@ -46,7 +42,7 @@ public class Slingshot.Slingshot : Wingpanel.Indicator {
         default_theme.add_resource_path ("/io/elementary/desktop/wingpanel/applications-menu/icons");
     }
 
-    void on_close_indicator () {
+    private void on_close_indicator () {
         close ();
     }
 
@@ -123,6 +119,6 @@ public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorMana
     if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER){
         return null;
     }
-    var indicator = new Slingshot.Slingshot ();
+    var indicator = new Slingshot.Indicator ();
     return indicator;
 }
