@@ -29,12 +29,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public Gtk.Stack stack;
     public Granite.Widgets.ModeButton view_selector;
 
-    private enum Modality {
-        NORMAL_VIEW = 0,
-        CATEGORY_VIEW = 1,
-        SEARCH_VIEW
-    }
-
     public int columns {
         get {
             return grid_view.get_page_columns ();
@@ -44,6 +38,12 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         get {
             return grid_view.get_page_rows ();
         }
+    }
+
+    private enum Modality {
+        NORMAL_VIEW = 0,
+        CATEGORY_VIEW = 1,
+        SEARCH_VIEW
     }
 
     private int default_columns;
