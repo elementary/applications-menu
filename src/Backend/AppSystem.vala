@@ -1,25 +1,25 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Slingshot Developers
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Copyright 2011-2019 elementary, Inc. (https://elementary.io)
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 public class Slingshot.Backend.AppSystem : Object {
+    public signal void changed ();
 
-    const string GCC_PANEL_CATEGORY = "X-GNOME-Settings-Panel";
-    const string SWITCHBOARD_PLUG_CATEGORY = "X-PANTHEON-Switchboard-Plug";
+    private const string GCC_PANEL_CATEGORY = "X-GNOME-Settings-Panel";
+    private const string SWITCHBOARD_PLUG_CATEGORY = "X-PANTHEON-Switchboard-Plug";
 
     private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
     private Gee.HashMap<string, Gee.ArrayList<App>> apps = null;
@@ -29,8 +29,6 @@ public class Slingshot.Backend.AppSystem : Object {
     private RelevancyService rl_service;
 #endif
 
-    public signal void changed ();
-
     construct {
 #if HAVE_ZEITGEIST
         rl_service = new RelevancyService ();
@@ -39,7 +37,7 @@ public class Slingshot.Backend.AppSystem : Object {
 
         apps_menu = new GMenu.Tree ("pantheon-applications.menu", GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME);
         apps_menu.changed.connect (update_app_system);
-        
+
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
         categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
 
@@ -95,7 +93,7 @@ public class Slingshot.Backend.AppSystem : Object {
         }
     }
 
-    public Gee.ArrayList<App> get_apps_by_category (GMenu.TreeDirectory category) {
+    private Gee.ArrayList<App> get_apps_by_category (GMenu.TreeDirectory category) {
         var app_list = new Gee.ArrayList<App> ();
 
         var iter = category.iter ();
@@ -128,12 +126,11 @@ public class Slingshot.Backend.AppSystem : Object {
 
         foreach (Gee.ArrayList<App> category in apps.values) {
             foreach (App app in category) {
-
                 if (app.categories != null
                     && (GCC_PANEL_CATEGORY in app.categories
-                    || SWITCHBOARD_PLUG_CATEGORY in app.categories))
+                    || SWITCHBOARD_PLUG_CATEGORY in app.categories)) {
                     continue;
-                
+                }
 
                 if (!(app.exec in sorted_apps_execs)) {
                     sorted_apps.insert_sorted_with_data (app, sort_apps_by_name);

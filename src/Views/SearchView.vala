@@ -54,7 +54,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         }
     }
 
-    private Gtk.Stack stack;
     private Granite.Widgets.AlertView alert_view;
     private CycleListBox list_box;
     Gee.HashMap<SearchItem.ResultType, uint> limitator;
@@ -65,12 +64,16 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
+        alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
+        alert_view.show_all ();
+
         // list box
         limitator = new Gee.HashMap<SearchItem.ResultType, uint> ();
         list_box = new CycleListBox ();
         list_box.activate_on_single_click = true;
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
+        list_box.set_placeholder (alert_view);
         list_box.set_selection_mode (Gtk.SelectionMode.BROWSE);
         list_box.row_activated.connect ((row) => {
             Idle.add (() => {
@@ -80,7 +83,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                         case SearchItem.ResultType.APP_ACTIONS:
                         case SearchItem.ResultType.LINK:
                         case SearchItem.ResultType.SETTINGS:
-                            search_item.app.match.execute (null);    
+                            search_item.app.match.execute (null);
                             break;
                         default:
                             search_item.app.launch ();
@@ -134,15 +137,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             }
         });
 
-        // alert view
-        alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
-
-        // stack
-        stack = new Gtk.Stack ();
-        stack.add_named (list_box, "results");
-        stack.add_named (alert_view, "alert");
-
-        add (stack);
+        add (list_box);
     }
 
     public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
@@ -177,10 +172,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                 create_item (app, search_term, result_type);
             }
 
-            stack.set_visible_child_name ("results");
         } else {
             alert_view.title = _("No Results for “%s”").printf (search_term);
-            stack.set_visible_child_name ("alert");
         }
 
 
@@ -282,4 +275,5 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         header.get_style_context ().add_class ("h4");
         row.set_header (header);
     }
+
 }
