@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 23:17+0200\n"
-"PO-Revision-Date: 2019-02-11 20:28+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
-"Language-Team: Spanish <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2019-09-09 13:23+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
@@ -210,11 +210,11 @@ msgstr "Bloquear este dispositivo"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "bloqueo"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
-msgstr "Cerrar Sesión"
+msgstr "Finalizar sesión"
 
 #: lib/synapse-plugins/system-managment.vala:143
 msgid "Close all open applications and quit"
@@ -224,7 +224,7 @@ msgstr "Cerrar todas las aplicaciones y salir"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "cerrar sesión;salir"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -238,7 +238,7 @@ msgstr "Poner el equipo en modo de suspensión"
 #: lib/synapse-plugins/system-managment.vala:175
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "suspend"
+msgstr "suspender"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -252,7 +252,7 @@ msgstr "Poner el equipo en modo de hibernación"
 #: lib/synapse-plugins/system-managment.vala:248
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "hibernate"
+msgstr "hibernar"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -266,7 +266,7 @@ msgstr "Apagar el equipo"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "apagar"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -280,15 +280,15 @@ msgstr "Reiniciar el equipo"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reiniciar"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"Bloquear o Cerrar la sesión. Suspender, Hibernar, Reiniciar o Apagar la "
-"computadora."
+"Bloquea la sesión o la finaliza. Suspenda, ponga a hibernar, reinicie o "
+"apague el equipo."
 
 #: lib/synapse-plugins/system-managment.vala:442
 msgid "ConsoleKit wasn't found"
@@ -328,15 +328,15 @@ msgstr "Buscar en la tienda"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:95
 msgid "AppCenter"
-msgstr "Centro de Aplicaciones"
+msgstr "Centro de aplicaciones"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "Search for applications"
-msgstr "Buscar applicacion"
+msgstr "Buscar aplicaciones"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:100
 msgid "AppCenter is not installed"
-msgstr "El Centro de Aplicaciones no esta instalado"
+msgstr "No se instaló el Centro de aplicaciones"
 
 #~ msgid "All Applications"
 #~ msgstr "Todas las aplicaciones"
