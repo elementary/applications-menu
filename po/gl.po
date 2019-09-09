@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 23:17+0200\n"
-"PO-Revision-Date: 2018-12-22 00:09+0000\n"
-"Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
-"Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2019-09-05 15:23+0000\n"
+"Last-Translator: Daniel <riesp@protonmail.com>\n"
+"Language-Team: Galician <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
@@ -196,7 +196,7 @@ msgstr "Abrir axustes de %s"
 
 #: lib/synapse-plugins/switchboard-plugin.vala:62
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Encontrar conectadores para switchboard e abrilos."
 
 #: lib/synapse-plugins/system-managment.vala:113
 msgid "Lock"
