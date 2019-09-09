@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 23:17+0200\n"
-"PO-Revision-Date: 2019-01-02 22:05+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
-"Language-Team: German <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2019-09-02 13:23+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Slingshot.vala:35
@@ -210,7 +210,7 @@ msgstr "Dieses Gerät sperren"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "sperren"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -224,7 +224,7 @@ msgstr "Alle geöffneten Anwendungen schließen und beenden"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "abmelden"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -258,17 +258,17 @@ msgstr "Ruhezustand"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
-msgstr "Herunterfahren"
+msgstr "Ausschalten"
 
 #: lib/synapse-plugins/system-managment.vala:317
 msgid "Turn your computer off"
-msgstr "Fahren Sie Ihren Computer herunter"
+msgstr "Rechner ausschalten"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "ausschalten;herunterfahren"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -276,13 +276,13 @@ msgstr "Neu starten"
 
 #: lib/synapse-plugins/system-managment.vala:377
 msgid "Restart your computer"
-msgstr "Starten Sie Ihren Computer neu"
+msgstr "Rechner neu starten"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "neu starten;neustarten"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
@@ -290,7 +290,7 @@ msgid ""
 "your computer."
 msgstr ""
 "Sitzung sperren oder beenden. Rechner in den Bereitschaftsmodus oder in den "
-"Ruhezustand versetzen, neu starten oder herunterfahren."
+"Ruhezustand versetzen, neu starten oder ausschalten."
 
 #: lib/synapse-plugins/system-managment.vala:442
 msgid "ConsoleKit wasn't found"
