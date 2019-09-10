@@ -17,7 +17,7 @@
  */
 
 public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
-    public signal void selection_changed (string entry_name, int nth);
+    public signal void selection_changed (int nth);
 
     public int cat_size {
         get {
@@ -82,13 +82,12 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
     private void selection_change () {
         Gtk.TreeModel model;
         Gtk.TreeIter sel_iter;
-        string name;
         int nth;
 
         if (get_selection ().get_selected (out model, out sel_iter)) {
-            store.get (sel_iter, Columns.INT, out nth, Columns.TEXT, out name);
+            store.get (sel_iter, Columns.INT, out nth);
             _selected = nth;
-            selection_changed (name, nth);
+            selection_changed (nth);
         }
 
     }
