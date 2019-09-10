@@ -493,7 +493,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_last ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
-                    category_view.category_switcher.selected = category_view.category_switcher.cat_size - 1;
+                    category_view.category_switcher.select_end ();
                     category_view.app_view.top_left_focus ();
                 }
                 break;

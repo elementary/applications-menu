@@ -19,16 +19,6 @@
 public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     public signal void selection_changed (int nth);
 
-    public int cat_size {
-        get {
-            int count = 0;
-            foreach (unowned Gtk.Widget child in get_children ()) {
-                count++;
-            }
-            return count;
-        }
-    }
-
     public int selected {
         get {
             return get_selected_row ().get_index ();
@@ -50,13 +40,24 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     }
 
     public void add_category (string entry_name) {
-        add (new Gtk.Label (Markup.escape_text (entry_name)));
+        var label = new Gtk.Label (entry_name);
+        label.halign = Gtk.Align.START;
+
+        add (label);
     }
 
     public void clear () {
         foreach (unowned Gtk.Widget child in get_children ()) {
             child.destroy ();
         }
+    }
+
+    public void select_end () {
+        int count = 0;
+        foreach (unowned Gtk.Widget child in get_children ()) {
+            count++;
+        }
+        select_row (get_row_at_y (count));
     }
 
     protected override bool scroll_event (Gdk.EventScroll event) {
