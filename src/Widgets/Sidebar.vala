@@ -64,11 +64,11 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
         switch (event.direction.to_string ()) {
             case "GDK_SCROLL_UP":
             case "GDK_SCROLL_LEFT":
-                select_row (get_row_at_y (get_selected_row ().get_index () - 1));
+                selected++;
                 break;
             case "GDK_SCROLL_DOWN":
             case "GDK_SCROLL_RIGHT":
-                select_row (get_row_at_y (get_selected_row ().get_index () + 1));
+                selected--;
                 break;
 
         }
