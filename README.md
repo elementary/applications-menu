@@ -1,5 +1,5 @@
 # Applications Menu
-[![l10n](https://l10n.elementary.io/widgets/wingpanel/applications-menu/svg-badge.svg)](https://l10n.elementary.io/projects/wingpanel/applications-menu)
+[![Translation status](https://l10n.elementary.io/widgets/wingpanel/-/applications-menu/svg-badge.svg)](https://l10n.elementary.io/engage/wingpanel/?utm_source=widget)
 
 Lightweight and stylish app launcher.
 

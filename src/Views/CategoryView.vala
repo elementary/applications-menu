@@ -1,28 +1,26 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Copyright 2019 elementary, Inc. (https://elementary.io)
+ *           2011-2012 Giulio Collura
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public SlingshotView view { get; construct; }
 
     public Sidebar category_switcher;
     public Widgets.Grid app_view;
-
-    private int current_position = 0;
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
@@ -34,25 +32,25 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
-
         category_switcher = new Sidebar ();
 
         var scrolled_category = new Gtk.ScrolledWindow (null, null);
         scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         scrolled_category.add (category_switcher);
 
+        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+
         app_view = new Widgets.Grid (view.rows, view.columns - 1);
 
         var container = new Gtk.Grid ();
         container.hexpand = true;
-        container.orientation = Gtk.Orientation.HORIZONTAL;
         container.add (scrolled_category);
         container.add (separator);
         container.add (app_view);
+
         add (container);
 
-        category_switcher.selection_changed.connect ((name, nth) => {
+        category_switcher.selection_changed.connect ((nth) => {
             show_filtered_apps (category_ids[nth]);
         });
 
@@ -99,7 +97,5 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             app_view.append (app_entry);
             app_view.show_all ();
         }
-
-        current_position = 0;
     }
 }
