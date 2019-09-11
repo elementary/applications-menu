@@ -402,7 +402,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     } else if (search_entry.has_focus) {
                         category_view.category_switcher.selected--;
                     } else {
-                      category_move_focus (0, -1);
+                        return Gdk.EVENT_PROPAGATE;
                     }
                 } else if (modality == Modality.SEARCH_VIEW) {
                     return false;
@@ -423,7 +423,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     } else if (search_entry.has_focus) {
                         category_view.category_switcher.selected++;
                     } else { // the user has already selected an AppButton
-                        category_move_focus (0, +1);
+                        return Gdk.EVENT_PROPAGATE;
                     }
                 } else if (modality == Modality.SEARCH_VIEW) {
                     return false;
@@ -704,22 +704,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         }
 
         if (delta_column < 0 || delta_row < 0) {
-            search_entry.grab_focus ();
-        }
-    }
-
-    private void category_move_focus (int delta_column, int delta_row) {
-        // if (category_view.app_view.set_focus_relative (delta_column, delta_row)) {
-        //     return;
-        // }
-
-        if (delta_row < 0 && category_view.category_switcher.selected > 0) {
-            category_view.category_switcher.selected--;
-            // category_view.app_view.top_left_focus ();
-        } else if (delta_row > 0) {
-            category_view.category_switcher.selected++;
-            // category_view.app_view.top_left_focus ();
-        } else if (delta_column < 0 || delta_row < 0) {
             search_entry.grab_focus ();
         }
     }
