@@ -407,10 +407,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                         normal_move_focus (0, -1);
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
-                        if (category_view.category_switcher.selected != 0) {
-                            category_view.category_switcher.selected--;
-                            category_view.app_view.top_left_focus ();
-                        }
+                        category_view.page_up ();
                     } else if (search_entry.has_focus) {
                         category_view.category_switcher.selected--;
                     } else {
@@ -430,8 +427,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     }
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
-                        category_view.category_switcher.selected++;
-                        category_view.app_view.top_left_focus ();
+                        category_view.page_down ();
                     } else if (search_entry.has_focus) {
                         category_view.category_switcher.selected++;
                     } else { // the user has already selected an AppButton
@@ -446,8 +442,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_previous ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
-                    category_view.category_switcher.selected--;
-                    category_view.app_view.top_left_focus ();
+                    category_view.page_up ();
                 }
                 break;
 
@@ -455,8 +450,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_next ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
-                    category_view.category_switcher.selected++;
-                    category_view.app_view.top_left_focus ();
+                    category_view.page_down ();
                 }
                 break;
 
