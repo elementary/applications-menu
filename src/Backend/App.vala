@@ -1,35 +1,31 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//                2013-2014 Akshay Shekher
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-
-errordomain IconError {
-    NOT_FOUND
-}
+/*
+ * Copyright 2019 elementary, Inc. (https://elementary.io)
+ *           2013-2014 Akshay Shekher
+ *           2011-2012 Giulio Collura
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 public class Slingshot.Backend.App : Object {
+    public signal void launched (App app);
+    public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
     public enum AppType {
         APP,
         COMMAND,
         SYNAPSE
     }
-
-    public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
 
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
@@ -38,7 +34,6 @@ public class Slingshot.Backend.App : Object {
     public string[] keywords { get; private set;}
     public Icon icon { get; private set; default = new ThemedIcon ("application-default-icon"); }
     public double popularity { get; set; }
-    public double relevancy { get; set; }
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
@@ -52,8 +47,6 @@ public class Slingshot.Backend.App : Object {
 
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
-
-    public signal void launched (App app);
 
     public App (GMenu.TreeEntry entry) {
         app_type = AppType.APP;
