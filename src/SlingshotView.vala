@@ -579,9 +579,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 normal_move_focus (-1, 0);
             }
         } else if (modality == Modality.CATEGORY_VIEW) {
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Left
-                // category_view.app_view.go_to_previous ();
-            } else if (!search_entry.has_focus) { //the user has already selected an AppButton
+            if (event.state != Gdk.ModifierType.SHIFT_MASK && !search_entry.has_focus) {
                 category_move_focus (-1, 0);
             }
         }
@@ -597,11 +595,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             else
                 normal_move_focus (+1, 0);
         } else if (modality == Modality.CATEGORY_VIEW) {
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
-                // category_view.app_view.go_to_next ();
-            } else if (search_entry.has_focus) { // there's no AppButton selected, the user is switching category
-                // category_view.app_view.top_left_focus ();
-            } else { //the user has already selected an AppButton
+            if (event.state != Gdk.ModifierType.SHIFT_MASK && !search_entry.has_focus) {
                 category_move_focus (+1, 0);
             }
         }
