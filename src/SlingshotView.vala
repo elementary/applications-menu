@@ -377,7 +377,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
             case "Left":
                 if (modality == Modality.NORMAL_VIEW) {
-                    move_left (event);
+                    if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                        move_left (event);
+                    } else {
+                        move_right (event);
+                    }
                 } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
@@ -385,7 +389,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
             case "Right":
                 if (modality == Modality.NORMAL_VIEW) {
-                    move_right (event);
+                    if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                        move_right (event);
+                    } else {
+                        move_left (event);
+                    }
                 } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
@@ -560,18 +568,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
      * Moves the current view to the left (undependent of the TextDirection).
      */
     private void move_left (Gdk.EventKey event) {
-        if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
-                grid_view.go_to_previous ();
-            } else {
-                normal_move_focus (-1, 0);
-            }
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
+            grid_view.go_to_previous ();
         } else {
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
-                grid_view.go_to_next ();
-            } else {
-                normal_move_focus (+1, 0);
-            }
+            normal_move_focus (-1, 0);
         }
     }
 
@@ -579,19 +579,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
      * Moves the current view to the right (undependent of the TextDirection).
      */
     private void move_right (Gdk.EventKey event) {
-        if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
-                grid_view.go_to_next ();
-            } else {
-                normal_move_focus (+1, 0);
-            }
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
+            grid_view.go_to_next ();
         } else {
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
-                grid_view.go_to_previous ();
-            } else {
-                normal_move_focus (-1, 0);
-            }
-
+            normal_move_focus (+1, 0);
         }
     }
 
