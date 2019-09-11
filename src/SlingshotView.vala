@@ -680,9 +680,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public void populate_grid_view () {
         grid_view.clear ();
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
-            var app_entry = new Widgets.AppButton (app);
-            app_entry.app_launched.connect (() => close_indicator ());
-            grid_view.append (app_entry);
+            var app_button = new Widgets.AppButton (app);
+            app_button.app_launched.connect (() => close_indicator ());
+            grid_view.append (app_button);
         }
 
         grid_view.show_all ();
