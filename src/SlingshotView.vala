@@ -95,6 +95,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         search_entry = new Gtk.SearchEntry ();
         search_entry.placeholder_text = _("Search Apps");
         search_entry.hexpand = true;
+        search_entry.secondary_icon_tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>BackSpace"}, _("Clear all")
+        );
 
         var top = new Gtk.Grid ();
         top.margin_start = 12;
@@ -461,17 +464,13 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
 
             case "BackSpace":
-                if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Delete
-                    search_entry.text = "";
-                } else if (search_entry.has_focus) {
+                if (search_entry.has_focus) {
                     return false;
                 } else {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     return false;
                 }
-                break;
-
             case "Home":
                 if (search_entry.text.length > 0) {
                     return false;
