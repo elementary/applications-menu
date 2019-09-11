@@ -29,24 +29,14 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public Gtk.Stack stack;
     public Granite.Widgets.ModeButton view_selector;
 
-    public int columns {
-        get {
-            return grid_view.get_page_columns ();
-        }
-    }
-    public int rows {
-        get {
-            return grid_view.get_page_rows ();
-        }
-    }
-
     private enum Modality {
         NORMAL_VIEW = 0,
         CATEGORY_VIEW = 1,
         SEARCH_VIEW
     }
 
-    private const int DEFAULT_ROWS = 3;
+    public const int DEFAULT_COLUMNS = 5;
+    public const int DEFAULT_ROWS = 3;
 
     private Backend.SynapseSearch synapse;
     private Gdk.Screen screen;

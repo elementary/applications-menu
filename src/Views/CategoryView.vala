@@ -40,7 +40,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-        app_view = new Widgets.Grid (view.rows, view.columns - 1);
+        app_view = new Widgets.Grid (SlingshotView.DEFAULT_ROWS, SlingshotView.DEFAULT_COLUMNS - 1);
 
         var container = new Gtk.Grid ();
         container.hexpand = true;
@@ -83,8 +83,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         if (minimum_width % Pixels.ITEM_SIZE != 0)
             removing_columns++;
 
-        int columns = view.columns - removing_columns;
-        app_view.resize (view.rows, columns);
+        int columns = SlingshotView.DEFAULT_COLUMNS - removing_columns;
+        app_view.resize (SlingshotView.DEFAULT_ROWS, columns);
 
         category_switcher.selected = old_selected;
     }
