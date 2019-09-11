@@ -31,7 +31,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         LINK
     }
 
-    const int ICON_SIZE = 32;
+    private const int ICON_SIZE = 32;
 
     public signal bool launch_app ();
 
@@ -39,9 +39,10 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
     public string search_term { get; construct; }
     public ResultType result_type { public get; construct; }
 
-    private Gtk.Label name_label;
     public Gtk.Image icon { public get; private set; }
     public string? app_uri { get; private set; }
+
+    private Gtk.Label name_label;
     private Cancellable? cancellable = null;
 
     public SearchItem (Backend.App app, string search_term = "", ResultType result_type = ResultType.UNKNOWN) {
@@ -63,7 +64,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         name_label = new Gtk.Label (markup);
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
         name_label.use_markup = true;
-        ((Gtk.Misc) name_label).xalign = 0.0f;
+        name_label.xalign = 0;
 
         icon = new Gtk.Image ();
         icon.gicon = app.icon;
@@ -89,7 +90,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         }
 
         var grid = new Gtk.Grid ();
-        grid.orientation = Gtk.Orientation.HORIZONTAL;
         grid.column_spacing = 12;
         grid.add (icon);
         grid.add (name_label);
