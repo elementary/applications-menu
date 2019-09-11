@@ -333,7 +333,8 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Enter": // "KP_Enter"
             case "Return":
             case "KP_Enter":
-                return false;
+            case "Tab":
+                return Gdk.EVENT_PROPAGATE;
 
             case "Alt_L":
             case "Alt_R":
@@ -363,16 +364,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     return false;
                 }
                 search_entry.grab_focus ();
-                break;
-
-            case "Tab":
-                if (modality == Modality.NORMAL_VIEW) {
-                    view_selector.selected = (int) Modality.CATEGORY_VIEW;
-                    // category_view.app_view.top_left_focus ();
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    view_selector.selected = (int) Modality.NORMAL_VIEW;
-                    grid_view.top_left_focus ();
-                }
                 break;
 
             case "Left":
@@ -514,7 +505,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         }
 
-        return true;
+        return Gdk.EVENT_STOP;
     }
 
     public override bool scroll_event (Gdk.EventScroll scroll_event) {
