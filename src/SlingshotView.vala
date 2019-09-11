@@ -522,16 +522,12 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "GDK_SCROLL_LEFT":
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_previous ();
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    // category_view.app_view.go_to_previous ();
                 }
                 break;
             case "GDK_SCROLL_DOWN":
             case "GDK_SCROLL_RIGHT":
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_next ();
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    // category_view.app_view.go_to_next ();
                 }
                 break;
         }
