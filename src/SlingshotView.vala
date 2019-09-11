@@ -359,12 +359,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                         grid_view.go_to_last ();
                     else
                         grid_view.go_to_number (page);
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    if (page < 0 || page == 9) {
-                        // category_view.app_view.go_to_last ();
-                    } else {
-                        // category_view.app_view.go_to_number (page);
-                    }
                 } else {
                     return false;
                 }
