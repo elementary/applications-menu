@@ -16,7 +16,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-public class Slingshot.Widgets.AppEntry : Gtk.Button {
+public class Slingshot.Widgets.AppButton : Gtk.Button {
     private static Gtk.Menu menu;
 
     public signal void app_launched ();
@@ -75,7 +75,7 @@ public class Slingshot.Widgets.AppEntry : Gtk.Button {
     }
 #endif
 
-    public AppEntry (Backend.App app) {
+    public AppButton (Backend.App app) {
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
