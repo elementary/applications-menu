@@ -18,27 +18,26 @@
  */
 
 public class Slingshot.Backend.App : Object {
+    public signal void launched (App app);
+    public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
+
     public enum AppType {
         APP,
         COMMAND,
         SYNAPSE
     }
 
-    public signal void launched (App app);
-    public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
-
-    public AppType app_type { get; construct; }
-    public Icon icon { get; construct; }
-    public string? categories { get; construct; default = null; }
-    public string description { get; construct; }
-    public string? desktop_id { get; construct; default = null; }
-    public string? desktop_path { get; construct; default = null; }
-    public string? exec { get; construct; default = null; }
-    public string name { get; construct; }
-    public Synapse.Match? match { get; construct; default = null; }
-    public Synapse.Match? target { get; construct; default = null; }
-
+    public string name { get; construct set; }
+    public string description { get; private set; default = ""; }
+    public string desktop_id { get; construct set; }
+    public string exec { get; private set; }
+    public string[] keywords { get; private set;}
+    public Icon icon { get; private set; default = new ThemedIcon ("application-default-icon"); }
     public double popularity { get; set; }
+    public string desktop_path { get; private set; }
+    public string categories { get; private set; }
+    public string generic_name { get; private set; default = ""; }
+    public AppType app_type { get; private set; default = AppType.APP; }
 
 #if HAS_PLANK
     private string? unity_sender_name = null;
@@ -46,34 +45,47 @@ public class Slingshot.Backend.App : Object {
     public int64 current_count { get; private set; default = 0; }
 #endif
 
-    public App (GMenu.TreeEntry entry) {
-        unowned GLib.DesktopAppInfo info = entry.get_app_info ();
+    public Synapse.Match? match { get; private set; default = null; }
+    public Synapse.Match? target { get; private set; default = null; }
 
-        Object (
-            app_type: AppType.APP,
-            icon: verified_icon (info.get_icon ()),
-            categories: info.get_categories (),
-            desktop_id: entry.get_desktop_file_id (),
-            desktop_path: entry.get_desktop_file_path (),
-            exec: info.get_commandline (),
-            name: info.get_display_name (),
-            description: info.get_description () ?? name
-        );
+    public App (GMenu.TreeEntry entry) {
+        app_type = AppType.APP;
+
+        unowned GLib.DesktopAppInfo info = entry.get_app_info ();
+        name = info.get_display_name ();
+        description = info.get_description () ?? name;
+        exec = info.get_commandline ();
+        desktop_id = entry.get_desktop_file_id ();
+        desktop_path = entry.get_desktop_file_path ();
+        keywords = info.get_keywords ();
+        categories = info.get_categories ();
+        generic_name = info.get_generic_name ();
+        var desktop_icon = info.get_icon ();
+        if (desktop_icon != null) {
+            icon = desktop_icon;
+        }
+
+        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
+        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
+        }
     }
 
     public App.from_command (string command) {
-        Object (
-            app_type: AppType.COMMAND,
-            description: _("Run this command…"),
-            desktop_id: command,
-            exec: command,
-            icon: new ThemedIcon ("system-run"),
-            name: command
-        );
+        app_type = AppType.COMMAND;
+
+        name = command;
+        description = _("Run this command…");
+        exec = command;
+        desktop_id = command;
+        icon = new ThemedIcon ("system-run");
     }
 
     public App.from_synapse_match (Synapse.Match match, Synapse.Match? target = null) {
-        Icon icon = null;
+        app_type = AppType.SYNAPSE;
+
+        name = match.title;
+        description = match.description;
         if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
             var file = File.new_for_path (match.thumbnail_path);
             icon = new FileIcon (file);
@@ -81,22 +93,13 @@ public class Slingshot.Backend.App : Object {
             icon = new ThemedIcon (match.icon_name);
         }
 
-        Object (
-            app_type: AppType.SYNAPSE,
-            description: match.description,
-            icon: verified_icon (icon),
-            match: match,
-            name: match.title,
-            target: target
-        );
-    }
-
-    private Icon verified_icon (Icon? icon) {
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (icon == null || theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
-            return new ThemedIcon ("application-default-icon");
+        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
         }
-        return icon;
+
+        this.match = match;
+        this.target = target;
     }
 
     public bool launch () {
