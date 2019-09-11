@@ -333,7 +333,8 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Enter": // "KP_Enter"
             case "Return":
             case "KP_Enter":
-                return false;
+            case "Tab":
+                return Gdk.EVENT_PROPAGATE;
 
             case "Alt_L":
             case "Alt_R":
