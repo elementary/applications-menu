@@ -131,10 +131,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return (int) page.columns;
     }
 
-    public int get_page_rows () {
-        return (int) page.rows;
-    }
-
     public int get_n_pages () {
         return (int) page.number;
     }
