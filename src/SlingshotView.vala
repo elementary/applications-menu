@@ -302,9 +302,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                             category_view.app_view.go_to_number (page);
                         }
                     }
+                    search_entry.grab_focus ();
+                    return Gdk.EVENT_STOP;
                 }
-                search_entry.grab_focus ();
-                return Gdk.EVENT_STOP;
+
+                return Gdk.EVENT_PROPAGATE;
             case "Left":
                 if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
                     return Gdk.EVENT_PROPAGATE;
