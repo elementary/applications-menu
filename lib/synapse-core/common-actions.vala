@@ -21,53 +21,53 @@
 */
 
 namespace Synapse {
-	public abstract class BaseAction: Object, Match {
-		// from Match interface
-		public string title { get; construct set; }
-		public string description { get; set; }
-		public string icon_name { get; construct set; }
-		public bool has_thumbnail { get; construct set; }
-		public string thumbnail_path { get; construct set; }
-		public MatchType match_type { get; construct set; }
+    public abstract class BaseAction: Object, Match {
+        // from Match interface
+        public string title { get; construct set; }
+        public string description { get; set; }
+        public string icon_name { get; construct set; }
+        public bool has_thumbnail { get; construct set; }
+        public string thumbnail_path { get; construct set; }
+        public MatchType match_type { get; construct set; }
 
-		public int default_relevancy { get; set; }
-		public bool notify_match { get; set; default = true; }
+        public int default_relevancy { get; set; }
+        public bool notify_match { get; set; default = true; }
 
-		public abstract bool valid_for_match (Match match);
-		public virtual int get_relevancy_for_match (Match match) {
-		  return default_relevancy;
-		}
+        public abstract bool valid_for_match (Match match);
+        public virtual int get_relevancy_for_match (Match match) {
+          return default_relevancy;
+        }
 
-		public abstract void do_execute (Match? source, Match? target = null);
-		public void execute_with_target (Match? source, Match? target = null) {
-		  do_execute (source, target);
-		  if (notify_match) source.executed ();
-		}
-		
-		public virtual bool needs_target () {
-		  return false;
-		}
-		
-		public virtual QueryFlags target_flags () {
-		  return QueryFlags.ALL;
-		}
-	}
+        public abstract void do_execute (Match? source, Match? target = null);
+        public void execute_with_target (Match? source, Match? target = null) {
+          do_execute (source, target);
+          if (notify_match) source.executed ();
+        }
 
-	public class CommonActions: Object, Activatable, ActionProvider {
-		public bool enabled { get; set; default = true; }
-    
+        public virtual bool needs_target () {
+          return false;
+        }
+
+        public virtual QueryFlags target_flags () {
+          return QueryFlags.ALL;
+        }
+    }
+
+    public class CommonActions: Object, Activatable, ActionProvider {
+        public bool enabled { get; set; default = true; }
+
         public void activate () { }
 
         public void deactivate () { }
 
         private class Runner: BaseAction {
-		    public Runner () {
-			    Object (title: _("Run"),
-					    description: _("Run an application, action or script"),
-					    icon_name: "system-run", has_thumbnail: false,
-					    match_type: MatchType.ACTION,
-					    default_relevancy: Match.Score.EXCELLENT);
-		    }
+            public Runner () {
+                Object (title: _("Run"),
+                        description: _("Run an application, action or script"),
+                        icon_name: "system-run", has_thumbnail: false,
+                        match_type: MatchType.ACTION,
+                        default_relevancy: Match.Score.EXCELLENT);
+            }
 
             public override void do_execute (Match? match, Match? target = null) {
                 if (match.match_type == MatchType.APPLICATION) {
