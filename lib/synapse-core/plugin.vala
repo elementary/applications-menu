@@ -21,33 +21,33 @@
 */
 
 namespace Synapse {
-	public interface Activatable : Object {
-		// this property will eventually go away
-		public abstract bool enabled { get; set; default = true; }
+    public interface Activatable : Object {
+        // this property will eventually go away
+        public abstract bool enabled { get; set; default = true; }
 
-		public abstract void activate ();
-		public abstract void deactivate ();
-	}
+        public abstract void activate ();
+        public abstract void deactivate ();
+    }
 
-	public interface Configurable : Object {
-		public abstract Gtk.Widget create_config_widget ();
-	}
+    public interface Configurable : Object {
+        public abstract Gtk.Widget create_config_widget ();
+    }
 
-	public interface ItemProvider : Activatable {
-		public abstract async ResultSet? search (Query query) throws SearchError;
-		public virtual bool handles_query (Query query) {
-			return true;
-		}
+    public interface ItemProvider : Activatable {
+        public abstract async ResultSet? search (Query query) throws SearchError;
+        public virtual bool handles_query (Query query) {
+            return true;
+        }
 
-		public virtual bool handles_empty_query () {
-			return false;
-		}
-	}
+        public virtual bool handles_empty_query () {
+            return false;
+        }
+    }
 
-	public interface ActionProvider : Activatable {
-		public abstract ResultSet? find_for_match (ref Query query, Match match);
-		public virtual bool handles_unknown () {
-			return false;
-		}
-	}
+    public interface ActionProvider : Activatable {
+        public abstract ResultSet? find_for_match (ref Query query, Match match);
+        public virtual bool handles_unknown () {
+            return false;
+        }
+    }
 }
