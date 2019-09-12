@@ -29,25 +29,15 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public Gtk.Stack stack;
     public Granite.Widgets.ModeButton view_selector;
 
-    public int columns {
-        get {
-            return grid_view.get_page_columns ();
-        }
-    }
-    public int rows {
-        get {
-            return grid_view.get_page_rows ();
-        }
-    }
-
     private enum Modality {
         NORMAL_VIEW = 0,
         CATEGORY_VIEW = 1,
         SEARCH_VIEW
     }
 
-    private int default_columns;
-    private int default_rows;
+    public const int DEFAULT_COLUMNS = 5;
+    public const int DEFAULT_ROWS = 3;
+
     private Backend.SynapseSearch synapse;
     private Gdk.Screen screen;
     private Gtk.Revealer view_selector_revealer;
@@ -63,9 +53,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     }
 
     construct {
-        // Have the window in the right place
-        read_settings (true);
-
         app_system = new Backend.AppSystem ();
         synapse = new Backend.SynapseSearch ();
 
@@ -73,9 +60,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         screen = get_screen ();
 
-        setup_size ();
-
-        height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
+        height_request = (int) (DEFAULT_ROWS * Pixels.ITEM_SIZE + (DEFAULT_ROWS - 1) * Pixels.ROW_SPACING) + Pixels.BOTTOM_SPACE;
 
         var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
         grid_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"));
@@ -105,7 +90,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         top.add (view_selector_revealer);
         top.add (search_entry);
 
-        grid_view = new Widgets.Grid (default_rows, default_columns);
+        grid_view = new Widgets.Grid ();
 
         category_view = new Widgets.CategoryView (this);
 
@@ -174,14 +159,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             set_modality ((Modality) view_selector.selected);
         });
 
-        // Auto-update settings when changed
-        settings.changed["rows"].connect ( () => {
-            read_settings (false, false, true);
-        });
-        settings.changed["columns"].connect ( () => {
-            read_settings (false, true, false);
-        });
-
         // Auto-update applications grid
         app_system.changed.connect (() => {
             apps = app_system.get_apps ();
@@ -189,49 +166,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             populate_grid_view ();
             category_view.setup_sidebar ();
         });
-
-        // position on the right monitor when settings changed
-        screen.size_changed.connect (() => {
-            setup_size ();
-        });
-    }
-
-    public int calculate_grid_height () {
-        return (int) (default_rows * Pixels.ITEM_SIZE +
-                     (default_rows - 1) * Pixels.ROW_SPACING);
-    }
-
-    public int calculate_grid_width () {
-        return (int) default_columns * Pixels.ITEM_SIZE + 24;
-    }
-
-    private void setup_size () {
-        Gdk.Rectangle geometry;
-        screen.get_monitor_geometry (screen.get_primary_monitor (), out geometry);
-
-        var geometry_string = "%ix%i".printf (geometry.width, geometry.height);
-        if (settings.get_string ("screen-resolution") == geometry_string) {
-            return;
-        } else {
-            settings.set_string ("screen-resolution", geometry_string);
-        }
-
-        default_columns = 5;
-        default_rows = 3;
-        while ((calculate_grid_width () >= 2 * geometry.width / 3)) {
-            default_columns--;
-        }
-
-        while ((calculate_grid_height () >= 2 * geometry.height / 3)) {
-            default_rows--;
-        }
-
-        if (settings.get_int ("columns") != default_columns) {
-            settings.set_int ("columns", default_columns);
-        }
-        if (settings.get_int ("rows") != default_rows) {
-            settings.set_int ("rows", default_rows);
-        }
     }
 
 #if HAS_PLANK
@@ -670,37 +604,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         }
 
         grid_view.show_all ();
-    }
-
-    private void read_settings (bool first_start = false, bool check_columns = true, bool check_rows = true) {
-        if (check_columns) {
-            var columns = settings.get_int ("columns");
-            if (columns > 3) {
-                default_columns = columns;
-            } else {
-                default_columns = 4;
-                settings.set_int ("columns", 4);
-            }
-        }
-
-        if (check_rows) {
-            var rows = settings.get_int ("rows");
-            if (rows > 1) {
-                default_rows = rows;
-            } else {
-                default_rows = 2;
-                settings.set_int ("rows", 2);
-            }
-        }
-
-        if (!first_start) {
-            grid_view.resize (default_rows, default_columns);
-            populate_grid_view ();
-            height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
-
-            category_view.app_view.resize (default_rows, default_columns);
-            category_view.show_filtered_apps (category_view.category_ids.get (category_view.category_switcher.selected));
-        }
     }
 
     private void normal_move_focus (int delta_column, int delta_row) {
