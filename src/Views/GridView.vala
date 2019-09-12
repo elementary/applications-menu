@@ -35,12 +35,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private uint current_row = 0;
     private uint current_col = 0;
 
-    public Grid (int rows = 3, int columns = 5) {
-        page.rows = rows;
-        page.columns = columns;
-    }
-
     construct {
+        page.rows = 3;
+        page.columns = 5;
         page.number = 1;
 
         stack = new Gtk.Stack ();
@@ -131,10 +128,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return (int) page.columns;
     }
 
-    public int get_page_rows () {
-        return (int) page.rows;
-    }
-
     public int get_n_pages () {
         return (int) page.number;
     }
@@ -161,13 +154,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     public void go_to_number (int number) {
         stack.set_visible_child_name (number.to_string ());
-    }
-
-    public void resize (int rows, int columns) {
-        clear ();
-        page.rows = rows;
-        page.columns = columns;
-        page.number = 1;
     }
 
     public bool set_focus (int column, int row) {

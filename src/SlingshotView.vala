@@ -35,7 +35,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         SEARCH_VIEW
     }
 
-    public const int DEFAULT_COLUMNS = 5;
     public const int DEFAULT_ROWS = 3;
 
     private Backend.SynapseSearch synapse;
