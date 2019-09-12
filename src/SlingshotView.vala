@@ -144,7 +144,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         focus_in_event.connect (() => {
             search_entry.grab_focus ();
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         });
 
         event_box.key_press_event.connect (on_event_box_key_press);
@@ -290,7 +290,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "2":
                 if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
                     change_view_mode (key);
-                    return true;
+                    return Gdk.EVENT_STOP;
                 }
 
                 break;
@@ -298,7 +298,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "F4":
                 if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                     close_indicator ();
-                    return true;
+                    return Gdk.EVENT_STOP;
                 }
 
                 break;
@@ -310,20 +310,20 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     close_indicator ();
                 }
 
-                return true;
+                return Gdk.EVENT_STOP;
 
             default:
                 break;
         }
 
-        return false;
+        return Gdk.EVENT_PROPAGATE;
     }
 
     public bool on_event_box_key_press (Gdk.EventKey event) {
         if (!on_search_view_key_press (event)) {
             return on_key_press (event);
         } else {
-            return true;
+            return Gdk.EVENT_STOP;
         }
     }
 
@@ -333,7 +333,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Enter": // "KP_Enter"
             case "Return":
             case "KP_Enter":
-                return false;
+                return Gdk.EVENT_PROPAGATE;
 
             case "Alt_L":
             case "Alt_R":
@@ -352,7 +352,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 int page = int.parse (key);
 
                 if (event.state != Gdk.ModifierType.MOD1_MASK)
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
 
                 if (modality == Modality.NORMAL_VIEW) {
                     if (page < 0 || page == 9)
@@ -365,7 +365,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     else
                         category_view.app_view.go_to_number (page);
                 } else {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
                 search_entry.grab_focus ();
                 break;
@@ -382,7 +382,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
             case "Left":
                 if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
 
                 if (get_style_context ().direction == Gtk.TextDirection.LTR) {
                     move_left (event);
@@ -393,7 +393,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
             case "Right":
                 if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
 
                 if (get_style_context ().direction == Gtk.TextDirection.LTR) {
                     move_right (event);
@@ -417,7 +417,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                       category_move_focus (0, -1);
                     }
                 } else if (modality == Modality.SEARCH_VIEW) {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
                 break;
 
@@ -438,7 +438,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                         category_move_focus (0, +1);
                     }
                 } else if (modality == Modality.SEARCH_VIEW) {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
                 break;
 
@@ -464,17 +464,17 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Delete
                     search_entry.text = "";
                 } else if (search_entry.has_focus) {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 } else {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
                 break;
 
             case "Home":
                 if (search_entry.text.length > 0) {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
 
                 if (modality == Modality.NORMAL_VIEW) {
@@ -487,7 +487,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
             case "End":
                 if (search_entry.text.length > 0) {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
 
                 if (modality == Modality.NORMAL_VIEW) {
@@ -503,7 +503,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
                     search_entry.paste_clipboard ();
                 } else {
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
                 }
                 break;
 
@@ -513,11 +513,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     search_entry.key_press_event (event);
                 }
-                return false;
+                return Gdk.EVENT_PROPAGATE;
 
         }
 
-        return true;
+        return Gdk.EVENT_STOP;
     }
 
     public override bool scroll_event (Gdk.EventScroll scroll_event) {
@@ -526,7 +526,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         if ((device == null ||
             (device.input_source != Gdk.InputSource.MOUSE && device.input_source != Gdk.InputSource.KEYBOARD)) &&
             (grid_view.stack.transition_running || category_view.app_view.stack.transition_running)) {
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         }
 
         switch (scroll_event.direction.to_string ()) {
@@ -548,7 +548,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
         }
 
-        return false;
+        return Gdk.EVENT_PROPAGATE;
     }
 
     public void show_slingshot () {
