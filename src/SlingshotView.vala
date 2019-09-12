@@ -220,6 +220,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     view_selector.selected = 1;
                     return Gdk.EVENT_STOP;
             }
+            return Gdk.EVENT_PROPAGATE;
         }
 
         switch (key) {
