@@ -469,7 +469,7 @@ namespace Synapse {
 
             Regex exec_re;
             try {
-            	exec_re = new Regex ("%[fFuU]");
+                exec_re = new Regex ("%[fFuU]");
             } catch (Error err) {
                 critical ("%s", err.message);
                 return;
@@ -478,7 +478,7 @@ namespace Synapse {
             foreach (var dfi in all_desktop_files) {
                 string exec = "";
                 try {
-                	exec = exec_re.replace_literal (dfi.exec, -1, 0, "");
+                    exec = exec_re.replace_literal (dfi.exec, -1, 0, "");
                 } catch (RegexError err) {
                     critical (err.message);
                 }
