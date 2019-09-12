@@ -295,21 +295,16 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                         } else {
                             grid_view.go_to_number (page);
                         }
-
-                        search_entry.grab_focus ();
-                        return Gdk.EVENT_STOP;
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (page < 0 || page == 9) {
                             category_view.app_view.go_to_last ();
                         } else {
                             category_view.app_view.go_to_number (page);
                         }
-
-                        search_entry.grab_focus ();
-                        return Gdk.EVENT_STOP;
                     }
                 }
-                break;
+                search_entry.grab_focus ();
+                return Gdk.EVENT_STOP;
             case "Left":
                 if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
                     return Gdk.EVENT_PROPAGATE;
