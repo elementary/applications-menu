@@ -35,7 +35,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private uint current_row = 0;
     private uint current_col = 0;
 
-    public Grid (int rows, int columns) {
+    public Grid (int rows = 3, int columns = 5) {
         page.rows = rows;
         page.columns = columns;
     }
