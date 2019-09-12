@@ -67,10 +67,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         height_request = calculate_grid_height () + Pixels.BOTTOM_SPACE;
 
         var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
-        grid_image .tooltip_text = _("View as Grid");
+        grid_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"));
 
         var category_image = new Gtk.Image.from_icon_name ("view-filter-symbolic", Gtk.IconSize.MENU);
-        category_image.tooltip_text = _("View by Category");
+        category_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"));
 
         view_selector = new Granite.Widgets.ModeButton ();
         view_selector.margin_end = 12;
