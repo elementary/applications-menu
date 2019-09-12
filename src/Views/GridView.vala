@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Slingshot.Widgets.Grid : Gtk.Box {
+public class Slingshot.Widgets.Grid : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
 
     private struct Page {
@@ -29,33 +29,32 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     private Gtk.Widget? focused_widget;
     private Gee.HashMap<int, Gtk.Grid> grids;
     private Page page;
-    private Widgets.Switcher page_switcher;
 
     private int focused_column;
     private int focused_row;
     private uint current_row = 0;
     private uint current_col = 0;
 
-    public Grid (int rows, int columns) {
+    public Grid (int rows = 3, int columns = 5) {
         page.rows = rows;
         page.columns = columns;
+    }
+
+    construct {
         page.number = 1;
 
         stack = new Gtk.Stack ();
         stack.expand = true;
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
-        page_switcher = new Widgets.Switcher ();
+        var page_switcher = new Widgets.Switcher ();
         page_switcher.set_stack (stack);
 
-        var main_grid = new Gtk.Grid ();
-        main_grid.orientation = Gtk.Orientation.VERTICAL;
-        main_grid.row_spacing = 6;
-        main_grid.margin_bottom = 12;
-        main_grid.add (stack);
-        main_grid.add (page_switcher);
-
-        add (main_grid);
+        orientation = Gtk.Orientation.VERTICAL;
+        row_spacing = 6;
+        margin_bottom = 12;
+        add (stack);
+        add (page_switcher);
 
         grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
         create_new_grid ();
@@ -130,10 +129,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
 
     public int get_page_columns () {
         return (int) page.columns;
-    }
-
-    public int get_page_rows () {
-        return (int) page.rows;
     }
 
     public int get_n_pages () {
