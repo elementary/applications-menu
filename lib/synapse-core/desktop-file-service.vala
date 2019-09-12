@@ -471,43 +471,43 @@ namespace Synapse {
             try {
             	exec_re = new Regex ("%[fFuU]");
             } catch (Error err) {
-		        critical ("%s", err.message);
-		        return;
+                critical ("%s", err.message);
+                return;
             }
 
             foreach (var dfi in all_desktop_files) {
-		        string exec = "";
-		        try {
-		        	exec = exec_re.replace_literal (dfi.exec, -1, 0, "");
-		        } catch (RegexError err) {
+                string exec = "";
+                try {
+                	exec = exec_re.replace_literal (dfi.exec, -1, 0, "");
+                } catch (RegexError err) {
                     critical (err.message);
-		        }
-		        exec = exec.strip ();
-		        // update exec map
-		        Gee.List<DesktopFileInfo>? exec_list = exec_map[exec];
-		        if (exec_list == null) {
-				    exec_list = new Gee.ArrayList<DesktopFileInfo> ();
-				    exec_map[exec] = exec_list;
-		        }
-		        exec_list.add (dfi);
+                }
+                exec = exec.strip ();
+                // update exec map
+                Gee.List<DesktopFileInfo>? exec_list = exec_map[exec];
+                if (exec_list == null) {
+                    exec_list = new Gee.ArrayList<DesktopFileInfo> ();
+                    exec_map[exec] = exec_list;
+                }
+                exec_list.add (dfi);
 
-		        // update desktop id map
-		        var desktop_id = dfi.desktop_id ?? Path.get_basename (dfi.filename);
-		        desktop_id_map[desktop_id] = dfi;
+                // update desktop id map
+                var desktop_id = dfi.desktop_id ?? Path.get_basename (dfi.filename);
+                desktop_id_map[desktop_id] = dfi;
 
-		        // update mimetype map
-		        if (dfi.is_hidden || dfi.mime_types == null) {
-					continue;
-				}
+                // update mimetype map
+                if (dfi.is_hidden || dfi.mime_types == null) {
+                    continue;
+                }
 
-		        foreach (unowned string mime_type in dfi.mime_types) {
-		            Gee.List<DesktopFileInfo>? list = mimetype_map[mime_type];
-		            if (list == null) {
-		                list = new Gee.ArrayList<DesktopFileInfo> ();
-		                mimetype_map[mime_type] = list;
-		            }
-		            list.add (dfi);
-		        }
+                foreach (unowned string mime_type in dfi.mime_types) {
+                    Gee.List<DesktopFileInfo>? list = mimetype_map[mime_type];
+                    if (list == null) {
+                        list = new Gee.ArrayList<DesktopFileInfo> ();
+                        mimetype_map[mime_type] = list;
+                    }
+                    list.add (dfi);
+                }
             }
         }
 
