@@ -296,6 +296,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                             grid_view.go_to_number (page);
                         }
 
+                        search_entry.grab_focus ();
                         return Gdk.EVENT_STOP;
                     } else if (modality == Modality.CATEGORY_VIEW) {
                         if (page < 0 || page == 9) {
@@ -304,10 +305,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                             category_view.app_view.go_to_number (page);
                         }
 
+                        search_entry.grab_focus ();
                         return Gdk.EVENT_STOP;
                     }
                 }
-                return Gdk.EVENT_PROPAGATE;
+                break;
             case "Left":
                 if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
                     return Gdk.EVENT_PROPAGATE;
