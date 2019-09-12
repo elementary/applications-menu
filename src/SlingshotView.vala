@@ -356,40 +356,24 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
 
             case "Left":
-<<<<<<< HEAD
                 if (modality == Modality.NORMAL_VIEW) {
                     if (get_style_context ().direction == Gtk.TextDirection.LTR) {
                         move_left (event);
                     } else {
                         move_right (event);
                     }
-=======
-                if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
-                    return Gdk.EVENT_PROPAGATE;
-
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    move_left (event);
->>>>>>> master
                 } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
 
                 break;
             case "Right":
-<<<<<<< HEAD
                 if (modality == Modality.NORMAL_VIEW) {
                     if (get_style_context ().direction == Gtk.TextDirection.LTR) {
                         move_right (event);
                     } else {
                         move_left (event);
                     }
-=======
-                if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
-                    return Gdk.EVENT_PROPAGATE;
-
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    move_right (event);
->>>>>>> master
                 } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
@@ -512,13 +496,8 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         if ((device == null ||
             (device.input_source != Gdk.InputSource.MOUSE && device.input_source != Gdk.InputSource.KEYBOARD)) &&
-<<<<<<< HEAD
             grid_view.stack.transition_running) {
-            return false;
-=======
-            (grid_view.stack.transition_running || category_view.app_view.stack.transition_running)) {
             return Gdk.EVENT_PROPAGATE;
->>>>>>> master
         }
 
         switch (scroll_event.direction.to_string ()) {
