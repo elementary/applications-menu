@@ -46,6 +46,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         }
     }
 
+    private static Gtk.CssProvider css_provider;
+
     private new Granite.AsyncImage image;
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
@@ -53,14 +55,13 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private string appstream_comp_id = "";
 
     static construct {
-#if HAS_PLANK        
+#if HAS_PLANK
         Plank.Paths.initialize ("plank", Build.PKGDATADIR);
         plank_client = Plank.DBusClient.get_instance ();
 #endif
 
-        var css_provider = new Gtk.CssProvider ();
+        css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("io/elementary/desktop/wingpanel/applications-menu/applications-menu.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
     private const int ICON_SIZE = 64;
@@ -107,7 +108,10 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         badge.width_request = 24;
         badge.halign = Gtk.Align.END;
         badge.valign = Gtk.Align.START;
-        badge.get_style_context ().add_class ("badge");
+
+        unowned Gtk.StyleContext badge_style_context = badge.get_style_context ();
+        badge_style_context.add_class ("badge");
+        badge_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
@@ -129,8 +133,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         this.clicked.connect (launch_app);
 
         this.button_press_event.connect ((e) => {
-            if (e.button != Gdk.BUTTON_SECONDARY)
+            if (e.button != Gdk.BUTTON_SECONDARY) {
                 return false;
+            }
 
             create_menu ();
             if (menu != null && menu.get_children () != null) {
