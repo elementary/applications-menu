@@ -381,13 +381,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
 
             case "BackSpace":
-                if (search_entry.has_focus) {
-                    return Gdk.EVENT_PROPAGATE;
-                } else {
+                if (!search_entry.has_focus) {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
-                    return Gdk.EVENT_PROPAGATE;
                 }
+                return Gdk.EVENT_PROPAGATE;
             case "Home":
                 if (search_entry.text.length > 0) {
                     return Gdk.EVENT_PROPAGATE;
