@@ -279,27 +279,27 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "7":
             case "8":
             case "9":
-                int page = int.parse (key);
+                if (event.state == Gdk.ModifierType.MOD1_MASK) {
+                    int page = int.parse (key);
+                    if (modality == Modality.NORMAL_VIEW) {
+                        if (page < 0 || page == 9) {
+                            grid_view.go_to_last ();
+                        } else {
+                            grid_view.go_to_number (page);
+                        }
+                    } else if (modality == Modality.CATEGORY_VIEW) {
+                        if (page < 0 || page == 9) {
+                            category_view.app_view.go_to_last ();
+                        } else {
+                            category_view.app_view.go_to_number (page);
+                        }
+                    }
 
-                if (event.state != Gdk.ModifierType.MOD1_MASK)
-                    return Gdk.EVENT_PROPAGATE;
-
-                if (modality == Modality.NORMAL_VIEW) {
-                    if (page < 0 || page == 9)
-                        grid_view.go_to_last ();
-                    else
-                        grid_view.go_to_number (page);
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    if (page < 0 || page == 9)
-                        category_view.app_view.go_to_last ();
-                    else
-                        category_view.app_view.go_to_number (page);
-                } else {
-                    return Gdk.EVENT_PROPAGATE;
+                    search_entry.grab_focus ();
+                    return Gdk.EVENT_STOP;
                 }
-                search_entry.grab_focus ();
-                break;
 
+                return Gdk.EVENT_PROPAGATE;
             case "Left":
                 if (modality != Modality.NORMAL_VIEW && modality != Modality.CATEGORY_VIEW)
                     return Gdk.EVENT_PROPAGATE;
