@@ -294,6 +294,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                             category_view.app_view.go_to_number (page);
                         }
                     }
+
                     search_entry.grab_focus ();
                     return Gdk.EVENT_STOP;
                 }
