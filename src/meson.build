@@ -15,6 +15,7 @@ sources = [
     'Views/SearchView.vala',
 
     'Widgets/AppButton.vala',
+    'Widgets/AppMenu.vala',
     'Widgets/Switcher.vala',
     'Widgets/SearchItem.vala',
     'Widgets/Sidebar.vala',
