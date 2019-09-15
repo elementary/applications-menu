@@ -35,7 +35,7 @@ public class Slingshot.AppListBox : Gtk.ListBox {
         int target = current + count;
 
         if (target < 0) {
-            target = (int)n_children + count;
+            target = (int) n_children + count;
         } else if (target >= n_children) {
             target = count - 1;
         }
