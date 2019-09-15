@@ -199,17 +199,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     }
 #endif
 
-    private void change_view_mode (string key) {
-        switch (key) {
-            case "1": // Normal view
-                view_selector.selected = 0;
-                break;
-            default: // Category view
-                view_selector.selected = 1;
-                break;
-        }
-    }
-
     private void search_entry_activated () {
         if (modality == Modality.SEARCH_VIEW) {
             search_view.activate_selection ();
@@ -222,16 +211,19 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public bool on_search_view_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
-        switch (key) {
-            case "1":
-            case "2":
-                if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    change_view_mode (key);
+        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+            switch (key) {
+                case "1":
+                    view_selector.selected = 0;
                     return Gdk.EVENT_STOP;
-                }
+                case "2":
+                    view_selector.selected = 1;
+                    return Gdk.EVENT_STOP;
+            }
+            return Gdk.EVENT_PROPAGATE;
+        }
 
-                break;
-
+        switch (key) {
             case "F4":
                 if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                     close_indicator ();
