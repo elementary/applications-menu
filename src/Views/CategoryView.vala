@@ -57,6 +57,18 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         setup_sidebar ();
     }
 
+    public void page_down () {
+        category_switcher.selected++;
+        app_view.top_left_focus ();
+    }
+
+    public void page_up () {
+        if (category_switcher.selected != 0) {
+            category_switcher.selected--;
+            app_view.top_left_focus ();
+        }
+    }
+
     public void setup_sidebar () {
         var old_selected = category_switcher.selected;
         category_ids.clear ();
