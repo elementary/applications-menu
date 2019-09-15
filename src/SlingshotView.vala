@@ -411,16 +411,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     category_view.app_view.top_left_focus ();
                 }
                 break;
-
-            case "v":
-            case "V":
-                if ((event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) != 0) {
-                    search_entry.paste_clipboard ();
-                } else {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-                break;
-
             default:
                 if (!search_entry.has_focus) {
                     search_entry.grab_focus ();
