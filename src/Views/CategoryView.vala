@@ -25,7 +25,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private bool dragging = false;
     private string? drag_uri = null;
-    private Gtk.ListBox listbox;
+    private AppListBox listbox;
 
     public CategoryView (SlingshotView view) {
         Object (view: view);
@@ -43,7 +43,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-        listbox = new Gtk.ListBox ();
+        listbox = new AppListBox ();
         listbox.expand = true;
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
