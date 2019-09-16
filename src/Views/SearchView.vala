@@ -206,42 +206,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             return;
         }
 
-        string label;
-        switch (item.result_type) {
-            case SearchItem.ResultType.TEXT:
-                label = _("Text");
-                break;
-            case SearchItem.ResultType.APPLICATION:
-                label = _("Applications");
-                break;
-            case SearchItem.ResultType.GENERIC_URI:
-                label = _("Files");
-                break;
-            case SearchItem.ResultType.LINK:
-            case SearchItem.ResultType.ACTION:
-                label = _("Actions");
-                break;
-            case SearchItem.ResultType.SEARCH:
-                label = _("Search");
-                break;
-            case SearchItem.ResultType.CONTACT:
-                label = _("Contacts");
-                break;
-            case SearchItem.ResultType.INTERNET:
-                label = _("Internet");
-                break;
-            case SearchItem.ResultType.SETTINGS:
-                label = _("Settings");
-                break;
-            case SearchItem.ResultType.APP_ACTIONS:
-                label = _("Application Actions");
-                break;
-            default:
-                label = _("Other");
-                break;
-        }
-
-        var header = new Gtk.Label (label);
+        var header = new Gtk.Label (item.result_type.to_string ());
         header.margin_start = 6;
         ((Gtk.Misc) header).xalign = 0;
         header.get_style_context ().add_class ("h4");
