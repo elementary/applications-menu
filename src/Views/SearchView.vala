@@ -199,53 +199,15 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     }
 
     [CCode (instance_pos = -1)]
-    private void update_header (Gtk.ListBoxRow row, Gtk.ListBoxRow? before) {
-        var item = row as SearchItem;
-        if (before != null && ((SearchItem) before).result_type == item.result_type) {
+    private void update_header (SearchItem row, SearchItem? before) {
+        if (before != null && before.result_type == row.result_type) {
             row.set_header (null);
             return;
         }
 
-        string label;
-        switch (item.result_type) {
-            case SearchItem.ResultType.TEXT:
-                label = _("Text");
-                break;
-            case SearchItem.ResultType.APPLICATION:
-                label = _("Applications");
-                break;
-            case SearchItem.ResultType.GENERIC_URI:
-                label = _("Files");
-                break;
-            case SearchItem.ResultType.LINK:
-            case SearchItem.ResultType.ACTION:
-                label = _("Actions");
-                break;
-            case SearchItem.ResultType.SEARCH:
-                label = _("Search");
-                break;
-            case SearchItem.ResultType.CONTACT:
-                label = _("Contacts");
-                break;
-            case SearchItem.ResultType.INTERNET:
-                label = _("Internet");
-                break;
-            case SearchItem.ResultType.SETTINGS:
-                label = _("Settings");
-                break;
-            case SearchItem.ResultType.APP_ACTIONS:
-                label = _("Application Actions");
-                break;
-            default:
-                label = _("Other");
-                break;
-        }
-
-        var header = new Gtk.Label (label);
+        var header = new Granite.HeaderLabel (row.result_type.to_string ());
         header.margin_start = 6;
-        ((Gtk.Misc) header).xalign = 0;
-        header.get_style_context ().add_class ("h4");
+
         row.set_header (header);
     }
-
 }

@@ -28,7 +28,46 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         INTERNET,
         SETTINGS,
         APP_ACTIONS,
-        LINK
+        LINK;
+
+        public string to_string () {
+            string str;
+            switch (this) {
+                case TEXT:
+                    str = _("Text");
+                    break;
+                case APPLICATION:
+                    str = _("Applications");
+                    break;
+                case GENERIC_URI:
+                    str = _("Files");
+                    break;
+                case LINK:
+                case ACTION:
+                    str = _("Actions");
+                    break;
+                case SEARCH:
+                    str = _("Search");
+                    break;
+                case CONTACT:
+                    str = _("Contacts");
+                    break;
+                case INTERNET:
+                    str = _("Internet");
+                    break;
+                case SETTINGS:
+                    str = _("Settings");
+                    break;
+                case APP_ACTIONS:
+                    str = _("Application Actions");
+                    break;
+                default:
+                    str = _("Other");
+                    break;
+            }
+
+            return str;
+        }
     }
 
     private const int ICON_SIZE = 32;
