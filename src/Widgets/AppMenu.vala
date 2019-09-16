@@ -21,6 +21,7 @@ public class Slingshot.AppMenu : Gtk.Menu {
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
 
+    private bool has_system_item = false;
     private string appstream_comp_id = "";
 
 #if HAS_PLANK
@@ -60,7 +61,6 @@ public class Slingshot.AppMenu : Gtk.Menu {
             });
         }
 
-        bool has_system_item = false;
 #if HAS_PLANK
         if (plank_client != null && plank_client.is_connected) {
             if (get_children ().length () > 0) {
@@ -87,27 +87,11 @@ public class Slingshot.AppMenu : Gtk.Menu {
         }
 #endif
 
-        if (appstream_comp_id != "") {
-            if (!has_system_item && get_children ().length () > 0) {
-                add (new Gtk.SeparatorMenuItem ());
-            }
-
-            add (get_uninstall_menuitem ());
-        }
-
         var appcenter = Backend.AppCenter.get_default ();
         appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
         on_appcenter_dbus_changed.begin (appcenter);
 
         show_all ();
-    }
-
-    private Gtk.MenuItem get_uninstall_menuitem () {
-        var uninstall_menuitem = new Gtk.MenuItem ();
-        uninstall_menuitem.set_label (_("Uninstall"));
-        uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
-
-        return uninstall_menuitem;
     }
 
     private void uninstall_menuitem_activate () {
@@ -129,6 +113,17 @@ public class Slingshot.AppMenu : Gtk.Menu {
         if (appcenter.dbus != null) {
             try {
                 appstream_comp_id = yield appcenter.dbus.get_component_from_desktop_id (desktop_id);
+                if (appstream_comp_id != "") {
+                    if (!has_system_item && get_children ().length () > 0) {
+                        add (new Gtk.SeparatorMenuItem ());
+                    }
+
+                    var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
+                    uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
+
+                    add (uninstall_menuitem);
+                    show_all ();
+                }
             } catch (GLib.Error e) {
                 warning (e.message);
             }
