@@ -241,10 +241,9 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                 break;
         }
 
-        var header = new Gtk.Label (label);
+        var header = new Granite.HeaderLabel (label);
         header.margin_start = 6;
-        ((Gtk.Misc) header).xalign = 0;
-        header.get_style_context ().add_class ("h4");
+
         row.set_header (header);
     }
 
