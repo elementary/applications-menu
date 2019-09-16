@@ -94,8 +94,10 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
     construct {
         string markup;
-        if (result_type == SearchItem.ResultType.APP_ACTIONS || result_type == SearchItem.ResultType.TEXT) {
+        if (result_type == SearchItem.ResultType.TEXT) {
             markup = app.match.title;
+        } else if (result_type == SearchItem.ResultType.APP_ACTIONS) {
+            markup = Backend.SynapseSearch.markup_string_with_search (app.match.title, search_term);
         } else {
             markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
         }
