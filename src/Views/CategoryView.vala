@@ -113,19 +113,28 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             }
         });
 
+        listbox.key_press_event.connect (on_key_press);
+        category_switcher.key_press_event.connect (on_key_press);
+
         setup_sidebar ();
     }
 
     public void page_down () {
         category_switcher.selected++;
-        // app_view.top_left_focus ();
+        focus_select_first_row ();
     }
 
     public void page_up () {
         if (category_switcher.selected != 0) {
             category_switcher.selected--;
-            // app_view.top_left_focus ();
+            focus_select_first_row ();
         }
+    }
+
+    private void focus_select_first_row () {
+        var first_row = listbox.get_row_at_index (0);
+        first_row.grab_focus ();
+        listbox.select_row (first_row);
     }
 
     public void setup_sidebar () {
@@ -158,5 +167,19 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         listbox.show_all ();
+    }
+
+    private bool on_key_press (Gdk.EventKey event) {
+        var key = Gdk.keyval_name (event.keyval);
+        switch (key) {
+            case "Page_Up":
+                page_up ();
+                return Gdk.EVENT_STOP;
+            case "Page_Down":
+                page_down ();
+                return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 }
