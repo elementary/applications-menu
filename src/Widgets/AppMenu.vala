@@ -69,15 +69,14 @@ public class Slingshot.AppMenu : Gtk.Menu {
 
             has_system_item = true;
 
-            docked = (desktop_uri in plank_client.get_persistent_applications ());
-
             var plank_menuitem = new Gtk.MenuItem ();
-            plank_menuitem.set_use_underline (true);
+            plank_menuitem.use_underline = true;
 
+            docked = (desktop_uri in plank_client.get_persistent_applications ());
             if (docked) {
-                plank_menuitem.set_label (_("Remove from _Dock"));
+                plank_menuitem.label = _("Remove from _Dock");
             } else {
-                plank_menuitem.set_label (_("Add to _Dock"));
+                plank_menuitem.label = _("Add to _Dock");
             }
 
             plank_menuitem.activate.connect (plank_menuitem_activate);
@@ -134,13 +133,15 @@ public class Slingshot.AppMenu : Gtk.Menu {
 
 #if HAS_PLANK
     private void plank_menuitem_activate () {
-        if (plank_client == null || !plank_client.is_connected)
+        if (plank_client == null || !plank_client.is_connected) {
             return;
+        }
 
-        if (docked)
+        if (docked) {
             plank_client.remove_item (desktop_uri);
-        else
+        } else {
             plank_client.add_item (desktop_uri);
+        }
     }
 #endif
 }
