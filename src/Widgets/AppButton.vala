@@ -17,7 +17,7 @@
 //
 
 public class Slingshot.Widgets.AppButton : Gtk.Button {
-    private static Slingshot.AppMenu menu;
+    private static Slingshot.AppContextMenu menu;
 
     public signal void app_launched ();
 
@@ -135,7 +135,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                 return false;
             }
 
-            menu = new Slingshot.AppMenu (desktop_id, desktop_path);
+            menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
             menu.app_launched.connect (() => {
                 app_launched ();
             });

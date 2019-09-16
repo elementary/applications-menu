@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Slingshot.AppMenu : Gtk.Menu {
+public class Slingshot.AppContextMenu : Gtk.Menu {
     public signal void app_launched ();
 
     public string desktop_id { get; construct; }
@@ -34,7 +34,7 @@ public class Slingshot.AppMenu : Gtk.Menu {
     }
 #endif
 
-    public AppMenu (string desktop_id, string desktop_path) {
+    public AppContextMenu (string desktop_id, string desktop_path) {
         Object (
             desktop_id: desktop_id,
             desktop_path: desktop_path
