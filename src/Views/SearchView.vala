@@ -26,36 +26,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
     public signal void app_launched ();
 
-    private class CycleListBox : Gtk.ListBox {
-        public override void move_cursor (Gtk.MovementStep step, int count) {
-            unowned Gtk.ListBoxRow selected = get_selected_row ();
-
-            if (step != Gtk.MovementStep.DISPLAY_LINES || selected == null) {
-                base.move_cursor (step, count);
-                return;
-            }
-
-            uint n_children = get_children ().length ();
-
-            int current = selected.get_index ();
-            int target = current + count;
-
-            if (target < 0) {
-                target = (int)n_children + count;
-            } else if (target >= n_children) {
-                target = count - 1;
-            }
-
-            unowned Gtk.ListBoxRow? target_row = get_row_at_index (target);
-            if (target_row != null) {
-                select_row (target_row);
-                target_row.grab_focus ();
-            }
-        }
-    }
-
     private Granite.Widgets.AlertView alert_view;
-    private CycleListBox list_box;
+    private AppListBox list_box;
     Gee.HashMap<SearchItem.ResultType, uint> limitator;
 
     private bool dragging = false;
@@ -69,7 +41,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
 
         // list box
         limitator = new Gee.HashMap<SearchItem.ResultType, uint> ();
-        list_box = new CycleListBox ();
+        list_box = new AppListBox ();
         list_box.activate_on_single_click = true;
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
@@ -227,53 +199,15 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     }
 
     [CCode (instance_pos = -1)]
-    private void update_header (Gtk.ListBoxRow row, Gtk.ListBoxRow? before) {
-        var item = row as SearchItem;
-        if (before != null && ((SearchItem) before).result_type == item.result_type) {
+    private void update_header (SearchItem row, SearchItem? before) {
+        if (before != null && before.result_type == row.result_type) {
             row.set_header (null);
             return;
         }
 
-        string label;
-        switch (item.result_type) {
-            case SearchItem.ResultType.TEXT:
-                label = _("Text");
-                break;
-            case SearchItem.ResultType.APPLICATION:
-                label = _("Applications");
-                break;
-            case SearchItem.ResultType.GENERIC_URI:
-                label = _("Files");
-                break;
-            case SearchItem.ResultType.LINK:
-            case SearchItem.ResultType.ACTION:
-                label = _("Actions");
-                break;
-            case SearchItem.ResultType.SEARCH:
-                label = _("Search");
-                break;
-            case SearchItem.ResultType.CONTACT:
-                label = _("Contacts");
-                break;
-            case SearchItem.ResultType.INTERNET:
-                label = _("Internet");
-                break;
-            case SearchItem.ResultType.SETTINGS:
-                label = _("Settings");
-                break;
-            case SearchItem.ResultType.APP_ACTIONS:
-                label = _("Application Actions");
-                break;
-            default:
-                label = _("Other");
-                break;
-        }
-
-        var header = new Gtk.Label (label);
+        var header = new Granite.HeaderLabel (row.result_type.to_string ());
         header.margin_start = 6;
-        ((Gtk.Misc) header).xalign = 0;
-        header.get_style_context ().add_class ("h4");
+
         row.set_header (header);
     }
-
 }
