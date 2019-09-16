@@ -97,9 +97,9 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         if (result_type == SearchItem.ResultType.TEXT) {
             markup = app.match.title;
         } else if (result_type == SearchItem.ResultType.APP_ACTIONS) {
-            markup = Backend.SynapseSearch.markup_string_with_search (app.match.title, search_term);
+            markup = markup_string_with_search (app.match.title, search_term);
         } else {
-            markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
+            markup = markup_string_with_search (app.name, search_term);
         }
 
         name_label = new Gtk.Label (markup);
@@ -147,6 +147,55 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         var app_match = app.match as Synapse.ApplicationMatch;
         if (app_match != null) {
             app_uri = File.new_for_path (app_match.filename).get_uri ();
+        }
+    }
+
+    private static string markup_string_with_search (string text, string pattern) {
+        string markup = "%s";
+
+        if (pattern == "") {
+            return markup.printf (Markup.escape_text (text));
+        }
+
+        // if no text found, use pattern
+        if (text == "") {
+            return markup.printf (Markup.escape_text (pattern));
+        }
+
+        var matchers = Synapse.Query.get_matchers_for_query (
+            pattern,
+            0,
+            RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
+        );
+
+        string? highlighted = null;
+        foreach (var matcher in matchers) {
+            MatchInfo mi;
+            if (matcher.key.match (text, 0, out mi)) {
+                int start_pos;
+                int end_pos;
+                int last_pos = 0;
+                int cnt = mi.get_match_count ();
+                StringBuilder res = new StringBuilder ();
+                for (int i = 1; i < cnt; i++) {
+                    mi.fetch_pos (i, out start_pos, out end_pos);
+                    warn_if_fail (start_pos >= 0 && end_pos >= 0);
+                    res.append (Markup.escape_text (text.substring (last_pos, start_pos - last_pos)));
+                    last_pos = end_pos;
+                    res.append (Markup.printf_escaped ("<b>%s</b>", mi.fetch (i)));
+                    if (i == cnt - 1) {
+                        res.append (Markup.escape_text (text.substring (last_pos)));
+                    }
+                }
+                highlighted = res.str;
+                break;
+            }
+        }
+
+        if (highlighted != null) {
+            return markup.printf (highlighted);
+        } else {
+            return markup.printf (Markup.escape_text (text));
         }
     }
 
