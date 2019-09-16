@@ -30,9 +30,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     private AppListBox list_box;
     Gee.HashMap<SearchItem.ResultType, uint> limitator;
 
-    private bool dragging = false;
-    private string? drag_uri = null;
-
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
@@ -46,11 +43,15 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
         list_box.set_placeholder (alert_view);
-        list_box.set_selection_mode (Gtk.SelectionMode.BROWSE);
+
+        list_box.close_request.connect (() => {
+            app_launched ();
+        });
+
         list_box.row_activated.connect ((row) => {
             Idle.add (() => {
                 var search_item = row as SearchItem;
-                if (!dragging) {
+                if (!list_box.dragging) {
                     switch (search_item.result_type) {
                         case SearchItem.ResultType.APP_ACTIONS:
                         case SearchItem.ResultType.LINK:
@@ -67,46 +68,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
 
                 return false;
             });
-        });
-
-        // Drag support
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (list_box, Gdk.ModifierType.BUTTON1_MASK, {dnd}, Gdk.DragAction.COPY);
-
-        list_box.motion_notify_event.connect ((event) => {
-            if (!dragging) {
-                list_box.select_row (list_box.get_row_at_y ((int)event.y));
-            }
-            return false;
-        });
-
-        list_box.drag_begin.connect ( (ctx) => {
-            var sr = list_box.get_selected_rows ();
-            if (sr.length () > 0) {
-                dragging = true;
-
-                var di = (SearchItem)(sr.first ().data);
-                drag_uri = di.app_uri;
-                if (drag_uri != null) {
-                    Gtk.drag_set_icon_gicon (ctx, di.icon.gicon, 16, 16);
-                }
-
-                app_launched ();
-            }
-        });
-
-        list_box.drag_end.connect ( () => {
-            if (drag_uri != null) {
-                app_launched (); /* This causes indicator to close */
-            }
-            dragging = false;
-            drag_uri = null;
-        });
-
-        list_box.drag_data_get.connect ( (ctx, sel, info, time) => {
-            if (drag_uri != null) {
-                sel.set_uris ({drag_uri});
-            }
         });
 
         add (list_box);
