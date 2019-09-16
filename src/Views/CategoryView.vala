@@ -170,12 +170,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     private bool on_key_press (Gdk.EventKey event) {
-        var key = Gdk.keyval_name (event.keyval);
-        switch (key) {
-            case "Page_Up":
+        switch (event.keyval) {
+            case Gdk.Key.Page_Up:
+            case Gdk.Key.KP_Page_Up:
                 page_up ();
                 return Gdk.EVENT_STOP;
-            case "Page_Down":
+            case Gdk.Key.Page_Down:
+            case Gdk.Key.KP_Page_Down:
                 page_down ();
                 return Gdk.EVENT_STOP;
         }
