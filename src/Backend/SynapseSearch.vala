@@ -68,56 +68,6 @@ namespace Slingshot.Backend {
             return sink.find_actions_for_match (match, null, Synapse.QueryFlags.ALL);
         }
 
-        /**
-         * Attempts to load a favicon for an UriMatch and caches the icon
-         *
-         * @param match       The UriMatch
-         * @param size        The icon size at which to load the icon. If the favicon is smaller than
-         *                    that size, null will be returned
-         * @param cancellable Cancellable for the loading operations
-         * @return            The pixbuf or null if loading failed or the icon was too small
-         */
-        public static async Gdk.Pixbuf? get_favicon_for_match (Synapse.UriMatch match, int size,
-            Cancellable? cancellable = null) {
-
-            var soup_uri = new Soup.URI (match.uri);
-            if (!soup_uri.scheme.has_prefix ("http"))
-                return null;
-
-            Gdk.Pixbuf? pixbuf = null;
-
-            if (favicon_cache.has_key (soup_uri.host))
-                return favicon_cache.get (soup_uri.host);
-
-            var url = "%s://%s/favicon.ico".printf (soup_uri.scheme, soup_uri.host);
-
-            var msg = new Soup.Message ("GET", url);
-            var session = new Soup.Session ();
-            session.use_thread_context = true;
-
-            try {
-                var stream = yield session.send_async (msg, cancellable);
-                if (stream != null) {
-                    pixbuf = yield new Gdk.Pixbuf.from_stream_async (stream, cancellable);
-                    // as per design decision, icons that are smaller than requested will not
-                    // be displayed, instead the fallback should be used, so we return null
-                    if (pixbuf.width < size)
-                        pixbuf = null;
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
-
-            if (cancellable.is_cancelled ())
-                return null;
-
-            // we set the cache in any case, even if things failed. No need to
-            // try requesting an icon again and again
-            favicon_cache.set (soup_uri.host, pixbuf);
-
-            return pixbuf;
-        }
-
         public static Gdk.Pixbuf? get_pathicon_for_match (Synapse.Match match, int size) {
             Gdk.Pixbuf? pixbuf = null;
             try {

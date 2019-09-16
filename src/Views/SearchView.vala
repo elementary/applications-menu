@@ -122,11 +122,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                     result_type = SearchItem.ResultType.APP_ACTIONS;
                 } else if (match is Synapse.SwitchboardPlugin.SwitchboardObject) {
                     result_type = SearchItem.ResultType.SETTINGS;
-                } else if (match.match_type == Synapse.MatchType.GENERIC_URI) {
-                    var uri = (match as Synapse.UriMatch).uri;
-                    if (uri.has_prefix ("http://") || uri.has_prefix ("ftp://") || uri.has_prefix ("https://")) {
-                        result_type = SearchItem.ResultType.INTERNET;
-                    }
                 } else if (match is Synapse.LinkPlugin.Result) {
                     result_type = SearchItem.ResultType.INTERNET;
                 }
