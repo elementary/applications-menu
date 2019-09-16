@@ -16,6 +16,7 @@ src/Views/GridView.vala
 src/Views/SearchView.vala
 
 src/Widgets/AppButton.vala
+src/Widgets/AppContextMenu.vala
 src/Widgets/Grid.vala
 src/Widgets/Switcher.vala
 src/Widgets/SearchView.vala

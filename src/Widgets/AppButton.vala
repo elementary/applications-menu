@@ -17,7 +17,7 @@
 //
 
 public class Slingshot.Widgets.AppButton : Gtk.Button {
-    private static Gtk.Menu menu;
+    private static Slingshot.AppContextMenu menu;
 
     public signal void app_launched ();
 
@@ -52,7 +52,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
     private Backend.App application;
-    private string appstream_comp_id = "";
 
     static construct {
 #if HAS_PLANK
@@ -68,7 +67,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
 #if HAS_PLANK
     private static Plank.DBusClient plank_client;
-    private bool docked = false;
     private string desktop_uri {
         owned get {
             return File.new_for_path (desktop_path).get_uri ();
@@ -137,7 +135,11 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                 return false;
             }
 
-            create_menu ();
+            menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
+            menu.app_launched.connect (() => {
+                app_launched ();
+            });
+
             if (menu != null && menu.get_children () != null) {
                 menu.popup (null, null, null, e.button, e.time);
                 return true;
@@ -167,10 +169,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 #endif
 
         app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
-
-        var appcenter = Backend.AppCenter.get_default ();
-        appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
-        on_appcenter_dbus_changed.begin (appcenter);
     }
 
     public override void get_preferred_width (out int minimum_width, out int natural_width) {
@@ -187,95 +185,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         application.launch ();
         app_launched ();
     }
-
-    private void create_menu () {
-        menu = new Gtk.Menu ();
-
-        var app_info = new DesktopAppInfo (desktop_id);
-        foreach (unowned string _action in app_info.list_actions ()) {
-            string action = _action.dup ();
-            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
-            menu.add (menuitem);
-
-            menuitem.activate.connect (() => {
-                app_info.launch_action (action, new AppLaunchContext ());
-                app_launched ();
-            });
-        }
-
-        bool has_system_item = false;
 #if HAS_PLANK
-        if (plank_client != null && plank_client.is_connected) {
-            if (menu.get_children ().length () > 0) {
-                menu.add (new Gtk.SeparatorMenuItem ());
-            }
-
-            has_system_item = true;
-            menu.add (get_plank_menuitem ());
-        }
-#endif
-
-        if (appstream_comp_id != "") {
-            if (!has_system_item && menu.get_children ().length () > 0) {
-                menu.add (new Gtk.SeparatorMenuItem ());
-            }
-
-            menu.add (get_uninstall_menuitem ());
-        }
-
-        menu.show_all ();
-    }
-
-    private Gtk.MenuItem get_uninstall_menuitem () {
-        var uninstall_menuitem = new Gtk.MenuItem ();
-        uninstall_menuitem.set_label (_("Uninstall"));
-        uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
-
-        return uninstall_menuitem;
-    }
-
-    private void uninstall_menuitem_activate () {
-        var appcenter = Backend.AppCenter.get_default ();
-        if (appcenter.dbus == null || appstream_comp_id == "") {
-            return;
-        }
-
-        appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
-            try {
-                appcenter.dbus.uninstall.end (res);
-            } catch (GLib.Error e) {
-                warning (e.message);
-            }
-        });
-    }
-
-#if HAS_PLANK
-    private Gtk.MenuItem get_plank_menuitem () {
-        docked = (desktop_uri in plank_client.get_persistent_applications ());
-
-        var plank_menuitem = new Gtk.MenuItem ();
-        plank_menuitem.set_use_underline (true);
-
-        if (docked)
-            plank_menuitem.set_label (_("Remove from _Dock"));
-        else
-            plank_menuitem.set_label (_("Add to _Dock"));
-
-        plank_menuitem.activate.connect (plank_menuitem_activate);
-
-        return plank_menuitem;
-    }
-
-    private void plank_menuitem_activate () {
-        if (plank_client == null || !plank_client.is_connected)
-            return;
-
-        if (docked)
-            plank_client.remove_item (desktop_uri);
-        else
-            plank_client.add_item (desktop_uri);
-    }
-
     private void update_badge_count () {
         badge.label = "%lld".printf (application.current_count);
         update_badge_visibility ();
@@ -291,16 +201,4 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         }
     }
 #endif
-
-    private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
-        if (appcenter.dbus != null) {
-            try {
-                appstream_comp_id = yield appcenter.dbus.get_component_from_desktop_id (desktop_id);
-            } catch (GLib.Error e) {
-                warning (e.message);
-            }
-        } else {
-            appstream_comp_id = "";
-        }
-    }
 }
