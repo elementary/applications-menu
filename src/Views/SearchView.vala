@@ -26,36 +26,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
     public signal void app_launched ();
 
-    private class CycleListBox : Gtk.ListBox {
-        public override void move_cursor (Gtk.MovementStep step, int count) {
-            unowned Gtk.ListBoxRow selected = get_selected_row ();
-
-            if (step != Gtk.MovementStep.DISPLAY_LINES || selected == null) {
-                base.move_cursor (step, count);
-                return;
-            }
-
-            uint n_children = get_children ().length ();
-
-            int current = selected.get_index ();
-            int target = current + count;
-
-            if (target < 0) {
-                target = (int)n_children + count;
-            } else if (target >= n_children) {
-                target = count - 1;
-            }
-
-            unowned Gtk.ListBoxRow? target_row = get_row_at_index (target);
-            if (target_row != null) {
-                select_row (target_row);
-                target_row.grab_focus ();
-            }
-        }
-    }
-
     private Granite.Widgets.AlertView alert_view;
-    private CycleListBox list_box;
+    private AppListBox list_box;
     Gee.HashMap<SearchItem.ResultType, uint> limitator;
 
     private bool dragging = false;
@@ -69,7 +41,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
 
         // list box
         limitator = new Gee.HashMap<SearchItem.ResultType, uint> ();
-        list_box = new CycleListBox ();
+        list_box = new AppListBox ();
         list_box.activate_on_single_click = true;
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
