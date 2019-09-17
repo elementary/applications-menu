@@ -154,10 +154,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                     app_launched ();
                 });
 
-                if (menu != null && menu.get_children () != null) {
-                    menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                    return true;
-                }
+                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
+                return true;
             }
 
             return false;
