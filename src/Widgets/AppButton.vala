@@ -147,6 +147,22 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             return false;
         });
 
+        this.key_press_event.connect ((e) => {
+            if (e.keyval == Gdk.Key.Menu) {
+                menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
+                menu.app_launched.connect (() => {
+                    app_launched ();
+                });
+
+                if (menu != null && menu.get_children () != null) {
+                    menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
+                    return true;
+                }
+            }
+
+            return false;
+        });
+
         this.drag_begin.connect ((ctx) => {
             this.dragging = true;
             Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
