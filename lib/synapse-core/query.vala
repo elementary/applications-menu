@@ -79,7 +79,7 @@ namespace Synapse {
         NO_REVERSED = 1 << 0,
         NO_SUBSTRING = 1 << 1,
         NO_PARTIAL = 1 << 2,
-        NO_FUZZY S= 1 << 3
+        NO_FUZZY = 1 << 3
     }
 
     public struct Query {
