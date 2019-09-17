@@ -100,7 +100,11 @@ namespace Synapse {
 
             protected void add_keywords (string keywords_list) {
                 keywords.add_all_array (keywords_list.split (";"));
-                keywords.add_all_array (dpgettext2 (null, "system_management_action_keyword", keywords_list).split (";"));
+                keywords.add_all_array (dpgettext2 (
+                    null,
+                    "system_management_action_keyword",
+                    keywords_list
+                ).split (";"));
             }
 
             public void execute (Match? match) {
@@ -123,7 +127,11 @@ namespace Synapse {
 
             private async void do_lock () {
                 try {
-                    LockObject dbus_interface = Bus.get_proxy_sync (BusType.SESSION, LockObject.UNIQUE_NAME, LockObject.OBJECT_PATH);
+                    LockObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SESSION,
+                        LockObject.UNIQUE_NAME,
+                        LockObject.OBJECT_PATH
+                    );
 
                     dbus_interface.lock ();
                     return;
@@ -152,7 +160,11 @@ namespace Synapse {
 
             private async void do_log_out () {
                 try {
-                    LogOutObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, LogOutObject.UNIQUE_NAME, LogOutObject.OBJECT_PATH);
+                    LogOutObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        LogOutObject.UNIQUE_NAME,
+                        LogOutObject.OBJECT_PATH
+                    );
 
                     dbus_interface.terminate ();
                     return;
@@ -179,9 +191,13 @@ namespace Synapse {
                 check_allowed.begin ();
             }
 
-            private async void check_allowed (){
+            private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     allowed = (dbus_interface.can_suspend () == "yes");
                     return;
@@ -191,7 +207,11 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        UPowerObject.UNIQUE_NAME,
+                        UPowerObject.OBJECT_PATH
+                    );
 
                     allowed = yield dbus_interface.suspend_allowed ();
                 } catch (GLib.Error err) {
@@ -208,7 +228,11 @@ namespace Synapse {
 
             private async void do_suspend () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     dbus_interface.suspend (true);
                     return;
@@ -217,7 +241,11 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        UPowerObject.UNIQUE_NAME,
+                        UPowerObject.OBJECT_PATH
+                    );
 
                     try {
                         yield dbus_interface.about_to_sleep ();
@@ -254,7 +282,11 @@ namespace Synapse {
 
             private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     allowed = (dbus_interface.can_hibernate () == "yes");
                     return;
@@ -264,7 +296,11 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        UPowerObject.UNIQUE_NAME,
+                        UPowerObject.OBJECT_PATH
+                    );
 
                     allowed = yield dbus_interface.hibernate_allowed ();
                 } catch (GLib.Error err) {
@@ -281,7 +317,11 @@ namespace Synapse {
 
             private async void do_hibernate () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     dbus_interface.hibernate (true);
                     return;
@@ -290,7 +330,11 @@ namespace Synapse {
                 }
 
                 try {
-                    UPowerObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, UPowerObject.UNIQUE_NAME, UPowerObject.OBJECT_PATH);
+                    UPowerObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        UPowerObject.UNIQUE_NAME,
+                        UPowerObject.OBJECT_PATH
+                    );
 
                     try {
                         yield dbus_interface.about_to_sleep ();
@@ -326,7 +370,11 @@ namespace Synapse {
 
             private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     allowed = (dbus_interface.can_power_off () == "yes");
                     return;
@@ -336,7 +384,11 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        ConsoleKitObject.UNIQUE_NAME,
+                        ConsoleKitObject.OBJECT_PATH
+                    );
 
                     allowed = yield dbus_interface.can_stop ();
                 } catch (GLib.Error err) {
@@ -353,7 +405,11 @@ namespace Synapse {
 
             public override void do_action () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     dbus_interface.power_off (true);
                     return;
@@ -362,7 +418,11 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        ConsoleKitObject.UNIQUE_NAME,
+                        ConsoleKitObject.OBJECT_PATH
+                    );
 
                     dbus_interface.stop ();
                 } catch (GLib.Error err) {
@@ -386,7 +446,11 @@ namespace Synapse {
 
             private async void check_allowed () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     allowed = (dbus_interface.can_reboot () == "yes");
                     return;
@@ -396,7 +460,11 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        ConsoleKitObject.UNIQUE_NAME,
+                        ConsoleKitObject.OBJECT_PATH
+                    );
 
                     allowed = yield dbus_interface.can_restart ();
                 } catch (GLib.Error err) {
@@ -413,7 +481,11 @@ namespace Synapse {
 
             public override void do_action () {
                 try {
-                    SystemdObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, SystemdObject.UNIQUE_NAME, SystemdObject.OBJECT_PATH);
+                    SystemdObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        SystemdObject.UNIQUE_NAME,
+                        SystemdObject.OBJECT_PATH
+                    );
 
                     dbus_interface.reboot (true);
                     return;
@@ -422,7 +494,11 @@ namespace Synapse {
                 }
 
                 try {
-                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (BusType.SYSTEM, ConsoleKitObject.UNIQUE_NAME, ConsoleKitObject.OBJECT_PATH);
+                    ConsoleKitObject dbus_interface = Bus.get_proxy_sync (
+                        BusType.SYSTEM,
+                        ConsoleKitObject.UNIQUE_NAME,
+                        ConsoleKitObject.OBJECT_PATH
+                    );
 
                     dbus_interface.restart ();
                 } catch (GLib.Error err) {
@@ -432,14 +508,16 @@ namespace Synapse {
         }
 
         static void register_plugin () {
-        DataSink.PluginRegistry.get_default ().register_plugin (typeof (SystemManagementPlugin),
-                                                                "System Management",
-                                                                _("Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown your computer."),
-                                                                "system-restart",
-                                                                register_plugin,
-                                                                DBusService.get_default ().service_is_available (SystemdObject.UNIQUE_NAME) ||
-                                                                DBusService.get_default ().service_is_available (ConsoleKitObject.UNIQUE_NAME),
-                                                                _("ConsoleKit wasn't found"));
+            DataSink.PluginRegistry.get_default ().register_plugin (
+                typeof (SystemManagementPlugin),
+                "System Management",
+                _("Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown your computer."),
+                "system-restart",
+                register_plugin,
+                DBusService.get_default ().service_is_available (SystemdObject.UNIQUE_NAME) ||
+                DBusService.get_default ().service_is_available (ConsoleKitObject.UNIQUE_NAME),
+                _("ConsoleKit wasn't found")
+            );
         }
 
         static construct {
@@ -466,7 +544,11 @@ namespace Synapse {
 
             var result = new ResultSet ();
 
-            var matchers = Query.get_matchers_for_query (q.query_string, 0, RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS);
+            var matchers = Query.get_matchers_for_query (
+                q.query_string,
+                0,
+                RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
+            );
 
             foreach (var action in actions) {
                 if (!action.action_allowed ()) {

@@ -42,44 +42,44 @@ namespace Synapse {
         *    SUPER = OR ([categories, ...]);
         *
         *
-        * Remember: 
-        *   if you add or remove a category, 
+        * Remember:
+        *   if you add or remove a category,
         *   change labels in UIInterface.CategoryConfig.init_labels
         *
         */
-        INCLUDE_REMOTE  = 1 << 0,
-        UNCATEGORIZED   = 1 << 1,
+        INCLUDE_REMOTE = 1 << 0,
+        UNCATEGORIZED = 1 << 1,
 
-        APPLICATIONS    = 1 << 2,
+        APPLICATIONS = 1 << 2,
 
-        ACTIONS         = 1 << 3,
+        ACTIONS = 1 << 3,
 
-        AUDIO           = 1 << 4,
-        VIDEO           = 1 << 5,
-        DOCUMENTS       = 1 << 6,
-        IMAGES          = 1 << 7,
-        FILES           = AUDIO | VIDEO | DOCUMENTS | IMAGES,
+        AUDIO = 1 << 4,
+        VIDEO = 1 << 5,
+        DOCUMENTS = 1 << 6,
+        IMAGES = 1 << 7,
+        FILES = AUDIO | VIDEO | DOCUMENTS | IMAGES,
 
-        PLACES          = 1 << 8,
+        PLACES = 1 << 8,
 
         // FIXME: shouldn't this be FILES | INCLUDE_REMOTE?
-        INTERNET        = 1 << 9,
+        INTERNET = 1 << 9,
 
         // FIXME: Text Query flag? kinda weird, why do we have this here?
-        TEXT            = 1 << 10,
+        TEXT = 1 << 10,
 
-        CONTACTS        = 1 << 11,
+        CONTACTS = 1 << 11,
 
-        ALL           = 0xFFFFFFFF,
+        ALL = 0xFFFFFFFF,
         LOCAL_CONTENT = ALL ^ QueryFlags.INCLUDE_REMOTE
     }
 
     [Flags]
     public enum MatcherFlags {
-        NO_REVERSED   = 1 << 0,
-        NO_SUBSTRING  = 1 << 1,
-        NO_PARTIAL    = 1 << 2,
-        NO_FUZZY      = 1 << 3
+        NO_REVERSED = 1 << 0,
+        NO_SUBSTRING = 1 << 1,
+        NO_PARTIAL = 1 << 2,
+        NO_FUZZY S= 1 << 3
     }
 
     public struct Query {
@@ -90,7 +90,12 @@ namespace Synapse {
         uint max_results;
         uint query_id;
 
-        public Query (uint query_id, string query, QueryFlags flags = QueryFlags.LOCAL_CONTENT, uint num_results = 96) {
+        public Query (
+            uint query_id,
+            string query,
+            QueryFlags flags = QueryFlags.LOCAL_CONTENT,
+            uint num_results = 96
+        ) {
             this.query_id = query_id;
             this.query_string = query;
             this.query_string_folded = query.casefold ();
@@ -108,7 +113,11 @@ namespace Synapse {
             }
         }
 
-        public static Gee.List<Gee.Map.Entry<Regex, int>> get_matchers_for_query (string query, MatcherFlags match_flags = 0, RegexCompileFlags flags = GLib.RegexCompileFlags.OPTIMIZE) {
+        public static Gee.List<Gee.Map.Entry<Regex, int>> get_matchers_for_query (
+            string query,
+            MatcherFlags match_flags = 0,
+            RegexCompileFlags flags = GLib.RegexCompileFlags.OPTIMIZE
+        ) {
             /* create a couple of regexes and try to help with matching
             * match with these regular expressions (with descending score):
             * 1) ^query$
@@ -157,7 +166,9 @@ namespace Synapse {
                 // FIXME: do something generic here
                 if (!(MatcherFlags.NO_REVERSED in match_flags)) {
                     if (escaped_words.length == 2) {
-                        var reversed = "\\b(%s)".printf (string.join (").+\\b(", escaped_words[1], escaped_words[0], null));
+                        var reversed = "\\b(%s)".printf (
+                            string.join (").+\\b(", escaped_words[1], escaped_words[0], null)
+                        );
                         try {
                             re = new Regex (reversed, flags);
                             results[re] = Match.Score.GOOD - Match.Score.INCREMENT_MINOR;
@@ -166,7 +177,7 @@ namespace Synapse {
                         // not too nice, but is quite fast to compute
                         var orred = "\\b((?:%s))".printf (string.joinv (")|(?:", escaped_words));
                         var any_order = "";
-                        for (int i=0; i<escaped_words.length; i++) {
+                        for (int i = 0; i < escaped_words.length; i++) {
                             bool is_last = i == escaped_words.length - 1;
                             any_order += orred;
                             if (!is_last) {
@@ -196,7 +207,11 @@ namespace Synapse {
             }
 
             // make  "aj" match "Activity Journal"
-            if (!(MatcherFlags.NO_PARTIAL in match_flags) && individual_words.length == 1 && individual_chars.length <= 5) {
+            if (
+                !(MatcherFlags.NO_PARTIAL in match_flags)
+                && individual_words.length == 1
+                && individual_chars.length <= 5
+            ) {
                 string pattern = "\\b(%s)".printf (string.joinv (").+\\b(", escaped_chars));
 
                 try {
