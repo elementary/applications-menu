@@ -27,7 +27,7 @@ public class Slingshot.Backend.RelevancyService : Object {
     private bool refreshing = false;
 
     private const float MULTIPLIER = 65535.0f;
-    
+
     public signal void update_complete ();
 
     public RelevancyService () {
@@ -52,7 +52,7 @@ public class Slingshot.Backend.RelevancyService : Object {
 
                 unowned Zeitgeist.DataSource ds;
                 ds = (Zeitgeist.DataSource) ptr_arr.get (i);
-                if (ds.unique_id  == "com.zeitgeist-project,datahub,gio-launch-listener"
+                if (ds.unique_id == "com.zeitgeist-project,datahub,gio-launch-listener"
                         && ds.enabled == true) {
 
                     has_datahub_gio_module = true;
@@ -83,7 +83,7 @@ public class Slingshot.Backend.RelevancyService : Object {
         Idle.add (load_application_relevancies.callback, Priority.HIGH);
         yield;
 
-        /* 
+        /*
          * Dont reload everything if a refresh is already running.
          * This avoids a double free exception in libzeitgeist-2.0.
          */
@@ -141,7 +141,7 @@ public class Slingshot.Backend.RelevancyService : Object {
 
         var id = "application://" + desktop_id;
 
-        if (app_popularity.has_key(id)) {
+        if (app_popularity.has_key (id)) {
             return app_popularity[id] / MULTIPLIER;
         }
 
@@ -179,7 +179,7 @@ public class Slingshot.Backend.RelevancyService : Object {
         subject.text = display_name;
         var ptr_arr = new GLib.GenericArray<Zeitgeist.Event> ();
         ptr_arr.add (event);
-        
+
         try {
             zg_log.insert_events_no_reply (ptr_arr);
         } catch (Error e) {
