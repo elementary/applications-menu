@@ -97,7 +97,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {
-        // TODO: Do we need to do anyhting here?
+        // TODO: Do we need to do anything here?
     }
 
     private void update_tooltip () {
@@ -116,7 +116,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
 public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Slingshot");
-    if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER){
+    if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER) {
         return null;
     }
     var indicator = new Slingshot.Indicator ();
