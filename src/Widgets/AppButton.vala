@@ -144,6 +144,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                 menu.popup (null, null, null, e.button, e.time);
                 return true;
             }
+
             return false;
         });
 
