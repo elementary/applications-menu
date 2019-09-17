@@ -113,17 +113,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         tooltip_text = app.description;
 
-        // load a favicon if we're an internet page
-        var uri_match = app.match as Synapse.UriMatch;
-        if (uri_match != null && uri_match.uri.has_prefix ("http")) {
-            cancellable = new Cancellable ();
-            Backend.SynapseSearch.get_favicon_for_match.begin (uri_match, ICON_SIZE, cancellable, (obj, res) => {
-                var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
-                if (pixbuf != null) {
-                    icon.set_from_pixbuf (pixbuf);
-                }
-            });
-        } else if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
+        if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
             var pixbuf = Backend.SynapseSearch.get_pathicon_for_match (app.match, ICON_SIZE);
             if (pixbuf != null) {
                 icon.set_from_pixbuf (pixbuf);
