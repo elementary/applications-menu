@@ -208,7 +208,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         });
 
         if (menu.get_children () != null) {
-            switch (e.get_event_type ()) {
+            switch (e.type) {
                 case Gdk.EventType.KEY_PRESS:
                     menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
                     return true;
