@@ -135,30 +135,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                 return false;
             }
 
-            menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
-            menu.app_launched.connect (() => {
-                app_launched ();
-            });
-
-            if (menu.get_children () != null) {
-                menu.popup (null, null, null, e.button, e.time);
-                return true;
-            }
-
-            return false;
+            return create_context_menu (e);
         });
 
         this.key_press_event.connect ((e) => {
             if (e.keyval == Gdk.Key.Menu) {
-                menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
-                menu.app_launched.connect (() => {
-                    app_launched ();
-                });
-
-                if (menu.get_children () != null) {
-                    menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                    return true;
-                }
+                return create_context_menu (e);
             }
 
             return false;
@@ -218,4 +200,26 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         }
     }
 #endif
+
+    private bool create_context_menu (Gdk.Event e) {
+        menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
+        menu.app_launched.connect (() => {
+            app_launched ();
+        });
+
+        if (menu.get_children () != null) {
+            switch (e.get_event_type ()) {
+                case Gdk.EventType.KEY_PRESS:
+                    menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
+                    return true;
+                case Gdk.EventType.BUTTON_PRESS:
+                    menu.popup_at_pointer (e);
+                    return true;
+                default:
+                    break;
+            }
+        }
+
+        return false;
+    }
 }
