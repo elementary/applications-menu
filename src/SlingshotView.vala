@@ -281,7 +281,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "7":
             case "8":
             case "9":
-                if (event.state == Gdk.ModifierType.MOD1_MASK) {
+                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                     int page = int.parse (key);
                     if (modality == Modality.NORMAL_VIEW) {
                         if (page < 0 || page == 9) {
