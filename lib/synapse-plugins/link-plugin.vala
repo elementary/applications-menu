@@ -72,7 +72,7 @@ namespace Synapse {
                 } catch (Error e) {
                     warning ("%s\n", e.message);
                 }
-            }        
+            }
         }
 
         static void register_plugin () {
@@ -103,7 +103,7 @@ namespace Synapse {
         }
 
         public async ResultSet? search (Query query) throws SearchError {
-            bool matched = regex.match (query.query_string); 
+            bool matched = regex.match (query.query_string);
             if (matched) {
                 Result result = new Result (query.query_string);
                 ResultSet results = new ResultSet ();
