@@ -136,7 +136,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                         appcenter_menuitem.activate.connect (open_in_appcenter);
                         add (appcenter_menuitem);
                     }
-                    
+
                     show_all ();
                 }
             } catch (GLib.Error e) {
