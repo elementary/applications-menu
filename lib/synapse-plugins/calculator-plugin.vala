@@ -47,13 +47,15 @@ namespace Synapse {
         }
 
         static void register_plugin () {
-            DataSink.PluginRegistry.get_default ().register_plugin (typeof (CalculatorPlugin),
-                                                                    _("Calculator"),
-                                                                    _("Calculate basic expressions."),
-                                                                    "accessories-calculator",
-                                                                    register_plugin,
-                                                                    Environment.find_program_in_path ("bc") != null,
-                                                                    _("bc is not installed"));
+            DataSink.PluginRegistry.get_default ().register_plugin (
+                typeof (CalculatorPlugin),
+                _("Calculator"),
+                _("Calculate basic expressions."),
+                "accessories-calculator",
+                register_plugin,
+                Environment.find_program_in_path ("bc") != null,
+                _("bc is not installed")
+            );
         }
 
         static construct {
@@ -65,11 +67,14 @@ namespace Synapse {
         construct {
             /* The regex describes a string which *resembles* a mathematical expression. It does not
             check for pairs of parantheses to be used correctly and only whitespace-stripped strings
-            will match. Basically it matches strings of the form: 
+            will match. Basically it matches strings of the form:
             "paratheses_open* number (operator paratheses_open* number paratheses_close*)+"
             */
             try {
-                regex = new Regex ("^\\(*(-?\\d+([.,]\\d+)?)([*/+-^]\\(*(-?\\d+([.,]\\d+)?)\\)*)+$", RegexCompileFlags.OPTIMIZE);
+                regex = new Regex (
+                    "^\\(*(-?\\d+([.,]\\d+)?)([*/+-^]\\(*(-?\\d+([.,]\\d+)?)\\)*)+$",
+                    RegexCompileFlags.OPTIMIZE
+                );
             } catch (Error e) {
                 critical ("Error creating regexp: %s", e.message);
             }
@@ -79,7 +84,7 @@ namespace Synapse {
             return (QueryFlags.ACTIONS in query.query_type);
         }
 
-        public async ResultSet? search (Query query) throws SearchError { 
+        public async ResultSet? search (Query query) throws SearchError {
             string input = query.query_string.replace (" ", "").replace (",", ".");
             bool matched = regex.match (input);
 

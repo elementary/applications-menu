@@ -219,14 +219,16 @@ namespace Synapse {
                 try {
                     var fi = yield f.query_info_async (interesting_attributes, 0, 0, null);
                     if (fi.get_file_type () == FileType.REGULAR && !fi.get_is_hidden () && !fi.get_is_backup ()) {
-                        match_obj = (UriMatch) Object.new (match_obj_type,
-                                                            "thumbnail-path", fi.get_attribute_byte_string (FileAttribute.THUMBNAIL_PATH),
-                                                            "icon-name", fi.get_icon ().to_string (),
-                                                            "uri", uri,
-                                                            "title", fi.get_display_name (),
-                                                            "description", f.get_parse_name (),
-                                                            "match-type", MatchType.GENERIC_URI,
-                                                            null);
+                        match_obj = (UriMatch) Object.new (
+                            match_obj_type,
+                            "thumbnail-path", fi.get_attribute_byte_string (FileAttribute.THUMBNAIL_PATH),
+                            "icon-name", fi.get_icon ().to_string (),
+                            "uri", uri,
+                            "title", fi.get_display_name (),
+                            "description", f.get_parse_name (),
+                            "match-type", MatchType.GENERIC_URI,
+                            null
+                        );
 
                         // let's determine the file type
                         unowned string mime_type = fi.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);

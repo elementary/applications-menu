@@ -144,7 +144,7 @@ namespace Synapse {
                 }
             }
         }
-    
+
         private class Opener: BaseAction {
             public Opener () {
                 Object (title: _("Open"),
@@ -162,7 +162,9 @@ namespace Synapse {
                 } else if (file_path.match (match.title)) {
                     File f;
                     if (match.title.has_prefix ("~")) {
-                        f = File.new_for_path (Path.build_filename (Environment.get_home_dir (), match.title.substring (1), null));
+                        f = File.new_for_path (
+                            Path.build_filename (Environment.get_home_dir (), match.title.substring (1), null)
+                        );
                     } else {
                         f = File.new_for_path (match.title);
                     }
@@ -309,7 +311,11 @@ namespace Synapse {
                     }
                 }
             } else {
-                var matchers = Query.get_matchers_for_query (query.query_string, 0, RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS);
+                var matchers = Query.get_matchers_for_query (
+                    query.query_string,
+                    0,
+                    RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
+                );
                 foreach (var action in actions) {
                     if (!action.valid_for_match (match)) {
                         continue;
@@ -326,7 +332,7 @@ namespace Synapse {
 
             return results;
         }
-    
+
         public static void open_uri (string uri) {
             var f = File.new_for_uri (uri);
             try {

@@ -50,7 +50,11 @@ namespace Synapse {
                         needs_terminal: cmd.has_prefix ("sudo "));
 
                 try {
-                    app_info = AppInfo.create_from_commandline ("sh -c \"" + cmd.replace ("\"", "\\\"") + "\"", null, 0);
+                    app_info = AppInfo.create_from_commandline (
+                        "sh -c \"" + cmd.replace ("\"", "\\\"") + "\"",
+                        null,
+                        0
+                    );
                 } catch (Error err) {
                     warning ("%s", err.message);
                 }
@@ -58,11 +62,13 @@ namespace Synapse {
         }
 
         static void register_plugin () {
-            DataSink.PluginRegistry.get_default ().register_plugin (typeof (CommandPlugin),
-                                                                    "Command Search",
-                                                                    _("Find and execute arbitrary commands."),
-                                                                    "system-run",
-                                                                    register_plugin);
+            DataSink.PluginRegistry.get_default ().register_plugin (
+                typeof (CommandPlugin),
+                "Command Search",
+                _("Find and execute arbitrary commands."),
+                "system-run",
+                register_plugin
+            );
         }
 
         static construct {
