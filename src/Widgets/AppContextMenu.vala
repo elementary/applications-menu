@@ -111,7 +111,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {
             try {
-                debug ("Desktop ID" + desktop_id);
                 appstream_comp_id = yield appcenter.dbus.get_component_from_desktop_id (desktop_id);
                 if (appstream_comp_id != "") {
                     if (!has_system_item && get_children ().length () > 0) {
@@ -122,8 +121,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                     uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
                     var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in Appcenter"));
-                    appcenter_menuitem.activate.connect (()=> {
-                        debug ("Desktop ID" + desktop_id + " => Appstream ComponentID " + appstream_comp_id);
+                    appcenter_menuitem.activate.connect (() => {
                         Process.spawn_command_line_async ("xdg-open appstream://" + appstream_comp_id);
                     });
 
