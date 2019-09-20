@@ -35,7 +35,10 @@ public class Slingshot.Backend.AppSystem : Object {
         rl_service.update_complete.connect (update_popularity);
 #endif
 
-        apps_menu = new GMenu.Tree ("pantheon-applications.menu", GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME);
+        apps_menu = new GMenu.Tree (
+            "pantheon-applications.menu",
+            GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME
+        );
         apps_menu.changed.connect (update_app_system);
 
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
@@ -45,7 +48,7 @@ public class Slingshot.Backend.AppSystem : Object {
     }
 
     private void update_app_system () {
-        debug ("Updating Applications menu tree...");
+        debug ("Updating Applications menu tree…");
 #if HAVE_ZEITGEIST
         rl_service.refresh_popularity ();
 #endif

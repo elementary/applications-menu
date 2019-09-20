@@ -59,7 +59,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         screen = get_screen ();
 
-        height_request = (int) (DEFAULT_ROWS * Pixels.ITEM_SIZE + (DEFAULT_ROWS - 1) * Pixels.ROW_SPACING) + Pixels.BOTTOM_SPACE;
+        height_request = (int) (
+            DEFAULT_ROWS * Pixels.ITEM_SIZE + (DEFAULT_ROWS - 1) * Pixels.ROW_SPACING
+        ) + Pixels.BOTTOM_SPACE;
 
         var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
         grid_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"));
@@ -206,7 +208,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
     /* These keys do not work if connect_after used; the rest of the key events
      * are dealt with after the default handler in order that CJK input methods
-     * work properly */  
+     * work properly */
     public bool on_search_view_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
@@ -278,7 +280,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "7":
             case "8":
             case "9":
-                if (event.state == Gdk.ModifierType.MOD1_MASK) {
+                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
                     int page = int.parse (key);
                     if (modality == Modality.NORMAL_VIEW) {
                         if (page < 0 || page == 9) {
