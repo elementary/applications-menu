@@ -108,6 +108,14 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         });
     }
 
+    private void open_in_appcenter () {
+        try {
+            Process.spawn_command_line_async ("xdg-open appstream://" + appstream_comp_id);
+        } catch (SpawnError e) {
+            debug ("Unable to open in Appcenter: %s\n", e.message);
+        }
+    }
+
     private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {
             try {
@@ -120,13 +128,14 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                     var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
                     uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
-                    var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in Appcenter"));
-                    appcenter_menuitem.activate.connect (() => {
-                        Process.spawn_command_line_async ("xdg-open appstream://" + appstream_comp_id);
-                    });
-
                     add (uninstall_menuitem);
-                    add (appcenter_menuitem);
+
+                    if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
+                        var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in Appcenter"));
+
+                        appcenter_menuitem.activate.connect (open_in_appcenter);
+                        add (appcenter_menuitem);
+                    }
                     
                     show_all ();
                 }
