@@ -132,8 +132,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
                     if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
                         var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in Appcenter"));
-
                         appcenter_menuitem.activate.connect (open_in_appcenter);
+                        
                         add (appcenter_menuitem);
                     }
 
