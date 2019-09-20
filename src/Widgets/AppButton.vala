@@ -132,7 +132,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.button_press_event.connect ((e) => {
             if (e.button != Gdk.BUTTON_SECONDARY) {
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             }
 
             return create_context_menu (e);
@@ -143,7 +143,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                 return create_context_menu (e);
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         });
 
         this.drag_begin.connect ((ctx) => {
@@ -208,18 +208,15 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         });
 
         if (menu.get_children () != null) {
-            switch (e.type) {
-                case Gdk.EventType.KEY_PRESS:
-                    menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                    return true;
-                case Gdk.EventType.BUTTON_PRESS:
-                    menu.popup_at_pointer (e);
-                    return true;
-                default:
-                    break;
+            if (e.type == Gdk.EventType.KEY_PRESS) {
+                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
+                return Gdk.EVENT_STOP;
+            } else if (e.type == Gdk.EventType.BUTTON_PRESS) {
+                menu.popup_at_pointer (e);
+                return Gdk.EVENT_STOP;
             }
         }
 
-        return false;
+        return Gdk.EVENT_PROPAGATE;
     }
 }
