@@ -24,7 +24,7 @@ namespace Synapse {
     public class SwitchboardPlugin : Object, Activatable, ItemProvider {
         public bool enabled { get; set; default = true; }
 
-        public SwitchboardPlugin() { }
+        public SwitchboardPlugin () { }
 
         public void activate () { }
 
@@ -43,8 +43,14 @@ namespace Synapse {
             public string uri { get; construct set; }
 
             public SwitchboardObject (PlugInfo plug_info) {
-                Object (title: plug_info.title, description: _("Open %s settings").printf (plug_info.title),
-                        plug: plug_info.code_name, icon_name: plug_info.icon, match_type: MatchType.APPLICATION, uri: plug_info.uri);
+                Object (
+                    title: plug_info.title,
+                    description: _("Open %s settings").printf (plug_info.title),
+                    plug: plug_info.code_name,
+                    icon_name: plug_info.icon,
+                    match_type: MatchType.APPLICATION,
+                    uri: plug_info.uri
+                );
             }
 
             public void execute (Match? match) {
@@ -57,11 +63,13 @@ namespace Synapse {
         }
 
         static void register_plugin () {
-            DataSink.PluginRegistry.get_default ().register_plugin (typeof (SwitchboardPlugin),
-                                                                    "Switchboard Search",
-                                                                    _("Find switchboard plugs and open them."),
-                                                                    "preferences-desktop",
-                                                                    register_plugin);
+            DataSink.PluginRegistry.get_default ().register_plugin (
+                typeof (SwitchboardPlugin),
+                "Switchboard Search",
+                _("Find switchboard plugs and open them."),
+                "preferences-desktop",
+                register_plugin
+            );
         }
 
         static construct {
@@ -100,16 +108,16 @@ namespace Synapse {
                 if (settings == null || settings.size <= 0) {
                     continue;
                 }
-                
+
                 string uri = settings.keys.to_array ()[0];
                 plugs.add (new PlugInfo (plug.display_name, plug.code_name, plug.icon, uri));
-                
+
                 // Using search to get sub settings
                 var search_results = yield plug.search ("");
                 foreach (var result in search_results.entries) {
                     var title = result.key;
-                    var view =  result.value;
-                                        
+                    var view = result.value;
+
                     // get uri from plug's supported_settings
                     // Use main plug uri as fallback
                     string sub_uri = uri;
@@ -122,8 +130,8 @@ namespace Synapse {
                         }
                     }
 
-                    string[] path = title.split(" → ");
-                    
+                    string[] path = title.split (" → ");
+
                     plugs.add (new PlugInfo (title, "", plug.icon, sub_uri, path));
                 }
             }
@@ -164,10 +172,10 @@ namespace Synapse {
 
             foreach (var plug in plugs) {
                 // Retrieve the string that this plug/setting can be searched by
-                string searchable_name = plug.path.length > 0 ? plug.path[plug.path.length-1] : plug.title;
+                string searchable_name = plug.path.length > 0 ? plug.path[plug.path.length - 1] : plug.title;
                 foreach (var matcher in matchers) {
                     MatchInfo info;
-                    if (matcher.key.match (searchable_name.down(), 0, out info)) {
+                    if (matcher.key.match (searchable_name.down (), 0, out info)) {
                         result.add (new SwitchboardObject (plug), Match.Score.AVERAGE + Match.Score.INCREMENT_MEDIUM);
                         break;
                     }

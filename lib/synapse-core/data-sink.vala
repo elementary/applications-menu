@@ -48,7 +48,15 @@ namespace Synapse {
                 public bool runnable;
                 public string runnable_error;
 
-                public PluginInfo (Type type, string title, string desc, string icon_name, PluginRegisterFunc reg_func, bool runnable, string runnable_error) {
+                public PluginInfo (
+                    Type type,
+                    string title,
+                    string desc,
+                    string icon_name,
+                    PluginRegisterFunc reg_func,
+                    bool runnable,
+                    string runnable_error
+                ) {
                     this.plugin_type = type;
                     this.title = title;
                     this.description = desc;
@@ -76,7 +84,15 @@ namespace Synapse {
                 return instance ?? new PluginRegistry ();
             }
 
-            public void register_plugin (Type plugin_type, string title, string description, string icon_name, PluginRegisterFunc reg_func, bool runnable = true, string runnable_error = "") {
+            public void register_plugin (
+                Type plugin_type,
+                string title,
+                string description,
+                string icon_name,
+                PluginRegisterFunc reg_func,
+                bool runnable = true,
+                string runnable_error = ""
+            ) {
                 // FIXME: how about a frickin Type -> PluginInfo map?!
                 int index = -1;
                 for (int i = 0; i < plugins.size; i++) {
@@ -162,7 +178,7 @@ namespace Synapse {
         public DataSink () { }
 
         ~DataSink () {
-            debug ("DataSink died...");
+            debug ("DataSink died…");
         }
 
         private DataSinkConfiguration config;
@@ -273,7 +289,7 @@ namespace Synapse {
         private void update_has_empty_handlers () {
             bool tmp = false;
             foreach (var item_plugin in item_plugins) {
-                if (item_plugin.enabled && item_plugin.handles_empty_query ())  {
+                if (item_plugin.enabled && item_plugin.handles_empty_query ()) {
                     tmp = true;
                     break;
                 }
@@ -388,7 +404,12 @@ namespace Synapse {
         [Signal (detailed = true)]
         public signal void search_done (ResultSet rs, uint query_id);
 
-        public async Gee.List<Match> search (string query, QueryFlags flags, ResultSet? dest_result_set, Cancellable? cancellable = null) throws SearchError {
+        public async Gee.List<Match> search (
+            string query,
+            QueryFlags flags,
+            ResultSet? dest_result_set,
+            Cancellable? cancellable = null
+        ) throws SearchError {
             // wait for our initialization
             while (!plugins_loaded) {
                 Timeout.add (100, search.callback);
@@ -410,7 +431,9 @@ namespace Synapse {
             bool waiting = false;
 
             foreach (var data_plugin in item_plugins) {
-                bool skip = !data_plugin.enabled || (query == "" && !data_plugin.handles_empty_query ()) || !data_plugin.handles_query (q);
+                bool skip = !data_plugin.enabled
+                    || (query == "" && !data_plugin.handles_empty_query ())
+                    || !data_plugin.handles_query (q);
                 if (skip) {
                     search_size--;
                     continue;

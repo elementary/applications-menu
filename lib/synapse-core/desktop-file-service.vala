@@ -30,22 +30,22 @@ namespace Synapse {
         // (and pantheon)
         [Flags]
         public enum EnvironmentType {
-            GNOME     = 1 << 0,
-            KDE       = 1 << 1,
-            LXDE      = 1 << 2,
-            MATE      = 1 << 3,
-            RAZOR     = 1 << 4,
-            ROX       = 1 << 5,
-            TDE       = 1 << 6,
-            UNITY     = 1 << 7,
-            XFCE      = 1 << 8,
-            PANTHEON  = 1 << 9,
-            OLD       = 1 << 10,
+            GNOME = 1 << 0,
+            KDE = 1 << 1,
+            LXDE = 1 << 2,
+            MATE = 1 << 3,
+            RAZOR = 1 << 4,
+            ROX = 1 << 5,
+            TDE = 1 << 6,
+            UNITY = 1 << 7,
+            XFCE = 1 << 8,
+            PANTHEON = 1 << 9,
+            OLD = 1 << 10,
 
-            ALL       = 0x3FF
+            ALL = 0x3FF
         }
 
-        public string desktop_id { get; construct set; } 
+        public string desktop_id { get; construct set; }
         public string name { get; construct set; }
         public string generic_name { get; construct set; }
         public string comment { get; set; default = ""; }
@@ -148,7 +148,7 @@ namespace Synapse {
                 }
 
                 name = app_info.get_name ();
-                generic_name = app_info.get_generic_name () ?? "";     
+                generic_name = app_info.get_generic_name () ?? "";
                 exec = app_info.get_commandline ();
 
                 if (exec == null) {
@@ -199,7 +199,11 @@ namespace Synapse {
                 if (err is DesktopFileError.UNINTERESTING_ENTRY) {
                     debug ("Error initializing DesktopFileInfo from keyfile %s - %s", name, err.message);
                 } else {
-                    critical ("Error initializing DesktopFileInfo from keyfile %s - %s", keyfile.to_data (), err.message);
+                    critical (
+                        "Error initializing DesktopFileInfo from keyfile %s - %s",
+                        keyfile.to_data (),
+                        err.message
+                    );
                 }
 
                 is_valid = false;
@@ -350,7 +354,11 @@ namespace Synapse {
                     }
                 }
                 monitored_dirs.add (directory);
-                var enumerator = yield directory.enumerate_children_async (FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE, 0, 0);
+                var enumerator = yield directory.enumerate_children_async (
+                    FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE,
+                    0,
+                    0
+                );
                 var files = yield enumerator.next_files_async (1024, 0);
                 foreach (unowned GLib.FileInfo f in files) {
                     unowned string name = f.get_name ();
@@ -424,7 +432,7 @@ namespace Synapse {
         }
 
         private async void reload_desktop_files () {
-            debug ("Reloading desktop files...");
+            debug ("Reloading desktop files…");
             all_desktop_files.clear ();
             non_hidden_desktop_files.clear ();
             yield load_all_desktop_files ();
