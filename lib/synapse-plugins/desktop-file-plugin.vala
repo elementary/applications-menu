@@ -40,7 +40,10 @@ namespace Synapse {
             public AppInfo? app_info { get; set; default = null; }
             public bool needs_terminal { get; set; default = false; }
 
-            private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
+            private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {
+                "X-Ubuntu-Gettext-Domain",
+                "X-GNOME-Gettext-Domain"
+            };
             private string action_name;
 
             public ActionMatch (string desktop_id, string action_name) {
@@ -63,7 +66,7 @@ namespace Synapse {
                 this.description = "";
                 this.app_info = desktop_app_info;
                 this.action_name = action_name;
-            }   
+            }
 
             public void execute (Match? match) {
                 ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());
@@ -122,11 +125,13 @@ namespace Synapse {
         }
 
         static void register_plugin () {
-            DataSink.PluginRegistry.get_default ().register_plugin (typeof (DesktopFilePlugin),
-                                                                    "Application Search",
-                                                                    _("Search for and run applications on your computer."),
-                                                                    "system-run",
-                                                                    register_plugin);
+            DataSink.PluginRegistry.get_default ().register_plugin (
+                typeof (DesktopFilePlugin),
+                "Application Search",
+                _("Search for and run applications on your computer."),
+                "system-run",
+                register_plugin
+            );
         }
 
         static construct {
@@ -203,7 +208,7 @@ namespace Synapse {
                         title = GLib.dgettext (gettext_domain, title).down ();
                     } else {
                         title = title.down ();
-                    }   
+                    }
 
                     foreach (var matcher in matchers) {
                         if (matcher.key.match (title, 0, out info)) {
@@ -212,7 +217,7 @@ namespace Synapse {
                             break;
                         } else if (info.is_partial_match ()) {
                             var am = new ActionMatch (id, action);
-                            results.add (am, compute_relevancy (dfm, Match.Score.AVERAGE));      
+                            results.add (am, compute_relevancy (dfm, Match.Score.AVERAGE));
                             break;
                         }
                     }
@@ -247,9 +252,9 @@ namespace Synapse {
                             break;
                         } else if (info.is_partial_match ()) {
                             results.add (dfm, compute_relevancy (dfm, Match.Score.POOR - Match.Score.INCREMENT_LARGE));
-                            matched = true;  
-                            break;        
-                        }                         
+                            matched = true;
+                            break;
+                        }
                     }
                 }
 
@@ -257,8 +262,14 @@ namespace Synapse {
                     continue;
                 }
 
-                if (comment.down ().contains (q.query_string_folded) || generic_name.down ().contains (q.query_string_folded)) {
-                    results.add (dfm, compute_relevancy (dfm, Match.Score.BELOW_AVERAGE - Match.Score.INCREMENT_MEDIUM));
+                if (
+                    comment.down ().contains (q.query_string_folded)
+                    || generic_name.down ().contains (q.query_string_folded)
+                ) {
+                    results.add (
+                        dfm,
+                        compute_relevancy (dfm, Match.Score.BELOW_AVERAGE - Match.Score.INCREMENT_MEDIUM)
+                    );
                 } else if (dfm.exec.has_prefix (q.query_string)) {
                     results.add (dfm, compute_relevancy (dfm, dfm.exec == q.query_string ?
                     Match.Score.VERY_GOOD : Match.Score.AVERAGE - Match.Score.INCREMENT_SMALL));
@@ -390,7 +401,11 @@ namespace Synapse {
                     rs.add (action, Match.Score.POOR);
                 }
             } else {
-                var matchers = Query.get_matchers_for_query (query.query_string, 0, RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS);
+                var matchers = Query.get_matchers_for_query (
+                    query.query_string,
+                    0,
+                    RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
+                );
                 foreach (var action in ow_list) {
                     foreach (var matcher in matchers) {
                         if (matcher.key.match (action.title)) {

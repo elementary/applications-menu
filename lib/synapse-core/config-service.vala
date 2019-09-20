@@ -49,7 +49,7 @@ namespace Synapse {
             instance = this;
 
             var parser = new Parser ();
-            config_file_name = 
+            config_file_name =
             GLib.Path.build_filename (Environment.get_user_config_dir (), "synapse", "config.json");
             try {
                 parser.load_from_file (config_file_name);
