@@ -20,6 +20,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
+    public DesktopAppInfo app_info { get; construct; }
 
     private bool has_system_item = false;
     private string appstream_comp_id = "";
@@ -49,7 +50,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
-        var app_info = new DesktopAppInfo (desktop_id);
+        app_info = new DesktopAppInfo (desktop_id);
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -99,11 +100,26 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             return;
         }
 
+        var notification = new GLib.Notification ("");
+
         appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
             try {
-                appcenter.dbus.uninstall.end (res);
+                bool is_uninstalled = appcenter.dbus.uninstall.end (res);
+
+                if (is_uninstalled) {
+                    notification.set_title (_("%s successfully uninstalled").printf (app_info.get_display_name ()));
+                    notification.set_icon (new ThemedIcon ("process-completed"));
+                } else {
+                    notification.set_title (_("Unable to install %s").printf (app_info.get_display_name ()));
+                    notification.set_icon (new ThemedIcon ("dialog-error"));
+                }
+
+                Application.get_default ().send_notification ("io.elementary.desktop.wingpanel.applications-menu", notification);
+
             } catch (GLib.Error e) {
                 warning (e.message);
+                notification.set_title (_("Unable to install %s").printf (app_info.get_display_name ()));
+                notification.set_icon (new ThemedIcon ("dialog-error"));
             }
         });
     }

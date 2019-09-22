@@ -21,7 +21,7 @@
 public interface AppCenterDBus : Object {
     public abstract async void install (string component_id) throws GLib.Error;
     public abstract async void update (string component_id) throws GLib.Error;
-    public abstract async void uninstall (string component_id) throws GLib.Error;
+    public abstract async bool uninstall (string component_id) throws GLib.Error;
     public abstract async string get_component_from_desktop_id (string desktop_id) throws GLib.Error;
     public abstract async string[] search_components (string query) throws GLib.Error;
 }
