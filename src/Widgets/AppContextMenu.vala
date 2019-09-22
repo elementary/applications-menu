@@ -20,6 +20,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
+    public DesktopAppInfo app_info { get; construct; }
 
     private bool has_system_item = false;
     private string appstream_comp_id = "";
@@ -49,7 +50,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
-        var app_info = new DesktopAppInfo (desktop_id);
+        app_info = new DesktopAppInfo (desktop_id);
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -112,7 +113,15 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         try {
             Process.spawn_command_line_async ("xdg-open appstream://" + appstream_comp_id);
         } catch (SpawnError e) {
-            debug ("Unable to open in Appcenter: %s\n", e.message);
+            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                "Unable to open %s in AppCenter".printf (app_info.get_display_name ()),
+                "",
+                "dialog-error",
+                Gtk.ButtonsType.CLOSE
+            );
+            message_dialog.show_error_details (e.message);
+            message_dialog.run ();
+            message_dialog.destroy ();
         } finally {
             app_launched ();
         }
