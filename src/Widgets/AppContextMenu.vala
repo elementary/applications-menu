@@ -113,6 +113,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             Process.spawn_command_line_async ("xdg-open appstream://" + appstream_comp_id);
         } catch (SpawnError e) {
             debug ("Unable to open in Appcenter: %s\n", e.message);
+        } finally {
+            app_launched ();
         }
     }
 
