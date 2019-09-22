@@ -38,7 +38,7 @@ namespace Synapse {
             refresh_popularity ();
             check_data_sources.begin ();
 
-            Timeout.add_seconds (60*30, refresh_popularity);
+            Timeout.add_seconds (60 * 30, refresh_popularity);
         }
 
         private async void check_data_sources () {
@@ -152,7 +152,7 @@ namespace Synapse {
                 // Zeitgeist (0.6) doesn't have any stats API, so let's approximate
 
                 foreach (Zeitgeist.Event e1 in rs) {
-                    if (e1.num_subjects () <= 0) { 
+                    if (e1.num_subjects () <= 0) {
                         continue;
                     }
                     Zeitgeist.Subject s1 = e1.subjects[0];

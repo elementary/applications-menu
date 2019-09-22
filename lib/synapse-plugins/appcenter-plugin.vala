@@ -51,7 +51,8 @@ namespace Synapse {
 
                 appinfo = AppInfo.get_default_for_type ("x-scheme-handler/appstream", false);
                 if (appinfo != null) {
-                    // TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
+                    // TRANSLATORS: The first %s is what the user searched for,
+                    // the second will be replaced with the localized name of AppCenter
                     _title = _("Search for %s in %s").printf (search_term, appinfo.get_display_name ());
                     _icon_name = appinfo.get_icon ().to_string ();
                 }
@@ -76,7 +77,7 @@ namespace Synapse {
                 } catch (Error e) {
                     warning ("%s\n", e.message);
                 }
-            }        
+            }
         }
 
         private static AppInfo? appinfo;
@@ -102,7 +103,7 @@ namespace Synapse {
 
         static construct {
             register_plugin ();
-            
+
             try {
                 // 2 or more characters, must contain at least one letter
                 regex = new Regex ("""^(?=\pL).{2,}$""", RegexCompileFlags.OPTIMIZE);
