@@ -20,7 +20,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
-    public DesktopAppInfo app_info { get; construct; }
+    private DesktopAppInfo app_info;
 
     private bool has_system_item = false;
     private string appstream_comp_id = "";
