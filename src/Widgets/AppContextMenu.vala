@@ -20,6 +20,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
+    private DesktopAppInfo app_info;
 
     private bool has_system_item = false;
     private string appstream_comp_id = "";
@@ -49,7 +50,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
-        var app_info = new DesktopAppInfo (desktop_id);
+        app_info = new DesktopAppInfo (desktop_id);
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -108,6 +109,26 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         });
     }
 
+    private void open_in_appcenter () {
+        AppInfo.launch_default_for_uri_async.begin ("appstream://" + appstream_comp_id, null, null, (obj, res) => {
+            try {
+                AppInfo.launch_default_for_uri_async.end (res);
+            } catch (Error error) {
+                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    "Unable to open %s in AppCenter".printf (app_info.get_display_name ()),
+                    "",
+                    "dialog-error",
+                    Gtk.ButtonsType.CLOSE
+                );
+                message_dialog.show_error_details (error.message);
+                message_dialog.run ();
+                message_dialog.destroy ();
+            } finally {
+                app_launched ();
+            }
+        });
+    }
+
     private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {
             try {
@@ -121,6 +142,14 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                     uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
                     add (uninstall_menuitem);
+
+                    if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
+                        var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
+                        appcenter_menuitem.activate.connect (open_in_appcenter);
+
+                        add (appcenter_menuitem);
+                    }
+
                     show_all ();
                 }
             } catch (GLib.Error e) {
