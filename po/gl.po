@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 23:17+0200\n"
-"PO-Revision-Date: 2019-09-05 15:23+0000\n"
-"Last-Translator: Daniel <riesp@protonmail.com>\n"
+"PO-Revision-Date: 2019-09-23 16:24+0000\n"
+"Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/gl/>\n"
 "Language: gl\n"
@@ -210,7 +210,7 @@ msgstr "Bloquear este dispositivo"
 #: lib/synapse-plugins/system-managment.vala:117
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "bloqueo"
 
 #: lib/synapse-plugins/system-managment.vala:142
 msgid "Log Out"
@@ -224,7 +224,7 @@ msgstr "Pechar todos os aplicativos e saír"
 #: lib/synapse-plugins/system-managment.vala:146
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "pechar sesión;saír"
 
 #: lib/synapse-plugins/system-managment.vala:171
 msgid "Suspend"
@@ -236,10 +236,9 @@ msgstr "Poñer en modo suspensión"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:175
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Suspender"
+msgstr "suspender"
 
 #: lib/synapse-plugins/system-managment.vala:244
 msgid "Hibernate"
@@ -251,10 +250,9 @@ msgstr "Poñer en modo hibernación"
 
 #. ; seperated list of keywords
 #: lib/synapse-plugins/system-managment.vala:248
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hibernar"
+msgstr "hibernar"
 
 #: lib/synapse-plugins/system-managment.vala:316
 msgid "Shut Down"
@@ -268,7 +266,7 @@ msgstr "Apagar o ordenador"
 #: lib/synapse-plugins/system-managment.vala:320
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "apagar"
 
 #: lib/synapse-plugins/system-managment.vala:376
 msgid "Restart"
@@ -282,7 +280,7 @@ msgstr "Reiniciar o teu ordenador"
 #: lib/synapse-plugins/system-managment.vala:380
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reiniciar"
 
 #: lib/synapse-plugins/system-managment.vala:437
 msgid ""
