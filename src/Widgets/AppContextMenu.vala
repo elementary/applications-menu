@@ -110,21 +110,23 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     private void open_in_appcenter () {
-        try {
-            GLib.AppInfo.launch_default_for_uri ("appstream://" + appstream_comp_id, null);
-        } catch (SpawnError e) {
-            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                "Unable to open %s in AppCenter".printf (app_info.get_display_name ()),
-                "",
-                "dialog-error",
-                Gtk.ButtonsType.CLOSE
-            );
-            message_dialog.show_error_details (e.message);
-            message_dialog.run ();
-            message_dialog.destroy ();
-        } finally {
-            app_launched ();
-        }
+        AppInfo.launch_default_for_uri_async.begin ("appstream://" + appstream_comp_id, null, null, (obj, res) => {
+            try {
+                AppInfo.launch_default_for_uri_async.end (res);
+            } catch (Error error) {
+                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    "Unable to open %s in AppCenter".printf (app_info.get_display_name ()),
+                    "",
+                    "dialog-error",
+                    Gtk.ButtonsType.CLOSE
+                );
+                message_dialog.show_error_details (error.message);
+                message_dialog.run ();
+                message_dialog.destroy ();
+            } finally {
+                app_launched ();
+            }
+        });
     }
 
     private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
