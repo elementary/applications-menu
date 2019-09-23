@@ -167,14 +167,14 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public bool set_focus (int column, int row) {
-        var targetWidget = get_child_at (column, row);
+        var target_widget = get_child_at (column, row);
 
-        if (targetWidget != null) {
+        if (target_widget != null) {
             go_to_number (((int) (column / page.columns)) + 1);
 
             focused_column = column;
             focused_row = row;
-            focused_widget = targetWidget;
+            focused_widget = target_widget;
 
             focused_widget.grab_focus ();
 
