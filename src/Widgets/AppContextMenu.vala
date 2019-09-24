@@ -95,19 +95,18 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     private void uninstall_menuitem_activate () {
-        var uninstall_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-            "%s".printf (app_info.get_display_name ()),
-            "Do you want to uninstall this application?",
-            "dialog-information",
+        var uninstall_dialog = new Granite.MessageDialog (
+            _("Uninstall “%s”?").printf (app_info.get_display_name ()),
+            _("Uninstalling this app may also delete its data."),
+            app_info.get_icon (),
             Gtk.ButtonsType.CANCEL
         );
-        uninstall_dialog.set_transient_for (this.get_toplevel () as Gtk.Window);
+        uninstall_dialog.badge_icon = new ThemedIcon ("edit-delete");
+        uninstall_dialog.set_transient_for (get_toplevel () as Gtk.Window);
+        uninstall_dialog.stick ();
 
-        var uninstall_button = new Gtk.Button.with_label ("Yes");
+        var uninstall_button = uninstall_dialog.add_button (_("Uninstall"), Gtk.ResponseType.ACCEPT);
         uninstall_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-        uninstall_dialog.add_action_widget (uninstall_button, Gtk.ResponseType.ACCEPT);
-
-        uninstall_dialog.show_all ();
 
         if (uninstall_dialog.run () == Gtk.ResponseType.ACCEPT) {
             var appcenter = Backend.AppCenter.get_default ();
