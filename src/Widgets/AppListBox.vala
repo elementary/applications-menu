@@ -37,6 +37,7 @@ public class Slingshot.AppListBox : Gtk.ListBox {
             if (!dragging) {
                 select_row (get_row_at_y ((int) event.y));
             }
+
             return Gdk.EVENT_PROPAGATE;
         });
 
