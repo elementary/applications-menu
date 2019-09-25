@@ -60,6 +60,7 @@ public class Slingshot.AppListBox : Gtk.ListBox {
             if (drag_uri != null) {
                 close_request ();
             }
+
             dragging = false;
             drag_uri = null;
         });
