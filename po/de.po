@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 23:17+0200\n"
+"POT-Creation-Date: 2019-09-24 11:12-0700\n"
 "PO-Revision-Date: 2019-09-02 13:23+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,93 +20,110 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Slingshot.vala:35
+#: src/Indicator.vala:30
 msgid "Slingshot"
 msgstr "Slingshot"
 
-#: src/Slingshot.vala:36
+#: src/Indicator.vala:31
 msgid "The app-menu indicator"
 msgstr "Der App-Menü-Indikator"
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
+#: src/Indicator.vala:70 src/Widgets/SearchItem.vala:40
 msgid "Applications"
 msgstr "Apps"
 
-#: src/Slingshot.vala:120
+#: src/Indicator.vala:113
 msgid "Open and search apps"
 msgstr "Apps öffnen und suchen"
 
-#: src/SlingshotView.vala:160
+#: src/SlingshotView.vala:68
 msgid "View as Grid"
 msgstr "Als Raster anzeigen"
 
-#: src/SlingshotView.vala:164
+#: src/SlingshotView.vala:71
 msgid "View by Category"
 msgstr "Ansicht nach Kategorie"
 
-#: src/SlingshotView.vala:173
+#: src/SlingshotView.vala:83
 msgid "Search Apps"
 msgstr "Apps durchsuchen"
 
-#: src/Backend/App.vala:87
+#: src/SlingshotView.vala:86
+msgid "Clear all"
+msgstr ""
+
+#: src/Backend/App.vala:78
 msgid "Run this command…"
 msgstr "Befehl ausführen …"
 
-#: src/Widgets/AppEntry.vala:234
-msgid "Uninstall"
-msgstr "Deinstallieren"
-
-#: src/Widgets/AppEntry.vala:263
-msgid "Remove from _Dock"
-msgstr "Aus dem _Dock entfernen"
-
-#: src/Widgets/AppEntry.vala:265
-msgid "Add to _Dock"
-msgstr "Zum _Dock hinzufügen"
-
-#. alert view
-#: src/Widgets/SearchView.vala:144
+#: src/Views/SearchView.vala:39
 msgid "Try changing search terms."
 msgstr "Versuchen Sie es mit anderen Suchbegriffen."
 
-#: src/Widgets/SearchView.vala:188
+#: src/Views/SearchView.vala:143
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Keine Ergebnisse für »%s«"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/AppContextMenu.vala:78
+msgid "Remove from _Dock"
+msgstr "Aus dem _Dock entfernen"
+
+#: src/Widgets/AppContextMenu.vala:80
+msgid "Add to _Dock"
+msgstr "Zum _Dock hinzufügen"
+
+#: src/Widgets/AppContextMenu.vala:99
+#, fuzzy, c-format
+msgid "Uninstall “%s”?"
+msgstr "Deinstallieren"
+
+#: src/Widgets/AppContextMenu.vala:100
+msgid "Uninstalling this app may also delete its data."
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
+msgid "Uninstall"
+msgstr "Deinstallieren"
+
+#: src/Widgets/AppContextMenu.vala:164
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "AppCenter"
+
+#: src/Widgets/SearchItem.vala:37
 msgid "Text"
 msgstr "Text"
 
-#: src/Widgets/SearchView.vala:259
+#: src/Widgets/SearchItem.vala:43
 msgid "Files"
 msgstr "Dateien"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchItem.vala:47
 msgid "Actions"
 msgstr "Aktionen"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchItem.vala:50
 msgid "Search"
 msgstr "Suche"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchItem.vala:53
 msgid "Contacts"
 msgstr "Kontakte"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchItem.vala:56
 msgid "Internet"
 msgstr "Internet"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchItem.vala:59
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/Widgets/SearchView.vala:278
+#: src/Widgets/SearchItem.vala:62
 msgid "Application Actions"
 msgstr "Aktionen der Anwendung"
 
-#: src/Widgets/SearchView.vala:281
+#: src/Widgets/SearchItem.vala:65
 msgid "Other"
 msgstr "Andere"
 
@@ -134,31 +151,31 @@ msgstr "Öffnen"
 msgid "Open using default application"
 msgstr "Mit der Standardanwendung öffnen"
 
-#: lib/synapse-core/common-actions.vala:201
+#: lib/synapse-core/common-actions.vala:203
 msgid "Open folder"
 msgstr "Ordner öffnen"
 
-#: lib/synapse-core/common-actions.vala:202
+#: lib/synapse-core/common-actions.vala:204
 msgid "Open folder containing this file"
 msgstr "Öffnet den Ordner, der diese Datei enthält"
 
-#: lib/synapse-core/common-actions.vala:238
+#: lib/synapse-core/common-actions.vala:240
 msgid "Copy to Clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: lib/synapse-core/common-actions.vala:239
+#: lib/synapse-core/common-actions.vala:241
 msgid "Copy selection to clipboard"
 msgstr "Auswahl in die Zwischenablage kopieren"
 
-#: lib/synapse-plugins/calculator-plugin.vala:51
+#: lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculator"
 msgstr "Taschenrechner"
 
-#: lib/synapse-plugins/calculator-plugin.vala:52
+#: lib/synapse-plugins/calculator-plugin.vala:53
 msgid "Calculate basic expressions."
 msgstr "Grundrechenarten."
 
-#: lib/synapse-plugins/calculator-plugin.vala:56
+#: lib/synapse-plugins/calculator-plugin.vala:57
 msgid "bc is not installed"
 msgstr "bc ist nicht installiert"
 
@@ -171,120 +188,120 @@ msgstr "»%s« ausführen"
 msgid "Run command"
 msgstr "Befehl ausführen"
 
-#: lib/synapse-plugins/command-plugin.vala:63
+#: lib/synapse-plugins/command-plugin.vala:68
 msgid "Find and execute arbitrary commands."
 msgstr "Beliebige Befehle suchen und ausführen."
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:127
+#: lib/synapse-plugins/desktop-file-plugin.vala:131
 msgid "Search for and run applications on your computer."
 msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:333
+#: lib/synapse-plugins/desktop-file-plugin.vala:344
 #, c-format
 msgid "Open with %s"
 msgstr "Öffnen mit %s"
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:335
+#: lib/synapse-plugins/desktop-file-plugin.vala:346
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Öffnet die momentane Auswahl mittels %s"
 
-#: lib/synapse-plugins/switchboard-plugin.vala:46
+#: lib/synapse-plugins/switchboard-plugin.vala:48
 #, c-format
 msgid "Open %s settings"
 msgstr "%s Einstellungen öffnen"
 
-#: lib/synapse-plugins/switchboard-plugin.vala:62
+#: lib/synapse-plugins/switchboard-plugin.vala:69
 msgid "Find switchboard plugs and open them."
 msgstr "Switchboard-Plugs suchen und öffnen."
 
-#: lib/synapse-plugins/system-managment.vala:113
+#: lib/synapse-plugins/system-managment.vala:117
 msgid "Lock"
 msgstr "Sperren"
 
-#: lib/synapse-plugins/system-managment.vala:114
+#: lib/synapse-plugins/system-managment.vala:118
 msgid "Lock this device"
 msgstr "Dieses Gerät sperren"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:117
+#: lib/synapse-plugins/system-managment.vala:121
 msgctxt "system_management_action_keyword"
 msgid "lock"
 msgstr "sperren"
 
-#: lib/synapse-plugins/system-managment.vala:142
+#: lib/synapse-plugins/system-managment.vala:150
 msgid "Log Out"
 msgstr "Abmelden"
 
-#: lib/synapse-plugins/system-managment.vala:143
+#: lib/synapse-plugins/system-managment.vala:151
 msgid "Close all open applications and quit"
 msgstr "Alle geöffneten Anwendungen schließen und beenden"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:146
+#: lib/synapse-plugins/system-managment.vala:154
 msgctxt "system_management_action_keyword"
 msgid "logout"
 msgstr "abmelden"
 
-#: lib/synapse-plugins/system-managment.vala:171
+#: lib/synapse-plugins/system-managment.vala:183
 msgid "Suspend"
 msgstr "Bereitschaft"
 
-#: lib/synapse-plugins/system-managment.vala:172
+#: lib/synapse-plugins/system-managment.vala:184
 msgid "Put your computer into suspend mode"
 msgstr "Versetzen Sie Ihren Computer in den Bereitschaftsmodus"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:175
+#: lib/synapse-plugins/system-managment.vala:187
 #, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "Bereitschaft"
 
-#: lib/synapse-plugins/system-managment.vala:244
+#: lib/synapse-plugins/system-managment.vala:272
 msgid "Hibernate"
 msgstr "Ruhezustand"
 
-#: lib/synapse-plugins/system-managment.vala:245
+#: lib/synapse-plugins/system-managment.vala:273
 msgid "Put your computer into hibernation mode"
 msgstr "Versetzen Sie Ihren Computer in den Ruhezustand"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:248
+#: lib/synapse-plugins/system-managment.vala:276
 #, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
 msgstr "Ruhezustand"
 
-#: lib/synapse-plugins/system-managment.vala:316
+#: lib/synapse-plugins/system-managment.vala:360
 msgid "Shut Down"
 msgstr "Ausschalten"
 
-#: lib/synapse-plugins/system-managment.vala:317
+#: lib/synapse-plugins/system-managment.vala:361
 msgid "Turn your computer off"
 msgstr "Rechner ausschalten"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:320
+#: lib/synapse-plugins/system-managment.vala:364
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
 msgstr "ausschalten;herunterfahren"
 
-#: lib/synapse-plugins/system-managment.vala:376
+#: lib/synapse-plugins/system-managment.vala:436
 msgid "Restart"
 msgstr "Neu starten"
 
-#: lib/synapse-plugins/system-managment.vala:377
+#: lib/synapse-plugins/system-managment.vala:437
 msgid "Restart your computer"
 msgstr "Rechner neu starten"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:380
+#: lib/synapse-plugins/system-managment.vala:440
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "neu starten;neustarten"
 
-#: lib/synapse-plugins/system-managment.vala:437
+#: lib/synapse-plugins/system-managment.vala:514
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
@@ -292,7 +309,7 @@ msgstr ""
 "Sitzung sperren oder beenden. Rechner in den Bereitschaftsmodus oder in den "
 "Ruhezustand versetzen, neu starten oder ausschalten."
 
-#: lib/synapse-plugins/system-managment.vala:442
+#: lib/synapse-plugins/system-managment.vala:519
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit wurde nicht gefunden"
 
@@ -318,25 +335,26 @@ msgstr "Verweis"
 msgid "Open link in default browser"
 msgstr "Verweis im Standard-Browser öffnen"
 
-#. TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
-#: lib/synapse-plugins/appcenter-plugin.vala:55
+#. TRANSLATORS: The first %s is what the user searched for,
+#. the second will be replaced with the localized name of AppCenter
+#: lib/synapse-plugins/appcenter-plugin.vala:56
 #, c-format
 msgid "Search for %s in %s"
 msgstr "Nach %s in %s suchen"
 
-#: lib/synapse-plugins/appcenter-plugin.vala:61
+#: lib/synapse-plugins/appcenter-plugin.vala:62
 msgid "Search the app store"
 msgstr "App-Store durchsuchen"
 
-#: lib/synapse-plugins/appcenter-plugin.vala:95
+#: lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "AppCenter"
 msgstr "AppCenter"
 
-#: lib/synapse-plugins/appcenter-plugin.vala:96
+#: lib/synapse-plugins/appcenter-plugin.vala:97
 msgid "Search for applications"
 msgstr "Nach Anwendungen suchen"
 
-#: lib/synapse-plugins/appcenter-plugin.vala:100
+#: lib/synapse-plugins/appcenter-plugin.vala:101
 msgid "AppCenter is not installed"
 msgstr "AppCenter ist nicht installiert"
 
