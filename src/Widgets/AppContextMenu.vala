@@ -20,6 +20,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
+    private DesktopAppInfo app_info;
 
     private bool has_system_item = false;
     private string appstream_comp_id = "";
@@ -49,7 +50,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
-        var app_info = new DesktopAppInfo (desktop_id);
+        app_info = new DesktopAppInfo (desktop_id);
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -94,16 +95,53 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     private void uninstall_menuitem_activate () {
-        var appcenter = Backend.AppCenter.get_default ();
-        if (appcenter.dbus == null || appstream_comp_id == "") {
-            return;
+        var uninstall_dialog = new Granite.MessageDialog (
+            _("Uninstall “%s”?").printf (app_info.get_display_name ()),
+            _("Uninstalling this app may also delete its data."),
+            app_info.get_icon (),
+            Gtk.ButtonsType.CANCEL
+        );
+        uninstall_dialog.badge_icon = new ThemedIcon ("edit-delete");
+        uninstall_dialog.set_transient_for (get_toplevel () as Gtk.Window);
+        uninstall_dialog.stick ();
+
+        var uninstall_button = uninstall_dialog.add_button (_("Uninstall"), Gtk.ResponseType.ACCEPT);
+        uninstall_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+        if (uninstall_dialog.run () == Gtk.ResponseType.ACCEPT) {
+            var appcenter = Backend.AppCenter.get_default ();
+            if (appcenter.dbus == null || appstream_comp_id == "") {
+                return;
+            }
+
+            appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
+                try {
+                    appcenter.dbus.uninstall.end (res);
+                } catch (GLib.Error e) {
+                    warning (e.message);
+                }
+            });
         }
 
-        appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
+        uninstall_dialog.destroy ();
+    }
+
+    private void open_in_appcenter () {
+        AppInfo.launch_default_for_uri_async.begin ("appstream://" + appstream_comp_id, null, null, (obj, res) => {
             try {
-                appcenter.dbus.uninstall.end (res);
-            } catch (GLib.Error e) {
-                warning (e.message);
+                AppInfo.launch_default_for_uri_async.end (res);
+            } catch (Error error) {
+                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    "Unable to open %s in AppCenter".printf (app_info.get_display_name ()),
+                    "",
+                    "dialog-error",
+                    Gtk.ButtonsType.CLOSE
+                );
+                message_dialog.show_error_details (error.message);
+                message_dialog.run ();
+                message_dialog.destroy ();
+            } finally {
+                app_launched ();
             }
         });
     }
@@ -121,6 +159,14 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                     uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
                     add (uninstall_menuitem);
+
+                    if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
+                        var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
+                        appcenter_menuitem.activate.connect (open_in_appcenter);
+
+                        add (appcenter_menuitem);
+                    }
+
                     show_all ();
                 }
             } catch (GLib.Error e) {

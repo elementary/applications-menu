@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 23:17+0200\n"
+"POT-Creation-Date: 2019-09-24 11:12-0700\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -18,93 +18,110 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Slingshot.vala:35
+#: src/Indicator.vala:30
 msgid "Slingshot"
 msgstr "Slingshot"
 
-#: src/Slingshot.vala:36
+#: src/Indicator.vala:31
 msgid "The app-menu indicator"
 msgstr ""
 
-#: src/Slingshot.vala:77 src/Widgets/SearchView.vala:256
+#: src/Indicator.vala:70 src/Widgets/SearchItem.vala:40
 msgid "Applications"
 msgstr "Приложения"
 
-#: src/Slingshot.vala:120
+#: src/Indicator.vala:113
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:160
+#: src/SlingshotView.vala:68
 msgid "View as Grid"
 msgstr "Изглед като Решетка"
 
-#: src/SlingshotView.vala:164
+#: src/SlingshotView.vala:71
 msgid "View by Category"
 msgstr "Разгледайте по разреди"
 
-#: src/SlingshotView.vala:173
+#: src/SlingshotView.vala:83
 msgid "Search Apps"
 msgstr "Търсене в приложения"
 
-#: src/Backend/App.vala:87
+#: src/SlingshotView.vala:86
+msgid "Clear all"
+msgstr ""
+
+#: src/Backend/App.vala:78
 msgid "Run this command…"
 msgstr "Извърши тази заповед..."
 
-#: src/Widgets/AppEntry.vala:234
-msgid "Uninstall"
-msgstr ""
-
-#: src/Widgets/AppEntry.vala:263
-msgid "Remove from _Dock"
-msgstr ""
-
-#: src/Widgets/AppEntry.vala:265
-msgid "Add to _Dock"
-msgstr ""
-
-#. alert view
-#: src/Widgets/SearchView.vala:144
+#: src/Views/SearchView.vala:39
 msgid "Try changing search terms."
 msgstr "Опитайте да търсите с други критерии"
 
-#: src/Widgets/SearchView.vala:188
+#: src/Views/SearchView.vala:143
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Няма намерени резултати за “%s”"
 
-#: src/Widgets/SearchView.vala:253
+#: src/Widgets/AppContextMenu.vala:78
+msgid "Remove from _Dock"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:80
+msgid "Add to _Dock"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:99
+#, c-format
+msgid "Uninstall “%s”?"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:100
+msgid "Uninstalling this app may also delete its data."
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
+msgid "Uninstall"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:164
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "Разгледайте по разреди"
+
+#: src/Widgets/SearchItem.vala:37
 msgid "Text"
 msgstr "Текст"
 
-#: src/Widgets/SearchView.vala:259
+#: src/Widgets/SearchItem.vala:43
 msgid "Files"
 msgstr "Файлове"
 
-#: src/Widgets/SearchView.vala:263
+#: src/Widgets/SearchItem.vala:47
 msgid "Actions"
 msgstr "Действия"
 
-#: src/Widgets/SearchView.vala:266
+#: src/Widgets/SearchItem.vala:50
 msgid "Search"
 msgstr "Търсене"
 
-#: src/Widgets/SearchView.vala:269
+#: src/Widgets/SearchItem.vala:53
 msgid "Contacts"
 msgstr "Контакти"
 
-#: src/Widgets/SearchView.vala:272
+#: src/Widgets/SearchItem.vala:56
 msgid "Internet"
 msgstr "Мрежа"
 
-#: src/Widgets/SearchView.vala:275
+#: src/Widgets/SearchItem.vala:59
 msgid "Settings"
 msgstr "Натройки"
 
-#: src/Widgets/SearchView.vala:278
+#: src/Widgets/SearchItem.vala:62
 msgid "Application Actions"
 msgstr ""
 
-#: src/Widgets/SearchView.vala:281
+#: src/Widgets/SearchItem.vala:65
 msgid "Other"
 msgstr "Друго"
 
@@ -132,31 +149,31 @@ msgstr "Отвoри"
 msgid "Open using default application"
 msgstr "Отваряне чрез с подразбиращото се приложение"
 
-#: lib/synapse-core/common-actions.vala:201
+#: lib/synapse-core/common-actions.vala:203
 msgid "Open folder"
 msgstr "Отвори папката"
 
-#: lib/synapse-core/common-actions.vala:202
+#: lib/synapse-core/common-actions.vala:204
 msgid "Open folder containing this file"
 msgstr "Отваряне на директорията съдържаща този файл"
 
-#: lib/synapse-core/common-actions.vala:238
+#: lib/synapse-core/common-actions.vala:240
 msgid "Copy to Clipboard"
 msgstr "Запиши в буфера"
 
-#: lib/synapse-core/common-actions.vala:239
+#: lib/synapse-core/common-actions.vala:241
 msgid "Copy selection to clipboard"
 msgstr "Запиши избраното в буфера"
 
-#: lib/synapse-plugins/calculator-plugin.vala:51
+#: lib/synapse-plugins/calculator-plugin.vala:52
 msgid "Calculator"
 msgstr "Сметало"
 
-#: lib/synapse-plugins/calculator-plugin.vala:52
+#: lib/synapse-plugins/calculator-plugin.vala:53
 msgid "Calculate basic expressions."
 msgstr "Смятане основни изрази"
 
-#: lib/synapse-plugins/calculator-plugin.vala:56
+#: lib/synapse-plugins/calculator-plugin.vala:57
 msgid "bc is not installed"
 msgstr "\"bc\" не е инсталирано"
 
@@ -169,126 +186,126 @@ msgstr "Изпълни '%s'"
 msgid "Run command"
 msgstr "Изпълни заповедта"
 
-#: lib/synapse-plugins/command-plugin.vala:63
+#: lib/synapse-plugins/command-plugin.vala:68
 msgid "Find and execute arbitrary commands."
 msgstr "Откриване и изпълнение на случайни заповеди."
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:127
+#: lib/synapse-plugins/desktop-file-plugin.vala:131
 msgid "Search for and run applications on your computer."
 msgstr "Търсене и изпълняване на приложения на вашия компютър"
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:333
+#: lib/synapse-plugins/desktop-file-plugin.vala:344
 #, c-format
 msgid "Open with %s"
 msgstr "Отвори с %s"
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:335
+#: lib/synapse-plugins/desktop-file-plugin.vala:346
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Отваряне на текущия подбор с %s"
 
-#: lib/synapse-plugins/switchboard-plugin.vala:46
+#: lib/synapse-plugins/switchboard-plugin.vala:48
 #, c-format
 msgid "Open %s settings"
 msgstr "Отвори настройки на %s"
 
-#: lib/synapse-plugins/switchboard-plugin.vala:62
+#: lib/synapse-plugins/switchboard-plugin.vala:69
 msgid "Find switchboard plugs and open them."
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:113
+#: lib/synapse-plugins/system-managment.vala:117
 msgid "Lock"
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:114
+#: lib/synapse-plugins/system-managment.vala:118
 msgid "Lock this device"
 msgstr ""
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:117
+#: lib/synapse-plugins/system-managment.vala:121
 msgctxt "system_management_action_keyword"
 msgid "lock"
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:142
+#: lib/synapse-plugins/system-managment.vala:150
 msgid "Log Out"
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:143
+#: lib/synapse-plugins/system-managment.vala:151
 msgid "Close all open applications and quit"
 msgstr ""
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:146
+#: lib/synapse-plugins/system-managment.vala:154
 msgctxt "system_management_action_keyword"
 msgid "logout"
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:171
+#: lib/synapse-plugins/system-managment.vala:183
 msgid "Suspend"
 msgstr "Заспиване"
 
-#: lib/synapse-plugins/system-managment.vala:172
+#: lib/synapse-plugins/system-managment.vala:184
 msgid "Put your computer into suspend mode"
 msgstr "Сложете вашият компютър в режим \"Заспиване\""
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:175
+#: lib/synapse-plugins/system-managment.vala:187
 #, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "Заспиване"
 
-#: lib/synapse-plugins/system-managment.vala:244
+#: lib/synapse-plugins/system-managment.vala:272
 msgid "Hibernate"
 msgstr "Хиберниране"
 
-#: lib/synapse-plugins/system-managment.vala:245
+#: lib/synapse-plugins/system-managment.vala:273
 msgid "Put your computer into hibernation mode"
 msgstr "Сложете вашият компютър в режим \"Хиберниране\""
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:248
+#: lib/synapse-plugins/system-managment.vala:276
 #, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
 msgstr "Хиберниране"
 
-#: lib/synapse-plugins/system-managment.vala:316
+#: lib/synapse-plugins/system-managment.vala:360
 msgid "Shut Down"
 msgstr "Изключване"
 
-#: lib/synapse-plugins/system-managment.vala:317
+#: lib/synapse-plugins/system-managment.vala:361
 msgid "Turn your computer off"
 msgstr "Изключва вашият компютър"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:320
+#: lib/synapse-plugins/system-managment.vala:364
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:376
+#: lib/synapse-plugins/system-managment.vala:436
 msgid "Restart"
 msgstr "Рестартиране"
 
-#: lib/synapse-plugins/system-managment.vala:377
+#: lib/synapse-plugins/system-managment.vala:437
 msgid "Restart your computer"
 msgstr "Рестартира вашият компютър"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:380
+#: lib/synapse-plugins/system-managment.vala:440
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:437
+#: lib/synapse-plugins/system-managment.vala:514
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
 
-#: lib/synapse-plugins/system-managment.vala:442
+#: lib/synapse-plugins/system-managment.vala:519
 msgid "ConsoleKit wasn't found"
 msgstr ""
 
@@ -314,25 +331,26 @@ msgstr "Връзка"
 msgid "Open link in default browser"
 msgstr "Отвори връзката в браузъра по подразбиране"
 
-#. TRANSLATORS: The first %s is what the user searched for, the second will be replaced with the localized name of AppCenter
-#: lib/synapse-plugins/appcenter-plugin.vala:55
+#. TRANSLATORS: The first %s is what the user searched for,
+#. the second will be replaced with the localized name of AppCenter
+#: lib/synapse-plugins/appcenter-plugin.vala:56
 #, c-format
 msgid "Search for %s in %s"
 msgstr ""
 
-#: lib/synapse-plugins/appcenter-plugin.vala:61
+#: lib/synapse-plugins/appcenter-plugin.vala:62
 msgid "Search the app store"
 msgstr ""
 
-#: lib/synapse-plugins/appcenter-plugin.vala:95
+#: lib/synapse-plugins/appcenter-plugin.vala:96
 msgid "AppCenter"
 msgstr ""
 
-#: lib/synapse-plugins/appcenter-plugin.vala:96
+#: lib/synapse-plugins/appcenter-plugin.vala:97
 msgid "Search for applications"
 msgstr ""
 
-#: lib/synapse-plugins/appcenter-plugin.vala:100
+#: lib/synapse-plugins/appcenter-plugin.vala:101
 msgid "AppCenter is not installed"
 msgstr ""
 

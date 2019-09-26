@@ -18,9 +18,8 @@ synapse_core_sources = [
     'relevancy-service.vala',
     'result-set.vala',
     'utils.vala',
-    'volume-service.vala',
     zeitgeist_backend_source
-    ]
+]
 
 #
 # Configuration file

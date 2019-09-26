@@ -191,7 +191,6 @@ namespace Synapse {
         private DesktopFileService desktop_file_service;
         private PluginRegistry registry;
         private RelevancyService relevancy_service;
-        private VolumeService volume_service;
         private Type[] plugin_types;
 
         construct {
@@ -207,7 +206,6 @@ namespace Synapse {
             // oh well, yea we need a few singletons
             registry = PluginRegistry.get_default ();
             relevancy_service = RelevancyService.get_default ();
-            volume_service = VolumeService.get_default ();
 
             initialize_caches.begin ();
             register_static_plugin (typeof (CommonActions));
@@ -218,12 +216,12 @@ namespace Synapse {
             yield;
 
             int initialized_components = 0;
-            int NUM_COMPONENTS = 2;
+            int num_components = 2;
 
             dbus_name_cache = DBusService.get_default ();
             dbus_name_cache.initialize.begin (() => {
                 initialized_components++;
-                if (initialized_components >= NUM_COMPONENTS) {
+                if (initialized_components >= num_components) {
                     initialize_caches.callback ();
                 }
             });
@@ -232,7 +230,7 @@ namespace Synapse {
             desktop_file_service.reload_done.connect (this.check_plugins);
             desktop_file_service.initialize.begin (() => {
                 initialized_components++;
-                if (initialized_components >= NUM_COMPONENTS) {
+                if (initialized_components >= num_components) {
                     initialize_caches.callback ();
                 }
             });
