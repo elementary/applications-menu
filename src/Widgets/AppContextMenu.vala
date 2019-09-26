@@ -100,6 +100,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             return;
         }
 
+        app_launched ();
+
         appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
             try {
                 appcenter.dbus.uninstall.end (res);
