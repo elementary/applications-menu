@@ -23,8 +23,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
-    private bool dragging = false;
-    private string? drag_uri = null;
     private AppListBox listbox;
 
     public CategoryView (SlingshotView view) {
@@ -64,53 +62,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
-                if (!dragging) {
+                if (!listbox.dragging) {
                     ((SearchItem) row).app.launch ();
                     view.close_indicator ();
                 }
 
                 return false;
             });
-        });
-
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {dnd}, Gdk.DragAction.COPY);
-
-        listbox.motion_notify_event.connect ((event) => {
-            if (!dragging) {
-                listbox.select_row (listbox.get_row_at_y ((int)event.y));
-            }
-            return false;
-        });
-
-        listbox.drag_begin.connect ((ctx) => {
-            var selected_row = listbox.get_selected_row ();
-            if (selected_row != null) {
-                dragging = true;
-
-                var drag_item = (SearchItem) selected_row;
-
-                drag_uri = "file://" + drag_item.app.desktop_path;
-                if (drag_uri != null) {
-                    Gtk.drag_set_icon_gicon (ctx, drag_item.icon.gicon, 32, 32);
-                }
-
-                view.close_indicator ();
-            }
-        });
-
-        listbox.drag_end.connect (() => {
-            if (drag_uri != null) {
-                view.close_indicator ();
-            }
-            dragging = false;
-            drag_uri = null;
-        });
-
-        listbox.drag_data_get.connect ((ctx, sel, info, time) => {
-            if (drag_uri != null) {
-                sel.set_uris ({drag_uri});
-            }
         });
 
         listbox.key_press_event.connect (on_key_press);
