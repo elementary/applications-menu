@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-24 11:12-0700\n"
-"PO-Revision-Date: 2019-09-23 16:24+0000\n"
+"PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/gl/>\n"
@@ -50,7 +50,7 @@ msgstr "Busca de aplicativos"
 
 #: src/SlingshotView.vala:86
 msgid "Clear all"
-msgstr ""
+msgstr "Baleirar"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -63,33 +63,32 @@ msgstr "Proba cambiando os termos de busca."
 #: src/Views/SearchView.vala:143
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Ningún resultado para \"%s\""
+msgstr "Sen resultados para \"%s\""
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr "Eliminar da Doca"
+msgstr "Quitar da Doca"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr "Añadir á Doca"
+msgstr "Engadir á Doca"
 
 #: src/Widgets/AppContextMenu.vala:99
-#, fuzzy, c-format
+#, c-format
 msgid "Uninstall “%s”?"
-msgstr "Desinstalar"
+msgstr "Quere desinstalar «%s»?"
 
 #: src/Widgets/AppContextMenu.vala:100
 msgid "Uninstalling this app may also delete its data."
-msgstr ""
+msgstr "Desinstalar esta aplicación podería tamén eliminar os seus datos."
 
 #: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
 msgid "Uninstall"
 msgstr "Desinstalar"
 
 #: src/Widgets/AppContextMenu.vala:164
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "AppCenter"
+msgstr "Ver no Centro de Aplicacións"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"
