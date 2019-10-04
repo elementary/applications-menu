@@ -19,11 +19,15 @@
 
 public class AppListRow : Gtk.ListBoxRow {
     public string app_id { get; construct; }
+    public string desktop_path { get; construct; }
 
     private GLib.DesktopAppInfo app_info;
 
-    public AppListRow (string app_id) {
-        Object (app_id: app_id);
+    public AppListRow (string app_id, string desktop_path) {
+        Object (
+            app_id: app_id,
+            desktop_path: desktop_path
+        );
     }
 
     construct {

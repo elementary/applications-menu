@@ -78,7 +78,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
             var selected_row = (AppListRow) listbox.get_selected_row ();
 
-            var menu = new Slingshot.AppContextMenu (selected_row.app_id, "");
+            var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
             menu.app_launched.connect (() => {
                 view.close_indicator ();
             });
@@ -141,7 +141,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         foreach (Backend.App app in view.apps[category]) {
-            listbox.add (new AppListRow (app.desktop_id));
+            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
         }
 
         listbox.show_all ();
