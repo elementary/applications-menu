@@ -157,6 +157,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             case Gdk.Key.KP_Page_Down:
                 page_down ();
                 return Gdk.EVENT_STOP;
+            case Gdk.Key.Home:
+                category_switcher.selected = 0;
+                focus_select_first_row ();
+                break;
+            case Gdk.Key.End:
+                category_switcher.selected = category_switcher.cat_size - 1;
+                focus_select_first_row ();
+                break;
         }
 
         return Gdk.EVENT_PROPAGATE;

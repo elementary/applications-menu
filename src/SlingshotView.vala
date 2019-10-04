@@ -384,12 +384,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_number (1);
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    category_view.category_switcher.selected = 0;
-                    // category_view.app_view.top_left_focus ();
                 }
-                break;
 
+                return Gdk.EVENT_PROPAGATE;
             case "End":
                 if (search_entry.text.length > 0) {
                     return Gdk.EVENT_PROPAGATE;
@@ -397,11 +394,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_last ();
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    category_view.category_switcher.selected = category_view.category_switcher.cat_size - 1;
-                    // category_view.app_view.top_left_focus ();
                 }
-                break;
+
+                return Gdk.EVENT_PROPAGATE;
             default:
                 if (!search_entry.has_focus) {
                     search_entry.grab_focus ();

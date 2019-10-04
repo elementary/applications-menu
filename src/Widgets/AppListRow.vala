@@ -39,7 +39,6 @@ public class AppListRow : Gtk.ListBoxRow {
 
         var name_label = new Gtk.Label (app_info.get_display_name ());
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
-        name_label.use_markup = true;
         name_label.xalign = 0;
 
         tooltip_text = app_info.get_description ();
