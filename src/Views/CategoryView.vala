@@ -63,12 +63,32 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
                 if (!listbox.dragging) {
-                    ((SearchItem) row).app.launch ();
+                    ((AppListRow) row).launch ();
                     view.close_indicator ();
                 }
 
                 return false;
             });
+        });
+
+        listbox.button_press_event.connect ((event) => {
+            if (event.button != Gdk.BUTTON_SECONDARY) {
+                return Gdk.EVENT_PROPAGATE;
+            }
+
+            var selected_row = (AppListRow) listbox.get_selected_row ();
+
+            var menu = new Slingshot.AppContextMenu (selected_row.app_id, "");
+            menu.app_launched.connect (() => {
+                view.close_indicator ();
+            });
+
+            if (menu.get_children () != null) {
+                menu.popup_at_pointer (event);
+                return Gdk.EVENT_STOP;
+            }
+
+            return Gdk.EVENT_PROPAGATE;
         });
 
         listbox.key_press_event.connect (on_key_press);
@@ -121,7 +141,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         foreach (Backend.App app in view.apps[category]) {
-            listbox.add (new SearchItem (app));
+            listbox.add (new AppListRow (app.desktop_id));
         }
 
         listbox.show_all ();
