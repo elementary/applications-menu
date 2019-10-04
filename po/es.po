@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-24 11:12-0700\n"
-"PO-Revision-Date: 2019-09-09 13:23+0000\n"
+"PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
@@ -26,7 +26,7 @@ msgstr "SlingShot"
 
 #: src/Indicator.vala:31
 msgid "The app-menu indicator"
-msgstr "El indicador del menú de aplicación"
+msgstr "El indicador del menú de aplicaciones"
 
 #: src/Indicator.vala:70 src/Widgets/SearchItem.vala:40
 msgid "Applications"
@@ -50,7 +50,7 @@ msgstr "Buscar aplicaciones"
 
 #: src/SlingshotView.vala:86
 msgid "Clear all"
-msgstr ""
+msgstr "Vaciar"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -58,7 +58,7 @@ msgstr "Ejecutar esta orden…"
 
 #: src/Views/SearchView.vala:39
 msgid "Try changing search terms."
-msgstr "Intente cambiando los términos de búsqueda."
+msgstr "Pruebe a cambiar los términos de búsqueda."
 
 #: src/Views/SearchView.vala:143
 #, c-format
@@ -74,22 +74,21 @@ msgid "Add to _Dock"
 msgstr "Añadir al _dock"
 
 #: src/Widgets/AppContextMenu.vala:99
-#, fuzzy, c-format
+#, c-format
 msgid "Uninstall “%s”?"
-msgstr "Desinstalar"
+msgstr "¿Quiere desinstalar «%s»?"
 
 #: src/Widgets/AppContextMenu.vala:100
 msgid "Uninstalling this app may also delete its data."
-msgstr ""
+msgstr "Desinstalar esta aplicación podría también eliminar sus datos."
 
 #: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
 msgid "Uninstall"
 msgstr "Desinstalar"
 
 #: src/Widgets/AppContextMenu.vala:164
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Centro de aplicaciones"
+msgstr "Ver en el Centro de aplicaciones"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"
@@ -117,7 +116,7 @@ msgstr "Internet"
 
 #: src/Widgets/SearchItem.vala:59
 msgid "Settings"
-msgstr "Ajustes"
+msgstr "Configuración"
 
 #: src/Widgets/SearchItem.vala:62
 msgid "Application Actions"
@@ -338,7 +337,7 @@ msgstr "Abrir enlace en el navegador predeterminado"
 #: lib/synapse-plugins/appcenter-plugin.vala:56
 #, c-format
 msgid "Search for %s in %s"
-msgstr "Buscar por %s en %s"
+msgstr "Buscar %s en %s"
 
 #: lib/synapse-plugins/appcenter-plugin.vala:62
 msgid "Search the app store"

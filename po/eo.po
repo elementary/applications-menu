@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-24 11:12-0700\n"
-"PO-Revision-Date: 2019-08-26 21:22+0000\n"
+"PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/eo/>\n"
@@ -50,7 +50,7 @@ msgstr "Serĉi aplikaĵojn"
 
 #: src/SlingshotView.vala:86
 msgid "Clear all"
-msgstr ""
+msgstr "Forviŝi ĉion"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -74,22 +74,21 @@ msgid "Add to _Dock"
 msgstr "Aldoni al _Butonbreto"
 
 #: src/Widgets/AppContextMenu.vala:99
-#, fuzzy, c-format
+#, c-format
 msgid "Uninstall “%s”?"
-msgstr "Malinstali"
+msgstr "Ĉu malinstali „%s“?"
 
 #: src/Widgets/AppContextMenu.vala:100
 msgid "Uninstalling this app may also delete its data."
-msgstr ""
+msgstr "Malinstalo de ĉi aplikaĵo povas forigi ĝiajn datumojn."
 
 #: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
 msgid "Uninstall"
 msgstr "Malinstali"
 
 #: src/Widgets/AppContextMenu.vala:164
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Aplikaĵa Centro"
+msgstr "Vidi en la Aplikaĵa Centro"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"
