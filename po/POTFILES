@@ -21,7 +21,13 @@ src/Widgets/SearchItem.vala
 src/Widgets/Sidebar.vala
 src/Widgets/Switcher.vala
 
-src/synapse-core/common-actions.vala
+src/synapse-core/Actions/TerminalRunnerAction.vala
+src/synapse-core/Actions/RunnerAction.vala
+src/synapse-core/Actions/OpenFolderAction.vala
+src/synapse-core/Actions/OpenerAction.vala
+src/synapse-core/Actions/CommonAction.vala
+src/synapse-core/Actions/ClipboardCopyAction.vala
+src/synapse-core/Actions/BaseAction.vala
 src/synapse-core/config-service.vala
 src/synapse-core/data-sink.vala
 src/synapse-core/dbus-service.vala
