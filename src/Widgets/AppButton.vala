@@ -55,7 +55,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     static construct {
 #if HAS_PLANK
-        Plank.Paths.initialize ("plank", Build.PKGDATADIR);
+        Plank.Paths.initialize ("plank", PKGDATADIR);
         plank_client = Plank.DBusClient.get_instance ();
 #endif
 
