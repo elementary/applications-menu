@@ -95,35 +95,20 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     private void uninstall_menuitem_activate () {
-        var uninstall_dialog = new Granite.MessageDialog (
-            _("Uninstall “%s”?").printf (app_info.get_display_name ()),
-            _("Uninstalling this app may also delete its data."),
-            app_info.get_icon (),
-            Gtk.ButtonsType.CANCEL
-        );
-        uninstall_dialog.badge_icon = new ThemedIcon ("edit-delete");
-        uninstall_dialog.set_transient_for (get_toplevel () as Gtk.Window);
-        uninstall_dialog.stick ();
-
-        var uninstall_button = uninstall_dialog.add_button (_("Uninstall"), Gtk.ResponseType.ACCEPT);
-        uninstall_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-
-        if (uninstall_dialog.run () == Gtk.ResponseType.ACCEPT) {
-            var appcenter = Backend.AppCenter.get_default ();
-            if (appcenter.dbus == null || appstream_comp_id == "") {
-                return;
-            }
-
-            appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
-                try {
-                    appcenter.dbus.uninstall.end (res);
-                } catch (GLib.Error e) {
-                    warning (e.message);
-                }
-            });
+        var appcenter = Backend.AppCenter.get_default ();
+        if (appcenter.dbus == null || appstream_comp_id == "") {
+            return;
         }
 
-        uninstall_dialog.destroy ();
+        app_launched ();
+
+        appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
+            try {
+                appcenter.dbus.uninstall.end (res);
+            } catch (GLib.Error e) {
+                warning (e.message);
+            }
+        });
     }
 
     private void open_in_appcenter () {
