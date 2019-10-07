@@ -28,6 +28,12 @@ src/synapse-core/Actions/OpenerAction.vala
 src/synapse-core/Actions/CommonAction.vala
 src/synapse-core/Actions/ClipboardCopyAction.vala
 src/synapse-core/Actions/BaseAction.vala
+
+src/synapse-core/Interfaces/ItemProvider.vala
+src/synapse-core/Interfaces/Configurable.vala
+src/synapse-core/Interfaces/Activatable.vala
+src/synapse-core/Interfaces/ActionProvider.vala
+
 src/synapse-core/config-service.vala
 src/synapse-core/data-sink.vala
 src/synapse-core/dbus-service.vala
