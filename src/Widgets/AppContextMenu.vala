@@ -44,7 +44,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
 #if HAS_PLANK
     static construct {
-        Plank.Paths.initialize ("plank", Build.PKGDATADIR);
+        Plank.Paths.initialize ("plank", PKGDATADIR);
         plank_client = Plank.DBusClient.get_instance ();
     }
 #endif

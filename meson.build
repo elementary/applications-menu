@@ -22,6 +22,11 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 
+add_project_arguments(
+    '-DPKGDATADIR="@0@"'.format(join_paths(get_option('prefix'), get_option('libdir'), 'wingpanel')),
+    language: 'c'
+)
+
 glib_dep = dependency('glib-2.0')
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0')
@@ -56,7 +61,6 @@ if get_option('with-zeitgeist')
     add_project_arguments('--define=HAVE_ZEITGEIST', language: 'vala')
 endif
 
-subdir('lib')
 subdir('src')
 subdir('data')
 subdir('po')
