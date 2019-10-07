@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-24 11:12-0700\n"
-"PO-Revision-Date: 2019-02-16 18:13+0000\n"
+"PO-Revision-Date: 2019-10-05 10:23+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/wingpanel/"
+"Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:30
@@ -50,7 +50,7 @@ msgstr "Rechercher des applications"
 
 #: src/SlingshotView.vala:86
 msgid "Clear all"
-msgstr ""
+msgstr "Tout effacer"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -74,22 +74,21 @@ msgid "Add to _Dock"
 msgstr "Ajouter au _Dock"
 
 #: src/Widgets/AppContextMenu.vala:99
-#, fuzzy, c-format
+#, c-format
 msgid "Uninstall “%s”?"
-msgstr "Désinstaller"
+msgstr "Désinstaller « %s » ?"
 
 #: src/Widgets/AppContextMenu.vala:100
 msgid "Uninstalling this app may also delete its data."
-msgstr ""
+msgstr "Désinstaller cette application pourrait aussi supprimer ses données."
 
 #: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
 msgid "Uninstall"
 msgstr "Désinstaller"
 
 #: src/Widgets/AppContextMenu.vala:164
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Centre d'Applications"
+msgstr "Voir dans le Centre d'Applications"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"

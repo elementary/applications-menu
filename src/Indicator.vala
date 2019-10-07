@@ -16,6 +16,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#if HAS_PLANK
+[CCode (cname = "PKGDATADIR")]
+private extern const string PKGDATADIR;
+#endif
+
 public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "org.gnome.desktop.wm.keybindings";
 
