@@ -45,13 +45,6 @@ namespace Synapse {
             return result;
         }
 
-        public static string? remove_last_unichar (string input) {
-            long char_count = input.char_count ();
-            int len = input.index_of_nth_char (char_count - 1);
-
-            return input.substring (0, len);
-        }
-
         public static async bool query_exists_async (GLib.File f) {
             bool exists;
 
@@ -63,15 +56,6 @@ namespace Synapse {
             }
 
             return exists;
-        }
-
-        public unowned string extract_type_name (Type obj_type) {
-            unowned string obj_class = obj_type.name ();
-            if (obj_class.has_prefix ("Synapse")) {
-                return obj_class.offset (7);
-            }
-
-            return obj_class;
         }
 
         [Compact]
@@ -122,10 +106,6 @@ namespace Synapse {
                 state = OperationState.NOT_STARTED;
             }
 
-            public unowned G get_data () {
-                return inner;
-            }
-
             public bool is_initialized () {
                 return state == OperationState.DONE;
             }
@@ -152,16 +132,6 @@ namespace Synapse {
                 notify_all ();
             }
 
-            /* Once probably shouldn't have this, but it's useful */
-            public void reset () {
-                if (state == OperationState.IN_PROGRESS) {
-                    warning ("AsyncOnce.reset() cannot be called in the middle of initialization.");
-                } else {
-                    state = OperationState.NOT_STARTED;
-                    inner = null;
-                }
-            }
-
             private void notify_all () {
                 foreach (unowned DelegateWrapper wrapper in callbacks) {
                     wrapper.callback ();
@@ -172,93 +142,6 @@ namespace Synapse {
             private async void wait_async () {
                 callbacks += new DelegateWrapper (wait_async.callback);
                 yield;
-            }
-        }
-
-        public class FileInfo {
-            private static string interesting_attributes;
-            static construct {
-                interesting_attributes =
-                string.join (",", FileAttribute.STANDARD_TYPE,
-                FileAttribute.STANDARD_IS_HIDDEN,
-                FileAttribute.STANDARD_IS_BACKUP,
-                FileAttribute.STANDARD_DISPLAY_NAME,
-                FileAttribute.STANDARD_ICON,
-                FileAttribute.STANDARD_FAST_CONTENT_TYPE,
-                FileAttribute.THUMBNAIL_PATH,
-                null);
-            }
-
-            public string uri;
-            public string parse_name;
-            public QueryFlags file_type;
-            public UriMatch? match_obj;
-            private bool initialized;
-            private Type match_obj_type;
-
-            public FileInfo (string uri, Type obj_type) {
-                assert (obj_type.is_a (typeof (UriMatch)));
-                this.uri = uri;
-                this.match_obj = null;
-                this.match_obj_type = obj_type;
-                this.initialized = false;
-                this.file_type = QueryFlags.UNCATEGORIZED;
-
-                var f = File.new_for_uri (uri);
-                this.parse_name = f.get_parse_name ();
-            }
-
-            public bool is_initialized () {
-                return this.initialized;
-            }
-
-            public async void initialize () {
-                initialized = true;
-                var f = File.new_for_uri (uri);
-
-                try {
-                    var fi = yield f.query_info_async (interesting_attributes, 0, 0, null);
-                    if (fi.get_file_type () == FileType.REGULAR && !fi.get_is_hidden () && !fi.get_is_backup ()) {
-                        match_obj = (UriMatch) Object.new (
-                            match_obj_type,
-                            "thumbnail-path", fi.get_attribute_byte_string (FileAttribute.THUMBNAIL_PATH),
-                            "icon-name", fi.get_icon ().to_string (),
-                            "uri", uri,
-                            "title", fi.get_display_name (),
-                            "description", f.get_parse_name (),
-                            "match-type", MatchType.GENERIC_URI,
-                            null
-                        );
-
-                        // let's determine the file type
-                        unowned string mime_type = fi.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-                        if (ContentType.is_unknown (mime_type)) {
-                            file_type = QueryFlags.UNCATEGORIZED;
-                        } else if (ContentType.is_a (mime_type, "audio/*")) {
-                            file_type = QueryFlags.AUDIO;
-                        } else if (ContentType.is_a (mime_type, "video/*")) {
-                            file_type = QueryFlags.VIDEO;
-                        } else if (ContentType.is_a (mime_type, "image/*")) {
-                            file_type = QueryFlags.IMAGES;
-                        } else if (ContentType.is_a (mime_type, "text/*")) {
-                            file_type = QueryFlags.DOCUMENTS;
-                        } else if (ContentType.is_a (mime_type, "application/*")) { // FIXME: this isn't right
-                            file_type = QueryFlags.DOCUMENTS;
-                        }
-
-                        match_obj.file_type = file_type;
-                        match_obj.mime_type = mime_type;
-                    }
-                } catch (Error err) {
-                    warning ("%s", err.message);
-                }
-            }
-
-            public async bool exists () {
-                var f = File.new_for_uri (uri);
-                bool result = yield query_exists_async (f);
-
-                return result;
             }
         }
     }
