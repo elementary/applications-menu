@@ -622,3 +622,4 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         }
     }
 }
+
