@@ -38,9 +38,7 @@ src/synapse-core/Matches/UriMatch.vala
 src/synapse-core/Matches/TextMatch.vala
 src/synapse-core/Matches/SearchMatch.vala
 src/synapse-core/Matches/Match.vala
-src/synapse-core/Matches/ExtendedInfo.vala
 src/synapse-core/Matches/DefaultMatch.vala
-src/synapse-core/Matches/ContactMatch.vala
 src/synapse-core/Matches/ApplicationMatch.vala
 
 src/synapse-core/config-service.vala
