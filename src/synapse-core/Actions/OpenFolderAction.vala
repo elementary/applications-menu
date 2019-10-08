@@ -30,7 +30,7 @@ private class Synapse.OpenFolderAction: Synapse.BaseAction {
     }
 
     public override void do_execute (Match? match, Match? target = null) {
-        UriMatch uri_match = match as UriMatch;
+        unowned UriMatch uri_match = match as UriMatch;
         return_if_fail (uri_match != null);
         var f = File.new_for_uri (uri_match.uri);
         f = f.get_parent ();
@@ -49,7 +49,7 @@ private class Synapse.OpenFolderAction: Synapse.BaseAction {
         if (match.match_type != MatchType.GENERIC_URI) {
             return false;
         }
-        UriMatch uri_match = match as UriMatch;
+        unowned UriMatch uri_match = match as UriMatch;
         var f = File.new_for_uri (uri_match.uri);
         var parent = f.get_parent ();
 

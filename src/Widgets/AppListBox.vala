@@ -30,8 +30,8 @@ public class Slingshot.AppListBox : Gtk.ListBox {
     construct {
         selection_mode = Gtk.SelectionMode.BROWSE;
 
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd}, Gdk.DragAction.COPY);
+        const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
+        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
         motion_notify_event.connect ((event) => {
             if (!dragging) {

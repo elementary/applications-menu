@@ -31,14 +31,14 @@ private class Synapse.RunnerAction: Synapse.BaseAction {
 
     public override void do_execute (Match? match, Match? target = null) {
         if (match.match_type == MatchType.APPLICATION) {
-            ApplicationMatch? app_match = match as ApplicationMatch;
+            unowned ApplicationMatch? app_match = match as ApplicationMatch;
             return_if_fail (app_match != null);
 
             AppInfo app = app_match.app_info ??
             new DesktopAppInfo.from_filename (app_match.filename);
 
             try {
-                var display = Gdk.Display.get_default ();
+                weak Gdk.Display display = Gdk.Display.get_default ();
                 app.launch (null, display.get_app_launch_context ());
 
                 RelevancyService.get_default ().application_launched (app);
@@ -57,7 +57,7 @@ private class Synapse.RunnerAction: Synapse.BaseAction {
             case MatchType.ACTION:
                 return true;
             case MatchType.APPLICATION:
-                ApplicationMatch? am = match as ApplicationMatch;
+                unowned ApplicationMatch? am = match as ApplicationMatch;
                 return am == null || !am.needs_terminal;
             default:
                 return false;
