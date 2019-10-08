@@ -30,43 +30,30 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         APP_ACTIONS,
         LINK;
 
-        public string to_string () {
-            string str;
+        public unowned string to_string () {
             switch (this) {
                 case TEXT:
-                    str = _("Text");
-                    break;
+                    return _("Text");
                 case APPLICATION:
-                    str = _("Applications");
-                    break;
+                    return _("Applications");
                 case GENERIC_URI:
-                    str = _("Files");
-                    break;
+                    return _("Files");
                 case LINK:
                 case ACTION:
-                    str = _("Actions");
-                    break;
+                    return _("Actions");
                 case SEARCH:
-                    str = _("Search");
-                    break;
+                    return _("Search");
                 case CONTACT:
-                    str = _("Contacts");
-                    break;
+                    return _("Contacts");
                 case INTERNET:
-                    str = _("Internet");
-                    break;
+                    return _("Internet");
                 case SETTINGS:
-                    str = _("Settings");
-                    break;
+                    return _("Settings");
                 case APP_ACTIONS:
-                    str = _("Application Actions");
-                    break;
+                    return _("Application Actions");
                 default:
-                    str = _("Other");
-                    break;
+                    return _("Other");
             }
-
-            return str;
         }
     }
 
@@ -141,15 +128,15 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
     }
 
     private static string markup_string_with_search (string text, string pattern) {
-        string markup = "%s";
+        const string MARKUP = "%s";
 
         if (pattern == "") {
-            return markup.printf (Markup.escape_text (text));
+            return MARKUP.printf (Markup.escape_text (text));
         }
 
         // if no text found, use pattern
         if (text == "") {
-            return markup.printf (Markup.escape_text (pattern));
+            return MARKUP.printf (Markup.escape_text (pattern));
         }
 
         var matchers = Synapse.Query.get_matchers_for_query (
@@ -183,9 +170,9 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         }
 
         if (highlighted != null) {
-            return markup.printf (highlighted);
+            return MARKUP.printf (highlighted);
         } else {
-            return markup.printf (Markup.escape_text (text));
+            return MARKUP.printf (Markup.escape_text (text));
         }
     }
 

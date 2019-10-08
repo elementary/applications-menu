@@ -313,7 +313,7 @@ namespace Synapse {
                 if (config.is_plugin_enabled (t) && !skip) {
                     var plugin = create_plugin (t);
                     register_plugin (plugin);
-                    (plugin as Activatable).activate ();
+                    ((Activatable) plugin).activate ();
                 }
             }
 
@@ -395,7 +395,7 @@ namespace Synapse {
             if (enabled) {
                 var new_instance = create_plugin (plugin_type);
                 register_plugin (new_instance);
-                (new_instance as Activatable).activate ();
+                ((Activatable) new_instance).activate ();
             }
         }
 

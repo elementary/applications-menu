@@ -30,7 +30,7 @@ private class Synapse.OpenerAction: Synapse.BaseAction {
     }
 
     public override void do_execute (Match? match, Match? target = null) {
-        UriMatch uri_match = match as UriMatch;
+        unowned UriMatch uri_match = match as UriMatch;
 
         if (uri_match != null) {
             CommonActions.open_uri (uri_match.uri);

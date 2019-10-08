@@ -31,7 +31,7 @@ private class Synapse.TerminalRunnerAction: Synapse.BaseAction {
 
     public override void do_execute (Match? match, Match? target = null) {
         if (match.match_type == MatchType.APPLICATION) {
-            ApplicationMatch? app_match = match as ApplicationMatch;
+            unowned ApplicationMatch? app_match = match as ApplicationMatch;
             return_if_fail (app_match != null);
 
             AppInfo original = app_match.app_info ??
@@ -41,7 +41,7 @@ private class Synapse.TerminalRunnerAction: Synapse.BaseAction {
                 AppInfo app = AppInfo.create_from_commandline (
                 original.get_commandline (), original.get_name (),
                 AppInfoCreateFlags.NEEDS_TERMINAL);
-                var display = Gdk.Display.get_default ();
+                weak Gdk.Display display = Gdk.Display.get_default ();
                 app.launch (null, display.get_app_launch_context ());
             } catch (Error err) {
                 critical (err.message);
@@ -52,7 +52,7 @@ private class Synapse.TerminalRunnerAction: Synapse.BaseAction {
     public override bool valid_for_match (Match match) {
         switch (match.match_type) {
         case MatchType.APPLICATION:
-            ApplicationMatch? am = match as ApplicationMatch;
+            unowned ApplicationMatch? am = match as ApplicationMatch;
             return am != null;
         default:
             return false;
