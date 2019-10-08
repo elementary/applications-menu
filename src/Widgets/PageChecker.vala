@@ -19,18 +19,28 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Slingshot.Widgets.PageChecker : Gtk.ToggleButton {
-    public unowned Gtk.Widget referred_widget { get; construct; }
+public class Slingshot.Widgets.PageChecker : Gtk.Button {
+    public const double MIN_OPACITY = 0.4;
+
+    public unowned Hdy.Paginator paginator { get; construct; }
+    public unowned Gtk.Widget page { get; construct; }
 
     private static Gtk.CssProvider provider;
+    private int page_number;
 
-    public PageChecker (Gtk.Widget referred_widget) {
-        Object (referred_widget: referred_widget);
+    public PageChecker (Hdy.Paginator paginator, Gtk.Widget page) {
+        Object (paginator: paginator, page: page);
     }
 
     static construct {
         provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/io/elementary/desktop/wingpanel/applications-menu/PageChecker.css");
+    }
+
+    private void update_opacity () {
+        double progress = double.max (1 - (paginator.position - page_number).abs (), 0);
+
+        opacity = MIN_OPACITY + (1 - MIN_OPACITY) * progress;
     }
 
     construct {
@@ -41,22 +51,18 @@ public class Slingshot.Widgets.PageChecker : Gtk.ToggleButton {
 
         add (new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU));
 
-        var stack = (Gtk.Stack) referred_widget.parent;
-        active = stack.visible_child == referred_widget;
+        page_number = paginator.get_children ().index (page);
+        update_opacity ();
 
-        toggled.connect (() => {
-            if (active) {
-                stack.visible_child = referred_widget;
-            } else {
-                active = stack.visible_child == referred_widget;
-            }
+        clicked.connect (() => {
+            paginator.scroll_to (page);
         });
 
-        stack.notify["visible-child"].connect (() => {
-            active = stack.visible_child == referred_widget;
+        paginator.notify["position"].connect (() => {
+            update_opacity ();
         });
 
-        referred_widget.destroy.connect (() => {
+        page.destroy.connect (() => {
             destroy ();
         });
     }

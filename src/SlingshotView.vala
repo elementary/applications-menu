@@ -425,7 +425,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         if ((device == null ||
             (device.input_source != Gdk.InputSource.MOUSE && device.input_source != Gdk.InputSource.KEYBOARD)) &&
-            (grid_view.stack.transition_running || category_view.app_view.stack.transition_running)) {
+            (grid_view.transition_running || category_view.app_view.transition_running)) {
             return Gdk.EVENT_PROPAGATE;
         }
 
