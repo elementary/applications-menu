@@ -110,7 +110,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
         if (keybinding_settings != null && indicator_grid != null) {
             var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
-            foreach (string raw_accel in raw_accels) {
+            foreach (unowned string raw_accel in raw_accels) {
                 if (raw_accel != "") accels += raw_accel;
             }
         }

@@ -46,7 +46,7 @@ private class Synapse.ClipboardCopyAction: Synapse.BaseAction {
             cb.set_text (uri_match.uri, -1);
         } else if (match.match_type == MatchType.TEXT) {
             TextMatch? text_match = match as TextMatch;
-            string content = text_match != null ? text_match.get_text () : match.title;
+            unowned string content = text_match != null ? text_match.get_text () : match.title;
 
             cb.set_text (content, -1);
         }
@@ -64,7 +64,7 @@ private class Synapse.ClipboardCopyAction: Synapse.BaseAction {
     }
 
     public override int get_relevancy_for_match (Match match) {
-        TextMatch? text_match = match as TextMatch;
+        unowned TextMatch? text_match = match as TextMatch;
         if (text_match != null && text_match.text_origin == TextOrigin.CLIPBOARD) {
             return 0;
         }
