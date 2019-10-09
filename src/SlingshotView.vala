@@ -429,7 +429,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             return Gdk.EVENT_PROPAGATE;
         }
 
-        switch (scroll_event.direction)) {
+        switch (scroll_event.direction) {
             case Gdk.ScrollDirection.UP:
             case Gdk.ScrollDirection.LEFT:
                 if (modality == Modality.NORMAL_VIEW) {
