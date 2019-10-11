@@ -36,8 +36,6 @@ namespace Synapse {
 
             actions.add (new RunnerAction ());
             actions.add (new TerminalRunnerAction ());
-            actions.add (new OpenerAction ());
-            actions.add (new OpenFolderAction ());
             actions.add (new ClipboardCopyAction ());
         }
 

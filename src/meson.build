@@ -32,8 +32,6 @@ sources = [
 
     'synapse-core/Actions/TerminalRunnerAction.vala',
     'synapse-core/Actions/RunnerAction.vala',
-    'synapse-core/Actions/OpenFolderAction.vala',
-    'synapse-core/Actions/OpenerAction.vala',
     'synapse-core/Actions/CommonAction.vala',
     'synapse-core/Actions/ClipboardCopyAction.vala',
     'synapse-core/Actions/BaseAction.vala',
