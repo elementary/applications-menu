@@ -84,14 +84,7 @@ namespace Synapse {
 
         public void deactivate () { }
 
-        private abstract class SystemAction : Object, Match {
-            // for Match interface
-            public string title { get; construct set; }
-            public string description { get; set; default = ""; }
-            public string icon_name { get; construct set; default = ""; }
-            public bool has_thumbnail { get; construct set; default = false; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
+        private abstract class SystemAction : Synapse.Match {
             public Gee.ArrayList<string> keywords { get; set; default = new Gee.ArrayList<string> (); }
 
             public abstract void do_action ();
@@ -107,7 +100,7 @@ namespace Synapse {
                 ).split (";"));
             }
 
-            public void execute (Match? match) {
+            public override void execute (Match? match) {
                 do_action ();
             }
         }

@@ -28,15 +28,7 @@ namespace Synapse {
 
         public void deactivate () { }
 
-        public class ActionMatch : Object, Match {
-            public string title { get; construct set; }
-            public string icon_name { get; construct set; default = ""; }
-            public string description { get; set; default = ""; }
-            public bool has_thumbnail { get; construct set; default = false; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-            public string? filename { get; construct set; }
-
+        public class ActionMatch : Synapse.Match {
             public AppInfo? app_info { get; set; default = null; }
             public bool needs_terminal { get; set; default = false; }
 
@@ -68,21 +60,12 @@ namespace Synapse {
                 this.action_name = action_name;
             }
 
-            public void execute (Match? match) {
+            public override void execute (Match? match) {
                 ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());
             }
         }
 
-        private class DesktopFileMatch: Object, Match, ApplicationMatch {
-            // for Match interface
-            public string title { get; construct set; }
-            public string description { get; set; default = ""; }
-            public string? gettext_domain { get; construct set; default = null; }
-            public string icon_name { get; construct set; default = ""; }
-            public bool has_thumbnail { get; construct set; default = false; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-
+        private class DesktopFileMatch: Synapse.Match, ApplicationMatch {
             // for ApplicationMatch
             public AppInfo? app_info { get; set; default = null; }
             public bool needs_terminal { get; set; default = false; }
@@ -90,6 +73,7 @@ namespace Synapse {
 
             // for additional matching
             public string generic_name { get; construct set; default = ""; }
+            public string? gettext_domain { get; construct set; default = null; }
 
             private string? title_folded = null;
             public unowned string get_title_folded () {
@@ -324,15 +308,7 @@ namespace Synapse {
             return result;
         }
 
-        private class OpenWithAction: Object, Match {
-            // for Match interface
-            public string title { get; construct set; }
-            public string description { get; set; default = ""; }
-            public string icon_name { get; construct set; default = ""; }
-            public bool has_thumbnail { get; construct set; default = false; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-
+        private class OpenWithAction: Synapse.Match {
             public DesktopFileInfo desktop_info { get; private set; }
 
             public OpenWithAction (DesktopFileInfo info) {
@@ -347,7 +323,7 @@ namespace Synapse {
                 this.desktop_info = info;
             }
 
-            protected void execute (Match? match) {
+            protected override void execute (Match? match) {
                 UriMatch uri_match = match as UriMatch;
                 return_if_fail (uri_match != null);
 

@@ -31,7 +31,7 @@ public enum Synapse.MatchType {
     CONTACT
 }
 
-public interface Synapse.Match: Object {
+public abstract class Synapse.Match: GLib.Object {
     public enum Score {
         INCREMENT_MINOR = 2000,
         INCREMENT_SMALL = 5000,
@@ -51,12 +51,12 @@ public interface Synapse.Match: Object {
     }
 
     // properties
-    public abstract string title { get; construct set; }
-    public abstract string description { get; set; }
-    public abstract string icon_name { get; construct set; }
-    public abstract bool has_thumbnail { get; construct set; }
-    public abstract string thumbnail_path { get; construct set; }
-    public abstract Synapse.MatchType match_type { get; construct set; }
+    public string title { get; construct set; default = ""; }
+    public string description { get; set; default = ""; }
+    public string? icon_name { get; construct set; default = null; }
+    public bool has_thumbnail { get; construct set; default = false; }
+    public string? thumbnail_path { get; construct set; default = null; }
+    public Synapse.MatchType match_type { get; construct set; default = Synapse.MatchType.UNKNOWN; }
 
     public virtual void execute (Synapse.Match? match) {
         critical ("execute () is not implemented");
