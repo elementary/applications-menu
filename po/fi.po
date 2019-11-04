@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-24 11:12-0700\n"
-"PO-Revision-Date: 2019-02-09 08:30+0000\n"
+"PO-Revision-Date: 2019-11-05 13:24+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://weblate.elementary.io/projects/wingpanel/"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:30
@@ -50,7 +50,7 @@ msgstr "Etsi sovelluksia"
 
 #: src/SlingshotView.vala:86
 msgid "Clear all"
-msgstr ""
+msgstr "Tyhjennä kaikki"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -74,22 +74,23 @@ msgid "Add to _Dock"
 msgstr "Lisää _telakkaan"
 
 #: src/Widgets/AppContextMenu.vala:99
-#, fuzzy, c-format
+#, c-format
 msgid "Uninstall “%s”?"
-msgstr "Poista asennus"
+msgstr "Poistetaanko “%s”?"
 
 #: src/Widgets/AppContextMenu.vala:100
 msgid "Uninstalling this app may also delete its data."
 msgstr ""
+"Tämän sovelluksen poistaminen saattaa poistaa myös sovellukseen liittyvät "
+"tiedot."
 
 #: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
 msgid "Uninstall"
 msgstr "Poista asennus"
 
 #: src/Widgets/AppContextMenu.vala:164
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Sovelluskeskus"
+msgstr "Näytä sovelluskeskuksessa"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"
