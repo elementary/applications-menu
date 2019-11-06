@@ -47,7 +47,6 @@ src/synapse-core/query.vala
 src/synapse-core/relevancy-service.vala
 src/synapse-core/result-set.vala
 src/synapse-core/utils.vala
-src/synapse-core/volume-service.vala
 
 src/synapse-plugins/appcenter-plugin.vala
 src/synapse-plugins/calculator-plugin.vala
