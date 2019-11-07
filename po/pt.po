@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 17:53+0000\n"
-"PO-Revision-Date: 2019-09-29 04:23+0000\n"
+"PO-Revision-Date: 2019-11-09 12:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
@@ -79,7 +79,7 @@ msgstr "Desinstalar"
 
 #: src/Widgets/AppContextMenu.vala:149
 msgid "View in AppCenter"
-msgstr "Ver na AppCenter"
+msgstr "Ver no Centro de Aplicações"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -316,7 +316,7 @@ msgstr "Reiniciar o seu computador"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "reiniciar;reinicializar"
+msgstr "reiniciar"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
