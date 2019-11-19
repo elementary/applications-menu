@@ -27,22 +27,14 @@ namespace Synapse {
         public void activate () { }
         public void deactivate () { }
 
-        private class Result: Object, Match {
-            // from Match interface
-            public string title { get; construct set; }
-            public string description { get; set; }
-            public string icon_name { get; construct set; }
-            public bool has_thumbnail { get; construct set; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-
+        private class Result: Synapse.Match {
             public int default_relevancy { get; set; default = 0; }
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
                         title: "%g".printf (result),
                         description: "%s = %g".printf (match_string, result),
-                        has_thumbnail: false, icon_name: "accessories-calculator");
+                        icon_name: "accessories-calculator");
             }
         }
 

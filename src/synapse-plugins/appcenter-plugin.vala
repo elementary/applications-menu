@@ -29,15 +29,7 @@ namespace Synapse {
 
         public void deactivate () { }
 
-        public class Result : Object, Match {
-            // from Match interface
-            public string title { get; construct set; }
-            public string description { get; set; }
-            public string icon_name { get; construct set; }
-            public bool has_thumbnail { get; construct set; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-
+        public class Result : Synapse.Match {
             public int default_relevancy { get; set; default = 0; }
 
             private AppInfo? appinfo;
@@ -64,7 +56,7 @@ namespace Synapse {
                 this.match_type = MatchType.ACTION;
             }
 
-            public void execute (Match? match) {
+            public override void execute (Match? match) {
                 if (appinfo == null) {
                     return;
                 }

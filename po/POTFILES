@@ -2,12 +2,12 @@ src/Indicator.vala
 src/SlingshotView.vala
 src/Pixels.vala
 
+src/Backend/AppCenter.vala
 src/Backend/AppSystem.vala
-src/Backend/DBusService.vala
 src/Backend/App.vala
+src/Backend/DBusService.vala
 src/Backend/RelevancyService.vala
 src/Backend/SynapseSearch.vala
-src/Backend/AppCenter.vala
 
 src/Views/CategoryView.vala
 src/Views/GridView.vala
@@ -21,25 +21,23 @@ src/Widgets/SearchItem.vala
 src/Widgets/Sidebar.vala
 src/Widgets/Switcher.vala
 
-src/synapse-core/Actions/TerminalRunnerAction.vala
-src/synapse-core/Actions/RunnerAction.vala
-src/synapse-core/Actions/OpenFolderAction.vala
-src/synapse-core/Actions/OpenerAction.vala
-src/synapse-core/Actions/CommonAction.vala
-src/synapse-core/Actions/ClipboardCopyAction.vala
 src/synapse-core/Actions/BaseAction.vala
+src/synapse-core/Actions/ClipboardCopyAction.vala
+src/synapse-core/Actions/CommonAction.vala
+src/synapse-core/Actions/RunnerAction.vala
+src/synapse-core/Actions/TerminalRunnerAction.vala
 
-src/synapse-core/Interfaces/ItemProvider.vala
-src/synapse-core/Interfaces/Configurable.vala
-src/synapse-core/Interfaces/Activatable.vala
 src/synapse-core/Interfaces/ActionProvider.vala
+src/synapse-core/Interfaces/Activatable.vala
+src/synapse-core/Interfaces/Configurable.vala
+src/synapse-core/Interfaces/ItemProvider.vala
 
-src/synapse-core/Matches/UriMatch.vala
-src/synapse-core/Matches/TextMatch.vala
-src/synapse-core/Matches/SearchMatch.vala
-src/synapse-core/Matches/Match.vala
-src/synapse-core/Matches/DefaultMatch.vala
 src/synapse-core/Matches/ApplicationMatch.vala
+src/synapse-core/Matches/DefaultMatch.vala
+src/synapse-core/Matches/Match.vala
+src/synapse-core/Matches/SearchMatch.vala
+src/synapse-core/Matches/TextMatch.vala
+src/synapse-core/Matches/UriMatch.vala
 
 src/synapse-core/config-service.vala
 src/synapse-core/data-sink.vala
@@ -49,12 +47,11 @@ src/synapse-core/query.vala
 src/synapse-core/relevancy-service.vala
 src/synapse-core/result-set.vala
 src/synapse-core/utils.vala
-src/synapse-core/volume-service.vala
 
+src/synapse-plugins/appcenter-plugin.vala
 src/synapse-plugins/calculator-plugin.vala
 src/synapse-plugins/command-plugin.vala
 src/synapse-plugins/desktop-file-plugin.vala
+src/synapse-plugins/link-plugin.vala
 src/synapse-plugins/switchboard-plugin.vala
 src/synapse-plugins/system-managment.vala
-src/synapse-plugins/link-plugin.vala
-src/synapse-plugins/appcenter-plugin.vala

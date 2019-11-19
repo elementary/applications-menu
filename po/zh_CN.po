@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-24 11:12-0700\n"
+"POT-Creation-Date: 2019-11-06 17:53+0000\n"
 "PO-Revision-Date: 2019-04-08 05:53+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -20,19 +20,19 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: src/Indicator.vala:30
+#: src/Indicator.vala:35
 msgid "Slingshot"
 msgstr "应用程序"
 
-#: src/Indicator.vala:31
+#: src/Indicator.vala:36
 msgid "The app-menu indicator"
 msgstr "程序菜单指示器"
 
-#: src/Indicator.vala:70 src/Widgets/SearchItem.vala:40
+#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "应用程序"
 
-#: src/Indicator.vala:113
+#: src/Indicator.vala:118
 msgid "Open and search apps"
 msgstr "打开并搜索应用"
 
@@ -56,11 +56,11 @@ msgstr ""
 msgid "Run this command…"
 msgstr "运行命令…"
 
-#: src/Views/SearchView.vala:39
+#: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "尝试更改搜索内容。"
 
-#: src/Views/SearchView.vala:143
+#: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
@@ -73,286 +73,277 @@ msgstr "从 Dock 移除"
 msgid "Add to _Dock"
 msgstr "固定至 Dock"
 
-#: src/Widgets/AppContextMenu.vala:99
-#, fuzzy, c-format
-msgid "Uninstall “%s”?"
-msgstr "卸载"
-
-#: src/Widgets/AppContextMenu.vala:100
-msgid "Uninstalling this app may also delete its data."
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:108 src/Widgets/AppContextMenu.vala:158
+#: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
 msgstr "卸载"
 
-#: src/Widgets/AppContextMenu.vala:164
+#: src/Widgets/AppContextMenu.vala:149
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "应用中心"
 
-#: src/Widgets/SearchItem.vala:37
+#: src/Widgets/SearchItem.vala:36
 msgid "Text"
 msgstr "文本"
 
-#: src/Widgets/SearchItem.vala:43
+#: src/Widgets/SearchItem.vala:40
 msgid "Files"
 msgstr "文件"
 
-#: src/Widgets/SearchItem.vala:47
+#: src/Widgets/SearchItem.vala:43
 msgid "Actions"
 msgstr "操作"
 
-#: src/Widgets/SearchItem.vala:50
+#: src/Widgets/SearchItem.vala:45
 msgid "Search"
 msgstr "搜索"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Widgets/SearchItem.vala:47
 msgid "Contacts"
 msgstr "联系人"
 
-#: src/Widgets/SearchItem.vala:56
+#: src/Widgets/SearchItem.vala:49
 msgid "Internet"
 msgstr "网络"
 
-#: src/Widgets/SearchItem.vala:59
+#: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "设置"
 
-#: src/Widgets/SearchItem.vala:62
+#: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "应用操作"
 
-#: src/Widgets/SearchItem.vala:65
+#: src/Widgets/SearchItem.vala:55
 msgid "Other"
 msgstr "其它"
 
-#: lib/synapse-core/common-actions.vala:65
-msgid "Run"
-msgstr "运行"
-
-#: lib/synapse-core/common-actions.vala:66
-msgid "Run an application, action or script"
-msgstr "运行程序、操作或脚本"
-
-#: lib/synapse-core/common-actions.vala:110
-msgid "Run in Terminal"
-msgstr "在终端中运行"
-
-#: lib/synapse-core/common-actions.vala:111
-msgid "Run application or command in terminal"
-msgstr "在终端中运行程序或命令"
-
-#: lib/synapse-core/common-actions.vala:150
-msgid "Open"
-msgstr "打开"
-
-#: lib/synapse-core/common-actions.vala:151
-msgid "Open using default application"
-msgstr "使用默认程序打开"
-
-#: lib/synapse-core/common-actions.vala:203
-msgid "Open folder"
-msgstr "打开文件夹"
-
-#: lib/synapse-core/common-actions.vala:204
-msgid "Open folder containing this file"
-msgstr "打开所在文件夹"
-
-#: lib/synapse-core/common-actions.vala:240
+#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
 msgstr "复制到剪贴板"
 
-#: lib/synapse-core/common-actions.vala:241
+#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
 msgstr "复制选中内容到剪贴板"
 
-#: lib/synapse-plugins/calculator-plugin.vala:52
+#: src/synapse-core/Actions/RunnerAction.vala:25
+msgid "Run"
+msgstr "运行"
+
+#: src/synapse-core/Actions/RunnerAction.vala:26
+msgid "Run an application, action or script"
+msgstr "运行程序、操作或脚本"
+
+#: src/synapse-core/Actions/TerminalRunnerAction.vala:25
+msgid "Run in Terminal"
+msgstr "在终端中运行"
+
+#: src/synapse-core/Actions/TerminalRunnerAction.vala:26
+msgid "Run application or command in terminal"
+msgstr "在终端中运行程序或命令"
+
+#. TRANSLATORS: The first %s is what the user searched for,
+#. the second will be replaced with the localized name of AppCenter
+#: src/synapse-plugins/appcenter-plugin.vala:48
+#, c-format
+msgid "Search for %s in %s"
+msgstr "搜索 %s ，位置 %s"
+
+#: src/synapse-plugins/appcenter-plugin.vala:54
+msgid "Search the app store"
+msgstr "搜索应用中心"
+
+#: src/synapse-plugins/appcenter-plugin.vala:88
+msgid "AppCenter"
+msgstr "应用中心"
+
+#: src/synapse-plugins/appcenter-plugin.vala:89
+msgid "Search for applications"
+msgstr "搜索应用程序"
+
+#: src/synapse-plugins/appcenter-plugin.vala:93
+msgid "AppCenter is not installed"
+msgstr "应用中心尚未安装"
+
+#: src/synapse-plugins/calculator-plugin.vala:44
 msgid "Calculator"
 msgstr "计算器"
 
-#: lib/synapse-plugins/calculator-plugin.vala:53
+#: src/synapse-plugins/calculator-plugin.vala:45
 msgid "Calculate basic expressions."
 msgstr "计算基本的数学表达式。"
 
-#: lib/synapse-plugins/calculator-plugin.vala:57
+#: src/synapse-plugins/calculator-plugin.vala:49
 msgid "bc is not installed"
 msgstr "计算插件尚未安装"
 
-#: lib/synapse-plugins/command-plugin.vala:47
+#: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
 msgstr "执行 '%s'"
 
-#: lib/synapse-plugins/command-plugin.vala:47
+#: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "运行命令"
 
-#: lib/synapse-plugins/command-plugin.vala:68
+#: src/synapse-plugins/command-plugin.vala:60
 msgid "Find and execute arbitrary commands."
 msgstr "查找或执行任意命令。"
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:131
+#: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
 msgstr "在您的电脑中搜索和运行应用程序。"
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:344
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Open with %s"
 msgstr "使用 %s 打开"
 
-#: lib/synapse-plugins/desktop-file-plugin.vala:346
+#: src/synapse-plugins/desktop-file-plugin.vala:322
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "使用 %s 打开选中项"
 
-#: lib/synapse-plugins/switchboard-plugin.vala:48
+#: src/synapse-plugins/link-plugin.vala:39
+#, c-format
+msgid "Open %s in default web browser"
+msgstr "在浏览器中打开 %s"
+
+#: src/synapse-plugins/link-plugin.vala:44
+#, c-format
+msgid "Open %s in %s"
+msgstr "将 %s 发送到 %s"
+
+#: src/synapse-plugins/link-plugin.vala:50
+msgid "Open this link in default browser"
+msgstr "用浏览器打开此链接"
+
+#: src/synapse-plugins/link-plugin.vala:72
+msgid "Link"
+msgstr "链接"
+
+#: src/synapse-plugins/link-plugin.vala:73
+msgid "Open link in default browser"
+msgstr "用浏览器打链接"
+
+#: src/synapse-plugins/switchboard-plugin.vala:40
 #, c-format
 msgid "Open %s settings"
 msgstr "打开 %s 设置"
 
-#: lib/synapse-plugins/switchboard-plugin.vala:69
+#: src/synapse-plugins/switchboard-plugin.vala:61
 msgid "Find switchboard plugs and open them."
 msgstr "找到对应设置界面并打开。"
 
-#: lib/synapse-plugins/system-managment.vala:117
+#: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
 msgstr "锁定"
 
-#: lib/synapse-plugins/system-managment.vala:118
+#: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
 msgstr "锁定此设备"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:121
+#: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
 msgstr "锁定"
 
-#: lib/synapse-plugins/system-managment.vala:150
+#: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
 msgstr "注销"
 
-#: lib/synapse-plugins/system-managment.vala:151
+#: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
 msgstr "关闭所有应用程序并退出"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:154
+#: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
 msgstr "注销"
 
-#: lib/synapse-plugins/system-managment.vala:183
+#: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
 msgstr "挂起"
 
-#: lib/synapse-plugins/system-managment.vala:184
+#: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
 msgstr "计算机进入挂起状态"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:187
+#: src/synapse-plugins/system-managment.vala:180
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "挂起"
 
-#: lib/synapse-plugins/system-managment.vala:272
+#: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
 msgstr "休眠"
 
-#: lib/synapse-plugins/system-managment.vala:273
+#: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
 msgstr "计算机进入休眠状态"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:276
+#: src/synapse-plugins/system-managment.vala:269
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
 msgstr "休眠"
 
-#: lib/synapse-plugins/system-managment.vala:360
+#: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
 msgstr "关机"
 
-#: lib/synapse-plugins/system-managment.vala:361
+#: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
 msgstr "关闭计算机"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:364
+#: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
 msgstr "关机"
 
-#: lib/synapse-plugins/system-managment.vala:436
+#: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
 msgstr "重启"
 
-#: lib/synapse-plugins/system-managment.vala:437
+#: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
 msgstr "重新启动计算机"
 
 #. ; seperated list of keywords
-#: lib/synapse-plugins/system-managment.vala:440
+#: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "重启"
 
-#: lib/synapse-plugins/system-managment.vala:514
+#: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr "锁定或注销会话；挂起、休眠、重启及关闭电脑。"
 
-#: lib/synapse-plugins/system-managment.vala:519
+#: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "未发现控制台"
 
-#: lib/synapse-plugins/link-plugin.vala:47
-#, c-format
-msgid "Open %s in default web browser"
-msgstr "在浏览器中打开 %s"
+#, fuzzy
+#~ msgid "Uninstall “%s”?"
+#~ msgstr "卸载"
 
-#: lib/synapse-plugins/link-plugin.vala:52
-#, c-format
-msgid "Open %s in %s"
-msgstr "将 %s 发送到 %s"
+#~ msgid "Open"
+#~ msgstr "打开"
 
-#: lib/synapse-plugins/link-plugin.vala:58
-msgid "Open this link in default browser"
-msgstr "用浏览器打开此链接"
+#~ msgid "Open using default application"
+#~ msgstr "使用默认程序打开"
 
-#: lib/synapse-plugins/link-plugin.vala:80
-msgid "Link"
-msgstr "链接"
+#~ msgid "Open folder"
+#~ msgstr "打开文件夹"
 
-#: lib/synapse-plugins/link-plugin.vala:81
-msgid "Open link in default browser"
-msgstr "用浏览器打链接"
-
-#. TRANSLATORS: The first %s is what the user searched for,
-#. the second will be replaced with the localized name of AppCenter
-#: lib/synapse-plugins/appcenter-plugin.vala:56
-#, c-format
-msgid "Search for %s in %s"
-msgstr "搜索 %s ，位置 %s"
-
-#: lib/synapse-plugins/appcenter-plugin.vala:62
-msgid "Search the app store"
-msgstr "搜索应用中心"
-
-#: lib/synapse-plugins/appcenter-plugin.vala:96
-msgid "AppCenter"
-msgstr "应用中心"
-
-#: lib/synapse-plugins/appcenter-plugin.vala:97
-msgid "Search for applications"
-msgstr "搜索应用程序"
-
-#: lib/synapse-plugins/appcenter-plugin.vala:101
-msgid "AppCenter is not installed"
-msgstr "应用中心尚未安装"
+#~ msgid "Open folder containing this file"
+#~ msgstr "打开所在文件夹"
 
 #~ msgid "All Applications"
 #~ msgstr "所有应用"
