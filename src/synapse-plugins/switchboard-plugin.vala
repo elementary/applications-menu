@@ -30,15 +30,7 @@ namespace Synapse {
 
         public void deactivate () { }
 
-        public class SwitchboardObject: Object, Match {
-            // for Match interface
-            public string title { get; construct set; }
-            public string description { get; set; default = ""; }
-            public string icon_name { get; construct set; default = ""; }
-            public bool has_thumbnail { get; construct set; default = false; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-
+        public class SwitchboardObject: Synapse.Match {
             public string plug { get; construct set; }
             public string uri { get; construct set; }
 
@@ -53,7 +45,7 @@ namespace Synapse {
                 );
             }
 
-            public void execute (Match? match) {
+            public override void execute (Match? match) {
                 try {
                     Gtk.show_uri (null, "settings://%s".printf (uri), Gdk.CURRENT_TIME);
                 } catch (Error e) {

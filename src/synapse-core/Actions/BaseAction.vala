@@ -20,15 +20,7 @@
 * Authored by: Michal Hruby <michal.mhr@gmail.com>
 */
 
-public abstract class Synapse.BaseAction: Object, Synapse.Match {
-    // from Match interface
-    public string title { get; construct set; }
-    public string description { get; set; }
-    public string icon_name { get; construct set; }
-    public bool has_thumbnail { get; construct set; }
-    public string thumbnail_path { get; construct set; }
-    public MatchType match_type { get; construct set; }
-
+public abstract class Synapse.BaseAction: Synapse.Match {
     public int default_relevancy { get; set; }
     public bool notify_match { get; set; default = true; }
 
@@ -38,16 +30,16 @@ public abstract class Synapse.BaseAction: Object, Synapse.Match {
     }
 
     public abstract void do_execute (Match? source, Match? target = null);
-    public void execute_with_target (Match? source, Match? target = null) {
+    public override void execute_with_target (Match? source, Match? target = null) {
       do_execute (source, target);
       if (notify_match) source.executed ();
     }
 
-    public virtual bool needs_target () {
+    public override bool needs_target () {
       return false;
     }
 
-    public virtual QueryFlags target_flags () {
+    public override QueryFlags target_flags () {
       return QueryFlags.ALL;
     }
 }

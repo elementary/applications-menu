@@ -28,15 +28,7 @@ namespace Synapse {
 
         public void deactivate () { }
 
-        private class CommandObject: Object, Match, ApplicationMatch {
-            // for Match interface
-            public string title { get; construct set; }
-            public string description { get; set; default = ""; }
-            public string icon_name { get; construct set; default = ""; }
-            public bool has_thumbnail { get; construct set; default = false; }
-            public string thumbnail_path { get; construct set; }
-            public MatchType match_type { get; construct set; }
-
+        private class CommandObject: Synapse.Match, ApplicationMatch {
             // for ApplicationMatch
             public AppInfo? app_info { get; set; default = null; }
             public bool needs_terminal { get; set; default = false; }
@@ -46,7 +38,7 @@ namespace Synapse {
             public CommandObject (string cmd) {
                 Object (title: _("Execute '%s'").printf (cmd), description: _("Run command"), command: cmd,
                         icon_name: "application-x-executable",
-                        match_type: MatchType.ACTION,
+                        match_type: MatchType.APPLICATION,
                         needs_terminal: cmd.has_prefix ("sudo "));
 
                 try {
