@@ -72,20 +72,16 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         });
 
         listbox.button_press_event.connect ((event) => {
-            if (event.button != Gdk.BUTTON_SECONDARY) {
-                return Gdk.EVENT_PROPAGATE;
+            if (event.button == Gdk.BUTTON_SECONDARY) {
+                return create_context_menu (event);
             }
 
-            var selected_row = (AppListRow) listbox.get_selected_row ();
+            return Gdk.EVENT_PROPAGATE;
+        });
 
-            var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
-            menu.app_launched.connect (() => {
-                view.close_indicator ();
-            });
-
-            if (menu.get_children () != null) {
-                menu.popup_at_pointer (event);
-                return Gdk.EVENT_STOP;
+        listbox.key_press_event.connect ((event) => {
+            if (event.keyval == Gdk.Key.Menu) {
+                return create_context_menu (event);
             }
 
             return Gdk.EVENT_PROPAGATE;
@@ -95,6 +91,27 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         category_switcher.key_press_event.connect (on_key_press);
 
         setup_sidebar ();
+    }
+
+    private bool create_context_menu (Gdk.Event event) {
+        var selected_row = (AppListRow) listbox.get_selected_row ();
+
+        var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
+        menu.app_launched.connect (() => {
+            view.close_indicator ();
+        });
+
+        if (menu.get_children () != null) {
+            if (event.type == Gdk.EventType.KEY_PRESS) {
+                menu.popup_at_widget (selected_row, Gdk.Gravity.CENTER, Gdk.Gravity.CENTER, event);
+                return Gdk.EVENT_STOP;
+            } else if (event.type == Gdk.EventType.BUTTON_PRESS) {
+                menu.popup_at_pointer (event);
+                return Gdk.EVENT_STOP;
+            }
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 
     public void page_down () {
