@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-07 13:26-0800\n"
-"PO-Revision-Date: 2019-11-10 20:24+0000\n"
+"PO-Revision-Date: 2019-11-16 16:24+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Uygulamalar Menüsü"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid ""
