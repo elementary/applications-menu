@@ -6,7 +6,7 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.5.0" date="2019-11-25" urgency="medium">
+    <release version="2.5.0" date="2019-11-06" urgency="medium">
       <description>
         <p>Improved keyboard navigation, including new tooltips and menu key support</p>
         <p>Highlight action matches in the search view</p>
