@@ -55,7 +55,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     static construct {
 #if HAS_PLANK
-        Plank.Paths.initialize ("plank", Build.PKGDATADIR);
+        Plank.Paths.initialize ("plank", PKGDATADIR);
         plank_client = Plank.DBusClient.get_instance ();
 #endif
 
@@ -132,19 +132,18 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.button_press_event.connect ((e) => {
             if (e.button != Gdk.BUTTON_SECONDARY) {
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             }
 
-            menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
-            menu.app_launched.connect (() => {
-                app_launched ();
-            });
+            return create_context_menu (e);
+        });
 
-            if (menu != null && menu.get_children () != null) {
-                menu.popup (null, null, null, e.button, e.time);
-                return true;
+        this.key_press_event.connect ((e) => {
+            if (e.keyval == Gdk.Key.Menu) {
+                return create_context_menu (e);
             }
-            return false;
+
+            return Gdk.EVENT_PROPAGATE;
         });
 
         this.drag_begin.connect ((ctx) => {
@@ -201,4 +200,23 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         }
     }
 #endif
+
+    private bool create_context_menu (Gdk.Event e) {
+        menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
+        menu.app_launched.connect (() => {
+            app_launched ();
+        });
+
+        if (menu.get_children () != null) {
+            if (e.type == Gdk.EventType.KEY_PRESS) {
+                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
+                return Gdk.EVENT_STOP;
+            } else if (e.type == Gdk.EventType.BUTTON_PRESS) {
+                menu.popup_at_pointer (e);
+                return Gdk.EVENT_STOP;
+            }
+        }
+
+        return Gdk.EVENT_PROPAGATE;
+    }
 }

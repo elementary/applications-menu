@@ -117,11 +117,11 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private Gtk.Widget? get_child_at (int column, int row) {
-        var col = ((int)(column/page.columns))+1;
+        var col = ((int)(column / page.columns)) + 1;
 
         var grid = grids.get (col);
         if (grid != null) {
-            return grid.get_child_at (column - (int)page.columns*(col-1), row) as Widgets.AppButton;
+            return grid.get_child_at (column - (int)page.columns * (col - 1), row) as Widgets.AppButton;
         } else {
             return null;
         }
@@ -140,13 +140,13 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public void go_to_next () {
-        int page_number = get_current_page ()+1;
+        int page_number = get_current_page () + 1;
         if (page_number <= get_n_pages ())
             stack.set_visible_child_name (page_number.to_string ());
     }
 
     public void go_to_previous () {
-        int page_number = get_current_page ()-1;
+        int page_number = get_current_page () - 1;
         if (page_number > 0)
             stack.set_visible_child_name (page_number.to_string ());
     }
@@ -167,14 +167,14 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public bool set_focus (int column, int row) {
-        var targetWidget = get_child_at (column, row);
+        var target_widget = get_child_at (column, row);
 
-        if (targetWidget != null) {
+        if (target_widget != null) {
             go_to_number (((int) (column / page.columns)) + 1);
 
             focused_column = column;
             focused_row = row;
-            focused_widget = targetWidget;
+            focused_widget = target_widget;
 
             focused_widget.grab_focus ();
 

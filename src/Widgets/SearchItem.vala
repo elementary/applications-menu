@@ -28,7 +28,33 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         INTERNET,
         SETTINGS,
         APP_ACTIONS,
-        LINK
+        LINK;
+
+        public unowned string to_string () {
+            switch (this) {
+                case TEXT:
+                    return _("Text");
+                case APPLICATION:
+                    return _("Applications");
+                case GENERIC_URI:
+                    return _("Files");
+                case LINK:
+                case ACTION:
+                    return _("Actions");
+                case SEARCH:
+                    return _("Search");
+                case CONTACT:
+                    return _("Contacts");
+                case INTERNET:
+                    return _("Internet");
+                case SETTINGS:
+                    return _("Settings");
+                case APP_ACTIONS:
+                    return _("Application Actions");
+                default:
+                    return _("Other");
+            }
+        }
     }
 
     private const int ICON_SIZE = 32;
@@ -55,10 +81,12 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
     construct {
         string markup;
-        if (result_type == SearchItem.ResultType.APP_ACTIONS || result_type == SearchItem.ResultType.TEXT) {
+        if (result_type == SearchItem.ResultType.TEXT) {
             markup = app.match.title;
+        } else if (result_type == SearchItem.ResultType.APP_ACTIONS) {
+            markup = markup_string_with_search (app.match.title, search_term);
         } else {
-            markup = Backend.SynapseSearch.markup_string_with_search (app.name, search_term);
+            markup = markup_string_with_search (app.name, search_term);
         }
 
         name_label = new Gtk.Label (markup);
@@ -72,17 +100,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         tooltip_text = app.description;
 
-        // load a favicon if we're an internet page
-        var uri_match = app.match as Synapse.UriMatch;
-        if (uri_match != null && uri_match.uri.has_prefix ("http")) {
-            cancellable = new Cancellable ();
-            Backend.SynapseSearch.get_favicon_for_match.begin (uri_match, ICON_SIZE, cancellable, (obj, res) => {
-                var pixbuf = Backend.SynapseSearch.get_favicon_for_match.end (res);
-                if (pixbuf != null) {
-                    icon.set_from_pixbuf (pixbuf);
-                }
-            });
-        } else if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
+        if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
             var pixbuf = Backend.SynapseSearch.get_pathicon_for_match (app.match, ICON_SIZE);
             if (pixbuf != null) {
                 icon.set_from_pixbuf (pixbuf);
@@ -106,6 +124,55 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         var app_match = app.match as Synapse.ApplicationMatch;
         if (app_match != null) {
             app_uri = File.new_for_path (app_match.filename).get_uri ();
+        }
+    }
+
+    private static string markup_string_with_search (string text, string pattern) {
+        const string MARKUP = "%s";
+
+        if (pattern == "") {
+            return MARKUP.printf (Markup.escape_text (text));
+        }
+
+        // if no text found, use pattern
+        if (text == "") {
+            return MARKUP.printf (Markup.escape_text (pattern));
+        }
+
+        var matchers = Synapse.Query.get_matchers_for_query (
+            pattern,
+            0,
+            RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
+        );
+
+        string? highlighted = null;
+        foreach (var matcher in matchers) {
+            MatchInfo mi;
+            if (matcher.key.match (text, 0, out mi)) {
+                int start_pos;
+                int end_pos;
+                int last_pos = 0;
+                int cnt = mi.get_match_count ();
+                StringBuilder res = new StringBuilder ();
+                for (int i = 1; i < cnt; i++) {
+                    mi.fetch_pos (i, out start_pos, out end_pos);
+                    warn_if_fail (start_pos >= 0 && end_pos >= 0);
+                    res.append (Markup.escape_text (text.substring (last_pos, start_pos - last_pos)));
+                    last_pos = end_pos;
+                    res.append (Markup.printf_escaped ("<b>%s</b>", mi.fetch (i)));
+                    if (i == cnt - 1) {
+                        res.append (Markup.escape_text (text.substring (last_pos)));
+                    }
+                }
+                highlighted = res.str;
+                break;
+            }
+        }
+
+        if (highlighted != null) {
+            return MARKUP.printf (highlighted);
+        } else {
+            return MARKUP.printf (Markup.escape_text (text));
         }
     }
 

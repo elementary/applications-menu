@@ -1,7 +1,7 @@
 project(
   'slingshot',
   'vala', 'c',
-  version : '2.4.4'
+  version : '2.5.0'
 )
 
 i18n = import('i18n')
@@ -21,6 +21,11 @@ asresources = gnome.compile_resources(
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
+
+add_project_arguments(
+    '-DPKGDATADIR="@0@"'.format(join_paths(get_option('prefix'), get_option('libdir'), 'wingpanel')),
+    language: 'c'
+)
 
 glib_dep = dependency('glib-2.0')
 gee_dep = dependency('gee-0.8')
@@ -56,7 +61,6 @@ if get_option('with-zeitgeist')
     add_project_arguments('--define=HAVE_ZEITGEIST', language: 'vala')
 endif
 
-subdir('lib')
 subdir('src')
 subdir('data')
 subdir('po')

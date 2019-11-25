@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2019 elementary, Inc. <contact@elementary.io> -->
+<component type="addon">
+  <id>io.elementary.wingpanel.applications-menu</id>
+  <extends>io.elementary.wingpanel</extends>
+  <name>Applications Menu</name>
+  <summary>Open and search for apps</summary>
+  <releases>
+    <release version="2.5.0" date="2019-11-25" urgency="medium">
+      <description>
+        <p>Improved keyboard navigation, including new tooltips and menu key support</p>
+        <p>Highlight action matches in the search view</p>
+        <p>Add a "View in AppCenter" menu item</p>
+        <p>Performance improvements</p>
+        <p>Updated translations</p>
+      </description>
+    </release>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <developer_name>elementary, Inc.</developer_name>
+  <url type="homepage">https://elementary.io/</url>
+  <url type="bugtracker">https://github.com/elementary/applications-menu/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/applications-menu</url>
+  <url type="translate">https://l10n.elementary.io/projects/wingpanel/applications-menu/</url>
+  <update_contact>contact_AT_elementary.io</update_contact>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_group>elementary</project_group>
+  <project_license>GPL-3.0+</project_license>
+</component>

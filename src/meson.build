@@ -1,3 +1,10 @@
+zeitgeist_backend_source = []
+if get_option('with-zeitgeist')
+    zeitgeist_backend_source = [
+        'synapse-core/relevancy-backend-zg.vala'
+    ]
+endif
+
 sources = [
     'Indicator.vala',
     'SlingshotView.vala',
@@ -21,6 +28,39 @@ sources = [
     'Widgets/SearchItem.vala',
     'Widgets/Sidebar.vala',
     'Widgets/PageChecker.vala',
+
+    'synapse-core/Actions/TerminalRunnerAction.vala',
+    'synapse-core/Actions/RunnerAction.vala',
+    'synapse-core/Actions/CommonAction.vala',
+    'synapse-core/Actions/ClipboardCopyAction.vala',
+    'synapse-core/Actions/BaseAction.vala',
+    'synapse-core/Interfaces/ItemProvider.vala',
+    'synapse-core/Interfaces/Configurable.vala',
+    'synapse-core/Interfaces/Activatable.vala',
+    'synapse-core/Interfaces/ActionProvider.vala',
+    'synapse-core/Matches/UriMatch.vala',
+    'synapse-core/Matches/TextMatch.vala',
+    'synapse-core/Matches/SearchMatch.vala',
+    'synapse-core/Matches/Match.vala',
+    'synapse-core/Matches/DefaultMatch.vala',
+    'synapse-core/Matches/ApplicationMatch.vala',
+    'synapse-core/config-service.vala',
+    'synapse-core/data-sink.vala',
+    'synapse-core/dbus-service.vala',
+    'synapse-core/desktop-file-service.vala',
+    'synapse-core/query.vala',
+    'synapse-core/relevancy-service.vala',
+    'synapse-core/result-set.vala',
+    'synapse-core/utils.vala',
+    zeitgeist_backend_source,
+
+    'synapse-plugins/calculator-plugin.vala',
+    'synapse-plugins/command-plugin.vala',
+    'synapse-plugins/desktop-file-plugin.vala',
+    'synapse-plugins/switchboard-plugin.vala',
+    'synapse-plugins/system-managment.vala',
+    'synapse-plugins/link-plugin.vala',
+    'synapse-plugins/appcenter-plugin.vala',
     asresources
 ]
 
@@ -41,9 +81,6 @@ dependencies = [
     plank_dep,
     unity_dep,
     wingpanel_dep,
-    synapse_core_dep,
-    synapse_plugins_dep,
-    meson.get_compiler('vala').find_library('config', dirs: join_paths(meson.source_root(), 'vapi'))
 ]
 
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])

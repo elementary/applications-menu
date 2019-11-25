@@ -16,6 +16,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#if HAS_PLANK
+[CCode (cname = "PKGDATADIR")]
+private extern const string PKGDATADIR;
+#endif
+
 public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "org.gnome.desktop.wm.keybindings";
 
@@ -97,7 +102,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {
-        // TODO: Do we need to do anyhting here?
+        // TODO: Do we need to do anything here?
     }
 
     private void update_tooltip () {
@@ -105,7 +110,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
         if (keybinding_settings != null && indicator_grid != null) {
             var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
-            foreach (string raw_accel in raw_accels) {
+            foreach (unowned string raw_accel in raw_accels) {
                 if (raw_accel != "") accels += raw_accel;
             }
         }
@@ -116,7 +121,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
 public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Slingshot");
-    if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER){
+    if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER) {
         return null;
     }
     var indicator = new Slingshot.Indicator ();
