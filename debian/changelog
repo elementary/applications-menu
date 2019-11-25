@@ -1,3 +1,92 @@
+slingshot-launcher (2.5.0) bionic; urgency=medium
+
+  * Release 2.5.0 (#327)
+  * Revert "Release 2.5.0 (#325)" (#326)
+  * Add Release to Actions
+  * Release 2.5.0 (#325)
+  * Revert "CommandPlugin: Change to Action type (#284)" (#324)
+  * Add AppData (#323)
+  * Update translation template
+  * Remove volume-service.vala from POTFILES (#321)
+  * Update POTFILES (#319)
+  * Add Gettext Updates to Actions
+  * Synapse: Make Match an abstract class instead of an interface (#316)
+  * SlingshotView: use Gdk constants for scroll directions (#314)
+  * Delete AUTHORS
+  * Delete CODE_OF_CONDUCT.md
+  * Remove unused File & Folder actions (#310)
+  * Fix some warnings and optimize the memory management (#309)
+  * Synapse: Remove unused Matches
+  * Synapse: split Matches into subdirectories
+  * Update appcenter-plugin.vala (#308)
+  * Synapse: One interface per file (#307)
+  * Synapse: Make BaseAction and its derivates one class per file (#306)
+  * Utils: Remove unused (#305)
+  * Remove Uninstall Confirmation Dialog (#300)
+  * Move synapse library and plugins under src (#304)
+  * run installation in CI (#302)
+  * Move DragnDrop handling to AppListBox (#279)
+  * Remove unused Synapse/VolumeService (#294)
+  * Update translation files
+  * Add Uninstall Comfirmation Dialog (#298)
+  * DataSink: NUM_COMPONENTS → num_components (#297)
+  * GridView: targetWidget → target_widget (#296)
+  * Add View in Appcenter menuitem (#293)
+  * Add Linter to CI (#268)
+  * Add menu key support (#290)
+  * Lint lib directory with vala-lint. (#288)
+  * Fix Alt page switching (#291)
+  * Delete FUNDING.yml
+  * :shirt: Lint src directory with vala-lint. (#289)
+  * Move search string markup to SearchItem (#286)
+  * Remove unused favicon loading (#287)
+  * Fix app actions' markup (#285)
+  * CommandPlugin: Change to Action type (#284)
+  * SearchView: Remove unnecessary casts in header function (#282)
+  * SearchItem: add to_string method for ResultType enum (#280)
+  * SearchView: Use Granite.HeaderLabel (#281)
+  * Move App Context Menu to its own class (#278)
+  * Slingshotview: Cleanup page switch shortcut (#274)
+  * Move CycleListBox to its own class (#271)
+  * CategoryView: Handle PageUp/Down internally (#265)
+  * SlingshotView: Remove redundant paste handler (#276)
+  * SlingshotView: Simplify view switch shortcut (#273)
+  * SlingshotView: Simplify backspace handling (#275)
+  * AppButton: Add provider to widget and other cleanup (#270)
+  * GridView: Remove unused get_page_rows (#272)
+  * Remove size configuration (#267)
+  * GridView: subclass grid, reduce var scope, use construct (#259)
+  * SlingshotView: Remove extra clear-all shortcut (#262)
+  * SlingshotView: Stop hijacking Tab (#260)
+  * Convert Tabs to Spaces (#269)
+  * Use GitHub CI (#249)
+  * SlingshotView: Use Gdk.EVENT constants (#266)
+  * SearchItem: minor misc cleanup (#258)
+  * Rename AppEntry to AppButton (#246)
+  * GridView: Inline namespace and reduce scope of page struct (#254)
+  * SearchItem: Inline namespace (#255)
+  * Update Copyright, remove unused, signals at the top (#257)
+  * Revert "App: GObject style and cleanup (#245)" (#256)
+  * App: GObject style and cleanup (#245)
+  * SlingshotView: inline namespace (#250)
+  * CategoryView: Remove unused variables (#241)
+  * SearchView: Inline namespacing (#247)
+  * SearchView: Use placeholder function (#248)
+  * AppSystem: misc cleanup (#244)
+  * Move and re-namespace Slingshot.Slingshot to Slingshot.Indicator
+    (#242)
+  * Sidebar: code style cleanups (#238)
+  * SlingshotView: organize variables (#237)
+  * Move view classes to Views folder (#239)
+  * config.vapi: Remove unused constants (#240)
+  * AppSystem: remove unused get_categories (#236)
+  * build: fix install path for wingpanel indicator (#233)
+  * SlingshotView: Remove connect_signals method (#225)
+  * Don't install static libraries (#231)
+  * Remove CMake (#212)
+
+ -- elementary, Inc. <builds@elementary.io>  Mon, 25 Nov 2019 17:08:53 +0000
+
 slingshot-launcher (2.4.4) bionic; urgency=medium
 
   * New upstream release.
