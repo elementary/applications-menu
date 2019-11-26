@@ -23,7 +23,9 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
-    private AppListBox listbox;
+    private bool dragging = false;
+    private string? drag_uri = null;
+    private Gtk.ListBox listbox;
 
     public CategoryView (SlingshotView view) {
         Object (view: view);
@@ -41,8 +43,9 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-        listbox = new AppListBox ();
+        listbox = new Gtk.ListBox ();
         listbox.expand = true;
+        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
         listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -62,7 +65,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
-                if (!listbox.dragging) {
+                if (!dragging) {
                     ((AppListRow) row).launch ();
                     view.close_indicator ();
                 }
@@ -89,6 +92,47 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         listbox.key_press_event.connect (on_key_press);
         category_switcher.key_press_event.connect (on_key_press);
+
+        const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
+        Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
+
+        listbox.motion_notify_event.connect ((event) => {
+            if (!dragging) {
+                listbox.select_row (listbox.get_row_at_y ((int) event.y));
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+
+        listbox.drag_begin.connect ((ctx) => {
+            var selected_row = listbox.get_selected_row ();
+            if (selected_row != null) {
+                dragging = true;
+
+                var drag_item = (AppListRow) selected_row;
+                drag_uri = "file://" + drag_item.desktop_path;
+                if (drag_uri != null) {
+                    Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
+                }
+
+                view.close_indicator ();
+            }
+        });
+
+        listbox.drag_end.connect (() => {
+            if (drag_uri != null) {
+                view.close_indicator ();
+            }
+
+            dragging = false;
+            drag_uri = null;
+        });
+
+        listbox.drag_data_get.connect ((ctx, sel, info, time) => {
+            if (drag_uri != null) {
+                sel.set_uris ({drag_uri});
+            }
+        });
 
         setup_sidebar ();
     }

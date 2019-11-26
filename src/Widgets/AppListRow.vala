@@ -20,8 +20,7 @@
 public class AppListRow : Gtk.ListBoxRow {
     public string app_id { get; construct; }
     public string desktop_path { get; construct; }
-
-    private GLib.DesktopAppInfo app_info;
+    public GLib.DesktopAppInfo app_info { get; private set; }
 
     public AppListRow (string app_id, string desktop_path) {
         Object (
