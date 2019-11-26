@@ -32,9 +32,15 @@ public class AppListRow : Gtk.ListBoxRow {
     construct {
         app_info = new GLib.DesktopAppInfo (app_id);
 
-        var icon = new Gtk.Image ();
-        icon.gicon = app_info.get_icon ();
-        icon.pixel_size = 32;
+        var icon = app_info.get_icon ();
+        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
+        if (theme.lookup_by_gicon (icon, 32, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
+        }
+
+        var image = new Gtk.Image ();
+        image.gicon = icon;
+        image.pixel_size = 32;
 
         var name_label = new Gtk.Label (app_info.get_display_name ());
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
@@ -44,7 +50,7 @@ public class AppListRow : Gtk.ListBoxRow {
 
         var grid = new Gtk.Grid ();
         grid.column_spacing = 12;
-        grid.add (icon);
+        grid.add (image);
         grid.add (name_label);
         grid.margin = 6;
         grid.margin_start = 18;
