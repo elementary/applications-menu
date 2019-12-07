@@ -27,6 +27,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private string? drag_uri = null;
     private Gtk.ListBox listbox;
 
+    private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
+
     public CategoryView (SlingshotView view) {
         Object (view: view);
     }
@@ -93,7 +95,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.key_press_event.connect (on_key_press);
         category_switcher.key_press_event.connect (on_key_press);
 
-        const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
         listbox.motion_notify_event.connect ((event) => {
