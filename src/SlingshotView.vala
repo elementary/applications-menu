@@ -322,15 +322,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Up":
                 if (modality == Modality.NORMAL_VIEW) {
                     normal_move_focus (0, -1);
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
-                        category_view.page_up ();
-                    } else if (search_entry.has_focus) {
-                        category_view.category_switcher.selected--;
-                    } else {
-                        return Gdk.EVENT_PROPAGATE;
-                    }
-                } else if (modality == Modality.SEARCH_VIEW) {
+                } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
                 break;
