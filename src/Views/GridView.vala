@@ -25,9 +25,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         public int number;
     }
 
-    private Gtk.Grid current_grid;
+    private Gtk.FlowBox current_grid;
     private Gtk.Widget? focused_widget;
-    private Gee.HashMap<int, Gtk.Grid> grids;
+    private Gee.HashMap<int, Gtk.FlowBox> grids;
     private Page page;
 
     private int focused_column;
@@ -53,36 +53,30 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         add (stack);
         add (page_switcher);
 
-        grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
+        grids = new Gee.HashMap<int, Gtk.FlowBox> (null, null);
         create_new_grid ();
         go_to_number (1);
     }
 
     private void create_new_grid () {
-        // Grid properties
-        current_grid = new Gtk.Grid ();
+        current_grid = new Gtk.FlowBox ();
         current_grid.expand = true;
-        current_grid.row_homogeneous = true;
-        current_grid.column_homogeneous = true;
         current_grid.margin_start = 12;
         current_grid.margin_end = 12;
-
         current_grid.row_spacing = Pixels.ROW_SPACING;
         current_grid.column_spacing = 0;
-        grids.set (page.number, current_grid);
-        stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
+        current_grid.max_children_per_line = 5;
+        current_grid.min_children_per_line = 5;
 
-        // Fake grids in case there are not enough apps to fill the grid
-        for (var row = 0; row < page.rows; row++)
-            for (var column = 0; column < page.columns; column++)
-                current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
+        grids.set (page.number, current_grid);
+
+        stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
     }
 
     public void append (Gtk.Widget widget) {
         update_position ();
 
-        current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
-        current_grid.attach (widget, (int)current_col, (int)current_row, 1, 1);
+        current_grid.add (widget);
         current_col++;
         current_grid.show ();
     }
@@ -101,7 +95,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public void clear () {
-        foreach (Gtk.Grid grid in grids.values) {
+        foreach (Gtk.FlowBox grid in grids.values) {
             grid.destroy ();
         }
 
@@ -111,17 +105,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         page.number = 1;
         create_new_grid ();
         stack.set_visible_child (current_grid);
-    }
-
-    private Gtk.Widget? get_child_at (int column, int row) {
-        var col = ((int)(column / page.columns)) + 1;
-
-        var grid = grids.get (col);
-        if (grid != null) {
-            return grid.get_child_at (column - (int)page.columns * (col - 1), row) as Widgets.AppButton;
-        } else {
-            return null;
-        }
     }
 
     public int get_page_columns () {

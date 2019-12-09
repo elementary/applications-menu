@@ -296,32 +296,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 return Gdk.EVENT_PROPAGATE;
             case "Left":
-                if (modality == Modality.NORMAL_VIEW) {
-                    if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                        move_left (event);
-                    } else {
-                        move_right (event);
-                    }
-                } else {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-
-                break;
             case "Right":
-                if (modality == Modality.NORMAL_VIEW) {
-                    if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                        move_right (event);
-                    } else {
-                        move_left (event);
-                    }
-                } else {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-
-                break;
+                return Gdk.EVENT_PROPAGATE;
             case "Up":
                 if (modality == Modality.NORMAL_VIEW) {
-                    normal_move_focus (0, -1);
+                    return Gdk.EVENT_PROPAGATE;
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
                         category_view.page_up ();
@@ -337,11 +316,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
             case "Down":
                 if (modality == Modality.NORMAL_VIEW) {
-                    if (search_entry.has_focus) {
-                        grid_view.top_left_focus ();
-                    } else {
-                        normal_move_focus (0, +1);
-                    }
+                    return Gdk.EVENT_PROPAGATE;
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
                         category_view.page_down ();
@@ -451,28 +426,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         set_modality ((Modality) view_selector.selected);
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-    }
-
-    /*
-     * Moves the current view to the left (undependent of the TextDirection).
-     */
-    private void move_left (Gdk.EventKey event) {
-        if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
-            grid_view.go_to_previous ();
-        } else {
-            normal_move_focus (-1, 0);
-        }
-    }
-
-    /*
-     * Moves the current view to the right (undependent of the TextDirection).
-     */
-    private void move_right (Gdk.EventKey event) {
-        if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
-            grid_view.go_to_next ();
-        } else {
-            normal_move_focus (+1, 0);
-        }
     }
 
     private void set_modality (Modality new_modality) {
