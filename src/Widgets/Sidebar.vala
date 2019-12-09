@@ -56,7 +56,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         set_show_expanders (false);
         set_level_indentation (8);
 
-        hexpand = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
         var cell = new Gtk.CellRendererText ();
