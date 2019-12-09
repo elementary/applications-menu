@@ -59,10 +59,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         screen = get_screen ();
 
-        height_request = (int) (
-            DEFAULT_ROWS * Pixels.ITEM_SIZE + (DEFAULT_ROWS - 1) * Pixels.ROW_SPACING
-        ) + Pixels.BOTTOM_SPACE;
-
         var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
         grid_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"));
 
