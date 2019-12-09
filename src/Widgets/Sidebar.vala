@@ -29,7 +29,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     }
 
     construct {
-        hexpand = true;
         selection_mode = Gtk.SelectionMode.SINGLE;
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 

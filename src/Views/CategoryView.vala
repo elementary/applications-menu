@@ -20,9 +20,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public SlingshotView view { get; construct; }
 
     public Sidebar category_switcher;
-    public Widgets.Grid app_view;
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
+
+    private bool dragging = false;
+    private string? drag_uri = null;
+    private Gtk.ListBox listbox;
+
+    private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
     public CategoryView (SlingshotView view) {
         Object (view: view);
@@ -40,13 +45,19 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-        app_view = new Widgets.Grid (SlingshotView.DEFAULT_ROWS, SlingshotView.DEFAULT_COLUMNS - 1);
+        listbox = new Gtk.ListBox ();
+        listbox.expand = true;
+        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+
+        var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
+        listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        listbox_scrolled.add (listbox);
 
         var container = new Gtk.Grid ();
         container.hexpand = true;
         container.add (scrolled_category);
         container.add (separator);
-        container.add (app_view);
+        container.add (listbox_scrolled);
 
         add (container);
 
@@ -54,26 +65,123 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             show_filtered_apps (category_ids[nth]);
         });
 
+        listbox.row_activated.connect ((row) => {
+            Idle.add (() => {
+                if (!dragging) {
+                    ((AppListRow) row).launch ();
+                    view.close_indicator ();
+                }
+
+                return false;
+            });
+        });
+
+        listbox.button_press_event.connect ((event) => {
+            if (event.button == Gdk.BUTTON_SECONDARY) {
+                return create_context_menu (event);
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+
+        listbox.key_press_event.connect ((event) => {
+            if (event.keyval == Gdk.Key.Menu) {
+                return create_context_menu (event);
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+
+        listbox.key_press_event.connect (on_key_press);
+        category_switcher.key_press_event.connect (on_key_press);
+
+        Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
+
+        listbox.motion_notify_event.connect ((event) => {
+            if (!dragging) {
+                listbox.select_row (listbox.get_row_at_y ((int) event.y));
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+
+        listbox.drag_begin.connect ((ctx) => {
+            var selected_row = listbox.get_selected_row ();
+            if (selected_row != null) {
+                dragging = true;
+
+                var drag_item = (AppListRow) selected_row;
+                drag_uri = "file://" + drag_item.desktop_path;
+                if (drag_uri != null) {
+                    Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
+                }
+
+                view.close_indicator ();
+            }
+        });
+
+        listbox.drag_end.connect (() => {
+            if (drag_uri != null) {
+                view.close_indicator ();
+            }
+
+            dragging = false;
+            drag_uri = null;
+        });
+
+        listbox.drag_data_get.connect ((ctx, sel, info, time) => {
+            if (drag_uri != null) {
+                sel.set_uris ({drag_uri});
+            }
+        });
+
         setup_sidebar ();
+    }
+
+    private bool create_context_menu (Gdk.Event event) {
+        var selected_row = (AppListRow) listbox.get_selected_row ();
+
+        var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
+        menu.app_launched.connect (() => {
+            view.close_indicator ();
+        });
+
+        if (menu.get_children () != null) {
+            if (event.type == Gdk.EventType.KEY_PRESS) {
+                menu.popup_at_widget (selected_row, Gdk.Gravity.CENTER, Gdk.Gravity.CENTER, event);
+                return Gdk.EVENT_STOP;
+            } else if (event.type == Gdk.EventType.BUTTON_PRESS) {
+                menu.popup_at_pointer (event);
+                return Gdk.EVENT_STOP;
+            }
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 
     public void page_down () {
         category_switcher.selected++;
-        app_view.top_left_focus ();
+        focus_select_first_row ();
     }
 
     public void page_up () {
         if (category_switcher.selected != 0) {
             category_switcher.selected--;
-            app_view.top_left_focus ();
+            focus_select_first_row ();
         }
+    }
+
+    private void focus_select_first_row () {
+        var first_row = listbox.get_row_at_index (0);
+        first_row.grab_focus ();
+        listbox.select_row (first_row);
     }
 
     public void setup_sidebar () {
         var old_selected = category_switcher.selected;
         category_ids.clear ();
         category_switcher.clear ();
-        app_view.set_size_request (-1, -1);
+
         // Fill the sidebar
         int n = 0;
         foreach (string cat_name in view.apps.keys) {
@@ -86,28 +194,41 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         category_switcher.show_all ();
-
-        int minimum_width;
-        category_switcher.get_preferred_width (out minimum_width, null);
-
-        // Because of the different sizes of the column widget, we need to calculate if it will fit.
-        int removing_columns = (int)((double)minimum_width / (double)Pixels.ITEM_SIZE);
-        if (minimum_width % Pixels.ITEM_SIZE != 0)
-            removing_columns++;
-
-        int columns = SlingshotView.DEFAULT_COLUMNS - removing_columns;
-        app_view.resize (SlingshotView.DEFAULT_ROWS, columns);
-
         category_switcher.selected = old_selected;
     }
 
     public void show_filtered_apps (string category) {
-        app_view.clear ();
-        foreach (Backend.App app in view.apps[category]) {
-            var app_button = new AppButton (app);
-            app_button.app_launched.connect (() => view.close_indicator ());
-            app_view.append (app_button);
-            app_view.show_all ();
+        foreach (unowned Gtk.Widget child in listbox.get_children ()) {
+            child.destroy ();
         }
+
+        foreach (Backend.App app in view.apps[category]) {
+            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
+        }
+
+        listbox.show_all ();
+    }
+
+    private bool on_key_press (Gdk.EventKey event) {
+        switch (event.keyval) {
+            case Gdk.Key.Page_Up:
+            case Gdk.Key.KP_Page_Up:
+                page_up ();
+                return Gdk.EVENT_STOP;
+            case Gdk.Key.Page_Down:
+            case Gdk.Key.KP_Page_Down:
+                page_down ();
+                return Gdk.EVENT_STOP;
+            case Gdk.Key.Home:
+                category_switcher.selected = 0;
+                focus_select_first_row ();
+                return Gdk.EVENT_STOP;
+            case Gdk.Key.End:
+                category_switcher.select_end ();
+                focus_select_first_row ();
+                return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 }
