@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 17:53+0000\n"
+"POT-Creation-Date: 2019-12-09 21:29+0000\n"
 "PO-Revision-Date: 2019-02-10 08:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://weblate.elementary.io/projects/wingpanel/"
@@ -36,19 +36,19 @@ msgstr "יישומים"
 msgid "Open and search apps"
 msgstr "פתיחה וחיפוש יישומים"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:67
 msgid "View as Grid"
 msgstr "הצגה כרשת"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:70
 msgid "View by Category"
 msgstr "הצגה על פי קטגוריות"
 
-#: src/SlingshotView.vala:83
+#: src/SlingshotView.vala:82
 msgid "Search Apps"
 msgstr "חיפוש יישומים"
 
-#: src/SlingshotView.vala:86
+#: src/SlingshotView.vala:85
 msgid "Clear all"
 msgstr ""
 

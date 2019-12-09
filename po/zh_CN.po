@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 17:53+0000\n"
+"POT-Creation-Date: 2019-12-09 21:29+0000\n"
 "PO-Revision-Date: 2019-04-08 05:53+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -36,19 +36,19 @@ msgstr "应用程序"
 msgid "Open and search apps"
 msgstr "打开并搜索应用"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:67
 msgid "View as Grid"
 msgstr "网格视图"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:70
 msgid "View by Category"
 msgstr "分类视图"
 
-#: src/SlingshotView.vala:83
+#: src/SlingshotView.vala:82
 msgid "Search Apps"
 msgstr "搜索应用"
 
-#: src/SlingshotView.vala:86
+#: src/SlingshotView.vala:85
 msgid "Clear all"
 msgstr ""
 
