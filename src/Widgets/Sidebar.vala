@@ -30,7 +30,10 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
 
     construct {
         selection_mode = Gtk.SelectionMode.SINGLE;
-        get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+
+        unowned Gtk.StyleContext style_context = get_style_context ();
+        style_context.add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        style_context.add_class (Gtk.STYLE_CLASS_VIEW);
 
         row_selected.connect ((row) => {
             selection_changed (row.get_index ());
