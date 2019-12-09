@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 17:53+0000\n"
+"POT-Creation-Date: 2019-12-09 21:29+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -32,19 +32,19 @@ msgstr "অ্যাপ্লিকেশন"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:67
 msgid "View as Grid"
 msgstr "গ্রিড হিসাবে দেখুন"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:70
 msgid "View by Category"
 msgstr "বিভাগ দ্বারা দেখুন"
 
-#: src/SlingshotView.vala:83
+#: src/SlingshotView.vala:82
 msgid "Search Apps"
 msgstr "এপ্স অনুসন্ধান করুন"
 
-#: src/SlingshotView.vala:86
+#: src/SlingshotView.vala:85
 msgid "Clear all"
 msgstr ""
 

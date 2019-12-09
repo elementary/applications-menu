@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 17:53+0000\n"
+"POT-Creation-Date: 2019-12-09 21:29+0000\n"
 "PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
@@ -37,19 +37,19 @@ msgstr "Program"
 msgid "Open and search apps"
 msgstr "Öppna och sök i program (%s)"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:67
 msgid "View as Grid"
 msgstr "Visa som rutnät"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:70
 msgid "View by Category"
 msgstr "Visa kategorivis"
 
-#: src/SlingshotView.vala:83
+#: src/SlingshotView.vala:82
 msgid "Search Apps"
 msgstr "Sök efter program"
 
-#: src/SlingshotView.vala:86
+#: src/SlingshotView.vala:85
 msgid "Clear all"
 msgstr ""
 
