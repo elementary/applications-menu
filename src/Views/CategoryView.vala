@@ -227,6 +227,20 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 category_switcher.selected = category_switcher.cat_size - 1;
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
+            case Gdk.Key.KP_Up:
+            case Gdk.Key.Up:
+                if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+                    page_up ();
+                    return Gdk.EVENT_STOP;
+                }
+                break;
+            case Gdk.Key.KP_Down:
+            case Gdk.Key.Down:
+                if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+                    page_down ();
+                    return Gdk.EVENT_STOP;
+                }
+                break;
             case Gdk.Key.KP_Right:
             case Gdk.Key.Right:
                 if (get_style_context ().direction == Gtk.TextDirection.LTR) {
