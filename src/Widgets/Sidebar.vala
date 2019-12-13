@@ -30,6 +30,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
 
     construct {
         selection_mode = Gtk.SelectionMode.SINGLE;
+        width_request = 120;
 
         unowned Gtk.StyleContext style_context = get_style_context ();
         style_context.add_class (Gtk.STYLE_CLASS_SIDEBAR);
@@ -44,6 +45,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     public void add_category (string entry_name) {
         var label = new Gtk.Label (entry_name);
         label.halign = Gtk.Align.START;
+        label.margin_start = 3;
 
         add (label);
     }
