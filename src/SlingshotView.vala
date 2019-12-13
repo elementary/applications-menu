@@ -59,10 +59,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         screen = get_screen ();
 
-        height_request = (int) (
-            DEFAULT_ROWS * Pixels.ITEM_SIZE + (DEFAULT_ROWS - 1) * Pixels.ROW_SPACING
-        ) + Pixels.BOTTOM_SPACE;
-
         var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
         grid_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"));
 
@@ -322,15 +318,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Up":
                 if (modality == Modality.NORMAL_VIEW) {
                     normal_move_focus (0, -1);
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Up
-                        category_view.page_up ();
-                    } else if (search_entry.has_focus) {
-                        category_view.category_switcher.selected--;
-                    } else {
-                        return Gdk.EVENT_PROPAGATE;
-                    }
-                } else if (modality == Modality.SEARCH_VIEW) {
+                } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
                 break;
@@ -342,15 +330,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     } else {
                         normal_move_focus (0, +1);
                     }
-                } else if (modality == Modality.CATEGORY_VIEW) {
-                    if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Down
-                        category_view.page_down ();
-                    } else if (search_entry.has_focus) {
-                        category_view.category_switcher.selected++;
-                    } else { // the user has already selected an AppButton
-                        return Gdk.EVENT_PROPAGATE;
-                    }
-                } else if (modality == Modality.SEARCH_VIEW) {
+                } else {
                     return Gdk.EVENT_PROPAGATE;
                 }
                 break;
