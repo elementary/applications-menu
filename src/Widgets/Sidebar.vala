@@ -38,6 +38,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         }
     }
 
+    private uint scroll_timeout = 0;
     private Gtk.TreeStore store;
     private Gtk.TreeIter entry_iter;
 
@@ -65,7 +66,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
 
         get_selection ().set_mode (Gtk.SelectionMode.SINGLE);
         get_selection ().changed.connect (selection_change);
-
     }
 
     public void add_category (string entry_name) {
@@ -106,18 +106,31 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
     }
 
     protected override bool scroll_event (Gdk.EventScroll event) {
-        switch (event.direction.to_string ()) {
-            case "GDK_SCROLL_UP":
-            case "GDK_SCROLL_LEFT":
+        switch (event.direction) {
+            case Gdk.ScrollDirection.UP:
+            case Gdk.ScrollDirection.LEFT:
                 selected--;
                 break;
-            case "GDK_SCROLL_DOWN":
-            case "GDK_SCROLL_RIGHT":
+            case Gdk.ScrollDirection.DOWN:
+            case Gdk.ScrollDirection.RIGHT:
                 selected++;
                 break;
+            case Gdk.ScrollDirection.SMOOTH:
+                if (scroll_timeout == 0) {
+                    if (event.delta_y > 0.04) {
+                        selected++;
+                    } else if (event.delta_y < -0.04) {
+                        selected--;
+                    }
 
+                    scroll_timeout = GLib.Timeout.add (180, () => {
+                        scroll_timeout = 0;
+                        return Source.REMOVE;
+                    });
+                }
+                break;
         }
 
-        return false;
+        return Gdk.EVENT_STOP;
     }
 }

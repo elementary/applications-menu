@@ -399,19 +399,17 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             return Gdk.EVENT_PROPAGATE;
         }
 
-        switch (scroll_event.direction) {
-            case Gdk.ScrollDirection.UP:
-            case Gdk.ScrollDirection.LEFT:
-                if (modality == Modality.NORMAL_VIEW) {
+        if (modality == Modality.NORMAL_VIEW) {
+            switch (scroll_event.direction) {
+                case Gdk.ScrollDirection.UP:
+                case Gdk.ScrollDirection.LEFT:
                     grid_view.go_to_previous ();
-                }
-                break;
-            case Gdk.ScrollDirection.DOWN:
-            case Gdk.ScrollDirection.RIGHT:
-                if (modality == Modality.NORMAL_VIEW) {
+                    break;
+                case Gdk.ScrollDirection.DOWN:
+                case Gdk.ScrollDirection.RIGHT:
                     grid_view.go_to_next ();
-                }
-                break;
+                    break;
+            }
         }
 
         return Gdk.EVENT_PROPAGATE;
