@@ -65,13 +65,13 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     }
 
     protected override bool scroll_event (Gdk.EventScroll event) {
-        switch (event.direction.to_string ()) {
-            case "GDK_SCROLL_UP":
-            case "GDK_SCROLL_LEFT":
+        switch (event.direction) {
+            case Gdk.ScrollDirection.UP:
+            case Gdk.ScrollDirection.LEFT:
                 selected++;
                 break;
-            case "GDK_SCROLL_DOWN":
-            case "GDK_SCROLL_RIGHT":
+            case Gdk.ScrollDirection.DOWN:
+            case Gdk.ScrollDirection.RIGHT:
                 selected--;
                 break;
 
