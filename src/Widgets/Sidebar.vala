@@ -38,7 +38,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         }
     }
 
-    private uint scroll_timeout = 0;
+    private double total_delta_y = 0.0;
     private Gtk.TreeStore store;
     private Gtk.TreeIter entry_iter;
 
@@ -116,17 +116,14 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
                 selected++;
                 break;
             case Gdk.ScrollDirection.SMOOTH:
-                if (scroll_timeout == 0) {
-                    if (event.delta_y > 0.04) {
-                        selected++;
-                    } else if (event.delta_y < -0.04) {
-                        selected--;
-                    }
+                total_delta_y += event.delta_y;
 
-                    scroll_timeout = GLib.Timeout.add (180, () => {
-                        scroll_timeout = 0;
-                        return Source.REMOVE;
-                    });
+                if (total_delta_y > 1) {
+                    total_delta_y = 0;
+                    selected++;
+                } else if (total_delta_y < -1) {
+                    total_delta_y = 0;
+                    selected--;
                 }
                 break;
         }
