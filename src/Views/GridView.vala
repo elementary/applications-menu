@@ -28,12 +28,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private Gtk.FlowBox current_grid;
-    private Gtk.Widget? focused_widget;
     private Gee.HashMap<int, Gtk.FlowBox> grids;
     private Page page;
 
-    private int focused_column;
-    private int focused_row;
     private uint current_row = 0;
     private uint current_col = 0;
 
@@ -116,15 +113,11 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         stack.set_visible_child (current_grid);
     }
 
-    public int get_page_columns () {
-        return (int) page.columns;
-    }
-
-    public int get_n_pages () {
+    private int get_n_pages () {
         return (int) page.number;
     }
 
-    public int get_current_page () {
+    private int get_current_page () {
         return int.parse (stack.get_visible_child_name ());
     }
 
@@ -146,36 +139,5 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     public void go_to_number (int number) {
         stack.set_visible_child_name (number.to_string ());
-    }
-
-    public bool set_focus (int column, int row) {
-        var target_widget = get_child_at (column, row);
-
-        if (target_widget != null) {
-            go_to_number (((int) (column / page.columns)) + 1);
-
-            focused_column = column;
-            focused_row = row;
-            focused_widget = target_widget;
-
-            focused_widget.grab_focus ();
-
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool set_paginated_focus (int column, int row) {
-        int first_column = (get_current_page () - 1) * get_page_columns ();
-        return set_focus (first_column, 0);
-    }
-
-    public bool set_focus_relative (int delta_column, int delta_row) {
-        return set_focus (focused_column + delta_column, focused_row + delta_row);
-    }
-
-    public void top_left_focus () {
-        set_paginated_focus (0, 0);
     }
 }
