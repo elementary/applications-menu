@@ -21,13 +21,6 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
 
     public signal void app_launched ();
 
-    public Gtk.Label app_label;
-    public unowned string exec_name {
-        get {
-            return application.exec;
-        }
-    }
-
     public unowned string app_name {
         get {
             return application.name;
@@ -84,7 +77,7 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-        app_label = new Gtk.Label (app_name);
+        var app_label = new Gtk.Label (app_name);
         app_label.halign = Gtk.Align.CENTER;
         app_label.justify = Gtk.Justification.CENTER;
         app_label.set_line_wrap (true);
