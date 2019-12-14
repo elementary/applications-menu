@@ -48,7 +48,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         page_switcher.set_stack (stack);
 
         orientation = Gtk.Orientation.VERTICAL;
-        row_spacing = 6;
+        row_spacing = 24;
         margin_bottom = 12;
         add (stack);
         add (page_switcher);
@@ -63,7 +63,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         current_grid.expand = true;
         current_grid.margin_start = 12;
         current_grid.margin_end = 12;
-        current_grid.row_spacing = Pixels.ROW_SPACING;
+        current_grid.row_spacing = 24;
         current_grid.column_spacing = 0;
         current_grid.max_children_per_line = 5;
         current_grid.min_children_per_line = 5;
