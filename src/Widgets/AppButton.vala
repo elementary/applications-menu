@@ -16,7 +16,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-public class Slingshot.Widgets.AppButton : Gtk.Button {
+public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
     private static Slingshot.AppContextMenu menu;
 
     public signal void app_launched ();
@@ -127,8 +127,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         grid.add (app_label);
 
         add (grid);
-
-        this.clicked.connect (launch_app);
 
         this.button_press_event.connect ((e) => {
             if (e.button != Gdk.BUTTON_SECONDARY) {

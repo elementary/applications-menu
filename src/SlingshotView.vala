@@ -88,6 +88,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         top.add (search_entry);
 
         grid_view = new Widgets.Grid ();
+        grid_view.app_launched.connect (() => close_indicator ());
 
         category_view = new Widgets.CategoryView (this);
 
@@ -474,23 +475,5 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         }
 
         grid_view.show_all ();
-    }
-
-    private void normal_move_focus (int delta_column, int delta_row) {
-        if (grid_view.set_focus_relative (delta_column, delta_row)) {
-            return;
-        }
-
-        int pages = grid_view.get_n_pages ();
-        int current = grid_view.get_current_page ();
-        int columns = grid_view.get_page_columns ();
-
-        if (delta_column > 0 && current < pages && grid_view.set_focus ((pages - 1) * columns, 0)) {
-            return;
-        }
-
-        if (delta_column < 0 || delta_row < 0) {
-            search_entry.grab_focus ();
-        }
     }
 }

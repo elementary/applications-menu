@@ -17,6 +17,8 @@
  */
 
 public class Slingshot.Widgets.Grid : Gtk.Grid {
+    public signal void app_launched ();
+
     public Gtk.Stack stack { get; private set; }
 
     private struct Page {
@@ -67,6 +69,11 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         current_grid.column_spacing = 0;
         current_grid.max_children_per_line = 5;
         current_grid.min_children_per_line = 5;
+
+        current_grid.child_activated.connect ((child) => {
+            ((Widgets.AppButton) child).launch_app ();
+            app_launched ();
+        });
 
         grids.set (page.number, current_grid);
 
