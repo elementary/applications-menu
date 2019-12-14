@@ -63,6 +63,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void create_new_grid () {
         current_grid = new Gtk.FlowBox ();
         current_grid.expand = true;
+        current_grid.homogeneous = true;
         current_grid.margin_start = 12;
         current_grid.margin_end = 12;
         current_grid.row_spacing = 24;
