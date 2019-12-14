@@ -75,8 +75,6 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
         application = app;
         tooltip_text = app.description;
 
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-
         var app_label = new Gtk.Label (app_name);
         app_label.halign = Gtk.Align.CENTER;
         app_label.justify = Gtk.Justification.CENTER;
