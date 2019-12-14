@@ -123,6 +123,7 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
         grid.row_spacing = 6;
         grid.expand = true;
         grid.halign = Gtk.Align.CENTER;
+        grid.margin = 6;
         grid.add (overlay);
         grid.add (app_label);
 

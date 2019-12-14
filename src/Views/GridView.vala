@@ -70,6 +70,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         current_grid.column_spacing = 0;
         current_grid.max_children_per_line = 5;
         current_grid.min_children_per_line = 5;
+        current_grid.selection_mode = Gtk.SelectionMode.NONE;
 
         current_grid.child_activated.connect ((child) => {
             ((Widgets.AppButton) child).launch_app ();
