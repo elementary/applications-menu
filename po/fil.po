@@ -1,22 +1,20 @@
-# Serbian Latin translation for slingshot
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the slingshot package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2017-01-07 13:03+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Serbian Latin <sr@latin@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: src/Indicator.vala:35
 msgid "Slingshot"
@@ -36,11 +34,11 @@ msgstr ""
 
 #: src/SlingshotView.vala:67
 msgid "View as Grid"
-msgstr "Pregled u rešetki"
+msgstr ""
 
 #: src/SlingshotView.vala:70
 msgid "View by Category"
-msgstr "Pregled po kategoriji"
+msgstr ""
 
 #: src/SlingshotView.vala:82
 msgid "Search Apps"
@@ -76,10 +74,8 @@ msgid "Uninstall"
 msgstr ""
 
 #: src/Widgets/AppContextMenu.vala:149
-#, fuzzy
-#| msgid "View by Category"
 msgid "View in AppCenter"
-msgstr "Pregled po kategoriji"
+msgstr ""
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -327,9 +323,3 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr ""
-
-#~ msgid "All Applications"
-#~ msgstr "Sve aplikacije"
-
-#~ msgid "Create a new Filter"
-#~ msgstr "Napravi novi filter"
