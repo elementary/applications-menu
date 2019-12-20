@@ -17,6 +17,8 @@
  */
 
 public class Slingshot.Widgets.Grid : Gtk.Grid {
+    public signal void app_launched ();
+
     public Gtk.Stack stack { get; private set; }
 
     private struct Page {
@@ -58,6 +60,42 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         go_to_number (1);
     }
 
+    public void populate (Backend.AppSystem app_system) {
+        foreach (Gtk.Grid grid in grids.values) {
+            grid.destroy ();
+        }
+
+        grids.clear ();
+        current_row = 0;
+        current_col = 0;
+        page.number = 1;
+        create_new_grid ();
+        stack.set_visible_child (current_grid);
+
+        foreach (Backend.App app in app_system.get_apps_by_name ()) {
+            var app_button = new Widgets.AppButton (app);
+            app_button.app_launched.connect (() => app_launched ());
+
+            if (current_col == page.columns) {
+                current_col = 0;
+                current_row++;
+            }
+
+            if (current_row == page.rows) {
+                page.number++;
+                create_new_grid ();
+                current_row = 0;
+            }
+
+            current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
+            current_grid.attach (app_button, (int)current_col, (int)current_row, 1, 1);
+            current_col++;
+            current_grid.show ();
+        }
+
+        show_all ();
+    }
+
     private void create_new_grid () {
         // Grid properties
         current_grid = new Gtk.Grid ();
@@ -76,41 +114,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         for (var row = 0; row < page.rows; row++)
             for (var column = 0; column < page.columns; column++)
                 current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
-    }
-
-    public void append (Gtk.Widget widget) {
-        update_position ();
-
-        current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
-        current_grid.attach (widget, (int)current_col, (int)current_row, 1, 1);
-        current_col++;
-        current_grid.show ();
-    }
-
-    private void update_position () {
-        if (current_col == page.columns) {
-            current_col = 0;
-            current_row++;
-        }
-
-        if (current_row == page.rows) {
-            page.number++;
-            create_new_grid ();
-            current_row = 0;
-        }
-    }
-
-    public void clear () {
-        foreach (Gtk.Grid grid in grids.values) {
-            grid.destroy ();
-        }
-
-        grids.clear ();
-        current_row = 0;
-        current_col = 0;
-        page.number = 1;
-        create_new_grid ();
-        stack.set_visible_child (current_grid);
     }
 
     private Gtk.Widget? get_child_at (int column, int row) {
