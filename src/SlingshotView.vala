@@ -106,7 +106,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         container.attach (stack, 0, 1);
 
         // This function must be after creating the page switcher
-        populate_grid_view ();
+        grid_view.populate (app_system);
 
         var event_box = new Gtk.EventBox ();
         event_box.add (container);
@@ -147,7 +147,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         search_entry.grab_focus ();
         search_entry.activate.connect (search_entry_activated);
 
-        // FIXME: signals chain up is not supported
+        grid_view.app_launched.connect (() => {
+            close_indicator ();
+        });
+
         search_view.app_launched.connect (() => {
             close_indicator ();
         });
@@ -160,7 +163,8 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         app_system.changed.connect (() => {
             apps = app_system.get_apps ();
 
-            populate_grid_view ();
+            grid_view.populate (app_system);
+
             category_view.setup_sidebar ();
         });
     }
@@ -525,17 +529,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             search_view.set_results (matches, text);
             return false;
         });
-    }
-
-    public void populate_grid_view () {
-        grid_view.clear ();
-        foreach (Backend.App app in app_system.get_apps_by_name ()) {
-            var app_button = new Widgets.AppButton (app);
-            app_button.app_launched.connect (() => close_indicator ());
-            grid_view.append (app_button);
-        }
-
-        grid_view.show_all ();
     }
 
     private void normal_move_focus (int delta_column, int delta_row) {
