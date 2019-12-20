@@ -57,6 +57,41 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         go_to_number (1);
     }
 
+    public void populate (Backend.AppSystem app_system) {
+        foreach (Gtk.FlowBox flowbox in grids.values) {
+            flowbox.destroy ();
+        }
+
+        grids.clear ();
+        current_row = 0;
+        current_col = 0;
+        page.number = 1;
+        create_new_grid ();
+        stack.set_visible_child (current_grid);
+
+        foreach (Backend.App app in app_system.get_apps_by_name ()) {
+            var app_button = new Widgets.AppButton (app);
+            app_button.app_launched.connect (() => app_launched ());
+
+            if (current_col == page.columns) {
+                current_col = 0;
+                current_row++;
+            }
+
+            if (current_row == page.rows) {
+                page.number++;
+                create_new_grid ();
+                current_row = 0;
+            }
+
+            current_grid.add (app_button);
+            current_col++;
+            current_grid.show ();
+        }
+
+        show_all ();
+    }
+
     private void create_new_grid () {
         current_grid = new Gtk.FlowBox ();
         current_grid.expand = true;
@@ -79,41 +114,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
     }
 
-    public void append (Gtk.Widget widget) {
-        update_position ();
-
-        current_grid.add (widget);
-        current_col++;
-        current_grid.show ();
-    }
-
-    private void update_position () {
-        if (current_col == page.columns) {
-            current_col = 0;
-            current_row++;
-        }
-
-        if (current_row == page.rows) {
-            page.number++;
-            create_new_grid ();
-            current_row = 0;
-        }
-    }
-
-    public void clear () {
-        foreach (Gtk.FlowBox grid in grids.values) {
-            grid.destroy ();
-        }
-
-        grids.clear ();
-        current_row = 0;
-        current_col = 0;
-        page.number = 1;
-        create_new_grid ();
-        stack.set_visible_child (current_grid);
-    }
-
-    private int get_n_pages () {
+    public int get_n_pages () {
         return (int) page.number;
     }
 
