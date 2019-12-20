@@ -1,50 +1,40 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Copyright 2019 elementary, Inc. (https://elementary.io)
+ *           2011-2012 Giulio Collura
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 
 public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
-    private static Slingshot.AppContextMenu menu;
-
     public signal void app_launched ();
 
-    public unowned string app_name {
-        get {
-            return application.name;
-        }
-    }
+    public Backend.App app { get; construct; }
 
-    public unowned string desktop_id {
-        get {
-            return application.desktop_id;
-        }
-    }
-
-    public unowned string desktop_path {
-        get {
-            return application.desktop_path;
-        }
-    }
-
+#if HAS_PLANK
+    private static Plank.DBusClient plank_client;
+#endif
     private static Gtk.CssProvider css_provider;
+    private static Slingshot.AppContextMenu menu;
 
-    private new Granite.AsyncImage image;
+    private const int ICON_SIZE = 64;
+
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
-    private Backend.App application;
+
+    public AppButton (Backend.App app) {
+        Object (app: app);
+    }
 
     static construct {
 #if HAS_PLANK
@@ -56,26 +46,14 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
         css_provider.load_from_resource ("io/elementary/desktop/wingpanel/applications-menu/applications-menu.css");
     }
 
-    private const int ICON_SIZE = 64;
-
-#if HAS_PLANK
-    private static Plank.DBusClient plank_client;
-    private string desktop_uri {
-        owned get {
-            return File.new_for_path (desktop_path).get_uri ();
-        }
-    }
-#endif
-
-    public AppButton (Backend.App app) {
+    construct {
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
 
-        application = app;
         tooltip_text = app.description;
 
-        var app_label = new Gtk.Label (app_name);
+        var app_label = new Gtk.Label (app.name);
         app_label.halign = Gtk.Align.CENTER;
         app_label.justify = Gtk.Justification.CENTER;
         app_label.set_line_wrap (true);
@@ -84,8 +62,7 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
         app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-        image = new Granite.AsyncImage.from_gicon_async (app.icon, ICON_SIZE);
-
+        var image = new Granite.AsyncImage.from_gicon_async (app.icon, ICON_SIZE);
         image.pixel_size = ICON_SIZE;
         image.margin_top = 9;
         image.margin_end = 6;
@@ -147,7 +124,7 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
         });
 
         this.drag_data_get.connect ( (ctx, sel, info, time) => {
-            sel.set_uris ({File.new_for_path (desktop_path).get_uri ()});
+            sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
         });
 
 #if HAS_PLANK
@@ -171,17 +148,17 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
     }
 
     public void launch_app () {
-        application.launch ();
+        app.launch ();
         app_launched ();
     }
 #if HAS_PLANK
     private void update_badge_count () {
-        badge.label = "%lld".printf (application.current_count);
+        badge.label = "%lld".printf (app.current_count);
         update_badge_visibility ();
     }
 
     private void update_badge_visibility () {
-        var count_visible = application.count_visible && application.current_count > 0;
+        var count_visible = app.count_visible && app.current_count > 0;
         badge.no_show_all = !count_visible;
         if (count_visible) {
             badge.show_all ();
@@ -192,7 +169,7 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
 #endif
 
     private bool create_context_menu (Gdk.Event e) {
-        menu = new Slingshot.AppContextMenu (desktop_id, desktop_path);
+        menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
         menu.app_launched.connect (() => {
             app_launched ();
         });
