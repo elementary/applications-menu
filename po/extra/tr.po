@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-12-19 13:07+0000\n"
+"PO-Revision-Date: 2019-12-20 19:33+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -35,18 +35,20 @@ msgstr ""
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Yeni ipuçları ve menü tuşu desteği dahil olmak üzere geliştirilmiş klavye "
+"ile gezinme"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Arama görünümünde eylem eşleşmelerini vurgula"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "\"Uygulama Merkezinde Görüntüle\" menü öğesi eklendi"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Performance improvements"
-msgstr ""
+msgstr "Performans iyileştirmeleri"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Updated translations"
