@@ -31,9 +31,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private Gee.HashMap<int, Gtk.FlowBox> grids;
     private Page page;
 
-    private uint current_row = 0;
-    private uint current_col = 0;
-
     construct {
         page.rows = 3;
         page.columns = 5;
@@ -63,10 +60,13 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
 
         grids.clear ();
-        current_row = 0;
-        current_col = 0;
+
+        var current_row = 0;
+        var current_col = 0;
         page.number = 1;
+
         create_new_grid ();
+
         stack.set_visible_child (current_grid);
 
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
@@ -114,17 +114,13 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
     }
 
-    public int get_n_pages () {
-        return (int) page.number;
-    }
-
     private int get_current_page () {
         return int.parse (stack.get_visible_child_name ());
     }
 
     public void go_to_next () {
         int page_number = get_current_page () + 1;
-        if (page_number <= get_n_pages ())
+        if (page_number <= page.number)
             stack.set_visible_child_name (page_number.to_string ());
     }
 
@@ -135,7 +131,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public void go_to_last () {
-        stack.set_visible_child_name (get_n_pages ().to_string ());
+        stack.set_visible_child_name (page.number.to_string ());
     }
 
     public void go_to_number (int number) {
