@@ -8,48 +8,52 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-11-07 13:26-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-01-03 22:07+0000\n"
+"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu-extra/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Toepassingen menu"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Open en zoek apps"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Categorie weergave is nu een lijst"
 
 #: data/applications-menu.appdata.xml.in:12
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Verbeterde toetsenbord navigatie, met nieuwe helpteksten en menu toets "
+"ondersteuning"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Highlight matchende acties in de zoek weergave"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Een “Toon in AppCenter” menu item toegevoegd"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Performance improvements"
-msgstr ""
+msgstr "Prestatieverbeteringen"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Updated translations"
-msgstr ""
+msgstr "Bijgewerkte vertalingen"
 
 #: data/applications-menu.appdata.xml.in:25
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
