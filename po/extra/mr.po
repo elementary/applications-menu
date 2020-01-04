@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-11-28 17:24+0000\n"
+"PO-Revision-Date: 2019-12-27 11:19+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/mr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -29,7 +29,7 @@ msgstr "अ‍ॅप्स उघडा आणि शोधा"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Category view is now a list"
-msgstr ""
+msgstr "श्रेणी दृश्य आता एक यादी आहे"
 
 #: data/applications-menu.appdata.xml.in:12
 msgid ""
