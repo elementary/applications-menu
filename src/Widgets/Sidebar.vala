@@ -38,7 +38,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         }
     }
 
-    private double total_delta_y = 0.0;
     private Gtk.TreeStore store;
     private Gtk.TreeIter entry_iter;
 
@@ -103,31 +102,5 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         get_selection ().select_iter (iter);
 
         return true;
-    }
-
-    protected override bool scroll_event (Gdk.EventScroll event) {
-        switch (event.direction) {
-            case Gdk.ScrollDirection.UP:
-            case Gdk.ScrollDirection.LEFT:
-                selected--;
-                break;
-            case Gdk.ScrollDirection.DOWN:
-            case Gdk.ScrollDirection.RIGHT:
-                selected++;
-                break;
-            case Gdk.ScrollDirection.SMOOTH:
-                total_delta_y += event.delta_y;
-
-                if (total_delta_y > 1) {
-                    total_delta_y = 0;
-                    selected++;
-                } else if (total_delta_y < -1) {
-                    total_delta_y = 0;
-                    selected--;
-                }
-                break;
-        }
-
-        return Gdk.EVENT_STOP;
     }
 }
