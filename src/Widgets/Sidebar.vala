@@ -65,7 +65,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
 
         get_selection ().set_mode (Gtk.SelectionMode.SINGLE);
         get_selection ().changed.connect (selection_change);
-
     }
 
     public void add_category (string entry_name) {
@@ -103,21 +102,5 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         get_selection ().select_iter (iter);
 
         return true;
-    }
-
-    protected override bool scroll_event (Gdk.EventScroll event) {
-        switch (event.direction.to_string ()) {
-            case "GDK_SCROLL_UP":
-            case "GDK_SCROLL_LEFT":
-                selected--;
-                break;
-            case "GDK_SCROLL_DOWN":
-            case "GDK_SCROLL_RIGHT":
-                selected++;
-                break;
-
-        }
-
-        return false;
     }
 }
