@@ -143,14 +143,11 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                     var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
                     uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
+                    var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
+                    appcenter_menuitem.activate.connect (open_in_appcenter);
+
                     add (uninstall_menuitem);
-
-                    if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
-                        var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
-                        appcenter_menuitem.activate.connect (open_in_appcenter);
-
-                        add (appcenter_menuitem);
-                    }
+                    add (appcenter_menuitem);
 
                     show_all ();
                 }
