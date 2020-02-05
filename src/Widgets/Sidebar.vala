@@ -52,9 +52,10 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
         store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
         set_model (store);
 
-        set_headers_visible (false);
-        set_show_expanders (false);
-        set_level_indentation (8);
+        enable_search = false;
+        headers_visible = false;
+        show_expanders = false;
+        level_indentation = 8;
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
 
@@ -63,8 +64,9 @@ public class Slingshot.Widgets.Sidebar : Gtk.TreeView {
 
         insert_column_with_attributes (-1, "Filters", cell, "markup", Columns.TEXT);
 
-        get_selection ().set_mode (Gtk.SelectionMode.SINGLE);
-        get_selection ().changed.connect (selection_change);
+        unowned Gtk.TreeSelection selection = get_selection ();
+        selection.set_mode (Gtk.SelectionMode.SINGLE);
+        selection.changed.connect (selection_change);
     }
 
     public void add_category (string entry_name) {
