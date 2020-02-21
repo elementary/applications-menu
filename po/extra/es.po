@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-11-14 15:24+0000\n"
+"PO-Revision-Date: 2019-12-25 15:17+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -29,7 +29,7 @@ msgstr "Abra y busque aplicaciones"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Category view is now a list"
-msgstr ""
+msgstr "La vista de categorías es ahora una lista"
 
 #: data/applications-menu.appdata.xml.in:12
 msgid ""

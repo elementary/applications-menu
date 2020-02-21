@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2018-07-09 20:55+0000\n"
+"PO-Revision-Date: 2020-01-07 19:53+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://weblate.elementary.io/projects/wingpanel/"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.0.1\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:35
@@ -34,9 +34,8 @@ msgid "Applications"
 msgstr "Aplikacije"
 
 #: src/Indicator.vala:118
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Zaženi in išči aplikacije (%s)"
+msgstr "Zaženi in išči aplikacije"
 
 #: src/SlingshotView.vala:67
 msgid "View as Grid"
@@ -52,7 +51,7 @@ msgstr "Iskanje aplikacij"
 
 #: src/SlingshotView.vala:85
 msgid "Clear all"
-msgstr ""
+msgstr "Počisti vse"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -80,9 +79,8 @@ msgid "Uninstall"
 msgstr "Odstrani"
 
 #: src/Widgets/AppContextMenu.vala:149
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Center za aplikacije"
+msgstr "Odpri v centru za aplikacije"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -249,7 +247,7 @@ msgstr "Zakleni to napravo"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "zakleni"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -263,7 +261,7 @@ msgstr "Zapri vse odprte programe in končaj"
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "odjava;odjavi"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -275,10 +273,9 @@ msgstr "Postavi računalnik v stanje pripravljenosti"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "V pripravljenost"
+msgstr "pripravljenost;spanje"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -290,10 +287,9 @@ msgstr "Postavi računalnik v mirovanje"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "V mirovanje"
+msgstr "mirovanje"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -307,7 +303,7 @@ msgstr "Izklopi računalnik"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "izklopi;ugasni"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -321,7 +317,7 @@ msgstr "Ponovno zaženi računalnik"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reset;zagon;ponovni zagon"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
