@@ -2,320 +2,324 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-06-26 18:53+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-02-23 09:08+0000\n"
+"Last-Translator: gkkulik <g.kulik@o2.pl>\n"
+"Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu/szl/>\n"
 "Language: szl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: src/Indicator.vala:35
 msgid "Slingshot"
-msgstr ""
+msgstr "Slingshot"
 
 #: src/Indicator.vala:36
 msgid "The app-menu indicator"
-msgstr ""
+msgstr "Skaźnik myni programōw"
 
 #: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
 msgid "Applications"
-msgstr ""
+msgstr "Programy"
 
 #: src/Indicator.vala:118
 msgid "Open and search apps"
-msgstr ""
+msgstr "Ôtwōrz i wyszukej programy"
 
 #: src/SlingshotView.vala:67
 msgid "View as Grid"
-msgstr ""
+msgstr "Pokoż jako nec"
 
 #: src/SlingshotView.vala:70
 msgid "View by Category"
-msgstr ""
+msgstr "Pokoż jako kategoryje"
 
 #: src/SlingshotView.vala:82
 msgid "Search Apps"
-msgstr ""
+msgstr "Wyszukej program"
 
 #: src/SlingshotView.vala:85
 msgid "Clear all"
-msgstr ""
+msgstr "Wysnoż wszyjsko"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
-msgstr ""
+msgstr "Wykōnej ta kōmynda…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Sprōbuj zmiynić wyszukowane słowa."
 
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Brak wynikōw do „%s”"
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Skasuj z _doku"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Przidej do _doku"
 
 #: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
-msgstr ""
+msgstr "Ôdinstaluj"
 
 #: src/Widgets/AppContextMenu.vala:149
 msgid "View in AppCenter"
-msgstr ""
+msgstr "Pokoż we Cyntrum programōw"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: src/Widgets/SearchItem.vala:40
 msgid "Files"
-msgstr ""
+msgstr "Zbiory"
 
 #: src/Widgets/SearchItem.vala:43
 msgid "Actions"
-msgstr ""
+msgstr "Akcyje"
 
 #: src/Widgets/SearchItem.vala:45
 msgid "Search"
-msgstr ""
+msgstr "Szukej"
 
 #: src/Widgets/SearchItem.vala:47
 msgid "Contacts"
-msgstr ""
+msgstr "Kōntakty"
 
 #: src/Widgets/SearchItem.vala:49
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
-msgstr ""
+msgstr "Sztelōnki"
 
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
-msgstr ""
+msgstr "Akcyje programu"
 
 #: src/Widgets/SearchItem.vala:55
 msgid "Other"
-msgstr ""
+msgstr "Inksze"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Skopiuj do skrytki"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Skopiuj zaznaczynie do skrytki"
 
 #: src/synapse-core/Actions/RunnerAction.vala:25
 msgid "Run"
-msgstr ""
+msgstr "Ôtwōrz"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr ""
+msgstr "Wykōnej program, fungowanie abo skrypt"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Wykōnej w terminalu"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Wykōnej program abo kōmynda w terminalu"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Szukej %s w %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr ""
+msgstr "Szukej we sklepie z programami"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCenter"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr ""
+msgstr "Szukej programōw"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "Cyntrum programōw niyma zainstalowane"
 
 #: src/synapse-plugins/calculator-plugin.vala:44
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulatōr"
 
 #: src/synapse-plugins/calculator-plugin.vala:45
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Rachuj bazowe wyrażynia."
 
 #: src/synapse-plugins/calculator-plugin.vala:49
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc niyma zainstalowane"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Wykōnej '%s'"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
-msgstr ""
+msgstr "Wykōnej kōmynda"
 
 #: src/synapse-plugins/command-plugin.vala:60
 msgid "Find and execute arbitrary commands."
-msgstr ""
+msgstr "Wyszukej i wykōnej lecy jake kōmyndy."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr ""
+msgstr "Wyszukuj i ôtwiyrej programy na tym kōmputrze."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Open with %s"
-msgstr ""
+msgstr "Ôtwōrz ze %s"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:322
 #, c-format
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Ôtwiyro teroźnie ôbrane ze %s"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Ôtwōrz %s we wychodnyj przeglōndarce necowyj"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Ôtwōrz %s w %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Ôtwōrz tyn link we wychodnyj przeglōndarce"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: src/synapse-plugins/link-plugin.vala:73
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Ôtwōrz link we wychodnyj przeglōndarce"
 
 #: src/synapse-plugins/switchboard-plugin.vala:40
 #, c-format
 msgid "Open %s settings"
-msgstr ""
+msgstr "Ôtwōrz sztelōnki %s"
 
 #: src/synapse-plugins/switchboard-plugin.vala:61
 msgid "Find switchboard plugs and open them."
-msgstr ""
+msgstr "Znojdź przidowki ôd Switchboard i ôtwōrz je."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr ""
+msgstr "Zablokuj"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr ""
+msgstr "Zablokuj ta maszina"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "blokada"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr ""
+msgstr "Ôdloguj sie"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Zawrzij wszyjske ôtwarte programy i zastow"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "wyloguj"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
-msgstr ""
+msgstr "Strzim"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
-msgstr ""
+msgstr "Uspej kōmputer"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr ""
+msgstr "strzimanie; strzim; uspej; uspanie"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernacyjo"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
-msgstr ""
+msgstr "Zahibernuj kōmputer"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr ""
+msgstr "zahibernuj; hibernacyjo"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr ""
+msgstr "Zastow"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Zastow kōmputer"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "zastawiynie;zastow;zakōńcz"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
-msgstr ""
+msgstr "Zresztartuj"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
-msgstr ""
+msgstr "Zresztartuj kōmputer"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "sztartnij;zaś;resztart; zresztartować;resztartowanie"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Zablokuj sesyjo abo ôdloguj sie. Strzim, zahibernuj, zresztartuj abo zastow "
+"kōmputer."
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "Niy szło znojś ConsoleKit"
