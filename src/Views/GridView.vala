@@ -58,8 +58,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
         create_new_grid ();
         go_to_number (1);
-
-        key_press_event.connect (on_key_press);
     }
 
     public void populate (Backend.AppSystem app_system) {
@@ -192,12 +190,12 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         set_paginated_focus (0, 0);
     }
 
-    public override key_press_event (Gdk.EventKey event) {
+    public override bool key_press_event (Gdk.EventKey event) {
         switch (event.keyval) {
             case Gdk.Key.Home:
             case Gdk.Key.KP_Home:
                 stack.set_visible_child_name ("1");
-                break;
+                return Gdk.EVENT_STOP;
         }
 
         return Gdk.EVENT_PROPAGATE;
