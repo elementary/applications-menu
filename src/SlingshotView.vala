@@ -261,8 +261,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
         switch (key) {
             case "Enter": // "KP_Enter"
-            case "Return":
+            case "Home":
             case "KP_Enter":
+            case "Return":
             case "Tab":
                 return Gdk.EVENT_PROPAGATE;
 
@@ -360,16 +361,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                 }
-                return Gdk.EVENT_PROPAGATE;
-            case "Home":
-                if (search_entry.text.length > 0) {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-
-                if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_number (1);
-                }
-
                 return Gdk.EVENT_PROPAGATE;
             case "End":
                 if (search_entry.text.length > 0) {

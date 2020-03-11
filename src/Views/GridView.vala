@@ -189,4 +189,15 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     public void top_left_focus () {
         set_paginated_focus (0, 0);
     }
+
+    public override bool key_press_event (Gdk.EventKey event) {
+        switch (event.keyval) {
+            case Gdk.Key.Home:
+            case Gdk.Key.KP_Home:
+                stack.set_visible_child_name ("1");
+                return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
+    }
 }
