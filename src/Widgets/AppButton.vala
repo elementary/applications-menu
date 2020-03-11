@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Slingshot.Widgets.AppButton : Gtk.Button {
+public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
     public signal void app_launched ();
 
     public Backend.App app { get; construct; }
@@ -52,8 +52,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                              Gdk.DragAction.COPY);
 
         tooltip_text = app.description;
-
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         var app_label = new Gtk.Label (app.name);
         app_label.halign = Gtk.Align.CENTER;
@@ -93,12 +91,11 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         grid.row_spacing = 6;
         grid.expand = true;
         grid.halign = Gtk.Align.CENTER;
+        grid.margin = 6;
         grid.add (overlay);
         grid.add (app_label);
 
         add (grid);
-
-        this.clicked.connect (launch_app);
 
         this.button_press_event.connect ((e) => {
             if (e.button != Gdk.BUTTON_SECONDARY) {
