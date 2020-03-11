@@ -260,17 +260,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public bool on_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
         switch (key) {
-            case "Enter": // "KP_Enter"
-            case "Home":
-            case "KP_Enter":
-            case "Return":
-            case "Tab":
-                return Gdk.EVENT_PROPAGATE;
-
-            case "Alt_L":
-            case "Alt_R":
-                break;
-
             case "0":
             case "1":
             case "2":
@@ -281,21 +270,17 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "7":
             case "8":
             case "9":
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                    int page = int.parse (key);
-                    if (modality == Modality.NORMAL_VIEW) {
-                        if (page < 0 || page == 9) {
-                            grid_view.go_to_last ();
-                        } else {
-                            grid_view.go_to_number (page);
-                        }
-                    }
-
-                    search_entry.grab_focus ();
-                    return Gdk.EVENT_STOP;
-                }
-
+            case "End":
+            case "Enter": // "KP_Enter"
+            case "Home":
+            case "Return":
+            case "Tab":
                 return Gdk.EVENT_PROPAGATE;
+
+            case "Alt_L":
+            case "Alt_R":
+                break;
+
             case "Left":
                 if (modality == Modality.NORMAL_VIEW) {
                     if (get_style_context ().direction == Gtk.TextDirection.LTR) {
@@ -341,36 +326,26 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 break;
 
             case "Page_Up":
-                if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_previous ();
-                } else if (modality == Modality.CATEGORY_VIEW) {
+                if (modality == Modality.CATEGORY_VIEW) {
                     category_view.page_up ();
+                    return Gdk.EVENT_STOP;
                 }
-                break;
+
+                return Gdk.EVENT_PROPAGATE;
 
             case "Page_Down":
-                if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_next ();
-                } else if (modality == Modality.CATEGORY_VIEW) {
+                if (modality == Modality.CATEGORY_VIEW) {
                     category_view.page_down ();
+                    return Gdk.EVENT_STOP;
                 }
-                break;
+
+                return Gdk.EVENT_PROPAGATE;
 
             case "BackSpace":
                 if (!search_entry.has_focus) {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                 }
-                return Gdk.EVENT_PROPAGATE;
-            case "End":
-                if (search_entry.text.length > 0) {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-
-                if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_last ();
-                }
-
                 return Gdk.EVENT_PROPAGATE;
             default:
                 if (!search_entry.has_focus) {

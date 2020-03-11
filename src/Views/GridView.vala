@@ -151,11 +151,11 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             stack.set_visible_child_name (page_number.to_string ());
     }
 
-    public void go_to_last () {
+    private void go_to_last () {
         stack.set_visible_child_name (get_n_pages ().to_string ());
     }
 
-    public void go_to_number (int number) {
+    private void go_to_number (int number) {
         stack.set_visible_child_name (number.to_string ());
     }
 
@@ -192,9 +192,56 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     public override bool key_press_event (Gdk.EventKey event) {
         switch (event.keyval) {
+            case Gdk.Key.@0:
+            case Gdk.Key.@1:
+            case Gdk.Key.@2:
+            case Gdk.Key.@3:
+            case Gdk.Key.@4:
+            case Gdk.Key.@5:
+            case Gdk.Key.@6:
+            case Gdk.Key.@7:
+            case Gdk.Key.@8:
+            case Gdk.Key.@9:
+            case Gdk.Key.KP_0:
+            case Gdk.Key.KP_1:
+            case Gdk.Key.KP_2:
+            case Gdk.Key.KP_3:
+            case Gdk.Key.KP_4:
+            case Gdk.Key.KP_5:
+            case Gdk.Key.KP_6:
+            case Gdk.Key.KP_7:
+            case Gdk.Key.KP_8:
+            case Gdk.Key.KP_9:
+                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) { // Alt
+                    int event_page = int.parse (Gdk.keyval_name (event.keyval).replace ("KP_", ""));
+                    if (event_page <= 0 || event_page >= page.number) {
+                        go_to_last ();
+                    } else {
+                        go_to_number (event_page);
+                    }
+                    return Gdk.EVENT_STOP;
+                }
+
+                break;
+
             case Gdk.Key.Home:
             case Gdk.Key.KP_Home:
                 stack.set_visible_child_name ("1");
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.End:
+            case Gdk.Key.KP_End:
+                go_to_last ();
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Page_Down:
+            case Gdk.Key.KP_Page_Down:
+                go_to_next ();
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Page_Up:
+            case Gdk.Key.KP_Page_Up:
+                go_to_previous ();
                 return Gdk.EVENT_STOP;
         }
 
