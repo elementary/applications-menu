@@ -55,6 +55,7 @@ sources = [
     'synapse-core/utils.vala',
     zeitgeist_backend_source,
 
+    'synapse-plugins/worker-link.vala',
     'synapse-plugins/calculator-plugin.vala',
     'synapse-plugins/command-plugin.vala',
     'synapse-plugins/desktop-file-plugin.vala',
@@ -73,7 +74,6 @@ dependencies = [
     granite_dep,
     gee_dep,
     gtk_dep,
-    switchboard_dep,
     json_glib_dep,
     zeitgeist_dep,
     libgnome_menu_dep,
@@ -82,6 +82,7 @@ dependencies = [
     plank_dep,
     unity_dep,
     wingpanel_dep,
+    posix_dep,
 ]
 
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
@@ -93,4 +94,19 @@ shared_module(
     c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
     install: true,
     install_dir: wingpanel_indicatorsdir
+)
+
+executable(
+    'switchboard-plugin',
+    'synapse-plugins/switchboard-plugin/plugin.vala',
+    dependencies: [
+        glib_dep,
+        gobject_dep,
+        gio_dep,
+        gio_unix_dep,
+        switchboard_dep,
+        gee_dep,
+    ],
+    install: true,
+    install_dir: pluginsdir
 )

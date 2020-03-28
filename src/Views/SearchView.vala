@@ -81,7 +81,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                 SearchItem.ResultType result_type = (SearchItem.ResultType) match.match_type;
                 if (match is Synapse.DesktopFilePlugin.ActionMatch) {
                     result_type = SearchItem.ResultType.APP_ACTIONS;
-                } else if (match is Synapse.SwitchboardPlugin.SwitchboardObject) {
+                } else if (match is Synapse.SwitchboardObject) {
                     result_type = SearchItem.ResultType.SETTINGS;
                 } else if (match is Synapse.LinkPlugin.Result) {
                     result_type = SearchItem.ResultType.INTERNET;
