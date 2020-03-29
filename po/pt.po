@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-11-09 12:25+0000\n"
+"PO-Revision-Date: 2020-03-30 17:09+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:35
@@ -67,11 +67,11 @@ msgstr "Sem resultados para \"%s\""
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr "Remover da _Dock"
+msgstr "Remover da _Doca"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr "Adicionar à _Dock"
+msgstr "Adicionar à _Doca"
 
 #: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
@@ -250,7 +250,7 @@ msgstr "bloquear"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr "Terminar Sessão"
+msgstr "Terminar sessão"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
