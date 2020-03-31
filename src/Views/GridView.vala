@@ -159,7 +159,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         stack.set_visible_child_name (number.to_string ());
     }
 
-    public bool set_focus (int column, int row) {
+    private bool set_focus (int column, int row) {
         var target_widget = get_child_at (column, row);
 
         if (target_widget != null) {
@@ -180,10 +180,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private bool set_paginated_focus (int column, int row) {
         int first_column = (get_current_page () - 1) * get_page_columns ();
         return set_focus (first_column, 0);
-    }
-
-    public bool set_focus_relative (int delta_column, int delta_row) {
-        return set_focus (focused_column + delta_column, focused_row + delta_row);
     }
 
     public void top_left_focus () {
@@ -216,6 +212,19 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
                 }
 
                 return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Up:
+            case Gdk.Key.KP_Up:
+                if (set_focus (focused_column, focused_row - 1)) {
+                    return Gdk.EVENT_STOP;
+                }
+
+                break;
+
+            case Gdk.Key.Down:
+            case Gdk.Key.KP_Down:
+                set_focus (focused_column, focused_row + 1);
+                return Gdk.EVENT_STOP;
         }
 
         return Gdk.EVENT_PROPAGATE;
@@ -244,7 +253,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private void normal_move_focus (int delta_column) {
-        if (set_focus_relative (delta_column, 0)) {
+        if (set_focus (focused_column + delta_column, focused_row)) {
             return;
         }
 

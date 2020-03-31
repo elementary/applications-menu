@@ -267,6 +267,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Return":
             case "Right":
             case "Tab":
+            case "Up":
                 return Gdk.EVENT_PROPAGATE;
 
             case "Alt_L":
@@ -299,29 +300,13 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 return Gdk.EVENT_PROPAGATE;
 
-            case "Up":
-                if (modality == Modality.NORMAL_VIEW) {
-                    if (grid_view.set_focus_relative (0, -1)) {
-                        return Gdk.EVENT_STOP;
-                    } else {
-                        search_entry.grab_focus ();
-                        return Gdk.EVENT_STOP;
-                    }
+            case "Down":
+                if (modality == Modality.NORMAL_VIEW && search_entry.has_focus) {
+                    grid_view.top_left_focus ();
+                    return Gdk.EVENT_STOP;
                 }
 
                 return Gdk.EVENT_PROPAGATE;
-
-            case "Down":
-                if (modality == Modality.NORMAL_VIEW) {
-                    if (search_entry.has_focus) {
-                        grid_view.top_left_focus ();
-                    } else {
-                        grid_view.set_focus_relative (0, +1);
-                    }
-                } else {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-                break;
 
             case "Page_Up":
                 if (modality == Modality.NORMAL_VIEW) {
