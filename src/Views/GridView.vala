@@ -230,22 +230,16 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return Gdk.EVENT_PROPAGATE;
     }
 
-    /*
-     * Moves the current view to the left (independent of the TextDirection).
-     */
     private void move_left (Gdk.EventKey event) {
-        if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_previous ();
         } else {
             normal_move_focus (-1);
         }
     }
 
-    /*
-     * Moves the current view to the right (undependent of the TextDirection).
-     */
     private void move_right (Gdk.EventKey event) {
-        if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_next ();
         } else {
             normal_move_focus (+1);
