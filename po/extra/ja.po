@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2019-12-22 11:32+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,28 +32,30 @@ msgid "Category view is now a list"
 msgstr "カテゴリー表示のリスト化"
 
 #: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:21
+msgid "Performance improvements"
+msgstr "パフォーマンスの改善"
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:22
+msgid "Updated translations"
+msgstr "翻訳の更新"
+
+#: data/applications-menu.appdata.xml.in:18
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "新しいツールチップの追加とメニューキーへの対応などの、キーボードでの操作の改"
 "善"
 
-#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:19
 msgid "Highlight action matches in the search view"
 msgstr "検索ビューの一致する操作をハイライトするように修正"
 
-#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:20
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"AppCenter で表示\" メニュー項目を追加"
 
-#: data/applications-menu.appdata.xml.in:15
-msgid "Performance improvements"
-msgstr "パフォーマンスの改善"
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Updated translations"
-msgstr "翻訳の更新"
-
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:31
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

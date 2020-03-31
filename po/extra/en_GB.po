@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2020-03-19 20:09+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -32,27 +32,29 @@ msgid "Category view is now a list"
 msgstr "Category view is now a list"
 
 #: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:21
+msgid "Performance improvements"
+msgstr "Performance improvements"
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:22
+msgid "Updated translations"
+msgstr "Updated translations"
+
+#: data/applications-menu.appdata.xml.in:18
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 
-#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:19
 msgid "Highlight action matches in the search view"
 msgstr "Highlight action matches in the search view"
 
-#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:20
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Add a \"View in AppCenter\" menu item"
 
-#: data/applications-menu.appdata.xml.in:15
-msgid "Performance improvements"
-msgstr "Performance improvements"
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Updated translations"
-msgstr "Updated translations"
-
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:31
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
