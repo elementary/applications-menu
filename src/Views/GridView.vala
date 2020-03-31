@@ -196,8 +196,64 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             case Gdk.Key.KP_Home:
                 stack.set_visible_child_name ("1");
                 return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Left:
+            case Gdk.Key.KP_Left:
+                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                    move_left (event);
+                } else {
+                    move_right (event);
+                }
+
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Right:
+            case Gdk.Key.KP_Right:
+                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                    move_right (event);
+                } else {
+                    move_left (event);
+                }
+
+                return Gdk.EVENT_STOP;
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    /*
+     * Moves the current view to the left (independent of the TextDirection).
+     */
+    private void move_left (Gdk.EventKey event) {
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
+            go_to_previous ();
+        } else {
+            normal_move_focus (-1, 0);
+        }
+    }
+
+    /*
+     * Moves the current view to the right (undependent of the TextDirection).
+     */
+    private void move_right (Gdk.EventKey event) {
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
+            go_to_next ();
+        } else {
+            normal_move_focus (+1, 0);
+        }
+    }
+
+    private void normal_move_focus (int delta_column, int delta_row) {
+        if (set_focus_relative (delta_column, delta_row)) {
+            return;
+        }
+
+        int pages = get_n_pages ();
+        int current = get_current_page ();
+        int columns = get_page_columns ();
+
+        if (delta_column > 0 && current < pages && set_focus ((pages - 1) * columns, 0)) {
+            return;
+        }
     }
 }
