@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -30,19 +30,19 @@ msgstr "Programy"
 msgid "Open and search apps"
 msgstr "Ôtwōrz i wyszukej programy"
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "Pokoż jako nec"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "Pokoż jako kategoryje"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "Wyszukej program"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr "Wysnoż wszyjsko"
 
@@ -71,7 +71,7 @@ msgstr "Przidej do _doku"
 msgid "Uninstall"
 msgstr "Ôdinstaluj"
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 msgid "View in AppCenter"
 msgstr "Pokoż we Cyntrum programōw"
 
@@ -219,12 +219,12 @@ msgstr "Link"
 msgid "Open link in default browser"
 msgstr "Ôtwōrz link we wychodnyj przeglōndarce"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Ôtwōrz sztelōnki %s"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "Znojdź przidowki ôd Switchboard i ôtwōrz je."
 

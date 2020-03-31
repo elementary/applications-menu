@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -32,19 +32,19 @@ msgstr "অ্যাপ্লিকেশন"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "গ্রিড হিসাবে দেখুন"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "বিভাগ দ্বারা দেখুন"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "এপ্স অনুসন্ধান করুন"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr "_ডকে যোগ করুন"
 msgid "Uninstall"
 msgstr "আনইনস্টল"
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "অ্যাপসেন্টার"
@@ -223,12 +223,12 @@ msgstr "লিংক"
 msgid "Open link in default browser"
 msgstr "লিংকটি ডিফল্ট ব্রাউজারে খুলুন"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s_এর সেটিংস খুলুন"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "সুইচ বোর্ড প্লাগগুলি খুজুন এবং খুলুন।"
 

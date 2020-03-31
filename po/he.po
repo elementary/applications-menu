@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2020-03-01 13:09+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -36,19 +36,19 @@ msgstr "יישומים"
 msgid "Open and search apps"
 msgstr "פתיחה וחיפוש יישומים"
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "הצגה כרשת"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "הצגה על פי קטגוריות"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "חיפוש יישומים"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr "לפנות הכול"
 
@@ -77,7 +77,7 @@ msgstr "הוספה ל_מעגן"
 msgid "Uninstall"
 msgstr "הסרה"
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 msgid "View in AppCenter"
 msgstr "הצגה במרכז התכנה"
 
@@ -225,12 +225,12 @@ msgstr "קישור"
 msgid "Open link in default browser"
 msgstr "פתיחת קישור בדפדפן בררת המחדל"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "פתיחת הגדרות %s"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "מצאו תוספים ללוח המתגים ופתחו אותם."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
@@ -37,19 +37,19 @@ msgstr "Program"
 msgid "Open and search apps"
 msgstr "Öppna och sök i program (%s)"
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "Visa som rutnät"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "Visa kategorivis"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "Sök efter program"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr "Lägg till i _dockan"
 msgid "Uninstall"
 msgstr "Avinstallera"
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "AppCenter"
@@ -227,12 +227,12 @@ msgstr "Länk"
 msgid "Open link in default browser"
 msgstr "Öppna länken i standardwebbläsaren"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Öppna %s inställningar"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "Hitta switchboardmoduler och öppna dem."
 
