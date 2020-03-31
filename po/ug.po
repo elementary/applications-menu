@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -34,19 +34,19 @@ msgstr "ئەپلەر"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "كاتەكچە شەكلىدە كۆرۈش"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "تۈرلەر بويىچە كۆرۈش"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "ئەپلەرنى ئىزدەش"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr "Dock قا قىتىش"
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "تۈرلەر بويىچە كۆرۈش"
@@ -224,12 +224,12 @@ msgstr "ئۇلانما"
 msgid "Open link in default browser"
 msgstr "ئۇلىنىشنى نورمالدىكى توركۆرگۈچتە ئىچىڭ"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s تەڭشەكلىرىنى ئىچىش"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "يۆتكەش تاختىسى قىستۇرمىلىرىنى ئىزدەڭ ۋە ئىچىڭ."
 

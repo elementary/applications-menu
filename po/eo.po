@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
@@ -36,19 +36,19 @@ msgstr "Aplikaĵoj"
 msgid "Open and search apps"
 msgstr "Malfermi kaj serĉi aplikaĵojn"
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "Prezenti laŭ krado"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "Prezenti laŭ kategorioj"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "Serĉi aplikaĵojn"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr "Forviŝi ĉion"
 
@@ -77,7 +77,7 @@ msgstr "Aldoni al _Butonbreto"
 msgid "Uninstall"
 msgstr "Malinstali"
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 msgid "View in AppCenter"
 msgstr "Vidi en la Aplikaĵa Centro"
 
@@ -225,12 +225,12 @@ msgstr "Ligilo"
 msgid "Open link in default browser"
 msgstr "Malfermi la ligilon en la apriora foliumilo"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Malfermi la agordojn de %s"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "Trovi kromprogramojn de Switchboard, kaj malfermi ilin."
 

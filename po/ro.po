@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
 "PO-Revision-Date: 2018-03-10 00:06+0000\n"
 "Last-Translator: Plugaru Tudor <plugaru.tudor@gmail.com>\n"
 "Language-Team: Romanian <https://weblate.elementary.io/projects/wingpanel/"
@@ -37,19 +37,19 @@ msgstr "Aplicații"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "Arată ca grilă"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "Vizualizează după categorie"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "Caută aplicații"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr "Adaugă în_Dock"
 msgid "Uninstall"
 msgstr "Dezinstalează"
 
-#: src/Widgets/AppContextMenu.vala:149
+#: src/Widgets/AppContextMenu.vala:146
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Vizualizează după categorie"
@@ -227,12 +227,12 @@ msgstr "Link"
 msgid "Open link in default browser"
 msgstr "Deschide legătura în navigatorul implicit"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Deschide setările %s"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "Găseste comutatoarele și deschide-le"
 
