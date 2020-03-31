@@ -228,7 +228,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {// Shift + Left
             go_to_previous ();
         } else {
-            normal_move_focus (-1, 0);
+            normal_move_focus (-1);
         }
     }
 
@@ -239,12 +239,12 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) { // Shift + Right
             go_to_next ();
         } else {
-            normal_move_focus (+1, 0);
+            normal_move_focus (+1);
         }
     }
 
-    private void normal_move_focus (int delta_column, int delta_row) {
-        if (set_focus_relative (delta_column, delta_row)) {
+    private void normal_move_focus (int delta_column) {
+        if (set_focus_relative (delta_column, 0)) {
             return;
         }
 
