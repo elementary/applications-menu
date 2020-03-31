@@ -127,15 +127,15 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
     }
 
-    public int get_page_columns () {
+    private int get_page_columns () {
         return (int) page.columns;
     }
 
-    public int get_n_pages () {
+    private int get_n_pages () {
         return (int) page.number;
     }
 
-    public int get_current_page () {
+    private int get_current_page () {
         return int.parse (stack.get_visible_child_name ());
     }
 
@@ -257,7 +257,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             return;
         }
 
-        int pages = get_n_pages ();
+        int pages = page.number;
         int current = get_current_page ();
         int columns = get_page_columns ();
 
