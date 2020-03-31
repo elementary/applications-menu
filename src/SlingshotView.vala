@@ -301,18 +301,22 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
             case "Up":
                 if (modality == Modality.NORMAL_VIEW) {
-                    normal_move_focus (0, -1);
-                } else {
-                    return Gdk.EVENT_PROPAGATE;
+                    if (grid_view.set_focus_relative (0, -1)) {
+                        return Gdk.EVENT_STOP;
+                    } else {
+                        search_entry.grab_focus ();
+                        return Gdk.EVENT_STOP;
+                    }
                 }
-                break;
+
+                return Gdk.EVENT_PROPAGATE;
 
             case "Down":
                 if (modality == Modality.NORMAL_VIEW) {
                     if (search_entry.has_focus) {
                         grid_view.top_left_focus ();
                     } else {
-                        normal_move_focus (0, +1);
+                        grid_view.set_focus_relative (0, +1);
                     }
                 } else {
                     return Gdk.EVENT_PROPAGATE;
@@ -475,23 +479,5 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             search_view.set_results (matches, text);
             return false;
         });
-    }
-
-    private void normal_move_focus (int delta_column, int delta_row) {
-        if (grid_view.set_focus_relative (delta_column, delta_row)) {
-            return;
-        }
-
-        int pages = grid_view.get_n_pages ();
-        int current = grid_view.get_current_page ();
-        int columns = grid_view.get_page_columns ();
-
-        if (delta_column > 0 && current < pages && grid_view.set_focus ((pages - 1) * columns, 0)) {
-            return;
-        }
-
-        if (delta_column < 0 || delta_row < 0) {
-            search_entry.grab_focus ();
-        }
     }
 }
