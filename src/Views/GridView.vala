@@ -127,15 +127,15 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
     }
 
-    public int get_page_columns () {
+    private int get_page_columns () {
         return (int) page.columns;
     }
 
-    public int get_n_pages () {
+    private int get_n_pages () {
         return (int) page.number;
     }
 
-    public int get_current_page () {
+    private int get_current_page () {
         return int.parse (stack.get_visible_child_name ());
     }
 
@@ -159,7 +159,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         stack.set_visible_child_name (number.to_string ());
     }
 
-    public bool set_focus (int column, int row) {
+    private bool set_focus (int column, int row) {
         var target_widget = get_child_at (column, row);
 
         if (target_widget != null) {
@@ -182,10 +182,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return set_focus (first_column, 0);
     }
 
-    public bool set_focus_relative (int delta_column, int delta_row) {
-        return set_focus (focused_column + delta_column, focused_row + delta_row);
-    }
-
     public void top_left_focus () {
         set_paginated_focus (0, 0);
     }
@@ -196,8 +192,57 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             case Gdk.Key.KP_Home:
                 stack.set_visible_child_name ("1");
                 return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Left:
+            case Gdk.Key.KP_Left:
+                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                    move_left (event);
+                } else {
+                    move_right (event);
+                }
+
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Right:
+            case Gdk.Key.KP_Right:
+                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                    move_right (event);
+                } else {
+                    move_left (event);
+                }
+
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Up:
+            case Gdk.Key.KP_Up:
+                if (set_focus (focused_column, focused_row - 1)) {
+                    return Gdk.EVENT_STOP;
+                }
+
+                break;
+
+            case Gdk.Key.Down:
+            case Gdk.Key.KP_Down:
+                set_focus (focused_column, focused_row + 1);
+                return Gdk.EVENT_STOP;
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    private void move_left (Gdk.EventKey event) {
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+            go_to_previous ();
+        } else {
+            set_focus (focused_column - 1, focused_row);
+        }
+    }
+
+    private void move_right (Gdk.EventKey event) {
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+            go_to_next ();
+        } else {
+            set_focus (focused_column + 1, focused_row);
+        }
     }
 }
