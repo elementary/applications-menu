@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"POT-Creation-Date: 2020-04-07 17:42+0000\n"
 "PO-Revision-Date: 2019-11-07 13:26-0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -31,28 +31,32 @@ msgid "Category view is now a list"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:21
-msgid "Performance improvements"
+msgid "Improved keyboard navigation"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:22
+msgid "Performance improvements"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:23
 msgid "Updated translations"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:19
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:20
 msgid "Highlight action matches in the search view"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:21
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr ""
