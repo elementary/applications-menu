@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"POT-Creation-Date: 2020-04-07 17:42+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -33,30 +33,34 @@ msgid "Category view is now a list"
 msgstr "Widok kategoryji to teroz lista"
 
 #: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:21
-msgid "Performance improvements"
-msgstr "Ulepszynia wydajności"
+msgid "Improved keyboard navigation"
+msgstr ""
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:22
+msgid "Performance improvements"
+msgstr "Ulepszynia wydajności"
+
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:23
 msgid "Updated translations"
 msgstr "Zaktualizowane przekłady"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:19
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Ulepszōno nawigacyjo tastaturōm, społym ze nowymi podpowiedziami i sparciym "
 "knefla myni"
 
-#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:20
 msgid "Highlight action matches in the search view"
 msgstr "Podświytlynie fungowań, co pasujōm, we widoku szukanio"
 
-#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:21
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Dodany elymynt myni „Pokoż we Cyntrum programōw”"
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

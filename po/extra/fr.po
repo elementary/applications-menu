@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"POT-Creation-Date: 2020-04-07 17:42+0000\n"
 "PO-Revision-Date: 2019-12-26 18:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,30 +32,34 @@ msgid "Category view is now a list"
 msgstr "La vue des catégories est désormais une liste"
 
 #: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:21
-msgid "Performance improvements"
-msgstr "Améliorations des performances"
+msgid "Improved keyboard navigation"
+msgstr ""
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:22
+msgid "Performance improvements"
+msgstr "Améliorations des performances"
+
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:23
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:19
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Amélioration de la navigation au clavier, inclusion d'infobulles et du "
 "support de la touche menu"
 
-#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:20
 msgid "Highlight action matches in the search view"
 msgstr "Mise en valeur des correspondance dans la recherche"
 
-#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:21
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Ajout du menu « Voir dans le Centre d'Applications »"
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
