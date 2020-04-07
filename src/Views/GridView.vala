@@ -19,7 +19,7 @@
 public class Slingshot.Widgets.Grid : Gtk.Grid {
     public signal void app_launched ();
 
-    public Gtk.Stack stack { get; private set; }
+    public Hdy.Paginator paginator { get; private set; }
 
     private struct Page {
         public uint rows;
@@ -42,17 +42,16 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         page.columns = 5;
         page.number = 1;
 
-        stack = new Gtk.Stack ();
-        stack.expand = true;
-        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+        paginator = new Hdy.Paginator ();
+        paginator.expand = true;
 
         var page_switcher = new Widgets.Switcher ();
-        page_switcher.set_stack (stack);
+        page_switcher.set_paginator (paginator);
 
         orientation = Gtk.Orientation.VERTICAL;
         row_spacing = 24;
         margin_bottom = 12;
-        add (stack);
+        add (paginator);
         add (page_switcher);
 
         grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
@@ -70,7 +69,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         current_col = 0;
         page.number = 1;
         create_new_grid ();
-        stack.set_visible_child (current_grid);
+        paginator.scroll_to (current_grid);
 
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
             var app_button = new Widgets.AppButton (app);
@@ -108,7 +107,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         current_grid.row_spacing = 24;
         current_grid.column_spacing = 0;
         grids.set (page.number, current_grid);
-        stack.add_titled (current_grid, page.number.to_string (), page.number.to_string ());
+        paginator.add (current_grid);
 
         // Fake grids in case there are not enough apps to fill the grid
         for (var row = 0; row < page.rows; row++)
@@ -136,27 +135,36 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private int get_current_page () {
-        return int.parse (stack.get_visible_child_name ());
+        return (int) Math.round (paginator.position) + 1;
+    }
+
+    private Gtk.Widget get_page (int number) {
+        assert (number > 0 && number <= get_n_pages ());
+
+        return paginator.get_children ().nth_data (number - 1);
     }
 
     public void go_to_next () {
         int page_number = get_current_page () + 1;
-        if (page_number <= get_n_pages ())
-            stack.set_visible_child_name (page_number.to_string ());
+        if (page_number <= get_n_pages ()) {
+            go_to_number (page_number);
+        }
     }
 
     public void go_to_previous () {
         int page_number = get_current_page () - 1;
-        if (page_number > 0)
-            stack.set_visible_child_name (page_number.to_string ());
+        if (page_number > 0) {
+            go_to_number (page_number);
+        }
     }
 
     public void go_to_last () {
-        stack.set_visible_child_name (get_n_pages ().to_string ());
+        go_to_number (get_n_pages ());
     }
 
     public void go_to_number (int number) {
-        stack.set_visible_child_name (number.to_string ());
+        paginator.scroll_to (get_page (number));
+        top_left_focus ();
     }
 
     private bool set_focus (int column, int row) {
@@ -190,7 +198,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         switch (event.keyval) {
             case Gdk.Key.Home:
             case Gdk.Key.KP_Home:
-                stack.set_visible_child_name ("1");
+                go_to_number (1);
                 return Gdk.EVENT_STOP;
 
             case Gdk.Key.Left:
