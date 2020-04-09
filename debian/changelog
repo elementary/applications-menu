@@ -1,3 +1,31 @@
+slingshot-launcher (2.6.0) bionic; urgency=medium
+
+  * Release 2.6.0 (#361)
+  * SlingshotView: remove check for search length on end key (#359)
+  * Move grid key navigation to GridView where possible (#357)
+  * Update translation files
+  * Update translation template
+  * Update applications-menu.appdata.xml.in
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Update applications-menu.appdata.xml.in
+  * Switchboard: Put switchboard loading in a separate process (#354)
+  * Move Home shortcut to GridView (#346)
+  * Sidebar: Disable the embedded search in the category view (#342)
+  * AppContextMenu: Remove extra check for appcenter (#340)
+  * Sidebar: Remove broken scroll handling (#332)
+  * AppButton: GOBject style and cleanup (#334)
+  * Make populate internal to GridView (#335)
+  * Update translation files
+  * SlingshotView: Fix moving down from searchbar in category view
+    (#329)
+  * SlingshotView: Remove height request (#331)
+  * Update translation template
+  * Make CategoryView a list (#264)
+
+ -- elementary, Inc. <builds@elementary.io>  Thu, 09 Apr 2020 20:40:13 +0000
+
 slingshot-launcher (2.5.0) bionic; urgency=medium
 
   * Release 2.5.0 (#327)
