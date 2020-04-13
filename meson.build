@@ -27,7 +27,7 @@ add_project_arguments(
     language: 'c'
 )
 
-pluginsdir = join_paths(prefix, get_option('libdir'), 'io.elementary.application-menu')
+pluginsdir = join_paths(prefix, get_option('libdir'), 'io.elementary.wingpanel.applications-menu')
 add_project_arguments(
     '-DPLUGINSDIR="@0@"'.format(pluginsdir),
     language: 'c'
