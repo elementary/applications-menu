@@ -37,8 +37,8 @@ public class SwitchboardPlugin : GLib.Object {
     private GLib.MainLoop main_loop;
     private GLib.DBusConnection connection;
 
-    const string DBUS_INTERFACE = "io.elementary.ApplicationMenu.Switchboard";
-    const string DBUS_PATH = "/io/elementary/applicationmenu";
+    const string DBUS_INTERFACE = "io.elementary.ApplicationsMenu.Switchboard";
+    const string DBUS_PATH = "/io/elementary/applicationsmenu";
 
     construct {
         main_loop = new GLib.MainLoop ();
