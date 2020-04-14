@@ -19,7 +19,7 @@
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public SlingshotView view { get; construct; }
 
-    public Sidebar category_switcher;
+    public Gtk.ListBox category_switcher;
 
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
@@ -37,7 +37,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new Sidebar ();
+        category_switcher = new Gtk.ListBox ();
+        category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher.width_request = 120;
+
+        unowned Gtk.StyleContext category_switcher_style_context = category_switcher.get_style_context ();
+        category_switcher_style_context.add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        category_switcher_style_context.add_class (Gtk.STYLE_CLASS_VIEW);
+
         setup_sidebar ();
 
         var scrolled_category = new Gtk.ScrolledWindow (null, null);
@@ -63,8 +70,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         add (container);
 
         show_filtered_apps (category_ids[0]);
-        category_switcher.selection_changed.connect ((nth) => {
-            show_filtered_apps (category_ids[nth]);
+        category_switcher.row_selected.connect ((row) => {
+            show_filtered_apps (category_ids[row.get_index ()]);
         });
 
         listbox.row_activated.connect ((row) => {
@@ -177,16 +184,26 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public void setup_sidebar () {
         category_ids.clear ();
-        category_switcher.clear ();
+
+        foreach (unowned Gtk.Widget child in category_switcher.get_children ()) {
+            child.destroy ();
+        }
 
         // Fill the sidebar
         int n = 0;
         foreach (string cat_name in view.apps.keys) {
-            if (cat_name == "switchboard")
+            if (cat_name == "switchboard") {
                 continue;
+            }
 
             category_ids.set (n, cat_name);
-            category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+
+            var label = new Gtk.Label (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+            label.halign = Gtk.Align.START;
+            label.margin_start = 3;
+
+            category_switcher.add (label);
+
             n++;
         }
 

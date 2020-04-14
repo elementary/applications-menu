@@ -27,7 +27,6 @@ sources = [
     'Widgets/AppListRow.vala',
     'Widgets/Switcher.vala',
     'Widgets/SearchItem.vala',
-    'Widgets/Sidebar.vala',
     'Widgets/PageChecker.vala',
 
     'synapse-core/Actions/TerminalRunnerAction.vala',
