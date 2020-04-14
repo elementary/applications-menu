@@ -328,10 +328,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 }
                 return Gdk.EVENT_PROPAGATE;
             case "End":
-                if (search_entry.text.length > 0) {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_last ();
                 }

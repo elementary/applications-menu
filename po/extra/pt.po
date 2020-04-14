@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-07 17:42+0000\n"
-"PO-Revision-Date: 2020-01-21 16:07+0000\n"
+"PO-Revision-Date: 2020-04-09 14:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pt/>\n"
@@ -33,7 +33,7 @@ msgstr "A vista de categoria é agora uma lista"
 
 #: data/applications-menu.appdata.xml.in:12
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Melhoria da navegação por teclado"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:22
