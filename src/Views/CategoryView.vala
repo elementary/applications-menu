@@ -165,10 +165,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     public void page_up () {
-        if (category_switcher.get_selected_row ().get_index () != 0) {
-            category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
-            focus_select_first_row ();
-        }
+        category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
+        focus_select_first_row ();
     }
 
     private void focus_select_first_row () {
