@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-09-02 13:23+0000\n"
-"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"PO-Revision-Date: 2019-12-26 01:08+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:35
@@ -36,21 +36,21 @@ msgstr "Apps"
 msgid "Open and search apps"
 msgstr "Apps öffnen und suchen"
 
-#: src/SlingshotView.vala:67
+#: src/SlingshotView.vala:63
 msgid "View as Grid"
 msgstr "Als Raster anzeigen"
 
-#: src/SlingshotView.vala:70
+#: src/SlingshotView.vala:66
 msgid "View by Category"
 msgstr "Ansicht nach Kategorie"
 
-#: src/SlingshotView.vala:82
+#: src/SlingshotView.vala:78
 msgid "Search Apps"
 msgstr "Apps durchsuchen"
 
-#: src/SlingshotView.vala:85
+#: src/SlingshotView.vala:81
 msgid "Clear all"
-msgstr ""
+msgstr "Alles entfernen"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -77,10 +77,9 @@ msgstr "Zum _Dock hinzufügen"
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: src/Widgets/AppContextMenu.vala:149
-#, fuzzy
+#: src/Widgets/AppContextMenu.vala:146
 msgid "View in AppCenter"
-msgstr "AppCenter"
+msgstr "In AppCenter anzeigen"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -226,12 +225,12 @@ msgstr "Verweis"
 msgid "Open link in default browser"
 msgstr "Verweis im Standard-Browser öffnen"
 
-#: src/synapse-plugins/switchboard-plugin.vala:40
+#: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s Einstellungen öffnen"
 
-#: src/synapse-plugins/switchboard-plugin.vala:61
+#: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
 msgstr "Switchboard-Plugs suchen und öffnen."
 
@@ -247,7 +246,7 @@ msgstr "Dieses Gerät sperren"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr "sperren"
+msgstr "Sperren"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -261,7 +260,7 @@ msgstr "Alle geöffneten Anwendungen schließen und beenden"
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr "abmelden"
+msgstr "Abmelden"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -273,7 +272,6 @@ msgstr "Versetzen Sie Ihren Computer in den Bereitschaftsmodus"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "Bereitschaft"
@@ -288,7 +286,6 @@ msgstr "Versetzen Sie Ihren Computer in den Ruhezustand"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
 msgstr "Ruhezustand"
@@ -319,7 +316,7 @@ msgstr "Rechner neu starten"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "neu starten;neustarten"
+msgstr "neustarten;Neustart"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""

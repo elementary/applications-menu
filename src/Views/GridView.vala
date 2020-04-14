@@ -17,6 +17,8 @@
  */
 
 public class Slingshot.Widgets.Grid : Gtk.Grid {
+    public signal void app_launched ();
+
     public Gtk.Stack stack { get; private set; }
 
     private struct Page {
@@ -58,6 +60,42 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         go_to_number (1);
     }
 
+    public void populate (Backend.AppSystem app_system) {
+        foreach (Gtk.Grid grid in grids.values) {
+            grid.destroy ();
+        }
+
+        grids.clear ();
+        current_row = 0;
+        current_col = 0;
+        page.number = 1;
+        create_new_grid ();
+        stack.set_visible_child (current_grid);
+
+        foreach (Backend.App app in app_system.get_apps_by_name ()) {
+            var app_button = new Widgets.AppButton (app);
+            app_button.app_launched.connect (() => app_launched ());
+
+            if (current_col == page.columns) {
+                current_col = 0;
+                current_row++;
+            }
+
+            if (current_row == page.rows) {
+                page.number++;
+                create_new_grid ();
+                current_row = 0;
+            }
+
+            current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
+            current_grid.attach (app_button, (int)current_col, (int)current_row, 1, 1);
+            current_col++;
+            current_grid.show ();
+        }
+
+        show_all ();
+    }
+
     private void create_new_grid () {
         // Grid properties
         current_grid = new Gtk.Grid ();
@@ -78,41 +116,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
                 current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
     }
 
-    public void append (Gtk.Widget widget) {
-        update_position ();
-
-        current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
-        current_grid.attach (widget, (int)current_col, (int)current_row, 1, 1);
-        current_col++;
-        current_grid.show ();
-    }
-
-    private void update_position () {
-        if (current_col == page.columns) {
-            current_col = 0;
-            current_row++;
-        }
-
-        if (current_row == page.rows) {
-            page.number++;
-            create_new_grid ();
-            current_row = 0;
-        }
-    }
-
-    public void clear () {
-        foreach (Gtk.Grid grid in grids.values) {
-            grid.destroy ();
-        }
-
-        grids.clear ();
-        current_row = 0;
-        current_col = 0;
-        page.number = 1;
-        create_new_grid ();
-        stack.set_visible_child (current_grid);
-    }
-
     private Gtk.Widget? get_child_at (int column, int row) {
         var col = ((int)(column / page.columns)) + 1;
 
@@ -124,15 +127,15 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
     }
 
-    public int get_page_columns () {
+    private int get_page_columns () {
         return (int) page.columns;
     }
 
-    public int get_n_pages () {
+    private int get_n_pages () {
         return (int) page.number;
     }
 
-    public int get_current_page () {
+    private int get_current_page () {
         return int.parse (stack.get_visible_child_name ());
     }
 
@@ -156,7 +159,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         stack.set_visible_child_name (number.to_string ());
     }
 
-    public bool set_focus (int column, int row) {
+    private bool set_focus (int column, int row) {
         var target_widget = get_child_at (column, row);
 
         if (target_widget != null) {
@@ -179,11 +182,67 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return set_focus (first_column, 0);
     }
 
-    public bool set_focus_relative (int delta_column, int delta_row) {
-        return set_focus (focused_column + delta_column, focused_row + delta_row);
-    }
-
     public void top_left_focus () {
         set_paginated_focus (0, 0);
+    }
+
+    public override bool key_press_event (Gdk.EventKey event) {
+        switch (event.keyval) {
+            case Gdk.Key.Home:
+            case Gdk.Key.KP_Home:
+                stack.set_visible_child_name ("1");
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Left:
+            case Gdk.Key.KP_Left:
+                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                    move_left (event);
+                } else {
+                    move_right (event);
+                }
+
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Right:
+            case Gdk.Key.KP_Right:
+                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
+                    move_right (event);
+                } else {
+                    move_left (event);
+                }
+
+                return Gdk.EVENT_STOP;
+
+            case Gdk.Key.Up:
+            case Gdk.Key.KP_Up:
+                if (set_focus (focused_column, focused_row - 1)) {
+                    return Gdk.EVENT_STOP;
+                }
+
+                break;
+
+            case Gdk.Key.Down:
+            case Gdk.Key.KP_Down:
+                set_focus (focused_column, focused_row + 1);
+                return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
+    }
+
+    private void move_left (Gdk.EventKey event) {
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+            go_to_previous ();
+        } else {
+            set_focus (focused_column - 1, focused_row);
+        }
+    }
+
+    private void move_right (Gdk.EventKey event) {
+        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+            go_to_next ();
+        } else {
+            set_focus (focused_column + 1, focused_row);
+        }
     }
 }

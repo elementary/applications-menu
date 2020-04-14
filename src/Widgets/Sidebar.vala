@@ -39,7 +39,6 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
         row_selected.connect ((row) => {
             selection_changed (row.get_index ());
         });
-
     }
 
     public void add_category (string entry_name) {
@@ -62,21 +61,5 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
             count++;
         }
         select_row (get_row_at_y (count));
-    }
-
-    protected override bool scroll_event (Gdk.EventScroll event) {
-        switch (event.direction) {
-            case Gdk.ScrollDirection.UP:
-            case Gdk.ScrollDirection.LEFT:
-                selected++;
-                break;
-            case Gdk.ScrollDirection.DOWN:
-            case Gdk.ScrollDirection.RIGHT:
-                selected--;
-                break;
-
-        }
-
-        return false;
     }
 }

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 21:29+0000\n"
-"PO-Revision-Date: 2019-11-16 16:24+0000\n"
+"POT-Creation-Date: 2020-04-07 17:42+0000\n"
+"PO-Revision-Date: 2020-04-12 14:10+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -29,29 +29,37 @@ msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Kategori görünümü artık bir liste"
 
 #: data/applications-menu.appdata.xml.in:12
+msgid "Improved keyboard navigation"
+msgstr "Klavye gezintisi geliştirildi"
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:22
+msgid "Performance improvements"
+msgstr "Performans iyileştirmeleri"
+
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:23
+msgid "Updated translations"
+msgstr "Çeviriler güncellendi"
+
+#: data/applications-menu.appdata.xml.in:19
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Yeni ipuçları ve menü tuşu desteği dahil olmak üzere geliştirilmiş klavye "
+"ile gezinme"
 
-#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:20
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Arama görünümünde eylem eşleşmelerini vurgula"
 
-#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:21
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "\"Uygulama Merkezinde Görüntüle\" menü öğesi eklendi"
 
-#: data/applications-menu.appdata.xml.in:15
-msgid "Performance improvements"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Updated translations"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:32
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
