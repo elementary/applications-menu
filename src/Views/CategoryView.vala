@@ -38,6 +38,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         hexpand = true;
 
         category_switcher = new Sidebar ();
+        setup_sidebar ();
 
         var scrolled_category = new Gtk.ScrolledWindow (null, null);
         scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
@@ -61,6 +62,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         add (container);
 
+        show_filtered_apps (category_ids[0]);
         category_switcher.selection_changed.connect ((nth) => {
             show_filtered_apps (category_ids[nth]);
         });
@@ -134,8 +136,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 sel.set_uris ({drag_uri});
             }
         });
-
-        setup_sidebar ();
     }
 
     private bool create_context_menu (Gdk.Event event) {
@@ -193,6 +193,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         category_switcher.show_all ();
+        category_switcher.select_row (category_switcher.get_row_at_index (0));
     }
 
     public void show_filtered_apps (string category) {

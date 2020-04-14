@@ -20,7 +20,7 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     public signal void selection_changed (int nth);
 
     construct {
-        selection_mode = Gtk.SelectionMode.SINGLE;
+        selection_mode = Gtk.SelectionMode.BROWSE;
         width_request = 120;
 
         unowned Gtk.StyleContext style_context = get_style_context ();
