@@ -19,15 +19,6 @@
 public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
     public signal void selection_changed (int nth);
 
-    public int selected {
-        get {
-            return get_selected_row ().get_index ();
-        }
-        set {
-            select_row (get_row_at_y (value));
-        }
-    }
-
     construct {
         selection_mode = Gtk.SelectionMode.SINGLE;
         width_request = 120;

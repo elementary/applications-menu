@@ -160,13 +160,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     public void page_down () {
-        category_switcher.selected++;
+        category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1);
         focus_select_first_row ();
     }
 
     public void page_up () {
-        if (category_switcher.selected != 0) {
-            category_switcher.selected--;
+        if (category_switcher.get_selected_row ().get_index () != 0) {
+            category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
             focus_select_first_row ();
         }
     }
@@ -178,7 +178,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     public void setup_sidebar () {
-        var old_selected = category_switcher.selected;
         category_ids.clear ();
         category_switcher.clear ();
 
@@ -194,7 +193,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         category_switcher.show_all ();
-        category_switcher.selected = old_selected;
     }
 
     public void show_filtered_apps (string category) {
@@ -220,7 +218,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 page_down ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.Home:
-                category_switcher.selected = 0;
+                category_switcher.select_row (category_switcher.get_row_at_y (0));
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.End:
