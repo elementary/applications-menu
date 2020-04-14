@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2019-2020 elementary, Inc. (https://elementary.io)
  *           2011-2012 Giulio Collura
  *
  * This program is free software; you can redistribute it and/or
