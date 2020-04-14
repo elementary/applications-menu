@@ -218,11 +218,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 page_down ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.Home:
-                category_switcher.select_row (category_switcher.get_row_at_y (0));
+                category_switcher.move_cursor (Gtk.MovementStep.PAGES, -1);
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.End:
-                category_switcher.select_end ();
+                category_switcher.move_cursor (Gtk.MovementStep.PAGES, 1);
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.KP_Up:

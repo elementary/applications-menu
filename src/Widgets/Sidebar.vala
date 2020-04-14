@@ -45,12 +45,4 @@ public class Slingshot.Widgets.Sidebar : Gtk.ListBox {
             child.destroy ();
         }
     }
-
-    public void select_end () {
-        int count = 0;
-        foreach (unowned Gtk.Widget child in get_children ()) {
-            count++;
-        }
-        select_row (get_row_at_y (count));
-    }
 }
