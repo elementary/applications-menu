@@ -127,10 +127,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
     }
 
-    private int get_page_columns () {
-        return (int) page.columns;
-    }
-
     private int get_n_pages () {
         return (int) page.number;
     }
@@ -175,15 +171,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
 
         return false;
-    }
-
-    private bool set_paginated_focus (int column, int row) {
-        int first_column = (get_current_page () - 1) * get_page_columns ();
-        return set_focus (first_column, 0);
-    }
-
-    public void top_left_focus () {
-        set_paginated_focus (0, 0);
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
