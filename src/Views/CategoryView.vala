@@ -17,6 +17,8 @@
  */
 
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
+    public signal void search_focus_request ();
+
     public SlingshotView view { get; construct; }
 
     public Sidebar category_switcher;
@@ -231,6 +233,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             case Gdk.Key.Up:
                 if (event.state == Gdk.ModifierType.SHIFT_MASK) {
                     page_up ();
+                    return Gdk.EVENT_STOP;
+                }
+
+                if (listbox.get_selected_row () == listbox.get_row_at_index (0)) {
+                    search_focus_request ();
                     return Gdk.EVENT_STOP;
                 }
                 break;
