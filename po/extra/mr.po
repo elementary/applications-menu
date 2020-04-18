@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-07 17:42+0000\n"
+"POT-Creation-Date: 2020-04-17 18:05+0000\n"
 "PO-Revision-Date: 2019-12-27 11:19+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,36 +28,41 @@ msgid "Open and search for apps"
 msgstr "अ‍ॅप्स उघडा आणि शोधा"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Category view is now a list"
-msgstr "श्रेणी दृश्य आता एक यादी आहे"
-
-#: data/applications-menu.appdata.xml.in:12
-msgid "Improved keyboard navigation"
+msgid "Focus search when navigating up from the category view"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:22
-msgid "Performance improvements"
-msgstr "कामगिरी सुधारणा"
-
-#: data/applications-menu.appdata.xml.in:14
-#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:29
 msgid "Updated translations"
 msgstr "अद्ययावत भाषांतर"
 
+#: data/applications-menu.appdata.xml.in:17
+msgid "Category view is now a list"
+msgstr "श्रेणी दृश्य आता एक यादी आहे"
+
+#: data/applications-menu.appdata.xml.in:18
+msgid "Improved keyboard navigation"
+msgstr ""
+
 #: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:28
+msgid "Performance improvements"
+msgstr "कामगिरी सुधारणा"
+
+#: data/applications-menu.appdata.xml.in:25
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr "नवीन टूलटिप्स आणि मेनू की समर्थनासह सुधारित कीबोर्ड नेव्हिगेशन"
 
-#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:26
 msgid "Highlight action matches in the search view"
 msgstr "शोध दृश्यात कृती जुळण्या हायलाइट करा"
 
-#: data/applications-menu.appdata.xml.in:21
+#: data/applications-menu.appdata.xml.in:27
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"अ‍ॅप सेंटरमध्ये पहा\" असा मेनू आयटम जोडा"
 
-#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:38
 msgid "elementary, Inc."
 msgstr "एलिमेंटरी, Inc."

@@ -147,6 +147,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         search_entry.grab_focus ();
         search_entry.activate.connect (search_entry_activated);
 
+        category_view.search_focus_request.connect (() => {
+            search_entry.grab_focus ();
+        });
+
         grid_view.app_launched.connect (() => {
             close_indicator ();
         });
