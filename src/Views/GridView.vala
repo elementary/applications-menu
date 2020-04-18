@@ -160,7 +160,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     public void go_to_number (int number) {
         paginator.scroll_to (get_page (number));
-        top_left_focus ();
     }
 
     private bool set_focus (int column, int row) {
