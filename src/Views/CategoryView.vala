@@ -27,7 +27,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private bool dragging = false;
     private string? drag_uri = null;
-    private Gtk.ListBox listbox;
+    private NavListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
@@ -47,7 +47,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-        listbox = new Gtk.ListBox ();
+        listbox = new NavListBox ();
         listbox.expand = true;
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
 
@@ -135,6 +135,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             if (drag_uri != null) {
                 sel.set_uris ({drag_uri});
             }
+        });
+
+        listbox.search_focus_request.connect (() => {
+            search_focus_request ();
         });
 
         setup_sidebar ();
@@ -236,10 +240,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                     return Gdk.EVENT_STOP;
                 }
 
-                if (listbox.get_selected_row () == listbox.get_row_at_index (0)) {
-                    search_focus_request ();
-                    return Gdk.EVENT_STOP;
-                }
                 break;
             case Gdk.Key.KP_Down:
             case Gdk.Key.Down:
@@ -265,5 +265,23 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    private class NavListBox : Gtk.ListBox {
+        public signal void search_focus_request ();
+
+        public override void move_cursor (Gtk.MovementStep step, int count) {
+            unowned Gtk.ListBoxRow selected = get_selected_row ();
+            if (
+                selected != null &&
+                selected == get_row_at_index (0) &&
+                step == DISPLAY_LINES &&
+                count == -1
+            ) {
+                search_focus_request ();
+            } else {
+                base.move_cursor (step, count);
+            }
+        }
     }
 }
