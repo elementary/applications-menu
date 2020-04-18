@@ -58,9 +58,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         var app_label = new Gtk.Label (app.name);
         app_label.halign = Gtk.Align.CENTER;
         app_label.justify = Gtk.Justification.CENTER;
-        app_label.set_line_wrap (true);
         app_label.lines = 2;
-        app_label.set_single_line_mode (false);
+        app_label.max_width_chars = 16;
+        app_label.width_chars = 16;
         app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
@@ -138,16 +138,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 #endif
 
         app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
-    }
-
-    public override void get_preferred_width (out int minimum_width, out int natural_width) {
-        minimum_width = Pixels.ITEM_SIZE;
-        natural_width = Pixels.ITEM_SIZE;
-    }
-
-    public override void get_preferred_height (out int minimum_height, out int natural_height) {
-        minimum_height = Pixels.ITEM_SIZE;
-        natural_height = Pixels.ITEM_SIZE;
     }
 
     public void launch_app () {
