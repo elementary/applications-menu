@@ -8,7 +8,6 @@ endif
 sources = [
     'Indicator.vala',
     'SlingshotView.vala',
-    'Pixels.vala',
 
     'Backend/AppSystem.vala',
     'Backend/DBusService.vala',
@@ -27,7 +26,6 @@ sources = [
     'Widgets/AppListRow.vala',
     'Widgets/Switcher.vala',
     'Widgets/SearchItem.vala',
-    'Widgets/Sidebar.vala',
     'Widgets/PageChecker.vala',
 
     'synapse-core/Actions/TerminalRunnerAction.vala',

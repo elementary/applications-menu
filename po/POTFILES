@@ -1,6 +1,5 @@
 src/Indicator.vala
 src/SlingshotView.vala
-src/Pixels.vala
 
 src/Backend/AppCenter.vala
 src/Backend/AppSystem.vala
@@ -18,7 +17,6 @@ src/Widgets/AppContextMenu.vala
 src/Widgets/AppListBox.vala
 src/Widgets/PageChecker.vala
 src/Widgets/SearchItem.vala
-src/Widgets/Sidebar.vala
 src/Widgets/Switcher.vala
 
 src/synapse-core/Actions/BaseAction.vala
