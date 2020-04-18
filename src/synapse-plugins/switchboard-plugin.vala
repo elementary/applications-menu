@@ -26,7 +26,7 @@ public struct Synapse.PlugInfo {
     public string[] path;
 }
 
-[DBus (name = "io.elementary.ApplicationMenu.Switchboard")]
+[DBus (name = "io.elementary.ApplicationsMenu.Switchboard")]
 public class Synapse.SwitchboardExecutablePlugin : Object {
     private Synapse.PlugInfo[] plugs;
 
@@ -86,7 +86,7 @@ public class Synapse.SwitchboardPlugin : Object, Activatable, ItemProvider {
         worker_link = new Synapse.WorkerLink ();
         worker_link.on_connection_accepted.connect ((connection) => {
             try {
-                connection.register_object ("/io/elementary/applicationmenu", executable_plugin);
+                connection.register_object ("/io/elementary/applicationsmenu", executable_plugin);
             } catch (Error e) {
                 critical ("%s", e.message);
             }

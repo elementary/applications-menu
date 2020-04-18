@@ -1,7 +1,7 @@
 project(
   'slingshot',
   'vala', 'c',
-  version : '2.5.0'
+  version : '2.6.0'
 )
 
 i18n = import('i18n')
@@ -27,7 +27,7 @@ add_project_arguments(
     language: 'c'
 )
 
-pluginsdir = join_paths(prefix, get_option('libdir'), 'io.elementary.application-menu')
+pluginsdir = join_paths(prefix, get_option('libdir'), 'io.elementary.wingpanel.applications-menu')
 add_project_arguments(
     '-DPLUGINSDIR="@0@"'.format(pluginsdir),
     language: 'c'

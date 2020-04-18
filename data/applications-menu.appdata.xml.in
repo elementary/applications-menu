@@ -6,7 +6,13 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.6.0" date="2020-04-06" urgency="medium">
+    <release version="2.6.1" date="2020-04-16" urgency="medium">
+      <description>
+        <p>Focus search when navigating up from the category view</p>
+        <p>Updated translations</p>
+      </description>
+    </release>
+    <release version="2.6.0" date="2020-04-09" urgency="medium">
       <description>
         <p>Category view is now a list</p>
         <p>Improved keyboard navigation</p>
