@@ -119,7 +119,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 }
 
-public Wingpanel.Indicator get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
+public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Slingshot");
     if (server_type == Wingpanel.IndicatorManager.ServerType.GREETER) {
         return null;
