@@ -8,7 +8,6 @@ endif
 sources = [
     'Indicator.vala',
     'SlingshotView.vala',
-    'Pixels.vala',
 
     'Backend/AppSystem.vala',
     'Backend/DBusService.vala',
