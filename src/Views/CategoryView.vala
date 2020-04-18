@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2019-2020 elementary, Inc. (https://elementary.io)
  *           2011-2012 Giulio Collura
  *
  * This program is free software; you can redistribute it and/or
@@ -21,12 +21,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public SlingshotView view { get; construct; }
 
-    public Sidebar category_switcher;
-
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
     private bool dragging = false;
     private string? drag_uri = null;
+    private NavListBox category_switcher;
     private NavListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
@@ -39,7 +38,15 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new Sidebar ();
+        category_switcher = new NavListBox ();
+        category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher.width_request = 120;
+
+        unowned Gtk.StyleContext category_switcher_style_context = category_switcher.get_style_context ();
+        category_switcher_style_context.add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        category_switcher_style_context.add_class (Gtk.STYLE_CLASS_VIEW);
+
+        setup_sidebar ();
 
         var scrolled_category = new Gtk.ScrolledWindow (null, null);
         scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
@@ -63,8 +70,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         add (container);
 
-        category_switcher.selection_changed.connect ((nth) => {
-            show_filtered_apps (category_ids[nth]);
+        show_filtered_apps (category_ids[0]);
+        category_switcher.row_selected.connect ((row) => {
+            show_filtered_apps (category_ids[row.get_index ()]);
+        });
+
+        category_switcher.search_focus_request.connect (() => {
+            search_focus_request ();
         });
 
         listbox.row_activated.connect ((row) => {
@@ -166,15 +178,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     public void page_down () {
-        category_switcher.selected++;
+        category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1);
         focus_select_first_row ();
     }
 
     public void page_up () {
-        if (category_switcher.selected != 0) {
-            category_switcher.selected--;
-            focus_select_first_row ();
-        }
+        category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
+        focus_select_first_row ();
     }
 
     private void focus_select_first_row () {
@@ -184,23 +194,32 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     public void setup_sidebar () {
-        var old_selected = category_switcher.selected;
         category_ids.clear ();
-        category_switcher.clear ();
+
+        foreach (unowned Gtk.Widget child in category_switcher.get_children ()) {
+            child.destroy ();
+        }
 
         // Fill the sidebar
         int n = 0;
         foreach (string cat_name in view.apps.keys) {
-            if (cat_name == "switchboard")
+            if (cat_name == "switchboard") {
                 continue;
+            }
 
             category_ids.set (n, cat_name);
-            category_switcher.add_category (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+
+            var label = new Gtk.Label (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+            label.halign = Gtk.Align.START;
+            label.margin_start = 3;
+
+            category_switcher.add (label);
+
             n++;
         }
 
         category_switcher.show_all ();
-        category_switcher.selected = old_selected;
+        category_switcher.select_row (category_switcher.get_row_at_index (0));
     }
 
     public void show_filtered_apps (string category) {
@@ -226,11 +245,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 page_down ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.Home:
-                category_switcher.selected = 0;
+                category_switcher.move_cursor (Gtk.MovementStep.PAGES, -1);
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.End:
-                category_switcher.selected = category_switcher.cat_size - 1;
+                category_switcher.move_cursor (Gtk.MovementStep.PAGES, 1);
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.KP_Up:
@@ -245,20 +264,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             case Gdk.Key.Down:
                 if (event.state == Gdk.ModifierType.SHIFT_MASK) {
                     page_down ();
-                    return Gdk.EVENT_STOP;
-                }
-                break;
-            case Gdk.Key.KP_Right:
-            case Gdk.Key.Right:
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    focus_select_first_row ();
-                    return Gdk.EVENT_STOP;
-                }
-                break;
-            case Gdk.Key.KP_Left:
-            case Gdk.Key.Left:
-                if (get_style_context ().direction == Gtk.TextDirection.RTL) {
-                    focus_select_first_row ();
                     return Gdk.EVENT_STOP;
                 }
                 break;
