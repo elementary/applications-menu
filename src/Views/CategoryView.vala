@@ -152,8 +152,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.search_focus_request.connect (() => {
             search_focus_request ();
         });
-
-        setup_sidebar ();
     }
 
     private bool create_context_menu (Gdk.Event event) {
