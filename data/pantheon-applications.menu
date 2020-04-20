@@ -181,12 +181,10 @@
         <Not>
           <Category>Core</Category>
           <Category>Screensaver</Category>
-          <Category>X-GNOME-Settings-Panel</Category>
           <Filename>debian-xterm.desktop</Filename>
           <Filename>debian-uxterm.desktop</Filename>
           <Filename>htop.desktop</Filename>
           <Filename>ibus.desktop</Filename>
-          <Filename>empathy-accounts.desktop</Filename>
           <Filename>orca.desktop</Filename>
           <Filename>onboard.desktop</Filename>
           <Filename>org.gnome.font-viewer.desktop</Filename>
