@@ -27,6 +27,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private string? drag_uri = null;
     private NavListBox category_switcher;
     private NavListBox listbox;
+
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
     public CategoryView (SlingshotView view) {
