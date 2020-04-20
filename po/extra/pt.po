@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-17 18:05+0000\n"
-"PO-Revision-Date: 2020-04-09 14:10+0000\n"
+"PO-Revision-Date: 2020-04-19 17:22+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pt/>\n"
@@ -29,7 +29,7 @@ msgstr "Abrir e pesquisar aplicações"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Focus search when navigating up from the category view"
-msgstr ""
+msgstr "Concentre a pesquisa ao navegar a partir da visualização por categoria"
 
 #: data/applications-menu.appdata.xml.in:12
 #: data/applications-menu.appdata.xml.in:20

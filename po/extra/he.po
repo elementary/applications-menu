@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-17 18:05+0000\n"
-"PO-Revision-Date: 2020-04-09 14:10+0000\n"
+"PO-Revision-Date: 2020-04-19 17:22+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/he/>\n"
@@ -29,7 +29,7 @@ msgstr "לפתוח ולחפש יישומים"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Focus search when navigating up from the category view"
-msgstr ""
+msgstr "מיקוד החיפוש בעת ניווט כלפי מעלה מתצוגה הקטגוריות"
 
 #: data/applications-menu.appdata.xml.in:12
 #: data/applications-menu.appdata.xml.in:20
