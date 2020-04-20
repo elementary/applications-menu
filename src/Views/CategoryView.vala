@@ -21,7 +21,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public SlingshotView view { get; construct; }
 
-    public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
+    private Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
 
     private bool dragging = false;
     private string? drag_uri = null;
@@ -39,7 +39,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         hexpand = true;
 
         category_switcher = new NavListBox ();
-        category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher.selection_mode = Gtk.SelectionMode.SINGLE;
         category_switcher.width_request = 120;
 
         unowned Gtk.StyleContext category_switcher_style_context = category_switcher.get_style_context ();
@@ -57,6 +57,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox = new NavListBox ();
         listbox.expand = true;
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox.set_filter_func ((Gtk.ListBoxFilterFunc) filter_function);
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
         listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -70,9 +71,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         add (container);
 
-        show_filtered_apps (category_ids[0]);
-        category_switcher.row_selected.connect ((row) => {
-            show_filtered_apps (category_ids[row.get_index ()]);
+        category_switcher.row_selected.connect (() => {
+            listbox.invalidate_filter ();
         });
 
         category_switcher.search_focus_request.connect (() => {
@@ -192,44 +192,45 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     public void setup_sidebar () {
-        category_ids.clear ();
-
         foreach (unowned Gtk.Widget child in category_switcher.get_children ()) {
             child.destroy ();
         }
 
+        foreach (unowned Gtk.Widget child in listbox.get_children ()) {
+            child.destroy ();
+        }
+
+        apps.clear ();
+        apps = view.app_system.get_apps ();
+
+        foreach (Backend.App app in view.app_system.get_apps_by_name ()) {
+            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
+        }
+
+        listbox.show_all ();
+
         // Fill the sidebar
-        int n = 0;
-        foreach (string cat_name in view.apps.keys) {
-            if (cat_name == "switchboard") {
-                continue;
-            }
-
-            category_ids.set (n, cat_name);
-
-            var label = new Gtk.Label (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
-            label.halign = Gtk.Align.START;
-            label.margin_start = 3;
-
-            category_switcher.add (label);
-
-            n++;
+        foreach (string cat_name in apps.keys) {
+            var row = new CategoryRow (cat_name);
+            category_switcher.add (row);
         }
 
         category_switcher.show_all ();
         category_switcher.select_row (category_switcher.get_row_at_index (0));
     }
 
-    public void show_filtered_apps (string category) {
-        foreach (unowned Gtk.Widget child in listbox.get_children ()) {
-            child.destroy ();
+    [CCode (instance_pos = -1)]
+    private bool filter_function (AppListRow row) {
+        unowned CategoryRow category_row = (CategoryRow) category_switcher.get_selected_row ();
+        if (category_row != null) {
+            foreach (Backend.App app in apps[category_row.cat_name]) {
+                if (row.app_id == app.desktop_id) {
+                    return true;
+                }
+            }
         }
 
-        foreach (Backend.App app in view.apps[category]) {
-            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
-        }
-
-        listbox.show_all ();
+        return false;
     }
 
     private bool on_key_press (Gdk.EventKey event) {
@@ -268,6 +269,22 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    private class CategoryRow : Gtk.ListBoxRow {
+        public string cat_name { get; construct; }
+
+        public CategoryRow (string cat_name) {
+            Object (cat_name: cat_name);
+        }
+
+        construct {
+            var label = new Gtk.Label (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+            label.halign = Gtk.Align.START;
+            label.margin_start = 3;
+
+            add (label);
+        }
     }
 
     private class NavListBox : Gtk.ListBox {
