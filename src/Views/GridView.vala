@@ -19,8 +19,6 @@
 public class Slingshot.Widgets.Grid : Gtk.Grid {
     public signal void app_launched ();
 
-    public Hdy.Paginator paginator { get; private set; }
-
     private struct Page {
         public uint rows;
         public uint columns;
@@ -30,6 +28,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private Gtk.Grid current_grid;
     private Gtk.Widget? focused_widget;
     private Gee.HashMap<int, Gtk.Grid> grids;
+    private Hdy.Paginator paginator;
     private Page page;
 
     private int focused_column;
