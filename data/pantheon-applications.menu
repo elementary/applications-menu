@@ -44,8 +44,7 @@
       <And>
         <Category>Accessibility</Category>
         <Not><Category>Settings</Category></Not>
-        <!-- Do not display Orca and OnBoard; they belong to a11y plug -->
-        <Not><Filename>orca.desktop</Filename></Not>
+        <!-- Do not display OnBoard; it belongs to a11y plug -->
         <Not><Filename>onboard.desktop</Filename></Not>
       </And>
     </Include>
@@ -183,7 +182,6 @@
           <Filename>debian-uxterm.desktop</Filename>
           <Filename>htop.desktop</Filename>
           <Filename>ibus.desktop</Filename>
-          <Filename>orca.desktop</Filename>
           <Filename>onboard.desktop</Filename>
           <Filename>org.gnome.font-viewer.desktop</Filename>
           <Filename>evince.desktop</Filename>
