@@ -21,13 +21,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public SlingshotView view { get; construct; }
 
-    public Gtk.ListBox category_switcher;
-
     public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
     private bool dragging = false;
     private string? drag_uri = null;
-    private Gtk.ListBox listbox;
+    private NavListBox category_switcher;
+    private NavListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
@@ -39,7 +38,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new Gtk.ListBox ();
+        category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
         category_switcher.width_request = 120;
 
@@ -55,7 +54,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
-        listbox = new Gtk.ListBox ();
+        listbox = new NavListBox ();
         listbox.expand = true;
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
 
@@ -74,6 +73,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         show_filtered_apps (category_ids[0]);
         category_switcher.row_selected.connect ((row) => {
             show_filtered_apps (category_ids[row.get_index ()]);
+        });
+
+        category_switcher.search_focus_request.connect (() => {
+            search_focus_request ();
         });
 
         listbox.row_activated.connect ((row) => {
@@ -144,6 +147,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             if (drag_uri != null) {
                 sel.set_uris ({drag_uri});
             }
+        });
+
+        listbox.search_focus_request.connect (() => {
+            search_focus_request ();
         });
     }
 
@@ -250,10 +257,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                     return Gdk.EVENT_STOP;
                 }
 
-                if (listbox.get_selected_row () == listbox.get_row_at_index (0)) {
-                    search_focus_request ();
-                    return Gdk.EVENT_STOP;
-                }
                 break;
             case Gdk.Key.KP_Down:
             case Gdk.Key.Down:
@@ -265,5 +268,23 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    private class NavListBox : Gtk.ListBox {
+        public signal void search_focus_request ();
+
+        public override void move_cursor (Gtk.MovementStep step, int count) {
+            unowned Gtk.ListBoxRow selected = get_selected_row ();
+            if (
+                selected != null &&
+                selected == get_row_at_index (0) &&
+                step == DISPLAY_LINES &&
+                count == -1
+            ) {
+                search_focus_request ();
+            } else {
+                base.move_cursor (step, count);
+            }
+        }
     }
 }
