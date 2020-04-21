@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 18:05+0000\n"
+"POT-Creation-Date: 2020-04-21 22:25+0000\n"
 "PO-Revision-Date: 2020-04-21 01:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,37 +32,42 @@ msgid "Focus search when navigating up from the category view"
 msgstr "カテゴリー表示で上キーを押した際に検索欄にフォーカスするように修正"
 
 #: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
+msgid "Don't focus search when pressing modifier keys"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:21
+#: data/applications-menu.appdata.xml.in:30
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:18
 msgid "Category view is now a list"
 msgstr "カテゴリー表示のリスト化"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:19
 msgid "Improved keyboard navigation"
 msgstr "キーボード操作を改善"
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:29
 msgid "Performance improvements"
 msgstr "パフォーマンスの改善"
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:26
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
-msgstr "新しいツールチップの追加とメニューキーへの対応などの、キーボード操作の改善"
+msgstr ""
+"新しいツールチップの追加とメニューキーへの対応などの、キーボード操作の改善"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:27
 msgid "Highlight action matches in the search view"
 msgstr "検索ビューの一致する操作をハイライトするように修正"
 
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:28
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"AppCenter で表示\" メニュー項目を追加"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:39
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
