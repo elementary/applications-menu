@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 22:25+0000\n"
+"POT-Creation-Date: 2020-04-21 22:37+0000\n"
 "PO-Revision-Date: 2020-03-19 20:09+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -28,46 +28,54 @@ msgid "Open and search for apps"
 msgstr "Open and search for apps"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Focus search when navigating up from the category view"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:12
-msgid "Don't focus search when pressing modifier keys"
+msgid "Minor updates"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:21
-#: data/applications-menu.appdata.xml.in:30
+msgid "Focus search when navigating up from the category view"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:14
+msgid "Don't focus search when pressing modifier keys"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:15
+msgid "Ensure categories are sorted alphabetically"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:16
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:34
 msgid "Updated translations"
 msgstr "Updated translations"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:22
 msgid "Category view is now a list"
 msgstr "Category view is now a list"
 
-#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:23
 msgid "Improved keyboard navigation"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
+#: data/applications-menu.appdata.xml.in:24
+#: data/applications-menu.appdata.xml.in:33
 msgid "Performance improvements"
 msgstr "Performance improvements"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:30
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:31
 msgid "Highlight action matches in the search view"
 msgstr "Highlight action matches in the search view"
 
-#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:32
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Add a \"View in AppCenter\" menu item"
 
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:43
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
