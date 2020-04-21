@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 18:05+0000\n"
+"POT-Creation-Date: 2020-04-21 22:25+0000\n"
 "PO-Revision-Date: 2020-04-12 14:10+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,39 +32,43 @@ msgid "Focus search when navigating up from the category view"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
+msgid "Don't focus search when pressing modifier keys"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:21
+#: data/applications-menu.appdata.xml.in:30
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:18
 msgid "Category view is now a list"
 msgstr "Kategori görünümü artık bir liste"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:19
 msgid "Improved keyboard navigation"
 msgstr "Klavye gezintisi geliştirildi"
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:29
 msgid "Performance improvements"
 msgstr "Performans iyileştirmeleri"
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:26
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Yeni ipuçları ve menü tuşu desteği dahil olmak üzere geliştirilmiş klavye "
 "ile gezinme"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:27
 msgid "Highlight action matches in the search view"
 msgstr "Arama görünümünde eylem eşleşmelerini vurgula"
 
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:28
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"Uygulama Merkezinde Görüntüle\" menü öğesi eklendi"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:39
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
