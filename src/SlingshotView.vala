@@ -337,7 +337,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 return Gdk.EVENT_PROPAGATE;
             default:
-                if (!search_entry.has_focus) {
+                if (!search_entry.has_focus && event.is_modifier != 1) {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     search_entry.key_press_event (event);

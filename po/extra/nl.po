@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 18:05+0000\n"
+"POT-Creation-Date: 2020-04-21 22:25+0000\n"
 "PO-Revision-Date: 2020-01-03 22:07+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,39 +32,43 @@ msgid "Focus search when navigating up from the category view"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
+msgid "Don't focus search when pressing modifier keys"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:21
+#: data/applications-menu.appdata.xml.in:30
 msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
-#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:18
 msgid "Category view is now a list"
 msgstr "Categorie weergave is nu een lijst"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:19
 msgid "Improved keyboard navigation"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:29
 msgid "Performance improvements"
 msgstr "Prestatieverbeteringen"
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:26
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Verbeterde toetsenbord navigatie, met nieuwe helpteksten en menu toets "
 "ondersteuning"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:27
 msgid "Highlight action matches in the search view"
 msgstr "Highlight matchende acties in de zoek weergave"
 
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:28
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Een “Toon in AppCenter” menu item toegevoegd"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:39
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

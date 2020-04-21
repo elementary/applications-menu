@@ -18,9 +18,6 @@
 public class Slingshot.Backend.AppSystem : Object {
     public signal void changed ();
 
-    private const string GCC_PANEL_CATEGORY = "X-GNOME-Settings-Panel";
-    private const string SWITCHBOARD_PLUG_CATEGORY = "X-PANTHEON-Switchboard-Plug";
-
     private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
     private Gee.HashMap<string, Gee.ArrayList<App>> apps = null;
     private GMenu.Tree apps_menu = null;
@@ -129,12 +126,6 @@ public class Slingshot.Backend.AppSystem : Object {
 
         foreach (Gee.ArrayList<App> category in apps.values) {
             foreach (App app in category) {
-                if (app.categories != null
-                    && (GCC_PANEL_CATEGORY in app.categories
-                    || SWITCHBOARD_PLUG_CATEGORY in app.categories)) {
-                    continue;
-                }
-
                 if (!(app.exec in sorted_apps_execs)) {
                     sorted_apps.insert_sorted_with_data (app, sort_apps_by_name);
                     sorted_apps_execs += app.exec;
