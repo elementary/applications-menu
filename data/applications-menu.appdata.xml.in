@@ -9,6 +9,7 @@
     <release version="2.6.1" date="2020-04-16" urgency="medium">
       <description>
         <p>Focus search when navigating up from the category view</p>
+        <p>Don't focus search when pressing modifier keys</p>
         <p>Updated translations</p>
       </description>
     </release>
