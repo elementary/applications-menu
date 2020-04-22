@@ -110,7 +110,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         var event_box = new Gtk.EventBox ();
         event_box.add (container);
-        event_box.add_events (Gdk.EventMask.SCROLL_MASK);
 
         // Add the container to the dialog's content area
         this.add (event_box);
@@ -338,7 +337,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 return Gdk.EVENT_PROPAGATE;
             default:
-                if (!search_entry.has_focus) {
+                if (!search_entry.has_focus && event.is_modifier != 1) {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     search_entry.key_press_event (event);
@@ -348,31 +347,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         }
 
         return Gdk.EVENT_STOP;
-    }
-
-    public override bool scroll_event (Gdk.EventScroll scroll_event) {
-        unowned Gdk.Device? device = scroll_event.get_source_device ();
-
-        if ((device == null ||
-            (device.input_source != Gdk.InputSource.MOUSE && device.input_source != Gdk.InputSource.KEYBOARD)) &&
-            grid_view.stack.transition_running) {
-            return Gdk.EVENT_PROPAGATE;
-        }
-
-        if (modality == Modality.NORMAL_VIEW) {
-            switch (scroll_event.direction) {
-                case Gdk.ScrollDirection.UP:
-                case Gdk.ScrollDirection.LEFT:
-                    grid_view.go_to_previous ();
-                    break;
-                case Gdk.ScrollDirection.DOWN:
-                case Gdk.ScrollDirection.RIGHT:
-                    grid_view.go_to_next ();
-                    break;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
     }
 
     public void show_slingshot () {
