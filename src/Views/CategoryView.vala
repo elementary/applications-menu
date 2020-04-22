@@ -40,6 +40,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
         category_switcher.width_request = 120;
 
         unowned Gtk.StyleContext category_switcher_style_context = category_switcher.get_style_context ();
@@ -154,6 +155,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         });
     }
 
+    private static int category_sort_func (CategoryRow row1, CategoryRow row2) {
+        return row1.cat_name.collate (row2.cat_name);
+    }
+
     private bool create_context_menu (Gdk.Event event) {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
@@ -207,11 +212,9 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
             category_ids.set (n, cat_name);
 
-            var label = new Gtk.Label (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
-            label.halign = Gtk.Align.START;
-            label.margin_start = 3;
+            var row = new CategoryRow (cat_name);
 
-            category_switcher.add (label);
+            category_switcher.add (row);
 
             n++;
         }
@@ -268,6 +271,22 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    private class CategoryRow : Gtk.ListBoxRow {
+        public string cat_name { get; construct; }
+
+        public CategoryRow (string cat_name) {
+            Object (cat_name: cat_name);
+        }
+
+        construct {
+            var label = new Gtk.Label (GLib.dgettext ("gnome-menus-3.0", cat_name).dup ());
+            label.halign = Gtk.Align.START;
+            label.margin_start = 3;
+
+            add (label);
+        }
     }
 
     private class NavListBox : Gtk.ListBox {
