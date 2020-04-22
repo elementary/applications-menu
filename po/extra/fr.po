@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-21 22:37+0000\n"
-"PO-Revision-Date: 2020-04-19 17:22+0000\n"
+"PO-Revision-Date: 2020-04-22 18:36+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/fr/>\n"
@@ -29,7 +29,7 @@ msgstr "Ouvrir et rechercher des applications"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Minor updates"
-msgstr ""
+msgstr "Mises à jour mineures"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Focus search when navigating up from the category view"
@@ -40,10 +40,14 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:14
 msgid "Don't focus search when pressing modifier keys"
 msgstr ""
+"La zone de recherche n'est pas sélectionnée lors de l'appui sur les touches "
+"de modification"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Ensure categories are sorted alphabetically"
 msgstr ""
+"Nous nous sommes assurés que les catégories soient triées dans l'ordre "
+"alphabétique"
 
 #: data/applications-menu.appdata.xml.in:16
 #: data/applications-menu.appdata.xml.in:25
