@@ -262,8 +262,8 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 case "7":
                 case "8":
                 case "9":
-                    int page = int.parse (key);
                     if (modality == Modality.NORMAL_VIEW) {
+                        int page = int.parse (key);
                         if (page < 0 || page == 9) {
                             grid_view.go_to_last ();
                         } else {
