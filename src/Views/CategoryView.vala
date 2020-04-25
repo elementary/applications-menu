@@ -21,7 +21,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public SlingshotView view { get; construct; }
 
-    public Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
+    private Gee.HashMap<int, string> category_ids = new Gee.HashMap<int, string> ();
 
     private bool dragging = false;
     private string? drag_uri = null;
@@ -205,7 +205,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         // Fill the sidebar
         int n = 0;
-        foreach (string cat_name in view.apps.keys) {
+        foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
                 continue;
             }
@@ -228,7 +228,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             child.destroy ();
         }
 
-        foreach (Backend.App app in view.apps[category]) {
+        foreach (Backend.App app in view.app_system.apps[category]) {
             listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
         }
 

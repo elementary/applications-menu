@@ -24,7 +24,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
-    public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
     public Gtk.SearchEntry search_entry;
     public Gtk.Stack stack;
     public Granite.Widgets.ModeButton view_selector;
@@ -54,8 +53,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     construct {
         app_system = new Backend.AppSystem ();
         synapse = new Backend.SynapseSearch ();
-
-        apps = app_system.get_apps ();
 
         screen = get_screen ();
 
@@ -163,8 +160,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         // Auto-update applications grid
         app_system.changed.connect (() => {
-            apps = app_system.get_apps ();
-
             grid_view.populate (app_system);
 
             category_view.setup_sidebar ();

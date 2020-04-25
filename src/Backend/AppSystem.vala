@@ -18,8 +18,9 @@
 public class Slingshot.Backend.AppSystem : Object {
     public signal void changed ();
 
+    public Gee.HashMap<string, Gee.ArrayList<App>> apps { get; private set; default = null; }
+
     private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
-    private Gee.HashMap<string, Gee.ArrayList<App>> apps = null;
     private GMenu.Tree apps_menu = null;
 
 #if HAVE_ZEITGEIST
@@ -114,10 +115,6 @@ public class Slingshot.Backend.AppSystem : Object {
         }
 
         return app_list;
-    }
-
-    public Gee.HashMap<string, Gee.ArrayList<App>> get_apps () {
-        return apps;
     }
 
     public SList<App> get_apps_by_name () {
