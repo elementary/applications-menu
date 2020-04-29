@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 22:37+0000\n"
+"POT-Creation-Date: 2020-04-29 20:49+0000\n"
 "PO-Revision-Date: 2020-04-25 06:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,50 +32,55 @@ msgid "Minor updates"
 msgstr "軽微なアップデート:"
 
 #: data/applications-menu.appdata.xml.in:13
+msgid ""
+"Smoother navigation gesture in grid view and touchscreen gesture support"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:14
 msgid "Focus search when navigating up from the category view"
 msgstr "カテゴリー表示で上キーを押した際に検索欄にフォーカスするように修正"
 
-#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:15
 msgid "Don't focus search when pressing modifier keys"
 msgstr "修飾キーを押すと検索欄にフォーカスが移動する問題を修正"
 
-#: data/applications-menu.appdata.xml.in:15
+#: data/applications-menu.appdata.xml.in:16
 msgid "Ensure categories are sorted alphabetically"
 msgstr "カテゴリー表示でも正しくアルファベット順に表示されるように修正"
 
-#: data/applications-menu.appdata.xml.in:16
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:35
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/applications-menu.appdata.xml.in:22
+#: data/applications-menu.appdata.xml.in:23
 msgid "Category view is now a list"
 msgstr "カテゴリー表示のリスト化"
 
-#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:24
 msgid "Improved keyboard navigation"
 msgstr "キーボード操作を改善"
 
-#: data/applications-menu.appdata.xml.in:24
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:34
 msgid "Performance improvements"
 msgstr "パフォーマンスの改善"
 
-#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:31
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "新しいツールチップの追加とメニューキーへの対応などの、キーボード操作の改善"
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:32
 msgid "Highlight action matches in the search view"
 msgstr "検索ビューの一致する操作をハイライトするように修正"
 
-#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:33
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"AppCenter で表示\" メニュー項目を追加"
 
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:44
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
