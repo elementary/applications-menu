@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"POT-Creation-Date: 2020-04-29 20:49+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -31,19 +31,19 @@ msgstr "अनुप्रयोग"
 msgid "Open and search apps"
 msgstr "उघडा आणि अॅप्स शोधा"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:60
 msgid "View as Grid"
 msgstr "ग्रिड म्हणून पहा"
 
-#: src/SlingshotView.vala:66
+#: src/SlingshotView.vala:63
 msgid "View by Category"
 msgstr "श्रेणीनुसार पहा"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:75
 msgid "Search Apps"
 msgstr "अनुप्रयोग शोधा"
 
-#: src/SlingshotView.vala:81
+#: src/SlingshotView.vala:78
 msgid "Clear all"
 msgstr "सर्व हटवा"
 

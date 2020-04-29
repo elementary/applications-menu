@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"POT-Creation-Date: 2020-04-29 20:49+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -36,19 +36,19 @@ msgstr "Uygulamalar"
 msgid "Open and search apps"
 msgstr "Uygulama açın ve arayın"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:60
 msgid "View as Grid"
 msgstr "Izgara olarak görüntüle"
 
-#: src/SlingshotView.vala:66
+#: src/SlingshotView.vala:63
 msgid "View by Category"
 msgstr "Kategoriye göre görüntüle"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:75
 msgid "Search Apps"
 msgstr "Uygulama Ara"
 
-#: src/SlingshotView.vala:81
+#: src/SlingshotView.vala:78
 msgid "Clear all"
 msgstr "Tümünü temizle"
 
