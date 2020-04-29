@@ -1,3 +1,37 @@
+slingshot-launcher (2.7.0) bionic; urgency=medium
+
+  * Release 2.7.0 (#382)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Update applications-menu.appdata.xml.in
+  * CategoryView: Make sure that the content of the category we are
+    using is always on-par with the selected row (#381)
+  * SlingshotView: Clean up some keypress signal handlers (#380)
+  * Avoid copying app list (#377)
+  * GridView: Use Handy.Paginator instead of Stack (#360)
+  * Update translation files
+  * Update translation template
+  * CategoryView: make sure we sort category rows (#378)
+  * Applications.menu: Remove old rules (#375)
+  * AppSystem: Remove unnecessary check for settings panes (#374)
+  * Update translation files
+  * Update translation template
+  * SlingshotView: Don't pass mod keys to search (#373)
+  * CategoryView: Fix false positive with up keyboard nav (#369)
+  * Sidebar: rewrite as Gtk.ListBox (#263)
+  * Indicator: Make get_indicator nullable (#371)
+  * AppButton: Set width_chars instead of pixel width (#367)
+  * Update translation files
+  * Update translation template
+  * CategoryView: Focus searchbox if navigating up (#366)
+  * SlingshotView: use move_focus in searchbox keypress event handler
+    (#365)
+  * switchboard-plugin: Rename the plugins directory and fix type in
+    Applications Menu name (#363)
+
+ -- elementary, Inc. <builds@elementary.io>  Wed, 29 Apr 2020 21:59:38 +0000
+
 slingshot-launcher (2.6.0) bionic; urgency=medium
 
   * Release 2.6.0 (#361)
