@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 22:37+0000\n"
+"POT-Creation-Date: 2020-04-29 20:49+0000\n"
 "PO-Revision-Date: 2019-11-07 13:26-0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -31,49 +31,54 @@ msgid "Minor updates"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:13
-msgid "Focus search when navigating up from the category view"
+msgid ""
+"Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:14
-msgid "Don't focus search when pressing modifier keys"
+msgid "Focus search when navigating up from the category view"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:15
-msgid "Ensure categories are sorted alphabetically"
+msgid "Don't focus search when pressing modifier keys"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:16
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
+msgid "Ensure categories are sorted alphabetically"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:35
 msgid "Updated translations"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:22
+#: data/applications-menu.appdata.xml.in:23
 msgid "Category view is now a list"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:24
 msgid "Improved keyboard navigation"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:24
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:34
 msgid "Performance improvements"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:31
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:32
 msgid "Highlight action matches in the search view"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:33
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:44
 msgid "elementary, Inc."
 msgstr ""
