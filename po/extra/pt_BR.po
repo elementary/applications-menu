@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-21 22:37+0000\n"
-"PO-Revision-Date: 2020-04-09 14:10+0000\n"
+"PO-Revision-Date: 2020-04-27 00:10+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu-extra/pt_BR/>\n"
@@ -29,19 +29,20 @@ msgstr "Abra e pesquise aplicativos"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Minor updates"
-msgstr ""
+msgstr "Pequenas atualizações"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Concentrar na pesquisa ao navegar a partir da visualização por categoria"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Não focalizar na pesquisa ao pressionar as teclas modificadoras"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Garantir que as categorias sejam classificadas em ordem alfabética"
 
 #: data/applications-menu.appdata.xml.in:16
 #: data/applications-menu.appdata.xml.in:25
