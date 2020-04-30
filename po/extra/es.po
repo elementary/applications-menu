@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 20:49+0000\n"
-"PO-Revision-Date: 2020-04-12 14:10+0000\n"
+"PO-Revision-Date: 2020-05-02 12:10+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
@@ -29,24 +29,27 @@ msgstr "Abra y busque aplicaciones"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Minor updates"
-msgstr ""
+msgstr "Actualizaciones menores"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Gesto de navegación más prolijo en la vista de cuadrícula y compatibilidad "
+"con gestos de pantalla táctil"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Se focaliza la búsqueda al navegar hacia arriba desde la vista por categorías"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "No se otorga el foco a la búsqueda al presionar teclas modificadoras"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Se garantiza que las categorías estén ordenadas alfabéticamente"
 
 #: data/applications-menu.appdata.xml.in:17
 #: data/applications-menu.appdata.xml.in:26
