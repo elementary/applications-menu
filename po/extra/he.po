@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 20:49+0000\n"
-"PO-Revision-Date: 2020-04-19 17:22+0000\n"
+"PO-Revision-Date: 2020-05-02 12:10+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/he/>\n"
@@ -29,12 +29,12 @@ msgstr "לפתוח ולחפש יישומים"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Minor updates"
-msgstr ""
+msgstr "עדכונים משניים"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
+msgstr "ניווט חלק יותר באמצעות מחוות בתצוגת רשת ותמיכה במחוות על מסך מגע"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Focus search when navigating up from the category view"
@@ -42,11 +42,11 @@ msgstr "מיקוד החיפוש בעת ניווט כלפי מעלה מתצוגה
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "לא להתמקד על החיפוש בעת לחיצה על מקשי החלפה"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "אימות שהקטגוריות מסודרות לפי האלפבית"
 
 #: data/applications-menu.appdata.xml.in:17
 #: data/applications-menu.appdata.xml.in:26
