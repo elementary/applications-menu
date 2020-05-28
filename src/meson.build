@@ -78,7 +78,6 @@ dependencies = [
     libsoup_dep,
     appstream_dep,
     plank_dep,
-    unity_dep,
     wingpanel_dep,
     libhandy_dep,
     posix_dep,
