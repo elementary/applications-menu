@@ -6,6 +6,14 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
+    <release version="2.7.1" date="2020-05-28" urgency="medium">
+      <description>
+        <p>Minor updates</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.7.0" date="2020-04-29" urgency="medium">
       <description>
         <p>Minor updates</p>
