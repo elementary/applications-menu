@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 20:49+0000\n"
-"PO-Revision-Date: 2020-05-08 13:10+0000\n"
+"PO-Revision-Date: 2020-05-28 18:38+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/cs/>\n"
@@ -26,7 +26,7 @@ msgstr "Slingshot"
 
 #: src/Indicator.vala:36
 msgid "The app-menu indicator"
-msgstr "Indikátor menu aplikace"
+msgstr "Indikátor s nabídkou s aplikacemi"
 
 #: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
 msgid "Applications"
@@ -123,7 +123,7 @@ msgstr "Kopírovat do schránky"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
-msgstr "Kopírovat výběr do schránky"
+msgstr "Zkopírovat výběr do schránky"
 
 #: src/synapse-core/Actions/RunnerAction.vala:25
 msgid "Run"
@@ -135,11 +135,11 @@ msgstr "Spustit aplikaci, činnost nebo skript"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr "Spustit v příkazové řádce"
+msgstr "Spustit v příkazovém řádku"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr "Spustit aplikaci nebo příkaz v příkazové řádce"
+msgstr "Spustit aplikaci nebo příkaz v příkazovém řádku"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
@@ -154,7 +154,7 @@ msgstr "Hledat v centru aplikací"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr "AppCentrum"
+msgstr "Centrum aplikací"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
@@ -162,7 +162,7 @@ msgstr "Hledat aplikace"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr "AppCentrum není nainstalováno"
+msgstr "Centrum aplikací není nainstalováno"
 
 #: src/synapse-plugins/calculator-plugin.vala:44
 msgid "Calculator"
@@ -179,7 +179,7 @@ msgstr "bc není nainstalováno"
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Spustit '%s'"
+msgstr "Spustit „%s“"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -191,7 +191,7 @@ msgstr "Vyhledává a umožňuje spouštět libovolné příkazy."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "Vyhledat a spustit aplikace na Vašem počítači."
+msgstr "Vyhledat a spustit aplikace na vašem počítači."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
@@ -206,7 +206,7 @@ msgstr "Otevřít vybrané pomocí %s"
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr "Otevřít %s ve výchozím prohlížeči"
+msgstr "Otevřít %s ve výchozím webovém prohlížeči"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
@@ -232,7 +232,7 @@ msgstr "Otevřít %s nastavení"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Najít přepínač pluginů a otevřít je."
+msgstr "Modul ovládacích panelů a otevřít je."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -254,7 +254,7 @@ msgstr "Odhlásit se"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "Zavřít všechny běžící aplikace a skončit"
+msgstr "Zavřít všechny spuštěné aplikace a skončit"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
@@ -316,7 +316,7 @@ msgstr "Restartuje počítač"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "restartovat;rebootovat"
+msgstr "restartovat;reboot"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
@@ -328,7 +328,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit nenalezen"
+msgstr "ConsoleKit nenalezeno"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"
