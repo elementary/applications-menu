@@ -235,10 +235,10 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
                 go_to_previous ();
 
                 return Gdk.EVENT_STOP;
-            case Gdk.ScrollDirection.DOWN: 
-            case Gdk.ScrollDirection.RIGHT: 
+            case Gdk.ScrollDirection.DOWN:
+            case Gdk.ScrollDirection.RIGHT:
                 go_to_next ();
-                
+
                 return Gdk.EVENT_STOP;
             case Gdk.ScrollDirection.SMOOTH:
                 if (event.delta_y == 1) {
