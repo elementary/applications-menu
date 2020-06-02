@@ -223,6 +223,36 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return Gdk.EVENT_PROPAGATE;
     }
 
+    public override bool scroll_event (Gdk.EventScroll event) {
+        unowned Gdk.Device? source = event.get_source_device ();
+        if (source == null || source.input_source != Gdk.InputSource.MOUSE) {
+            return Gdk.EVENT_PROPAGATE;
+        }
+
+        switch (event.direction) {
+            case Gdk.ScrollDirection.UP:
+            case Gdk.ScrollDirection.LEFT:
+                go_to_previous ();
+
+                return Gdk.EVENT_STOP;
+            case Gdk.ScrollDirection.DOWN: 
+            case Gdk.ScrollDirection.RIGHT: 
+                go_to_next ();
+                
+                return Gdk.EVENT_STOP;
+            case Gdk.ScrollDirection.SMOOTH:
+                if (event.delta_y == 1) {
+                    go_to_next ();
+                } else if (event.delta_y == -1) {
+                    go_to_previous ();
+                }
+
+                return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
+    }
+
     private void move_left (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_previous ();
