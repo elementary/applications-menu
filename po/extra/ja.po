@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2020-05-03 14:10+0000\n"
+"PO-Revision-Date: 2020-06-07 20:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -52,7 +52,7 @@ msgstr "カテゴリー表示で上キーを押した際に検索欄にフォー
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
-msgstr "修飾キーを押すと検索欄にフォーカスが移動する問題を修正"
+msgstr "修飾キーを押すと検索欄にフォーカスが移動する不具合を修正"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
