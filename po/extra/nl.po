@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2020-01-03 22:07+0000\n"
+"PO-Revision-Date: 2020-06-18 15:11+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/nl/>\n"
@@ -30,7 +30,7 @@ msgstr "Open en zoek apps"
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Kleine updates"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:25
@@ -43,18 +43,22 @@ msgstr "Bijgewerkte vertalingen"
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Vloeiender navigatie gebaar in rooster weergave en ondersteuning voor "
+"gebaren via touchscreen"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Verplaats de focus naar zoeken bij het naar boven navigeren vanaf de "
+"categorie weergave"
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Focus niet op het zoekveld bij het drukken op aanpas knoppen"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Zorg ervoor dat categorieën alfabetisch worden gesorteerd"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
@@ -62,7 +66,7 @@ msgstr "Categorie weergave is nu een lijst"
 
 #: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Verbeterde navigatie door middel van het toetsenbord"
 
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
