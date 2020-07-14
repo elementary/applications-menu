@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 20:49+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2020-05-25 15:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,19 +20,11 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "Appmenu-indikatoren"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Applikationer"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr "Åbn og søg apps"
 
@@ -329,6 +321,12 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit blev ikke fundet"
+
+#~ msgid "Slingshot"
+#~ msgstr "Slingshot"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "Appmenu-indikatoren"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"

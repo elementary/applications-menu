@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 20:49+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2018-06-10 00:13+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,19 +15,11 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr ""
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr ""
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr ""
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 20:49+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2018-03-13 02:52+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -20,19 +20,11 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "程式選單指示器"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "應用程式"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 #, fuzzy
 msgid "Open and search apps"
 msgstr "開啟並搜尋程式 (%s)"
@@ -331,6 +323,12 @@ msgstr "鎖定作業階段或登出。暫停、休眠、重新啟動、或關閉
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "找不到 ConsoleKit"
+
+#~ msgid "Slingshot"
+#~ msgstr "Slingshot"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "程式選單指示器"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"

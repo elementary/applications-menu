@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 20:49+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,20 +15,12 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr "স্লিংশট"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "অ্যাপ-মেনু ইনডিকেটর"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 #, fuzzy
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr ""
 
@@ -330,6 +322,12 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit পাওয়া যায়নি"
+
+#~ msgid "Slingshot"
+#~ msgstr "স্লিংশট"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "অ্যাপ-মেনু ইনডিকেটর"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"

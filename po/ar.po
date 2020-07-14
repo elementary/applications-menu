@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 20:49+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2019-03-13 16:27+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,20 +21,11 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-#, fuzzy
-msgid "Slingshot"
-msgstr "المقلاع"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "مؤشر قائمة التطبيقات"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "التطبيقات"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr "إفتح و إبحث عن التطبيقات"
 
@@ -332,6 +323,13 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "لم يتم العثور على ConsoleKit"
+
+#, fuzzy
+#~ msgid "Slingshot"
+#~ msgstr "المقلاع"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "مؤشر قائمة التطبيقات"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"
