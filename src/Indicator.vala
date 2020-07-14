@@ -31,9 +31,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     private static GLib.Settings? keybinding_settings;
 
     public Indicator () {
-        Object (code_name: Wingpanel.Indicator.APP_LAUNCHER,
-        display_name: _("Slingshot"),
-        description:_("The app-menu indicator"));
+        Object (code_name: Wingpanel.Indicator.APP_LAUNCHER);
     }
 
     static construct {
