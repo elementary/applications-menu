@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2020-03-19 20:09+0000\n"
+"PO-Revision-Date: 2020-07-16 21:12+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu-extra/en_GB/>\n"
@@ -30,7 +30,7 @@ msgstr "Open and search for apps"
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Minor updates"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:25
@@ -43,18 +43,19 @@ msgstr "Updated translations"
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Smoother navigation gesture in grid view and touchscreen gesture support"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
-msgstr ""
+msgstr "Focus search when navigating up from the category view"
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Don't focus search when pressing modifier keys"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Ensure categories are sorted alphabetically"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
@@ -62,7 +63,7 @@ msgstr "Category view is now a list"
 
 #: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Improved keyboard navigation"
 
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
