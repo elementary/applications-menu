@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2019-01-04 00:09+0000\n"
-"Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
-"Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
+"PO-Revision-Date: 2020-07-16 21:12+0000\n"
+"Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
+"Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/nn/>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -26,7 +26,7 @@ msgstr "Applikasjonar"
 
 #: src/Indicator.vala:116
 msgid "Open and search apps"
-msgstr "Opne og søk i program"
+msgstr "Opne og søk i appar"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -38,11 +38,11 @@ msgstr "Vis etter kategori"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
-msgstr "Søk etter applikasjonar"
+msgstr "Søk etter appar"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Fjern alle"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -55,7 +55,7 @@ msgstr "Prøv å endre søkeord."
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Ingen resultat for «%s»"
+msgstr "Ingen resultat for “%s”"
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
@@ -70,9 +70,8 @@ msgid "Uninstall"
 msgstr "Avinstaller"
 
 #: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "AppCenter"
+msgstr "Vis i AppCenter"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -143,7 +142,7 @@ msgstr "Søk etter %s i %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr "Søk i programbutikken"
+msgstr "Søk i appbutikken"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
@@ -151,7 +150,7 @@ msgstr "AppCenter"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr "Søk etter program"
+msgstr "Søk etter applikasjonar"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
@@ -239,7 +238,7 @@ msgstr "Lås denne eininga"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "lås"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -247,13 +246,13 @@ msgstr "Logg ut"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "Lukk alle opne program og avslutt"
+msgstr "Lukk alle opne appar og avslutt"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "logg ut"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -265,10 +264,9 @@ msgstr "Sett datamaskina i kvilemodus"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Kvilemodus"
+msgstr "kvilemodus"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -280,10 +278,9 @@ msgstr "Sett datamaskina i dvalemodus"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Dvalemodus"
+msgstr "dvalemodus"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -297,7 +294,7 @@ msgstr "Slå av datamaskina"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "avslutt;slå av"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -311,15 +308,15 @@ msgstr "Start datamaskina på nytt"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "omstart;start på nytt"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"Lås økta eller logg ut. Sett maskina di i kvilemodus, dvalemodus, restart, "
-"eller slå henne av."
+"Lås økta eller logg ut. Sett maskina di i kvilemodus, dvalemodus, omstart, "
+"eller slå den av."
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
