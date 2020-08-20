@@ -202,6 +202,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             child.destroy ();
         }
 
+        foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
+            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
+        }
+        listbox.show_all ();
+
         // Fill the sidebar
         unowned Gtk.ListBoxRow? new_selected = null;
         foreach (string cat_name in view.app_system.apps.keys) {
