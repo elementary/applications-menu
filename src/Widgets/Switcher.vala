@@ -18,14 +18,15 @@
 //
 
 public class Slingshot.Widgets.Switcher : Gtk.Grid {
+    public signal void on_paginator_changed ();
+
     private bool has_enough_children {
         get {
             return get_children ().length () > 1;
         }
     }
 
-    private Gtk.Stack stack;
-    public signal void on_stack_changed ();
+    private Hdy.Carousel paginator;
 
     construct {
         halign = Gtk.Align.CENTER;
@@ -35,23 +36,23 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
         show_all ();
     }
 
-    public void set_stack (Gtk.Stack stack) {
-        if (this.stack != null) {
+    public void set_paginator (Hdy.Carousel paginator) {
+        if (this.paginator != null) {
             get_children ().foreach ((child) => {
                 child.destroy ();
             });
         }
 
-        this.stack = stack;
-        foreach (var child in stack.get_children ()) {
+        this.paginator = paginator;
+        foreach (var child in paginator.get_children ()) {
             add_child (child);
         }
 
-        stack.add.connect_after (add_child);
+        paginator.add.connect_after (add_child);
     }
 
     private void add_child (Gtk.Widget widget) {
-        var button = new PageChecker (widget);
+        var button = new PageChecker (paginator, widget);
         add (button);
     }
 

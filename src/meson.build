@@ -78,18 +78,23 @@ dependencies = [
     libsoup_dep,
     appstream_dep,
     plank_dep,
-    unity_dep,
     wingpanel_dep,
+    libhandy_dep,
     posix_dep,
 ]
 
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
 
+c_args = [
+    '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
+    '-DHANDY_USE_UNSTABLE_API',
+]
+
 shared_module(
     meson.project_name(),
     sources,
     dependencies: dependencies,
-    c_args : '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
+    c_args : c_args,
     install: true,
     install_dir: wingpanel_indicatorsdir
 )

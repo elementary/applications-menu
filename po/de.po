@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2019-12-26 01:08+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,35 +20,27 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "Der App-Menü-Indikator"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Apps"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr "Apps öffnen und suchen"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:60
 msgid "View as Grid"
 msgstr "Als Raster anzeigen"
 
-#: src/SlingshotView.vala:66
+#: src/SlingshotView.vala:63
 msgid "View by Category"
 msgstr "Ansicht nach Kategorie"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:75
 msgid "Search Apps"
 msgstr "Apps durchsuchen"
 
-#: src/SlingshotView.vala:81
+#: src/SlingshotView.vala:78
 msgid "Clear all"
 msgstr "Alles entfernen"
 
@@ -329,6 +321,12 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "ConsoleKit wurde nicht gefunden"
+
+#~ msgid "Slingshot"
+#~ msgstr "Slingshot"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "Der App-Menü-Indikator"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"

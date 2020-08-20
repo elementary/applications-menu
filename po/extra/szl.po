@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 18:05+0000\n"
-"PO-Revision-Date: 2020-02-23 09:08+0000\n"
-"Last-Translator: gkkulik <g.kulik@o2.pl>\n"
+"POT-Creation-Date: 2020-05-28 18:40+0000\n"
+"PO-Revision-Date: 2020-06-12 22:11+0000\n"
+"Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/szl/>\n"
 "Language: szl\n"
@@ -29,43 +29,63 @@ msgid "Open and search for apps"
 msgstr "Ôtwōrz i wyszukej programy"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Focus search when navigating up from the category view"
-msgstr ""
+#: data/applications-menu.appdata.xml.in:19
+msgid "Minor updates"
+msgstr "Drobne aktualizacyje"
 
-#: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:43
 msgid "Updated translations"
 msgstr "Zaktualizowane przekłady"
 
-#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:21
+msgid ""
+"Smoother navigation gesture in grid view and touchscreen gesture support"
+msgstr ""
+"Gładsze gesty nawigacyje we widoku necu i sparcie gestōw panelu tykowego"
+
+#: data/applications-menu.appdata.xml.in:22
+msgid "Focus search when navigating up from the category view"
+msgstr "Aktywuj szukanie przi nawigowaniu do wiyrchu we widoku kategoryji"
+
+#: data/applications-menu.appdata.xml.in:23
+msgid "Don't focus search when pressing modifier keys"
+msgstr "Niy aktywuj szukanio po prziciśniyńciach knefli modyfikacyje"
+
+#: data/applications-menu.appdata.xml.in:24
+msgid "Ensure categories are sorted alphabetically"
+msgstr "Dej pozōr, żeby kategoryje były porzōndkowane podle alfabetu"
+
+#: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
 msgstr "Widok kategoryji to teroz lista"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Ulepszōno nawigacyjo tastaturōm"
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:42
 msgid "Performance improvements"
-msgstr "Ulepszynia wydajności"
+msgstr "Ulepszōno wartkość"
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:39
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Ulepszōno nawigacyjo tastaturōm, społym ze nowymi podpowiedziami i sparciym "
 "knefla myni"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:40
 msgid "Highlight action matches in the search view"
 msgstr "Podświytlynie fungowań, co pasujōm, we widoku szukanio"
 
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:41
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Dodany elymynt myni „Pokoż we Cyntrum programōw”"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:52
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

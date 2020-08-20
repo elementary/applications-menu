@@ -7,60 +7,85 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 18:05+0000\n"
-"PO-Revision-Date: 2019-11-07 13:26-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2020-05-28 18:40+0000\n"
+"PO-Revision-Date: 2020-06-07 20:11+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu-extra/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Nabídka s aplikacemi"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Spouštějte a hledejte aplikace"
 
 #: data/applications-menu.appdata.xml.in:11
+#: data/applications-menu.appdata.xml.in:19
+msgid "Minor updates"
+msgstr "Drobné aktualizace"
+
+#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:43
+msgid "Updated translations"
+msgstr "Aktualizovány překlady"
+
+#: data/applications-menu.appdata.xml.in:21
+msgid ""
+"Smoother navigation gesture in grid view and touchscreen gesture support"
+msgstr ""
+"Hladší gesta pohybu v zobrazení v mřížce a podpora gest dotykové obrazovky"
+
+#: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Zaměření kolonky pro vyhledávání při pohybu nahoru ze zobrazení s kategoriemi"
 
-#: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
-msgid "Updated translations"
-msgstr ""
+#: data/applications-menu.appdata.xml.in:23
+msgid "Don't focus search when pressing modifier keys"
+msgstr "Nezaměřování kolonky pro vyhledávání při stisku kláves-modifikátorů"
 
-#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:24
+msgid "Ensure categories are sorted alphabetically"
+msgstr "Zajištění, že jsou všechny kategorie řazeny abecedně"
+
+#: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Zobrazení s kategoriemi je nyní seznam"
 
-#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Vylepšená navigace pomocí kláves"
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:42
 msgid "Performance improvements"
-msgstr ""
+msgstr "Vylepšení odezvy"
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:39
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Vylepšená navigace pomocí klávesnice, včetně nových nástrojových tipů a "
+"podpory klávesy menu"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:40
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Zvýraznění akce shodující se v zobrazení hledání"
 
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:41
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Přidána položka nabídky „Zobrazit v Centru aplikací“"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:52
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."

@@ -107,7 +107,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         var event_box = new Gtk.EventBox ();
         event_box.add (container);
-        event_box.add_events (Gdk.EventMask.SCROLL_MASK);
 
         // Add the container to the dialog's content area
         this.add (event_box);
@@ -131,7 +130,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         event_box.key_press_event.connect (on_event_box_key_press);
         search_entry.key_press_event.connect (on_search_view_key_press);
-        search_entry.key_press_event.connect_after (on_key_press);
 
         // Showing a menu reverts the effect of the grab_device function.
         search_entry.search_changed.connect (() => {
@@ -211,27 +209,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public bool on_search_view_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-            switch (key) {
-                case "1":
-                    view_selector.selected = 0;
-                    return Gdk.EVENT_STOP;
-                case "2":
-                    view_selector.selected = 1;
-                    return Gdk.EVENT_STOP;
-            }
-            return Gdk.EVENT_PROPAGATE;
-        }
-
         switch (key) {
-            case "F4":
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                    close_indicator ();
-                    return Gdk.EVENT_STOP;
-                }
-
-                break;
-
             case "Down":
                 search_entry.move_focus (Gtk.DirectionType.TAB_FORWARD);
                 return Gdk.EVENT_STOP;
@@ -244,24 +222,56 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 }
 
                 return Gdk.EVENT_STOP;
-
-            default:
-                break;
         }
 
         return Gdk.EVENT_PROPAGATE;
     }
 
     public bool on_event_box_key_press (Gdk.EventKey event) {
-        if (!on_search_view_key_press (event)) {
-            return on_key_press (event);
-        } else {
-            return Gdk.EVENT_STOP;
-        }
-    }
-
-    public bool on_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
+        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+            switch (key) {
+                case "1":
+                    view_selector.selected = 0;
+                    return Gdk.EVENT_STOP;
+                case "2":
+                    view_selector.selected = 1;
+                    return Gdk.EVENT_STOP;
+            }
+        }
+
+        // Alt accelerators
+        if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
+            switch (key) {
+                case "F4":
+                    close_indicator ();
+                    return Gdk.EVENT_STOP;
+
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                    if (modality == Modality.NORMAL_VIEW) {
+                        int page = int.parse (key);
+                        if (page < 0 || page == 9) {
+                            grid_view.go_to_last ();
+                        } else {
+                            grid_view.go_to_number (page);
+                        }
+                    }
+
+                    // FIXME: Workaround to avoid losing focus completely
+                    search_entry.grab_focus ();
+                    return Gdk.EVENT_STOP;
+            }
+        }
+
         switch (key) {
             case "Down":
             case "Enter": // "KP_Enter"
@@ -272,36 +282,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Right":
             case "Tab":
             case "Up":
-                return Gdk.EVENT_PROPAGATE;
-
-            case "Alt_L":
-            case "Alt_R":
-                break;
-
-            case "0":
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-            case "8":
-            case "9":
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                    int page = int.parse (key);
-                    if (modality == Modality.NORMAL_VIEW) {
-                        if (page < 0 || page == 9) {
-                            grid_view.go_to_last ();
-                        } else {
-                            grid_view.go_to_number (page);
-                        }
-                    }
-
-                    search_entry.grab_focus ();
-                    return Gdk.EVENT_STOP;
-                }
-
                 return Gdk.EVENT_PROPAGATE;
 
             case "Page_Up":
@@ -333,7 +313,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 return Gdk.EVENT_PROPAGATE;
             default:
-                if (!search_entry.has_focus) {
+                if (!search_entry.has_focus && event.is_modifier != 1) {
                     search_entry.grab_focus ();
                     search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
                     search_entry.key_press_event (event);
@@ -343,31 +323,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         }
 
         return Gdk.EVENT_STOP;
-    }
-
-    public override bool scroll_event (Gdk.EventScroll scroll_event) {
-        unowned Gdk.Device? device = scroll_event.get_source_device ();
-
-        if ((device == null ||
-            (device.input_source != Gdk.InputSource.MOUSE && device.input_source != Gdk.InputSource.KEYBOARD)) &&
-            grid_view.stack.transition_running) {
-            return Gdk.EVENT_PROPAGATE;
-        }
-
-        if (modality == Modality.NORMAL_VIEW) {
-            switch (scroll_event.direction) {
-                case Gdk.ScrollDirection.UP:
-                case Gdk.ScrollDirection.LEFT:
-                    grid_view.go_to_previous ();
-                    break;
-                case Gdk.ScrollDirection.DOWN:
-                case Gdk.ScrollDirection.RIGHT:
-                    grid_view.go_to_next ();
-                    break;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
     }
 
     public void show_slingshot () {

@@ -18,11 +18,9 @@
 public class Slingshot.Backend.AppSystem : Object {
     public signal void changed ();
 
-    private const string GCC_PANEL_CATEGORY = "X-GNOME-Settings-Panel";
-    private const string SWITCHBOARD_PLUG_CATEGORY = "X-PANTHEON-Switchboard-Plug";
+    public Gee.HashMap<string, Gee.ArrayList<App>> apps { get; private set; default = null; }
 
     private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
-    private Gee.HashMap<string, Gee.ArrayList<App>> apps = null;
     private GMenu.Tree apps_menu = null;
 
 #if HAVE_ZEITGEIST
@@ -119,22 +117,12 @@ public class Slingshot.Backend.AppSystem : Object {
         return app_list;
     }
 
-    public Gee.HashMap<string, Gee.ArrayList<App>> get_apps () {
-        return apps;
-    }
-
     public SList<App> get_apps_by_name () {
         var sorted_apps = new SList<App> ();
         string[] sorted_apps_execs = {};
 
         foreach (Gee.ArrayList<App> category in apps.values) {
             foreach (App app in category) {
-                if (app.categories != null
-                    && (GCC_PANEL_CATEGORY in app.categories
-                    || SWITCHBOARD_PLUG_CATEGORY in app.categories)) {
-                    continue;
-                }
-
                 if (!(app.exec in sorted_apps_execs)) {
                     sorted_apps.insert_sorted_with_data (app, sort_apps_by_name);
                     sorted_apps_execs += app.exec;

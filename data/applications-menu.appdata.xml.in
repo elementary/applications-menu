@@ -6,10 +6,24 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.6.1" date="2020-04-16" urgency="medium">
+    <release version="2.7.1" date="2020-05-28" urgency="medium">
       <description>
-        <p>Focus search when navigating up from the category view</p>
-        <p>Updated translations</p>
+        <p>Minor updates</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.7.0" date="2020-04-29" urgency="medium">
+      <description>
+        <p>Minor updates</p>
+        <ul>
+          <li>Smoother navigation gesture in grid view and touchscreen gesture support</li>
+          <li>Focus search when navigating up from the category view</li>
+          <li>Don't focus search when pressing modifier keys</li>
+          <li>Ensure categories are sorted alphabetically</li>
+          <li>Updated translations</li>
+        </ul>
       </description>
     </release>
     <release version="2.6.0" date="2020-04-09" urgency="medium">

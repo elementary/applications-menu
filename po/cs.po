@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
-"PO-Revision-Date: 2019-04-22 19:32+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"PO-Revision-Date: 2020-06-07 20:11+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/cs/>\n"
 "Language: cs\n"
@@ -17,40 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "Indikátor menu aplikace"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplikace"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr "Otevřít a hledat aplikace"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:60
 msgid "View as Grid"
 msgstr "Zobrazit v mřížce"
 
-#: src/SlingshotView.vala:66
+#: src/SlingshotView.vala:63
 msgid "View by Category"
 msgstr "Zobrazit dle kategorie"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:75
 msgid "Search Apps"
 msgstr "Hledat aplikace"
 
-#: src/SlingshotView.vala:81
+#: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Vyčistit vše"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -67,20 +59,19 @@ msgstr "Žádné výsledky pro „%s“"
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr "Odebrat z lišty"
+msgstr "Odebrat z _Doku"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr "Přidat na lištu"
+msgstr "Přidat na Dok"
 
 #: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
 msgstr "Odinstalovat"
 
 #: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "AppCentrum"
+msgstr "Zobrazit v Centru aplikací"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -120,11 +111,11 @@ msgstr "Ostatní"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
-msgstr "Kopírovat do schránky"
+msgstr "Zkopírovat do schránky"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
-msgstr "Kopírovat výběr do schránky"
+msgstr "Zkopírovat výběr do schránky"
 
 #: src/synapse-core/Actions/RunnerAction.vala:25
 msgid "Run"
@@ -132,15 +123,15 @@ msgstr "Spustit"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "Spustit aplikaci, činnost nebo skript"
+msgstr "Spustit aplikaci, akci nebo skript"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr "Spustit v příkazové řádce"
+msgstr "Spustit v příkazovém řádku"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr "Spustit aplikaci nebo příkaz v příkazové řádce"
+msgstr "Spustit aplikaci nebo příkaz v příkazovém řádku"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
@@ -155,7 +146,7 @@ msgstr "Hledat v centru aplikací"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr "AppCentrum"
+msgstr "Centru aplikací"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
@@ -163,7 +154,7 @@ msgstr "Hledat aplikace"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr "AppCentrum není nainstalováno"
+msgstr "Centrum aplikací není nainstalováno"
 
 #: src/synapse-plugins/calculator-plugin.vala:44
 msgid "Calculator"
@@ -180,7 +171,7 @@ msgstr "bc není nainstalováno"
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Spustit '%s'"
+msgstr "Spustit „%s“"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -192,7 +183,7 @@ msgstr "Vyhledává a umožňuje spouštět libovolné příkazy."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "Vyhledat a spustit aplikace na Vašem počítači."
+msgstr "Vyhledat a spustit aplikace na vašem počítači."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
@@ -207,7 +198,7 @@ msgstr "Otevřít vybrané pomocí %s"
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr "Otevřít %s ve výchozím prohlížeči"
+msgstr "Otevřít %s ve výchozím webovém prohlížeči"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
@@ -233,7 +224,7 @@ msgstr "Otevřít %s nastavení"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Najít přepínač pluginů a otevřít je."
+msgstr "Najít modul ovládacích panelů a otevřít ho."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -255,7 +246,7 @@ msgstr "Odhlásit se"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "Zavřít všechny běžící aplikace a skončit"
+msgstr "Zavřít všechny spuštěné aplikace a skončit"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
@@ -317,7 +308,7 @@ msgstr "Restartuje počítač"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "restartovat;rebootovat"
+msgstr "restartovat;reboot"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
@@ -329,7 +320,13 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit nenalezen"
+msgstr "ConsoleKit nenalezeno"
+
+#~ msgid "Slingshot"
+#~ msgstr "Slingshot"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "Indikátor s nabídkou s aplikacemi"
 
 #, fuzzy
 #~ msgid "Uninstall “%s”?"

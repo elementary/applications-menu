@@ -31,8 +31,6 @@
         <Not><Category>Accessibility</Category></Not>
         <Not><Category>System</Category></Not>
         <Not><Filename>org.gnome.font-viewer.desktop</Filename></Not>
-        <Not><Filename>gnome-font-viewer.desktop</Filename></Not>
-        <Not><Filename>file-roller.desktop</Filename></Not>
         <Not><Filename>org.gnome.FileRoller.desktop</Filename></Not>
       </And>
     </Include>
@@ -46,8 +44,7 @@
       <And>
         <Category>Accessibility</Category>
         <Not><Category>Settings</Category></Not>
-        <!-- Do not display Orca and OnBoard; they belong to a11y plug -->
-        <Not><Filename>orca.desktop</Filename></Not>
+        <!-- Do not display OnBoard; it belongs to a11y plug -->
         <Not><Filename>onboard.desktop</Filename></Not>
       </And>
     </Include>
@@ -162,15 +159,9 @@
         </Or>
         <Not>
           <Category>Game</Category>
-          <Category>X-GNOME-Settings-Panel</Category>
-          <Filename>debian-xterm.desktop</Filename>
-          <Filename>debian-uxterm.desktop</Filename>
           <Filename>htop.desktop</Filename>
-          <Filename>ibus.desktop</Filename>
         </Not>
       </And>
-      <Filename>ubuntuone-installer.desktop</Filename>
-      <Filename>ubuntu-tweak.desktop</Filename>
     </Include>
   </Menu>   <!-- End System Tools -->
 
@@ -184,20 +175,12 @@
         <Not>
           <Category>Core</Category>
           <Category>Screensaver</Category>
-          <Category>X-GNOME-Settings-Panel</Category>
-          <Filename>debian-xterm.desktop</Filename>
-          <Filename>debian-uxterm.desktop</Filename>
-          <Filename>htop.desktop</Filename>
-          <Filename>ibus.desktop</Filename>
-          <Filename>empathy-accounts.desktop</Filename>
-          <Filename>orca.desktop</Filename>
-          <Filename>onboard.desktop</Filename>
-          <Filename>org.gnome.font-viewer.desktop</Filename>
-          <Filename>gnome-font-viewer.desktop</Filename>
           <Filename>evince.desktop</Filename>
+          <Filename>htop.desktop</Filename>
+          <Filename>onboard.desktop</Filename>
           <Filename>org.gnome.Evince.desktop</Filename>
-          <Filename>file-roller.desktop</Filename>
           <Filename>org.gnome.FileRoller.desktop</Filename>
+          <Filename>org.gnome.font-viewer.desktop</Filename>
         </Not>
         <Or>
           <Not><Category>Settings</Category></Not>
@@ -234,20 +217,6 @@
     <Name>Debian</Name>
     <MergeFile>debian-menu.menu</MergeFile>
     <Directory>Debian.directory</Directory>
-  </Menu>
-
-  <!-- Switchboard menu -->
-  <Menu>
-    <Name>switchboard</Name>
-    <Directory>Switchboard.directory</Directory>
-    <Include>
-      <And>
-        <Or>
-          <Category>X-PANTHEON-Switchboard-Plugs</Category>
-          <Category>X-GNOME-Settings-Panel</Category>
-        </Or>
-      </And>
-    </Include>
   </Menu>
 
 </Menu> <!-- End Applications -->

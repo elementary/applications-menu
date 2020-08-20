@@ -13,6 +13,7 @@ You'll need the following dependencies:
 * libgnome-menu-3-dev
 * libgranite-dev >= 5.2.1
 * libgtk-3-dev
+* libhandy-1-dev >= 0.83.0
 * libjson-glib-dev
 * libplank-dev
 * libsoup2.4-dev
