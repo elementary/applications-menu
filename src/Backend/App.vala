@@ -38,6 +38,7 @@ public class Slingshot.Backend.App : Object {
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
     public AppType app_type { get; private set; default = AppType.APP; }
+    Gee.List<AppAction> actions { get; private set; default = new Gee.ArrayList<AppAction> (); }
 
 #if HAS_PLANK
     private string? unity_sender_name = null;
@@ -63,6 +64,10 @@ public class Slingshot.Backend.App : Object {
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
             icon = desktop_icon;
+        }
+
+        foreach (var action in info.list_actions ()) {
+            actions.add (new AppAction (action, info.get_action_name (action)));
         }
 
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
