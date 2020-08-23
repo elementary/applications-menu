@@ -38,7 +38,7 @@ public class Slingshot.Backend.App : Object {
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
     public AppType app_type { get; private set; default = AppType.APP; }
-    Gee.List<AppAction> actions { get; private set; default = new Gee.ArrayList<AppAction> (); }
+    public Gee.List<AppAction> actions { get; private set; default = new Gee.ArrayList<AppAction> (); }
 
 #if HAS_PLANK
     private string? unity_sender_name = null;
@@ -66,13 +66,13 @@ public class Slingshot.Backend.App : Object {
             icon = desktop_icon;
         }
 
-        foreach (var action in info.list_actions ()) {
-            actions.add (new AppAction (action, info.get_action_name (action)));
-        }
-
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
         if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
             icon = new ThemedIcon ("application-default-icon");
+        }
+
+        foreach (var action in info.list_actions ()) {
+            actions.add (new AppAction (action, info.get_action_name (action), icon));
         }
     }
 
@@ -136,6 +136,10 @@ public class Slingshot.Backend.App : Object {
         }
 
         return true;
+    }
+
+    public void launch_action (string action) {
+        new DesktopAppInfo (desktop_id).launch_action (action, new AppLaunchContext ());
     }
 
 #if HAS_PLANK
