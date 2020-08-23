@@ -97,9 +97,14 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         stack.add_named (category_view, "category");
         stack.add_named (search_view, "search");
 
-        var quick_actions_label = new Gtk.Label (_("Quick Actions").up ());
+        var quick_actions_label = new Gtk.Label (_("Quick Actions").up ()) {
+            xalign = 0
+        };
+        quick_actions_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add");
+        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add") {
+            halign = Gtk.Align.END
+        };
 
         quick_actions_view = new Gtk.Grid () {
             margin_start = 12,
@@ -109,14 +114,15 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         };
 
         quick_actions_view.attach (quick_actions_label, 0, 0);
-        //  quick_actions_view.attach (quick_action_add_button, 1, 0);
+        quick_actions_view.attach (quick_action_add_button, 1, 0);
 
         var quick_action_counter = 0;
         foreach (var app in app_system.get_apps_by_name ()) {
             foreach (var action in app.actions) {
                 var action_button = new Gtk.Button.with_label (action.name) {
                     image = new Gtk.Image.from_gicon (action.icon, Gtk.IconSize.BUTTON),
-                    always_show_image = true
+                    always_show_image = true,
+                    xalign = 0
                 };
 
                 action_button.clicked.connect (() => {
