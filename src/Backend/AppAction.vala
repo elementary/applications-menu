@@ -17,12 +17,14 @@
  * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
  */
 
- public class Slingshot.Backend.AppAction : Object {
+public class Slingshot.Backend.AppAction : Object {
     public string action { get; construct set; }
     public string name { get; construct set; }
+    public Icon icon { get; construct set; } 
 
-    public AppAction (string action, string name) {
+    public AppAction (string action, string name, Icon icon) {
         this.action = action;
         this.name = name;
+        this.icon = icon;
     }
 }
