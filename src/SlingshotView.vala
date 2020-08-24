@@ -40,7 +40,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     private Gdk.Screen screen;
     private Gtk.Revealer view_selector_revealer;
     private Modality modality;
-    private Gtk.Grid quick_actions_view;
+    private Widgets.QuickActionsView quick_actions_view;
     private Widgets.Grid grid_view;
     private Widgets.SearchView search_view;
     private Widgets.CategoryView category_view;
@@ -85,6 +85,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         top.add (view_selector_revealer);
         top.add (search_entry);
 
+        quick_actions_view = new Widgets.QuickActionsView (this);
+        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+
         grid_view = new Widgets.Grid ();
 
         category_view = new Widgets.CategoryView (this);
@@ -96,46 +99,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         stack.add_named (grid_view, "normal");
         stack.add_named (category_view, "category");
         stack.add_named (search_view, "search");
-
-        var quick_actions_label = new Gtk.Label (_("Quick Actions").up ()) {
-            xalign = 0
-        };
-        quick_actions_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
-
-        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add") {
-            halign = Gtk.Align.END
-        };
-
-        quick_actions_view = new Gtk.Grid () {
-            margin_start = 12,
-            margin_end = 12,
-            row_spacing = 12,
-            margin_top = 12
-        };
-
-        quick_actions_view.attach (quick_actions_label, 0, 0);
-        quick_actions_view.attach (quick_action_add_button, 1, 0);
-
-        var quick_action_counter = 0;
-        foreach (var app in app_system.get_apps_by_name ()) {
-            foreach (var action in app.actions) {
-                var action_button = new Gtk.Button.with_label (action.name) {
-                    image = new Gtk.Image.from_gicon (action.icon, Gtk.IconSize.BUTTON),
-                    always_show_image = true,
-                    xalign = 0
-                };
-
-                action_button.clicked.connect (() => {
-                    app.launch_action (action.action);
-                    close_indicator ();
-                });
-
-                quick_actions_view.attach (action_button, 0, 2 + quick_action_counter, 2, 1);
-                quick_action_counter++;
-            }
-        }
-
-        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
         var container = new Gtk.Grid ();
         container.row_spacing = 12;
