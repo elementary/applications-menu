@@ -64,12 +64,12 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
                             margin_bottom = 12,
                             xalign = 0
                         };
-        
+
                         action_button.clicked.connect (() => {
                             app.launch_action (action.action);
                             view.close_indicator ();
                         });
-        
+
                         listbox.add (action_button);
                     }
                 }
