@@ -79,9 +79,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             {"<Ctrl>BackSpace"}, _("Clear all")
         );
 
-        var top = new Gtk.Grid ();
-        top.margin_start = 12;
-        top.margin_end = 12;
+        var top = new Gtk.Grid () {
+            margin_start = 12,
+            margin_end = 12,
+            hexpand = true
+        };
         top.add (view_selector_revealer);
         top.add (search_entry);
 
@@ -103,10 +105,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         var container = new Gtk.Grid ();
         container.row_spacing = 12;
         container.margin_top = 12;
-        container.attach (top, 0, 0);
-        container.attach (quick_actions_view, 0, 1);
-        container.attach (separator, 1, 1);
-        container.attach (stack, 2, 1);
+        container.attach (top, 0, 0, 3, 1);
+        container.attach (quick_actions_view, 0, 1, 1, 1);
+        container.attach (separator, 1, 1, 1, 1);
+        container.attach (stack, 2, 1, 1, 1);
 
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
