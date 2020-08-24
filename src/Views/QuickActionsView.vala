@@ -56,6 +56,7 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
                 var action_button = new Gtk.Button.with_label (action.name) {
                     image = new Gtk.Image.from_gicon (action.icon, Gtk.IconSize.BUTTON),
                     always_show_image = true,
+                    margin_bottom = 12,
                     xalign = 0
                 };
 
