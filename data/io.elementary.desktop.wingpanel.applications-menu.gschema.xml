@@ -1,5 +1,10 @@
 <schemalist>
 	<schema path="/io/elementary/desktop/wingpanel/applications-menu/" id="io.elementary.desktop.wingpanel.applications-menu">
+        <key name="app-actions" type="as">
+            <default>[]</default>
+            <summary>List of app actions</summary>
+            <description>List of app actions</description>
+        </key>
         <key name="use-category" type="b">
             <default>false</default>
             <summary>Show the category view by default</summary>

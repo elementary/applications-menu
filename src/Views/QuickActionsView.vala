@@ -51,21 +51,28 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
 
         attach (listbox_scrolled, 0, 1, 2, 2);
 
+        var settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        var app_actions = settings.get_strv ("app-actions");
         foreach (var app in view.app_system.get_apps_by_name ()) {
             foreach (var action in app.actions) {
-                var action_button = new Gtk.Button.with_label (action.name) {
-                    image = new Gtk.Image.from_gicon (action.icon, Gtk.IconSize.BUTTON),
-                    always_show_image = true,
-                    margin_bottom = 12,
-                    xalign = 0
-                };
-
-                action_button.clicked.connect (() => {
-                    app.launch_action (action.action);
-                    view.close_indicator ();
-                });
-
-                listbox.add (action_button);
+                foreach (var app_action in app_actions) {
+                    var tokens = app_action.split (":", 2);
+                    if (app.desktop_id == tokens[0] && action.action == tokens[1]) {
+                        var action_button = new Gtk.Button.with_label (action.name) {
+                            image = new Gtk.Image.from_gicon (action.icon, Gtk.IconSize.BUTTON),
+                            always_show_image = true,
+                            margin_bottom = 12,
+                            xalign = 0
+                        };
+        
+                        action_button.clicked.connect (() => {
+                            app.launch_action (action.action);
+                            view.close_indicator ();
+                        });
+        
+                        listbox.add (action_button);
+                    }
+                }
             }
         }
 
