@@ -32,6 +32,7 @@
             label = _("Quick Actions"),
             halign = Gtk.Align.START
         };
+        back_button.get_style_context ().add_class (Granite.STYLE_CLASS_BACK_BUTTON);
         back_button.clicked.connect (() => back ());
 
         var information_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.BUTTON) {
@@ -70,25 +71,39 @@
         var settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
         var app_actions = settings.get_strv ("app-actions");
         foreach (var app in view.app_system.get_apps_by_name ()) {
+            if (app.actions.size > 0) {
+                var label_with_icon = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                var icon = new Gtk.Image.from_gicon (app.icon, Gtk.IconSize.BUTTON);
+                label_with_icon.pack_start (icon);
+                label_with_icon.pack_start (new Gtk.Label (app.name));
+                label_with_icon.show_all();
+                listbox.add (label_with_icon);
+            }
+
             foreach (var action in app.actions) {
+                var label_with_switch = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                label_with_switch.pack_start (new Gtk.Label (action.name));
+
+                var configured_switch = new Gtk.Switch () {
+                    hexpand = true,
+                    halign = Gtk.Align.END,
+                    valign = Gtk.Align.CENTER
+                };
+
+                bool active = false;
                 foreach (var app_action in app_actions) {
                     var tokens = app_action.split (":", 2);
                     if (app.desktop_id == tokens[0] && action.action == tokens[1]) {
-                        var action_button = new Gtk.Button.with_label (action.name) {
-                            image = new Gtk.Image.from_gicon (action.icon, Gtk.IconSize.BUTTON),
-                            always_show_image = true,
-                            margin_bottom = 12,
-                            xalign = 0
-                        };
-
-                        action_button.clicked.connect (() => {
-                            app.launch_action (action.action);
-                            view.close_indicator ();
-                        });
-
-                        listbox.add (action_button);
+                        active = true;
                     }
+
+                    configured_switch.active = configured_switch.state = active;
                 }
+
+                label_with_switch.pack_start (configured_switch);
+
+                label_with_switch.show_all();
+                listbox.add (label_with_switch);   
             }
         }
 
