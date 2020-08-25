@@ -69,10 +69,12 @@
         attach (listbox_scrolled, 0, 1, 2, 2);
 
         var settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
-        var app_actions = settings.get_strv ("app-actions");
+        var app_actions = new Gee.ArrayList<string>.wrap (settings.get_strv ("app-actions"));
         foreach (var app in view.app_system.get_apps_by_name ()) {
             if (app.actions.size > 0) {
-                var label_with_icon = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                var label_with_icon = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                    margin_bottom = 12
+                };
                 var icon = new Gtk.Image.from_gicon (app.icon, Gtk.IconSize.BUTTON);
                 label_with_icon.pack_start (icon);
                 label_with_icon.pack_start (new Gtk.Label (app.name));
@@ -81,14 +83,33 @@
             }
 
             foreach (var action in app.actions) {
-                var label_with_switch = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                var label_with_switch = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                    margin_bottom = 12
+                };
                 label_with_switch.pack_start (new Gtk.Label (action.name));
+
+                var _app_action = "%s:%s".printf (app.desktop_id, action.action);
 
                 var configured_switch = new Gtk.Switch () {
                     hexpand = true,
                     halign = Gtk.Align.END,
                     valign = Gtk.Align.CENTER
                 };
+                configured_switch.state_set.connect ((state) => {
+                    if (state) {
+                        if (!app_actions.contains (_app_action)) {
+                            app_actions.add (_app_action);
+                        }
+                    } else {
+                        app_actions.remove (_app_action);
+                    }
+
+                    configured_switch.active = state;
+                    configured_switch.state = state;
+        
+                    return state;
+                });
+        
 
                 bool active = false;
                 foreach (var app_action in app_actions) {
