@@ -121,7 +121,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         container.row_spacing = 12;
         container.margin_top = 12;
         container.attach (top, 0, 0, 3, 1);
-        container.attach (quick_actions_view, 0, 1, 1, 1);
+        container.attach (quick_actions_stack, 0, 1, 1, 1);
         container.attach (separator, 1, 1, 1, 1);
         container.attach (stack, 2, 1, 1, 1);
 

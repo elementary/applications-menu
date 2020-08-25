@@ -30,11 +30,11 @@
     construct {
         var back_button = new Gtk.Button () {
             label = _("Quick Actions"),
-            margin_start = 12
+            halign = Gtk.Align.START
         };
         back_button.clicked.connect (() => back ());
 
-        var information_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.MENU) {
+        var information_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.BUTTON) {
             halign = Gtk.Align.END,
             tooltip_markup = Granite.markup_accel_tooltip (
                 {},
@@ -48,11 +48,18 @@
         attach (back_button, 0, 0);
         attach (information_button, 1, 0);
 
+        var empty_quicklist_label = new Gtk.Label (_("No Quick Actions…")) {
+            visible = true
+        };
+        empty_quicklist_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        empty_quicklist_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
         listbox = new Gtk.ListBox () {
             margin = 12
         };
         listbox.expand = true;
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox.set_placeholder (empty_quicklist_label);
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
         listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -86,5 +93,7 @@
         }
 
         listbox.show_all ();
+
+        this.margin_start = this.margin_end = 12;
     }
 }
