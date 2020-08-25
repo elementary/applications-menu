@@ -40,7 +40,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     private Gdk.Screen screen;
     private Gtk.Revealer view_selector_revealer;
     private Modality modality;
-    private Widgets.QuickActionsView quick_actions_view;
+    private Gtk.Stack quick_actions_stack;
     private Widgets.Grid grid_view;
     private Widgets.SearchView search_view;
     private Widgets.CategoryView category_view;
@@ -85,6 +85,21 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         top.add (view_selector_revealer);
         top.add (search_entry);
 
+        var quick_actions_view = new Widgets.QuickActionsView (this);
+        quick_actions_view.configure.connect (() => {
+            quick_actions_stack.set_visible_child_name ("configuration");
+        });
+
+        var quick_actions_configuration_view = new Widgets.QuickActionsConfigurationView (this);
+        quick_actions_configuration_view.back.connect (() => {
+            quick_actions_stack.set_visible_child_name ("normal");
+        });
+
+        quick_actions_stack = new Gtk.Stack ();
+        quick_actions_stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+        quick_actions_stack.add_named (quick_actions_view, "normal");
+        quick_actions_stack.add_named (quick_actions_configuration_view, "configuration");
+
         quick_actions_view = new Widgets.QuickActionsView (this);
         var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
 
@@ -104,7 +119,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         container.row_spacing = 12;
         container.margin_top = 12;
         container.attach (top, 0, 0);
-        container.attach (quick_actions_view, 0, 1);
+        container.attach (quick_actions_stack, 0, 1);
         container.attach (separator, 1, 1);
         container.attach (stack, 2, 1);
 

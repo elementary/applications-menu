@@ -17,30 +17,36 @@
  * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
  */
 
-public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
-    public signal void configure ();
+ public class Slingshot.Widgets.QuickActionsConfigurationView : Gtk.Grid {
+    public signal void back ();
 
     public SlingshotView view { get; construct; }
     private Gtk.ListBox listbox;
 
-    public QuickActionsView (SlingshotView view) {
+    public QuickActionsConfigurationView (SlingshotView view) {
         Object (view: view);
     }
 
     construct {
-        var quick_actions_label = new Gtk.Label (_("Quick Actions").up ()) {
-            margin_start = 12,
-            xalign = 0
+        var back_button = new Gtk.Button () {
+            label = _("Quick Actions"),
+            margin_start = 12
         };
-        quick_actions_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        back_button.clicked.connect (() => back ());
 
-        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU) {
-            halign = Gtk.Align.END
+        var information_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.MENU) {
+            halign = Gtk.Align.END,
+            tooltip_markup = Granite.markup_accel_tooltip (
+                {},
+                "<b>%s</b>\r%s".printf (
+                    _("Append to Quick Actions"),
+                    _("Quick Actions are actions in apps that do certain activities inside an app.")
+                )
+            )
         };
-        quick_action_add_button.clicked.connect (() => configure ());
 
-        attach (quick_actions_label, 0, 0);
-        attach (quick_action_add_button, 1, 0);
+        attach (back_button, 0, 0);
+        attach (information_button, 1, 0);
 
         listbox = new Gtk.ListBox () {
             margin = 12

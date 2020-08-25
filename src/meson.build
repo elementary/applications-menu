@@ -20,6 +20,7 @@ sources = [
     'Views/CategoryView.vala',
     'Views/GridView.vala',
     'Views/SearchView.vala',
+    'Views/QuickActionsConfigurationView.vala',
     'Views/QuickActionsView.vala',
 
     'Widgets/AppButton.vala',
