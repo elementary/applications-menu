@@ -78,7 +78,7 @@
                 var icon = new Gtk.Image.from_gicon (app.icon, Gtk.IconSize.BUTTON);
                 label_with_icon.pack_start (icon);
                 label_with_icon.pack_start (new Gtk.Label (app.name));
-                label_with_icon.show_all();
+                label_with_icon.show_all ();
                 listbox.add (label_with_icon);
             }
 
@@ -106,10 +106,9 @@
 
                     configured_switch.active = state;
                     configured_switch.state = state;
-        
+
                     return state;
                 });
-        
 
                 bool active = false;
                 foreach (var app_action in app_actions) {
@@ -123,8 +122,8 @@
 
                 label_with_switch.pack_start (configured_switch);
 
-                label_with_switch.show_all();
-                listbox.add (label_with_switch);   
+                label_with_switch.show_all ();
+                listbox.add (label_with_switch);
             }
         }
 
