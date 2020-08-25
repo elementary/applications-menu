@@ -17,42 +17,42 @@
  * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
  */
 
-public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
-    public signal void configure ();
+ public class Slingshot.Widgets.QuickActionsConfigurationView : Gtk.Grid {
+    public signal void back ();
 
     public SlingshotView view { get; construct; }
     private Gtk.ListBox listbox;
 
-    public QuickActionsView (SlingshotView view) {
+    public QuickActionsConfigurationView (SlingshotView view) {
         Object (view: view);
     }
 
     construct {
-        var quick_actions_label = new Gtk.Label (_("Quick Actions").up ()) {
-            halign = Gtk.Align.START
+        var back_button = new Gtk.Button () {
+            label = _("Quick Actions"),
+            margin_start = 12
         };
-        quick_actions_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        back_button.clicked.connect (() => back ());
 
-        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON) {
-            halign = Gtk.Align.END
+        var information_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.MENU) {
+            halign = Gtk.Align.END,
+            tooltip_markup = Granite.markup_accel_tooltip (
+                {},
+                "<b>%s</b>\r%s".printf (
+                    _("Append to Quick Actions"),
+                    _("Quick Actions are actions in apps that do certain activities inside an app.")
+                )
+            )
         };
-        quick_action_add_button.clicked.connect (() => configure ());
 
-        attach (quick_actions_label, 0, 0);
-        attach (quick_action_add_button, 1, 0);
-
-        var empty_quicklist_label = new Gtk.Label (_("No Quick Actions…")) {
-            visible = true
-        };
-        empty_quicklist_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-        empty_quicklist_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        attach (back_button, 0, 0);
+        attach (information_button, 1, 0);
 
         listbox = new Gtk.ListBox () {
             margin = 12
         };
         listbox.expand = true;
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
-        listbox.set_placeholder (empty_quicklist_label);
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
         listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -86,7 +86,5 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
         }
 
         listbox.show_all ();
-
-        this.margin_start = this.margin_end = 12;
     }
 }
