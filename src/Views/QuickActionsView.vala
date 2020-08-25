@@ -29,12 +29,11 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
 
     construct {
         var quick_actions_label = new Gtk.Label (_("Quick Actions").up ()) {
-            margin_start = 12,
-            xalign = 0
+            halign = Gtk.Align.START
         };
         quick_actions_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU) {
+        var quick_action_add_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON) {
             halign = Gtk.Align.END
         };
         quick_action_add_button.clicked.connect (() => configure ());
@@ -42,11 +41,18 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
         attach (quick_actions_label, 0, 0);
         attach (quick_action_add_button, 1, 0);
 
+        var empty_quicklist_label = new Gtk.Label (_("No Quick Actions…")) {
+            visible = true
+        };
+        empty_quicklist_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        empty_quicklist_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
         listbox = new Gtk.ListBox () {
             margin = 12
         };
         listbox.expand = true;
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox.set_placeholder (empty_quicklist_label);
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
         listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -80,5 +86,7 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
         }
 
         listbox.show_all ();
+
+        this.margin_start = this.margin_end = 12;
     }
 }
