@@ -75,26 +75,39 @@
         foreach (var app in view.app_system.get_apps_by_name ()) {
             if (app.actions.size > 0) {
                 var label_with_icon = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-                    margin_bottom = 12
+                    margin_bottom = 12,
+                    halign = Gtk.Align.START
                 };
-                var icon = new Gtk.Image.from_gicon (app.icon, Gtk.IconSize.BUTTON);
+                var icon = new Gtk.Image.from_gicon (app.icon, Gtk.IconSize.DND) {
+                    margin_right = 12
+                };
+                var label = new Gtk.Label (app.name);
+                label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+                label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
                 label_with_icon.pack_start (icon);
-                label_with_icon.pack_start (new Gtk.Label (app.name));
+                label_with_icon.pack_start (label);
                 label_with_icon.show_all ();
                 listbox.add (label_with_icon);
             }
 
+            var grid = new Gtk.Grid () {
+                row_spacing = 12,
+                margin_bottom = 12
+            };
+
+            int index = 0;
             foreach (var action in app.actions) {
-                var label_with_switch = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-                    margin_bottom = 12
+                var label = new Gtk.Label (action.name) {
+                    wrap = true,
+                    xalign = 0,
+                    hexpand = true,
+                    max_width_chars = 30
                 };
-                label_with_switch.pack_start (new Gtk.Label (action.name));
 
                 var _app_action = "%s:%s".printf (app.desktop_id, action.action);
 
                 var configured_switch = new Gtk.Switch () {
-                    hexpand = true,
-                    halign = Gtk.Align.END,
                     valign = Gtk.Align.CENTER
                 };
                 configured_switch.state_set.connect ((state) => {
@@ -122,10 +135,14 @@
                     configured_switch.active = configured_switch.state = active;
                 }
 
-                label_with_switch.pack_start (configured_switch);
+                grid.attach (label, 0, index);
+                grid.attach (configured_switch, 1, index);
 
-                label_with_switch.show_all ();
-                listbox.add (label_with_switch);
+                index++;
+            }
+
+            if (index > 0) {
+                listbox.add (grid);
             }
         }
 
