@@ -22,6 +22,8 @@
 
     public SlingshotView view { get; construct; }
     private Gtk.ListBox listbox;
+    private GLib.Settings settings;
+    private Gee.ArrayList<string> app_actions;
 
     public QuickActionsConfigurationView (SlingshotView view) {
         Object (view: view);
@@ -68,8 +70,8 @@
 
         attach (listbox_scrolled, 0, 1, 2, 2);
 
-        var settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
-        var app_actions = new Gee.ArrayList<string>.wrap (settings.get_strv ("app-actions"));
+        settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        app_actions = new Gee.ArrayList<string>.wrap (settings.get_strv ("app-actions"));
         foreach (var app in view.app_system.get_apps_by_name ()) {
             if (app.actions.size > 0) {
                 var label_with_icon = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
@@ -97,11 +99,11 @@
                 };
                 configured_switch.state_set.connect ((state) => {
                     if (state) {
-                        if (!app_actions.contains (_app_action)) {
-                            app_actions.add (_app_action);
+                        if (!contains_action (_app_action)) {
+                            add_action (_app_action);
                         }
                     } else {
-                        app_actions.remove (_app_action);
+                        remove_action (_app_action);
                     }
 
                     configured_switch.active = state;
@@ -130,5 +132,30 @@
         listbox.show_all ();
 
         this.margin_start = this.margin_end = 12;
+    }
+
+    private bool contains_action (string app_action) {
+        return app_actions.contains (app_action);
+    }
+
+    private void add_action (string app_action) {
+        app_actions.add (app_action);
+
+        update_settings ();
+    }
+
+    private void remove_action (string app_action) {
+        app_actions.remove (app_action);
+
+        update_settings ();
+    }
+
+    private void update_settings () {
+        string[] actions = new string[app_actions.size];
+        for (int i = 0; i < actions.length; i++) {
+            actions[i] = app_actions[i];
+        }
+
+        settings.set_strv ("app-actions", actions);
     }
 }

@@ -22,6 +22,7 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
 
     public SlingshotView view { get; construct; }
     private Gtk.ListBox listbox;
+    private GLib.Settings settings;
 
     public QuickActionsView (SlingshotView view) {
         Object (view: view);
@@ -60,7 +61,17 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
 
         attach (listbox_scrolled, 0, 1, 2, 2);
 
-        var settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        settings = new Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        settings.changed["app-actions"].connect (update_list);
+
+        update_list ();
+
+        this.margin_start = this.margin_end = 12;
+    }
+
+    private void update_list () {
+        listbox.foreach ((element) => listbox.remove (element));
+
         var app_actions = settings.get_strv ("app-actions");
         foreach (var app in view.app_system.get_apps_by_name ()) {
             foreach (var action in app.actions) {
@@ -86,7 +97,5 @@ public class Slingshot.Widgets.QuickActionsView : Gtk.Grid {
         }
 
         listbox.show_all ();
-
-        this.margin_start = this.margin_end = 12;
     }
 }
