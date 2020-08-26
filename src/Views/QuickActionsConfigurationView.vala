@@ -59,7 +59,7 @@
             margin = 12
         };
         listbox.expand = true;
-        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox.selection_mode = Gtk.SelectionMode.NONE;
         listbox.set_placeholder (empty_quicklist_label);
 
         var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
