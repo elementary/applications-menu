@@ -93,6 +93,7 @@
 
             var grid = new Gtk.Grid () {
                 row_spacing = 12,
+                column_spacing = 6,
                 margin_bottom = 12
             };
 
