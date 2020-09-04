@@ -64,7 +64,7 @@ namespace Synapse {
             */
             try {
                 regex = new Regex (
-                    "^\\(*(-?\\d+([.,]\\d+)?)([*/+-^]\\(*(-?\\d+([.,]\\d+)?)\\)*)+$",
+                    "^\\(*(-?([.,]\\d+)?)([*/+-^]\\(*(-?([.,]\\d+)?)\\)*)+$",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
