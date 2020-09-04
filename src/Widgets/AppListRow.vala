@@ -43,17 +43,21 @@ public class AppListRow : Gtk.ListBoxRow {
         image.pixel_size = 32;
 
         var name_label = new Gtk.Label (app_info.get_display_name ());
+        name_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
         name_label.xalign = 0;
 
-        tooltip_text = app_info.get_description ();
+        var description_label = new Gtk.Label (app_info.get_description ());
+        description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        description_label.set_ellipsize (Pango.EllipsizeMode.END);
 
         var grid = new Gtk.Grid ();
-        grid.column_spacing = 12;
+        grid.column_spacing = 4;
         grid.add (image);
         grid.add (name_label);
-        grid.margin = 6;
-        grid.margin_start = 18;
+        grid.add (description_label);
+        grid.margin_top = grid.margin_bottom = 8;
+        grid.margin_start = grid.margin_end = 16;
 
         add (grid);
     }
