@@ -64,7 +64,7 @@ namespace Synapse {
             */
             try {
                 regex = new Regex (
-                    "^\\(*(-?\\d+([.,]\\d+)?)([*/+-^]\\(*(-?\\d+([.,]\\d+)?)\\)*)+$",
+                    "^\\(*(-?([.,]\\d+)?)([*/+-^]\\(*(-?([.,]\\d+)?)\\)*)+$",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -87,7 +87,7 @@ namespace Synapse {
             if (matched) {
                 Pid pid;
                 int read_fd, write_fd;
-                string[] argv = {"bc", "-l"};
+                string[] argv = {"bc"};
                 string? solution = null;
 
                 try {
