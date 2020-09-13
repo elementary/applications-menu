@@ -8,79 +8,87 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2019-11-07 13:26-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-09-12 20:14+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
+"Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu-extra/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Меню застосунків"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Відкривайте та знаходьте застосунки"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Незначні оновлення"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:34
 #: data/applications-menu.appdata.xml.in:43
 msgid "Updated translations"
-msgstr ""
+msgstr "Оновлено переклади"
 
 #: data/applications-menu.appdata.xml.in:21
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Плавніша робота у режимі перегляду сіткою та підтримка сенсорних екранів"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Фокусування на панелі пошуку під час переходу вгору в режимі перегляду "
+"категорій"
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
 msgstr ""
+"Фокус не переходить до панелі пошуку, коли натиснуто клавішу-модифікатор"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Переконайтеся у впорядкуванні категорій в алфавітному порядку"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Перегляд за категоріями, відтепер, у вигляді переліку"
 
 #: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Поліпшено навігацію за допомогою клавіатури"
 
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
 msgid "Performance improvements"
-msgstr ""
+msgstr "Поліпшення швидкодії"
 
 #: data/applications-menu.appdata.xml.in:39
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Поліпшено навігацію за допомогою клавіатури, включно з новими підказками та "
+"підтримкою клавіші меню"
 
 #: data/applications-menu.appdata.xml.in:40
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Підсвічування збігів, повʼязаних з введеним до панелі пошуку терміном"
 
 #: data/applications-menu.appdata.xml.in:41
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Додано елемент меню \"Переглянути у центрі застосунків\""
 
 #: data/applications-menu.appdata.xml.in:52
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
