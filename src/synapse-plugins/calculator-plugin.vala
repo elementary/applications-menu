@@ -87,7 +87,7 @@ namespace Synapse {
             if (matched) {
                 Pid pid;
                 int read_fd, write_fd;
-                string[] argv = {"bc"};
+                string[] argv = {"bc", "-l"};
                 string? solution = null;
 
                 try {
