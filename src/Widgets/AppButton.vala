@@ -68,8 +68,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         badge = new Gtk.Label ("!");
         badge.visible = false;
-        badge.height_request = 24;
-        badge.width_request = 24;
         badge.halign = Gtk.Align.END;
         badge.valign = Gtk.Align.START;
 
