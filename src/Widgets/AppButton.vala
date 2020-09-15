@@ -24,7 +24,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 #if HAS_PLANK
     private static Plank.DBusClient plank_client;
 #endif
-    private static Gtk.CssProvider css_provider;
     private static Slingshot.AppContextMenu menu;
 
     private const int ICON_SIZE = 64;
@@ -41,9 +40,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         Plank.Paths.initialize ("plank", PKGDATADIR);
         plank_client = Plank.DBusClient.get_instance ();
 #endif
-
-        css_provider = new Gtk.CssProvider ();
-        css_provider.load_from_resource ("io/elementary/desktop/wingpanel/applications-menu/applications-menu.css");
     }
 
     construct {
@@ -79,7 +75,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         unowned Gtk.StyleContext badge_style_context = badge.get_style_context ();
         badge_style_context.add_class ("badge");
-        badge_style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
