@@ -72,7 +72,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         badge.valign = Gtk.Align.START;
 
         unowned Gtk.StyleContext badge_style_context = badge.get_style_context ();
-        badge_style_context.add_class ("badge");
+        badge_style_context.add_class (Granite.STYLE_CLASS_BADGE);
 
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
