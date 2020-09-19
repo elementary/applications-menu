@@ -41,11 +41,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
         category_switcher.width_request = 120;
 
-        unowned Gtk.StyleContext category_switcher_style_context = category_switcher.get_style_context ();
-        category_switcher_style_context.add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        category_switcher_style_context.add_class (Gtk.STYLE_CLASS_VIEW);
-
         var scrolled_category = new Gtk.ScrolledWindow (null, null);
+        scrolled_category.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         scrolled_category.add (category_switcher);
 
