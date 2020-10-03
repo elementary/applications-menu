@@ -27,7 +27,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     private Gtk.Grid current_grid;
     private Gee.HashMap<int, Gtk.Grid> grids;
-    private Hdy.Paginator paginator;
+    private Hdy.Carousel paginator;
     private Page page;
 
     private uint current_row = 0;
@@ -38,7 +38,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         page.columns = 5;
         page.number = 1;
 
-        paginator = new Hdy.Paginator ();
+        paginator = new Hdy.Carousel ();
         paginator.expand = true;
 
         var page_switcher = new Widgets.Switcher ();

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 18:59+0000\n"
-"PO-Revision-Date: 2020-03-30 17:09+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"PO-Revision-Date: 2020-05-03 14:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
@@ -20,35 +20,27 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:35
-msgid "Slingshot"
-msgstr "Slingshot"
-
-#: src/Indicator.vala:36
-msgid "The app-menu indicator"
-msgstr "O indicador de menu de aplicações"
-
-#: src/Indicator.vala:75 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplicações"
 
-#: src/Indicator.vala:118
+#: src/Indicator.vala:116
 msgid "Open and search apps"
 msgstr "Abrir e pesquisar aplicações"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:60
 msgid "View as Grid"
 msgstr "Ver em Grelha"
 
-#: src/SlingshotView.vala:66
+#: src/SlingshotView.vala:63
 msgid "View by Category"
 msgstr "Ver por Categoria"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:75
 msgid "Search Apps"
 msgstr "Procurar Aplicações"
 
-#: src/SlingshotView.vala:81
+#: src/SlingshotView.vala:78
 msgid "Clear all"
 msgstr "Limpar tudo"
 
@@ -215,15 +207,15 @@ msgstr "Abrir %s em %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr "Abrir esta hiperligação no navegador web predefinido"
+msgstr "Abrir esta ligação no navegador de internet predefinido"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"
-msgstr "Hiperligação"
+msgstr "Ligação"
 
 #: src/synapse-plugins/link-plugin.vala:73
 msgid "Open link in default browser"
-msgstr "Abrir hiperligação no navegador web predefinido"
+msgstr "Abrir ligação no navegador de internet predefinido"
 
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
@@ -268,7 +260,7 @@ msgstr "Suspender"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
-msgstr "Colocar o seu computador em modo de suspensão"
+msgstr "Colocar o computador em modo de suspensão"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
@@ -296,7 +288,7 @@ msgstr "Encerrar"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
-msgstr "Desligar o seu computador"
+msgstr "Desligar o computador"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:357
@@ -310,7 +302,7 @@ msgstr "Reiniciar"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
-msgstr "Reiniciar o seu computador"
+msgstr "Reiniciar o computador"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:433
@@ -329,6 +321,12 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
 msgstr "O ConsoleKit não foi encontrado"
+
+#~ msgid "Slingshot"
+#~ msgstr "Slingshot"
+
+#~ msgid "The app-menu indicator"
+#~ msgstr "O indicador de menu de aplicações"
 
 #~ msgid "Uninstall “%s”?"
 #~ msgstr "Desinstalar “%s”?"

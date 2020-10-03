@@ -24,7 +24,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
-    public Gee.HashMap<string, Gee.ArrayList<Backend.App>> apps;
     public Gtk.SearchEntry search_entry;
     public Gtk.Stack stack;
     public Granite.Widgets.ModeButton view_selector;
@@ -54,8 +53,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     construct {
         app_system = new Backend.AppSystem ();
         synapse = new Backend.SynapseSearch ();
-
-        apps = app_system.get_apps ();
 
         screen = get_screen ();
 
@@ -133,7 +130,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         event_box.key_press_event.connect (on_event_box_key_press);
         search_entry.key_press_event.connect (on_search_view_key_press);
-        search_entry.key_press_event.connect_after (on_key_press);
 
         // Showing a menu reverts the effect of the grab_device function.
         search_entry.search_changed.connect (() => {
@@ -164,8 +160,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         // Auto-update applications grid
         app_system.changed.connect (() => {
-            apps = app_system.get_apps ();
-
             grid_view.populate (app_system);
 
             category_view.setup_sidebar ();
@@ -215,27 +209,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     public bool on_search_view_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
 
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-            switch (key) {
-                case "1":
-                    view_selector.selected = 0;
-                    return Gdk.EVENT_STOP;
-                case "2":
-                    view_selector.selected = 1;
-                    return Gdk.EVENT_STOP;
-            }
-            return Gdk.EVENT_PROPAGATE;
-        }
-
         switch (key) {
-            case "F4":
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                    close_indicator ();
-                    return Gdk.EVENT_STOP;
-                }
-
-                break;
-
             case "Down":
                 search_entry.move_focus (Gtk.DirectionType.TAB_FORWARD);
                 return Gdk.EVENT_STOP;
@@ -248,24 +222,56 @@ public class Slingshot.SlingshotView : Gtk.Grid {
                 }
 
                 return Gdk.EVENT_STOP;
-
-            default:
-                break;
         }
 
         return Gdk.EVENT_PROPAGATE;
     }
 
     public bool on_event_box_key_press (Gdk.EventKey event) {
-        if (!on_search_view_key_press (event)) {
-            return on_key_press (event);
-        } else {
-            return Gdk.EVENT_STOP;
-        }
-    }
-
-    public bool on_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
+        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+            switch (key) {
+                case "1":
+                    view_selector.selected = 0;
+                    return Gdk.EVENT_STOP;
+                case "2":
+                    view_selector.selected = 1;
+                    return Gdk.EVENT_STOP;
+            }
+        }
+
+        // Alt accelerators
+        if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
+            switch (key) {
+                case "F4":
+                    close_indicator ();
+                    return Gdk.EVENT_STOP;
+
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                    if (modality == Modality.NORMAL_VIEW) {
+                        int page = int.parse (key);
+                        if (page < 0 || page == 9) {
+                            grid_view.go_to_last ();
+                        } else {
+                            grid_view.go_to_number (page);
+                        }
+                    }
+
+                    // FIXME: Workaround to avoid losing focus completely
+                    search_entry.grab_focus ();
+                    return Gdk.EVENT_STOP;
+            }
+        }
+
         switch (key) {
             case "Down":
             case "Enter": // "KP_Enter"
@@ -276,36 +282,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             case "Right":
             case "Tab":
             case "Up":
-                return Gdk.EVENT_PROPAGATE;
-
-            case "Alt_L":
-            case "Alt_R":
-                break;
-
-            case "0":
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-            case "8":
-            case "9":
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-                    int page = int.parse (key);
-                    if (modality == Modality.NORMAL_VIEW) {
-                        if (page < 0 || page == 9) {
-                            grid_view.go_to_last ();
-                        } else {
-                            grid_view.go_to_number (page);
-                        }
-                    }
-
-                    search_entry.grab_focus ();
-                    return Gdk.EVENT_STOP;
-                }
-
                 return Gdk.EVENT_PROPAGATE;
 
             case "Page_Up":

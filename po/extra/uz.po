@@ -7,71 +7,81 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 22:37+0000\n"
-"PO-Revision-Date: 2019-11-07 13:26-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2020-05-28 18:40+0000\n"
+"PO-Revision-Date: 2020-09-21 14:33+0000\n"
+"Last-Translator: Shukrullo <shukrullo@umail.uz>\n"
+"Language-Team: Uzbek <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu-extra/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Ilovalar menyusi"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Ilovalarni ochish va izlash"
 
 #: data/applications-menu.appdata.xml.in:11
+#: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Kichik yangilanishlar"
 
 #: data/applications-menu.appdata.xml.in:13
-msgid "Focus search when navigating up from the category view"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:14
-msgid "Don't focus search when pressing modifier keys"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:15
-msgid "Ensure categories are sorted alphabetically"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:16
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:43
 msgid "Updated translations"
+msgstr "Yangilangan tarjimalar"
+
+#: data/applications-menu.appdata.xml.in:21
+msgid ""
+"Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:22
-msgid "Category view is now a list"
+msgid "Focus search when navigating up from the category view"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:23
-msgid "Improved keyboard navigation"
+msgid "Don't focus search when pressing modifier keys"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:24
-#: data/applications-menu.appdata.xml.in:33
-msgid "Performance improvements"
+msgid "Ensure categories are sorted alphabetically"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:31
+msgid "Category view is now a list"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:32
+msgid "Improved keyboard navigation"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:42
+msgid "Performance improvements"
+msgstr "Samaradorlikni oshirish"
+
+#: data/applications-menu.appdata.xml.in:39
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:40
 msgid "Highlight action matches in the search view"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:41
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:52
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary Inc."
