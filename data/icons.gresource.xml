@@ -6,7 +6,6 @@
     <file alias="view-filter-symbolic-rtl.svg" compressed="true" preprocess="xml-stripblanks">view-filter-symbolic-rtl.svg</file>
   </gresource>
   <gresource prefix="/io/elementary/desktop/wingpanel/applications-menu">
-    <file alias="applications-menu.css" compressed="true">applications-menu.css</file>
     <file alias="PageChecker.css" compressed="true">PageChecker.css</file>
   </gresource>
 </gresources>
