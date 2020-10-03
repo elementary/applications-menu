@@ -55,7 +55,7 @@ public class Synapse.SwitchboardObject: Synapse.Match {
 
     public override void execute (Match? match) {
         try {
-            Gtk.show_uri (null, "settings://%s".printf (uri), Gdk.CURRENT_TIME);
+            Gtk.show_uri_on_window (null, "settings://%s".printf (uri), Gdk.CURRENT_TIME);
         } catch (Error e) {
             warning ("Failed to show URI for %s: %s\n".printf (uri, e.message));
         }
