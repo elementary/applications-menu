@@ -26,13 +26,10 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private Gtk.Grid current_grid;
-    private Gtk.Widget? focused_widget;
     private Gee.HashMap<int, Gtk.Grid> grids;
     private Hdy.Carousel paginator;
     private Page page;
 
-    private int focused_column;
-    private int focused_row;
     private uint current_row = 0;
     private uint current_col = 0;
 
@@ -114,17 +111,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
                 current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
     }
 
-    private Gtk.Widget? get_child_at (int column, int row) {
-        var col = ((int)(column / page.columns)) + 1;
-
-        var grid = grids.get (col);
-        if (grid != null) {
-            return grid.get_child_at (column - (int)page.columns * (col - 1), row) as Widgets.AppButton;
-        } else {
-            return null;
-        }
-    }
-
     private int get_n_pages () {
         return (int) page.number;
     }
@@ -143,6 +129,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         int page_number = get_current_page () + 1;
         if (page_number <= get_n_pages ()) {
             go_to_number (page_number);
+        } else {
+            Gdk.beep ();
         }
     }
 
@@ -150,6 +138,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         int page_number = get_current_page () - 1;
         if (page_number > 0) {
             go_to_number (page_number);
+        } else {
+            Gdk.beep ();
         }
     }
 
@@ -161,24 +151,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         paginator.scroll_to (get_page (number));
     }
 
-    private bool set_focus (int column, int row) {
-        var target_widget = get_child_at (column, row);
-
-        if (target_widget != null) {
-            go_to_number (((int) (column / page.columns)) + 1);
-
-            focused_column = column;
-            focused_row = row;
-            focused_widget = target_widget;
-
-            focused_widget.grab_focus ();
-
-            return true;
-        }
-
-        return false;
-    }
-
     public override bool key_press_event (Gdk.EventKey event) {
         switch (event.keyval) {
             case Gdk.Key.Home:
@@ -188,27 +160,17 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
             case Gdk.Key.Left:
             case Gdk.Key.KP_Left:
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    move_left (event);
-                } else {
-                    move_right (event);
-                }
-
+                move_left (event);
                 return Gdk.EVENT_STOP;
 
             case Gdk.Key.Right:
             case Gdk.Key.KP_Right:
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    move_right (event);
-                } else {
-                    move_left (event);
-                }
-
+                move_right (event);
                 return Gdk.EVENT_STOP;
 
             case Gdk.Key.Up:
             case Gdk.Key.KP_Up:
-                if (set_focus (focused_column, focused_row - 1)) {
+                if (grids[get_current_page ()].child_focus (Gtk.DirectionType.UP)) {
                     return Gdk.EVENT_STOP;
                 }
 
@@ -216,7 +178,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
             case Gdk.Key.Down:
             case Gdk.Key.KP_Down:
-                set_focus (focused_column, focused_row + 1);
+                if (grids[get_current_page ()].child_focus (Gtk.DirectionType.DOWN) == false) {
+                    Gdk.beep ();
+                }
                 return Gdk.EVENT_STOP;
         }
 
@@ -224,18 +188,20 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private void move_left (Gdk.EventKey event) {
-        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+        if (
+            event.state == Gdk.ModifierType.SHIFT_MASK ||
+            grids[get_current_page ()].child_focus (Gtk.DirectionType.LEFT) == false
+        ) {
             go_to_previous ();
-        } else {
-            set_focus (focused_column - 1, focused_row);
         }
     }
 
     private void move_right (Gdk.EventKey event) {
-        if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+        if (
+            event.state == Gdk.ModifierType.SHIFT_MASK ||
+            grids[get_current_page ()].child_focus (Gtk.DirectionType.RIGHT) == false
+        ) {
             go_to_next ();
-        } else {
-            set_focus (focused_column + 1, focused_row);
         }
     }
 }
