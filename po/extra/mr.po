@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2020-05-31 16:11+0000\n"
+"PO-Revision-Date: 2020-10-11 18:14+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/mr/>\n"
@@ -46,15 +46,15 @@ msgstr "ग्रिड व्यू आणि टचस्क्रीन ज�
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
-msgstr ""
+msgstr "श्रेणी दृश्यातून नॅव्हिगेट करताना शोधावर लक्ष केंद्रित करा"
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "सुधारक की दाबताना शोधाकडे लक्ष देऊ नका"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "श्रेण्या वर्णमाला क्रमवारीनुसार लावल्या आहेत याची खात्री करा"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
@@ -62,7 +62,7 @@ msgstr "श्रेणी दृश्य आता एक यादी आह�
 
 #: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "सुधारित कीबोर्ड नेव्हिगेशन"
 
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
