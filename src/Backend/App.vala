@@ -2,6 +2,7 @@
  * Copyright 2019 elementary, Inc. (https://elementary.io)
  *           2013-2014 Akshay Shekher
  *           2011-2012 Giulio Collura
+ *           2020 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public

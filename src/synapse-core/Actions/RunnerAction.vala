@@ -1,6 +1,7 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
 *               2017 elementary LLC.
+*               2020 Justin Haygood
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public

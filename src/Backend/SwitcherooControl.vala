@@ -1,5 +1,6 @@
 /*
  * Copyright 2020 Bastien Nocera
+ * Copyright 2020 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -61,7 +62,7 @@ public class Slingshot.Backend.SwitcherooControl : Object {
                 var environment_set = environment.get_strv ();
 
                 for (int i = 0; environment_set [i] != null; i = i + 2) {
-                    context.setenv (environment_set [i], environment_se t[i+1] );
+                    context.setenv (environment_set [i], environment_set [i+1] );
                 }
 
                 return;
