@@ -21,6 +21,17 @@
 */
 
 private class Synapse.RunnerAction: Synapse.BaseAction {
+
+    private Slingshot.Backend.SwitcherooControl switcheroo_control;
+
+    construct {
+        try {
+            switcheroo_control = new Slingshot.Backend.SwitcherooControl();
+        } catch (IOError e) {
+            critical (e.message);
+        }    
+    }
+
     public RunnerAction () {
         Object (title: _("Run"),
                 description: _("Run an application, action or script"),
@@ -34,12 +45,26 @@ private class Synapse.RunnerAction: Synapse.BaseAction {
             unowned ApplicationMatch? app_match = match as ApplicationMatch;
             return_if_fail (app_match != null);
 
-            AppInfo app = app_match.app_info ??
-            new DesktopAppInfo.from_filename (app_match.filename);
+            DesktopAppInfo app_info = null;
+            AppInfo app;
+            
+            if (app_match.app_info != null) {
+               app = app_match.app_info; 
+            } else {
+                app_info = new DesktopAppInfo.from_filename (app_match.filename);
+                app = app_info;
+            }
 
             try {
                 weak Gdk.Display display = Gdk.Display.get_default ();
-                app.launch (null, display.get_app_launch_context ());
+                var context = display.get_app_launch_context ();
+                
+                if (app_info != null) {
+                    bool use_default_gpu = !app_info.get_boolean ("PrefersNonDefaultGPU");
+                    switcheroo_control.apply_gpu_environment (context, use_default_gpu);
+                }
+                
+                app.launch (null, context);
 
                 RelevancyService.get_default ().application_launched (app);
             } catch (Error err) {
