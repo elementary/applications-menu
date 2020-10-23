@@ -61,8 +61,8 @@ public class Slingshot.Backend.SwitcherooControl : Object {
 
                 var environment_set = environment.get_strv ();
 
-                for (int i = 0; environment_set [i] != null; i = i + 2) {
-                    context.setenv (environment_set [i], environment_set [i+1] );
+                for (int i = 0; environment_set[i] != null; i = i + 2) {
+                    context.setenv (environment_set[i], environment_set[i + 1] );
                 }
 
                 return;
