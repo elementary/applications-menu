@@ -47,7 +47,7 @@ public class Slingshot.Backend.App : Object {
 
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
-    
+
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
 
     construct {
@@ -55,7 +55,7 @@ public class Slingshot.Backend.App : Object {
             switcheroo_control = new Slingshot.Backend.SwitcherooControl();
         } catch (IOError e) {
             critical (e.message);
-        }    
+        }
     }
 
     public App (GMenu.TreeEntry entry) {
@@ -121,15 +121,15 @@ public class Slingshot.Backend.App : Object {
                     break;
                 case AppType.APP:
                     launched (this); // Emit launched signal
-                    
+
                     var app_info = new DesktopAppInfo (desktop_id);
                     bool use_default_gpu = !app_info.get_boolean ("PrefersNonDefaultGPU");
-                    
+
                     var context = new AppLaunchContext ();
                     switcheroo_control.apply_gpu_environment (context, use_default_gpu);
-                    
+
                     app_info.launch (null, context);
-                    
+
                     debug (@"Launching application: $name");
                     break;
                 case AppType.SYNAPSE:

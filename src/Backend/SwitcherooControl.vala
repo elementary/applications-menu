@@ -27,7 +27,7 @@ public interface SwitcherooControlDBus : Object {
 public class Slingshot.Backend.SwitcherooControl : Object {
 
     private SwitcherooControlDBus dbus { private set; private get; }
-    
+
     construct {
         try {
             dbus = Bus.get_proxy_sync (BusType.SYSTEM,
@@ -36,38 +36,38 @@ public class Slingshot.Backend.SwitcherooControl : Object {
             critical (e.message);
         }
     }
-    
+
     public bool has_dual_gpu {
         get {
             return dbus.has_dual_gpu;
         }
     }
-    
+
     public void apply_gpu_environment (AppLaunchContext context, bool use_default_gpu) {
         if (dbus == null) {
             warning ("Could not apply discrete GPU environment, switcheroo-control not available");
             return;
         }
-        
+
         foreach (HashTable<string,Variant> gpu in dbus.gpus) {
             bool is_default = gpu.get ("Default").get_boolean ();
 
             if (is_default == use_default_gpu) {
-            
+
                 debug("Using GPU" + gpu.get ("Name").get_string());
-            
+
                 var environment = gpu.get ("Environment");
-                
+
                 var environment_set = environment.get_strv();
-                
+
                 for (int i = 0; environment_set[i] != null; i = i + 2) {
                     context.setenv (environment_set[i], environment_set[i+1]);
                 }
-                
+
                 return;
             }
         }
-        
+
         warning ("Could not apply discrete GPU environment, no GPUs in list");
     }
 }

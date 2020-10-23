@@ -24,7 +24,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     private bool has_system_item = false;
     private string appstream_comp_id = "";
-    
+
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
 
 #if HAS_PLANK
@@ -52,15 +52,15 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
-    
+
         try {
             switcheroo_control = new Slingshot.Backend.SwitcherooControl();
         } catch (IOError e) {
             critical (e.message);
         }
-    
+
         app_info = new DesktopAppInfo (desktop_id);
-        
+
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -71,17 +71,17 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                 app_launched ();
             });
         }
-        
+
         if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
             bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
-            
+
             string label = prefers_non_default_gpu ?
                 _("Launch using Integrated Graphics Card") :
                 _("Launch using Discrete Graphics Card");
-            
+
             var menu_item = new Gtk.MenuItem.with_mnemonic (label);
             add (menu_item);
-            
+
             menu_item.activate.connect (() => {
                var context = new AppLaunchContext ();
                switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
