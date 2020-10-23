@@ -52,7 +52,7 @@ public class Slingshot.Backend.App : Object {
 
     construct {
         try {
-            switcheroo_control = new Slingshot.Backend.SwitcherooControl();
+            switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
         } catch (IOError e) {
             critical (e.message);
         }

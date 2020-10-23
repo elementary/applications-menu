@@ -54,11 +54,11 @@ public class Slingshot.Backend.SwitcherooControl : Object {
 
             if (is_default == use_default_gpu) {
 
-                debug("Using GPU" + gpu.get ("Name").get_string());
+                debug ("Using GPU" + gpu.get ("Name").get_string ());
 
                 var environment = gpu.get ("Environment");
 
-                var environment_set = environment.get_strv();
+                var environment_set = environment.get_strv ();
 
                 for (int i = 0; environment_set[i] != null; i = i + 2) {
                     context.setenv (environment_set[i], environment_set[i+1]);

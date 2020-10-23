@@ -54,7 +54,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     construct {
 
         try {
-            switcheroo_control = new Slingshot.Backend.SwitcherooControl();
+            switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
         } catch (IOError e) {
             critical (e.message);
         }
