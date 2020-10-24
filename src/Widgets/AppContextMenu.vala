@@ -77,8 +77,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
 
             string label = prefers_non_default_gpu ?
-                _("Launch using Integrated Graphics Card") :
-                _("Launch using Discrete Graphics Card");
+                _("Open using Integrated Graphics Card") :
+                _("Open using Discrete Graphics Card");
 
             var menu_item = new Gtk.MenuItem.with_mnemonic (label);
             add (menu_item);
