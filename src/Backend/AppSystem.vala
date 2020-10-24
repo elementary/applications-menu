@@ -112,9 +112,9 @@ public class Slingshot.Backend.AppSystem : Object {
                         if (!keyfile.load_from_file (path, KeyFileFlags.NONE)) {
                             break;
                         }
-    
+
                         var needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
-    
+
                         if (needs_terminal) {
                             break;
                         }
