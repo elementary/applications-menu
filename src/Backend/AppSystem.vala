@@ -105,6 +105,23 @@ public class Slingshot.Backend.AppSystem : Object {
                     app_list.add_all (get_apps_by_category (iter.get_directory ()));
                     break;
                 case GMenu.TreeItemType.ENTRY:
+                    try {
+                        var path = iter.get_entry ().get_desktop_file_path ();
+                        var keyfile = new KeyFile ();
+
+                        if (!keyfile.load_from_file (path, KeyFileFlags.NONE)) {
+                            break;
+                        }
+    
+                        var needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
+    
+                        if (needs_terminal) {
+                            break;
+                        }
+                    } catch (Error e) {
+                        break;
+                    }
+
                     var app = new App (iter.get_entry ());
 #if HAVE_ZEITGEIST
                     app.launched.connect (rl_service.app_launched);
