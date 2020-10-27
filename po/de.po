@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2019-12-26 01:08+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"PO-Revision-Date: 2020-10-28 01:15+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
 "Language: de\n"
@@ -123,7 +123,7 @@ msgstr "Ausführen"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "Eine Anwendung, eine Aktion oder ein Skript ausführen"
+msgstr "Anwendung,  Aktion oder Skript ausführen"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
@@ -224,7 +224,7 @@ msgstr "%s Einstellungen öffnen"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Switchboard-Plugs suchen und öffnen."
+msgstr "Einstellungserweiterungen suchen und öffnen."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -260,7 +260,7 @@ msgstr "Bereitschaft"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
-msgstr "Versetzen Sie Ihren Computer in den Bereitschaftsmodus"
+msgstr "Rechner in den Bereitschaftsmodus versetzen"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
@@ -274,7 +274,7 @@ msgstr "Ruhezustand"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
-msgstr "Versetzen Sie Ihren Computer in den Ruhezustand"
+msgstr "Rechner in den Ruhezustand versetzen"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
@@ -294,7 +294,7 @@ msgstr "Rechner ausschalten"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr "ausschalten;herunterfahren"
+msgstr "ausschalten;herunterfahren;shutdown"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
