@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2020-09-19 19:14+0000\n"
+"PO-Revision-Date: 2020-10-30 04:15+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -108,7 +108,7 @@ msgstr "Дії застосунків"
 
 #: src/Widgets/SearchItem.vala:55
 msgid "Other"
-msgstr "Інший"
+msgstr "Інше"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
