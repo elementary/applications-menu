@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2018-12-11 11:04+0000\n"
+"PO-Revision-Date: 2020-10-26 08:20+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
-"Language-Team: Italian <https://weblate.elementary.io/projects/wingpanel/"
+"Language-Team: Italian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -25,9 +25,8 @@ msgid "Applications"
 msgstr "Applicazioni"
 
 #: src/Indicator.vala:116
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Apri e cerca applicazioni (%s)"
+msgstr "Apri e cerca applicazioni"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -43,7 +42,7 @@ msgstr "Cerca applicazioni"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Cancella tutto"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -71,9 +70,8 @@ msgid "Uninstall"
 msgstr "Rimuovi"
 
 #: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "AppCenter"
+msgstr "Vedi in AppCenter"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -240,7 +238,7 @@ msgstr "Blocca questo dispositivo"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "blocca"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -254,7 +252,7 @@ msgstr "Chiudi tutte le applicazioni aperte ed esci"
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "termina sessione"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -266,10 +264,9 @@ msgstr "Metti il computer in stato di sospensione"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Sospendi"
+msgstr "sospendi"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -281,10 +278,9 @@ msgstr "Metti il computer in stato di ibernazione"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Iberna"
+msgstr "iberna"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -298,7 +294,7 @@ msgstr "Spegni il computer"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "spegni;arresta"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -312,7 +308,7 @@ msgstr "Riavvia il computer"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "riavvia"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""

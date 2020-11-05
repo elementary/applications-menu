@@ -8,78 +8,86 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2019-11-07 13:26-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-10-26 08:20+0000\n"
+"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
+"Language-Team: Italian <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu-extra/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Menu applicazioni"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Apri e cerca applicazioni"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Aggiornamenti minori"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:34
 #: data/applications-menu.appdata.xml.in:43
 msgid "Updated translations"
-msgstr ""
+msgstr "Traduzioni aggiornate"
 
 #: data/applications-menu.appdata.xml.in:21
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Navigazione più fluida nella visualizzazione a griglia e supporto ai gesti "
+"touchscreen"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Focalizza il campo di ricerca durante la navigazione verso l'alto dalla "
+"visualizzazione per categorie"
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Non focalizza la ricerca più la ricerca premendo un tasto modificatore"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Assicura che le categorie siano ordinate alfabeticamente"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
-msgstr ""
+msgstr "La lista per categorie ora è una lista"
 
 #: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Migliorata la navigazione con la tastiera"
 
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
 msgid "Performance improvements"
-msgstr ""
+msgstr "Miglioramenti delle prestazioni"
 
 #: data/applications-menu.appdata.xml.in:39
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Migliorata la navigazione da tastiera, include ora nuovi suggerimenti e "
+"supporto per le scorciatoie"
 
 #: data/applications-menu.appdata.xml.in:40
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Evidenzia le azioni nella vista di ricerca"
 
 #: data/applications-menu.appdata.xml.in:41
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Aggiunta la voce di menu \"Vedi in AppCenter\""
 
 #: data/applications-menu.appdata.xml.in:52
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
