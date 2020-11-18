@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2020-10-24 05:15+0000\n"
+"PO-Revision-Date: 2020-11-12 02:15+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/zh_Hans/>\n"
@@ -138,7 +138,7 @@ msgstr "在终端中运行程序或命令"
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr "搜索 %s ，位置 %s"
+msgstr "关键词 %s 搜索位置 %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
@@ -183,7 +183,7 @@ msgstr "查找或执行任意命令。"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "在您的电脑中搜索和运行应用程序。"
+msgstr "搜索和运行应用程序。"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
@@ -207,7 +207,7 @@ msgstr "将 %s 发送到 %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr "用浏览器打开此链接"
+msgstr "用浏览器打开"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"
