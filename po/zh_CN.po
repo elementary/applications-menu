@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2020-11-12 02:15+0000\n"
+"PO-Revision-Date: 2020-11-20 04:15+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/zh_Hans/>\n"
@@ -59,11 +59,11 @@ msgstr "未找到与 “%s” 相关的结果"
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr "从 Dock 移除"
+msgstr "从程序坞移除"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr "固定至 Dock"
+msgstr "固定至程序坞"
 
 #: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
