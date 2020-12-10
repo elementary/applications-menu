@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2019-04-08 05:53+0000\n"
+"PO-Revision-Date: 2020-11-20 04:15+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -42,7 +42,7 @@ msgstr "搜索应用"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "清除所有"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -59,20 +59,19 @@ msgstr "未找到与 “%s” 相关的结果"
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr "从 Dock 移除"
+msgstr "从程序坞移除"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr "固定至 Dock"
+msgstr "固定至程序坞"
 
 #: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
 msgstr "卸载"
 
 #: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "应用中心"
+msgstr "在应用中心内查看"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -139,7 +138,7 @@ msgstr "在终端中运行程序或命令"
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr "搜索 %s ，位置 %s"
+msgstr "关键词 %s 搜索位置 %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
@@ -184,7 +183,7 @@ msgstr "查找或执行任意命令。"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "在您的电脑中搜索和运行应用程序。"
+msgstr "搜索和运行应用程序。"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
@@ -208,7 +207,7 @@ msgstr "将 %s 发送到 %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr "用浏览器打开此链接"
+msgstr "用浏览器打开"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"

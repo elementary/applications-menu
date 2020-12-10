@@ -2,12 +2,20 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"PO-Revision-Date: 2020-11-09 09:15+0000\n"
+"Last-Translator: Mejans <farga@mejans.fr>\n"
+"Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu/oc/>\n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
-msgstr ""
+msgstr "Aplicacions"
 
 #: src/Indicator.vala:116
 msgid "Open and search apps"
@@ -15,76 +23,76 @@ msgstr ""
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr ""
+msgstr "Veire per grasilha"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
-msgstr ""
+msgstr "Veire per categoria"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
-msgstr ""
+msgstr "Cercar aplicacions"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Tot escafar"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
-msgstr ""
+msgstr "Executar aquesta comanda…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Ensajatz de cambiar los tèrmes de recèrca."
 
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Cap de resultat per « %s »"
 
 #: src/Widgets/AppContextMenu.vala:78
 msgid "Remove from _Dock"
-msgstr ""
+msgstr "Levar d'al _Dock"
 
 #: src/Widgets/AppContextMenu.vala:80
 msgid "Add to _Dock"
-msgstr ""
+msgstr "Ajustar al _Dock"
 
 #: src/Widgets/AppContextMenu.vala:143
 msgid "Uninstall"
-msgstr ""
+msgstr "Desinstallar"
 
 #: src/Widgets/AppContextMenu.vala:146
 msgid "View in AppCenter"
-msgstr ""
+msgstr "Veire dins AppCenter"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
-msgstr ""
+msgstr "Tèxt"
 
 #: src/Widgets/SearchItem.vala:40
 msgid "Files"
-msgstr ""
+msgstr "Fichièrs"
 
 #: src/Widgets/SearchItem.vala:43
 msgid "Actions"
-msgstr ""
+msgstr "Accions"
 
 #: src/Widgets/SearchItem.vala:45
 msgid "Search"
-msgstr ""
+msgstr "Cercar"
 
 #: src/Widgets/SearchItem.vala:47
 msgid "Contacts"
-msgstr ""
+msgstr "Contactes"
 
 #: src/Widgets/SearchItem.vala:49
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
-msgstr ""
+msgstr "Configuracion"
 
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
@@ -92,19 +100,19 @@ msgstr ""
 
 #: src/Widgets/SearchItem.vala:55
 msgid "Other"
-msgstr ""
+msgstr "Autres"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiar cap al quichapapièrs"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
-msgstr ""
+msgstr "Copiar lo tèxte seleccionat dins lo quichapapièr"
 
 #: src/synapse-core/Actions/RunnerAction.vala:25
 msgid "Run"
-msgstr ""
+msgstr "Executar"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
@@ -112,11 +120,11 @@ msgstr ""
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Aviar dins un terminal"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr ""
+msgstr "Aviar l'aplicacion o comanda dins un terminal"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
@@ -131,36 +139,36 @@ msgstr ""
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCenter"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr ""
+msgstr "Recercar d'aplicacions"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "AppCenter es pas installat"
 
 #: src/synapse-plugins/calculator-plugin.vala:44
 msgid "Calculator"
-msgstr ""
+msgstr "Calculadoira"
 
 #: src/synapse-plugins/calculator-plugin.vala:45
 msgid "Calculate basic expressions."
-msgstr ""
+msgstr "Calcular las expressions de basa."
 
 #: src/synapse-plugins/calculator-plugin.vala:49
 msgid "bc is not installed"
-msgstr ""
+msgstr "bc es pas installat"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr ""
+msgstr "Aviar  « %s »"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
-msgstr ""
+msgstr "Executar la comanda"
 
 #: src/synapse-plugins/command-plugin.vala:60
 msgid "Find and execute arbitrary commands."
@@ -173,39 +181,39 @@ msgstr ""
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Open with %s"
-msgstr ""
+msgstr "Dobrir amb %s"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:322
 #, c-format
 msgid "Opens current selection using %s"
-msgstr ""
+msgstr "Dobrir la seleccion actuala en utilizant %s"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr ""
+msgstr "Dobrir %s dins lo navegador per defaut"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
-msgstr ""
+msgstr "Dobrir %s dins %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "Dobrir aqueste ligam dins lo navegador per defaut"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"
-msgstr ""
+msgstr "Ligam"
 
 #: src/synapse-plugins/link-plugin.vala:73
 msgid "Open link in default browser"
-msgstr ""
+msgstr "Dobrir lo ligam dins lo navegador per defaut"
 
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr ""
+msgstr "Dobrir los paramètres %s"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
@@ -213,35 +221,35 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr ""
+msgstr "Verrolhar"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr ""
+msgstr "Verrolhar aqueste aparelh"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "verrolhar"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr ""
+msgstr "Tampar la session"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Tampar totas las aplicacions e sortir"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "desconnexion"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
-msgstr ""
+msgstr "Suspension"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
@@ -251,11 +259,11 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:180
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr ""
+msgstr "metre en velha"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
-msgstr ""
+msgstr "Ivernacion"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
@@ -265,15 +273,15 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:269
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr ""
+msgstr "ivernar"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr ""
+msgstr "Atudar"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
-msgstr ""
+msgstr "Atudar vòstre ordenador"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:357
@@ -283,17 +291,17 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
-msgstr ""
+msgstr "Reaviar"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
-msgstr ""
+msgstr "Reaviar l'ordenador"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reaviar;reboot"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
@@ -303,4 +311,4 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
-msgstr ""
+msgstr "ConsoleKit es introbable"
