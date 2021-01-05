@@ -117,7 +117,7 @@ public class Slingshot.Backend.AppSystem : Object {
                         needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
 
                     } catch (Error e) {
-                        if (e.code !=  KeyFileError.KEY_NOT_FOUND) {
+                        if (e.code != KeyFileError.KEY_NOT_FOUND) {
                             break;
                         }
                     }
