@@ -226,6 +226,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_left (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_previous ();
+            set_focus (focused_column - 5, focused_row);
         } else {
             set_focus (focused_column - 1, focused_row);
         }
@@ -234,6 +235,12 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_right (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_next ();
+            if ((!set_focus (focused_column + 5, focused_row)) && (get_n_pages () != get_current_page ())) {
+                uint length = current_grid.get_children ().length ();
+                int row = (int) (length / page.columns - 2);
+                int col = (int) (length / page.rows + (page.columns * (get_n_pages () - 1)) - 2);
+                set_focus (col, row);
+            };
         } else {
             set_focus (focused_column + 1, focused_row);
         }
