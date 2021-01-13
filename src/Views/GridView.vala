@@ -226,7 +226,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_left (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_previous ();
-            set_focus (focused_column - 5, focused_row);
+            set_focus (focused_column - (int) page.columns, focused_row);
         } else {
             set_focus (focused_column - 1, focused_row);
         }
