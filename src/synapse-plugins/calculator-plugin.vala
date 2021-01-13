@@ -32,7 +32,7 @@ namespace Synapse {
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
-                        title: _("%g - Click to copy the result to clipboard").printf (result),
+                        title: _("<b> %g </b> - Copy result to clipboard").printf (result),
                         description: "%s = %g".printf (match_string, result),
                         icon_name: "accessories-calculator");
             }
