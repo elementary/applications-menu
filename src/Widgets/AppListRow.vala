@@ -41,6 +41,7 @@ public class AppListRow : Gtk.ListBoxRow {
         var image = new Gtk.Image ();
         image.gicon = icon;
         image.pixel_size = 32;
+        image.get_style_context ().add_class ("icon-dropshadow");
 
         var name_label = new Gtk.Label (app_info.get_display_name ());
         name_label.set_ellipsize (Pango.EllipsizeMode.END);

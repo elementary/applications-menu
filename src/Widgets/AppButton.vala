@@ -65,6 +65,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         image.margin_top = 9;
         image.margin_end = 6;
         image.margin_start = 6;
+        image.get_style_context ().add_class ("icon-dropshadow");
 
         badge = new Gtk.Label ("!");
         badge.visible = false;
