@@ -237,10 +237,19 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             go_to_next ();
             if ((!set_focus (focused_column + 5, focused_row)) && (get_n_pages () != get_current_page ())) {
                 //If the widget doesn't exist, the closest widget is focused
-                uint length = current_grid.get_children ().length ();
-                int row = (int) (length / page.columns - 2);
-                int col = (int) (length / page.rows + (page.columns * (get_n_pages () - 1)) - 2);
-                col = focused_column < (col - 5) ? (int) (focused_column + 5) : col;
+                int row = 0;
+                int last_widget_column = 0;
+                for (uint i = page.rows; i > 0; i--) {
+                    for (uint j = page.columns; j > 0; j--) {
+                        last_widget_column = (int) (j - 1 + (page.columns * (get_n_pages () - 1)));
+                        row = (int) i - 1;
+                        if ((get_widget_at (last_widget_column, row)) != null) {
+                            i = 1;
+                            break;
+                        }
+                    }
+                }
+                int col = focused_column < (last_widget_column - 5) ? (int) (focused_column + 5) : (int) last_widget_column;
                 set_focus (col, row);
             }
         } else {
