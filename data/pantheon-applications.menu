@@ -105,8 +105,6 @@
     <Include>
       <And>
         <Category>Graphics</Category>
-        <Not><Filename>evince.desktop</Filename></Not>
-        <Not><Filename>org.gnome.Evince.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Graphics -->
@@ -141,8 +139,6 @@
     <Include>
       <And>
         <Category>Office</Category>
-        <Not><Filename>evince.desktop</Filename></Not>
-        <Not><Filename>org.gnome.Evince.desktop</Filename></Not>
       </And>
     </Include>
   </Menu> <!-- End Office -->
@@ -175,10 +171,8 @@
         <Not>
           <Category>Core</Category>
           <Category>Screensaver</Category>
-          <Filename>evince.desktop</Filename>
           <Filename>htop.desktop</Filename>
           <Filename>onboard.desktop</Filename>
-          <Filename>org.gnome.Evince.desktop</Filename>
           <Filename>org.gnome.FileRoller.desktop</Filename>
           <Filename>org.gnome.font-viewer.desktop</Filename>
         </Not>
