@@ -235,7 +235,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_right (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_next ();
-            if ((!set_focus (focused_column + 5, focused_row)) && (get_n_pages () != get_current_page ())) {
+            if ((!set_focus (focused_column + (int) page.columns, focused_row)) && (get_n_pages () != get_current_page ())) {
                 //If the widget doesn't exist, the closest widget is focused
                 int row = 0;
                 int last_widget_column = 0;
@@ -249,7 +249,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
                         }
                     }
                 }
-                int col = focused_column < (last_widget_column - 5) ? (int) (focused_column + 5) : (int) last_widget_column;
+                int col = focused_column < (last_widget_column - page.columns) ? (int) (focused_column + page.columns) : (int) last_widget_column;
                 set_focus (col, row);
             }
         } else {
