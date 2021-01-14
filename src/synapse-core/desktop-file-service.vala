@@ -27,22 +27,23 @@ namespace Synapse {
 
     public class DesktopFileInfo: Object {
         // registered environments from http://standards.freedesktop.org/menu-spec/latest
-        // (and pantheon)
         [Flags]
         public enum EnvironmentType {
-            GNOME = 1 << 0,
-            KDE = 1 << 1,
-            LXDE = 1 << 2,
-            MATE = 1 << 3,
-            RAZOR = 1 << 4,
-            ROX = 1 << 5,
-            TDE = 1 << 6,
-            UNITY = 1 << 7,
-            XFCE = 1 << 8,
-            PANTHEON = 1 << 9,
-            OLD = 1 << 10,
+            GNOME,
+            KDE,
+            LXDE,
+            LXQT,
+            MATE,
+            RAZOR,
+            ROX,
+            TDE,
+            UNITY,
+            XFCE,
+            PANTHEON,
+            OLD,
 
-            ALL = 0x3FF
+            // Keep up to date with list above
+            ALL = GNOME | KDE | LXDE | LXQT | MATE | RAZOR | ROX | TDE | UNITY | XFCE | PANTHEON | OLD
         }
 
         public string desktop_id { get; construct set; }
@@ -89,6 +90,7 @@ namespace Synapse {
                 switch (env_up) {
                     case "GNOME":
                     case "X-CINNAMON":
+                    case "UBUNTU":
                         result |= EnvironmentType.GNOME;
                         break;
                     case "PANTHEON":
@@ -99,6 +101,9 @@ namespace Synapse {
                         break;
                     case "LXDE":
                         result |= EnvironmentType.LXDE;
+                        break;
+                    case "LXQT":
+                        result |= EnvironmentType.LXQT;
                         break;
                     case "MATE":
                         result |= EnvironmentType.MATE;
@@ -285,18 +290,21 @@ namespace Synapse {
 
             string session = session_var.down ();
 
-            if (session.has_prefix ("unity") || session.has_prefix ("ubuntu")) {
+            if (session.has_prefix ("unity")) {
                 session_type = DesktopFileInfo.EnvironmentType.UNITY;
                 session_type_str = "Unity";
             } else if (session.has_prefix ("kde")) {
                 session_type = DesktopFileInfo.EnvironmentType.KDE;
                 session_type_str = "KDE";
-            } else if (session.has_prefix ("gnome")) {
+            } else if (session.has_prefix ("gnome") || session.has_prefix ("ubuntu")) {
                 session_type = DesktopFileInfo.EnvironmentType.GNOME;
                 session_type_str = "GNOME";
-            } else if (session.has_prefix ("lx")) {
+            } else if (session.has_prefix ("lxde")) {
                 session_type = DesktopFileInfo.EnvironmentType.LXDE;
                 session_type_str = "LXDE";
+            } else if (session.has_prefix ("lxqt")) {
+                session_type = DesktopFileInfo.EnvironmentType.LXQT;
+                session_type_str = "LXQt";
             } else if (session.has_prefix ("xfce")) {
                 session_type = DesktopFileInfo.EnvironmentType.XFCE;
                 session_type_str = "XFCE";
