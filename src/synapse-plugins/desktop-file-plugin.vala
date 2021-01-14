@@ -21,7 +21,7 @@
 */
 
 namespace Synapse {
-    public class DesktopFilePlugin: Object, Activatable, ItemProvider, ActionProvider {
+    public class DesktopFilePlugin: Object, Activatable, ItemProvider {
         public bool enabled { get; set; default = true; }
 
         public void activate () { }
@@ -126,14 +126,12 @@ namespace Synapse {
 
         construct {
             desktop_files = new Gee.ArrayList<DesktopFileMatch> ();
-            mimetype_map = new Gee.HashMap<string, Gee.List<OpenWithAction>> ();
 
             var dfs = DesktopFileService.get_default ();
             dfs.reload_started.connect (() => {
                 loading_in_progress = true;
             });
             dfs.reload_done.connect (() => {
-                mimetype_map.clear ();
                 desktop_files.clear ();
                 load_all_desktop_files.begin ();
             });
@@ -337,62 +335,6 @@ namespace Synapse {
                     warning ("%s", err.message);
                 }
             }
-        }
-
-        private Gee.Map<string, Gee.List<OpenWithAction> > mimetype_map;
-
-        public ResultSet? find_for_match (ref Query query, Match match) {
-            if (match.match_type != MatchType.GENERIC_URI) {
-                return null;
-            }
-
-            var uri_match = match as UriMatch;
-            return_val_if_fail (uri_match != null, null);
-
-            if (uri_match.mime_type == null) return null;
-
-            Gee.List<OpenWithAction> ow_list = mimetype_map[uri_match.mime_type];
-            /* Query DesktopFileService only if is necessary */
-            if (ow_list == null) {
-                /* Initialize ow_list */
-                ow_list = new Gee.LinkedList<OpenWithAction> ();
-                mimetype_map[uri_match.mime_type] = ow_list;
-                var dfs = DesktopFileService.get_default ();
-                var list_for_mimetype = dfs.get_desktop_files_for_type (uri_match.mime_type);
-                /* If there's more than one application, fill the ow list */
-                if (list_for_mimetype.size > 1) {
-                    foreach (var entry in list_for_mimetype) {
-                        ow_list.add (new OpenWithAction (entry));
-                    }
-                }
-                else return null;
-            } else if (ow_list.size == 0) {
-                return null;
-            }
-
-            var rs = new ResultSet ();
-
-            if (query.query_string == "") {
-                foreach (var action in ow_list) {
-                    rs.add (action, Match.Score.POOR);
-                }
-            } else {
-                var matchers = Query.get_matchers_for_query (
-                    query.query_string,
-                    0,
-                    RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
-                );
-                foreach (var action in ow_list) {
-                    foreach (var matcher in matchers) {
-                        if (matcher.key.match (action.title)) {
-                            rs.add (action, matcher.value);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            return rs;
         }
     }
 }
