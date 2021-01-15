@@ -90,8 +90,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
         search_view = new Widgets.SearchView ();
 
-        stack = new Gtk.Stack ();
-        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+        stack = new Gtk.Stack () {
+            transition_duration = 100,
+            transition_type = Gtk.StackTransitionType.CROSSFADE
+        };
         stack.add_named (grid_view, "normal");
         stack.add_named (category_view, "category");
         stack.add_named (search_view, "search");
@@ -338,7 +340,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         stack.transition_type = Gtk.StackTransitionType.NONE;
         set_modality ((Modality) view_selector.selected);
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+        stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
     }
 
     private void set_modality (Modality new_modality) {
