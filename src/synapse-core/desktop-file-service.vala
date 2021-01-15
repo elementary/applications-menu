@@ -124,12 +124,12 @@ namespace Synapse {
 
         private void init_from_desktop_app_info (GLib.DesktopAppInfo app_info) {
             try {
-                if (app_info.get_string ("Type") != "Application") {
+                if (app_info.get_string (KeyFileDesktop.KEY_TYPE) != KeyFileDesktop.TYPE_APPLICATION) {
                     throw new DesktopFileError.UNINTERESTING_ENTRY ("Not Application-type desktop entry");
                 }
 
-                if (app_info.has_key ("Categories")) {
-                    string[] categories = app_info.get_string_list ("Categories");
+                if (app_info.has_key (KeyFileDesktop.KEY_CATEGORIES)) {
+                    string[] categories = app_info.get_string_list (KeyFileDesktop.KEY_CATEGORIES);
                     if ("Screensaver" in categories) {
                         throw new DesktopFileError.UNINTERESTING_ENTRY ("Screensaver desktop entry");
                     }
@@ -157,20 +157,20 @@ namespace Synapse {
                 new ThemedIcon ("application-default-icon");
                 icon_name = icon.to_string ();
 
-                if (app_info.has_key ("Terminal")) {
-                    needs_terminal = app_info.get_boolean ("Terminal");
+                if (app_info.has_key (KeyFileDesktop.KEY_TERMINAL)) {
+                    needs_terminal = app_info.get_boolean (KeyFileDesktop.KEY_TERMINAL);
                 }
-                if (app_info.has_key ("OnlyShowIn")) {
-                    show_in = parse_environments (app_info.get_string_list ("OnlyShowIn"));
-                } else if (app_info.has_key ("NotShowIn")) {
-                    var not_show = parse_environments (app_info.get_string_list ("NotShowIn"));
+                if (app_info.has_key (KeyFileDesktop.KEY_ONLY_SHOW_IN)) {
+                    show_in = parse_environments (app_info.get_string_list (KeyFileDesktop.KEY_ONLY_SHOW_IN));
+                } else if (app_info.has_key (KeyFileDesktop.KEY_NOT_SHOW_IN)) {
+                    var not_show = parse_environments (app_info.get_string_list (KeyFileDesktop.KEY_NOT_SHOW_IN));
                     show_in = EnvironmentType.ALL ^ not_show;
                 }
             } catch (Error err) {
                 string name = "Unidentified";
 
-                if (app_info.has_key ("Name")) {
-                    name = app_info.get_string ("Name");
+                if (app_info.has_key (KeyFileDesktop.KEY_NAME)) {
+                    name = app_info.get_string (KeyFileDesktop.KEY_NAME);
                 }
 
                 if (err is DesktopFileError.UNINTERESTING_ENTRY) {
