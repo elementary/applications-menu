@@ -27,22 +27,23 @@ namespace Synapse {
 
     public class DesktopFileInfo: Object {
         // registered environments from http://standards.freedesktop.org/menu-spec/latest
-        // (and pantheon)
         [Flags]
         public enum EnvironmentType {
-            GNOME = 1 << 0,
-            KDE = 1 << 1,
-            LXDE = 1 << 2,
-            MATE = 1 << 3,
-            RAZOR = 1 << 4,
-            ROX = 1 << 5,
-            TDE = 1 << 6,
-            UNITY = 1 << 7,
-            XFCE = 1 << 8,
-            PANTHEON = 1 << 9,
-            OLD = 1 << 10,
+            GNOME,
+            KDE,
+            LXDE,
+            LXQT,
+            MATE,
+            RAZOR,
+            ROX,
+            TDE,
+            UNITY,
+            XFCE,
+            PANTHEON,
+            OLD,
 
-            ALL = 0x3FF
+            // Keep up to date with list above
+            ALL = GNOME | KDE | LXDE | LXQT | MATE | RAZOR | ROX | TDE | UNITY | XFCE | PANTHEON | OLD
         }
 
         public string desktop_id { get; construct set; }
@@ -59,8 +60,6 @@ namespace Synapse {
 
         public bool is_hidden { get; private set; default = false; }
         public bool is_valid { get; private set; default = true; }
-
-        public string[] mime_types = null;
 
         private string? name_folded = null;
         public unowned string get_name_folded () {
@@ -89,6 +88,7 @@ namespace Synapse {
                 switch (env_up) {
                     case "GNOME":
                     case "X-CINNAMON":
+                    case "UBUNTU":
                         result |= EnvironmentType.GNOME;
                         break;
                     case "PANTHEON":
@@ -99,6 +99,9 @@ namespace Synapse {
                         break;
                     case "LXDE":
                         result |= EnvironmentType.LXDE;
+                        break;
+                    case "LXQT":
+                        result |= EnvironmentType.LXQT;
                         break;
                     case "MATE":
                         result |= EnvironmentType.MATE;
@@ -169,9 +172,6 @@ namespace Synapse {
                 new ThemedIcon ("application-default-icon");
                 icon_name = icon.to_string ();
 
-                if (keyfile.has_key (GROUP, "MimeType")) {
-                    mime_types = keyfile.get_string_list (GROUP, "MimeType");
-                }
                 if (keyfile.has_key (GROUP, "Terminal")) {
                     needs_terminal = keyfile.get_boolean (GROUP, "Terminal");
                 }
@@ -225,10 +225,8 @@ namespace Synapse {
         private Gee.List<FileMonitor> directory_monitors;
         private Gee.List<DesktopFileInfo> all_desktop_files;
         private Gee.List<DesktopFileInfo> non_hidden_desktop_files;
-        private Gee.Map<unowned string, Gee.List<DesktopFileInfo> > mimetype_map;
         private Gee.Map<string, Gee.List<DesktopFileInfo> > exec_map;
         private Gee.Map<string, DesktopFileInfo> desktop_id_map;
-        private Gee.MultiMap<string, string> mimetype_parent_map;
 
         construct {
             instance = this;
@@ -236,7 +234,6 @@ namespace Synapse {
             directory_monitors = new Gee.ArrayList<FileMonitor> ();
             all_desktop_files = new Gee.ArrayList<DesktopFileInfo> ();
             non_hidden_desktop_files = new Gee.ArrayList<DesktopFileInfo> ();
-            mimetype_parent_map = new Gee.HashMultiMap<string, string> ();
             init_once = new Utils.AsyncOnce<bool> ();
 
             initialize.begin ();
@@ -285,18 +282,21 @@ namespace Synapse {
 
             string session = session_var.down ();
 
-            if (session.has_prefix ("unity") || session.has_prefix ("ubuntu")) {
+            if (session.has_prefix ("unity")) {
                 session_type = DesktopFileInfo.EnvironmentType.UNITY;
                 session_type_str = "Unity";
             } else if (session.has_prefix ("kde")) {
                 session_type = DesktopFileInfo.EnvironmentType.KDE;
                 session_type_str = "KDE";
-            } else if (session.has_prefix ("gnome")) {
+            } else if (session.has_prefix ("gnome") || session.has_prefix ("ubuntu")) {
                 session_type = DesktopFileInfo.EnvironmentType.GNOME;
                 session_type_str = "GNOME";
-            } else if (session.has_prefix ("lx")) {
+            } else if (session.has_prefix ("lxde")) {
                 session_type = DesktopFileInfo.EnvironmentType.LXDE;
                 session_type_str = "LXDE";
+            } else if (session.has_prefix ("lxqt")) {
+                session_type = DesktopFileInfo.EnvironmentType.LXQT;
+                session_type_str = "LXQt";
             } else if (session.has_prefix ("xfce")) {
                 session_type = DesktopFileInfo.EnvironmentType.XFCE;
                 session_type_str = "XFCE";
@@ -389,14 +389,11 @@ namespace Synapse {
             }
 
             Gee.Set<File> desktop_file_dirs = new Gee.HashSet<File> ();
-            mimetype_parent_map.clear ();
 
             foreach (unowned string data_dir in data_dirs) {
                 string dir_path = Path.build_filename (data_dir, "applications", null);
                 var directory = File.new_for_path (dir_path);
                 yield process_directory (directory, "", desktop_file_dirs);
-                dir_path = Path.build_filename (data_dir, "mime", "subclasses");
-                yield load_mime_parents_from_file (dir_path);
             }
 
             create_indices ();
@@ -468,8 +465,6 @@ namespace Synapse {
         }
 
         private void create_indices () {
-            // create mimetype maps
-            mimetype_map = new Gee.HashMap<unowned string, Gee.List<DesktopFileInfo> > ();
             // and exec map
             exec_map = new Gee.HashMap<string, Gee.List<DesktopFileInfo> > ();
             // and desktop id map
@@ -502,74 +497,6 @@ namespace Synapse {
                 // update desktop id map
                 var desktop_id = dfi.desktop_id ?? Path.get_basename (dfi.filename);
                 desktop_id_map[desktop_id] = dfi;
-
-                // update mimetype map
-                if (dfi.is_hidden || dfi.mime_types == null) {
-                    continue;
-                }
-
-                foreach (unowned string mime_type in dfi.mime_types) {
-                    Gee.List<DesktopFileInfo>? list = mimetype_map[mime_type];
-                    if (list == null) {
-                        list = new Gee.ArrayList<DesktopFileInfo> ();
-                        mimetype_map[mime_type] = list;
-                    }
-                    list.add (dfi);
-                }
-            }
-        }
-
-        private async void load_mime_parents_from_file (string fi) {
-            var file = File.new_for_path (fi);
-            bool exists = yield Utils.query_exists_async (file);
-            if (!exists) {
-                return;
-            }
-
-            try {
-                var fis = yield file.read_async (GLib.Priority.DEFAULT);
-                var dis = new DataInputStream (fis);
-                string line = null;
-                string[] mimes = null;
-                int len = 0;
-                // Read lines until end of file (null) is reached
-                do {
-                    line = yield dis.read_line_async (GLib.Priority.DEFAULT);
-                    if (line == null) {
-                        break;
-                    }
-                    if (line.has_prefix ("#")) {
-                        continue; //comment line
-                    }
-                    mimes = line.split (" ");
-                    len = (int)GLib.strv_length (mimes);
-                    if (len != 2) {
-                        continue;
-                    }
-                    // cannot be parent of myself!
-                    if (mimes[0] == mimes[1]) {
-                        continue;
-                    }
-                    //debug ("Map %s -> %s", mimes[0], mimes[1]);
-                    mimetype_parent_map.set (mimes[0], mimes[1]);
-                } while (true);
-            } catch (GLib.Error err) {
-                warning ("Can't read file.");
-            }
-        }
-
-        private void add_dfi_for_mime (string mime, Gee.Set<DesktopFileInfo> ret) {
-            var dfis = mimetype_map[mime];
-            if (dfis != null) {
-                ret.add_all (dfis);
-            }
-
-            var parents = mimetype_parent_map[mime];
-            if (parents == null) {
-                return;
-            }
-            foreach (string parent in parents) {
-                add_dfi_for_mime (parent, ret);
             }
         }
 
@@ -582,14 +509,6 @@ namespace Synapse {
         // are hidden by default)
         public Gee.List<DesktopFileInfo> get_all_desktop_files () {
             return all_desktop_files.read_only_view;
-        }
-
-        public Gee.List<DesktopFileInfo> get_desktop_files_for_type (string mime_type) {
-            var dfi_set = new Gee.HashSet<DesktopFileInfo> ();
-            add_dfi_for_mime (mime_type, dfi_set);
-            var ret = new Gee.ArrayList<DesktopFileInfo> ();
-            ret.add_all (dfi_set);
-            return ret;
         }
 
         public Gee.List<DesktopFileInfo> get_desktop_files_for_exec (string exec) {
