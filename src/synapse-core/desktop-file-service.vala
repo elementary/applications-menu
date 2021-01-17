@@ -276,7 +276,7 @@ namespace Synapse {
             var app_infos = GLib.AppInfo.get_all ();
             foreach (unowned GLib.AppInfo app in app_infos) {
                 if (app.should_show ()) {
-                    var app_info = (GLib.DesktopAppInfo)app;
+                    unowned GLib.DesktopAppInfo app_info = (GLib.DesktopAppInfo)app;
                     var dfi = new DesktopFileInfo.for_desktop_app_info (app_info);
 
                     non_hidden_desktop_files.add (dfi);
