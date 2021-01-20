@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2018-03-10 00:06+0000\n"
-"Last-Translator: Plugaru Tudor <plugaru.tudor@gmail.com>\n"
-"Language-Team: Romanian <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-01-19 22:56+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Language-Team: Romanian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -244,7 +244,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr ""
+msgstr "Deconectare"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
