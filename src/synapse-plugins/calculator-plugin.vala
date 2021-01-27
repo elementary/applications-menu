@@ -27,15 +27,21 @@ namespace Synapse {
         public void activate () { }
         public void deactivate () { }
 
-        private class Result: Synapse.Match {
+        private class Result: Synapse.Match, Synapse.TextMatch{
             public int default_relevancy { get; set; default = 0; }
+
+            public string text { get; construct set; default = ""; }
+            public Synapse.TextOrigin text_origin { get; set; }
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
-                        title: _("<b> %g </b> - Copy result to clipboard").printf (result),
+                        title: "<b>%g</b> - %s".printf (result, _("Click to copy result to clipboard")),
                         description: "%s = %g".printf (match_string, result),
-                        icon_name: "accessories-calculator");
+                        text: "%g".printf (result),
+                        icon_name: "accessories-calculator",
+                        text_origin: Synapse.TextOrigin.UNKNOWN);
             }
+
         }
 
         static void register_plugin () {
