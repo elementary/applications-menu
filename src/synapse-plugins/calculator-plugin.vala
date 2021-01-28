@@ -27,7 +27,7 @@ namespace Synapse {
         public void activate () { }
         public void deactivate () { }
 
-        private class Result: Synapse.Match, Synapse.TextMatch{
+        private class Result: Synapse.Match, Synapse.TextMatch {
             public int default_relevancy { get; set; default = 0; }
 
             public string text { get; construct set; default = ""; }
