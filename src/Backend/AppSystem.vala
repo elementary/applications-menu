@@ -26,6 +26,9 @@ public class Slingshot.Backend.AppSystem : Object {
     private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
     private GMenu.Tree apps_menu = null;
 
+    private bool hide_terminal_apps;
+    private GLib.Settings settings;
+
 #if HAVE_ZEITGEIST
     private RelevancyService rl_service;
 #endif
@@ -35,6 +38,9 @@ public class Slingshot.Backend.AppSystem : Object {
         rl_service = new RelevancyService ();
         rl_service.update_complete.connect (update_popularity);
 #endif
+
+        settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
+        hide_terminal_apps = settings.get_boolean ("hide-terminal-apps");
 
         apps_menu = new GMenu.Tree (
             "pantheon-applications.menu",
@@ -122,25 +128,28 @@ public class Slingshot.Backend.AppSystem : Object {
                     app_list.add_all (get_apps_by_category (iter.get_directory ()));
                     break;
                 case GMenu.TreeItemType.ENTRY:
-                    bool needs_terminal = false;
-                    try {
-                        var path = iter.get_entry ().get_desktop_file_path ();
-                        var keyfile = new KeyFile ();
 
-                        if (!keyfile.load_from_file (path, KeyFileFlags.NONE)) {
-                            break;
+                    if (hide_terminal_apps){
+                        bool needs_terminal = false;
+                        try {
+                            var path = iter.get_entry ().get_desktop_file_path ();
+                            var keyfile = new KeyFile ();
+
+                            if (!keyfile.load_from_file (path, KeyFileFlags.NONE)) {
+                                break;
+                            }
+
+                            needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
+
+                        } catch (Error e) {
+                            if (e.code != KeyFileError.KEY_NOT_FOUND) {
+                                break;
+                            }
                         }
 
-                        needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
-
-                    } catch (Error e) {
-                        if (e.code != KeyFileError.KEY_NOT_FOUND) {
+                        if (needs_terminal) {
                             break;
                         }
-                    }
-
-                    if (needs_terminal) {
-                        break;
                     }
 
 
