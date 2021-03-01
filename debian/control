@@ -31,18 +31,3 @@ Description: Lightweight and stylish app launcher
  .
  It features an optional category view and fast
  application search that uses Synapse as a back-end.
-
-Package: slingshot-launcher-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Depends: slingshot-launcher (= ${binary:Version}), ${misc:Depends}
-Enhances: slingshot-launcher
-Description: Lightweight and stylish app launcher (debugging symbols)
- Slingshot is an application launcher for Pantheon,
- written in Vala and utilizing GTK+ and Cairo.
- .
- It features an optional category view and fast
- application search that uses Synapse as a back-end.
- .
- This package contains debugging symbols for slingshot-launcher.
