@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2021-03-05 00:17+0000\n"
-"Last-Translator: tsitokhtsev2002 <tsitokhtsev2002@gmail.com>\n"
+"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
@@ -43,7 +43,7 @@ msgstr "Поиск приложений"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Очистить всё"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -71,9 +71,8 @@ msgid "Uninstall"
 msgstr "Удалить"
 
 #: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "AppCenter"
+msgstr "Посмотреть в Центре приложений"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -266,10 +265,9 @@ msgstr "Перейти в режим ожидания"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Ждущий режим"
+msgstr "ждущий режим"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -281,10 +279,9 @@ msgstr "Перейти в режим сна"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Спящий режим"
+msgstr "спящий режим"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
