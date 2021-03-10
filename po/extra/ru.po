@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-28 18:40+0000\n"
-"PO-Revision-Date: 2021-03-05 18:46+0000\n"
+"PO-Revision-Date: 2021-03-11 08:34+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
@@ -26,44 +26,47 @@ msgstr "Меню приложений"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Открывайте и находите приложения"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Незначительные обновления"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:34
 #: data/applications-menu.appdata.xml.in:43
 msgid "Updated translations"
-msgstr ""
+msgstr "Обновленны переводы"
 
 #: data/applications-menu.appdata.xml.in:21
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Более плавная работа в режиме просмотра сеткой и поддержка жестов на "
+"сенсорных экранах"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Фокусировка на панели поиска при переходе вверх в режиме просмотра категорий"
 
 #: data/applications-menu.appdata.xml.in:23
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Фокус не переходит к панели поиска, когда нажата клавиша-модификатор"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Убедитесь, что категории отсортированы в алфавитном порядке"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Просмотр по категориям, теперь, в виде списка"
 
 #: data/applications-menu.appdata.xml.in:32
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Улучшена навигация с помощью клавиатуры"
 
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
@@ -79,12 +82,12 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:40
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Подсветка совпадений, связанных с введенным текстом в панели поиска"
 
 #: data/applications-menu.appdata.xml.in:41
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Добавлено элемент меню «Просмотреть в Центре приложений»"
 
 #: data/applications-menu.appdata.xml.in:52
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
