@@ -46,7 +46,7 @@ json_glib_dep = dependency('json-glib-1.0')
 switchboard_dep = dependency('switchboard-2.0')
 libgnome_menu_dep = dependency('libgnome-menu-3.0')
 libhandy_dep = dependency('libhandy-1', version: '>= 0.83.0')
-wingpanel_dep = dependency('wingpanel-2.0', version: '>=2.1.0')
+wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
 plank_dep = dependency('plank', required: false)

@@ -27,6 +27,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private string appstream_comp_id = "";
 
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
+    private Gtk.MenuItem uninstall_menuitem;
+    private Gtk.MenuItem appcenter_menuitem;
 
 #if HAS_PLANK
     private static Plank.DBusClient plank_client;
@@ -115,10 +117,28 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             add (plank_menuitem );
         }
 #endif
+        if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
+            if (!has_system_item && get_children ().length () > 0) {
+                add (new Gtk.SeparatorMenuItem ());
+            }
 
-        var appcenter = Backend.AppCenter.get_default ();
-        appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
-        on_appcenter_dbus_changed.begin (appcenter);
+            uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall")) {
+                sensitive = false
+            };
+            uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
+
+            appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter")) {
+                sensitive = false
+            };
+            appcenter_menuitem.activate.connect (open_in_appcenter);
+
+            add (uninstall_menuitem);
+            add (appcenter_menuitem);
+
+            var appcenter = Backend.AppCenter.get_default ();
+            appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
+            on_appcenter_dbus_changed.begin (appcenter);
+        }
 
         show_all ();
     }
@@ -164,28 +184,16 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         if (appcenter.dbus != null) {
             try {
                 appstream_comp_id = yield appcenter.dbus.get_component_from_desktop_id (desktop_id);
-                if (appstream_comp_id != "") {
-                    if (!has_system_item && get_children ().length () > 0) {
-                        add (new Gtk.SeparatorMenuItem ());
-                    }
-
-                    var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
-                    uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
-
-                    var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
-                    appcenter_menuitem.activate.connect (open_in_appcenter);
-
-                    add (uninstall_menuitem);
-                    add (appcenter_menuitem);
-
-                    show_all ();
-                }
             } catch (GLib.Error e) {
+                appstream_comp_id = "";
                 warning (e.message);
             }
         } else {
             appstream_comp_id = "";
         }
+
+        uninstall_menuitem.sensitive = appstream_comp_id != "";
+        appcenter_menuitem.sensitive = appstream_comp_id != "";
     }
 
 #if HAS_PLANK
