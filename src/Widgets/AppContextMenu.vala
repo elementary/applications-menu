@@ -76,7 +76,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             string gpu_name = switcheroo_control.get_gpu_name (prefers_non_default_gpu);
 
-            string label = _("Open using %s Graphics Card").printf (gpu_name);
+            string label = _("Open with %s Graphics").printf (gpu_name);
 
             var menu_item = new Gtk.MenuItem.with_mnemonic (label);
             add (menu_item);
