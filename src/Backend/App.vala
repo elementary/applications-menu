@@ -125,8 +125,7 @@ public class Slingshot.Backend.App : Object {
                     var context = new AppLaunchContext ();
                     switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
 
-                    var app_info = new DesktopAppInfo (desktop_id);
-                    app_info.launch (null, context);
+                    new DesktopAppInfo (desktop_id).launch (null, context);
 
                     debug (@"Launching application: $name");
                     break;

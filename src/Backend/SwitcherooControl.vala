@@ -27,9 +27,9 @@ public interface SwitcherooControlDBus : Object {
 
 public class Slingshot.Backend.SwitcherooControl : Object {
 
-    private SwitcherooControlDBus dbus { private set; private get; }
+    private static SwitcherooControlDBus dbus { private set; private get; }
 
-    construct {
+    static construct {
         try {
             dbus = Bus.get_proxy_sync (BusType.SYSTEM,
                 "net.hadess.SwitcherooControl", "/net/hadess/SwitcherooControl");
