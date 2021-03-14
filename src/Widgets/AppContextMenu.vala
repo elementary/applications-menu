@@ -56,11 +56,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     construct {
 
-        try {
-            switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
-        } catch (IOError e) {
-            critical (e.message);
-        }
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
 
         app_info = new DesktopAppInfo (desktop_id);
 
@@ -78,9 +74,9 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
             bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
 
-            string label = prefers_non_default_gpu ?
-                _("Open using Integrated Graphics Card") :
-                _("Open using Discrete Graphics Card");
+            string gpu_name = switcheroo_control.get_gpu_name (prefers_non_default_gpu);
+
+            string label = _("Open using %s Graphics Card".printf (gpu_name));
 
             var menu_item = new Gtk.MenuItem.with_mnemonic (label);
             add (menu_item);

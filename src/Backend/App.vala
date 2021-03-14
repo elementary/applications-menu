@@ -38,6 +38,7 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
+    public bool prefers_non_default_gpu { get; private set; default = false; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
 #if HAS_PLANK
@@ -52,11 +53,7 @@ public class Slingshot.Backend.App : Object {
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
 
     construct {
-        try {
-            switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
-        } catch (IOError e) {
-            critical (e.message);
-        }
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
     }
 
     public App (GMenu.TreeEntry entry) {
@@ -71,6 +68,8 @@ public class Slingshot.Backend.App : Object {
         keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
+        prefers_non_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
+        
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
             icon = desktop_icon;
@@ -123,12 +122,10 @@ public class Slingshot.Backend.App : Object {
                 case AppType.APP:
                     launched (this); // Emit launched signal
 
-                    var app_info = new DesktopAppInfo (desktop_id);
-                    bool use_default_gpu = !app_info.get_boolean ("PrefersNonDefaultGPU");
-
                     var context = new AppLaunchContext ();
-                    switcheroo_control.apply_gpu_environment (context, use_default_gpu);
+                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
 
+                    var app_info = new DesktopAppInfo (desktop_id);
                     app_info.launch (null, context);
 
                     debug (@"Launching application: $name");
