@@ -1,7 +1,7 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
 *               2017 elementary LLC.
-*               2020 Justin Haygood
+*               2020-2021 Justin Haygood
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -26,11 +26,7 @@ private class Synapse.RunnerAction: Synapse.BaseAction {
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
 
     construct {
-        try {
-            switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
-        } catch (IOError e) {
-            critical (e.message);
-        }
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
     }
 
     public RunnerAction () {
