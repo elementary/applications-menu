@@ -69,7 +69,7 @@ public class Slingshot.Backend.App : Object {
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
         prefers_non_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
-        
+
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
             icon = desktop_icon;

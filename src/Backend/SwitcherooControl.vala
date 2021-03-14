@@ -55,7 +55,7 @@ public class Slingshot.Backend.SwitcherooControl : Object {
 
             if (is_default == use_default_gpu) {
 
-                debug ("Using GPU: %s",  gpu.get ("Name").get_string ());
+                debug ("Using GPU: %s", gpu.get ("Name").get_string ());
 
                 var environment = gpu.get ("Environment");
 
@@ -71,30 +71,30 @@ public class Slingshot.Backend.SwitcherooControl : Object {
 
         warning ("Could not apply discrete GPU environment, no GPUs in list");
     }
-    
-    public string get_gpu_name(bool default_gpu) {
+
+    public string get_gpu_name (bool default_gpu) {
         if (dbus == null) {
             warning ("Could not fetch GPU name, switcheroo-control not available");
             return "Default";
         }
-        
+
         foreach (HashTable<string,Variant> gpu in dbus.gpus) {
             bool is_default = gpu.get ("Default").get_boolean ();
 
             if (is_default == default_gpu) {
-            
+
                 string gpu_name = gpu.get ("Name").get_string ();
 
-                debug ("Using GPU: %s",  gpu_name);
-                
+                debug ("Using GPU: %s", gpu_name);
+
                 if (gpu_name.contains ("NVIDIA")) {
                     return "NVIDIA";
                 }
-                
+
                 if (gpu_name.contains ("Intel")) {
                     return "Intel";
                 }
-                
+
                 if (gpu_name.contains ("AMD")) {
                     return "AMD";
                 }
@@ -102,7 +102,7 @@ public class Slingshot.Backend.SwitcherooControl : Object {
                 return gpu_name;
             }
         }
-        
+
         return "Default";
     }
 }
