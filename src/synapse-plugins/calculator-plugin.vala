@@ -35,11 +35,11 @@ namespace Synapse {
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
-                        title: "<b>%g</b> - %s".printf (result, _("Click to copy result to clipboard")),
-                        description: "%s = %g".printf (match_string, result),
-                        text: "%g".printf (result),
+                        text: "%s = %g".printf (match_string, result),
+                        title: "%g".printf (result),
                         icon_name: "accessories-calculator",
-                        text_origin: Synapse.TextOrigin.UNKNOWN);
+                        text_origin: Synapse.TextOrigin.UNKNOWN
+                );
             }
 
         }
@@ -114,6 +114,11 @@ namespace Synapse {
                     if (solution != null) {
                         double d = double.parse (solution);
                         Result result = new Result (d, query.query_string);
+                        result.description = "%s\n%s".printf (
+                            result.text,
+                            Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
+                        );
+
                         ResultSet results = new ResultSet ();
                         results.add (result, Match.Score.AVERAGE);
                         query.check_cancellable ();
