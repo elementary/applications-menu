@@ -20,6 +20,9 @@ public class Slingshot.Backend.AppSystem : Object {
 
     public Gee.HashMap<string, Gee.ArrayList<App>> apps { get; private set; default = null; }
 
+    private const int MENU_REFRESH_TIMEOUT_SECONDS = 3;
+    private uint refresh_timeout_id = 0;
+
     private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
     private GMenu.Tree apps_menu = null;
 
@@ -37,12 +40,26 @@ public class Slingshot.Backend.AppSystem : Object {
             "pantheon-applications.menu",
             GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME
         );
-        apps_menu.changed.connect (update_app_system);
+        apps_menu.changed.connect (queue_update_app_system);
 
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
         categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
 
         update_app_system ();
+    }
+
+    private void queue_update_app_system () {
+        if (refresh_timeout_id != 0) {
+            GLib.Source.remove (refresh_timeout_id);
+            refresh_timeout_id = 0;
+        }
+
+        refresh_timeout_id = GLib.Timeout.add_seconds (MENU_REFRESH_TIMEOUT_SECONDS, () => {
+            update_app_system ();
+            refresh_timeout_id = 0;
+
+            return GLib.Source.REMOVE;
+        });
     }
 
     private void update_app_system () {
@@ -105,6 +122,7 @@ public class Slingshot.Backend.AppSystem : Object {
                     app_list.add_all (get_apps_by_category (iter.get_directory ()));
                     break;
                 case GMenu.TreeItemType.ENTRY:
+                    bool needs_terminal = false;
                     try {
                         var path = iter.get_entry ().get_desktop_file_path ();
                         var keyfile = new KeyFile ();
@@ -113,14 +131,18 @@ public class Slingshot.Backend.AppSystem : Object {
                             break;
                         }
 
-                        var needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
+                        needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
 
-                        if (needs_terminal) {
+                    } catch (Error e) {
+                        if (e.code != KeyFileError.KEY_NOT_FOUND) {
                             break;
                         }
-                    } catch (Error e) {
+                    }
+
+                    if (needs_terminal) {
                         break;
                     }
+
 
                     var app = new App (iter.get_entry ());
 #if HAVE_ZEITGEIST

@@ -34,7 +34,7 @@ public class AppListRow : Gtk.ListBoxRow {
 
         var icon = app_info.get_icon ();
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 32, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        if (icon == null || theme.lookup_by_gicon (icon, 32, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 

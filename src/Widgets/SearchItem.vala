@@ -122,7 +122,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         app_uri = null;
         var app_match = app.match as Synapse.ApplicationMatch;
-        if (app_match != null) {
+        if (app_match != null && app_match.filename != null) {
             app_uri = File.new_for_path (app_match.filename).get_uri ();
         }
     }

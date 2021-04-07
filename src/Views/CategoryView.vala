@@ -199,6 +199,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             child.destroy ();
         }
 
+        listbox.foreach ((app_list_row) => listbox.remove (app_list_row));
+
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
             listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
         }

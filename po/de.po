@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2020-10-28 01:15+0000\n"
+"PO-Revision-Date: 2021-02-25 03:15+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
 msgid "Applications"
-msgstr "Apps"
+msgstr "Anwendungen"
 
 #: src/Indicator.vala:116
 msgid "Open and search apps"
-msgstr "Apps öffnen und suchen"
+msgstr "Anwendungen öffnen und suchen"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -38,7 +38,7 @@ msgstr "Ansicht nach Kategorie"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
-msgstr "Apps durchsuchen"
+msgstr "Anwendungen durchsuchen"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
@@ -71,7 +71,7 @@ msgstr "Deinstallieren"
 
 #: src/Widgets/AppContextMenu.vala:146
 msgid "View in AppCenter"
-msgstr "In AppCenter anzeigen"
+msgstr "Im AppCenter anzeigen"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -87,7 +87,7 @@ msgstr "Aktionen"
 
 #: src/Widgets/SearchItem.vala:45
 msgid "Search"
-msgstr "Suche"
+msgstr "Suchen"
 
 #: src/Widgets/SearchItem.vala:47
 msgid "Contacts"
@@ -123,7 +123,7 @@ msgstr "Ausführen"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "Anwendung,  Aktion oder Skript ausführen"
+msgstr "Anwendung, Aktion oder Skript ausführen"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
@@ -131,7 +131,7 @@ msgstr "Im Terminal ausführen"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr "Eine Anwendung oder einen Befehl im Terminal ausführen"
+msgstr "Anwendung oder Befehl im Terminal ausführen"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
@@ -188,12 +188,12 @@ msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Open with %s"
-msgstr "Öffnen mit %s"
+msgstr "Mit %s öffnen"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:322
 #, c-format
 msgid "Opens current selection using %s"
-msgstr "Öffnet die momentane Auswahl mittels %s"
+msgstr "Momentane Auswahl wird mittels %s geöffnet"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
