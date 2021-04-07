@@ -35,8 +35,8 @@ namespace Synapse {
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
-                        text: "%s = %g".printf (match_string, result),
-                        title: "%g".printf (result),
+                        text: "%g".printf (result), //Copied to clipboard
+                        title: "%g".printf (result), //Label for search item row
                         icon_name: "accessories-calculator",
                         text_origin: Synapse.TextOrigin.UNKNOWN
                 );
@@ -115,9 +115,9 @@ namespace Synapse {
                         double d = double.parse (solution);
                         Result result = new Result (d, query.query_string);
                         result.description = "%s\n%s".printf (
-                            result.text,
+                            "%s = %g".printf (query.query_string, d),
                             Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
-                        );
+                        );  // Used for search item tooltip
 
                         ResultSet results = new ResultSet ();
                         results.add (result, Match.Score.AVERAGE);
