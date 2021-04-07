@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2019-06-09 10:21+0000\n"
-"Last-Translator: RomanDesigner <romashkarus08@gmail.com>\n"
+"PO-Revision-Date: 2021-03-08 12:40+0000\n"
+"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -43,7 +43,7 @@ msgstr "Поиск приложений"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Очистить всё"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -71,9 +71,8 @@ msgid "Uninstall"
 msgstr "Удалить"
 
 #: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "AppCenter"
+msgstr "Посмотреть в Центре приложений"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -148,7 +147,7 @@ msgstr "Поиск в магазине приложений"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr "AppCenter"
+msgstr "Центр приложений"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
@@ -240,7 +239,7 @@ msgstr "Заблокировать это устройство"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "заблокировать"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -254,7 +253,7 @@ msgstr "Закрыть все открытые приложения и выйт�
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "выйти"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -266,10 +265,9 @@ msgstr "Перейти в режим ожидания"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Ждущий режим"
+msgstr "ждущий режим"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -281,10 +279,9 @@ msgstr "Перейти в режим сна"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Спящий режим"
+msgstr "спящий режим"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -298,7 +295,7 @@ msgstr "Выключить компьютер"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "выключение"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -312,7 +309,7 @@ msgstr "Перезагрузить компьютер"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "перезагрузка"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
