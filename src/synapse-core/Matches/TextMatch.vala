@@ -28,5 +28,5 @@ public enum Synapse.TextOrigin {
 
 public interface Synapse.TextMatch: Synapse.Match {
     public abstract Synapse.TextOrigin text_origin { get; set; }
-    public abstract string get_text ();
+    public abstract string text { get; construct set; default = ""; }
 }

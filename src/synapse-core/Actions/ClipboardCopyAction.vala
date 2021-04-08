@@ -46,7 +46,7 @@ private class Synapse.ClipboardCopyAction: Synapse.BaseAction {
             cb.set_text (uri_match.uri, -1);
         } else if (match.match_type == MatchType.TEXT) {
             TextMatch? text_match = match as TextMatch;
-            unowned string content = text_match != null ? text_match.get_text () : match.title;
+            unowned string content = text_match != null ? text_match.text : match.title;
 
             cb.set_text (content, -1);
         }
