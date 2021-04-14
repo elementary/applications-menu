@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-03-03 11:01+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2021-04-14 12:44+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -169,10 +169,8 @@ msgid "bc is not installed"
 msgstr "bc no está instalado"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Copiar selección en el portapapeles"
+msgstr "Haga clic para copiar el resultado al portapapeles"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
