@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Hải Hồ <hochihai1997@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel/"
@@ -57,19 +57,19 @@ msgstr "Hãy thử thay đổi cụm từ tìm kiếm."
 msgid "No Results for “%s”"
 msgstr "Không có kết quả cho “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Xóa khỏi _Dock"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Thêm vào _Dock"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Gỡ cài đặt"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Trung tâm ứng dụng"
@@ -157,17 +157,23 @@ msgstr "Tìm kiếm ứng dụng"
 msgid "AppCenter is not installed"
 msgstr "Trung tâm ứng dụng không được cài đặt"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Máy tính"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Tính toán các biểu thức cơ bản."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc không được cài đặt"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+#, fuzzy
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy result to clipboard"
+msgstr "Sao chép mục đã chọn đến clipboard"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -186,12 +192,12 @@ msgstr "Tìm và thực thi các lệnh tùy ý."
 msgid "Search for and run applications on your computer."
 msgstr "Tìm kiếm và chạy các ứng dụng trên máy tính của bạn."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "Mở với %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Mở lựa chọn hiện tại bằng %s"

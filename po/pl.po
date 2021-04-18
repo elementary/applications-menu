@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
 "PO-Revision-Date: 2019-02-09 11:11+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel/"
@@ -58,19 +58,19 @@ msgstr "Spróbuj zmienić kryteria wyszukiwania."
 msgid "No Results for “%s”"
 msgstr "Brak wyników dla zapytania “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Usuń z _doku"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Dodaj do _doku"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Odinstaluj"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Centrum programów"
@@ -158,17 +158,23 @@ msgstr "Szukaj programów"
 msgid "AppCenter is not installed"
 msgstr "Centrum programów nie jest zainstalowane"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Kalkulator"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Obliczaj podstawowe działania."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc nie jest zainstalowane"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+#, fuzzy
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy result to clipboard"
+msgstr "Skopiuj zaznaczenie do schowka"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -187,12 +193,12 @@ msgstr "Wyszukaj i wykonaj dowolne polecenia."
 msgid "Search for and run applications on your computer."
 msgstr "Wyszukaj i uruchom programy na tym komputerze."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "Otwórz przy pomocy %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Otwiera obecnie wybrane przy pomocy %s"

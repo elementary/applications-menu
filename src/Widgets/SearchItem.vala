@@ -98,7 +98,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         icon.gicon = app.icon;
         icon.pixel_size = ICON_SIZE;
 
-        tooltip_text = app.description;
+        tooltip_markup = app.description;
 
         if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
             var pixbuf = Backend.SynapseSearch.get_pathicon_for_match (app.match, ICON_SIZE);

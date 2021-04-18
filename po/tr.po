@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2021-03-05 00:17+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"PO-Revision-Date: 2021-04-08 19:55+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -57,19 +57,19 @@ msgstr "Arama terimlerini değiştirmeyi deneyin."
 msgid "No Results for “%s”"
 msgstr "“%s” için sonuç bulunamadı"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "_Dock'tan Kaldır"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "_Dock'a Ekle"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Kaldır"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 msgid "View in AppCenter"
 msgstr "Uygulama Merkezinde Görüntüle"
 
@@ -156,17 +156,21 @@ msgstr "Uygulama ara"
 msgid "AppCenter is not installed"
 msgstr "Uygulama merkezi kurulu değil"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Hesap Makinesi"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Basit ifadeleri hesapla."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc kurulu değil"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+msgid "Click to copy result to clipboard"
+msgstr "Sonucu panoya kopyalamak için tıklatın"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -185,12 +189,12 @@ msgstr "İsteğe bağlı komutları bulun ve çalıştırın."
 msgid "Search for and run applications on your computer."
 msgstr "Bilgisayarınızdaki uygulamaları arayın ve çalıştırın."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "%s ile Aç"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Seçili ögeyi %s kullanarak açar"

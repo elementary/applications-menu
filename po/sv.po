@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
 "PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
@@ -58,19 +58,19 @@ msgstr "Försök med att ändra söktermer."
 msgid "No Results for “%s”"
 msgstr "Inga resultat för \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Ta bort från _dockan"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Lägg till i _dockan"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Avinstallera"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "AppCenter"
@@ -158,17 +158,23 @@ msgstr "Sök efter program"
 msgid "AppCenter is not installed"
 msgstr "AppCenter är inte installerat"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Kalkylator"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Beräkna enkla uttryck."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc är inte installerad"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+#, fuzzy
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy result to clipboard"
+msgstr "Kopiera markeringen till urklipp"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -187,12 +193,12 @@ msgstr "Hitta och kör godtyckliga kommandon."
 msgid "Search for and run applications on your computer."
 msgstr "Sök efter och kör program på din dator."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "Öppna med %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Öppna det markerade objektet med %s"

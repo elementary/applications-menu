@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
 "PO-Revision-Date: 2017-07-07 23:24+0000\n"
 "Last-Translator: Lawrence Aberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <https://l10n.elementary.io/projects/wingpanel/"
@@ -57,19 +57,19 @@ msgstr "Sesã nsɛm a wobɔ de hwehwɛe no hwɛ."
 msgid "No Results for “%s”"
 msgstr "Biribiara nni hɔ ɛwɔ ɛdin “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Yi firi _Dock no mu"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Fa hyɛ _Dock no mu"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Yi fi so"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Dwumadie Twebea"
@@ -157,17 +157,23 @@ msgstr "Hwɛhwe dwumadie bi"
 msgid "AppCenter is not installed"
 msgstr "Wonnya mfaa dwumadie twebea no nguu so"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Nkontabuo Dwumadie"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Nkontaa nketewa."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc ngu wo kɔmputa no so"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+#, fuzzy
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy result to clipboard"
+msgstr "Fa nea woapaw no bi kɔ clipboard no mu"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -186,12 +192,12 @@ msgstr "Hwehwɛ command bi  a wotaa de di dwuma na fa di dwuma."
 msgid "Search for and run applications on your computer."
 msgstr "Hwehwɛ dwumadie bi na fa di dwuma."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "Fa %s bie"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Fa %s bie nea woapaw no"

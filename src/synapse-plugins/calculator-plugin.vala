@@ -27,15 +27,21 @@ namespace Synapse {
         public void activate () { }
         public void deactivate () { }
 
-        private class Result: Synapse.Match {
+        private class Result: Synapse.Match, Synapse.TextMatch {
             public int default_relevancy { get; set; default = 0; }
+
+            public string text { get; construct set; default = ""; }
+            public Synapse.TextOrigin text_origin { get; set; }
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
-                        title: "%g".printf (result),
-                        description: "%s = %g".printf (match_string, result),
-                        icon_name: "accessories-calculator");
+                        text: "%g".printf (result), //Copied to clipboard
+                        title: "%g".printf (result), //Label for search item row
+                        icon_name: "accessories-calculator",
+                        text_origin: Synapse.TextOrigin.UNKNOWN
+                );
             }
+
         }
 
         static void register_plugin () {
@@ -108,6 +114,11 @@ namespace Synapse {
                     if (solution != null) {
                         double d = double.parse (solution);
                         Result result = new Result (d, query.query_string);
+                        result.description = "%s\n%s".printf (
+                            "%s = %g".printf (query.query_string, d),
+                            Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
+                        );  // Used for search item tooltip
+
                         ResultSet results = new ResultSet ();
                         results.add (result, Match.Score.AVERAGE);
                         query.check_cancellable ();

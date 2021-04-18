@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
 "PO-Revision-Date: 2020-07-16 21:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
@@ -57,19 +57,19 @@ msgstr "Prøv å endre søkeord."
 msgid "No Results for “%s”"
 msgstr "Ingen resultat for “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Fjern frå _dokken"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Legg til i _dokken"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Avinstaller"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 msgid "View in AppCenter"
 msgstr "Vis i AppCenter"
 
@@ -156,17 +156,23 @@ msgstr "Søk etter applikasjonar"
 msgid "AppCenter is not installed"
 msgstr "AppCenter er ikkje installert"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Kalkulator"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Kalkuler enkle uttrykk."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc er ikkje installert"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+#, fuzzy
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy result to clipboard"
+msgstr "Kopier utvalet til utklippstavla"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -185,12 +191,12 @@ msgstr "Finn og køyr vilkårlege kommandoar."
 msgid "Search for and run applications on your computer."
 msgstr "Søk etter og køyr applikasjonar på datamaskina."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "Opne med %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Opnar utvalet med %s"
