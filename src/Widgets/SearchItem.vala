@@ -21,13 +21,13 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         UNKNOWN = 0,
         TEXT,
         APPLICATION,
-        GENERIC_URI,
+        APP_ACTIONS,
         ACTION,
+        GENERIC_URI,
         SEARCH,
         CONTACT,
         INTERNET,
         SETTINGS,
-        APP_ACTIONS,
         LINK;
 
         public unowned string to_string () {
