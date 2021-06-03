@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2020-10-30 04:15+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"PO-Revision-Date: 2021-05-04 07:38+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -27,7 +27,7 @@ msgstr "Застосунки"
 
 #: src/Indicator.vala:116
 msgid "Open and search apps"
-msgstr "Відкриття та пошук застосунків"
+msgstr "Відкрити та шукати застосунки"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -58,19 +58,19 @@ msgstr "Спробуйте змінити пошукові терміни."
 msgid "No Results for “%s”"
 msgstr "Результати для “%s” відсутні"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Вилучити з _доку"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Додати в д_ок"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Видалити"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 msgid "View in AppCenter"
 msgstr "Переглянути в центрі застосунків"
 
@@ -124,7 +124,7 @@ msgstr "Виконати"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "Запуск застосунку, дії або сценарію"
+msgstr "Запуск застосунку, дії або скрипту"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
@@ -157,17 +157,21 @@ msgstr "Шукати застосунки"
 msgid "AppCenter is not installed"
 msgstr "Центр застосунків не встановлено"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Калькулятор"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Обчислення простих виразів."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "Програму bc не встановлено"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+msgid "Click to copy result to clipboard"
+msgstr "Клацніть, щоб скопіювати результат у буфер обміну"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -186,12 +190,12 @@ msgstr "Пошук та виконання довільних команд."
 msgid "Search for and run applications on your computer."
 msgstr "Пошук та запуск застосунків на вашому комп’ютері."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
-msgstr "Відкрити за допомогою  %s"
+msgstr "Відкрити за допомогою %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Відкриває поточне виділення в %s"

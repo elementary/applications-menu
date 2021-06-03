@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
 "PO-Revision-Date: 2019-02-09 12:15+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/wingpanel/"
@@ -57,19 +57,19 @@ msgstr "검색어를 바꿔보세요."
 msgid "No Results for “%s”"
 msgstr "“%s”에 대한 검색 결과가 없습니다"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "플랭크에서 내리기"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "플랭크에 올리기"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "프로그램 제거"
 
-#: src/Widgets/AppContextMenu.vala:146
+#: src/Widgets/AppContextMenu.vala:102
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "앱센터"
@@ -157,17 +157,23 @@ msgstr "애플리케이션 검색"
 msgid "AppCenter is not installed"
 msgstr "앱센터가 설치되지 않았습니다"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "계산기"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "기본 식을 계산합니다."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc를 설치하지 않았습니다"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+#, fuzzy
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy result to clipboard"
+msgstr "선택한것을 클립보드로 복사"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -186,12 +192,12 @@ msgstr "임의의 명령을 찾거나 실행합니다."
 msgid "Search for and run applications on your computer."
 msgstr "컴퓨터에서 애플리케이션을 검색하고 실행합니다."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "%s 에서 열기"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "현재 선택한 것을 %s 에서 엽니다"

@@ -19,7 +19,7 @@ You'll need the following dependencies:
 * libsoup2.4-dev
 * libswitchboard-2.0-dev
 * libunity-dev
-* libwingpanel-2.0-dev
+* libwingpanel-dev
 * libzeitgeist-2.0-dev
 * meson
 * pkg-config

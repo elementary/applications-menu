@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
-"PO-Revision-Date: 2019-02-22 00:06+0000\n"
+"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"PO-Revision-Date: 2021-06-03 09:28+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
+"Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
@@ -42,7 +42,7 @@ msgstr "Programsøk"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Tøm alt"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
@@ -57,22 +57,21 @@ msgstr "Prøv å endre søkeord."
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
 msgstr "Fjern fra _dokken"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
 msgstr "Legg til _dokken"
 
-#: src/Widgets/AppContextMenu.vala:143
+#: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
 msgstr "Avinstaller"
 
-#: src/Widgets/AppContextMenu.vala:146
-#, fuzzy
+#: src/Widgets/AppContextMenu.vala:102
 msgid "View in AppCenter"
-msgstr "AppSenter"
+msgstr "Vis i AppSenter"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -108,7 +107,7 @@ msgstr "Applikasjonshandlinger"
 
 #: src/Widgets/SearchItem.vala:55
 msgid "Other"
-msgstr "Andre"
+msgstr "Annet"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -157,17 +156,21 @@ msgstr "Søk etter programmer"
 msgid "AppCenter is not installed"
 msgstr "AppSenter er ikke installert"
 
-#: src/synapse-plugins/calculator-plugin.vala:44
+#: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
 msgstr "Kalkulator"
 
-#: src/synapse-plugins/calculator-plugin.vala:45
+#: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
 msgstr "Kalkuler enkle uttrykk."
 
-#: src/synapse-plugins/calculator-plugin.vala:49
+#: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc er ikke installert"
+
+#: src/synapse-plugins/calculator-plugin.vala:119
+msgid "Click to copy result to clipboard"
+msgstr "Klikk for å kopiere resultatet til utklippstavlen"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -186,12 +189,12 @@ msgstr "Finn og kjør vilkårlige kommandoer."
 msgid "Search for and run applications on your computer."
 msgstr "Søk og kjør programmer på datamaskinen."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
 msgstr "Åpne med %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:322
+#: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Åpner utvalget med %s"

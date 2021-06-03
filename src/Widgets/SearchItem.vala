@@ -21,13 +21,13 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         UNKNOWN = 0,
         TEXT,
         APPLICATION,
-        GENERIC_URI,
+        APP_ACTIONS,
         ACTION,
+        GENERIC_URI,
         SEARCH,
         CONTACT,
         INTERNET,
         SETTINGS,
-        APP_ACTIONS,
         LINK;
 
         public unowned string to_string () {
@@ -98,7 +98,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         icon.gicon = app.icon;
         icon.pixel_size = ICON_SIZE;
 
-        tooltip_text = app.description;
+        tooltip_markup = app.description;
 
         if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
             var pixbuf = Backend.SynapseSearch.get_pathicon_for_match (app.match, ICON_SIZE);
@@ -122,7 +122,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         app_uri = null;
         var app_match = app.match as Synapse.ApplicationMatch;
-        if (app_match != null) {
+        if (app_match != null && app_match.filename != null) {
             app_uri = File.new_for_path (app_match.filename).get_uri ();
         }
     }
