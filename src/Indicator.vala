@@ -127,13 +127,13 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             }
         }
 
-        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
-
         if (gala_behavior_settings != null) {
             if ("wingpanel" in gala_behavior_settings.get_string ("overlay-action")) {
-                indicator_grid.tooltip_markup += ", ⌘";
+                accels += "<Super>";
             }
         }
+
+        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
     }
 }
 
