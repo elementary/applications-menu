@@ -23,12 +23,14 @@ private extern const string PKGDATADIR;
 
 public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "org.gnome.desktop.wm.keybindings";
+    private const string GALA_BEHAVIOR_SCHEMA = "org.pantheon.desktop.gala.behavior";
 
     private DBusService? dbus_service = null;
     private Gtk.Grid? indicator_grid = null;
     private SlingshotView? view = null;
 
     private static GLib.Settings? keybinding_settings;
+    private static GLib.Settings? gala_behavior_settings;
 
     public Indicator () {
         Object (code_name: Wingpanel.Indicator.APP_LAUNCHER);
@@ -37,6 +39,10 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     static construct {
         if (SettingsSchemaSource.get_default ().lookup (KEYBINDING_SCHEMA, true) != null) {
             keybinding_settings = new GLib.Settings (KEYBINDING_SCHEMA);
+        }
+
+        if (SettingsSchemaSource.get_default ().lookup (GALA_BEHAVIOR_SCHEMA, true) != null) {
+            gala_behavior_settings = new GLib.Settings (GALA_BEHAVIOR_SCHEMA);
         }
     }
 
@@ -87,6 +93,14 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
                     }
                 });
             }
+
+            if (gala_behavior_settings != null) {
+                gala_behavior_settings.changed.connect ((key) => {
+                    if (key == "overlay-action") {
+                        update_tooltip ();
+                    }
+                });
+            }
         }
 
         visible = true;
@@ -110,6 +124,12 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
             foreach (unowned string raw_accel in raw_accels) {
                 if (raw_accel != "") accels += raw_accel;
+            }
+        }
+
+        if (gala_behavior_settings != null) {
+            if ("wingpanel" in gala_behavior_settings.get_string ("overlay-action")) {
+                accels += "<Super>";
             }
         }
 
