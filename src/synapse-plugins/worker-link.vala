@@ -19,7 +19,6 @@
 
 public class Synapse.WorkerLink : GLib.Object {
     public string address { get; private set; }
-    private GLib.DBusServer dbus_server;
     private GLib.DBusAuthObserver auth_observer;
 
     public signal void on_connection_accepted (GLib.DBusConnection connection);
@@ -56,13 +55,14 @@ public class Synapse.WorkerLink : GLib.Object {
         });
 
         try {
-            dbus_server = new GLib.DBusServer.sync (
+            var dbus_server = new GLib.DBusServer.sync (
                 address,
                 GLib.DBusServerFlags.NONE,
                 guid,
                 auth_observer,
                 null
             );
+
             dbus_server.new_connection.connect ((connection) => {
                 connection.exit_on_close = false;
                 unowned GLib.Credentials? credentials = connection.get_peer_credentials ();
@@ -79,14 +79,11 @@ public class Synapse.WorkerLink : GLib.Object {
                 on_connection_accepted (connection);
                 return true;
             });
+
+            debug ("D-Bus Server listening at %s", address);
+            dbus_server.start ();
         } catch (Error e) {
             error ("Failed to create D-Bus server: %s", e.message);
         }
-
-    }
-
-    public void start () {
-        debug ("D-Bus Server listening at %s", address);
-        dbus_server.start ();
     }
 }

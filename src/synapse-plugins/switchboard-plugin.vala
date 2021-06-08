@@ -92,8 +92,6 @@ public class Synapse.SwitchboardPlugin : Object, Activatable, ItemProvider {
             }
         });
 
-        worker_link.start ();
-
         var launcher = new GLib.SubprocessLauncher (GLib.SubprocessFlags.NONE);
         string[] argv = {
             GLib.Path.build_filename (PLUGINSDIR, "switchboard-plugin"),
