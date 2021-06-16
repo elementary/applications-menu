@@ -226,6 +226,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_left (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_previous ();
+            set_focus (focused_column - (int) page.columns, focused_row);
         } else {
             set_focus (focused_column - 1, focused_row);
         }
@@ -234,8 +235,32 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_right (Gdk.EventKey event) {
         if (event.state == Gdk.ModifierType.SHIFT_MASK) {
             go_to_next ();
+            if ((!set_focus (focused_column + (int) page.columns, focused_row)) && (get_n_pages () != get_current_page ())) {
+                //If the widget doesn't exist, the closest widget is focused
+                int row = 0;
+                int last_widget_column = 0;
+                for (uint i = page.rows; i > 0; i--) {
+                    for (uint j = page.columns; j > 0; j--) {
+                        last_widget_column = (int) (j - 1 + (page.columns * (get_n_pages () - 1)));
+                        row = (int) i - 1;
+                        if ((get_widget_at (last_widget_column, row)) != null) {
+                            i = 1;
+                            break;
+                        }
+                    }
+                }
+                int col = focused_column < (last_widget_column - page.columns) ? (int) (focused_column + page.columns) : (int) last_widget_column;
+                set_focus (col, row);
+            }
         } else {
-            set_focus (focused_column + 1, focused_row);
+            if (!set_focus (focused_column + 1, focused_row) && get_n_pages () != get_current_page ()) {
+                //If the widget doesn't exist, the closest widget is focused.
+                for (int i = 1; i < page.rows; i++) {
+                    if (set_focus (focused_column + 1, focused_row - i)) {
+                        break;
+                    }
+                }
+            }
         }
     }
 }
