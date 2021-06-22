@@ -26,10 +26,10 @@ public class Synapse.WorkerLink : GLib.Object {
 
     construct {
         if (GLib.UnixSocketAddress.abstract_names_supported ()) {
-            address = "unix:abstract=/tmp/applications-menu-%u".printf ((uint)Posix.getpid ());
+            address = "unix:abstract=/tmp/dbus-applications-menu-%u".printf ((uint)Posix.getpid ());
         } else {
             try {
-                var tmpdir = GLib.DirUtils.make_tmp ("applications-menu-XXXXXX");
+                var tmpdir = GLib.DirUtils.make_tmp ("dbus-applications-menu-XXXXXX");
                 address = "unix:tmpdir=%s".printf (tmpdir);
             } catch (Error e) {
                 error ("Failed to determine temporary directory for D-Bus: %s", e.message);
