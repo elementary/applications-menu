@@ -5,5 +5,10 @@
             <summary>Show the category view by default</summary>
             <description>Save the current view of the launcher.</description>
         </key>
+        <key name="hide-terminal-apps" type="b">
+            <default>true</default>
+            <summary>Hide terminal applications</summary>
+            <description>Do not show applications whose .desktop file contains 'Terminal=true'.</description>
+        </key>
 	</schema>
 </schemalist>
