@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-05-04 07:38+0000\n"
+"PO-Revision-Date: 2021-07-03 19:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -100,7 +100,7 @@ msgstr "Інтернет"
 
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
-msgstr "Параметри"
+msgstr "Налаштування"
 
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
@@ -225,7 +225,7 @@ msgstr "Відкрити посилання у веб-браузері за за
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr "Відкрити %s параметри"
+msgstr "Відкрити %s налаштування"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
