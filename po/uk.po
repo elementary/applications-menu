@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-07-03 19:21+0000\n"
+"PO-Revision-Date: 2021-07-05 09:14+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -229,7 +229,7 @@ msgstr "Відкрити %s налаштування"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Знайти додатки системних параметрів та відкрити їх."
+msgstr "Знайти додатки налаштувань та відкрити їх."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
