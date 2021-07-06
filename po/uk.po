@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-07-05 09:14+0000\n"
+"PO-Revision-Date: 2021-07-06 17:52+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -176,7 +176,7 @@ msgstr "Клацніть, щоб скопіювати результат у бу
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Виконати '%s'"
+msgstr "Виконати «%s»"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
