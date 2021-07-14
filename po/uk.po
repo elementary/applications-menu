@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-05-04 07:38+0000\n"
+"PO-Revision-Date: 2021-07-06 17:52+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -100,7 +100,7 @@ msgstr "Інтернет"
 
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
-msgstr "Параметри"
+msgstr "Налаштування"
 
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
@@ -176,7 +176,7 @@ msgstr "Клацніть, щоб скопіювати результат у бу
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Виконати '%s'"
+msgstr "Виконати «%s»"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -225,11 +225,11 @@ msgstr "Відкрити посилання у веб-браузері за за
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr "Відкрити %s параметри"
+msgstr "Відкрити %s налаштування"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Знайти додатки системних параметрів та відкрити їх."
+msgstr "Знайти додатки налаштувань та відкрити їх."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"

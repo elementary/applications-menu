@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-05-06 03:25+0000\n"
+"PO-Revision-Date: 2021-07-02 00:12+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu-extra/nb/>\n"
@@ -25,19 +25,19 @@ msgstr "Programmeny"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Åpne og søk etter programmer"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:19
 msgid "Minor updates"
-msgstr ""
+msgstr "Småoppdateringer"
 
 #: data/applications-menu.appdata.xml.in:13
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:34
 #: data/applications-menu.appdata.xml.in:43
 msgid "Updated translations"
-msgstr ""
+msgstr "Nye oversettelser"
 
 #: data/applications-menu.appdata.xml.in:21
 msgid ""
@@ -67,7 +67,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:33
 #: data/applications-menu.appdata.xml.in:42
 msgid "Performance improvements"
-msgstr ""
+msgstr "Ytelsesforbedringer"
 
 #: data/applications-menu.appdata.xml.in:39
 msgid ""
