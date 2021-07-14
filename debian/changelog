@@ -1,3 +1,45 @@
+slingshot-launcher (2.8.0) bionic; urgency=medium
+
+  * Release 2.8.0 (#485)
+  * SlingshotView: Use TRANSITION_DURATION_IN_PLACE (#477)
+  * WorkerLink: Use the dbus- prefix to work in the guest session (#482)
+  * Indicator: show overlay key in tooltip (#480)
+  * SearchView: Remove redundant header margin (#478)
+  * Prioritize application actions over AppCenter search (#473)
+  * Update translation files
+  * Update translation template
+  * Show option to copy calculator result  (#446)
+  * CategoryView: create a translated property to use with the label and
+    properly sort the labels (#418)
+  * SlingshotView: Change stack transition to crossfade (#453)
+  * Update names of libwingpanel (#461)
+  * AppContextMenu: Always add AppCenter items (#459)
+  * AppSystem: Delay and rate limit GMenu refresh (#454)
+  * LINGUAS: sort, remove en_US
+  * DesktopFileService: Rewrite using GLib AppInfoMonitor (#451)
+  * SearchItem: null check AppInfo filename (#452)
+  * DesktopFileService: Update desktop environments (#450)
+  * DesktopFilePlugin: Remove unused mime support (#449)
+  * Menu: Remove evince from blocklist (#444)
+  * Applications don't show up unless they have Terminal defined in
+    their .desktop file (#443)
+  * Clear category view list box during setup (#438)
+  * Hide terminal applications (#426)
+  * GridView.vala: Use non-clashing function name (#421)
+  * Switchboard-plugin.vala: Use AppInfo.launch_default_for_uri ()
+    (#422)
+  * Drop badge styles (#416)
+  * CategoryView: use filter_func instead of destroy (#376)
+  * Revert dropping math lib; caused truncation in division (#415)
+  * CategoryView: fix sidebar style (#404)
+  * Support fractions without leading number in calculator plugin (#410)
+  * Port to Libhandy-1 (#405)
+  * Indicator: Remove deprecated display_name and description (#400)
+  * meson: clean up superfluous unity dep and make zeitgeist really
+    optional (#392)
+
+ -- elementary, Inc. <builds@elementary.io>  Wed, 14 Jul 2021 22:56:28 +0000
+
 slingshot-launcher (2.7.1) bionic; urgency=medium
 
   * Release 2.7.1 (#391)
