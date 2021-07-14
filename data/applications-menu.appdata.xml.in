@@ -62,6 +62,9 @@
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot.png</image>
     </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot-dark.png</image>
+    </screenshot>
   </screenshots>
   <developer_name>elementary, Inc.</developer_name>
   <url type="homepage">https://elementary.io/</url>
