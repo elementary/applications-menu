@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-03-12 20:18+0000\n"
 "Last-Translator: Leonardo <leonardo@elementary.io>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -28,65 +28,88 @@ msgid "Open and search for apps"
 msgstr "Abra e pesquise aplicativos"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:33
 msgid "Minor updates"
 msgstr "Atualizações menores"
 
 #: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+msgid "Sort app actions above AppCenter search"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:14
+msgid "Always hide Terminal-based programs"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:15
+msgid "Remove document viewer from block list"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:16
+msgid "Support fractions without leading number in calculator"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:17
+msgid "Show overlay key in tooltip when set"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:18
+#: data/applications-menu.appdata.xml.in:47
+#: data/applications-menu.appdata.xml.in:56
+msgid "Performance improvements"
+msgstr "Melhorias de desempenho"
+
+#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:48
+#: data/applications-menu.appdata.xml.in:57
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
-#: data/applications-menu.appdata.xml.in:21
+#: data/applications-menu.appdata.xml.in:35
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Gesto de navegação mais suave na exibição em grade e suporte a gesto com "
 "tela sensível ao toque"
 
-#: data/applications-menu.appdata.xml.in:22
+#: data/applications-menu.appdata.xml.in:36
 msgid "Focus search when navigating up from the category view"
 msgstr ""
 "Concentrar na pesquisa ao navegar a partir da visualização por categoria"
 
-#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:37
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Não focalizar na pesquisa ao pressionar as teclas modificadoras"
 
-#: data/applications-menu.appdata.xml.in:24
+#: data/applications-menu.appdata.xml.in:38
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Garantir que as categorias sejam classificadas em ordem alfabética"
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:45
 msgid "Category view is now a list"
 msgstr "A visualização por categoria agora é uma lista"
 
-#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:46
 msgid "Improved keyboard navigation"
 msgstr "Navegação de teclado aprimorada"
 
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "Melhorias de desempenho"
-
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:53
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Navegação de teclado aprimorada, incluindo novas dicas de ferramentas e "
 "suporte às teclas de menu"
 
-#: data/applications-menu.appdata.xml.in:40
+#: data/applications-menu.appdata.xml.in:54
 msgid "Highlight action matches in the search view"
 msgstr "Realçar correspondências de ação na visualização de pesquisa"
 
-#: data/applications-menu.appdata.xml.in:41
+#: data/applications-menu.appdata.xml.in:55
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Adicione um item de menu \"Visualizar no Central de Aplicativos\""
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:69
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
