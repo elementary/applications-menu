@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
+"PO-Revision-Date: 2021-07-15 18:46+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -35,23 +35,23 @@ msgstr "Pequenas atualizações"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
-msgstr ""
+msgstr "Ordena ações de aplicação acima da pesquisa da Loja de Aplicações"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Oculta sempre programas baseados em terminal"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "Remove o visualizador de documentos da lista de bloqueio"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr "Suporte a frações sem número inicial na calculadora"
 
 #: data/applications-menu.appdata.xml.in:17
 msgid "Show overlay key in tooltip when set"
-msgstr ""
+msgstr "Mostrar tecla de sobreposição na dica quando definida"
 
 #: data/applications-menu.appdata.xml.in:18
 #: data/applications-menu.appdata.xml.in:47
