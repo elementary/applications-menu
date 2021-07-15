@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2020-06-07 20:11+0000\n"
+"PO-Revision-Date: 2021-07-15 18:46+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -35,23 +35,23 @@ msgstr "軽微なアップデート:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
-msgstr ""
+msgstr "アプリのアクションを AppCenter の検索結果よりも上に表示するように変更"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "CUI アプリを常に表示しないように修正"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "ドキュメントビューアーを非表示リストから除外"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr ".5 などの、整数部分を省略した小数に対応"
 
 #: data/applications-menu.appdata.xml.in:17
 msgid "Show overlay key in tooltip when set"
-msgstr ""
+msgstr "⌘ キーでアプリケーションメニューを開くように設定されている場合に、ツールチップに表示するように修正"
 
 #: data/applications-menu.appdata.xml.in:18
 #: data/applications-menu.appdata.xml.in:47
