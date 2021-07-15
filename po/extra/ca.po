@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
+"PO-Revision-Date: 2021-07-15 18:46+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -36,22 +36,25 @@ msgstr "Actualitzacions menors"
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
 msgstr ""
+"Ordena les accions de l'aplicació sobre la cerca del Centre d'aplicacions"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Amaga sempre els programes basats en Terminal"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "Suprimeix el visualitzador de documents de la llista de blocatge"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr "Admet fraccions sense número inicial a la calculadora"
 
 #: data/applications-menu.appdata.xml.in:17
 msgid "Show overlay key in tooltip when set"
 msgstr ""
+"Mostra la tecla de superposició a la descripció emergent quan estigui "
+"configurada"
 
 #: data/applications-menu.appdata.xml.in:18
 #: data/applications-menu.appdata.xml.in:47
@@ -98,8 +101,8 @@ msgstr "Millora de la navegació per teclat"
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
-"Navegació del teclat millorada, inclosos nous consells d’informació i suport "
-"de tecles de menú"
+"Navegació del teclat millorada, amb descripcions emergents noves i suport de "
+"tecles de menú"
 
 #: data/applications-menu.appdata.xml.in:54
 msgid "Highlight action matches in the search view"
