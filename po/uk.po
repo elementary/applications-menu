@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-07-06 17:52+0000\n"
+"PO-Revision-Date: 2021-07-18 04:52+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -56,7 +56,7 @@ msgstr "Спробуйте змінити пошукові терміни."
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Результати для “%s” відсутні"
+msgstr "Результати для «%s» відсутні"
 
 #: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
