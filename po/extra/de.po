@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2019-12-26 01:08+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"PO-Revision-Date: 2021-07-21 03:37+0000\n"
+"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/de/>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -31,27 +31,27 @@ msgstr "Öffnen und Suchen von Apps"
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:33
 msgid "Minor updates"
-msgstr ""
+msgstr "Kleinere Aktualisierungen"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
-msgstr ""
+msgstr "App-Aktionen über der AppCenter-Suche einsortieren"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Terminal-basierte Programme immer verstecken"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "Document Viewer von Blockliste entfernen"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr "Unterstützt Brüche ohne Zähler in der Rechner-App"
 
 #: data/applications-menu.appdata.xml.in:17
 msgid "Show overlay key in tooltip when set"
-msgstr ""
+msgstr "Zeige Overlay-Taste im Tooltip wenn gesetzt"
 
 #: data/applications-menu.appdata.xml.in:18
 #: data/applications-menu.appdata.xml.in:47
@@ -71,18 +71,21 @@ msgstr "Aktualisierte Übersetzungen"
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Glattere Navigationsgeste in der Kachelansicht und Touchscreen-Gestensupport"
 
 #: data/applications-menu.appdata.xml.in:36
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Fokus auf die Suche legen, wenn von der Kategorieansicht nach oben navigiert "
+"wird"
 
 #: data/applications-menu.appdata.xml.in:37
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Nicht die Suche fokussieren, wenn Zusatztasten gedrückt werden"
 
 #: data/applications-menu.appdata.xml.in:38
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Sicherstellen, dass Kategorien alphabetisch sortiert werden"
 
 #: data/applications-menu.appdata.xml.in:45
 msgid "Category view is now a list"
@@ -90,7 +93,7 @@ msgstr "Kategorieansicht ist jetzt eine Liste"
 
 #: data/applications-menu.appdata.xml.in:46
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Verbesserte Tastaturnavigation"
 
 #: data/applications-menu.appdata.xml.in:53
 msgid ""
