@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
+"PO-Revision-Date: 2021-08-02 19:43+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -36,18 +36,20 @@ msgstr "Mises à jour mineures"
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
 msgstr ""
+"Affichage des actions des applications au dessus de la recherche dans le "
+"Centre d'Applications"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Les programmes en ligne de commande sont toujours masqués"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "Retrait de la visionneuse de documents de la vue en blocs"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr "Prise en charge des fractions sans nombre initial dans la calculatrice"
 
 #: data/applications-menu.appdata.xml.in:17
 msgid "Show overlay key in tooltip when set"
