@@ -1,7 +1,7 @@
 project(
   'slingshot',
   'vala', 'c',
-  version : '2.7.1'
+  version : '2.8.0'
 )
 
 i18n = import('i18n')
@@ -37,7 +37,7 @@ glib_dep = dependency('glib-2.0')
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0')
 gtk_dep = dependency('gtk+-3.0')
-granite_dep = dependency('granite')
+granite_dep = dependency('granite', version: '>=6.1.0')
 gobject_dep = dependency('gobject-2.0')
 libsoup_dep = dependency('libsoup-2.4')
 appstream_dep = dependency('appstream')

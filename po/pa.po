@@ -1,41 +1,49 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2021-07-14 22:56+0000\n"
+"PO-Revision-Date: 2021-08-01 17:35+0000\n"
+"Last-Translator: elSolus <tumbleweed@tuta.io>\n"
+"Language-Team: Punjabi <https://l10n.elementary.io/projects/wingpanel/"
+"applications-menu/pa/>\n"
+"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
 msgid "Applications"
-msgstr ""
+msgstr "ਐਪਾਂ"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:136
 msgid "Open and search apps"
-msgstr ""
+msgstr "ਐਪਾਂ ਨੂੰ ਖੋਲ੍ਹੋ ਅਤੇ ਖੋਜੋ"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr ""
+msgstr "ਇੱਕ ਜਾਲ਼ ਵਜੋਂ ਵੇਖੋ"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
-msgstr ""
+msgstr "ਵਰਗ ਮੁਤਾਬਕ ਵੇਖੋ"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
-msgstr ""
+msgstr "ਐਪਾਂ ਖੋਜੋ"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "ਸਾਰਾ ਸਾਫ਼ ਕਰੋ"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
-msgstr ""
+msgstr "ਇਹ ਕਮਾਂਡ ਚਲਾਓ…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
-msgstr ""
+msgstr "ਖੋਜ ਸ਼ਬਦ ਬਦਲ ਕੇ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: src/Views/SearchView.vala:104
 #, c-format
@@ -92,7 +100,7 @@ msgstr ""
 
 #: src/Widgets/SearchItem.vala:55
 msgid "Other"
-msgstr ""
+msgstr "ਹੋਰ"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -217,7 +225,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr ""
+msgstr "ਤਾਲਾ ਲਾਓ"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
@@ -231,7 +239,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr ""
+msgstr "ਲੌਗਆਊਟ ਕਰੋ"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
@@ -245,7 +253,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
-msgstr ""
+msgstr "ਮੁਅੱਤਲ ਕਰੋ"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
@@ -273,7 +281,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr ""
+msgstr "ਸ਼ੱਟਡਾਊਨ ਕਰੋ"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
@@ -287,7 +295,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
-msgstr ""
+msgstr "ਰੀਸਟਾਰਟ ਕਰੋ"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"

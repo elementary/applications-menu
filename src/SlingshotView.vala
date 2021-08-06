@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2019–2021 elementary, Inc. (https://elementary.io)
  *           2011-2012 Giulio Collura
  *
  * This program is free software; you can redistribute it and/or
@@ -91,7 +91,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         search_view = new Widgets.SearchView ();
 
         stack = new Gtk.Stack () {
-            transition_duration = 100,
+            transition_duration = Granite.TRANSITION_DURATION_IN_PLACE,
             transition_type = Gtk.StackTransitionType.CROSSFADE
         };
         stack.add_named (grid_view, "normal");

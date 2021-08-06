@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-04-14 12:44+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:136
 msgid "Open and search apps"
 msgstr "Abrir y buscar aplicaciones"
 
