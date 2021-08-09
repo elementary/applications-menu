@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-07-15 18:46+0000\n"
+"PO-Revision-Date: 2021-08-09 14:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -106,7 +106,7 @@ msgstr "検索ビューの一致する操作をハイライトするように修
 
 #: data/applications-menu.appdata.xml.in:55
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr "\"AppCenter で表示\" メニュー項目を追加"
+msgstr "\"AppCenter で表示\"メニュー項目を追加"
 
 #: data/applications-menu.appdata.xml.in:69
 msgid "elementary, Inc."
