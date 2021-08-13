@@ -96,9 +96,9 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             };
             docked = (desktop_uri in plank_client.get_persistent_applications ());
             if (docked) {
-                plank_menuitem.menu_label = _("Remove from _Dock");
+                plank_menuitem.menu_label = _("Remove from Dock");
             } else {
-                plank_menuitem.menu_label = _("Add to _Dock");
+                plank_menuitem.menu_label = _("Add to Dock");
             }
 
             plank_menuitem.activate.connect (plank_menuitem_activate);
