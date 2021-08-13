@@ -18,6 +18,9 @@
 public class Slingshot.AppContextMenu : Gtk.Menu {
     public signal void app_launched ();
 
+    private const string DESKTOP_ACTION_KEY = "Actions";
+    private const string DESKTOP_ACTION_GROUP_NAME = "Desktop Action %s";
+
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
     private DesktopAppInfo app_info;
@@ -54,15 +57,30 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     construct {
         app_info = new DesktopAppInfo (desktop_id);
-        foreach (unowned string _action in app_info.list_actions ()) {
-            string action = _action.dup ();
-            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
-            add (menuitem);
+        KeyFile file;
+        try {
+            file = new KeyFile ();
+            file.load_from_file (app_info.get_filename (), 0);
+            if (file.has_key (KeyFileDesktop.GROUP, DESKTOP_ACTION_KEY)) {
+                foreach (unowned string g_action in file.get_string_list (KeyFileDesktop.GROUP, DESKTOP_ACTION_KEY)) {
+                    var action = g_action.dup ();
+                    var group = DESKTOP_ACTION_GROUP_NAME.printf (action);
 
-            menuitem.activate.connect (() => {
-                app_info.launch_action (action, new AppLaunchContext ());
-                app_launched ();
-            });
+                    var menuitem = new MenuIcon () {
+                        menu_label = file.get_locale_string (group, KeyFileDesktop.KEY_NAME)
+                    };
+                    if (file.has_key (group, KeyFileDesktop.KEY_ICON)) {
+                        menuitem.menu_image = file.get_locale_string (group, KeyFileDesktop.KEY_ICON);
+                    }
+                    add (menuitem);
+                    menuitem.activate.connect (() => {
+                        app_info.launch_action (action, new AppLaunchContext ());
+                        app_launched ();
+                    });
+                }
+            }
+        } catch (Error e) {
+            critical ("%s", e.message);
         }
 
 #if HAS_PLANK
@@ -73,14 +91,14 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             has_system_item = true;
 
-            var plank_menuitem = new Gtk.MenuItem ();
-            plank_menuitem.use_underline = true;
-
+            var plank_menuitem = new MenuIcon () {
+                menu_image = "plank"
+            };
             docked = (desktop_uri in plank_client.get_persistent_applications ());
             if (docked) {
-                plank_menuitem.label = _("Remove from _Dock");
+                plank_menuitem.menu_label = _("Remove from _Dock");
             } else {
-                plank_menuitem.label = _("Add to _Dock");
+                plank_menuitem.menu_label = _("Add to _Dock");
             }
 
             plank_menuitem.activate.connect (plank_menuitem_activate);
@@ -94,12 +112,16 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                 add (new Gtk.SeparatorMenuItem ());
             }
 
-            uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall")) {
+            uninstall_menuitem = new MenuIcon () {
+                menu_label = _("Uninstall"),
+                menu_image = "edit-delete",
                 sensitive = false
             };
             uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
 
-            appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter")) {
+            appcenter_menuitem = new MenuIcon () {
+                menu_label = _("View in AppCenter"),
+                menu_image = "io.elementary.appcenter",
                 sensitive = false
             };
             appcenter_menuitem.activate.connect (open_in_appcenter);
