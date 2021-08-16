@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-07-23 08:16+0000\n"
+"PO-Revision-Date: 2021-08-16 14:01+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/de/>\n"
@@ -35,7 +35,7 @@ msgstr "Kleinere Aktualisierungen"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
-msgstr "App-Aktionen über der AppCenter-Suche einsortieren"
+msgstr "Anwendungs-Aktionen über der AppCenter-Suche einsortieren"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
