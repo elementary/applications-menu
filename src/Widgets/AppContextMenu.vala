@@ -57,9 +57,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     construct {
         app_info = new DesktopAppInfo (desktop_id);
-        KeyFile file;
         try {
-            file = new KeyFile ();
+            var file = new KeyFile ();
             file.load_from_file (app_info.get_filename (), 0);
             if (file.has_key (KeyFileDesktop.GROUP, DESKTOP_ACTION_KEY)) {
                 foreach (unowned string g_action in file.get_string_list (KeyFileDesktop.GROUP, DESKTOP_ACTION_KEY)) {
