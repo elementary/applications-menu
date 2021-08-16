@@ -93,6 +93,7 @@ c_args = [
 shared_module(
     meson.project_name(),
     sources,
+    config_file,
     dependencies: dependencies,
     c_args : c_args,
     install: true,
@@ -102,6 +103,7 @@ shared_module(
 executable(
     'switchboard-plugin',
     'synapse-plugins/switchboard-plugin/plugin.vala',
+    config_file,
     dependencies: [
         glib_dep,
         gobject_dep,

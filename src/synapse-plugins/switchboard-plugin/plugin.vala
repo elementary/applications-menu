@@ -17,9 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-[CCode (cname = "GETTEXT_PACKAGE")]
-private extern const string GETTEXT_PACKAGE;
-
 private static string? dbus_address = null;
 private const GLib.OptionEntry[] OPTIONS = {
     { "dbus-address", 0, 0, OptionArg.STRING, ref dbus_address, "D-Bus server address", "ADDRESS" },
@@ -121,6 +118,8 @@ public class SwitchboardPlugin : GLib.Object {
 public static int main (string[] args) {
     Intl.setlocale (LocaleCategory.ALL, "");
     Intl.textdomain (GETTEXT_PACKAGE);
+    Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+    Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
     try {
         var opt_context = new GLib.OptionContext ("Plugin options");

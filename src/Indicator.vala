@@ -47,6 +47,9 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     construct {
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/desktop/wingpanel/applications-menu/icons");
     }
