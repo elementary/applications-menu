@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-19 15:09+0000\n"
+"PO-Revision-Date: 2021-08-20 01:13+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
@@ -108,7 +108,7 @@ msgstr "V zobrazení vyhľadávania zvýrazniť zhody"
 
 #: data/applications-menu.appdata.xml.in:55
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Pridať položku ponuky „Zobraziť v AppCenter“"
+msgstr "Pridaná položka ponuky „Zobraziť v AppCentre“"
 
 #: data/applications-menu.appdata.xml.in:69
 msgid "elementary, Inc."
