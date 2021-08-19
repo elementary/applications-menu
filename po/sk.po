@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-19 13:42+0000\n"
-"Last-Translator: Michal Kukuča <michalmaria@benediktini.sk>\n"
+"PO-Revision-Date: 2021-08-19 13:43+0000\n"
+"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -237,7 +237,7 @@ msgstr "Zamknúť"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr "Zamknúť toto zariadenie"
+msgstr "Uzamknúť toto zariadenie"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
@@ -257,7 +257,7 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "odhlásiť sa"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
