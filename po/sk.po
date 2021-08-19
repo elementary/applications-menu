@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-08-19 13:42+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Last-Translator: Michal Kukuča <michalmaria@benediktini.sk>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -27,7 +27,7 @@ msgstr "Aplikácie"
 
 #: src/Indicator.vala:136
 msgid "Open and search apps"
-msgstr ""
+msgstr "Otvoriť a vyhľadávať aplikácie"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -71,9 +71,8 @@ msgid "Uninstall"
 msgstr "Odinštalovať"
 
 #: src/Widgets/AppContextMenu.vala:102
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Zobraziť podľa kategórie"
+msgstr "Zobraziť v AppCentre"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -140,7 +139,7 @@ msgstr "Spustiť aplikáciu alebo príkaz v termináli"
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Hľadať %s v %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
@@ -148,7 +147,7 @@ msgstr "Hľadať v obchode s aplikáciami"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCentrum"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
