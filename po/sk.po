@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-08-19 13:43+0000\n"
-"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -233,7 +233,7 @@ msgstr "Nájsť moduly ovládacích panelov a otvoriť ich."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "Zamknúť"
+msgstr "Uzamknúť"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
@@ -251,7 +251,7 @@ msgstr "Odhlásiť sa"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Zatvoriť všetky otvorené aplikácie a ukončiť"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
