@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-08-19 15:09+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Last-Translator: janko mrkvicka <6aby74rto@relay.firefox.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
 "Language: sk\n"
@@ -105,11 +105,11 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:54
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "V zobrazení vyhľadávania zvýrazniť zhody"
 
 #: data/applications-menu.appdata.xml.in:55
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Pridať položku ponuky „Zobraziť v AppCenter“"
 
 #: data/applications-menu.appdata.xml.in:69
 msgid "elementary, Inc."
