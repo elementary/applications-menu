@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-01-19 22:56+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2021-08-19 13:42+0000\n"
+"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -68,7 +68,7 @@ msgstr "Pridať do_Docku"
 
 #: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
-msgstr ""
+msgstr "Odinštalovať"
 
 #: src/Widgets/AppContextMenu.vala:102
 #, fuzzy
@@ -144,7 +144,7 @@ msgstr ""
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr ""
+msgstr "Hľadať v obchode s aplikáciami"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr ""
+msgstr "Hľadať aplikácie"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
@@ -246,7 +246,7 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "uzamknúť"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
