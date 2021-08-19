@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-08-20 01:13+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -269,10 +269,9 @@ msgstr "Uspať váš počítač"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Uspať"
+msgstr "uspať"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -284,10 +283,9 @@ msgstr "Prepnúť váš počítač do dlhodobého spánku"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hibernovať"
+msgstr "hibernovať"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
