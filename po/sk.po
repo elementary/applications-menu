@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-08-19 13:42+0000\n"
-"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -43,28 +43,28 @@ msgstr "Hľadať aplikácie"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Vymazať všetko"
 
 #: src/Backend/App.vala:78
 msgid "Run this command…"
-msgstr "Spustiť tento príkaz"
+msgstr "Spustiť príkaz…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
-msgstr "Pokús sa zmeniť hľadané výrazy."
+msgstr "Skúste zmeniť vyhľadávaný výraz."
 
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Žiadne výsledky pre “%s”"
+msgstr "Žiadne výsledky pre „%s“"
 
 #: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
-msgstr "Odstrániť z_Docku"
+msgstr "Odstrániť z _Doku"
 
 #: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
-msgstr "Pridať do_Docku"
+msgstr "Pridať do _Doku"
 
 #: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
@@ -85,7 +85,7 @@ msgstr "Súbory"
 
 #: src/Widgets/SearchItem.vala:43
 msgid "Actions"
-msgstr "Operácie"
+msgstr "Akcie"
 
 #: src/Widgets/SearchItem.vala:45
 msgid "Search"
@@ -125,7 +125,7 @@ msgstr "Spustiť"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "Spustiť aplikáciu, činnosť alebo skript"
+msgstr "Spustiť aplikáciu, akciu alebo skript"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
@@ -156,7 +156,7 @@ msgstr "Hľadať aplikácie"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "AppCentrum nie je nainštalované"
 
 #: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
@@ -164,22 +164,20 @@ msgstr "Kalkulačka"
 
 #: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
-msgstr "Vypočítať základné výrazy"
+msgstr "Umožňuje vypočítať základné matematické výrazy."
 
 #: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc nie je nainštalované"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopírovať výber do schránky"
+msgstr "Kliknutím kopírovať výsledok do schránky"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Vykonať '%s'"
+msgstr "Vykonať „%s“"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -187,11 +185,11 @@ msgstr "Spustiť príkaz"
 
 #: src/synapse-plugins/command-plugin.vala:60
 msgid "Find and execute arbitrary commands."
-msgstr "Nájsť a spustiť ľubovoľné príkazy"
+msgstr "Vyhľadať a spustiť ľubovoľné príkazy."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "Nájsť a spustiť aplikácie na vašom počítači."
+msgstr "Vyhľadať a spustiť aplikácie na vašom počítači."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
@@ -201,12 +199,12 @@ msgstr "Otvoriť pomocou %s"
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
-msgstr "Otvoriť aktuálny výber použitím %s"
+msgstr "Otvoriť aktuálny výber pomocou %s"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr "Otvoriť %s v predvolenom prehliadači"
+msgstr "Otvoriť %s v predvolenom webovom prehliadači"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
@@ -232,7 +230,7 @@ msgstr "Otvoriť %s nastavenia"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Nájsť prepínač pluginov a otvoriť ich."
+msgstr "Nájsť moduly ovládacích panelov a otvoriť ich."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -240,7 +238,7 @@ msgstr "Zamknúť"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr ""
+msgstr "Zamknúť toto zariadenie"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
