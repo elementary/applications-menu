@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
 "PO-Revision-Date: 2021-08-19 15:09+0000\n"
-"Last-Translator: janko mrkvicka <6aby74rto@relay.firefox.com>\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
 "Language: sk\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr ""
+msgstr "Menu s aplikáciami"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Spúšťajte a vyhľadajte aplikácie"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:25
@@ -35,29 +35,29 @@ msgstr "Drobné aktualizácie"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Sort app actions above AppCenter search"
-msgstr ""
+msgstr "Trieďte akcie aplikácií nad vyhľadávaním AppCentra"
 
 #: data/applications-menu.appdata.xml.in:14
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Vždy skryť programy založené na Terminále"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "Zobrazovač dokumentov bol odstránený so zoznamu blokovaných"
 
 #: data/applications-menu.appdata.xml.in:16
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr "Podpora zlomkov bez vedúceho čísla v kalkulačke"
 
 #: data/applications-menu.appdata.xml.in:17
 msgid "Show overlay key in tooltip when set"
-msgstr ""
+msgstr "Zobraziť tlačidlo prekrytia v popise, ak je to aktivované"
 
 #: data/applications-menu.appdata.xml.in:18
 #: data/applications-menu.appdata.xml.in:47
 #: data/applications-menu.appdata.xml.in:56
 msgid "Performance improvements"
-msgstr ""
+msgstr "Vylepšenia výkonu"
 
 #: data/applications-menu.appdata.xml.in:19
 #: data/applications-menu.appdata.xml.in:27
@@ -65,7 +65,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:48
 #: data/applications-menu.appdata.xml.in:57
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizované preklady"
 
 #: data/applications-menu.appdata.xml.in:35
 msgid ""
@@ -77,22 +77,24 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:36
 msgid "Focus search when navigating up from the category view"
 msgstr ""
+"Označenie políčka pre vyhľadávanie pri pohybe nahor zo zobrazenia s "
+"kategóriami"
 
 #: data/applications-menu.appdata.xml.in:37
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Neoznačenie políčka pre vyhľadávanie pri stláčaní modifikačných kláves"
 
 #: data/applications-menu.appdata.xml.in:38
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Zaistené, že sú všetky kategórie zoradené abecedne"
 
 #: data/applications-menu.appdata.xml.in:45
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Zobrazenie podľa kategórií je teraz zoznam"
 
 #: data/applications-menu.appdata.xml.in:46
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Vylepšená navigácia klávesnicou"
 
 #: data/applications-menu.appdata.xml.in:53
 msgid ""
@@ -111,4 +113,4 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:69
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
