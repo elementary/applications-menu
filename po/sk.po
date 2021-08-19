@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-19 13:43+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"PO-Revision-Date: 2021-08-19 13:44+0000\n"
+"Last-Translator: Michal Kukuča <michalmaria@benediktini.sk>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -251,7 +251,7 @@ msgstr "Odhlásiť sa"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "Zatvoriť všetky otvorené aplikácie a ukončiť"
+msgstr "Zatvoriť všetky otvorené aplikácie a skončiť"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
