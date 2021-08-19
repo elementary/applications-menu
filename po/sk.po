@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-19 13:44+0000\n"
-"Last-Translator: Michal Kukuča <michalmaria@benediktini.sk>\n"
+"PO-Revision-Date: 2021-08-20 01:13+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -251,7 +251,7 @@ msgstr "Odhlásiť sa"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "Zatvoriť všetky otvorené aplikácie a skončiť"
+msgstr "Zatvoriť všetky otvorené aplikácie a ukončiť"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
@@ -295,13 +295,13 @@ msgstr "Vypnúť"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
-msgstr "Vypnúť počítač"
+msgstr "Vypnúť váš počítač"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "vypnúť"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -309,19 +309,21 @@ msgstr "Reštartovať"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
-msgstr "Reštartujte počitač"
+msgstr "Reštartovať váš počítač"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reštartovať"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Uzamknúť reláciu alebo sa z nej odhlásiť. Uspať, hibernovať, reštartovať "
+"alebo vypnúť váš počítač."
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
