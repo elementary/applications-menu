@@ -151,7 +151,7 @@ public class Slingshot.Backend.AppSystem : Object {
 
         var other_category =
             new Category (_("Other"), true) {
-                excluded_categories =  { "Core", "Screensaver", "Settings" },
+                excluded_categories = { "Core", "Screensaver", "Settings" },
                 excluded_applications = { "htop.desktop", "onboard.desktop", "org.gnome.FileRoller.desktop", "org.gnome.font-viewer.desktop" }
             };
 
