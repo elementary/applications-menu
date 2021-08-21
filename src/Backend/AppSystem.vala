@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2011-2021 elementary, Inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -23,8 +23,9 @@ public class Slingshot.Backend.AppSystem : Object {
     private const int MENU_REFRESH_TIMEOUT_SECONDS = 3;
     private uint refresh_timeout_id = 0;
 
-    private Gee.ArrayList<GMenu.TreeDirectory> categories = null;
-    private GMenu.Tree apps_menu = null;
+    private Gee.ArrayList<Category> categories_cache = null;
+
+    private GLib.AppInfoMonitor app_monitor;
 
 #if HAVE_ZEITGEIST
     private RelevancyService rl_service;
@@ -36,14 +37,11 @@ public class Slingshot.Backend.AppSystem : Object {
         rl_service.update_complete.connect (update_popularity);
 #endif
 
-        apps_menu = new GMenu.Tree (
-            "pantheon-applications.menu",
-            GMenu.TreeFlags.INCLUDE_EXCLUDED | GMenu.TreeFlags.SORT_DISPLAY_NAME
-        );
-        apps_menu.changed.connect (queue_update_app_system);
+        app_monitor = GLib.AppInfoMonitor.@get ();
+        app_monitor.changed.connect (queue_update_app_system);
 
         apps = new Gee.HashMap<string, Gee.ArrayList<App>> ();
-        categories = new Gee.ArrayList<GMenu.TreeDirectory> ();
+        categories_cache = new Gee.ArrayList<Category> ();
 
         update_app_system ();
     }
@@ -67,29 +65,130 @@ public class Slingshot.Backend.AppSystem : Object {
 #if HAVE_ZEITGEIST
         rl_service.refresh_popularity ();
 #endif
-        try {
-            apps_menu.load_sync ();
-        } catch (Error e) {
-            warning (e.message);
-        }
 
         update_categories_index ();
-        update_apps.begin ((obj, res) => {
-            update_apps.end (res);
-            changed ();
-        });
+        changed ();
     }
 
     private void update_categories_index () {
-        categories.clear ();
+        categories_cache.clear ();
 
-        var iter = apps_menu.get_root_directory ().iter ();
-        GMenu.TreeItemType type;
-        while ((type = iter.next ()) != GMenu.TreeItemType.INVALID) {
-            if (type == GMenu.TreeItemType.DIRECTORY) {
-                var dir = iter.get_directory ();
-                if (!dir.get_is_nodisplay ())
-                    categories.add (dir);
+        categories_cache.add (
+            new Category (_("Accessories")) {
+                included_categories = { "Utility" },
+                // Accessibility spec must have either the Utility or Settings category, and we display an accessibility
+                // submenu already for the ones that do not have Settings, so don't display accessibility applications here
+                excluded_categories = { "Accessibility", "System" },
+                excluded_applications = { "org.gnome.font-viewer.desktop", "org.gnome.FileRoller.desktop" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Universal Access")) {
+                included_categories = { "Accessibility" },
+                excluded_categories = { "Settings" },
+                // Do not display OnBoard; it belongs to a11y plug
+                excluded_applications = { "onboard.desktop" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Programming")) {
+                included_categories = { "Development" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Education")) {
+                included_categories = { "Education" },
+                excluded_categories = { "Science" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Science")) {
+                included_categories = { "Science", "Education" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Games")) {
+                included_categories = { "Game" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Graphics")) {
+                included_categories = { "Graphics" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Internet")) {
+                included_categories = { "Network" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Sound & Video")) {
+                included_categories = { "AudioVideo" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("Office")) {
+                included_categories = { "Office" }
+            }
+        );
+
+        categories_cache.add (
+            new Category (_("System Tools")) {
+                included_categories = { "System", "Administration" },
+                excluded_categories = { "Game" },
+                excluded_applications = { "htop.desktop" },
+            }
+        );
+
+        var other_category =
+            new Category (_("Other"), true) {
+                excluded_categories =  { "Core", "Screensaver", "Settings" },
+                excluded_applications = { "htop.desktop", "onboard.desktop", "org.gnome.FileRoller.desktop", "org.gnome.font-viewer.desktop" }
+            };
+
+        foreach (var app in GLib.AppInfo.get_all ()) {
+            unowned var desktop_app = app as DesktopAppInfo;
+            if (desktop_app == null) {
+                continue;
+            }
+
+            if (!(desktop_app.should_show ())) {
+                continue;
+            }
+
+            if (desktop_app.get_boolean ("Terminal")) {
+                continue;
+            }
+
+            bool found_category = false;
+            foreach (var category in categories_cache) {
+                if (category.add_app_if_matches (desktop_app)) {
+                    found_category = true;
+                }
+            }
+
+            if (!found_category) {
+                other_category.add_app_if_matches (desktop_app);
+            }
+        }
+
+        if (other_category.apps.size > 0) {
+            categories_cache.add (other_category);
+        }
+
+        apps.clear ();
+        foreach (var cat in categories_cache) {
+            if (cat.apps.size > 0) {
+                apps.set (cat.name, cat.apps);
             }
         }
     }
@@ -101,60 +200,6 @@ public class Slingshot.Backend.AppSystem : Object {
                 app.popularity = rl_service.get_app_popularity (app.desktop_id);
     }
 #endif
-
-    private async void update_apps () {
-        lock (apps) {
-            apps.clear ();
-            foreach (var cat in categories) {
-                apps.set (cat.get_name (), get_apps_by_category (cat));
-            }
-        }
-    }
-
-    private Gee.ArrayList<App> get_apps_by_category (GMenu.TreeDirectory category) {
-        var app_list = new Gee.ArrayList<App> ();
-
-        var iter = category.iter ();
-        GMenu.TreeItemType type;
-        while ((type = iter.next ()) != GMenu.TreeItemType.INVALID) {
-            switch (type) {
-                case GMenu.TreeItemType.DIRECTORY:
-                    app_list.add_all (get_apps_by_category (iter.get_directory ()));
-                    break;
-                case GMenu.TreeItemType.ENTRY:
-                    bool needs_terminal = false;
-                    try {
-                        var path = iter.get_entry ().get_desktop_file_path ();
-                        var keyfile = new KeyFile ();
-
-                        if (!keyfile.load_from_file (path, KeyFileFlags.NONE)) {
-                            break;
-                        }
-
-                        needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
-
-                    } catch (Error e) {
-                        if (e.code != KeyFileError.KEY_NOT_FOUND) {
-                            break;
-                        }
-                    }
-
-                    if (needs_terminal) {
-                        break;
-                    }
-
-
-                    var app = new App (iter.get_entry ());
-#if HAVE_ZEITGEIST
-                    app.launched.connect (rl_service.app_launched);
-#endif
-                    app_list.add (app);
-                    break;
-            }
-        }
-
-        return app_list;
-    }
 
     public SList<App> get_apps_by_name () {
         var sorted_apps = new SList<App> ();
