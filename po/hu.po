@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2018-06-15 00:13+0000\n"
-"Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
-"Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-08-23 11:20+0000\n"
+"Last-Translator: László Csatlós <plutoz01@gmail.com>\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
@@ -260,7 +260,7 @@ msgstr "Minden megnyitott alkalmazás bezárása és kilépés"
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "kijelentkezés"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -304,7 +304,7 @@ msgstr "A számítógép leállítása"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "Kikapcsolás"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
