@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-23 11:20+0000\n"
+"PO-Revision-Date: 2021-08-23 19:43+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/hu/>\n"
@@ -312,7 +312,7 @@ msgstr "A számítógép újraindítása"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "Újraindítás"
+msgstr "újraindítás;restartolás"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
