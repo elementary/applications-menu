@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
 "PO-Revision-Date: 2021-08-20 01:13+0000\n"
 "Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,11 +21,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplikácie"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Otvoriť a vyhľadávať aplikácie"
 
@@ -45,7 +45,57 @@ msgstr "Hľadať aplikácie"
 msgid "Clear all"
 msgstr "Vymazať všetko"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+#, fuzzy
+#| msgid "Actions"
+msgid "Education"
+msgstr "Akcie"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Iné"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
 msgstr "Spustiť príkaz…"
 
@@ -94,10 +144,6 @@ msgstr "Hľadať"
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Nastavenia"
@@ -105,10 +151,6 @@ msgstr "Nastavenia"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Akcie aplikácie"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Iné"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
 "PO-Revision-Date: 2020-07-16 21:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Applikasjonar"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Opne og søk i appar"
 
@@ -44,7 +44,57 @@ msgstr "Søk etter appar"
 msgid "Clear all"
 msgstr "Fjern alle"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+#, fuzzy
+#| msgid "Actions"
+msgid "Education"
+msgstr "Handlingar"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internett"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Andre"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
 msgstr "Køyr denne kommandoen…"
 
@@ -93,10 +143,6 @@ msgstr "Søk"
 msgid "Contacts"
 msgstr "Kontaktar"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internett"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Innstillingar"
@@ -104,10 +150,6 @@ msgstr "Innstillingar"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Applikasjonshandlingar"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Andre"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
