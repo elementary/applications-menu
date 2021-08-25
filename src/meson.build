@@ -9,12 +9,13 @@ sources = [
     'Indicator.vala',
     'SlingshotView.vala',
 
+    'Backend/AppCenter.vala',
     'Backend/AppSystem.vala',
-    'Backend/DBusService.vala',
     'Backend/App.vala',
+    'Backend/Category.vala',
+    'Backend/DBusService.vala',
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
-    'Backend/AppCenter.vala',
 
     'Views/CategoryView.vala',
     'Views/GridView.vala',
@@ -74,7 +75,6 @@ dependencies = [
     gtk_dep,
     json_glib_dep,
     zeitgeist_dep,
-    libgnome_menu_dep,
     libsoup_dep,
     appstream_dep,
     plank_dep,
@@ -86,7 +86,6 @@ dependencies = [
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
 
 c_args = [
-    '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
     '-DHANDY_USE_UNSTABLE_API',
 ]
 
