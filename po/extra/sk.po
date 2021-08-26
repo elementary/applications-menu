@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-08-20 14:25+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
@@ -37,6 +37,8 @@ msgstr "Drobné aktualizácie"
 #: data/applications-menu.appdata.xml.in:13
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
+"Opravený problém, kedy sa nezobrazovali Flatpak aplikácie, pokiaľ zariadenie "
+"nebolo reštartované"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:28
