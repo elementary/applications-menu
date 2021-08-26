@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-04-09 03:12+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/he/>\n"
@@ -46,33 +46,31 @@ msgstr "לפנות הכול"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "עזרים"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "גישה אוניברסלית"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "תכנות"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "פעולות"
+msgstr "חינוך"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "מדע"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "משחקים"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "גרפיקה"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
 msgid "Internet"
@@ -80,15 +78,15 @@ msgstr "אינטרנט"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "שמע ווידאו"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "כלי משרד"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "כלי מערכת"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
 msgid "Other"
