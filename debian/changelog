@@ -1,3 +1,13 @@
+slingshot-launcher (2.8.1) bionic; urgency=medium
+
+  * Release 2.8.1 (#499)
+  * Update translation files
+  * Update translation template
+  * AppSystem: Switch to GLib.AppInfoMonitor (#496)
+  * l10n: Correctly setup the locales (#492)
+
+ -- elementary, Inc. <builds@elementary.io>  Thu, 26 Aug 2021 20:28:48 +0000
+
 slingshot-launcher (2.8.0) bionic; urgency=medium
 
   * Release 2.8.0 (#485)
