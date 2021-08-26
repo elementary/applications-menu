@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-13 00:52+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
 "Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
@@ -29,88 +29,96 @@ msgid "Open and search for apps"
 msgstr "Открывайте и находите приложения"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:42
 msgid "Minor updates"
 msgstr "Незначительные обновления"
 
 #: data/applications-menu.appdata.xml.in:13
-msgid "Sort app actions above AppCenter search"
-msgstr "Сортировка действий приложений над поиском Центра Приложений"
+msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+msgstr ""
+"Исправлена проблема, при которой приложения Flatpak отображались только "
+"после перезапуска системы"
 
 #: data/applications-menu.appdata.xml.in:14
-msgid "Always hide Terminal-based programs"
-msgstr "Консольные программы всегда скрыты"
-
-#: data/applications-menu.appdata.xml.in:15
-msgid "Remove document viewer from block list"
-msgstr "Средство просмотра документов убрано из списка заблокированных"
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Support fractions without leading number in calculator"
-msgstr "Поддержка дробей без первого числа в калькуляторе"
-
-#: data/applications-menu.appdata.xml.in:17
-msgid "Show overlay key in tooltip when set"
-msgstr "Отображение клавиши во всплывающей подсказке, когда она задана"
-
-#: data/applications-menu.appdata.xml.in:18
-#: data/applications-menu.appdata.xml.in:47
-#: data/applications-menu.appdata.xml.in:56
-msgid "Performance improvements"
-msgstr "Улучшения производительности"
-
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:27
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:36
 #: data/applications-menu.appdata.xml.in:48
 #: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:66
 msgid "Updated translations"
 msgstr "Обновлены переводы"
 
-#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:22
+msgid "Sort app actions above AppCenter search"
+msgstr "Сортировка действий приложений над поиском Центра Приложений"
+
+#: data/applications-menu.appdata.xml.in:23
+msgid "Always hide Terminal-based programs"
+msgstr "Консольные программы всегда скрыты"
+
+#: data/applications-menu.appdata.xml.in:24
+msgid "Remove document viewer from block list"
+msgstr "Средство просмотра документов убрано из списка заблокированных"
+
+#: data/applications-menu.appdata.xml.in:25
+msgid "Support fractions without leading number in calculator"
+msgstr "Поддержка дробей без первого числа в калькуляторе"
+
+#: data/applications-menu.appdata.xml.in:26
+msgid "Show overlay key in tooltip when set"
+msgstr "Отображение клавиши во всплывающей подсказке, когда она задана"
+
+#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:56
+#: data/applications-menu.appdata.xml.in:65
+msgid "Performance improvements"
+msgstr "Улучшения производительности"
+
+#: data/applications-menu.appdata.xml.in:44
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Более плавная работа в режиме просмотра сеткой и поддержка жестов на "
 "сенсорных экранах"
 
-#: data/applications-menu.appdata.xml.in:36
+#: data/applications-menu.appdata.xml.in:45
 msgid "Focus search when navigating up from the category view"
 msgstr ""
 "Фокусировка на панели поиска при переходе вверх в режиме просмотра категорий"
 
-#: data/applications-menu.appdata.xml.in:37
+#: data/applications-menu.appdata.xml.in:46
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Фокус не переходит к панели поиска, когда нажата клавиша-модификатор"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:47
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Убедитесь, что категории отсортированы в алфавитном порядке"
 
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:54
 msgid "Category view is now a list"
 msgstr "Просмотр по категориям, теперь, в виде списка"
 
-#: data/applications-menu.appdata.xml.in:46
+#: data/applications-menu.appdata.xml.in:55
 msgid "Improved keyboard navigation"
 msgstr "Улучшена навигация с помощью клавиатуры"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.appdata.xml.in:62
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Улучшена навигация с помощью клавиатуры, включая новые подсказки и поддержку "
 "клавиши меню"
 
-#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:63
 msgid "Highlight action matches in the search view"
 msgstr "Подсветка совпадений, связанных с введенным текстом в панели поиска"
 
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:64
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Добавлено элемент меню «Просмотреть в Центре приложений»"
 
-#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

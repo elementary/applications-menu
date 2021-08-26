@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,11 +13,11 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Праграмы"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr ""
 
@@ -37,7 +37,57 @@ msgstr "Пошук прыкладанняў"
 msgid "Clear all"
 msgstr ""
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+#, fuzzy
+#| msgid "Actions"
+msgid "Education"
+msgstr "Дзеянні"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Інтэрнэт"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Іншыя"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
 msgstr "Кіруйце гэтай камандай …"
 
@@ -87,10 +137,6 @@ msgstr "Пошук"
 msgid "Contacts"
 msgstr "Кантакты"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Інтэрнэт"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Налады"
@@ -98,10 +144,6 @@ msgstr "Налады"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Дзеянні над прыкладаннем"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Іншыя"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

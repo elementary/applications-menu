@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-20 14:25+0000\n"
-"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"Last-Translator: janko mrkvicka <6aby74rto@relay.firefox.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
 "Language: sk\n"
@@ -21,95 +21,103 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr "Menu s aplikáciami"
+msgstr "Menu aplikácií"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
 msgstr "Spúšťajte a hľadajte aplikácie"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:42
 msgid "Minor updates"
 msgstr "Drobné aktualizácie"
 
 #: data/applications-menu.appdata.xml.in:13
-msgid "Sort app actions above AppCenter search"
-msgstr "Triediť akcie aplikácií nad vyhľadávaním AppCentra"
+msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+msgstr ""
+"Opravený problém, kedy sa nezobrazovali Flatpak aplikácie, pokiaľ zariadenie "
+"nebolo reštartované"
 
 #: data/applications-menu.appdata.xml.in:14
-msgid "Always hide Terminal-based programs"
-msgstr "Vždy skryť programy založené na Terminále"
-
-#: data/applications-menu.appdata.xml.in:15
-msgid "Remove document viewer from block list"
-msgstr "Zobrazovač dokumentov bol odstránený so zoznamu blokovaných"
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Support fractions without leading number in calculator"
-msgstr "Podpora zlomkov bez vedúceho čísla v kalkulačke"
-
-#: data/applications-menu.appdata.xml.in:17
-msgid "Show overlay key in tooltip when set"
-msgstr "Zobraziť tlačidlo prekrytia v popise, ak je to aktivované"
-
-#: data/applications-menu.appdata.xml.in:18
-#: data/applications-menu.appdata.xml.in:47
-#: data/applications-menu.appdata.xml.in:56
-msgid "Performance improvements"
-msgstr "Vylepšenia výkonu"
-
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:27
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:36
 #: data/applications-menu.appdata.xml.in:48
 #: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:66
 msgid "Updated translations"
 msgstr "Aktualizované preklady"
 
-#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:22
+msgid "Sort app actions above AppCenter search"
+msgstr "Triediť akcie aplikácií nad vyhľadávaním AppCentra"
+
+#: data/applications-menu.appdata.xml.in:23
+msgid "Always hide Terminal-based programs"
+msgstr "Vždy skryť programy založené na Terminále"
+
+#: data/applications-menu.appdata.xml.in:24
+msgid "Remove document viewer from block list"
+msgstr "Zobrazovač dokumentov bol odstránený so zoznamu blokovaných"
+
+#: data/applications-menu.appdata.xml.in:25
+msgid "Support fractions without leading number in calculator"
+msgstr "Podpora zlomkov bez vedúceho čísla v kalkulačke"
+
+#: data/applications-menu.appdata.xml.in:26
+msgid "Show overlay key in tooltip when set"
+msgstr "Zobraziť tlačidlo prekrytia v popise, ak je to aktivované"
+
+#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:56
+#: data/applications-menu.appdata.xml.in:65
+msgid "Performance improvements"
+msgstr "Vylepšenia výkonu"
+
+#: data/applications-menu.appdata.xml.in:44
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Plynulejšie navigačné gesto v zobrazení mriežky a podpora gest na dotykovej "
 "obrazovke"
 
-#: data/applications-menu.appdata.xml.in:36
+#: data/applications-menu.appdata.xml.in:45
 msgid "Focus search when navigating up from the category view"
 msgstr ""
 "Označenie políčka pre vyhľadávanie pri pohybe nahor zo zobrazenia s "
 "kategóriami"
 
-#: data/applications-menu.appdata.xml.in:37
+#: data/applications-menu.appdata.xml.in:46
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Neoznačenie políčka pre vyhľadávanie pri stláčaní modifikačných kláves"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:47
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Zaistené, že sú všetky kategórie zoradené abecedne"
 
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:54
 msgid "Category view is now a list"
 msgstr "Zobrazenie podľa kategórií je teraz zoznam"
 
-#: data/applications-menu.appdata.xml.in:46
+#: data/applications-menu.appdata.xml.in:55
 msgid "Improved keyboard navigation"
 msgstr "Vylepšená navigácia klávesnicou"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.appdata.xml.in:62
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Vylepšená navigácia klávesnicou vrátane nových popisov a podpory klávesy menu"
 
-#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:63
 msgid "Highlight action matches in the search view"
 msgstr "V zobrazení vyhľadávania zvýrazniť zhody"
 
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:64
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Pridaná položka ponuky „Zobraziť v AppCentre“"
 
-#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-04-08 19:55+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
@@ -21,11 +21,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Приложения"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Откройте и ищите приложения"
 
@@ -45,7 +45,55 @@ msgstr "Поиск приложений"
 msgid "Clear all"
 msgstr "Очистить всё"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Универсальная доступность"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Программирование"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Обучение"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Наука"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Игры"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Графика"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Интернет"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Звук и видео"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Офис"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Прочие"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
 msgstr "Выполнить команду…"
 
@@ -94,10 +142,6 @@ msgstr "Поиск"
 msgid "Contacts"
 msgstr "Контакты"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Интернет"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Параметры"
@@ -105,10 +149,6 @@ msgstr "Параметры"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Действия приложения"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Прочие"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

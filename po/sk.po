@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-20 01:13+0000\n"
-"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"Last-Translator: Cleiton Floss <cleitonfloss@tutanota.de>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -21,11 +21,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplikácie"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Otvoriť a vyhľadávať aplikácie"
 
@@ -45,9 +45,57 @@ msgstr "Hľadať aplikácie"
 msgid "Clear all"
 msgstr "Vymazať všetko"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Príslušenstvo"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Univerzálny prístup"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programovanie"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Vzdelávanie"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Veda"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Hry"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafika"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Zvuk a video"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Kancelária"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Systémové nástroje"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Ostatné"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
-msgstr "Spustiť príkaz…"
+msgstr "Spustiť tento príkaz…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -94,10 +142,6 @@ msgstr "Hľadať"
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Nastavenia"
@@ -105,10 +149,6 @@ msgstr "Nastavenia"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Akcie aplikácie"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Iné"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -176,7 +216,7 @@ msgstr "Kliknutím kopírovať výsledok do schránky"
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Vykonať „%s“"
+msgstr "Spustiť „%s“"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
