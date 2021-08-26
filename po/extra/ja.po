@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-08-09 14:07+0000\n"
+"PO-Revision-Date: 2021-08-26 05:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -36,7 +36,7 @@ msgstr "軽微なアップデート:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
-msgstr ""
+msgstr "Flatpak アプリのインストール後、デバイスを再起動するまでアプリのアイコンが表示されない不具合を修正"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:28
