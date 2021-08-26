@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-08-20 01:13+0000\n"
-"Last-Translator: Jaroslav Kardoš <jaroslav.kardos@outlook.com>\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -47,33 +47,31 @@ msgstr "Vymazať všetko"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Príslušenstvo"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Univerzálny prístup"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Programovanie"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Akcie"
+msgstr "Vzdelávanie"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Veda"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Hry"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
 msgid "Internet"
@@ -81,19 +79,19 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Zvuk a video"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Kancelária"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Systémové nástroje"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
 msgid "Other"
-msgstr "Iné"
+msgstr "Ostatné"
 
 #: src/Backend/App.vala:77
 msgid "Run this command…"
@@ -218,7 +216,7 @@ msgstr "Kliknutím kopírovať výsledok do schránky"
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Vykonať „%s“"
+msgstr "Spustiť „%s“"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
