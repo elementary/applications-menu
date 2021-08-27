@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-01-19 22:56+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"Last-Translator: Cleiton Floss <cleitonfloss@tutanota.de>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
 "Language: sk\n"
@@ -21,13 +21,13 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplikácie"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr ""
+msgstr "Otvoriť a vyhľadávať aplikácie"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -43,37 +43,84 @@ msgstr "Hľadať aplikácie"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Vymazať všetko"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Príslušenstvo"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Univerzálny prístup"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programovanie"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Vzdelávanie"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Veda"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Hry"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafika"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Zvuk a video"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Kancelária"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Systémové nástroje"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Ostatné"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
-msgstr "Spustiť tento príkaz"
+msgstr "Spustiť tento príkaz…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
-msgstr "Pokús sa zmeniť hľadané výrazy."
+msgstr "Skúste zmeniť vyhľadávaný výraz."
 
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Žiadne výsledky pre “%s”"
+msgstr "Žiadne výsledky pre „%s“"
 
 #: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
-msgstr "Odstrániť z_Docku"
+msgstr "Odstrániť z _Doku"
 
 #: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
-msgstr "Pridať do_Docku"
+msgstr "Pridať do _Doku"
 
 #: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
-msgstr ""
+msgstr "Odinštalovať"
 
 #: src/Widgets/AppContextMenu.vala:102
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Zobraziť podľa kategórie"
+msgstr "Zobraziť v AppCentre"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -85,7 +132,7 @@ msgstr "Súbory"
 
 #: src/Widgets/SearchItem.vala:43
 msgid "Actions"
-msgstr "Operácie"
+msgstr "Akcie"
 
 #: src/Widgets/SearchItem.vala:45
 msgid "Search"
@@ -95,10 +142,6 @@ msgstr "Hľadať"
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Nastavenia"
@@ -106,10 +149,6 @@ msgstr "Nastavenia"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Akcie aplikácie"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Iné"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -125,7 +164,7 @@ msgstr "Spustiť"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "Spustiť aplikáciu, činnosť alebo skript"
+msgstr "Spustiť aplikáciu, akciu alebo skript"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
@@ -140,23 +179,23 @@ msgstr "Spustiť aplikáciu alebo príkaz v termináli"
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Hľadať %s v %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr ""
+msgstr "Hľadať v obchode s aplikáciami"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCentrum"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr ""
+msgstr "Hľadať aplikácie"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "AppCentrum nie je nainštalované"
 
 #: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
@@ -164,22 +203,20 @@ msgstr "Kalkulačka"
 
 #: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
-msgstr "Vypočítať základné výrazy"
+msgstr "Umožňuje vypočítať základné matematické výrazy."
 
 #: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc nie je nainštalované"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopírovať výber do schránky"
+msgstr "Kliknutím kopírovať výsledok do schránky"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Vykonať '%s'"
+msgstr "Spustiť „%s“"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -187,11 +224,11 @@ msgstr "Spustiť príkaz"
 
 #: src/synapse-plugins/command-plugin.vala:60
 msgid "Find and execute arbitrary commands."
-msgstr "Nájsť a spustiť ľubovoľné príkazy"
+msgstr "Vyhľadať a spustiť ľubovoľné príkazy."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "Nájsť a spustiť aplikácie na vašom počítači."
+msgstr "Vyhľadať a spustiť aplikácie na vašom počítači."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
@@ -201,12 +238,12 @@ msgstr "Otvoriť pomocou %s"
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
-msgstr "Otvoriť aktuálny výber použitím %s"
+msgstr "Otvoriť aktuálny výber pomocou %s"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr "Otvoriť %s v predvolenom prehliadači"
+msgstr "Otvoriť %s v predvolenom webovom prehliadači"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
@@ -232,21 +269,21 @@ msgstr "Otvoriť %s nastavenia"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Nájsť prepínač pluginov a otvoriť ich."
+msgstr "Nájsť moduly ovládacích panelov a otvoriť ich."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "Zamknúť"
+msgstr "Uzamknúť"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr ""
+msgstr "Uzamknúť toto zariadenie"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "uzamknúť"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -254,13 +291,13 @@ msgstr "Odhlásiť sa"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "Zatvoriť všetky otvorené aplikácie a ukončiť"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "odhlásiť sa"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -272,10 +309,9 @@ msgstr "Uspať váš počítač"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Uspať"
+msgstr "uspať"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -287,10 +323,9 @@ msgstr "Prepnúť váš počítač do dlhodobého spánku"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hibernovať"
+msgstr "hibernovať"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -298,13 +333,13 @@ msgstr "Vypnúť"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
-msgstr "Vypnúť počítač"
+msgstr "Vypnúť váš počítač"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "vypnúť"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -312,19 +347,21 @@ msgstr "Reštartovať"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
-msgstr "Reštartujte počitač"
+msgstr "Reštartovať váš počítač"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "reštartovať"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"Uzamknúť reláciu alebo sa z nej odhlásiť. Uspať, hibernovať, reštartovať "
+"alebo vypnúť váš počítač."
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"

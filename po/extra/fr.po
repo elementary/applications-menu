@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-08-15 05:33+0000\n"
-"Last-Translator: roxfr <roxfr@outlook.fr>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/fr/>\n"
 "Language: fr\n"
@@ -28,96 +28,104 @@ msgid "Open and search for apps"
 msgstr "Ouvrir et rechercher des applications"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:42
 msgid "Minor updates"
 msgstr "Mises à jour mineures"
 
 #: data/applications-menu.appdata.xml.in:13
+msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+msgstr ""
+"Correction d'un problème où les applications Flatpak ne s'affichaient pas "
+"avant un redémarrage"
+
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:36
+#: data/applications-menu.appdata.xml.in:48
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:66
+msgid "Updated translations"
+msgstr "Mise à jour des traductions"
+
+#: data/applications-menu.appdata.xml.in:22
 msgid "Sort app actions above AppCenter search"
 msgstr ""
 "Affichage des actions des applications au dessus de la recherche dans le "
 "Centre d'Applications"
 
-#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:23
 msgid "Always hide Terminal-based programs"
 msgstr "Les programmes en ligne de commande sont toujours masqués"
 
-#: data/applications-menu.appdata.xml.in:15
+#: data/applications-menu.appdata.xml.in:24
 msgid "Remove document viewer from block list"
 msgstr "Retrait de la visionneuse de documents de la vue en blocs"
 
-#: data/applications-menu.appdata.xml.in:16
+#: data/applications-menu.appdata.xml.in:25
 msgid "Support fractions without leading number in calculator"
 msgstr "Prise en charge des fractions sans nombre initial dans la calculatrice"
 
-#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:26
 msgid "Show overlay key in tooltip when set"
 msgstr ""
 "Afficher la clé de superposition dans l'info-bulle lorsqu'elle est définie"
 
-#: data/applications-menu.appdata.xml.in:18
-#: data/applications-menu.appdata.xml.in:47
+#: data/applications-menu.appdata.xml.in:27
 #: data/applications-menu.appdata.xml.in:56
+#: data/applications-menu.appdata.xml.in:65
 msgid "Performance improvements"
 msgstr "Améliorations des performances"
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:27
-#: data/applications-menu.appdata.xml.in:39
-#: data/applications-menu.appdata.xml.in:48
-#: data/applications-menu.appdata.xml.in:57
-msgid "Updated translations"
-msgstr "Mise à jour des traductions"
-
-#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:44
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Navigation plus fluide en vue en grille et prise en charge de la navigation "
 "gestuelle sur écran tactile"
 
-#: data/applications-menu.appdata.xml.in:36
+#: data/applications-menu.appdata.xml.in:45
 msgid "Focus search when navigating up from the category view"
 msgstr ""
 "Sélection de la zone de recherche lors de la navigation vers le haut depuis "
 "la vue des catégories"
 
-#: data/applications-menu.appdata.xml.in:37
+#: data/applications-menu.appdata.xml.in:46
 msgid "Don't focus search when pressing modifier keys"
 msgstr ""
 "La zone de recherche n'est pas sélectionnée lors de l'appui sur les touches "
 "de modification"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:47
 msgid "Ensure categories are sorted alphabetically"
 msgstr ""
 "Nous nous sommes assurés que les catégories soient triées dans l'ordre "
 "alphabétique"
 
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:54
 msgid "Category view is now a list"
 msgstr "La vue des catégories est désormais une liste"
 
-#: data/applications-menu.appdata.xml.in:46
+#: data/applications-menu.appdata.xml.in:55
 msgid "Improved keyboard navigation"
 msgstr "Amélioration de la navigation au clavier"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.appdata.xml.in:62
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Amélioration de la navigation au clavier, inclusion d'infobulles et du "
 "support de la touche menu"
 
-#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:63
 msgid "Highlight action matches in the search view"
 msgstr "Mise en valeur des correspondance dans la recherche"
 
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:64
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Ajout du menu « Voir dans le Centre d'Applications »"
 
-#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

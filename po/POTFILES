@@ -4,6 +4,7 @@ src/SlingshotView.vala
 src/Backend/AppCenter.vala
 src/Backend/AppSystem.vala
 src/Backend/App.vala
+src/Backend/Category.vala
 src/Backend/DBusService.vala
 src/Backend/RelevancyService.vala
 src/Backend/SynapseSearch.vala

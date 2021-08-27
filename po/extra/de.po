@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-07-23 08:16+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-16 14:01+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/de/>\n"
@@ -28,88 +28,94 @@ msgid "Open and search for apps"
 msgstr "Öffnen und Suchen von Apps"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:42
 msgid "Minor updates"
 msgstr "Kleinere Aktualisierungen"
 
 #: data/applications-menu.appdata.xml.in:13
-msgid "Sort app actions above AppCenter search"
-msgstr "App-Aktionen über der AppCenter-Suche einsortieren"
+msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+msgstr ""
 
 #: data/applications-menu.appdata.xml.in:14
-msgid "Always hide Terminal-based programs"
-msgstr "Terminal-basierte Programme immer verstecken"
-
-#: data/applications-menu.appdata.xml.in:15
-msgid "Remove document viewer from block list"
-msgstr "Document Viewer von Blockliste entfernen"
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Support fractions without leading number in calculator"
-msgstr "Unterstützt Brüche ohne Zähler in der Rechner-App"
-
-#: data/applications-menu.appdata.xml.in:17
-msgid "Show overlay key in tooltip when set"
-msgstr "Zeige Overlay-Taste im Tooltip wenn gesetzt"
-
-#: data/applications-menu.appdata.xml.in:18
-#: data/applications-menu.appdata.xml.in:47
-#: data/applications-menu.appdata.xml.in:56
-msgid "Performance improvements"
-msgstr "Leistungsverbesserungen"
-
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:27
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:36
 #: data/applications-menu.appdata.xml.in:48
 #: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:66
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
 
-#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:22
+msgid "Sort app actions above AppCenter search"
+msgstr "Anwendungs-Aktionen über der AppCenter-Suche einsortieren"
+
+#: data/applications-menu.appdata.xml.in:23
+msgid "Always hide Terminal-based programs"
+msgstr "Terminal-basierte Programme immer verstecken"
+
+#: data/applications-menu.appdata.xml.in:24
+msgid "Remove document viewer from block list"
+msgstr "Document Viewer von Blockliste entfernen"
+
+#: data/applications-menu.appdata.xml.in:25
+msgid "Support fractions without leading number in calculator"
+msgstr "Unterstützt Brüche ohne Zähler in der Rechner-App"
+
+#: data/applications-menu.appdata.xml.in:26
+msgid "Show overlay key in tooltip when set"
+msgstr "Zeige Overlay-Taste im Tooltip wenn gesetzt"
+
+#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:56
+#: data/applications-menu.appdata.xml.in:65
+msgid "Performance improvements"
+msgstr "Leistungsverbesserungen"
+
+#: data/applications-menu.appdata.xml.in:44
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Glattere Navigationsgeste in der Kachelansicht und Touchscreen-Gestensupport"
 
-#: data/applications-menu.appdata.xml.in:36
+#: data/applications-menu.appdata.xml.in:45
 msgid "Focus search when navigating up from the category view"
 msgstr ""
 "Fokus auf die Suche legen, wenn von der Kategorieansicht nach oben navigiert "
 "wird"
 
-#: data/applications-menu.appdata.xml.in:37
+#: data/applications-menu.appdata.xml.in:46
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Nicht die Suche fokussieren, wenn Zusatztasten gedrückt werden"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:47
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Sicherstellen, dass Kategorien alphabetisch sortiert werden"
 
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:54
 msgid "Category view is now a list"
 msgstr "Kategorieansicht ist jetzt eine Liste"
 
-#: data/applications-menu.appdata.xml.in:46
+#: data/applications-menu.appdata.xml.in:55
 msgid "Improved keyboard navigation"
 msgstr "Verbesserte Tastaturnavigation"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.appdata.xml.in:62
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Verbesserte Tastatur-Navigation, einschließlich neuer Tooltips und "
 "Unterstützung von Menütasten"
 
-#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:63
 msgid "Highlight action matches in the search view"
 msgstr "Hervorheben von Aktionsübereinstimmungen in der Suchansicht"
 
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:64
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Einen Menüeintrag \"Ansicht im AppCenter\" hinzugefügt"
 
-#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
