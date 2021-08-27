@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
 "PO-Revision-Date: 2021-08-27 17:20+0000\n"
-"Last-Translator: László Csatlós <plutoz01@gmail.com>\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/hu/>\n"
 "Language: hu\n"
@@ -46,33 +46,31 @@ msgstr "Összes törlése"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Kiegészítők"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Kisegítő lehetőségek"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Programozás"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Műveletek"
+msgstr "Oktatás"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Tudomány"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Játékok"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
 msgid "Internet"
@@ -80,15 +78,15 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Hang és kép"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Iroda"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Rendszereszközök"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
 msgid "Other"
