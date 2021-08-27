@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-07-15 18:46+0000\n"
+"PO-Revision-Date: 2021-08-27 11:29+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -37,6 +37,8 @@ msgstr "Actualitzacions menors"
 #: data/applications-menu.appdata.xml.in:13
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
+"Correcció de les aplicacions de Flatpak que no es mostren fins després de "
+"reiniciar"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:28
