@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-08-28 20:56+0000\n"
-"Last-Translator: László Csatlós <plutoz01@gmail.com>\n"
+"PO-Revision-Date: 2021-08-28 22:49+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/hu/>\n"
 "Language: hu\n"
@@ -25,14 +25,14 @@ msgstr "Alkalmazásmenü"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr "Megnyitás és alkalmazások keresése"
+msgstr "Alkalmazások megnyitása és keresése"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:20
 #: data/applications-menu.appdata.xml.in:34
 #: data/applications-menu.appdata.xml.in:42
 msgid "Minor updates"
-msgstr ""
+msgstr "Apróbb frissítések"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
@@ -45,7 +45,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:57
 #: data/applications-menu.appdata.xml.in:66
 msgid "Updated translations"
-msgstr "Frissített fordítások"
+msgstr "Fordítási frissítések"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid "Sort app actions above AppCenter search"
@@ -71,46 +71,50 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:56
 #: data/applications-menu.appdata.xml.in:65
 msgid "Performance improvements"
-msgstr ""
+msgstr "Teljesítménybeli javítások"
 
 #: data/applications-menu.appdata.xml.in:44
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Folyamatosabb navigációs mozdulatok a menürácson és érintőkijelzős "
+"mozdulatok támogatása"
 
 #: data/applications-menu.appdata.xml.in:45
 msgid "Focus search when navigating up from the category view"
-msgstr ""
+msgstr "Keresésre való fókuszálás a kategórianézetből való visszalépés esetén"
 
 #: data/applications-menu.appdata.xml.in:46
 msgid "Don't focus search when pressing modifier keys"
-msgstr ""
+msgstr "Keresés ne legyen fókuszban módosítógombok megnyomásakor"
 
 #: data/applications-menu.appdata.xml.in:47
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Kategóriák ábécé sorrendjének megtartása"
 
 #: data/applications-menu.appdata.xml.in:54
 msgid "Category view is now a list"
-msgstr ""
+msgstr "A kategórianézet listaformátumot kapott"
 
 #: data/applications-menu.appdata.xml.in:55
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Fejlesztett billentyűzetalapú navigáció"
 
 #: data/applications-menu.appdata.xml.in:62
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Fejlesztett billentyűzetnavigáció, új súgójavaslatokkal és menügomb "
+"támogatással"
 
 #: data/applications-menu.appdata.xml.in:63
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "A keresésnek megfelelő parancsok kiemelése a keresőmezőben"
 
 #: data/applications-menu.appdata.xml.in:64
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Új \"Megjelenítés az Appközpontban\" menüelem"
 
 #: data/applications-menu.appdata.xml.in:78
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
