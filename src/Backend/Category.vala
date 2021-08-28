@@ -42,6 +42,13 @@ public class Slingshot.Backend.Category : Object {
 
         var categories = app.get_categories ();
         if (categories == null) {
+            // If this is the "Other" category, then we'll take on apps without categories
+            if (other_category) {
+                debug ("Including %s in Other because it has no categories", app.get_name ());
+                apps.add (new App (app));
+                return true;
+            }
+
             debug ("Excluding %s from %s because it has no categories", app.get_name (), name);
             return false;
         }
