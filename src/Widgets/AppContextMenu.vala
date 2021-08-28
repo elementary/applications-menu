@@ -55,7 +55,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
-
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
 
         app_info = new DesktopAppInfo (desktop_id);
