@@ -56,15 +56,15 @@ public class Slingshot.Backend.App : Object {
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
     }
 
-    public App (GMenu.TreeEntry entry) {
+    public App (GLib.DesktopAppInfo info) {
+
         app_type = AppType.APP;
 
-        unowned GLib.DesktopAppInfo info = entry.get_app_info ();
         name = info.get_display_name ();
         description = info.get_description () ?? name;
         exec = info.get_commandline ();
-        desktop_id = entry.get_desktop_file_id ();
-        desktop_path = entry.get_desktop_file_path ();
+        desktop_id = info.get_id ();
+        desktop_path = info.get_filename ();
         keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();

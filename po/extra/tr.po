@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-07-20 11:25+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-27 11:29+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -28,87 +28,93 @@ msgid "Open and search for apps"
 msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:20
+#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:42
 msgid "Minor updates"
 msgstr "Küçük güncellemeler"
 
 #: data/applications-menu.appdata.xml.in:13
-msgid "Sort app actions above AppCenter search"
-msgstr "Uygulama eylemleri, Uygulama Merkezi aramasının üzerinde sıralandı"
+msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+msgstr " "
 
 #: data/applications-menu.appdata.xml.in:14
-msgid "Always hide Terminal-based programs"
-msgstr "Terminal tabanlı programları her zaman gizle"
-
-#: data/applications-menu.appdata.xml.in:15
-msgid "Remove document viewer from block list"
-msgstr "Belge görüntüleyici engelleme listesinden kaldırıldı"
-
-#: data/applications-menu.appdata.xml.in:16
-msgid "Support fractions without leading number in calculator"
-msgstr "Hesap makinesinde baştaki sayı olmayan kesirleri destekleyin"
-
-#: data/applications-menu.appdata.xml.in:17
-msgid "Show overlay key in tooltip when set"
-msgstr "Ayarlandığında araç ipucunda kaplama anahtarını göster"
-
-#: data/applications-menu.appdata.xml.in:18
-#: data/applications-menu.appdata.xml.in:47
-#: data/applications-menu.appdata.xml.in:56
-msgid "Performance improvements"
-msgstr "Performans iyileştirmeleri"
-
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:27
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:36
 #: data/applications-menu.appdata.xml.in:48
 #: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:66
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:22
+msgid "Sort app actions above AppCenter search"
+msgstr "Uygulama eylemleri, Uygulama Merkezi aramasının üzerinde sıralandı"
+
+#: data/applications-menu.appdata.xml.in:23
+msgid "Always hide Terminal-based programs"
+msgstr "Terminal tabanlı programları her zaman gizle"
+
+#: data/applications-menu.appdata.xml.in:24
+msgid "Remove document viewer from block list"
+msgstr "Belge görüntüleyici engelleme listesinden kaldırıldı"
+
+#: data/applications-menu.appdata.xml.in:25
+msgid "Support fractions without leading number in calculator"
+msgstr "Hesap makinesinde baştaki sayı olmayan kesirleri destekleyin"
+
+#: data/applications-menu.appdata.xml.in:26
+msgid "Show overlay key in tooltip when set"
+msgstr "Ayarlandığında araç ipucunda kaplama anahtarını göster"
+
+#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:56
+#: data/applications-menu.appdata.xml.in:65
+msgid "Performance improvements"
+msgstr "Performans iyileştirmeleri"
+
+#: data/applications-menu.appdata.xml.in:44
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Izgara görünümünde daha sorunsuz gezinme hareketi ve dokunmatik ekran "
 "hareket desteği"
 
-#: data/applications-menu.appdata.xml.in:36
+#: data/applications-menu.appdata.xml.in:45
 msgid "Focus search when navigating up from the category view"
 msgstr "Kategori görünümünde gezinirken aramaya odaklan"
 
-#: data/applications-menu.appdata.xml.in:37
+#: data/applications-menu.appdata.xml.in:46
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Değiştirici tuşlara basarken aramaya odaklanma"
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:47
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Kategorilerin alfabetik olarak sıralandığından emin ol"
 
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:54
 msgid "Category view is now a list"
 msgstr "Kategori görünümü artık bir liste"
 
-#: data/applications-menu.appdata.xml.in:46
+#: data/applications-menu.appdata.xml.in:55
 msgid "Improved keyboard navigation"
 msgstr "Klavye gezintisi iyileştirildi"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.appdata.xml.in:62
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Yeni ipuçları ve menü tuşu desteği dahil olmak üzere geliştirilmiş klavye "
 "ile gezinme"
 
-#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:63
 msgid "Highlight action matches in the search view"
 msgstr "Arama görünümünde eylem eşleşmelerini vurgula"
 
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:64
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"Uygulama Merkezinde Görüntüle\" menü öğesi eklendi"
 
-#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

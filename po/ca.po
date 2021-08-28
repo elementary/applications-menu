@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-04-09 19:06+0000\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-27 11:29+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ca/>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplicacions"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Cerqueu i obriu aplicacions"
 
@@ -44,7 +44,55 @@ msgstr "Cerca aplicacions"
 msgid "Clear all"
 msgstr "Neteja-ho tot"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Accessoris"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Accés universal"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programació"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Educació"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Ciència"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Jocs"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Gràfics"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "So i vídeo"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Oficina"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Eines del sistema"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Altres"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
 msgstr "Executa aquesta ordre…"
 
@@ -93,10 +141,6 @@ msgstr "Cerca"
 msgid "Contacts"
 msgstr "Contactes"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Configuració"
@@ -104,10 +148,6 @@ msgstr "Configuració"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Accions de l'aplicació"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Altres"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

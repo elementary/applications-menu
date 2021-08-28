@@ -9,12 +9,13 @@ sources = [
     'Indicator.vala',
     'SlingshotView.vala',
 
+    'Backend/AppCenter.vala',
     'Backend/AppSystem.vala',
-    'Backend/DBusService.vala',
     'Backend/App.vala',
+    'Backend/Category.vala',
+    'Backend/DBusService.vala',
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
-    'Backend/AppCenter.vala',
     'Backend/SwitcherooControl.vala',
 
     'Views/CategoryView.vala',
@@ -75,7 +76,6 @@ dependencies = [
     gtk_dep,
     json_glib_dep,
     zeitgeist_dep,
-    libgnome_menu_dep,
     libsoup_dep,
     appstream_dep,
     plank_dep,
@@ -87,13 +87,13 @@ dependencies = [
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
 
 c_args = [
-    '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
     '-DHANDY_USE_UNSTABLE_API',
 ]
 
 shared_module(
     meson.project_name(),
     sources,
+    config_file,
     dependencies: dependencies,
     c_args : c_args,
     install: true,
@@ -103,6 +103,7 @@ shared_module(
 executable(
     'switchboard-plugin',
     'synapse-plugins/switchboard-plugin/plugin.vala',
+    config_file,
     dependencies: [
         glib_dep,
         gobject_dep,

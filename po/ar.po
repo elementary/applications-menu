@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2019-03-13 16:27+0000\n"
-"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-27 13:57+0000\n"
+"Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
 "Language: ar\n"
@@ -18,62 +18,109 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "التطبيقات"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "إفتح و إبحث عن التطبيقات"
+msgstr "افتح و ابحث في التطبيقات"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr "عرض كشبكة"
+msgstr "اعرض كشبكة"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
-msgstr "عرض حسب الفئة"
+msgstr "اعرض حسب الفئة"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
-msgstr "بحث عن التطبيقات"
+msgstr "ابحث في التطبيقات"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "امسح الكل"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "الأكسسوارات"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "الوصول الشامل"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "البرمجة"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "التعلم"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "العلوم"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "الألعاب"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "الرسوميات"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "الإنترنت"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "الصوت والفيديو"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "المكتب"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "أدوات النظام"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "أخرى"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
-msgstr "طبق هذا الأمر…"
+msgstr "شغل هذا الأمر…"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
-msgstr "الرجاء محاولة تغيير كلمات البحث."
+msgstr "جرب تغيير عبارات البحث."
 
 #: src/Views/SearchView.vala:104
 #, c-format
 msgid "No Results for “%s”"
-msgstr "لا توجد نتائج لـ “%s”"
+msgstr "لا توجد نتائج ل ”%s“"
 
 #: src/Widgets/AppContextMenu.vala:81
 msgid "Remove from _Dock"
-msgstr "إزالة من قاعدة التطبيقات"
+msgstr "أزل من _المرسى"
 
 #: src/Widgets/AppContextMenu.vala:83
 msgid "Add to _Dock"
-msgstr "إضافة إلى قاعدة التطبيقات"
+msgstr "أضف إلى _المرسى"
 
 #: src/Widgets/AppContextMenu.vala:97
 msgid "Uninstall"
-msgstr "إلغاء التثبيت"
+msgstr "ألغ التثبيت"
 
 #: src/Widgets/AppContextMenu.vala:102
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "مركز التطبيقات"
+msgstr "أظهر في آب سنتر"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -85,7 +132,7 @@ msgstr "ملفات"
 
 #: src/Widgets/SearchItem.vala:43
 msgid "Actions"
-msgstr "الأوامر"
+msgstr "أوامر"
 
 #: src/Widgets/SearchItem.vala:45
 msgid "Search"
@@ -93,70 +140,62 @@ msgstr "بحث"
 
 #: src/Widgets/SearchItem.vala:47
 msgid "Contacts"
-msgstr "تواصل"
-
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "الإنترنت"
+msgstr "جهات اتصال"
 
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
-msgstr "الإعدادات"
+msgstr "إعدادات"
 
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
-msgstr "أوامر التطبيق"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "أخرى"
+msgstr "أوامر التطبيقات"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
-msgstr "إنسخ إلى الحافظة"
+msgstr "انسخ إلى الحافظة"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
-msgstr "إنسخ المحدد للحافظة"
+msgstr "انسخ المحدد إلى الحافظة"
 
 #: src/synapse-core/Actions/RunnerAction.vala:25
 msgid "Run"
-msgstr "طبق"
+msgstr "شغل"
 
 #: src/synapse-core/Actions/RunnerAction.vala:26
 msgid "Run an application, action or script"
-msgstr "شغل التطبيق، أمر أو سكربت"
+msgstr "شغل تطبيقاً، أو إجراءً، أو نصاً برمجياً"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr "طبق في الطرفية"
+msgstr "شغل في الطرفية"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr "طبق التطبيق أو الأمر في الطرفية"
+msgstr "شغل تطبيقاً أو أمراً في الطرفية"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr "البحث عن %s في %s"
+msgstr "ابحث عن %s في %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr "البحث في متجر التطبيقات"
+msgstr "ابحث في متجر التطبيقات"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr "مركز التطبيقات"
+msgstr "آب سنتر"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr "البحث عن تطبيقات"
+msgstr "ابحث عن التطبيقات"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr "مركز التطبيقات غير مثبت"
+msgstr "آب سنتر غير مثبت"
 
 #: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
@@ -164,17 +203,15 @@ msgstr "الحاسبة"
 
 #: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
-msgstr "إحسب حسابات بسيطة."
+msgstr "أجر حسابات بسيطة."
 
 #: src/synapse-plugins/calculator-plugin.vala:55
 msgid "bc is not installed"
 msgstr "bc غير مثبت"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "إنسخ المحدد للحافظة"
+msgstr "اضغط لنسخ النتيجة للحافظة"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -183,106 +220,106 @@ msgstr "نفذ '%s'"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
-msgstr "طبق الأمر"
+msgstr "شغل الأمر"
 
 #: src/synapse-plugins/command-plugin.vala:60
 msgid "Find and execute arbitrary commands."
-msgstr "إبحث ونفذ أوامر عشوائية."
+msgstr "ابحث عن ونفذ الأوامر التي تريدها."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:115
 msgid "Search for and run applications on your computer."
-msgstr "إبحث عن وطبق التطبيقات على حاسبك."
+msgstr "ابحث عن التطبيقات وشغلها على حاسوبك."
 
 #: src/synapse-plugins/desktop-file-plugin.vala:318
 #, c-format
 msgid "Open with %s"
-msgstr "فتح باستخدام %s"
+msgstr "افتح باستخدام %s"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:320
 #, c-format
 msgid "Opens current selection using %s"
-msgstr "فتح ما تم تحديده بإستخدام %s"
+msgstr "يفتح المحدد باستخدام %s"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr "فتح %s بمتصفح الويب الافتراضي"
+msgstr "افتح %s في متصفح الويب الافتراضي"
 
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
-msgstr "فتح %s داخل %s"
+msgstr "افتح %s في %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr "فتح هذا الرابط في المتصفح الافتراضي"
+msgstr "افتح هذا الرابط في المتصفح الافتراضي"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"
-msgstr "رابط"
+msgstr "الرابط"
 
 #: src/synapse-plugins/link-plugin.vala:73
 msgid "Open link in default browser"
-msgstr "فتح الرابط في المتصفح الافتراضي"
+msgstr "افتح الرابط في المتصفح الافتراضي"
 
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr "إفتح إعدادات %s"
+msgstr "افتح إعدادات %s"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "إبحث عن إضافات لوحة التحكم وإفتحهم."
+msgstr "ابحث عن إضافات لوحة التحكم وقم بفتحهم."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "قفل"
+msgstr "أقفل"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr "قفل هذا الجهاز"
+msgstr "أقفل هذا الجهاز"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr "قفل"
+msgstr "إقفال"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr "تسجيل خروج"
+msgstr "سجل خروجك"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "إغلاق جميع التطبيقات والخروج"
+msgstr "أغلق جميع التطبيقات المفتوحة وسجل خروجك"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr "تسجيل خروج"
+msgstr "تسجيل الخروج"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
-msgstr "سكون"
+msgstr "أغلق"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
-msgstr "ضع حاسبك في وضع السكون"
+msgstr "ضع حاسوبك في وضع الإغلاق"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "سكون"
+msgstr "إغلاق"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
-msgstr "سبات"
+msgstr "أسبت الجهاز"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
-msgstr "ضع حاسبك في وضع السبات"
+msgstr "ضع حاسوبك في وضع السبات"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
@@ -292,39 +329,39 @@ msgstr "سبات"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr "إيقاف التشغيل"
+msgstr "أوقف التشغيل"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
-msgstr "إغلاق الجهاز"
+msgstr "أوقف تشغيل جهازك"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr "ايقاف التشغيل;اغلاق الجهاز"
+msgstr "إيقاف التشغيل;إطفاء"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
-msgstr "إعادة التشغيل"
+msgstr "أعد التشغيل"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
-msgstr "إعادة تشغيل جهازك"
+msgstr "أعد تشغيل حاسوبك"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "إعادة التشغيل;إعادة الاقلاع"
+msgstr "إعادة التشغيل;إعادة الإقلاع"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
-"أقفل الجسلة او سجل خروجك منها. سكون، ثبات، إعادة تشغيل، أو إيقاف تشغيل "
-"حاسوبك."
+"أقفل الجلسة أو سجل خروجك منها. قم بإغلاق، أو إسبات، أو إعادة تشغيل، أو إيقاف "
+"تشغيل حاسوبك."
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"

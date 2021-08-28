@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 22:56+0000\n"
-"PO-Revision-Date: 2021-04-08 19:55+0000\n"
-"Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
+"POT-Creation-Date: 2021-08-25 23:09+0000\n"
+"PO-Revision-Date: 2021-08-27 11:29+0000\n"
+"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
 "Language: tr\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:79 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Uygulamalar"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Uygulama açın ve arayın"
 
@@ -44,7 +44,55 @@ msgstr "Uygulama Ara"
 msgid "Clear all"
 msgstr "Tümünü temizle"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Donatılar"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Evrensel Erişim"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programlama"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Eğitim"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Bilim"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Oyunlar"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafik"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "İnternet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Ses ve Video"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Ofis"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Sistem Araçları"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Diğer"
+
+#: src/Backend/App.vala:77
 msgid "Run this command…"
 msgstr "Bu komutu çalıştır…"
 
@@ -93,10 +141,6 @@ msgstr "Ara"
 msgid "Contacts"
 msgstr "Kişiler"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "İnternet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Ayarlar"
@@ -104,10 +148,6 @@ msgstr "Ayarlar"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Uygulama Eylemleri"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Diğer"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

@@ -44,7 +44,6 @@ appstream_dep = dependency('appstream')
 gio_unix_dep = dependency('gio-unix-2.0')
 json_glib_dep = dependency('json-glib-1.0')
 switchboard_dep = dependency('switchboard-2.0')
-libgnome_menu_dep = dependency('libgnome-menu-3.0')
 libhandy_dep = dependency('libhandy-1', version: '>= 0.83.0')
 wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
@@ -60,6 +59,15 @@ if get_option('with-zeitgeist')
     zeitgeist_dep = dependency('zeitgeist-2.0')
     add_project_arguments('--define=HAVE_ZEITGEIST', language: 'vala')
 endif
+
+config_data = configuration_data()
+config_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+config_file = configure_file(
+    input: 'src/Config.vala.in',
+    output: '@BASENAME@',
+    configuration: config_data
+)
 
 subdir('src')
 subdir('data')
