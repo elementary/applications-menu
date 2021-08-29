@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-29 16:13+0000\n"
-"PO-Revision-Date: 2021-08-26 05:14+0000\n"
+"PO-Revision-Date: 2021-08-29 22:56+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/uk/>\n"
@@ -38,7 +38,7 @@ msgstr "Незначні оновлення"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Застосунки без категорій перенесено до розділу «Інше»"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:23
