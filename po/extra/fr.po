@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-29 16:13+0000\n"
-"PO-Revision-Date: 2021-08-26 12:25+0000\n"
+"PO-Revision-Date: 2021-08-30 15:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/fr/>\n"
@@ -37,7 +37,7 @@ msgstr "Mises à jour mineures"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Affichage des applications sans catégorie dans le section « Autres »"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:23
