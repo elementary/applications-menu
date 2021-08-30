@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-08-26 22:37+0000\n"
-"Last-Translator: asdffdsdaf <asdffdsdaf@gmail.com>\n"
+"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"PO-Revision-Date: 2021-08-28 01:44+0000\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
@@ -27,7 +27,7 @@ msgstr "Приложения"
 
 #: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "Откройте и ищите приложения"
+msgstr "Открыть и искать приложения"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"

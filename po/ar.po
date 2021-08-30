@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 23:09+0000\n"
-"PO-Revision-Date: 2021-08-26 22:37+0000\n"
+"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"PO-Revision-Date: 2021-08-27 13:57+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ar/>\n"
@@ -273,7 +273,7 @@ msgstr "ابحث عن إضافات لوحة التحكم وقم بفتحهم."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "أقفل الجهاز"
+msgstr "أقفل"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
@@ -301,7 +301,7 @@ msgstr "تسجيل الخروج"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
-msgstr "أغلق الجهاز"
+msgstr "أغلق"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
@@ -329,7 +329,7 @@ msgstr "سبات"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr "أوقف تشغيل الجهاز"
+msgstr "أوقف التشغيل"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
@@ -343,7 +343,7 @@ msgstr "إيقاف التشغيل;إطفاء"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
-msgstr "أعد تشغيل الجهاز"
+msgstr "أعد التشغيل"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
