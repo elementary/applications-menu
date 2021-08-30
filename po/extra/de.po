@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-29 16:13+0000\n"
-"PO-Revision-Date: 2021-08-16 14:01+0000\n"
+"PO-Revision-Date: 2021-08-30 15:25+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/de/>\n"
@@ -37,7 +37,7 @@ msgstr "Kleinere Aktualisierungen"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Zeige Anwendungen ohne Kategorie unter \"Andere\""
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:23
@@ -52,6 +52,8 @@ msgstr "Aktualisierte Übersetzungen"
 #: data/applications-menu.appdata.xml.in:22
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
+"Behebt einen Fehler, durch den Flatpak Anwendungen erst nach einem Neustart "
+"angezeigt wurden"
 
 #: data/applications-menu.appdata.xml.in:31
 msgid "Sort app actions above AppCenter search"
