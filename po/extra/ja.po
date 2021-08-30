@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-29 16:13+0000\n"
-"PO-Revision-Date: 2021-08-26 05:14+0000\n"
+"PO-Revision-Date: 2021-08-30 00:35+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -37,7 +37,7 @@ msgstr "軽微なアップデート:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "カテゴリーが設定されていないアプリを\"そのほか\"に表示するように修正"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:23
