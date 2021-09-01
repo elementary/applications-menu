@@ -85,9 +85,9 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                    var context = new AppLaunchContext ();
                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
                    app_info.launch (null, context);
-                   app_launched ();                   
+                   app_launched ();
                } catch (Error e) {
-                   warning ("Failed to launch %s", name);
+                   warning ("Failed to launch %s: %s", name, e.message);
                }
 
             });
