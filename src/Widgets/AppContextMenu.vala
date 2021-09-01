@@ -87,7 +87,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                    app_info.launch (null, context);
                    app_launched ();
                } catch (Error e) {
-                   warning ("Failed to launch %s", name);
+                   warning ("Failed to launch %s: %s", name, e.message);
                }
 
             });
