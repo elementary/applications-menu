@@ -78,7 +78,7 @@ public class Slingshot.Backend.SwitcherooControl : Object {
     public string get_gpu_name (bool default_gpu) {
         if (dbus == null) {
             warning ("Could not fetch GPU name, switcheroo-control not available");
-            return "Default";
+            return _("Default");
         }
 
         foreach (HashTable<string,Variant> gpu in dbus.gpus) {
