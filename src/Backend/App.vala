@@ -38,7 +38,7 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
-    public bool prefers_non_default_gpu { get; private set; default = false; }
+    public bool prefers_default_gpu { get; private set; default = false; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
 #if HAS_PLANK
@@ -68,7 +68,7 @@ public class Slingshot.Backend.App : Object {
         keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
-        prefers_non_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
+        prefers_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
 
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
@@ -123,7 +123,7 @@ public class Slingshot.Backend.App : Object {
                     launched (this); // Emit launched signal
 
                     var context = new AppLaunchContext ();
-                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
+                    switcheroo_control.apply_gpu_environment (context, prefers_default_gpu);
 
                     new DesktopAppInfo (desktop_id).launch (null, context);
 
