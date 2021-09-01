@@ -49,6 +49,10 @@ public class Slingshot.Backend.SwitcherooControl : Object {
             warning ("Could not apply discrete GPU environment, switcheroo-control not available");
             return;
         }
+        
+        if (!has_dual_gpu) {
+            return;
+        }
 
         foreach (HashTable<string,Variant> gpu in dbus.gpus) {
             bool is_default = gpu.get ("Default").get_boolean ();
