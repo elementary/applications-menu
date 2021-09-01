@@ -106,6 +106,6 @@ public class Slingshot.Backend.SwitcherooControl : Object {
             }
         }
 
-        return "Default";
+        return _("Default");
     }
 }
