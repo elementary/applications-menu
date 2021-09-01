@@ -49,7 +49,6 @@ public class Slingshot.Backend.SwitcherooControl : Object {
             warning ("Could not apply discrete GPU environment, switcheroo-control not available");
             return;
         }
-        
         if (!has_dual_gpu) {
             return;
         }
