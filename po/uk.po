@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-08-26 05:14+0000\n"
+"PO-Revision-Date: 2021-09-10 21:07+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
@@ -99,7 +99,7 @@ msgstr "Виконати цю команду…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Типово"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -111,10 +111,9 @@ msgid "No Results for “%s”"
 msgstr "Результати для «%s» відсутні"
 
 #: src/Widgets/AppContextMenu.vala:78
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Відкрити за допомогою %s"
+msgstr "Відкрити за допомогою графічного процесора %s"
 
 #: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
