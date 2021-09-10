@@ -16,6 +16,7 @@ sources = [
     'Backend/DBusService.vala',
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
+    'Backend/SwitcherooControl.vala',
 
     'Views/CategoryView.vala',
     'Views/GridView.vala',

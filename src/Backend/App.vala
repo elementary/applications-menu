@@ -2,6 +2,7 @@
  * Copyright 2019 elementary, Inc. (https://elementary.io)
  *           2013-2014 Akshay Shekher
  *           2011-2012 Giulio Collura
+ *           2020-2021 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -37,6 +38,7 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
+    public bool prefers_default_gpu { get; private set; default = false; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
 #if HAS_PLANK
@@ -48,7 +50,14 @@ public class Slingshot.Backend.App : Object {
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
 
+    private Slingshot.Backend.SwitcherooControl switcheroo_control;
+
+    construct {
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
+    }
+
     public App (GLib.DesktopAppInfo info) {
+
         app_type = AppType.APP;
 
         name = info.get_display_name ();
@@ -59,6 +68,8 @@ public class Slingshot.Backend.App : Object {
         keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
+        prefers_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
+
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
             icon = desktop_icon;
@@ -110,7 +121,12 @@ public class Slingshot.Backend.App : Object {
                     break;
                 case AppType.APP:
                     launched (this); // Emit launched signal
-                    new DesktopAppInfo (desktop_id).launch (null, null);
+
+                    var context = new AppLaunchContext ();
+                    switcheroo_control.apply_gpu_environment (context, prefers_default_gpu);
+
+                    new DesktopAppInfo (desktop_id).launch (null, context);
+
                     debug (@"Launching application: $name");
                     break;
                 case AppType.SYNAPSE:
