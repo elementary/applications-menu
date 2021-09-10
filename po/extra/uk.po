@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-08-29 22:56+0000\n"
+"PO-Revision-Date: 2021-09-10 21:07+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/uk/>\n"
@@ -30,13 +30,15 @@ msgstr "Відкривайте та знаходьте застосунки"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "New features"
-msgstr ""
+msgstr "Нові можливості"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 msgstr ""
+"Вибір запуску застосунків на вбудованій або виділеній GPU для систем з "
+"гібридною GPU"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:23
