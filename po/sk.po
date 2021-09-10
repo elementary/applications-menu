@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"POT-Creation-Date: 2021-09-10 18:14+0000\n"
 "PO-Revision-Date: 2021-08-26 12:25+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@tutanota.de>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
@@ -93,9 +93,13 @@ msgstr "Systémové nástroje"
 msgid "Other"
 msgstr "Ostatné"
 
-#: src/Backend/App.vala:77
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Spustiť tento príkaz…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -106,19 +110,25 @@ msgstr "Skúste zmeniť vyhľadávaný výraz."
 msgid "No Results for “%s”"
 msgstr "Žiadne výsledky pre „%s“"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Otvoriť pomocou %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Odstrániť z _Doku"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Pridať do _Doku"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Odinštalovať"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "Zobraziť v AppCentre"
 
@@ -158,11 +168,11 @@ msgstr "Kopírovať do schránky"
 msgid "Copy selection to clipboard"
 msgstr "Kopírovať výber do schránky"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Spustiť"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Spustiť aplikáciu, akciu alebo skript"
 

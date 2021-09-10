@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"POT-Creation-Date: 2021-09-10 18:14+0000\n"
 "PO-Revision-Date: 2017-02-27 21:32+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -92,9 +92,13 @@ msgstr ""
 msgid "Other"
 msgstr "Άλλα"
 
-#: src/Backend/App.vala:77
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Εκτέλεση αυτής της εντολής..."
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -105,19 +109,25 @@ msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζή�
 msgid "No Results for “%s”"
 msgstr "Κανένα αποτέλεσμα για “%s”"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Άνοιγμα με %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Αφαίρεση από το _Dock"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Προσθήκη στο _Dock"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Κέντρο εφαρμογών"
@@ -158,11 +168,11 @@ msgstr "Αντιγραφή στο πρόχειρο"
 msgid "Copy selection to clipboard"
 msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Εκτέλεση"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr ""
 

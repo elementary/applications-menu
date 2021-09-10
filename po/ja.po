@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"POT-Creation-Date: 2021-09-10 18:14+0000\n"
 "PO-Revision-Date: 2021-08-26 05:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -92,9 +92,13 @@ msgstr "システムツール"
 msgid "Other"
 msgstr "そのほか"
 
-#: src/Backend/App.vala:77
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "このコマンドを実行…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -105,19 +109,25 @@ msgstr "検索用語を変更してみてください。"
 msgid "No Results for “%s”"
 msgstr "“%s” という検索結果はありません"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "%s で開く"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "ドックから削除(_D)"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "ドックに追加(_D)"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "アンインストール"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "AppCenter で表示"
 
@@ -157,11 +167,11 @@ msgstr "クリップボードへコピー"
 msgid "Copy selection to clipboard"
 msgstr "選択範囲をクリップボードへコピーします"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "実行"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "アプリケーション、アクションやスクリプトを実行します"
 

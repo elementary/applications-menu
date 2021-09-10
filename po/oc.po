@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"POT-Creation-Date: 2021-09-10 18:14+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -87,9 +87,13 @@ msgstr ""
 msgid "Other"
 msgstr "Autres"
 
-#: src/Backend/App.vala:77
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Executar aquesta comanda…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -100,19 +104,25 @@ msgstr "Ensajatz de cambiar los tèrmes de recèrca."
 msgid "No Results for “%s”"
 msgstr "Cap de resultat per « %s »"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Dobrir amb %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Levar d'al _Dock"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Ajustar al _Dock"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Desinstallar"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "Veire dins AppCenter"
 
@@ -152,11 +162,11 @@ msgstr "Copiar cap al quichapapièrs"
 msgid "Copy selection to clipboard"
 msgstr "Copiar lo tèxte seleccionat dins lo quichapapièr"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Executar"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr ""
 
