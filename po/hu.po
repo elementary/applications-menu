@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-08-28 01:44+0000\n"
+"PO-Revision-Date: 2021-09-10 21:07+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/hu/>\n"
@@ -98,7 +98,7 @@ msgstr "Parancs futtatása…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -110,10 +110,9 @@ msgid "No Results for “%s”"
 msgstr "Nincsenek találatok erre: “%s”"
 
 #: src/Widgets/AppContextMenu.vala:78
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Megnyitás ezzel: %s"
+msgstr "Megnyitás %s grafikus feldolgozóegységgel"
 
 #: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
