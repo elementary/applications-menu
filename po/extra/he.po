@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:13+0000\n"
+"POT-Creation-Date: 2021-09-10 18:14+0000\n"
 "PO-Revision-Date: 2021-08-29 22:56+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,95 +28,107 @@ msgid "Open and search for apps"
 msgstr "לפתוח ולחפש יישומים"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:20
-#: data/applications-menu.appdata.xml.in:29
-#: data/applications-menu.appdata.xml.in:43
-#: data/applications-menu.appdata.xml.in:51
+msgid "New features"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:13
+msgid ""
+"Launch apps selectively on integrated or dedicated graphics for systems with "
+"hybrid graphics"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:15
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:41
+#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:63
 msgid "Minor updates"
 msgstr "עדכונים משניים"
 
-#: data/applications-menu.appdata.xml.in:13
-msgid "Show apps with no category under \"Other\""
-msgstr "יישומים ללא קטגוריה יופיעו תחת „אחר”"
-
-#: data/applications-menu.appdata.xml.in:14
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:37
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:49
 #: data/applications-menu.appdata.xml.in:57
-#: data/applications-menu.appdata.xml.in:66
-#: data/applications-menu.appdata.xml.in:75
+#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
+#: data/applications-menu.appdata.xml.in:87
 msgid "Updated translations"
 msgstr "התרגומים עודכנו"
 
-#: data/applications-menu.appdata.xml.in:22
+#: data/applications-menu.appdata.xml.in:25
+msgid "Show apps with no category under \"Other\""
+msgstr "יישומים ללא קטגוריה יופיעו תחת „אחר”"
+
+#: data/applications-menu.appdata.xml.in:34
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr "תוקנה תקלה שיישומי Flatpak לא מופיעים עד להפעלה מחדש"
 
-#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:43
 msgid "Sort app actions above AppCenter search"
 msgstr "מיון פעולות היישומים מעל לחיפוש במרכז היישומים"
 
-#: data/applications-menu.appdata.xml.in:32
+#: data/applications-menu.appdata.xml.in:44
 msgid "Always hide Terminal-based programs"
 msgstr "יישומים מבוססי מסוף יוסתרו תמיד"
 
-#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:45
 msgid "Remove document viewer from block list"
 msgstr "הוסר מציג מסמכים מרשימת החסימה"
 
-#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:46
 msgid "Support fractions without leading number in calculator"
 msgstr "תמיכה בשברים ללא מקדם במחשבון"
 
-#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:47
 msgid "Show overlay key in tooltip when set"
 msgstr "להציג מפתח מרחף בחלונית כאשר הוא הוגדר"
 
-#: data/applications-menu.appdata.xml.in:36
-#: data/applications-menu.appdata.xml.in:65
-#: data/applications-menu.appdata.xml.in:74
+#: data/applications-menu.appdata.xml.in:48
+#: data/applications-menu.appdata.xml.in:77
+#: data/applications-menu.appdata.xml.in:86
 msgid "Performance improvements"
 msgstr "שיפורי ביצועים"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.appdata.xml.in:65
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr "ניווט חלק יותר באמצעות מחוות בתצוגת רשת ותמיכה במחוות על מסך מגע"
 
-#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:66
 msgid "Focus search when navigating up from the category view"
 msgstr "מיקוד החיפוש בעת ניווט כלפי מעלה מתצוגה הקטגוריות"
 
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.appdata.xml.in:67
 msgid "Don't focus search when pressing modifier keys"
 msgstr "לא להתמקד על החיפוש בעת לחיצה על מקשי החלפה"
 
-#: data/applications-menu.appdata.xml.in:56
+#: data/applications-menu.appdata.xml.in:68
 msgid "Ensure categories are sorted alphabetically"
 msgstr "אימות שהקטגוריות מסודרות לפי האלפבית"
 
-#: data/applications-menu.appdata.xml.in:63
+#: data/applications-menu.appdata.xml.in:75
 msgid "Category view is now a list"
 msgstr "תצוגת קטגוריות היא רשימה מעתה"
 
-#: data/applications-menu.appdata.xml.in:64
+#: data/applications-menu.appdata.xml.in:76
 msgid "Improved keyboard navigation"
 msgstr "הניווט בעזרת המקלדת השתפר"
 
-#: data/applications-menu.appdata.xml.in:71
+#: data/applications-menu.appdata.xml.in:83
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr "הניווט בעזרת המקלדת השתפר, לרבות תמיכה בחלוניות עצה ובכפתור תפריט"
 
-#: data/applications-menu.appdata.xml.in:72
+#: data/applications-menu.appdata.xml.in:84
 msgid "Highlight action matches in the search view"
 msgstr "פעולת ההדגשה מוצאת התאמות בתצוגת החיפוש"
 
-#: data/applications-menu.appdata.xml.in:73
+#: data/applications-menu.appdata.xml.in:85
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "הוספת הפריט „הצגה במרכז התכנה” לתפריט"
 
-#: data/applications-menu.appdata.xml.in:87
+#: data/applications-menu.appdata.xml.in:99
 msgid "elementary, Inc."
 msgstr "elementary בע״מ"
