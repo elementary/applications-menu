@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-08-30 21:35+0000\n"
+"PO-Revision-Date: 2021-09-11 12:17+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -29,13 +29,13 @@ msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "New features"
-msgstr ""
+msgstr "Yeni özellikler"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
-msgstr ""
+msgstr " "
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:23
