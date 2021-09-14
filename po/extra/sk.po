@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-08-26 12:25+0000\n"
-"Last-Translator: janko mrkvicka <6aby74rto@relay.firefox.com>\n"
+"PO-Revision-Date: 2021-09-14 20:56+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
 "Language: sk\n"
@@ -29,13 +29,15 @@ msgstr "Spúšťajte a hľadajte aplikácie"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "New features"
-msgstr ""
+msgstr "Nové funkcie"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 msgstr ""
+"Spúšťajte aplikácie selektívne na integrovanej alebo dedikovanej grafickej "
+"karte pre systémy s hybridnou grafikou"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:23
@@ -59,7 +61,7 @@ msgstr "Aktualizované preklady"
 
 #: data/applications-menu.appdata.xml.in:25
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Zobrazovať aplikácie nezapadajúce do žiadnej kategórie ako „Ostatné“"
 
 #: data/applications-menu.appdata.xml.in:34
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
