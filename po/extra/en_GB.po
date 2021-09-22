@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-07-18 04:52+0000\n"
+"PO-Revision-Date: 2021-09-23 12:58+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu-extra/en_GB/>\n"
@@ -29,13 +29,15 @@ msgstr "Open and search for apps"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "New features"
-msgstr ""
+msgstr "New features"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 msgstr ""
+"Launch apps selectively on integrated or dedicated graphics for systems with "
+"hybrid graphics"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:23
@@ -59,11 +61,11 @@ msgstr "Updated translations"
 
 #: data/applications-menu.appdata.xml.in:25
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Show apps with no category under \"Other\""
 
 #: data/applications-menu.appdata.xml.in:34
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
-msgstr ""
+msgstr "Fix an issue where Flatpak apps wouldn't show until after a restart"
 
 #: data/applications-menu.appdata.xml.in:43
 msgid "Sort app actions above AppCenter search"
