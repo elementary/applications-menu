@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2019-02-09 11:11+0000\n"
-"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
-"Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-09-27 09:36+0000\n"
+"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-19 05:20+0000\n"
 
 #: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
@@ -131,9 +131,8 @@ msgid "Uninstall"
 msgstr "Odinstaluj"
 
 #: src/Widgets/AppContextMenu.vala:130
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Centrum programów"
+msgstr "Zobacz w AppCenter"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -223,10 +222,8 @@ msgid "bc is not installed"
 msgstr "bc nie jest zainstalowane"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Skopiuj zaznaczenie do schowka"
+msgstr "Kliknij, aby skopiować zaznaczenie do schowka"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
