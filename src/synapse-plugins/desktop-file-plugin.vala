@@ -105,6 +105,7 @@ namespace Synapse {
                 this.desktop_id = "application://" + info.desktop_id;
                 this.generic_name = info.generic_name;
                 this.gettext_domain = info.gettext_domain;
+                this.app_info = new GLib.DesktopAppInfo (info.desktop_id);
             }
         }
 
