@@ -183,7 +183,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         if (cancellable != null)
             cancellable.cancel ();
     }
-    
+
     public bool create_context_menu (Gdk.Event e) {
 
         if (result_type != APPLICATION) {
@@ -192,7 +192,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
 
-        menu.app_launched.connect (() => launch_app());
+        menu.app_launched.connect (() => launch_app ());
 
         if (menu.get_children () != null) {
             if (e.type == Gdk.EventType.KEY_PRESS) {
