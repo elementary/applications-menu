@@ -8,7 +8,6 @@ Lightweight and stylish app launcher.
 ## Building and Installation
 
 You'll need the following dependencies:
-* libappstream-dev
 * libgee-0.8-dev
 * libgranite-dev >= 6.1.0
 * libgtk-3-dev
