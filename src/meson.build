@@ -77,7 +77,6 @@ dependencies = [
     json_glib_dep,
     zeitgeist_dep,
     libsoup_dep,
-    appstream_dep,
     plank_dep,
     wingpanel_dep,
     libhandy_dep,
