@@ -1,3 +1,13 @@
+slingshot-launcher (2.9.0) bionic; urgency=medium
+
+  * Release 2.9.0 (#505)
+  * Remove unused appstream dependency (#506)
+  * Update translation files
+  * Update translation template
+  * Add support for hybrid graphics (#425)
+
+ -- elementary, Inc. <builds@elementary.io>  Mon, 27 Sep 2021 20:31:26 +0000
+
 slingshot-launcher (2.8.2) bionic; urgency=medium
 
   * Release 2.8.2 (#502)
