@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-09-27 09:36+0000\n"
+"PO-Revision-Date: 2021-09-27 14:35+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pl/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
-msgstr "Programy"
+msgstr "Aplikacje"
 
 #: src/Indicator.vala:139
 msgid "Open and search apps"
@@ -220,7 +220,7 @@ msgstr "bc nie jest zainstalowane"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
 msgid "Click to copy result to clipboard"
-msgstr "Kliknij, aby skopiować zaznaczenie do schowka"
+msgstr "Kliknij, aby skopiować wynik do schowka"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
