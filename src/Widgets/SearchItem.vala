@@ -192,8 +192,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
 
-        menu.app_launched.connect (() => launch_app ());
-
         if (menu.get_children () != null) {
             if (e.type == Gdk.EventType.KEY_PRESS) {
                 menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
