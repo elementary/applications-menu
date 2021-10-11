@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-10 18:14+0000\n"
-"PO-Revision-Date: 2021-08-16 07:29+0000\n"
+"PO-Revision-Date: 2021-10-08 17:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/fi/>\n"
@@ -29,7 +29,7 @@ msgstr "Avaa ja etsi sovelluksia"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "New features"
-msgstr ""
+msgstr "Uudet ominaisuudet"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid ""
@@ -55,7 +55,7 @@ msgstr "Pienet päivitykset"
 #: data/applications-menu.appdata.xml.in:78
 #: data/applications-menu.appdata.xml.in:87
 msgid "Updated translations"
-msgstr "Päivitetyt käännökset"
+msgstr "Päivitetyt kielikäännökset"
 
 #: data/applications-menu.appdata.xml.in:25
 msgid "Show apps with no category under \"Other\""
