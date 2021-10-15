@@ -70,6 +70,30 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             });
         });
 
+        list_box.button_press_event.connect ((e) => {
+
+            var row = list_box.get_row_at_y ((int)e.y);
+            var search_item = row as SearchItem;
+
+            if (e.button != Gdk.BUTTON_SECONDARY) {
+                return Gdk.EVENT_PROPAGATE;
+            }
+
+            return search_item.create_context_menu (e);
+        });
+
+        list_box.key_press_event.connect ((e) => {
+
+            var row = list_box.get_selected_row ();
+            var search_item = row as SearchItem;
+
+            if (e.keyval == Gdk.Key.Menu) {
+                return search_item.create_context_menu (e);
+            }
+
+            return Gdk.EVENT_PROPAGATE;
+        });
+
         add (list_box);
     }
 

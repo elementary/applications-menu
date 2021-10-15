@@ -96,6 +96,7 @@ public class Slingshot.Backend.App : Object {
 
         name = match.title;
         description = match.description;
+
         if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
             var file = File.new_for_path (match.thumbnail_path);
             icon = new FileIcon (file);
@@ -106,6 +107,21 @@ public class Slingshot.Backend.App : Object {
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
         if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
             icon = new ThemedIcon ("application-default-icon");
+        }
+
+        if (match is Synapse.ApplicationMatch) {
+
+            var app_match = (Synapse.ApplicationMatch) match;
+
+            var app_info = app_match.app_info;
+
+            this.desktop_id = app_info.get_id ();
+
+            if (app_info is DesktopAppInfo) {
+                var desktop_app_info = (DesktopAppInfo) app_info;
+                this.desktop_path = desktop_app_info.get_filename ();
+                this.prefers_default_gpu = !desktop_app_info.get_boolean ("PrefersNonDefaultGPU");
+            }
         }
 
         this.match = match;
