@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 18:14+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2021-09-12 04:42+0000\n"
 "Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,10 +29,32 @@ msgid "Open and search for apps"
 msgstr "Открывайте и находите приложения"
 
 #: data/applications-menu.appdata.xml.in:11
+#, fuzzy
+#| msgid "Performance improvements"
+msgid "Improvements"
+msgstr "Улучшения производительности"
+
+#: data/applications-menu.appdata.xml.in:13
+msgid "Show secondary click menu for search results"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.appdata.xml.in:35
+#: data/applications-menu.appdata.xml.in:44
+#: data/applications-menu.appdata.xml.in:58
+#: data/applications-menu.appdata.xml.in:66
+#: data/applications-menu.appdata.xml.in:78
+#: data/applications-menu.appdata.xml.in:87
+#: data/applications-menu.appdata.xml.in:96
+msgid "Updated translations"
+msgstr "Обновлены переводы"
+
+#: data/applications-menu.appdata.xml.in:20
 msgid "New features"
 msgstr "Новые возможности"
 
-#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:22
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
@@ -40,105 +62,94 @@ msgstr ""
 "Выборочный запуск приложений на интегрированной или выделенной графике для "
 "систем с гибридной графикой"
 
-#: data/applications-menu.appdata.xml.in:15
-#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:24
 #: data/applications-menu.appdata.xml.in:32
 #: data/applications-menu.appdata.xml.in:41
-#: data/applications-menu.appdata.xml.in:55
-#: data/applications-menu.appdata.xml.in:63
+#: data/applications-menu.appdata.xml.in:50
+#: data/applications-menu.appdata.xml.in:64
+#: data/applications-menu.appdata.xml.in:72
 msgid "Minor updates"
 msgstr "Незначительные обновления"
 
-#: data/applications-menu.appdata.xml.in:17
-#: data/applications-menu.appdata.xml.in:26
-#: data/applications-menu.appdata.xml.in:35
-#: data/applications-menu.appdata.xml.in:49
-#: data/applications-menu.appdata.xml.in:57
-#: data/applications-menu.appdata.xml.in:69
-#: data/applications-menu.appdata.xml.in:78
-#: data/applications-menu.appdata.xml.in:87
-msgid "Updated translations"
-msgstr "Обновлены переводы"
-
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:34
 msgid "Show apps with no category under \"Other\""
 msgstr "Приложения без категорий перенесены в раздел «Прочие»"
 
-#: data/applications-menu.appdata.xml.in:34
+#: data/applications-menu.appdata.xml.in:43
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
 "Исправлена проблема, при которой приложения Flatpak отображались только "
 "после перезапуска системы"
 
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:52
 msgid "Sort app actions above AppCenter search"
 msgstr "Сортировка действий приложений над поиском Центра Приложений"
 
-#: data/applications-menu.appdata.xml.in:44
+#: data/applications-menu.appdata.xml.in:53
 msgid "Always hide Terminal-based programs"
 msgstr "Консольные программы всегда скрыты"
 
-#: data/applications-menu.appdata.xml.in:45
+#: data/applications-menu.appdata.xml.in:54
 msgid "Remove document viewer from block list"
 msgstr "Средство просмотра документов убрано из списка заблокированных"
 
-#: data/applications-menu.appdata.xml.in:46
+#: data/applications-menu.appdata.xml.in:55
 msgid "Support fractions without leading number in calculator"
 msgstr "Поддержка дробей без первого числа в калькуляторе"
 
-#: data/applications-menu.appdata.xml.in:47
+#: data/applications-menu.appdata.xml.in:56
 msgid "Show overlay key in tooltip when set"
 msgstr "Отображение клавиши во всплывающей подсказке, когда она задана"
 
-#: data/applications-menu.appdata.xml.in:48
-#: data/applications-menu.appdata.xml.in:77
+#: data/applications-menu.appdata.xml.in:57
 #: data/applications-menu.appdata.xml.in:86
+#: data/applications-menu.appdata.xml.in:95
 msgid "Performance improvements"
 msgstr "Улучшения производительности"
 
-#: data/applications-menu.appdata.xml.in:65
+#: data/applications-menu.appdata.xml.in:74
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Более плавная работа в режиме просмотра сеткой и поддержка жестов на "
 "сенсорных экранах"
 
-#: data/applications-menu.appdata.xml.in:66
+#: data/applications-menu.appdata.xml.in:75
 msgid "Focus search when navigating up from the category view"
 msgstr ""
 "Фокусировка на панели поиска при переходе вверх в режиме просмотра категорий"
 
-#: data/applications-menu.appdata.xml.in:67
+#: data/applications-menu.appdata.xml.in:76
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Фокус не переходит к панели поиска, когда нажата клавиша-модификатор"
 
-#: data/applications-menu.appdata.xml.in:68
+#: data/applications-menu.appdata.xml.in:77
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Убедитесь, что категории отсортированы в алфавитном порядке"
 
-#: data/applications-menu.appdata.xml.in:75
+#: data/applications-menu.appdata.xml.in:84
 msgid "Category view is now a list"
 msgstr "Просмотр по категориям, теперь, в виде списка"
 
-#: data/applications-menu.appdata.xml.in:76
+#: data/applications-menu.appdata.xml.in:85
 msgid "Improved keyboard navigation"
 msgstr "Улучшена навигация с помощью клавиатуры"
 
-#: data/applications-menu.appdata.xml.in:83
+#: data/applications-menu.appdata.xml.in:92
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Улучшена навигация с помощью клавиатуры, включая новые подсказки и поддержку "
 "клавиши меню"
 
-#: data/applications-menu.appdata.xml.in:84
+#: data/applications-menu.appdata.xml.in:93
 msgid "Highlight action matches in the search view"
 msgstr "Подсветка совпадений, связанных с введенным текстом в панели поиска"
 
-#: data/applications-menu.appdata.xml.in:85
+#: data/applications-menu.appdata.xml.in:94
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Добавлено элемент меню «Просмотреть в Центре приложений»"
 
-#: data/applications-menu.appdata.xml.in:99
+#: data/applications-menu.appdata.xml.in:108
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
