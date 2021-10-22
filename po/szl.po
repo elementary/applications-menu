@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 18:14+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Sprōbuj zmiynić wyszukowane słowa."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Brak wynikōw do „%s”"
@@ -233,16 +233,16 @@ msgstr "Wykōnej kōmynda"
 msgid "Find and execute arbitrary commands."
 msgstr "Wyszukej i wykōnej lecy jake kōmyndy."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Wyszukuj i ôtwiyrej programy na tym kōmputrze."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Ôtwōrz ze %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Ôtwiyro teroźnie ôbrane ze %s"

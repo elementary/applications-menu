@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 18:14+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Schimbă termenii căutării."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nu sunt rezultate pentu \"%s\""
@@ -241,16 +241,16 @@ msgstr "Rulează comandă"
 msgid "Find and execute arbitrary commands."
 msgstr "Găseşte şi execută comenzi arbitrare."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Caută și execută aplicații pe calculator."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Deschide cu %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Deschide selecția curentă folosind %s"

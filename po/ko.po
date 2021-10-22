@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 18:14+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2019-02-09 12:15+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/wingpanel/"
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "검색어를 바꿔보세요."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s”에 대한 검색 결과가 없습니다"
@@ -240,16 +240,16 @@ msgstr "명령 실행"
 msgid "Find and execute arbitrary commands."
 msgstr "임의의 명령을 찾거나 실행합니다."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "컴퓨터에서 애플리케이션을 검색하고 실행합니다."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s 에서 열기"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "현재 선택한 것을 %s 에서 엽니다"

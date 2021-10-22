@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 18:14+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2018-03-13 02:52+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "嘗試搜尋其他字詞。"
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "找不到「%s」的結果"
@@ -241,16 +241,16 @@ msgstr "執行指令"
 msgid "Find and execute arbitrary commands."
 msgstr "尋找並執行任意指令。"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "搜尋並執行電腦中的應用程式。"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "以 %s 開啟"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "以 %s 開啟目前的選項"

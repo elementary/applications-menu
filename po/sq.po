@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-10 18:14+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Albanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Provo të ndryshosh termat e kërkimit."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Asnjë rezultat për “%s”"
@@ -233,16 +233,16 @@ msgstr "Ekzekuto komandë"
 msgid "Find and execute arbitrary commands."
 msgstr "Gjeni dhe ekzekutoni komanda arbitrare."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Kërko dhe ekzekuto programe në kompjuterin tënd."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Hap me %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Hap përzgjedhjen e tanishme me %s"
