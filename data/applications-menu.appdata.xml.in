@@ -6,6 +6,15 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
+    <release version="2.9.1" date="2021-10-21" urgency="medium">
+      <description>
+        <p>Improvements</p>
+        <ul>
+          <li>Show secondary click menu for search results</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.9.0" date="2021-09-27" urgency="medium">
       <description>
         <p>New features</p>
