@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-22 20:58+0000\n"
-"PO-Revision-Date: 2021-09-02 21:53+0000\n"
+"PO-Revision-Date: 2021-10-25 20:29+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/hu/>\n"
@@ -28,10 +28,8 @@ msgid "Open and search for apps"
 msgstr "Alkalmazások megnyitása és keresése"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements"
-msgstr "Teljesítménybeli javítások"
+msgstr "Javítások"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
