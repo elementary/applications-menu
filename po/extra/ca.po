@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-22 20:58+0000\n"
-"PO-Revision-Date: 2021-09-12 04:42+0000\n"
+"PO-Revision-Date: 2021-10-25 11:31+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -28,14 +28,12 @@ msgid "Open and search for apps"
 msgstr "Obriu-lo i cerqueu aplicacions"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements"
-msgstr "Millores de rendiment"
+msgstr "Millores"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "Es mostra el menú de clic secundari per als resultats de la cerca."
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:26
