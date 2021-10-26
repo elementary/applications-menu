@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"POT-Creation-Date: 2021-10-26 18:34+0000\n"
 "PO-Revision-Date: 2021-08-30 15:25+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -31,7 +31,7 @@ msgstr "افتح وابحث عن التطبيقات"
 #: data/applications-menu.appdata.xml.in:11
 #, fuzzy
 #| msgid "Performance improvements"
-msgid "Improvements"
+msgid "Improvements:"
 msgstr "تحسينات على الأداء"
 
 #: data/applications-menu.appdata.xml.in:13
@@ -51,7 +51,7 @@ msgid "Updated translations"
 msgstr "تحديثات على الترجمة"
 
 #: data/applications-menu.appdata.xml.in:20
-msgid "New features"
+msgid "New features:"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:22
@@ -66,7 +66,9 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:50
 #: data/applications-menu.appdata.xml.in:64
 #: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates"
+#, fuzzy
+#| msgid "Minor updates"
+msgid "Minor updates:"
 msgstr "تحديثات طفيفة"
 
 #: data/applications-menu.appdata.xml.in:34
