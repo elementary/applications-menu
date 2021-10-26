@@ -6,9 +6,9 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.9.1" date="2021-10-21" urgency="medium">
+    <release version="2.9.1" date="2021-10-26" urgency="medium">
       <description>
-        <p>Improvements</p>
+        <p>Improvements:</p>
         <ul>
           <li>Show secondary click menu for search results</li>
           <li>Updated translations</li>
@@ -17,11 +17,11 @@
     </release>
     <release version="2.9.0" date="2021-09-27" urgency="medium">
       <description>
-        <p>New features</p>
+        <p>New features:</p>
         <ul>
           <li>Launch apps selectively on integrated or dedicated graphics for systems with hybrid graphics</li>
         </ul>
-        <p>Minor updates</p>
+        <p>Minor updates:</p>
         <ul>
           <li>Updated translations</li>
         </ul>
@@ -29,7 +29,7 @@
     </release>
     <release version="2.8.2" date="2021-08-30" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>Minor updates:</p>
         <ul>
           <li>Show apps with no category under "Other"</li>
           <li>Updated translations</li>
@@ -38,7 +38,7 @@
     </release>
     <release version="2.8.1" date="2021-08-27" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>Minor updates:</p>
         <ul>
           <li>Fix an issue where Flatpak apps wouldn't show until after a restart</li>
           <li>Updated translations</li>
@@ -47,7 +47,7 @@
     </release>
     <release version="2.8.0" date="2021-07-14" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>Minor updates:</p>
         <ul>
           <li>Sort app actions above AppCenter search</li>
           <li>Always hide Terminal-based programs</li>
@@ -61,7 +61,7 @@
     </release>
     <release version="2.7.1" date="2020-05-28" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>Minor updates:</p>
         <ul>
           <li>Updated translations</li>
         </ul>
@@ -69,7 +69,7 @@
     </release>
     <release version="2.7.0" date="2020-04-29" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>Minor updates:</p>
         <ul>
           <li>Smoother navigation gesture in grid view and touchscreen gesture support</li>
           <li>Focus search when navigating up from the category view</li>
