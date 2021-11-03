@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-26 18:34+0000\n"
-"PO-Revision-Date: 2021-11-03 07:02+0000\n"
+"PO-Revision-Date: 2021-11-03 07:04+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pl/>\n"
@@ -143,12 +143,12 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:93
 msgid "Highlight action matches in the search view"
-msgstr ""
+msgstr "Podświetlenie pasujących akcji w widoku wyszukiwania"
 
 #: data/applications-menu.appdata.xml.in:94
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "Dodano element menu \"Zobacz w AppCenter\""
 
 #: data/applications-menu.appdata.xml.in:108
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
