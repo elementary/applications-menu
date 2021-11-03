@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-26 18:34+0000\n"
-"PO-Revision-Date: 2021-09-27 14:35+0000\n"
+"PO-Revision-Date: 2021-11-03 07:02+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pl/>\n"
@@ -26,15 +26,15 @@ msgstr "Menu aplikacji"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "Otwórz i wyszukaj aplikację"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Improvements:"
-msgstr ""
+msgstr "Ulepszenia:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "Pokaż menu kliknięciu drugim przyciskiem dla wyników wyszukiwania"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:26
@@ -46,17 +46,19 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:87
 #: data/applications-menu.appdata.xml.in:96
 msgid "Updated translations"
-msgstr ""
+msgstr "Zaktualizowano tłumaczenia"
 
 #: data/applications-menu.appdata.xml.in:20
 msgid "New features:"
-msgstr ""
+msgstr "Nowe funkcje:"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 msgstr ""
+"Włączaj aplikację selektywnie na zintegrowanej lub dedykowanej karcie "
+"graficznej w systemach z hybrydową grafiką"
 
 #: data/applications-menu.appdata.xml.in:24
 #: data/applications-menu.appdata.xml.in:32
@@ -65,71 +67,79 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:64
 #: data/applications-menu.appdata.xml.in:72
 msgid "Minor updates:"
-msgstr ""
+msgstr "Mniejsze aktualizacje:"
 
 #: data/applications-menu.appdata.xml.in:34
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Pokaż aplikację bez kategorii w \"Inne\""
 
 #: data/applications-menu.appdata.xml.in:43
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
+"Naprawiono problem przez który aplikacje Flatpak nie były pokazywane bez "
+"ponownego uruchomienia"
 
 #: data/applications-menu.appdata.xml.in:52
 msgid "Sort app actions above AppCenter search"
-msgstr ""
+msgstr "Posortowane akcje aplikacji ponad wyszukiwanie AppCenter"
 
 #: data/applications-menu.appdata.xml.in:53
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Zawsze ukrywaj programy terminalowe"
 
 #: data/applications-menu.appdata.xml.in:54
 msgid "Remove document viewer from block list"
-msgstr ""
+msgstr "Usunięto przeglądarkę dokumentów z listy zablokowanych"
 
 #: data/applications-menu.appdata.xml.in:55
 msgid "Support fractions without leading number in calculator"
-msgstr ""
+msgstr "Wsparcie dla ułamków bez wiodącej cyfry w kalkulatorze"
 
 #: data/applications-menu.appdata.xml.in:56
 msgid "Show overlay key in tooltip when set"
-msgstr ""
+msgstr "Pokaż przycisk narzuty w tooltipie gdy tak ustawiono"
 
 #: data/applications-menu.appdata.xml.in:57
 #: data/applications-menu.appdata.xml.in:86
 #: data/applications-menu.appdata.xml.in:95
 msgid "Performance improvements"
-msgstr ""
+msgstr "Ulepszenie wydajności"
 
 #: data/applications-menu.appdata.xml.in:74
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
+"Wygodniejsze gesty nawigacji w widoku siatki oraz wsparcie dla gestów panelu "
+"dotykowego"
 
 #: data/applications-menu.appdata.xml.in:75
 msgid "Focus search when navigating up from the category view"
-msgstr ""
+msgstr "Skupienie na wyszukiwaniu przy nawigacji w górę z widoku kategorii"
 
 #: data/applications-menu.appdata.xml.in:76
 msgid "Don't focus search when pressing modifier keys"
 msgstr ""
+"Nie ustawiaj fokusu na wyszukiwania podczas naciskania klawiszy "
+"modyfikujących"
 
 #: data/applications-menu.appdata.xml.in:77
 msgid "Ensure categories are sorted alphabetically"
-msgstr ""
+msgstr "Upewniono się, że kategorię są posortowane alfabetycznie"
 
 #: data/applications-menu.appdata.xml.in:84
 msgid "Category view is now a list"
-msgstr ""
+msgstr "Widok kategorii jest teraz listą"
 
 #: data/applications-menu.appdata.xml.in:85
 msgid "Improved keyboard navigation"
-msgstr ""
+msgstr "Ulepszona nawigacja przy użyciu klawiatury"
 
 #: data/applications-menu.appdata.xml.in:92
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
+"Ulepszona nawigacja przy użyciu klawiatury, włączając w to nowe tooltipy i "
+"wsparcie dla klawisza menu"
 
 #: data/applications-menu.appdata.xml.in:93
 msgid "Highlight action matches in the search view"
