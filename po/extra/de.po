@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-26 18:34+0000\n"
-"PO-Revision-Date: 2021-09-15 07:42+0000\n"
+"PO-Revision-Date: 2021-11-05 08:31+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/de/>\n"
@@ -28,10 +28,8 @@ msgid "Open and search for apps"
 msgstr "Öffnen und Suchen von Apps"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Leistungsverbesserungen"
+msgstr "Verbesserungen:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
