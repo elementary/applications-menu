@@ -56,7 +56,7 @@ namespace Synapse {
                     _name = location.get_basename ();
                 }
 
-                string _title = _("Open %s in Files").printf(_name);
+                string _title = _("Open %s in Files").printf (_name);
 
                 this.title = _title;
                 this.icon_name = _icon_name;
@@ -249,10 +249,10 @@ namespace Synapse {
             return results;
         }
 
-        private async bool check_for_match(Synapse.ResultSet results,
-                                     Gee.List<Gee.Map.Entry<Regex, int>> matchers,
-                                     GLib.File location,
-                                     string custom_name) {
+        private async bool check_for_match (Synapse.ResultSet results,
+                                            Gee.List<Gee.Map.Entry<Regex, int>> matchers,
+                                            GLib.File location,
+                                            string custom_name) {
 
             MatchInfo info;
             bool is_hidden = false;
