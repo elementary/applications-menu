@@ -46,6 +46,14 @@ namespace Synapse {
                     _icon_name = "folder-remote";
                 }
 
+                if (_icon_name == null && location.has_uri_scheme ("recent")) {
+                    _icon_name = "document-open-recent";
+                }
+
+                if (_icon_name == null && location.has_uri_scheme ("trash")) {
+                    _icon_name = "user-trash";
+                }
+
                 if (_icon_name == null) {
                     _icon_name = "folder";
                 }
@@ -142,6 +150,10 @@ namespace Synapse {
 
             private string? get_icon_user_special_dirs (string path) {
 
+                if (path == null) {
+                    return null;
+                }
+
                 if (path == GLib.Environment.get_home_dir ()) {
                     return "user-home";
                 } else if (path == GLib.Environment.get_user_special_dir (GLib.UserDirectory.DESKTOP)) {
@@ -185,8 +197,17 @@ namespace Synapse {
             var matchers = Query.get_matchers_for_query (q.query_string_folded, 0);
             var results = new Synapse.ResultSet ();
 
-            // Check for Home
+            // Check for Special Directories
+
             if (yield check_for_match (results, matchers, File.new_for_path (Environment.get_home_dir ()), _("Home"))) {
+                return results;
+            }
+
+            if (yield check_for_match (results, matchers, File.new_for_uri ("recent://"), _("Recent"))) {
+                return results;
+            }
+
+            if (yield check_for_match (results, matchers, File.new_for_uri ("trash://"), _("Trash"))) {
                 return results;
             }
 
