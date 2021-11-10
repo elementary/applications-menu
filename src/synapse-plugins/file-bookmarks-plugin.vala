@@ -1,5 +1,8 @@
 /*
-* Copyright (c) 2021 Justin Haygood <jhaygood86@gmail.com>
+* Copyright (c) 2017 David Hewitt <davidmhewitt@gmail.com>
+*               2015-2020 elementary LLC. <https://elementary.io>
+*               2021 Justin Haygood <jhaygood86@gmail.com>
+*               1999, 2000 Eazel, Inc.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
