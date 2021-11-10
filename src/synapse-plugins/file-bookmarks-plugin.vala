@@ -56,11 +56,7 @@ namespace Synapse {
                     _name = location.get_basename ();
                 }
 
-                print ("name: %s\n", _name);
-
-                string _title =_("Open %s in Files").printf(_name);
-
-                print ("title: %s\n", title);
+                string _title = _("Open %s in Files").printf(_name);
 
                 this.title = _title;
                 this.icon_name = _icon_name;
@@ -184,8 +180,7 @@ namespace Synapse {
             register_plugin ();
         }
 
-        public async Synapse.ResultSet? search (Synapse.Query q) throws Synapse.SearchError
-        {
+        public async Synapse.ResultSet? search (Synapse.Query q) throws Synapse.SearchError {
 
             var matchers = Query.get_matchers_for_query (q.query_string_folded, 0);
             var results = new Synapse.ResultSet ();
@@ -267,7 +262,7 @@ namespace Synapse {
 
                 is_hidden = location_info.get_is_hidden () || location_info.get_is_backup ();
             } catch (GLib.Error err) {
-                warning("%s", err.message);
+                warning ("%s", err.message);
             }
 
             if (is_hidden) {
@@ -279,22 +274,16 @@ namespace Synapse {
             var basename = location.get_basename ().down ();
             var custom_name_for_match = custom_name.down ();
 
-            print("basename: %s, custom_name: %s\n", basename, custom_name_for_match);
-
             var matched = false;
 
             foreach (var matcher in matchers) {
 
-                print("pattern: %s\n", matcher.key.get_pattern());
-
                 if (matcher.key.match (basename, RegexMatchFlags.PARTIAL, out info)) {
-                    results.add (new Result (location, custom_name), compute_relevancy(uri, matcher.value));
-                    print("matched to base name");
+                    results.add (new Result (location, custom_name), compute_relevancy (uri, matcher.value));
                     matched = true;
                     break;
                 } else if (matcher.key.match (custom_name_for_match, RegexMatchFlags.PARTIAL, out info)) {
-                    results.add (new Result (location, custom_name), compute_relevancy(uri, matcher.value));
-                    print("matched to custom name");
+                    results.add (new Result (location, custom_name), compute_relevancy (uri, matcher.value));
                     matched = true;
                     break;
                 }
