@@ -25,11 +25,11 @@ public enum Synapse.MatchType {
     UNKNOWN = 0,
     TEXT,
     APPLICATION,
+    BOOKMARK,
     GENERIC_URI,
     ACTION,
     SEARCH,
     CONTACT,
-    BOOKMARK
 }
 
 public abstract class Synapse.Match: GLib.Object {

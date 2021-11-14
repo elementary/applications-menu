@@ -21,6 +21,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         UNKNOWN = 0,
         TEXT,
         APPLICATION,
+        BOOKMARK,
         APP_ACTIONS,
         ACTION,
         GENERIC_URI,
@@ -28,8 +29,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         CONTACT,
         INTERNET,
         SETTINGS,
-        LINK,
-        BOOKMARK;
+        LINK;
 
         public unowned string to_string () {
             switch (this) {
