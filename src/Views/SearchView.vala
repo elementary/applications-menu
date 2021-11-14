@@ -56,6 +56,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                         case SearchItem.ResultType.APP_ACTIONS:
                         case SearchItem.ResultType.LINK:
                         case SearchItem.ResultType.SETTINGS:
+                        case SearchItem.ResultType.BOOKMARK:
                             search_item.app.match.execute (null);
                             break;
                         default:
@@ -109,6 +110,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                     result_type = SearchItem.ResultType.SETTINGS;
                 } else if (match is Synapse.LinkPlugin.Result) {
                     result_type = SearchItem.ResultType.INTERNET;
+                } else if (match is Synapse.FileBookmarkPlugin.Result) {
+                    result_type = SearchItem.ResultType.BOOKMARK;
                 }
 
                 if (result_type == SearchItem.ResultType.UNKNOWN) {

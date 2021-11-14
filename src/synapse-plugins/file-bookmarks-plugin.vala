@@ -70,7 +70,7 @@ namespace Synapse {
                 this.icon_name = _icon_name;
                 this.description = _("Open the selected directory");
                 this.has_thumbnail = false;
-                this.match_type = MatchType.ACTION;
+                this.match_type = MatchType.BOOKMARK;
             }
 
             public override void execute (Match? match) {
@@ -148,7 +148,7 @@ namespace Synapse {
                 return target_uri.split ("/", 6).length;
             }
 
-            private string? get_icon_user_special_dirs (string path) {
+            private string? get_icon_user_special_dirs (string? path) {
 
                 if (path == null) {
                     return null;

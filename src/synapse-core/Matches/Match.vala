@@ -28,7 +28,8 @@ public enum Synapse.MatchType {
     GENERIC_URI,
     ACTION,
     SEARCH,
-    CONTACT
+    CONTACT,
+    BOOKMARK
 }
 
 public abstract class Synapse.Match: GLib.Object {

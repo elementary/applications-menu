@@ -28,7 +28,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         CONTACT,
         INTERNET,
         SETTINGS,
-        LINK;
+        LINK,
+        BOOKMARK;
 
         public unowned string to_string () {
             switch (this) {
@@ -51,6 +52,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
                     return _("Settings");
                 case APP_ACTIONS:
                     return _("Application Actions");
+                case BOOKMARK:
+                    return _("Bookmarks");
                 default:
                     return _("Other");
             }
