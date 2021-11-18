@@ -1,7 +1,7 @@
 project(
   'slingshot',
   'vala', 'c',
-  version : '2.9.1'
+  version : '2.9.2'
 )
 
 i18n = import('i18n')
