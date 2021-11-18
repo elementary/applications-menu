@@ -6,7 +6,7 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.9.2" date="2021-11-18" urgency="medium">
+    <release version="2.9.2" date="2021-11-30" urgency="medium">
       <description>
         <p>Fixes:</p>
         <ul>
