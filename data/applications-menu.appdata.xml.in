@@ -6,6 +6,18 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
+    <release version="2.9.2" date="2021-11-18" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Prevent a potential crash on startup</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.9.1" date="2021-10-26" urgency="medium">
       <description>
         <p>Improvements:</p>
