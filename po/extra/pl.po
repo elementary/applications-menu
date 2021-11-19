@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-18 19:21+0000\n"
-"PO-Revision-Date: 2021-11-03 07:04+0000\n"
+"PO-Revision-Date: 2021-11-19 23:13+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pl/>\n"
@@ -30,11 +30,11 @@ msgstr "Otwórz i wyszukaj aplikację"
 
 #: data/applications-menu.appdata.xml.in:11
 msgid "Fixes:"
-msgstr ""
+msgstr "Poprawki:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Prevent a potential crash on startup"
-msgstr ""
+msgstr "Zapobiegnięto potencjalnemu błędowi krytycznemu przy starcie"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:36
