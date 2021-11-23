@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 19:21+0000\n"
+"POT-Creation-Date: 2021-11-23 19:15+0000\n"
 "PO-Revision-Date: 2020-01-07 19:53+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
 msgid "Applications"
 msgstr "Aplikacije"
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
 msgstr "Internet"
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
 msgstr "Drugo"
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Poskusite spremeniti iskalni niz."
 
-#: src/Views/SearchView.vala:128
+#: src/Views/SearchView.vala:131
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ni rezultatov za “%s”"
@@ -134,33 +134,37 @@ msgstr "Odstrani"
 msgid "View in AppCenter"
 msgstr "Odpri v centru za aplikacije"
 
-#: src/Widgets/SearchItem.vala:36
+#: src/Widgets/SearchItem.vala:37
 msgid "Text"
 msgstr "Besedilo"
 
-#: src/Widgets/SearchItem.vala:40
+#: src/Widgets/SearchItem.vala:41
 msgid "Files"
 msgstr "Datoteke"
 
-#: src/Widgets/SearchItem.vala:43
+#: src/Widgets/SearchItem.vala:44
 msgid "Actions"
 msgstr "Akcije"
 
-#: src/Widgets/SearchItem.vala:45
+#: src/Widgets/SearchItem.vala:46
 msgid "Search"
 msgstr "Iskanje"
 
-#: src/Widgets/SearchItem.vala:47
+#: src/Widgets/SearchItem.vala:48
 msgid "Contacts"
 msgstr "Stiki"
 
-#: src/Widgets/SearchItem.vala:51
+#: src/Widgets/SearchItem.vala:52
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Widgets/SearchItem.vala:54
 msgid "Application Actions"
 msgstr "Akcije v aplikacijah"
+
+#: src/Widgets/SearchItem.vala:56
+msgid "Bookmarks"
+msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

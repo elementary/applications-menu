@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 19:21+0000\n"
+"POT-Creation-Date: 2021-11-23 19:15+0000\n"
 "PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
 msgid "Applications"
 msgstr "Program"
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
 msgstr "Internet"
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
 msgstr "Övrigt"
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Försök med att ändra söktermer."
 
-#: src/Views/SearchView.vala:128
+#: src/Views/SearchView.vala:131
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Inga resultat för \"%s\""
@@ -135,33 +135,37 @@ msgstr "Avinstallera"
 msgid "View in AppCenter"
 msgstr "AppCenter"
 
-#: src/Widgets/SearchItem.vala:36
+#: src/Widgets/SearchItem.vala:37
 msgid "Text"
 msgstr "Text"
 
-#: src/Widgets/SearchItem.vala:40
+#: src/Widgets/SearchItem.vala:41
 msgid "Files"
 msgstr "Filer"
 
-#: src/Widgets/SearchItem.vala:43
+#: src/Widgets/SearchItem.vala:44
 msgid "Actions"
 msgstr "Åtgärder"
 
-#: src/Widgets/SearchItem.vala:45
+#: src/Widgets/SearchItem.vala:46
 msgid "Search"
 msgstr "Sök"
 
-#: src/Widgets/SearchItem.vala:47
+#: src/Widgets/SearchItem.vala:48
 msgid "Contacts"
 msgstr "Kontakter"
 
-#: src/Widgets/SearchItem.vala:51
+#: src/Widgets/SearchItem.vala:52
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Widgets/SearchItem.vala:54
 msgid "Application Actions"
 msgstr "Programfunktioner"
+
+#: src/Widgets/SearchItem.vala:56
+msgid "Bookmarks"
+msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
