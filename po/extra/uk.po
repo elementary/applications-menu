@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 19:15+0000\n"
-"PO-Revision-Date: 2021-11-18 22:48+0000\n"
+"PO-Revision-Date: 2021-11-23 21:47+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/uk/>\n"
@@ -35,7 +35,7 @@ msgstr "Нові можливості:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "Показ результатів пошуку у теках із закладок"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Fixes:"
