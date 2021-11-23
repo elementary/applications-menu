@@ -59,6 +59,7 @@ sources = [
     'synapse-plugins/calculator-plugin.vala',
     'synapse-plugins/command-plugin.vala',
     'synapse-plugins/desktop-file-plugin.vala',
+    'synapse-plugins/file-bookmarks-plugin.vala',
     'synapse-plugins/switchboard-plugin.vala',
     'synapse-plugins/system-managment.vala',
     'synapse-plugins/link-plugin.vala',

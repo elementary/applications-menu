@@ -6,8 +6,12 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.9.2" date="2021-11-30" urgency="medium">
+    <release version="2.10.0" date="2021-11-23" urgency="medium">
       <description>
+        <p>New features:</p>
+        <ul>
+          <li>Show search results for bookmarked folders</li>
+        </ul>
         <p>Fixes:</p>
         <ul>
           <li>Prevent a potential crash on startup</li>
