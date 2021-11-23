@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 19:15+0000\n"
-"PO-Revision-Date: 2021-11-19 13:26+0000\n"
+"PO-Revision-Date: 2021-11-24 00:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -34,7 +34,7 @@ msgstr "新機能:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "ブックマークされたフォルダーの検索結果を表示"
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Fixes:"
