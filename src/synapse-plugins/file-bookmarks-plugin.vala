@@ -64,7 +64,24 @@ namespace Synapse {
                     _name = location.get_basename ();
                 }
 
-                string _title = _("Open %s in Files").printf (_name);
+                var appinfo = AppInfo.get_default_for_uri_scheme (file.get_uri_scheme ());
+                if (appinfo == null) {
+                    try {
+                        var info = file.query_info (
+                            FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null
+                        );
+
+                        if (info.has_attribute (FileAttribute.STANDARD_CONTENT_TYPE)) {
+                            appinfo = AppInfo.get_default_for_type (
+                                info.get_attribute_string (FileAttribute.STANDARD_CONTENT_TYPE), true
+                            );
+                        }
+                    } catch (Error e) {
+                        appinfo = new DesktopAppInfo ("io.elementary.files.desktop");
+                    }
+                }
+
+                string _title = _("Open %s in %s").printf (_name, appinfo.get_display_name ());
 
                 this.title = _title;
                 this.icon_name = _icon_name;
