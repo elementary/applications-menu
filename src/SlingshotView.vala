@@ -71,9 +71,10 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
         view_selector_revealer.add (view_selector);
 
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.placeholder_text = _("Search Apps");
-        search_entry.hexpand = true;
+        search_entry = new Gtk.SearchEntry () {
+            placeholder_text = _("Search Apps and Actions"),
+            hexpand = true
+        };
         search_entry.secondary_icon_tooltip_markup = Granite.markup_accel_tooltip (
             {"<Ctrl>BackSpace"}, _("Clear all")
         );
@@ -126,7 +127,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         });
 
         focus_in_event.connect (() => {
-            search_entry.grab_focus ();
+            grab_focus ();
             return Gdk.EVENT_PROPAGATE;
         });
 
@@ -141,7 +142,12 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             search.begin (search_entry.text);
         });
 
-        search_entry.grab_focus ();
+        search_entry.focus_in_event.connect (() => {
+            if (modality != Modality.SEARCH_VIEW) {
+                set_modality (Modality.SEARCH_VIEW);
+            }
+        });
+
         search_entry.activate.connect (search_entry_activated);
 
         category_view.search_focus_request.connect (() => {
@@ -329,12 +335,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
     public void show_slingshot () {
         search_entry.text = "";
-
-    /* TODO
-        set_focus (null);
-    */
-
-        search_entry.grab_focus ();
         // This is needed in order to not animate if the previous view was the search view.
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
         stack.transition_type = Gtk.StackTransitionType.NONE;
@@ -354,8 +354,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 view_selector_revealer.set_reveal_child (true);
                 stack.set_visible_child_name ("normal");
-
-                search_entry.grab_focus ();
                 break;
 
             case Modality.CATEGORY_VIEW:
@@ -365,8 +363,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
 
                 view_selector_revealer.set_reveal_child (true);
                 stack.set_visible_child_name ("category");
-
-                search_entry.grab_focus ();
                 break;
 
             case Modality.SEARCH_VIEW:
