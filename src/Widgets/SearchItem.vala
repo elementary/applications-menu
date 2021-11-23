@@ -21,6 +21,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         UNKNOWN = 0,
         TEXT,
         APPLICATION,
+        BOOKMARK,
         APP_ACTIONS,
         ACTION,
         GENERIC_URI,
@@ -51,6 +52,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
                     return _("Settings");
                 case APP_ACTIONS:
                     return _("Application Actions");
+                case BOOKMARK:
+                    return _("Bookmarks");
                 default:
                     return _("Other");
             }
