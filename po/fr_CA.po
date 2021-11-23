@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 19:21+0000\n"
+"POT-Creation-Date: 2021-11-23 19:15+0000\n"
 "PO-Revision-Date: 2017-12-20 21:11+0000\n"
 "Last-Translator: Marcio <marcio.pelegrini@gmail.com>\n"
 "Language-Team: French (Canada) <https://weblate.elementary.io/projects/"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
 msgid "Applications"
 msgstr "Applications"
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
 msgstr "Internet"
 
@@ -85,7 +85,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
 msgstr "Autre"
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Essayez de modifier les termes de la recherche."
 
-#: src/Views/SearchView.vala:128
+#: src/Views/SearchView.vala:131
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Aucun résultat pour \"%s\""
@@ -129,33 +129,37 @@ msgstr "Désinstaller"
 msgid "View in AppCenter"
 msgstr "Boutique d'Applications"
 
-#: src/Widgets/SearchItem.vala:36
+#: src/Widgets/SearchItem.vala:37
 msgid "Text"
 msgstr "Texte"
 
-#: src/Widgets/SearchItem.vala:40
+#: src/Widgets/SearchItem.vala:41
 msgid "Files"
 msgstr "Fichiers"
 
-#: src/Widgets/SearchItem.vala:43
+#: src/Widgets/SearchItem.vala:44
 msgid "Actions"
 msgstr "Actions"
 
-#: src/Widgets/SearchItem.vala:45
+#: src/Widgets/SearchItem.vala:46
 msgid "Search"
 msgstr "Rechercher"
 
-#: src/Widgets/SearchItem.vala:47
+#: src/Widgets/SearchItem.vala:48
 msgid "Contacts"
 msgstr "Contacts"
 
-#: src/Widgets/SearchItem.vala:51
+#: src/Widgets/SearchItem.vala:52
 msgid "Settings"
 msgstr "Paramètres"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Widgets/SearchItem.vala:54
 msgid "Application Actions"
 msgstr "Actions des applications"
+
+#: src/Widgets/SearchItem.vala:56
+msgid "Bookmarks"
+msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

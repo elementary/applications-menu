@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 19:21+0000\n"
+"POT-Creation-Date: 2021-11-23 19:15+0000\n"
 "PO-Revision-Date: 2017-07-07 23:24+0000\n"
 "Last-Translator: Lawrence Aberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
 msgid "Applications"
 msgstr "Dwumadie Ahoroɔ"
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
 msgstr "Intanɛt"
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
 msgstr "Afoforɔ"
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr "Sesã nsɛm a wobɔ de hwehwɛe no hwɛ."
 
-#: src/Views/SearchView.vala:128
+#: src/Views/SearchView.vala:131
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Biribiara nni hɔ ɛwɔ ɛdin “%s”"
@@ -134,33 +134,37 @@ msgstr "Yi fi so"
 msgid "View in AppCenter"
 msgstr "Dwumadie Twebea"
 
-#: src/Widgets/SearchItem.vala:36
+#: src/Widgets/SearchItem.vala:37
 msgid "Text"
 msgstr "Nkyerɛwee"
 
-#: src/Widgets/SearchItem.vala:40
+#: src/Widgets/SearchItem.vala:41
 msgid "Files"
 msgstr "Files"
 
-#: src/Widgets/SearchItem.vala:43
+#: src/Widgets/SearchItem.vala:44
 msgid "Actions"
 msgstr "Dwuma Ahoroɔ"
 
-#: src/Widgets/SearchItem.vala:45
+#: src/Widgets/SearchItem.vala:46
 msgid "Search"
 msgstr "Hwehwɛ"
 
-#: src/Widgets/SearchItem.vala:47
+#: src/Widgets/SearchItem.vala:48
 msgid "Contacts"
 msgstr "Contacts"
 
-#: src/Widgets/SearchItem.vala:51
+#: src/Widgets/SearchItem.vala:52
 msgid "Settings"
 msgstr "Nhyehyɛe"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Widgets/SearchItem.vala:54
 msgid "Application Actions"
 msgstr "Dwumadie Yi Ho Dwuma Ahoroɔ"
+
+#: src/Widgets/SearchItem.vala:56
+msgid "Bookmarks"
+msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
