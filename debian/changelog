@@ -1,3 +1,16 @@
+slingshot-launcher (2.10.1) bionic; urgency=medium
+
+  * Release 2.10.1 (#522)
+  * switchboard-plugin: Re-add a GLib.MainLoop (#521)
+  * Release 2.10.0 (#515)
+  * Bookmarks Plugin: Get default file browser name (#517)
+  * Update translation files
+  * Update translation template
+  * Add Files bookmarks to search (#514)
+  * Avoid using a MainLoop in Switchboard Plugin (#513)
+
+ -- elementary, Inc. <builds@elementary.io>  Wed, 24 Nov 2021 22:03:56 +0000
+
 slingshot-launcher (2.10.0) bionic; urgency=medium
 
   * Release 2.10.0 (#515)
