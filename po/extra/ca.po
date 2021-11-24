@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-23 19:15+0000\n"
-"PO-Revision-Date: 2021-11-22 02:40+0000\n"
+"PO-Revision-Date: 2021-11-24 11:02+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -34,7 +34,7 @@ msgstr "Característiques noves:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "Mostra els resultats de la cerca de les carpetes marcades."
 
 #: data/applications-menu.appdata.xml.in:15
 msgid "Fixes:"
