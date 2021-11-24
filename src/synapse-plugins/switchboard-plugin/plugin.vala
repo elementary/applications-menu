@@ -31,17 +31,15 @@ public struct PlugInfo {
 }
 
 public class SwitchboardPlugin : GLib.Object {
+    private GLib.MainLoop main_loop;
     private GLib.DBusConnection connection;
-    private SourceFunc callback;
+
     const string DBUS_INTERFACE = "io.elementary.ApplicationsMenu.Switchboard";
     const string DBUS_PATH = "/io/elementary/applicationsmenu";
 
     construct {
-        run_dbus.begin ();
-    }
+        main_loop = new GLib.MainLoop ();
 
-    private async void run_dbus () {
-        callback = run_dbus.callback;
         debug ("Connecting to %s", dbus_address);
 
         try {
@@ -53,8 +51,9 @@ public class SwitchboardPlugin : GLib.Object {
         } catch (Error e) {
             error ("D-Bus failure: %s", e.message);
         }
-        yield load_plugs ();
-        yield;
+
+        load_plugs.begin ();
+        main_loop.run ();
     }
 
     private async void load_plugs () {
@@ -112,9 +111,7 @@ public class SwitchboardPlugin : GLib.Object {
             critical (e.message);
         }
 
-        if (callback != null) {
-            Idle.add ((owned)callback);
-        }
+        main_loop.quit ();
     }
 }
 
