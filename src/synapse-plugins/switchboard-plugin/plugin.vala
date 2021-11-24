@@ -37,7 +37,12 @@ public class SwitchboardPlugin : GLib.Object {
     const string DBUS_PATH = "/io/elementary/applicationsmenu";
 
     construct {
-        run_dbus.begin ();
+        var loop = new GLib.MainLoop (null, true);
+        run_dbus.begin ((obj, res) => {
+            run_dbus.end (res);
+            loop.quit ();
+        });
+        loop.run ();
     }
 
     private async void run_dbus () {
@@ -45,7 +50,7 @@ public class SwitchboardPlugin : GLib.Object {
         debug ("Connecting to %s", dbus_address);
 
         try {
-            connection = new DBusConnection.for_address_sync (
+            connection = yield new DBusConnection.for_address (
                 dbus_address,
                 GLib.DBusConnectionFlags.AUTHENTICATION_CLIENT | GLib.DBusConnectionFlags.DELAY_MESSAGE_PROCESSING
             );
@@ -107,7 +112,7 @@ public class SwitchboardPlugin : GLib.Object {
 
         var parameters = new Variant.tuple ({new Variant.array (new GLib.VariantType ("(sssas)"), children)});
         try {
-            connection.call_sync (null, DBUS_PATH, DBUS_INTERFACE, "SetPlugs", parameters, null, GLib.DBusCallFlags.NO_AUTO_START, -1);
+            yield connection.call (null, DBUS_PATH, DBUS_INTERFACE, "SetPlugs", parameters, null, GLib.DBusCallFlags.NO_AUTO_START, -1);
         } catch (GLib.Error e) {
             critical (e.message);
         }
