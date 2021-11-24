@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 19:15+0000\n"
+"POT-Creation-Date: 2021-11-24 22:04+0000\n"
 "PO-Revision-Date: 2020-10-11 18:14+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,135 +28,142 @@ msgid "Open and search for apps"
 msgstr "अ‍ॅप्स उघडा आणि शोधा"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:36
-msgid "New features:"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:13
-msgid "Show search results for bookmarked folders"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:15
+#: data/applications-menu.appdata.xml.in:27
 msgid "Fixes:"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:17
-msgid "Prevent a potential crash on startup"
+#: data/applications-menu.appdata.xml.in:13
+msgid "Fix a regression with settings search"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:19
-#: data/applications-menu.appdata.xml.in:40
-#: data/applications-menu.appdata.xml.in:48
-#: data/applications-menu.appdata.xml.in:57
-#: data/applications-menu.appdata.xml.in:66
-#: data/applications-menu.appdata.xml.in:80
-#: data/applications-menu.appdata.xml.in:88
-#, fuzzy
-#| msgid "Minor updates"
-msgid "Minor updates:"
-msgstr "किरकोळ अद्यतने"
-
-#: data/applications-menu.appdata.xml.in:21
-#: data/applications-menu.appdata.xml.in:30
-#: data/applications-menu.appdata.xml.in:42
-#: data/applications-menu.appdata.xml.in:51
-#: data/applications-menu.appdata.xml.in:60
-#: data/applications-menu.appdata.xml.in:74
-#: data/applications-menu.appdata.xml.in:82
-#: data/applications-menu.appdata.xml.in:94
-#: data/applications-menu.appdata.xml.in:103
-#: data/applications-menu.appdata.xml.in:112
-msgid "Updated translations"
-msgstr "अद्ययावत भाषांतर"
-
-#: data/applications-menu.appdata.xml.in:27
+#: data/applications-menu.appdata.xml.in:15
+#: data/applications-menu.appdata.xml.in:39
 #, fuzzy
 #| msgid "Performance improvements"
 msgid "Improvements:"
 msgstr "कामगिरी सुधारणा"
 
+#: data/applications-menu.appdata.xml.in:17
+#: data/applications-menu.appdata.xml.in:33
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:54
+#: data/applications-menu.appdata.xml.in:63
+#: data/applications-menu.appdata.xml.in:72
+#: data/applications-menu.appdata.xml.in:86
+#: data/applications-menu.appdata.xml.in:94
+#: data/applications-menu.appdata.xml.in:106
+#: data/applications-menu.appdata.xml.in:115
+#: data/applications-menu.appdata.xml.in:124
+msgid "Updated translations"
+msgstr "अद्ययावत भाषांतर"
+
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:48
+msgid "New features:"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:25
+msgid "Show search results for bookmarked folders"
+msgstr ""
+
 #: data/applications-menu.appdata.xml.in:29
+msgid "Prevent a potential crash on startup"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:60
+#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:78
+#: data/applications-menu.appdata.xml.in:92
+#: data/applications-menu.appdata.xml.in:100
+#, fuzzy
+#| msgid "Minor updates"
+msgid "Minor updates:"
+msgstr "किरकोळ अद्यतने"
+
+#: data/applications-menu.appdata.xml.in:41
 msgid "Show secondary click menu for search results"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:38
+#: data/applications-menu.appdata.xml.in:50
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:50
+#: data/applications-menu.appdata.xml.in:62
 msgid "Show apps with no category under \"Other\""
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:59
+#: data/applications-menu.appdata.xml.in:71
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:68
+#: data/applications-menu.appdata.xml.in:80
 msgid "Sort app actions above AppCenter search"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:69
+#: data/applications-menu.appdata.xml.in:81
 msgid "Always hide Terminal-based programs"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:70
+#: data/applications-menu.appdata.xml.in:82
 msgid "Remove document viewer from block list"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:71
+#: data/applications-menu.appdata.xml.in:83
 msgid "Support fractions without leading number in calculator"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:72
+#: data/applications-menu.appdata.xml.in:84
 msgid "Show overlay key in tooltip when set"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:73
-#: data/applications-menu.appdata.xml.in:102
-#: data/applications-menu.appdata.xml.in:111
+#: data/applications-menu.appdata.xml.in:85
+#: data/applications-menu.appdata.xml.in:114
+#: data/applications-menu.appdata.xml.in:123
 msgid "Performance improvements"
 msgstr "कामगिरी सुधारणा"
 
-#: data/applications-menu.appdata.xml.in:90
+#: data/applications-menu.appdata.xml.in:102
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr "ग्रिड व्यू आणि टचस्क्रीन जेश्चर समर्थनामधील नितळ नेव्हिगेशन जेश्चर"
 
-#: data/applications-menu.appdata.xml.in:91
+#: data/applications-menu.appdata.xml.in:103
 msgid "Focus search when navigating up from the category view"
 msgstr "श्रेणी दृश्यातून नॅव्हिगेट करताना शोधावर लक्ष केंद्रित करा"
 
-#: data/applications-menu.appdata.xml.in:92
+#: data/applications-menu.appdata.xml.in:104
 msgid "Don't focus search when pressing modifier keys"
 msgstr "सुधारक की दाबताना शोधाकडे लक्ष देऊ नका"
 
-#: data/applications-menu.appdata.xml.in:93
+#: data/applications-menu.appdata.xml.in:105
 msgid "Ensure categories are sorted alphabetically"
 msgstr "श्रेण्या वर्णमाला क्रमवारीनुसार लावल्या आहेत याची खात्री करा"
 
-#: data/applications-menu.appdata.xml.in:100
+#: data/applications-menu.appdata.xml.in:112
 msgid "Category view is now a list"
 msgstr "श्रेणी दृश्य आता एक यादी आहे"
 
-#: data/applications-menu.appdata.xml.in:101
+#: data/applications-menu.appdata.xml.in:113
 msgid "Improved keyboard navigation"
 msgstr "सुधारित कीबोर्ड नेव्हिगेशन"
 
-#: data/applications-menu.appdata.xml.in:108
+#: data/applications-menu.appdata.xml.in:120
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr "नवीन टूलटिप्स आणि मेनू की समर्थनासह सुधारित कीबोर्ड नेव्हिगेशन"
 
-#: data/applications-menu.appdata.xml.in:109
+#: data/applications-menu.appdata.xml.in:121
 msgid "Highlight action matches in the search view"
 msgstr "शोध दृश्यात कृती जुळण्या हायलाइट करा"
 
-#: data/applications-menu.appdata.xml.in:110
+#: data/applications-menu.appdata.xml.in:122
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "\"अ‍ॅप सेंटरमध्ये पहा\" असा मेनू आयटम जोडा"
 
-#: data/applications-menu.appdata.xml.in:124
+#: data/applications-menu.appdata.xml.in:136
 msgid "elementary, Inc."
 msgstr "एलिमेंटरी, Inc."
