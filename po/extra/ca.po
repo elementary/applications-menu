@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-24 22:04+0000\n"
-"PO-Revision-Date: 2021-11-24 11:02+0000\n"
+"PO-Revision-Date: 2021-11-25 14:08+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -34,7 +34,7 @@ msgstr "Correccions:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Fix a regression with settings search"
-msgstr ""
+msgstr "Correcció d'una regressió amb la cerca de paràmetres"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:39
