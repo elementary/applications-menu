@@ -148,9 +148,15 @@ public class Synapse.SwitchboardPlugin : Object, Activatable, ItemProvider {
         foreach (unowned Synapse.PlugInfo plug in plugs) {
             // Retrieve the string that this plug/setting can be searched by
             string searchable_name = plug.path.length > 0 ? plug.path[plug.path.length - 1] : plug.title;
+
             foreach (var matcher in matchers) {
                 MatchInfo info;
                 if (matcher.key.match (searchable_name.down (), 0, out info)) {
+                    result.add (new SwitchboardObject (plug), Match.Score.AVERAGE + Match.Score.INCREMENT_MEDIUM);
+                    break;
+                }
+
+                if (matcher.key.match (plug.title.down (), 0, out info)) {
                     result.add (new SwitchboardObject (plug), Match.Score.AVERAGE + Match.Score.INCREMENT_MEDIUM);
                     break;
                 }
