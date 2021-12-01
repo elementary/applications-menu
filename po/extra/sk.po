@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-24 22:04+0000\n"
-"PO-Revision-Date: 2021-09-14 20:56+0000\n"
+"PO-Revision-Date: 2021-11-30 20:22+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
@@ -30,18 +30,16 @@ msgstr "Spúšťajte a hľadajte aplikácie"
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:27
 msgid "Fixes:"
-msgstr ""
+msgstr "Opravy:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Fix a regression with settings search"
-msgstr ""
+msgstr "Opravená regresia vo vyhľadávaní nastavení"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:39
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Vylepšenia výkonu"
+msgstr "Vylepšenia:"
 
 #: data/applications-menu.appdata.xml.in:17
 #: data/applications-menu.appdata.xml.in:33
@@ -59,18 +57,16 @@ msgstr "Aktualizované preklady"
 
 #: data/applications-menu.appdata.xml.in:23
 #: data/applications-menu.appdata.xml.in:48
-#, fuzzy
-#| msgid "New features"
 msgid "New features:"
-msgstr "Nové funkcie"
+msgstr "Nové funkcie:"
 
 #: data/applications-menu.appdata.xml.in:25
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "Zobrazovať výsledky vyhľadávania pre priečinky v záložkách"
 
 #: data/applications-menu.appdata.xml.in:29
 msgid "Prevent a potential crash on startup"
-msgstr ""
+msgstr "Zabránenie potenciálnemu pádu pri štarte"
 
 #: data/applications-menu.appdata.xml.in:31
 #: data/applications-menu.appdata.xml.in:52
@@ -79,14 +75,13 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:78
 #: data/applications-menu.appdata.xml.in:92
 #: data/applications-menu.appdata.xml.in:100
-#, fuzzy
-#| msgid "Minor updates"
 msgid "Minor updates:"
-msgstr "Drobné aktualizácie"
+msgstr "Menšie aktualizácie:"
 
 #: data/applications-menu.appdata.xml.in:41
 msgid "Show secondary click menu for search results"
 msgstr ""
+"Zobrazovať menu po kliknutí sekundárnym tlačidlom vo výsledkoch vyhľadávania"
 
 #: data/applications-menu.appdata.xml.in:50
 msgid ""
