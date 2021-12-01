@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 21:48+0000\n"
-"PO-Revision-Date: 2021-11-25 00:27+0000\n"
+"PO-Revision-Date: 2021-12-02 00:39+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/uk/>\n"
@@ -29,14 +29,12 @@ msgid "Open and search for apps"
 msgstr "Відкривайте та знаходьте застосунки"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Improvements:"
 msgid "Improvements"
-msgstr "Удосконалення:"
+msgstr "Удосконалення"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "Налаштування пошуку завжди шукати повну назву"
 
 #: data/applications-menu.appdata.xml.in:19
 #: data/applications-menu.appdata.xml.in:35
