@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-24 22:04+0000\n"
+"POT-Creation-Date: 2021-12-01 21:48+0000\n"
 "PO-Revision-Date: 2021-11-30 20:22+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -28,61 +28,71 @@ msgid "Open and search for apps"
 msgstr "Open and search for apps"
 
 #: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:27
+#, fuzzy
+#| msgid "Improvements:"
+msgid "Improvements"
+msgstr "Improvements:"
+
+#: data/applications-menu.appdata.xml.in:13
+msgid "Searching settings always searches the full title"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:19
+#: data/applications-menu.appdata.xml.in:35
 msgid "Fixes:"
 msgstr "Fixes:"
 
-#: data/applications-menu.appdata.xml.in:13
+#: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr "Fix a regression with settings search"
 
-#: data/applications-menu.appdata.xml.in:15
-#: data/applications-menu.appdata.xml.in:39
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
 msgid "Improvements:"
 msgstr "Improvements:"
 
-#: data/applications-menu.appdata.xml.in:17
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-#: data/applications-menu.appdata.xml.in:54
-#: data/applications-menu.appdata.xml.in:63
-#: data/applications-menu.appdata.xml.in:72
-#: data/applications-menu.appdata.xml.in:86
+#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:41
+#: data/applications-menu.appdata.xml.in:50
+#: data/applications-menu.appdata.xml.in:62
+#: data/applications-menu.appdata.xml.in:71
+#: data/applications-menu.appdata.xml.in:80
 #: data/applications-menu.appdata.xml.in:94
-#: data/applications-menu.appdata.xml.in:106
-#: data/applications-menu.appdata.xml.in:115
-#: data/applications-menu.appdata.xml.in:124
+#: data/applications-menu.appdata.xml.in:102
+#: data/applications-menu.appdata.xml.in:114
+#: data/applications-menu.appdata.xml.in:123
+#: data/applications-menu.appdata.xml.in:132
 msgid "Updated translations"
 msgstr "Updated translations"
 
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:48
+#: data/applications-menu.appdata.xml.in:31
+#: data/applications-menu.appdata.xml.in:56
 msgid "New features:"
 msgstr "New features:"
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:33
 msgid "Show search results for bookmarked folders"
 msgstr "Show search results for bookmarked folders"
 
-#: data/applications-menu.appdata.xml.in:29
+#: data/applications-menu.appdata.xml.in:37
 msgid "Prevent a potential crash on startup"
 msgstr "Prevent a potential crash on startup"
 
-#: data/applications-menu.appdata.xml.in:31
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:39
 #: data/applications-menu.appdata.xml.in:60
-#: data/applications-menu.appdata.xml.in:69
-#: data/applications-menu.appdata.xml.in:78
-#: data/applications-menu.appdata.xml.in:92
+#: data/applications-menu.appdata.xml.in:68
+#: data/applications-menu.appdata.xml.in:77
+#: data/applications-menu.appdata.xml.in:86
 #: data/applications-menu.appdata.xml.in:100
+#: data/applications-menu.appdata.xml.in:108
 msgid "Minor updates:"
 msgstr "Minor updates:"
 
-#: data/applications-menu.appdata.xml.in:41
+#: data/applications-menu.appdata.xml.in:49
 msgid "Show secondary click menu for search results"
 msgstr "Show secondary click menu for search results"
 
-#: data/applications-menu.appdata.xml.in:50
+#: data/applications-menu.appdata.xml.in:58
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
@@ -90,80 +100,80 @@ msgstr ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 
-#: data/applications-menu.appdata.xml.in:62
+#: data/applications-menu.appdata.xml.in:70
 msgid "Show apps with no category under \"Other\""
 msgstr "Show apps with no category under \"Other\""
 
-#: data/applications-menu.appdata.xml.in:71
+#: data/applications-menu.appdata.xml.in:79
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr "Fix an issue where Flatpak apps wouldn't show until after a restart"
 
-#: data/applications-menu.appdata.xml.in:80
+#: data/applications-menu.appdata.xml.in:88
 msgid "Sort app actions above AppCenter search"
 msgstr "Sort app actions above AppCenter search"
 
-#: data/applications-menu.appdata.xml.in:81
+#: data/applications-menu.appdata.xml.in:89
 msgid "Always hide Terminal-based programs"
 msgstr "Always hide Terminal-based programs"
 
-#: data/applications-menu.appdata.xml.in:82
+#: data/applications-menu.appdata.xml.in:90
 msgid "Remove document viewer from block list"
 msgstr "Remove document viewer from block list"
 
-#: data/applications-menu.appdata.xml.in:83
+#: data/applications-menu.appdata.xml.in:91
 msgid "Support fractions without leading number in calculator"
 msgstr "Support fractions without leading number in calculator"
 
-#: data/applications-menu.appdata.xml.in:84
+#: data/applications-menu.appdata.xml.in:92
 msgid "Show overlay key in tooltip when set"
 msgstr "Show overlay key in tooltip when set"
 
-#: data/applications-menu.appdata.xml.in:85
-#: data/applications-menu.appdata.xml.in:114
-#: data/applications-menu.appdata.xml.in:123
+#: data/applications-menu.appdata.xml.in:93
+#: data/applications-menu.appdata.xml.in:122
+#: data/applications-menu.appdata.xml.in:131
 msgid "Performance improvements"
 msgstr "Performance improvements"
 
-#: data/applications-menu.appdata.xml.in:102
+#: data/applications-menu.appdata.xml.in:110
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 
-#: data/applications-menu.appdata.xml.in:103
+#: data/applications-menu.appdata.xml.in:111
 msgid "Focus search when navigating up from the category view"
 msgstr "Focus search when navigating up from the category view"
 
-#: data/applications-menu.appdata.xml.in:104
+#: data/applications-menu.appdata.xml.in:112
 msgid "Don't focus search when pressing modifier keys"
 msgstr "Don't focus search when pressing modifier keys"
 
-#: data/applications-menu.appdata.xml.in:105
+#: data/applications-menu.appdata.xml.in:113
 msgid "Ensure categories are sorted alphabetically"
 msgstr "Ensure categories are sorted alphabetically"
 
-#: data/applications-menu.appdata.xml.in:112
+#: data/applications-menu.appdata.xml.in:120
 msgid "Category view is now a list"
 msgstr "Category view is now a list"
 
-#: data/applications-menu.appdata.xml.in:113
+#: data/applications-menu.appdata.xml.in:121
 msgid "Improved keyboard navigation"
 msgstr "Improved keyboard navigation"
 
-#: data/applications-menu.appdata.xml.in:120
+#: data/applications-menu.appdata.xml.in:128
 msgid ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 msgstr ""
 "Improved keyboard navigation, including new tooltips and menu key support"
 
-#: data/applications-menu.appdata.xml.in:121
+#: data/applications-menu.appdata.xml.in:129
 msgid "Highlight action matches in the search view"
 msgstr "Highlight action matches in the search view"
 
-#: data/applications-menu.appdata.xml.in:122
+#: data/applications-menu.appdata.xml.in:130
 msgid "Add a \"View in AppCenter\" menu item"
 msgstr "Add a \"View in AppCenter\" menu item"
 
-#: data/applications-menu.appdata.xml.in:136
+#: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
