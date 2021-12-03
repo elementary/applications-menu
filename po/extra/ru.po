@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 21:48+0000\n"
 "PO-Revision-Date: 2021-12-03 16:41+0000\n"
-"Last-Translator: Daniil <solodyankin.d@outlook.com>\n"
+"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
 "Language: ru\n"
@@ -29,10 +29,8 @@ msgid "Open and search for apps"
 msgstr "Открывайте и находите приложения"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Improvements:"
 msgid "Improvements"
-msgstr "Улучшения:"
+msgstr "Улучшения"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
