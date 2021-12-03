@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-01 21:48+0000\n"
-"PO-Revision-Date: 2021-12-03 16:41+0000\n"
-"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
+"PO-Revision-Date: 2021-12-03 16:46+0000\n"
+"Last-Translator: Daniil <solodyankin.d@outlook.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
 "Language: ru\n"
@@ -34,7 +34,7 @@ msgstr "Улучшения"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "При поиске в настройках всегда выполнять поиск по полному названию"
 
 #: data/applications-menu.appdata.xml.in:19
 #: data/applications-menu.appdata.xml.in:35
