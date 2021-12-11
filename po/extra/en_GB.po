@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2021-12-02 08:04+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -28,8 +28,10 @@ msgid "Open and search for apps"
 msgstr "Open and search for apps"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Improvements"
-msgstr "Improvements"
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
+msgid "Improvements:"
+msgstr "Improvements:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
@@ -43,11 +45,6 @@ msgstr "Fixes:"
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr "Fix a regression with settings search"
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-msgid "Improvements:"
-msgstr "Improvements:"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -175,3 +172,6 @@ msgstr "Add a \"View in AppCenter\" menu item"
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Improvements"
+#~ msgstr "Improvements"

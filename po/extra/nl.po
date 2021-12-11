@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2020-06-18 15:11+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,9 +28,11 @@ msgid "Open and search for apps"
 msgstr "Open en zoek apps"
 
 #: data/applications-menu.appdata.xml.in:11
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
 #, fuzzy
 #| msgid "Performance improvements"
-msgid "Improvements"
+msgid "Improvements:"
 msgstr "Prestatieverbeteringen"
 
 #: data/applications-menu.appdata.xml.in:13
@@ -45,13 +47,6 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr ""
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-#, fuzzy
-#| msgid "Performance improvements"
-msgid "Improvements:"
-msgstr "Prestatieverbeteringen"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -183,3 +178,8 @@ msgstr "Een “Toon in AppCenter” menu item toegevoegd"
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#, fuzzy
+#~| msgid "Performance improvements"
+#~ msgid "Improvements"
+#~ msgstr "Prestatieverbeteringen"

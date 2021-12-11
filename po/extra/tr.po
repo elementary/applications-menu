@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2021-11-27 13:11+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,9 +28,9 @@ msgid "Open and search for apps"
 msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Improvements:"
-msgid "Improvements"
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
+msgid "Improvements:"
 msgstr "İyileştirmeler:"
 
 #: data/applications-menu.appdata.xml.in:13
@@ -45,11 +45,6 @@ msgstr "Düzeltmeler:"
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr " "
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-msgid "Improvements:"
-msgstr "İyileştirmeler:"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -177,3 +172,8 @@ msgstr "\"Uygulama Merkezinde Görüntüle\" menü öğesi eklendi"
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#, fuzzy
+#~| msgid "Improvements:"
+#~ msgid "Improvements"
+#~ msgstr "İyileştirmeler:"

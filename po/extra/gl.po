@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2021-03-02 04:42+0000\n"
 "Last-Translator: david <dcardelleg@gmail.com>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,7 +28,9 @@ msgid "Open and search for apps"
 msgstr "Abra e busque aplicacións"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Improvements"
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
+msgid "Improvements:"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:13
@@ -42,11 +44,6 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-msgid "Improvements:"
 msgstr ""
 
 #: data/applications-menu.appdata.xml.in:25

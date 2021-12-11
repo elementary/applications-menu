@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2021-12-10 12:53+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,8 +28,10 @@ msgid "Open and search for apps"
 msgstr "Obriu-lo i cerqueu aplicacions"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Improvements"
-msgstr "Millores"
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
+msgid "Improvements:"
+msgstr "Millores:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
@@ -43,11 +45,6 @@ msgstr "Correccions:"
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr "Correcció d'una regressió amb la cerca de paràmetres"
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-msgid "Improvements:"
-msgstr "Millores:"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -182,3 +179,6 @@ msgstr "Addició d'un element del menú per veure-ho al Centre d'aplicacions"
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Improvements"
+#~ msgstr "Millores"

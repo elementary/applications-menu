@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2021-12-02 08:46+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,8 +29,10 @@ msgid "Open and search for apps"
 msgstr "Otwórz i wyszukaj aplikację"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Improvements"
-msgstr "Ulepszenia"
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
+msgid "Improvements:"
+msgstr "Ulepszenia:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
@@ -44,11 +46,6 @@ msgstr "Poprawki:"
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr "Naprawiono regresję wyszukiwania ustawień"
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-msgid "Improvements:"
-msgstr "Ulepszenia:"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -182,3 +179,6 @@ msgstr "Dodano element menu \"Zobacz w AppCenter\""
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Improvements"
+#~ msgstr "Ulepszenia"

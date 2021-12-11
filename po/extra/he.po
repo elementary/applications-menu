@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 21:48+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2021-12-03 07:54+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,8 +28,10 @@ msgid "Open and search for apps"
 msgstr "לפתוח ולחפש יישומים"
 
 #: data/applications-menu.appdata.xml.in:11
-msgid "Improvements"
-msgstr "שיפורים"
+#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:47
+msgid "Improvements:"
+msgstr "שיפורים:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
@@ -43,11 +45,6 @@ msgstr "תיקונים:"
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
 msgstr "תוקנה רגרסיה עם חיפוש בהגדרות"
-
-#: data/applications-menu.appdata.xml.in:23
-#: data/applications-menu.appdata.xml.in:47
-msgid "Improvements:"
-msgstr "שיפורים:"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -173,3 +170,6 @@ msgstr "הוספת הפריט „הצגה במרכז התכנה” לתפריט"
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
 msgstr "elementary בע״מ"
+
+#~ msgid "Improvements"
+#~ msgstr "שיפורים"
