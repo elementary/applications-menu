@@ -6,9 +6,9 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
-    <release version="2.10.2" date="2021-12-01" urgency="medium">
+    <release version="2.10.2" date="2021-12-10" urgency="medium">
       <description>
-      <p>Improvements</p>
+      <p>Improvements:</p>
       <ul>
         <li>Searching settings always searches the full title</li>
       </ul>
