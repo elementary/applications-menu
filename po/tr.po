@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-11-23 21:47+0000\n"
+"PO-Revision-Date: 2021-12-22 22:04+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -260,7 +260,7 @@ msgstr "%s adresini varsayılan web tarayıcısında aç"
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
-msgstr "%s adresini %s ile aç"
+msgstr "%s klasörünü %s ile aç"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
