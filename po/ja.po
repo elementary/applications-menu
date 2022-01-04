@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-11-24 00:12+0000\n"
+"PO-Revision-Date: 2022-01-04 02:15+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -195,7 +195,7 @@ msgstr "%s を %s で検索"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr "ストアでアプリを検索します"
+msgstr "アプリストアで検索します"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
