@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2020-06-07 20:11+0000\n"
+"PO-Revision-Date: 2022-01-10 01:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -30,10 +30,8 @@ msgstr "Spouštějte a hledejte aplikace"
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:23
 #: data/applications-menu.appdata.xml.in:47
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Vylepšení odezvy"
+msgstr "Vylepšení:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
@@ -82,10 +80,8 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:86
 #: data/applications-menu.appdata.xml.in:100
 #: data/applications-menu.appdata.xml.in:108
-#, fuzzy
-#| msgid "Minor updates"
 msgid "Minor updates:"
-msgstr "Drobné aktualizace"
+msgstr "Drobné aktualizace:"
 
 #: data/applications-menu.appdata.xml.in:49
 msgid "Show secondary click menu for search results"
@@ -129,7 +125,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:122
 #: data/applications-menu.appdata.xml.in:131
 msgid "Performance improvements"
-msgstr "Vylepšení odezvy"
+msgstr "Vylepšení výkonu"
 
 #: data/applications-menu.appdata.xml.in:110
 msgid ""
