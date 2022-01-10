@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2022-01-10 17:06+0000\n"
-"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Last-Translator: Michal Grňo <m93a.cz@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/cs/>\n"
 "Language: cs\n"
@@ -46,33 +46,31 @@ msgstr "Vyčistit vše"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Příslušenství"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Univerzální přístup"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Programování"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Akce"
+msgstr "Vzdělávání"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Věda"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Hry"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
@@ -80,15 +78,15 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Zvuk a video"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Kancelář"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Systémové nástroje"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
@@ -100,7 +98,7 @@ msgstr "Spustit příkaz…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Výchozí"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -112,10 +110,9 @@ msgid "No Results for “%s”"
 msgstr "Žádné výsledky pro „%s“"
 
 #: src/Widgets/AppContextMenu.vala:78
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Otevřít pomocí %s"
+msgstr "Otevřít pomocí grafiky %s"
 
 #: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
@@ -225,10 +222,8 @@ msgid "bc is not installed"
 msgstr "bc není nainstalováno"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Zkopírovat výběr do schránky"
+msgstr "Kliknutím zkopírujete výběr do schránky"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
