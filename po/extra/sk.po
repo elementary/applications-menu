@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-11-30 20:22+0000\n"
+"PO-Revision-Date: 2022-02-05 20:44+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/sk/>\n"
@@ -35,7 +35,7 @@ msgstr "Vylepšenia:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "Hľadanie nastavení vždy vyhľadá úplný nadpis"
 
 #: data/applications-menu.appdata.xml.in:19
 #: data/applications-menu.appdata.xml.in:35
