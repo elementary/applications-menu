@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-09-21 18:27+0000\n"
-"Last-Translator: Rafael Bautista Martínez <iuninefrendor@gmail.com>\n"
+"PO-Revision-Date: 2022-02-18 07:13+0000\n"
+"Last-Translator: Jose Manuel Hernandez Farias <ing.josemhf@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -110,10 +110,9 @@ msgid "No Results for “%s”"
 msgstr "Sin resultados para «%s»"
 
 #: src/Widgets/AppContextMenu.vala:78
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Abrir con %s"
+msgstr "Abrir con los gráficos %s"
 
 #: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
@@ -161,7 +160,7 @@ msgstr "Acciones de la aplicación"
 
 #: src/Widgets/SearchItem.vala:56
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
