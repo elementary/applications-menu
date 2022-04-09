@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-12-02 08:46+0000\n"
+"PO-Revision-Date: 2022-04-09 01:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -81,7 +81,7 @@ msgstr "起動時にクラッシュすることがある不具合を修正"
 #: data/applications-menu.appdata.xml.in:100
 #: data/applications-menu.appdata.xml.in:108
 msgid "Minor updates:"
-msgstr "軽微なアップデート:"
+msgstr "そのほかのアップデート:"
 
 #: data/applications-menu.appdata.xml.in:49
 msgid "Show secondary click menu for search results"
