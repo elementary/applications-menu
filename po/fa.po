@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
 "PO-Revision-Date: 2022-04-14 22:06+0000\n"
-"Last-Translator: Pikhosh <pikhosh@gmail.com>\n"
+"Last-Translator: Hossein <yahiceg727@wii999.com>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/fa/>\n"
 "Language: fa\n"
@@ -42,7 +42,7 @@ msgstr "جستجو برنامه ها"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "پاک کردن همه"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -54,7 +54,7 @@ msgstr ""
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "برنامه نویسی"
 
 #: src/Backend/AppSystem.vala:102
 msgid "Education"
@@ -66,15 +66,15 @@ msgstr ""
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "بازی ها"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "گرافیک"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
-msgstr ""
+msgstr "اینترنت"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
@@ -132,7 +132,7 @@ msgstr "مشاهده در مرکز برنامه"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"
-msgstr ""
+msgstr "متن"
 
 #: src/Widgets/SearchItem.vala:41
 msgid "Files"
