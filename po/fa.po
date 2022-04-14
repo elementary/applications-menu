@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2022-04-14 20:46+0000\n"
+"PO-Revision-Date: 2022-04-14 22:06+0000\n"
 "Last-Translator: Pikhosh <pikhosh@gmail.com>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/fa/>\n"
@@ -38,7 +38,7 @@ msgstr "نمایش دسته‌ای"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
-msgstr "جستجو برنامه"
+msgstr "جستجو برنامه ها"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
@@ -78,19 +78,19 @@ msgstr ""
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "صدا و ویدیو"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "آفیس"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "ابزار های سیستم"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
-msgstr ""
+msgstr "دیگر"
 
 #: src/Backend/App.vala:88
 msgid "Run this command…"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "پیش فرض"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -124,12 +124,11 @@ msgstr ""
 
 #: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
-msgstr ""
+msgstr "حذف نصب"
 
 #: src/Widgets/AppContextMenu.vala:130
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "نمایش دسته‌ای"
+msgstr "مشاهده در مرکز برنامه"
 
 #: src/Widgets/SearchItem.vala:37
 msgid "Text"
@@ -137,7 +136,7 @@ msgstr ""
 
 #: src/Widgets/SearchItem.vala:41
 msgid "Files"
-msgstr ""
+msgstr "فایل ها"
 
 #: src/Widgets/SearchItem.vala:44
 msgid "Actions"
@@ -145,7 +144,7 @@ msgstr ""
 
 #: src/Widgets/SearchItem.vala:46
 msgid "Search"
-msgstr ""
+msgstr "جست و جو"
 
 #: src/Widgets/SearchItem.vala:48
 msgid "Contacts"
@@ -153,7 +152,7 @@ msgstr ""
 
 #: src/Widgets/SearchItem.vala:52
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: src/Widgets/SearchItem.vala:54
 msgid "Application Actions"
@@ -212,7 +211,7 @@ msgstr ""
 
 #: src/synapse-plugins/calculator-plugin.vala:50
 msgid "Calculator"
-msgstr ""
+msgstr "ماشین حساب"
 
 #: src/synapse-plugins/calculator-plugin.vala:51
 msgid "Calculate basic expressions."
@@ -246,7 +245,7 @@ msgstr ""
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
-msgstr ""
+msgstr "باز کردن با %s"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
