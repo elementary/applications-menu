@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-12-13 20:43+0000\n"
+"PO-Revision-Date: 2022-04-20 20:08+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -35,7 +35,7 @@ msgstr "İyileştirmeler:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "Arama ayarları her zaman bütün başlığı arar"
 
 #: data/applications-menu.appdata.xml.in:19
 #: data/applications-menu.appdata.xml.in:35
@@ -67,11 +67,11 @@ msgstr "Yeni özellikler:"
 
 #: data/applications-menu.appdata.xml.in:33
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "Yer işaretli klasörler için arama sonuçlarını göster"
 
 #: data/applications-menu.appdata.xml.in:37
 msgid "Prevent a potential crash on startup"
-msgstr ""
+msgstr "Başlangıçta olası bir çökme engellendi"
 
 #: data/applications-menu.appdata.xml.in:39
 #: data/applications-menu.appdata.xml.in:60
@@ -85,7 +85,7 @@ msgstr "Küçük güncellemeler:"
 
 #: data/applications-menu.appdata.xml.in:49
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "Arama sonuçları için ikincil tıklama menüsünü göster"
 
 #: data/applications-menu.appdata.xml.in:58
 msgid ""
