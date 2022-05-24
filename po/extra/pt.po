@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-12-13 14:45+0000\n"
+"PO-Revision-Date: 2022-05-24 18:54+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pt/>\n"
@@ -35,16 +35,16 @@ msgstr "Melhorias:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "As definições de pesquisa pesquisam sempre o título completo"
 
 #: data/applications-menu.appdata.xml.in:19
 #: data/applications-menu.appdata.xml.in:35
 msgid "Fixes:"
-msgstr ""
+msgstr "Correções:"
 
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
-msgstr ""
+msgstr "Corrige uma regressão com pesquisa de definições"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -63,15 +63,15 @@ msgstr "Traduções atualizadas"
 #: data/applications-menu.appdata.xml.in:31
 #: data/applications-menu.appdata.xml.in:56
 msgid "New features:"
-msgstr ""
+msgstr "Novas funcionalidades:"
 
 #: data/applications-menu.appdata.xml.in:33
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "Mostra resultados de pesquisa de pastas marcadas como marcadores"
 
 #: data/applications-menu.appdata.xml.in:37
 msgid "Prevent a potential crash on startup"
-msgstr ""
+msgstr "Previne uma potencial falha no arranque"
 
 #: data/applications-menu.appdata.xml.in:39
 #: data/applications-menu.appdata.xml.in:60
@@ -80,28 +80,30 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:86
 #: data/applications-menu.appdata.xml.in:100
 #: data/applications-menu.appdata.xml.in:108
-#, fuzzy
-#| msgid "Minor updates"
 msgid "Minor updates:"
-msgstr "Pequenas atualizações"
+msgstr "Pequenas atualizações:"
 
 #: data/applications-menu.appdata.xml.in:49
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "Mostrar menu de clique secundário para resultados de pesquisa"
 
 #: data/applications-menu.appdata.xml.in:58
 msgid ""
 "Launch apps selectively on integrated or dedicated graphics for systems with "
 "hybrid graphics"
 msgstr ""
+"Lança aplicações seletivamente em gráficos integrados ou dedicados para "
+"sistemas com gráficos híbridos"
 
 #: data/applications-menu.appdata.xml.in:70
 msgid "Show apps with no category under \"Other\""
-msgstr ""
+msgstr "Mostra aplicações sem categoria em \"Outros\""
 
 #: data/applications-menu.appdata.xml.in:79
 msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
 msgstr ""
+"Corrige um problema em que as aplicações Flatpak só apareceriam após um "
+"reinício"
 
 #: data/applications-menu.appdata.xml.in:88
 msgid "Sort app actions above AppCenter search"
