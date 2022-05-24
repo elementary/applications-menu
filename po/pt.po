@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-12-13 14:45+0000\n"
+"PO-Revision-Date: 2022-05-24 18:54+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
@@ -97,7 +97,6 @@ msgid "Run this command…"
 msgstr "Executar este comando…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
-#, fuzzy
 msgid "Default"
 msgstr "Predefinição"
 
@@ -160,7 +159,6 @@ msgid "Application Actions"
 msgstr "Ações de aplicações"
 
 #: src/Widgets/SearchItem.vala:56
-#, fuzzy
 msgid "Bookmarks"
 msgstr "Marcadores"
 
