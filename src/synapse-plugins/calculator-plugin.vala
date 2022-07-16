@@ -60,75 +60,55 @@ namespace Synapse {
             register_plugin ();
         }
 
-        private Regex regex;
-
-        construct {
-            /* The regex describes a string which *resembles* a mathematical expression. It does not
-            check for pairs of parantheses to be used correctly and only whitespace-stripped strings
-            will match. Basically it matches strings of the form:
-            "paratheses_open* number (operator paratheses_open* number paratheses_close*)+"
-            */
-            try {
-                regex = new Regex (
-                    "^\\(*(-?([.,]\\d+)?)([*/+-^]\\(*(-?([.,]\\d+)?)\\)*)+$",
-                    RegexCompileFlags.OPTIMIZE
-                );
-            } catch (Error e) {
-                critical ("Error creating regexp: %s", e.message);
-            }
-        }
-
         public bool handles_query (Query query) {
             return (QueryFlags.ACTIONS in query.query_type);
         }
 
         public async ResultSet? search (Query query) throws SearchError {
             string input = query.query_string.replace (" ", "").replace (",", ".");
-            bool matched = regex.match (input);
-
-            if (!matched && input.length > 1) {
-                input = input[0 : input.length - 1];
-                matched = regex.match (input);
+            // We only want to interpret capitals as numbers if input number base is set.
+            // We assume that in that case sensible letters are used.
+            if (!(input.contains ("ibase="))) {
+                input = input.down ();
             }
-            if (matched) {
-                Pid pid;
-                int read_fd, write_fd;
-                /* Must include math library to get non-integer results and to access standard math functions */
-                string[] argv = {"bc", "-l"};
-                string? solution = null;
 
-                try {
-                    Process.spawn_async_with_pipes (null, argv, null,
-                    SpawnFlags.SEARCH_PATH,
-                    null, out pid, out write_fd, out read_fd);
-                    UnixInputStream read_stream = new UnixInputStream (read_fd, true);
-                    DataInputStream bc_output = new DataInputStream (read_stream);
+            Pid pid;
+            int read_fd, write_fd;
+            /* Must include math library to get non-integer results and to access standard math functions */
+            string[] argv = {"bc", "-l"};
+            string? solution = null;
 
-                    UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
-                    DataOutputStream bc_input = new DataOutputStream (write_stream);
+            try {
+                Process.spawn_async_with_pipes (null, argv, null,
+                SpawnFlags.SEARCH_PATH,
+                null, out pid, out write_fd, out read_fd);
+                UnixInputStream read_stream = new UnixInputStream (read_fd, true);
+                DataInputStream bc_output = new DataInputStream (read_stream);
 
-                    bc_input.put_string (input + "\n", query.cancellable);
-                    yield bc_input.close_async (Priority.DEFAULT, query.cancellable);
-                    solution = yield bc_output.read_line_async (Priority.DEFAULT_IDLE, query.cancellable);
+                UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
+                DataOutputStream bc_input = new DataOutputStream (write_stream);
 
-                    if (solution != null) {
-                        double d = double.parse (solution);
-                        Result result = new Result (d, query.query_string);
-                        result.description = "%s\n%s".printf (
-                            "%s = %g".printf (query.query_string, d),
-                            Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
-                        );  // Used for search item tooltip
+                bc_input.put_string (input + "\n", query.cancellable);
+                yield bc_input.close_async (Priority.DEFAULT, query.cancellable);
+                solution = yield bc_output.read_line_async (Priority.DEFAULT_IDLE, query.cancellable);
 
-                        ResultSet results = new ResultSet ();
-                        results.add (result, Match.Score.AVERAGE);
-                        query.check_cancellable ();
+                if (solution != null) {
+                    double d = double.parse (solution);
+                    Result result = new Result (d, query.query_string);
+                    result.description = "%s\n%s".printf (
+                        "%s = %g".printf (query.query_string, d),
+                        Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
+                    );  // Used for search item tooltip
 
-                        return results;
-                    }
-                } catch (Error err) {
-                    if (!query.is_cancelled ()) {
-                        warning ("%s", err.message);
-                    }
+                    ResultSet results = new ResultSet ();
+                    results.add (result, Match.Score.AVERAGE);
+                    query.check_cancellable ();
+
+                    return results;
+                }
+            } catch (Error err) {
+                if (!query.is_cancelled ()) {
+                    warning ("Calculator error: %s", err.message);
                 }
             }
 
