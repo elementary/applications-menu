@@ -35,33 +35,37 @@ namespace Synapse {
     }
 
     public class ConverterPlugin: Object, Activatable, ItemProvider {
+        const string MASS = "unit of mass";
+        const string LENGTH = "unit of length";
+        const string VOLUME = "unit of volume";
+
         const Unit[] UNITS = {
-            {UnitType.MASS, "|kg|kilo|", "kilogram", "1.0"},
-            {UnitType.MASS, "|g|gm|", "gram", "0.001"},
-            {UnitType.MASS, "|t|tonne", "metric tonne", "1000"},
-            {UnitType.MASS, "|lb|", "pound", "0.454"},
-            {UnitType.MASS, "|oz|", "ounce", "0.0283495"},
-            {UnitType.MASS, "|st|", "stone", "6.35029"},
-            {UnitType.LENGTH, "|m|", "meter", "1.0"},
-            {UnitType.LENGTH, "|cm|", "centimeter", "0.01"},
-            {UnitType.LENGTH, "|mm|", "millimeter", "0.001"},
-            {UnitType.LENGTH, "|km|", "kilometer", "1000"},
-            {UnitType.LENGTH, "|yd|", "yard", "0.9144"},
-            {UnitType.LENGTH, "|ft|", "foot", "0.3048"},
-            {UnitType.LENGTH, "|in|", "inch", "0.0254"},
-            {UnitType.LENGTH, "|mi|", "mile", "1609.34"},
-            {UnitType.VOLUME, "|l|", "liter", "1.0"},
-            {UnitType.VOLUME, "|ml|", "milliliter", "0.001"},
-            {UnitType.VOLUME, "|cm3|", "cubic centimeter", "0.001"},
-            {UnitType.VOLUME, "|m3|", "cubic meter", "1000"},
-            {UnitType.VOLUME, "|gal|", "Imperial gallon", "4.54609"},
-            {UnitType.VOLUME, "|gal|", "US liquid gallon", "3.78541"},
-            {UnitType.VOLUME, "|qt|", "Imperial quart", "1.13652"},
-            {UnitType.VOLUME, "|qt|", "US liquid quart", "0.946353"},
-            {UnitType.VOLUME, "|pt|", "Imperial pint", "0.568261"},
-            {UnitType.VOLUME, "|pt|", "US liquid pint", "0.473176"},
+            {UnitType.MASS, "|kg|kilo|", NC_(MASS, "kilogram"), "1.0"},
+            {UnitType.MASS, "|g|gm|", NC_(MASS, "gram"), "0.001"},
+            {UnitType.MASS, "|t|tonne", NC_(MASS, "metric tonne"), "1000"},
+            {UnitType.MASS, "|lb|", NC_(MASS, "pound"), "0.454"},
+            {UnitType.MASS, "|oz|", NC_(MASS, "ounce"), "0.0283495"},
+            {UnitType.MASS, "|st|", NC_(MASS, "stone"), "6.35029"},
+            {UnitType.LENGTH, "|m|", NC_(LENGTH, "meter"), "1.0"},
+            {UnitType.LENGTH, "|cm|", NC_(LENGTH, "centimeter"), "0.01"},
+            {UnitType.LENGTH, "|mm|", NC_(LENGTH, "millimeter"), "0.001"},
+            {UnitType.LENGTH, "|km|", NC_(LENGTH, "kilometer"), "1000"},
+            {UnitType.LENGTH, "|yd|", NC_(LENGTH, "yard"), "0.9144"},
+            {UnitType.LENGTH, "|ft|", NC_(LENGTH, "foot"), "0.3048"},
+            {UnitType.LENGTH, "|in|", NC_(LENGTH, "inch"), "0.0254"},
+            {UnitType.LENGTH, "|mi|", NC_(LENGTH, "mile"), "1609.34"},
+            {UnitType.VOLUME, "|l|", NC_(VOLUME, "liter"), "1.0"},
+            {UnitType.VOLUME, "|ml|", NC_(VOLUME, "milliliter"), "0.001"},
+            {UnitType.VOLUME, "|cm3|", NC_(VOLUME, "cubic centimeter"), "0.001"},
+            {UnitType.VOLUME, "|m3|", NC_(VOLUME, "cubic meter"), "1000"},
+            {UnitType.VOLUME, "|gal|gallon|", NC_(VOLUME, "Imperial gallon"), "4.54609"},
+            {UnitType.VOLUME, "|gal|gallon|", NC_(VOLUME, "US liquid gallon"), "3.78541"},
+            {UnitType.VOLUME, "|qt|quart|", NC_(VOLUME, "Imperial quart"), "1.13652"},
+            {UnitType.VOLUME, "|qt|quart|", NC_(VOLUME, "US liquid quart"), "0.946353"},
+            {UnitType.VOLUME, "|pt|pint|", NC_(VOLUME, "Imperial pint"), "0.568261"},
+            {UnitType.VOLUME, "|pt|pint|", NC_(VOLUME, "US liquid pint"), "0.473176"},
         };
-        //TODO Make descriptions translatable
+
         public bool enabled { get; set; default = true; }
 
         public void activate () { }
@@ -163,7 +167,7 @@ namespace Synapse {
                         var result = new Result (
                             d,
                             ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-                            _("%.5f (%s to %s)").printf (d, u1.description, u2.description)
+                            _("%.5f (%s to %s)").printf (d, _(u1.description), _(u2.description))
                         );
                         result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"));
                         results.add (result, Match.Score.AVERAGE);
