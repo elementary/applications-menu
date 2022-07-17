@@ -73,7 +73,6 @@ namespace Synapse {
 
         private class Result: Synapse.Match, Synapse.TextMatch {
             public int default_relevancy { get; set; default = 0; }
-
             public string text { get; construct set; default = ""; }
             public Synapse.TextOrigin text_origin { get; set; }
 
@@ -167,9 +166,9 @@ namespace Synapse {
                         var result = new Result (
                             d,
                             ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-                            _("%.5f (%s to %s)").printf (d, _(u1.description), _(u2.description))
+                            _("%g (%s to %s)").printf (d, _(u1.description), _(u2.description))
                         );
-                        result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"));
+                        result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy %g to clipboard").printf (d)); //Do not arbitrarily truncate copied number (?)
                         results.add (result, Match.Score.AVERAGE);
                     }
                 }
