@@ -17,49 +17,6 @@
  */
 
 public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
-    public enum ResultType {
-        UNKNOWN = 0,
-        TEXT,
-        APPLICATION,
-        BOOKMARK,
-        APP_ACTIONS,
-        ACTION,
-        GENERIC_URI,
-        SEARCH,
-        CONTACT,
-        INTERNET,
-        SETTINGS,
-        LINK;
-
-        public unowned string to_string () {
-            switch (this) {
-                case TEXT:
-                    return _("Text");
-                case APPLICATION:
-                    return _("Applications");
-                case GENERIC_URI:
-                    return _("Files");
-                case LINK:
-                case ACTION:
-                    return _("Actions");
-                case SEARCH:
-                    return _("Search");
-                case CONTACT:
-                    return _("Contacts");
-                case INTERNET:
-                    return _("Internet");
-                case SETTINGS:
-                    return _("Settings");
-                case APP_ACTIONS:
-                    return _("Application Actions");
-                case BOOKMARK:
-                    return _("Bookmarks");
-                default:
-                    return _("Other");
-            }
-        }
-    }
-
     private const int ICON_SIZE = 32;
 
     public signal bool launch_app ();
@@ -86,9 +43,9 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
     construct {
         string markup;
-        if (result_type == SearchItem.ResultType.TEXT) {
+        if (result_type == ResultType.TEXT) {
             markup = app.match.title;
-        } else if (result_type == SearchItem.ResultType.APP_ACTIONS) {
+        } else if (result_type == ResultType.APP_ACTIONS) {
             markup = markup_string_with_search (app.match.title, search_term);
         } else {
             markup = markup_string_with_search (app.name, search_term);
@@ -121,7 +78,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
         add (grid);
 
-        if (result_type != SearchItem.ResultType.APP_ACTIONS) {
+        if (result_type != ResultType.APP_ACTIONS) {
             launch_app.connect (app.launch);
         }
 

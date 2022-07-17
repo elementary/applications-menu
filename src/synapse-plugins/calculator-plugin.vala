@@ -34,7 +34,7 @@ namespace Synapse {
             public Synapse.TextOrigin text_origin { get; set; }
 
             public Result (double result, string match_string) {
-                Object (match_type: MatchType.TEXT,
+                Object (match_type: MatchType.CALCULATION,
                         text: "%g".printf (result), //Copied to clipboard
                         title: "%g".printf (result), //Label for search item row
                         icon_name: "accessories-calculator",
