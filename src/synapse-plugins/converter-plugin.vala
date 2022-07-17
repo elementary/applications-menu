@@ -21,7 +21,7 @@
 
 namespace Synapse {
     enum UnitType {
-        WEIGHT,
+        MASS,
         LENGTH,
         VOLUME,
         UNKNOWN
@@ -35,11 +35,32 @@ namespace Synapse {
 
     public class ConverterPlugin: Object, Activatable, ItemProvider {
         const Unit[] UNITS = {
-            {UnitType.WEIGHT, "kg", "1.0"},
-            {UnitType.WEIGHT, "g", "0.001"},
-            {UnitType.WEIGHT, "lb", "0.454"},
-            {UnitType.WEIGHT, "oz", "0.0283495"}
+            {UnitType.MASS, "kg", "1.0"},
+            {UnitType.MASS, "g", "0.001"},
+            {UnitType.MASS, "t", "1000"},
+            {UnitType.MASS, "lb", "0.454"},
+            {UnitType.MASS, "oz", "0.0283495"},
+            {UnitType.MASS, "st", "6.35029"},
+            {UnitType.LENGTH, "m", "1.0"},
+            {UnitType.LENGTH, "cm", "0.01"},
+            {UnitType.LENGTH, "mm", "0.001"},
+            {UnitType.LENGTH, "km", "1000"},
+            {UnitType.LENGTH, "yd", "0.9144"},
+            {UnitType.LENGTH, "ft", "0.3048"},
+            {UnitType.LENGTH, "in", "0.0254"},
+            {UnitType.LENGTH, "mi", "1609.34"},
+            {UnitType.VOLUME, "l", "1.0"},
+            {UnitType.VOLUME, "ml", "0.001"},
+            {UnitType.VOLUME, "cm3", "0.001"},
+            {UnitType.VOLUME, "m3", "1000"},
+            {UnitType.VOLUME, "gal", "4.54609"}, //Imperial
+            {UnitType.VOLUME, "gal", "3.78541"}, //US 
+            {UnitType.VOLUME, "qt", "1.13652"}, //Imperial
+            {UnitType.VOLUME, "qt", "0.946353"}, //US 
+            {UnitType.VOLUME, "pt", "0.568261"}, //Imperial
+            {UnitType.VOLUME, "pt", "0.473176"}, //US 
         };
+        //TODO Disambiguate some units (or give both results)
         public bool enabled { get; set; default = true; }
 
         public void activate () { }
@@ -87,7 +108,7 @@ namespace Synapse {
             */
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d+(kg|lb|g|oz)=>(kg|lb|g|oz)$""",
+                    """^\d*.?\d+[a-zA-Z]{1,3}=>[a-zA-Z]{1,3}$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -121,10 +142,13 @@ namespace Synapse {
                         unit2_size = u.size;
                     }
                 }
+
+                debug ("num %f unit1 %s unit2 %s, unit1_type %s, unit1_size %s", num, unit1, unit2, unit1_type.to_string (), unit1_size);
             }
 
             if (num != 0.0 && unit1_type == unit2_type && unit1_size != "") {
                 var calc_s = "%f * %s / %s".printf (num, unit1_size, unit2_size);
+                debug ("calc s %s", calc_s);
                 Pid pid;
                 int read_fd, write_fd;
                 /* Must include math library to get non-integer results and to access standard math functions */
