@@ -113,7 +113,7 @@ namespace Synapse {
             */
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d+[a-zA-Z]+=>[a-zA-Z]+$""",
+                    """^\d*.?\d+[a-zA-Z]+(2|3)?=>[a-zA-Z]+(2|3)?$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
