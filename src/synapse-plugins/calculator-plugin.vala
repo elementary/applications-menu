@@ -65,16 +65,16 @@ namespace Synapse {
         construct {
             try {
                 /* The express_regex describes a string which *resembles* a mathematical expression in one of two forms:
-                <number><operator><number> e.g. 2 + 2
-                <opening parenthesis><number expression><closing parenthesis) e.g. c (0.5)
+                <alphanum><operator><alphanum> e.g. 2 + 2
+                <opening parenthesis><number expression><closing parenthesis) e.g. sqrt (0.5)
                 */
                 express_regex = new Regex (
-                    """^.*(\d+[\/\+\-\*\^]{1,2}\.?\d+|\(\d+.*\))+.*$""",
+                    """^.*(\w+[\/\+\-\*\^\%\!\&\|]{1,2}\.?\w+|\(\d+.*\))+.*$""",
                     RegexCompileFlags.OPTIMIZE
                 );
                 /* The base_regex describes a string which starts with a bc number base expression */
                 base_regex = new Regex (
-                    """^.base=\d+;*$""",
+                    """^.base=\d+;.*$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -92,14 +92,13 @@ namespace Synapse {
             bool matched = true;
             if (base_regex.match (input)) {
                 // If a number base is set, the expression may include hexadecimals
-                input.canon ("1234567890ABCDEFscalej();%^&*/-+|!<>iobase=.", '@');
-                // express_regex does not cope with hexadecimal expressions so omit test
+                // or be doing a conversion, in which there is no expression
+                // so omit regex test and instead limit to certain characters for simple expressions
+                input.canon ("1234567890ABCDEF();%^&|!*/-+iobase=.", '@');
+
             } else {
-                // Disallow capitals as well
+                // Disallow capitals and test for possible mathematical expression
                 input = input.down ();
-                input.canon ("1234567890scalej();%^&*/-+|!<>=.", '@');
-                // Test whether there is at least one arithmetic expression to avoid spurious
-                // solutions for some input.
                 matched = express_regex.match (input);
             }
 
