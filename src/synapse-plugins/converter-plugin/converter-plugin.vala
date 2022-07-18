@@ -59,14 +59,12 @@ namespace Synapse {
         private Regex convert_regex;
 
         construct {
-            /* The regex describes a string which *resembles* a mathematical expression. It does not
-            check for pairs of parantheses to be used correctly and only whitespace-stripped strings
-            will match. Basically it matches strings of the form:
-            "paratheses_open* number (operator paratheses_open* number paratheses_close*)+"
+            /* The regex describes a string which *resembles* a unit conversion request in the form
+             * <number> <unit> => <unit>.  Some restrictions are placed on the form of <unit> (letters maybe followed by a 2 or 3).
             */
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d+[a-zA-Z]+(2|3)?=>[a-zA-Z]+(2|3)?$""",
+                    """^\d*.?\d+[a-zA-Z ]+(2|3)?=>[a-zA-Z ]+(2|3)?$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -86,21 +84,24 @@ namespace Synapse {
             Unit[] unit1 = {}, unit2 = {};
             UnitType unit1_type = UnitType.UNKNOWN, unit2_type = UnitType.UNKNOWN;
             if (matched) {
+                // Parse input into a number and two (known) units
                 var parts = input.split ("=>", 2);
                 var num_s = parts[0];
                 num_s.canon ("1234567890.", '\0');
                 var abbrev1 = parts[0].slice (num_s.length, parts[0].length);
                 var abbrev2 = parts[1];
-                var term1 = "|" + abbrev1 + "|";
-                var term2 = "|" + abbrev2 + "|";
+                var term1 = abbrev1 + "|";
+                var term2 = abbrev2 + "|";
                 num = double.parse (num_s);
                 foreach (Unit u in UNITS) {
-                    if (u.abbreviation.contains (term1) ||
+                    if (u.uid == abbrev1 ||
+                        u.abbreviation.contains (term1) ||
                         abbrev1 == u.description) {
 
                         unit1_type = u.type;
                         unit1 += u;
-                    } else if (u.abbreviation.contains (term2) ||
+                    } else if (u.uid == abbrev2 ||
+                               u.abbreviation.contains (term2) ||
                                abbrev2 == u.description) {
 
                         unit2_type = u.type;
@@ -112,18 +113,47 @@ namespace Synapse {
             }
 
             if (num != 0.0 && unit1_type == unit2_type && unit1_type != UnitType.UNKNOWN) {
+                // Get result(s)
                 results = new ResultSet ();
                 foreach (var u1 in unit1) {
                     foreach (var u2 in unit2) {
-                        var solution = yield get_solution (num, u1.size, u2.size, query.cancellable);
-                        var d = double.parse (solution);
-                        var result = new Result (
-                            d,
-                            ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-                            _("%g (%s to %s)").printf (d, _(u1.description), _(u2.description))
-                        );
-                        result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy %g to clipboard").printf (d)); //Do not arbitrarily truncate copied number (?)
-                        results.add (result, Match.Score.AVERAGE);
+                        // Find factor for each unit to a common base unit
+                        bool same_system = u1.system == u2.system; // Whether common base will be in same system or metric
+                        var parent = u1;
+                        double factor1 = 1.0, factor2 = 1.0;
+                        while (parent.base_unit != "" &&
+                               (!same_system || u1.system == parent.system)) {
+                               debug ("u1 parent id %s, parent size %s", parent.uid, parent.size);
+                            factor1 *= get_factor (parent.size);
+                            parent = find_parent_unit (parent.base_unit);
+                        }
+
+                        var ultimate_parent1 = parent.uid;
+                        parent = u2;
+                        while (parent.base_unit != "" &&
+                               (!same_system || u2.system == parent.system)) {
+                               debug ("u2 parent id %s, parent size %s, parent factor %f", parent.uid, parent.size, get_factor (parent.size));
+                            factor2 *= get_factor (parent.size);
+                            parent = find_parent_unit (parent.base_unit);
+                        }
+
+                        if (ultimate_parent1 == parent.uid &&
+                            factor1 > 0 && factor2 > 0 ) {
+                            debug ("factor1 %f, factor2 %f", factor1, factor2);
+                            // var solution = yield get_solution (num, factor1, factor2, query.cancellable);
+                            // var d = double.parse (solution);
+                            var d = num * factor1 / factor2;
+
+                            var result = new Result (
+                                d,
+                                ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+                                _("%g (%s to %s)").printf (d, _(u1.description), _(u2.description))
+                            );
+                            result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (
+                                _("Click to copy %g to clipboard").printf (d)  //Do not arbitrarily truncate copied number (?)
+                            );
+                            results.add (result, Match.Score.AVERAGE);
+                        }
                     }
                 }
             }
@@ -132,34 +162,30 @@ namespace Synapse {
             return results;
         }
 
-        private async string? get_solution (double num, string size1, string size2, Cancellable cancellable) {
-            var calc_s = "%f * %s / %s".printf (num, size1, size2);
-            debug ("calc s %s", calc_s);
-            Pid pid;
-            int read_fd, write_fd;
-            /* Must include math library to get non-integer results and to access standard math functions */
-            string[] argv = {"bc", "-l"};
-
-            try {
-                Process.spawn_async_with_pipes (null, argv, null,
-                SpawnFlags.SEARCH_PATH,
-                null, out pid, out write_fd, out read_fd);
-                UnixInputStream read_stream = new UnixInputStream (read_fd, true);
-                DataInputStream bc_output = new DataInputStream (read_stream);
-
-                UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
-                DataOutputStream bc_input = new DataOutputStream (write_stream);
-
-                bc_input.put_string (calc_s + "\n", cancellable);
-                yield bc_input.close_async (Priority.DEFAULT, cancellable);
-                return yield bc_output.read_line_async (Priority.DEFAULT_IDLE, cancellable);
-            } catch (Error err) {
-                if (!cancellable.is_cancelled ()) {
-                    warning ("%s", err.message);
+        private Unit? find_parent_unit (string uid) {
+            foreach (Unit u in UNITS) {
+                if (u.uid == uid) {
+                    return u;
                 }
             }
 
             return null;
+        }
+
+        private double get_factor (string size) {
+            var parts = size.split ("/");  // Deal with possible fraction
+            debug ("get factor for %s, parts length %u", size, parts.length);
+
+            switch (parts.length) {
+                case 1:
+                    return double.parse (parts[0]);
+                case 2:
+                    var divisor = double.parse (parts[1]);
+                    debug ("divisor part %s, double %f", parts[1], divisor);
+                    return divisor != 0.0 ? double.parse (parts[0]) / divisor : 0.0;
+                default:
+                    return 0.0;
+            }
         }
     }
 }
