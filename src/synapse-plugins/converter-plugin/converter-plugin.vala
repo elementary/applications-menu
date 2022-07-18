@@ -60,7 +60,8 @@ namespace Synapse {
 
         construct {
             /* The regex describes a string which *resembles* a unit conversion request in the form
-             * <number> <unit> => <unit>.  Some restrictions are placed on the form of <unit> (letters maybe followed by a 2 or 3).
+             * <number> <unit> => <unit>.
+             * Some restrictions are placed on the form of <unit> (letters maybe followed by a 2 or 3).
             */
             try {
                 convert_regex = new Regex (
@@ -84,7 +85,8 @@ namespace Synapse {
             Unit[] unit1 = {}, unit2 = {};
             UnitType unit1_type = UnitType.UNKNOWN, unit2_type = UnitType.UNKNOWN;
             if (matched) {
-                // Parse input into a number and two (known) units
+                // Parse input into a number and two (known) unit arrays
+                // Some abbreviations are ambiguous (used in >1 system) so get all possible units
                 var parts = input.split ("=>", 2);
                 var num_s = parts[0];
                 num_s.canon ("1234567890.", '\0');
@@ -118,12 +120,14 @@ namespace Synapse {
                 foreach (var u1 in unit1) {
                     foreach (var u2 in unit2) {
                         // Find factor for each unit to a common base unit
-                        bool same_system = u1.system == u2.system; // Whether common base will be in same system or metric
+                        // If both units are in the same system stop at the base unit for that system, otherwise
+                        // stop at the metric base unit.
+                        bool same_system = u1.system == u2.system;
                         var parent = u1;
                         double factor1 = 1.0, factor2 = 1.0;
                         while (parent.base_unit != "" &&
                                (!same_system || u1.system == parent.system)) {
-                               debug ("u1 parent id %s, parent size %s", parent.uid, parent.size);
+
                             factor1 *= get_factor (parent.size);
                             parent = find_parent_unit (parent.base_unit);
                         }
@@ -132,18 +136,15 @@ namespace Synapse {
                         parent = u2;
                         while (parent.base_unit != "" &&
                                (!same_system || u2.system == parent.system)) {
-                               debug ("u2 parent id %s, parent size %s, parent factor %f", parent.uid, parent.size, get_factor (parent.size));
+
                             factor2 *= get_factor (parent.size);
                             parent = find_parent_unit (parent.base_unit);
                         }
 
                         if (ultimate_parent1 == parent.uid &&
                             factor1 > 0 && factor2 > 0 ) {
-                            debug ("factor1 %f, factor2 %f", factor1, factor2);
-                            // var solution = yield get_solution (num, factor1, factor2, query.cancellable);
-                            // var d = double.parse (solution);
-                            var d = num * factor1 / factor2;
 
+                            var d = num * factor1 / factor2;
                             var result = new Result (
                                 d,
                                 ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
