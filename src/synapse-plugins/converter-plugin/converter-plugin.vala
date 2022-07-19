@@ -120,14 +120,18 @@ namespace Synapse {
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible units
                 var parts = input.split ("=>", 2);
+
                 var num_s = parts[0];
-                var unit1_s = parts[0].slice (num_s.length, parts[0].length);
-                var unit2_s = parts[1];
+                num_s.canon ("1234567890.", '\0');
+                num = double.parse (num_s);
+
+                string unit1_s = parts[0].slice (num_s.length, parts[0].length);
+                string unit2_s = parts[1];
 
                 get_prefix_and_dimension (unit1_s, out prefix1_s, out prefix1, out dimension1);
                 get_prefix_and_dimension (unit2_s, out prefix2_s, out prefix2, out dimension2);
-                num_s.canon ("1234567890.", '\0');
-                num = double.parse (num_s);
+                debug ("unit1_s %s, unit2_s, %s, prefix1 %s, prefix2 %s", unit1_s, unit2_s, prefix1_s, prefix2_s);
+
                 foreach (Unit u in UNITS) {
                     if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix, out use_dimension)) {
                         match_arr1 += UnitMatch () {
@@ -135,8 +139,6 @@ namespace Synapse {
                             prefix = use_prefix ? prefix1 : MetricPrefix.get_default (),
                             dimension = use_dimension ? dimension1 : 1
                         };
-
-                        // unit1_type = u.type;
                     }
 
                     if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix, out use_dimension)) {
@@ -145,20 +147,20 @@ namespace Synapse {
                             prefix = use_prefix ? prefix2 : MetricPrefix.get_default (),
                             dimension = use_dimension ? dimension2 : 1
                         };
-
-                        // unit2_type = u.type;
                     }
                 }
             }
 
+            debug ("Expect %u results", match_arr1.length * match_arr2.length);
             if (num != 0.0) {
                 // Get results for each combination of input and output units
                 results = new ResultSet ();
                 foreach (var match1 in match_arr1) {
                     foreach (var match2 in match_arr2) {
+                    debug ("type1 %s, descr1 %s, dimension1 %i", match1.unit.type.to_string (), match1.unit.description, match1.dimension);
+                    debug ("type2 %s, descr2 %s, dimension2 %i", match2.unit.type.to_string (), match2.unit.description, match2.dimension);
                         if (match1.unit.type == match2.unit.type ||
                             match1.dimension != match2.dimension) {
-
                             var result = calculate_conversion_results (num, match1, match2);
                             if (result != null) {
                                 results.add (result, Match.Score.AVERAGE);
@@ -233,7 +235,7 @@ namespace Synapse {
                     _("Click to copy %g to clipboard").printf (d)
                 );
             } else {
-                debug ("Reject. parent null %s, no common root %s, dim1 %i, dim2 %i",
+                warning ("Reject. parent null %s, no common root %s, dim1 %i, dim2 %i",
                     (parent == null).to_string (),
                     parent != null ? (parent.uid != ultimate_parent1).to_string () : "",
                     dim1,

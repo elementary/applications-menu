@@ -101,13 +101,12 @@ namespace Synapse {
         {UnitType.LENGTH, UnitSystem.METRIC, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental
         {UnitType.LENGTH, UnitSystem.METRIC, "kilometer", "click|", NC_(LENGTH, "kilometer"), "1000", "meter"},
 
-        {UnitType.LENGTH, UnitSystem.UK, "inch", "in", NC_(LENGTH, "inch"), "0.0254", "meter"}, // Local root
-        {UnitType.LENGTH, UnitSystem.UK, "yard", "yd", NC_(LENGTH, "yard"), "3", "foot"}, // Local root
+        {UnitType.LENGTH, UnitSystem.UK, "inch", "in", NC_(LENGTH, "inch"), "0.0254", "meter"},
+        {UnitType.LENGTH, UnitSystem.UK, "yard", "yd", NC_(LENGTH, "yard"), "3", "foot"},
         {UnitType.LENGTH, UnitSystem.UK, "foot", "ft", NC_(LENGTH, "foot"), "12", "inch"},
         {UnitType.LENGTH, UnitSystem.UK, "fathom", "", NC_(LENGTH, "fathom"), "6", "foot"},
         {UnitType.LENGTH, UnitSystem.UK, "chain", "ch", NC_(LENGTH, "chain"), "66", "foot"},
         {UnitType.LENGTH, UnitSystem.UK, "link", "", NC_(LENGTH, "link"), "1/100", "chain"},
-
         {UnitType.LENGTH, UnitSystem.UK, "imile", "mi|mile|", NC_(LENGTH, "mile"), "1760", "yard"},
         {UnitType.LENGTH, UnitSystem.UK, "nmile", "mi|nmi|mile|", NC_(LENGTH, "nautical mile"), "1852", "yard"},
         {UnitType.LENGTH, UnitSystem.UK, "cmile", "mi|cmi|mile|", NC_(LENGTH, "country mile"), "2200", "yard"},
@@ -115,7 +114,7 @@ namespace Synapse {
 
         {UnitType.VOLUME, UnitSystem.METRIC, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"}, //Local root
 
-        {UnitType.VOLUME, UnitSystem.UK, "igal", "gal|gallon|", NC_(VOLUME, "Imperial gallon"), "4.54609", "liter"}, // Local root
+        {UnitType.VOLUME, UnitSystem.UK, "igal", "gal|gallon|", NC_(VOLUME, "Imperial gallon"), "4.54609", "liter"},
         {UnitType.VOLUME, UnitSystem.UK, "iqt", "qt|quart|", NC_(VOLUME, "Imperial quart"), "1/4", "igal"},
         {UnitType.VOLUME, UnitSystem.UK, "ipint", "pt|pint|", NC_(VOLUME, "Imperial pint"), "1/8", "igal"},
 
