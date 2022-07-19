@@ -40,6 +40,33 @@ namespace Synapse {
             }
         }
 
+        struct UnitMatch {
+            Unit unit; // Unit that matches in UNITS
+            MetricPrefix prefix; // Prefix taken into account
+            int dimension; // Dimension taken into account
+
+            public string description () {
+                string dim = "";
+                if (dimension == 2) {
+                    dim = _("squared");
+                } else if (dimension == 3) {
+                    dim = _("cubed");
+                }
+
+                /// TRANSLATORS First %s metric prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+                return _("%s%s %s").printf (prefix.prefix, unit.description, dim);
+            }
+
+            public double factor () {
+                double factor = 1.0;
+                for (int i = 0; i < dimension; i++) {
+                    factor *= prefix.factor;
+                }
+
+                return factor;
+            }
+        }
+
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (
                 typeof (ConverterPlugin),
@@ -62,7 +89,7 @@ namespace Synapse {
             /* The regex describes a string which *resembles* a unit conversion request in the form
              * <number> <unit> => <unit>.
              * Some restrictions are placed on the form of <unit> (letters maybe followed by a 2 or 3).
-            */
+             */
             try {
                 convert_regex = new Regex (
                     """^\d*.?\d+[a-zA-Z ]+(2|3)?=>[a-zA-Z ]+(2|3)?$""",
@@ -78,82 +105,64 @@ namespace Synapse {
         }
 
         public async ResultSet? search (Query query) throws SearchError {
-            ResultSet results = null;
-            string input = query.query_string.replace (" ", "").replace (",", ".").replace ("|", "");
-            bool matched = convert_regex.match (input);
-            double num = 0.0;
-            Unit[] unit1 = {}, unit2 = {};
-            UnitType unit1_type = UnitType.UNKNOWN, unit2_type = UnitType.UNKNOWN;
+            ResultSet? results = null;
+            var input = query.query_string.replace (" ", "").replace (",", ".").replace ("|", "");
+            var matched = convert_regex.match (input);
+            var num = 0.0;
+            UnitMatch[] match_arr1 = {}, match_arr2 = {};
+            // UnitType unit1_type = UnitType.UNKNOWN, unit2_type = UnitType.UNKNOWN;
+            MetricPrefix prefix1 = MetricPrefix.get_default (), prefix2 = MetricPrefix.get_default ();
+            string prefix1_s = "", prefix2_s = "";
+            int dimension1 = 1, dimension2 = 1;
+            bool use_prefix = false, use_dimension = false;
+
             if (matched) {
-                // Parse input into a number and two (known) unit arrays
+                // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible units
                 var parts = input.split ("=>", 2);
                 var num_s = parts[0];
+                var unit1_s = parts[0].slice (num_s.length, parts[0].length);
+                var unit2_s = parts[1];
+
+                get_prefix_and_dimension (unit1_s, out prefix1_s, out prefix1, out dimension1);
+                get_prefix_and_dimension (unit2_s, out prefix2_s, out prefix2, out dimension2);
                 num_s.canon ("1234567890.", '\0');
-                var abbrev1 = parts[0].slice (num_s.length, parts[0].length);
-                var abbrev2 = parts[1];
-                var term1 = abbrev1 + "|";
-                var term2 = abbrev2 + "|";
                 num = double.parse (num_s);
                 foreach (Unit u in UNITS) {
-                    if (u.uid == abbrev1 ||
-                        u.abbreviation.contains (term1) ||
-                        abbrev1 == u.description) {
+                    if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix, out use_dimension)) {
+                        match_arr1 += UnitMatch () {
+                            unit = u,
+                            prefix = use_prefix ? prefix1 : MetricPrefix.get_default (),
+                            dimension = use_dimension ? dimension1 : 1
+                        };
 
-                        unit1_type = u.type;
-                        unit1 += u;
-                    } else if (u.uid == abbrev2 ||
-                               u.abbreviation.contains (term2) ||
-                               abbrev2 == u.description) {
+                        // unit1_type = u.type;
+                    }
 
-                        unit2_type = u.type;
-                        unit2 += u;
+                    if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix, out use_dimension)) {
+                        match_arr2 += UnitMatch () {
+                            unit = u,
+                            prefix = use_prefix ? prefix2 : MetricPrefix.get_default (),
+                            dimension = use_dimension ? dimension2 : 1
+                        };
+
+                        // unit2_type = u.type;
                     }
                 }
-
-                debug ("num %f unit1 %s unit2 %s, unit1_type %s, expect %u results", num, abbrev1, abbrev2, unit1_type.to_string (), unit1.length * unit2.length);
             }
 
-            if (num != 0.0 && unit1_type == unit2_type && unit1_type != UnitType.UNKNOWN) {
-                // Get result(s)
+            if (num != 0.0) {
+                // Get results for each combination of input and output units
                 results = new ResultSet ();
-                foreach (var u1 in unit1) {
-                    foreach (var u2 in unit2) {
-                        // Find factor for each unit to a common base unit
-                        // If both units are in the same system stop at the base unit for that system, otherwise
-                        // stop at the metric base unit.
-                        bool same_system = u1.system == u2.system;
-                        var parent = u1;
-                        double factor1 = 1.0, factor2 = 1.0;
-                        while (parent.base_unit != "" &&
-                               (!same_system || u1.system == parent.system)) {
+                foreach (var match1 in match_arr1) {
+                    foreach (var match2 in match_arr2) {
+                        if (match1.unit.type == match2.unit.type ||
+                            match1.dimension != match2.dimension) {
 
-                            factor1 *= get_factor (parent.size);
-                            parent = find_parent_unit (parent.base_unit);
-                        }
-
-                        var ultimate_parent1 = parent.uid;
-                        parent = u2;
-                        while (parent.base_unit != "" &&
-                               (!same_system || u2.system == parent.system)) {
-
-                            factor2 *= get_factor (parent.size);
-                            parent = find_parent_unit (parent.base_unit);
-                        }
-
-                        if (ultimate_parent1 == parent.uid &&
-                            factor1 > 0 && factor2 > 0 ) {
-
-                            var d = num * factor1 / factor2;
-                            var result = new Result (
-                                d,
-                                ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-                                _("%g (%s to %s)").printf (d, _(u1.description), _(u2.description))
-                            );
-                            result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (
-                                _("Click to copy %g to clipboard").printf (d)  //Do not arbitrarily truncate copied number (?)
-                            );
-                            results.add (result, Match.Score.AVERAGE);
+                            var result = calculate_conversion_results (num, match1, match2);
+                            if (result != null) {
+                                results.add (result, Match.Score.AVERAGE);
+                            }
                         }
                     }
                 }
@@ -163,13 +172,188 @@ namespace Synapse {
             return results;
         }
 
-        private Unit? find_parent_unit (string uid) {
+        private Result? calculate_conversion_results (double num, UnitMatch match1, UnitMatch match2) {
+            Result? result = null;
+            Unit u1 = match1.unit, u2 = match2.unit;
+            int dim1 = match1.dimension, dim2 = match2.dimension;
+            double prefix1_f = match1.factor (), prefix2_f = match2.factor ();
+            string descr1 = match1.description (), descr2 = match2.description ();
+            bool same_system = u1.system == u2.system;
+
+            // Find factor for each unit to a common base unit
+            // Complicated because apparent dimension mismatches e.g. liter => m3
+            // If both units are in the same system stop at the base unit for that system, otherwise
+            // stop at the metric base unit.
+            Unit? parent = u1; // Parent should only be null in the case of an error in the data structure.
+            int parent_dimension = 1;
+            while (parent != null &&
+                   parent.base_unit != "" &&
+                   (!same_system || u1.system == parent.system)) {
+
+                prefix1_f *= get_factor (parent.size);
+                parent = find_parent_unit (parent.base_unit, out parent_dimension);
+                assert (parent_dimension >= dim1);
+                for (int i = dim1; i < parent_dimension; i++) {
+                    prefix1_f *= get_factor (parent.size);
+                    dim1++;
+                }
+            }
+
+            if (parent == null) {
+                return null;
+            }
+
+            parent_dimension = 1;
+            var ultimate_parent1 = parent.uid;
+            parent = u2;
+            while (parent != null && parent.base_unit != "" &&
+                   (!same_system || u2.system == parent.system)) {
+
+                // assert (parent_dimension >= dim2);
+                prefix2_f *= get_factor (parent.size);
+                parent = find_parent_unit (parent.base_unit, out parent_dimension);
+                 for (int i = dim2; i < parent_dimension; i++) {
+                     prefix2_f *= get_factor (parent.size);
+                     dim2++;
+                 }
+            }
+
+            if (parent != null &&
+                ultimate_parent1 == parent.uid &&
+                prefix1_f > 0 && prefix2_f > 0 &&
+                dim1 == dim2) {
+
+                var d = num * prefix1_f / prefix2_f;
+                result = new Result (
+                    d,
+                    ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+                    _("%g (%s to %s)").printf (d, descr1, descr2)
+                );
+                result.description = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (
+                    _("Click to copy %g to clipboard").printf (d)
+                );
+            } else {
+                debug ("Reject. parent null %s, no common root %s, dim1 %i, dim2 %i",
+                    (parent == null).to_string (),
+                    parent != null ? (parent.uid != ultimate_parent1).to_string () : "",
+                    dim1,
+                    dim2 );
+            }
+
+            return result;
+        }
+
+        private bool check_match (Unit u,
+                                  string unit_s,
+                                  string prefix,
+                                  int dimension,
+                                  out bool use_prefix,
+                                  out bool use_dimension) {
+
+            use_prefix = false;
+            use_dimension = false;
+            string[] ids = {u.uid};
+            string[] abbreviations = u.abbreviations.split ("|");
+            foreach (string s in abbreviations) {
+                ids += s;
+            }
+
+            ids += _(u.description);
+
+            var match = unit_s;
+            // Test match whole unit
+            foreach (string id in ids) {
+                if (match == id) {
+                    return true;
+                }
+            }
+
+            if (prefix != "") {
+                //Test match without prefix
+                match = unit_s[prefix.length : unit_s.length];
+                foreach (string id in ids) {
+                    if (match == id) {
+                        use_prefix = true;
+                        return true;
+                    }
+                }
+            }
+
+            if (dimension > 1) {
+                //Test match without dimension
+                match = unit_s[0 : -1];
+                foreach (string id in ids) {
+                    if (match == id) {
+                        use_dimension = true;
+                        return true;
+                    }
+                }
+            }
+
+            if (prefix != "" && dimension > 1) {
+                //Test match without either prefix or dimension
+                match = unit_s[prefix.length : -1];
+                foreach (string id in ids) {
+                    if (match == id) {
+                        use_prefix = use_dimension = true;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void get_prefix_and_dimension (string unit_s,
+                                               out string prefix_s,
+                                               out MetricPrefix prefix,
+                                               out int dimension) {
+
+            prefix = MetricPrefix.get_default ();
+            prefix_s = "";
+            dimension = 1;
+            var length = unit_s.length;
+            // var base_unit = unit_s;
+            if (length > 1) {
+                char last_c = unit_s.@get (length - 1);
+                if (last_c.isdigit ()) {
+                    dimension = last_c.digit_value ();
+                    length --;
+                }
+            }
+
+            foreach (Synapse.MetricPrefix p in PREFIXES) {
+                if (length > p.prefix.length && unit_s.has_prefix (p.prefix)) {
+                    prefix_s = p.prefix;
+                    prefix = p;
+                    break;
+                } else if (length > p.abbrev.length && unit_s.has_prefix (p.abbrev)) {
+                    prefix_s = p.abbrev;
+                    prefix = p;
+                    break;
+                }
+            }
+        }
+
+        private Unit? find_parent_unit (string uid, out int dimension) {
+            dimension = 1;
+            var base_uid = uid;
+            var length = uid.length;
+            if (length > 1) {
+                char last_c = uid.@get (length - 1);
+                if (last_c.isdigit ()) {
+                    dimension = last_c.digit_value ();
+                    base_uid = uid[0 : -1];
+                }
+            }
+
             foreach (Unit u in UNITS) {
-                if (u.uid == uid) {
+                if (u.uid == base_uid) {
                     return u;
                 }
             }
 
+            critical ("Unable to find parent for %s - data error", uid);
             return null;
         }
 
