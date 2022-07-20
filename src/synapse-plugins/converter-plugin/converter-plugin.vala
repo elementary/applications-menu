@@ -42,7 +42,7 @@ namespace Synapse {
 
         struct UnitMatch {
             Unit unit; // Unit that matches in UNITS
-            MetricPrefix prefix; // Prefix taken into account
+            SIPrefix prefix; // Prefix taken into account
             int dimension; // Dimension taken into account
 
             public string description () {
@@ -53,7 +53,7 @@ namespace Synapse {
                     dim = _("cubed");
                 }
 
-                /// TRANSLATORS First %s metric prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+                /// TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
                 return _("%s%s %s").printf (prefix.prefix, unit.description, dim);
             }
 
@@ -112,7 +112,7 @@ namespace Synapse {
             var matched = convert_regex.match (input);
             var num = 1.0;
             UnitMatch[] match_arr1 = {}, match_arr2 = {};
-            MetricPrefix prefix1 = MetricPrefix.get_default (), prefix2 = MetricPrefix.get_default ();
+            SIPrefix prefix1 = SIPrefix.get_default (), prefix2 = SIPrefix.get_default ();
             string prefix1_s = "", prefix2_s = "";
             int dimension1 = 1, dimension2 = 1;
             bool use_prefix = false, use_dimension = false;
@@ -124,7 +124,7 @@ namespace Synapse {
 
                 var num_s = parts[0];
                 num_s.canon ("1234567890.", '\0');
-                if (num_s.length > 0) {
+                if (num_s.length > 0) { // If leading number omitted, assume it to be 1.0
                     num = double.parse (num_s);
                 }
 
@@ -133,13 +133,15 @@ namespace Synapse {
 
                 get_prefix_and_dimension (unit1_s, out prefix1_s, out prefix1, out dimension1);
                 get_prefix_and_dimension (unit2_s, out prefix2_s, out prefix2, out dimension2);
-                debug ("unit1_s %s, unit2_s, %s, prefix1 %s, prefix2 %s", unit1_s, unit2_s, prefix1_s, prefix2_s);
+                debug ("unit1_s %s, unit2_s, %s, prefix1 %s, prefix2 %s",
+                       unit1_s, unit2_s, prefix1_s, prefix2_s
+                );
 
                 foreach (Unit u in UNITS) {
                     if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix, out use_dimension)) {
                         match_arr1 += UnitMatch () {
                             unit = u,
-                            prefix = use_prefix ? prefix1 : MetricPrefix.get_default (),
+                            prefix = use_prefix ? prefix1 : SIPrefix.get_default (),
                             dimension = use_dimension ? dimension1 : 1
                         };
                     }
@@ -147,7 +149,7 @@ namespace Synapse {
                     if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix, out use_dimension)) {
                         match_arr2 += UnitMatch () {
                             unit = u,
-                            prefix = use_prefix ? prefix2 : MetricPrefix.get_default (),
+                            prefix = use_prefix ? prefix2 : SIPrefix.get_default (),
                             dimension = use_dimension ? dimension2 : 1
                         };
                     }
@@ -178,22 +180,23 @@ namespace Synapse {
             int dim1 = match1.dimension, dim2 = match2.dimension;
             double factor1 = match1.factor (), factor2 = match2.factor (); // Takes into account dimension
             string descr1 = match1.description (), descr2 = match2.description ();
-            bool same_system = u1.system == u2.system;
+            // bool same_system = u1.system == u2.system;
 
-            debug ("Unit1 - %s: dimension %i, factor %g", descr1, dim1, factor1);
-            debug ("Unit2 - %s: dimension %i, factor %g", descr2, dim2, factor2);
+            warning ("Unit1 - %s: dimension %i, factor %g", descr1, dim1, factor1);
+            warning ("Unit2 - %s: dimension %i, factor %g", descr2, dim2, factor2);
 
             // Find factor for each unit to a common base unit (taking into account dimensionality and prefixes)
             // If both given units are in the same system stop at the base unit for that system, otherwise
-            // convert to metric.
+            // convert to SI.
             Unit? parent = u1; // Parent should only be null in the case of an error in the data structure.
             int parent_dimension = 1;
             while (parent != null &&
-                   parent.base_unit != "" &&
-                   (!same_system || u1.system == parent.system)) {
+                   parent.base_unit != "") {
 
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
-                debug ("parent1 %s parent_dimension1 %i, parent_factor1 %f", parent.uid, parent_dimension, parent.size ());
+                debug ("parent1 %s parent_dimension1 %i, parent_factor1 %f",
+                       parent.uid, parent_dimension, parent.size ()
+                );
                 for (int i = 0; i < parent_dimension; i++) {
                     factor1 *= parent.size ();
                 }
@@ -208,11 +211,12 @@ namespace Synapse {
             parent_dimension = 1;
             var ultimate_parent1 = parent.uid;
             parent = u2;
-            while (parent != null && parent.base_unit != "" &&
-                   (!same_system || u2.system == parent.system)) {
+            while (parent != null && parent.base_unit != "") {
 
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
-                debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f", parent.uid, parent_dimension, parent.size ());
+                debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
+                        parent.uid, parent_dimension, parent.size ()
+                );
                  for (int i = 0; i < parent_dimension; i++) {
                      factor2 *= parent.size ();
                  }
@@ -226,6 +230,7 @@ namespace Synapse {
                 factor1 > 0 && factor2 > 0 &&
                 dim1 == dim2) {
 
+                warning ("VALID CONVERSION");
                 var d = num * factor1 / factor2;
                 result = new Result (
                     d,
@@ -236,22 +241,23 @@ namespace Synapse {
                     _("Click to copy %g to clipboard").printf (d)
                 );
             } else {
-                    debug ("Invalid conversion. Parent null %s, no common root %s, dim1 %i, dim2 %i",
-                    (parent == null).to_string (),
-                    parent != null ? (parent.uid != ultimate_parent1).to_string () : "",
-                    dim1,
-                    dim2 );
+                warning ("INVALID CONVERSION. Parent null %s, no common root %s, dim1 %i, dim2 %i",
+                (parent == null).to_string (),
+                parent != null ? (parent.uid != ultimate_parent1).to_string () : "",
+                dim1,
+                dim2 );
             }
 
             return result;
         }
 
-        private bool check_match (Unit u,
-                                  string unit_s,
-                                  string prefix,
-                                  int dimension,
-                                  out bool use_prefix,
-                                  out bool use_dimension) {
+        private bool check_match (
+            Unit u,
+            string unit_s,
+            string prefix,
+            int dimension,
+            out bool use_prefix,
+            out bool use_dimension) {
 
             use_prefix = false;
             use_dimension = false;
@@ -307,12 +313,13 @@ namespace Synapse {
             return false;
         }
 
-        private void get_prefix_and_dimension (string unit_s,
-                                               out string prefix_s,
-                                               out MetricPrefix prefix,
-                                               out int dimension) {
+        private void get_prefix_and_dimension (
+            string unit_s,
+            out string prefix_s,
+            out SIPrefix prefix,
+            out int dimension) {
 
-            prefix = MetricPrefix.get_default ();
+            prefix = SIPrefix.get_default ();
             prefix_s = "";
             dimension = 1;
             var length = unit_s.length;
@@ -324,7 +331,7 @@ namespace Synapse {
                 }
             }
 
-            foreach (Synapse.MetricPrefix p in PREFIXES) {
+            foreach (Synapse.SIPrefix p in PREFIXES) {
                 if (length > p.prefix.length && unit_s.has_prefix (p.prefix)) {
                     prefix_s = p.prefix;
                     prefix = p;
@@ -357,20 +364,6 @@ namespace Synapse {
 
             critical ("Unable to find parent for %s - data error", uid);
             return null;
-        }
-
-        private double get_factor (string size) {
-            var parts = size.split ("/");  // Deal with possible fraction
-
-            switch (parts.length) {
-                case 1:
-                    return double.parse (parts[0]);
-                case 2:
-                    var divisor = double.parse (parts[1]);
-                    return divisor != 0.0 ? double.parse (parts[0]) / divisor : 0.0;
-                default:
-                    return 0.0;
-            }
         }
     }
 }
