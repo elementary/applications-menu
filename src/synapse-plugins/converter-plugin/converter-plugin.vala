@@ -112,7 +112,6 @@ namespace Synapse {
             var matched = convert_regex.match (input);
             var num = 0.0;
             UnitMatch[] match_arr1 = {}, match_arr2 = {};
-            // UnitType unit1_type = UnitType.UNKNOWN, unit2_type = UnitType.UNKNOWN;
             MetricPrefix prefix1 = MetricPrefix.get_default (), prefix2 = MetricPrefix.get_default ();
             string prefix1_s = "", prefix2_s = "";
             int dimension1 = 1, dimension2 = 1;
@@ -159,14 +158,9 @@ namespace Synapse {
                 results = new ResultSet ();
                 foreach (var match1 in match_arr1) {
                     foreach (var match2 in match_arr2) {
-                    debug ("type1 %s, descr1 %s, dimension1 %i", match1.unit.type.to_string (), match1.unit.description, match1.dimension);
-                    debug ("type2 %s, descr2 %s, dimension2 %i", match2.unit.type.to_string (), match2.unit.description, match2.dimension);
-                        if (match1.unit.type == match2.unit.type ||
-                            match1.dimension != match2.dimension) {
-                            var result = calculate_conversion_results (num, match1, match2);
-                            if (result != null) {
-                                results.add (result, Match.Score.AVERAGE);
-                            }
+                        var result = calculate_conversion_results (num, match1, match2);
+                        if (result != null) {
+                            results.add (result, Match.Score.AVERAGE);
                         }
                     }
                 }
@@ -320,7 +314,6 @@ namespace Synapse {
             prefix_s = "";
             dimension = 1;
             var length = unit_s.length;
-            // var base_unit = unit_s;
             if (length > 1) {
                 char last_c = unit_s.@get (length - 1);
                 if (last_c.isdigit ()) {
