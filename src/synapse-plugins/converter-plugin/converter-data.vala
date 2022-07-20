@@ -40,8 +40,22 @@ namespace Synapse {
         public string uid; // Unique identifier
         public string abbreviations; // Vala does not support arrays in structs? Use strings concatenated with "|"
         public string description; // Translatable specific description
-        public string size; // Size as proportion of base unit (or 1 if fundamental)
+        public string size_s; // Size as proportion of base unit (or 1 if fundamental)
         public string base_unit; // The uid of the unit this is based on (or "" if fundamental)
+
+        public double size () {
+            var parts = size_s.split ("/");  // Deal with possible fraction
+
+            switch (parts.length) {
+                case 1:
+                    return double.parse (parts[0]);
+                case 2:
+                    var divisor = double.parse (parts[1]);
+                    return divisor != 0.0 ? double.parse (parts[0]) / divisor : 0.0;
+                default:
+                    return 0.0;
+            }
+        }
     }
 
     const string MASS = "unit of mass";
@@ -89,6 +103,7 @@ namespace Synapse {
     // All other local units must be convertable the local root either directly or indirectly
     // Metric units with standard prefixes may be omitted as metric prefixes are handled automatically
     // Metric units with standard prefixes may be included to accomodate non-standard abbreviations or synonyms.
+    // All links must use the target unit's uid (possibly followed by a dimension)
     // TEMPLATE:         {UnitType., UnitSystem., "", "", NC_(VOLUME, ""), "", ""},
     const Unit[] UNITS = {
         {UnitType.MASS, UnitSystem.METRIC, "g", "gm", "gram", "1", ""}, // Fundamental
@@ -98,8 +113,8 @@ namespace Synapse {
         {UnitType.MASS, UnitSystem.UK, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
         {UnitType.MASS, UnitSystem.UK, "stone", "st", NC_(MASS, "stone"), "14", "pound"},
 
-        {UnitType.LENGTH, UnitSystem.METRIC, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental
-        {UnitType.LENGTH, UnitSystem.METRIC, "kilometer", "click|", NC_(LENGTH, "kilometer"), "1000", "meter"},
+        {UnitType.LENGTH, UnitSystem.METRIC, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental for length, area, volume
+        {UnitType.LENGTH, UnitSystem.METRIC, "click", "", NC_(LENGTH, "kilometer"), "1000", "meter"},
 
         {UnitType.LENGTH, UnitSystem.UK, "inch", "in", NC_(LENGTH, "inch"), "0.0254", "meter"},
         {UnitType.LENGTH, UnitSystem.UK, "yard", "yd", NC_(LENGTH, "yard"), "3", "foot"},
@@ -111,17 +126,14 @@ namespace Synapse {
         {UnitType.LENGTH, UnitSystem.UK, "nmile", "mi|nmi|mile|", NC_(LENGTH, "nautical mile"), "1852", "yard"},
         {UnitType.LENGTH, UnitSystem.UK, "cmile", "mi|cmi|mile|", NC_(LENGTH, "country mile"), "2200", "yard"},
 
-
-        {UnitType.VOLUME, UnitSystem.METRIC, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"}, //Local root
+        {UnitType.VOLUME, UnitSystem.METRIC, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
 
         {UnitType.VOLUME, UnitSystem.UK, "igal", "gal|gallon|", NC_(VOLUME, "Imperial gallon"), "4.54609", "liter"},
         {UnitType.VOLUME, UnitSystem.UK, "iqt", "qt|quart|", NC_(VOLUME, "Imperial quart"), "1/4", "igal"},
         {UnitType.VOLUME, UnitSystem.UK, "ipint", "pt|pint|", NC_(VOLUME, "Imperial pint"), "1/8", "igal"},
 
-        {UnitType.VOLUME, UnitSystem.US, "usgal", "gal|gallon|", NC_(VOLUME, "US liquid gallon"), "231", "in3"},
+        {UnitType.VOLUME, UnitSystem.US, "usgal", "gal|gallon|", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
         {UnitType.VOLUME, UnitSystem.US, "usqt", "qt|quart|", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
         {UnitType.VOLUME, UnitSystem.US, "uspint", "pt|pint|", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
-
-
     };
 }

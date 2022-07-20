@@ -57,10 +57,12 @@ namespace Synapse {
                 return _("%s%s %s").printf (prefix.prefix, unit.description, dim);
             }
 
-            public double factor () {
+            public double factor () { // Taking into account size, prefix and dimension
                 double factor = 1.0;
+                double size = unit.size ();
                 for (int i = 0; i < dimension; i++) {
                     factor *= prefix.factor;
+                    factor *= size;
                 }
 
                 return factor;
@@ -178,27 +180,29 @@ namespace Synapse {
             Result? result = null;
             Unit u1 = match1.unit, u2 = match2.unit;
             int dim1 = match1.dimension, dim2 = match2.dimension;
-            double prefix1_f = match1.factor (), prefix2_f = match2.factor ();
+            double factor1 = match1.factor (), factor2 = match2.factor (); // Takes into account dimension
             string descr1 = match1.description (), descr2 = match2.description ();
             bool same_system = u1.system == u2.system;
 
-            // Find factor for each unit to a common base unit
-            // Complicated because apparent dimension mismatches e.g. liter => m3
-            // If both units are in the same system stop at the base unit for that system, otherwise
-            // stop at the metric base unit.
+            debug ("Unit1 - %s: dimension %i, factor %g", descr1, dim1, factor1);
+            debug ("Unit2 - %s: dimension %i, factor %g", descr2, dim2, factor2);
+
+            // Find factor for each unit to a common base unit (taking into account dimensionality and prefixes)
+            // If both given units are in the same system stop at the base unit for that system, otherwise
+            // convert to metric.
             Unit? parent = u1; // Parent should only be null in the case of an error in the data structure.
             int parent_dimension = 1;
             while (parent != null &&
                    parent.base_unit != "" &&
                    (!same_system || u1.system == parent.system)) {
 
-                prefix1_f *= get_factor (parent.size);
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
-                assert (parent_dimension >= dim1);
-                for (int i = dim1; i < parent_dimension; i++) {
-                    prefix1_f *= get_factor (parent.size);
-                    dim1++;
+                debug ("parent1 %s parent_dimension1 %i, parent_factor1 %f", parent.uid, parent_dimension, parent.size ());
+                for (int i = 0; i < parent_dimension; i++) {
+                    factor1 *= parent.size ();
                 }
+
+                dim1 *= parent_dimension;
             }
 
             if (parent == null) {
@@ -211,21 +215,22 @@ namespace Synapse {
             while (parent != null && parent.base_unit != "" &&
                    (!same_system || u2.system == parent.system)) {
 
-                // assert (parent_dimension >= dim2);
-                prefix2_f *= get_factor (parent.size);
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
-                 for (int i = dim2; i < parent_dimension; i++) {
-                     prefix2_f *= get_factor (parent.size);
-                     dim2++;
+                debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f", parent.uid, parent_dimension, parent.size ());
+                 for (int i = 0; i < parent_dimension; i++) {
+                     factor2 *= parent.size ();
                  }
+
+                 dim2 *= parent_dimension;
             }
 
+            // The two given units must be traceable to the same root with the same dimensionality.
             if (parent != null &&
                 ultimate_parent1 == parent.uid &&
-                prefix1_f > 0 && prefix2_f > 0 &&
+                factor1 > 0 && factor2 > 0 &&
                 dim1 == dim2) {
 
-                var d = num * prefix1_f / prefix2_f;
+                var d = num * factor1 / factor2;
                 result = new Result (
                     d,
                     ///TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
@@ -235,7 +240,7 @@ namespace Synapse {
                     _("Click to copy %g to clipboard").printf (d)
                 );
             } else {
-                warning ("Reject. parent null %s, no common root %s, dim1 %i, dim2 %i",
+                    debug ("Invalid conversion. Parent null %s, no common root %s, dim1 %i, dim2 %i",
                     (parent == null).to_string (),
                     parent != null ? (parent.uid != ultimate_parent1).to_string () : "",
                     dim1,
@@ -361,14 +366,12 @@ namespace Synapse {
 
         private double get_factor (string size) {
             var parts = size.split ("/");  // Deal with possible fraction
-            debug ("get factor for %s, parts length %u", size, parts.length);
 
             switch (parts.length) {
                 case 1:
                     return double.parse (parts[0]);
                 case 2:
                     var divisor = double.parse (parts[1]);
-                    debug ("divisor part %s, double %f", parts[1], divisor);
                     return divisor != 0.0 ? double.parse (parts[0]) / divisor : 0.0;
                 default:
                     return 0.0;
