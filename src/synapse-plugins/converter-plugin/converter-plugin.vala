@@ -94,7 +94,7 @@ namespace Synapse {
              */
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d+[a-zA-Z ]+(2|3)?=>[a-zA-Z ]+(2|3)?$""",
+                    """^\d*.?\d*[a-zA-Z ]+(2|3)?=>[a-zA-Z ]+(2|3)?$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -110,7 +110,7 @@ namespace Synapse {
             ResultSet? results = null;
             var input = query.query_string.replace (" ", "").replace (",", ".").replace ("|", "");
             var matched = convert_regex.match (input);
-            var num = 0.0;
+            var num = 1.0;
             UnitMatch[] match_arr1 = {}, match_arr2 = {};
             MetricPrefix prefix1 = MetricPrefix.get_default (), prefix2 = MetricPrefix.get_default ();
             string prefix1_s = "", prefix2_s = "";
@@ -124,7 +124,9 @@ namespace Synapse {
 
                 var num_s = parts[0];
                 num_s.canon ("1234567890.", '\0');
-                num = double.parse (num_s);
+                if (num_s.length > 0) {
+                    num = double.parse (num_s);
+                }
 
                 string unit1_s = parts[0].slice (num_s.length, parts[0].length);
                 string unit2_s = parts[1];

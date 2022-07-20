@@ -103,13 +103,13 @@ namespace Synapse {
     // Metric units with standard prefixes are omitted as metric prefixes are handled automatically, however
     // equivalents with a non-standard name are included e.g. "click".
     // All links must use the target unit's uid (possibly followed by a dimension)
-    // TEMPLATE:         {UnitType., UnitSystem., "", "", NC_(VOLUME, ""), "", ""},
+    // TEMPLATE:         {UnitSystem., "", "", NC_("", ""), "", ""},
     const Unit[] UNITS = {
         // Mass and weight units
-        {UnitSystem.METRIC, "g", "gm", "gram", "1", ""}, // Fundamental
-        {UnitSystem.METRIC, "tonne", "t", NC_(MASS, "metric tonne"), "1E6", "g"},
+        {UnitSystem.METRIC, "gram", "gm|g", NC_(MASS, "gram"), "1", ""}, // Fundamental
+        {UnitSystem.METRIC, "tonne", "t", NC_(MASS, "metric tonne"), "1E6", "gram"},
 
-        {UnitSystem.UK, "pound", "lb", NC_(MASS, "pound"), "454", "g"}, // Local root
+        {UnitSystem.UK, "pound", "lb", NC_(MASS, "pound"), "454", "gram"}, // Local root
         {UnitSystem.UK, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
         {UnitSystem.UK, "stone", "st", NC_(MASS, "stone"), "14", "pound"},
 
