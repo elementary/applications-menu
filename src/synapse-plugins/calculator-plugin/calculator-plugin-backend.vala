@@ -34,7 +34,7 @@ namespace Synapse {
         private static CalculatorPluginBackend instance = null;
 
         construct {
-            /* The regex describes a string which *resembles* a mathematical expression. It does not
+            /* The regex describes a strigitng which *resembles* a mathematical expression. It does not
             check for pairs of parantheses to be used correctly and only whitespace-stripped strings
             will match. Basically it matches strings of the form:
             "paratheses_open* number (operator paratheses_open* number paratheses_close*)+"
@@ -52,7 +52,7 @@ namespace Synapse {
 
         public async double get_solution (string query_string, Cancellable cancellable) throws Error {
             string? solution = null;
-            string input = query_string.replace (" ", "").replace (",", ".");
+            string input = query_string.replace (" ", "").replace (",", ".").replace ("x", "*");
             bool matched = regex.match (input);
 
             if (!matched && input.length > 1) {
@@ -61,6 +61,9 @@ namespace Synapse {
             }
 
             if (matched) {
+                debug ("Matched");
+                // 'bc' does not like expressions like -5--5
+                input = input.replace ("--", "- -").replace ("+-", "+ -");
                 Pid pid;
                 int read_fd, write_fd;
                 /* Must include math library to get non-integer results and to access standard math functions */
@@ -77,12 +80,14 @@ namespace Synapse {
 
                 UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
                 DataOutputStream bc_input = new DataOutputStream (write_stream);
-
+                debug ("bc input string %s\n", input);
                 bc_input.put_string (input + "\n", cancellable);
                 yield bc_input.close_async (Priority.DEFAULT, cancellable);
                 solution = yield bc_output.read_line_async (
                     Priority.DEFAULT_IDLE, cancellable
                 );  // May return null without error
+            } else {
+                debug ("Query %s produced input %s, which did not match regex", query_string, input);
             }
 
             if (solution == null || solution == "") {

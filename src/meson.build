@@ -116,3 +116,5 @@ executable(
     install: true,
     install_dir: pluginsdir
 )
+
+subdir ('test')
