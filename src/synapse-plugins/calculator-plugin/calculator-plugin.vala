@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2010 Michal Hruby <michal.mhr@gmail.com>
-*               2017 elementary LLC.
+*               2022 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -33,10 +33,10 @@ namespace Synapse {
             public string text { get; construct set; default = ""; }
             public Synapse.TextOrigin text_origin { get; set; }
 
-            public Result (string result, string match_string) {
+            public Result (double result, string match_string) {
                 Object (match_type: MatchType.TEXT,
-                        text: result, //Copied to clipboard
-                        title: result, //Label for search item row
+                        text: "%f".printf (result), //Copied to clipboard
+                        title: "%g".printf (result), //Label for search item row
                         icon_name: "accessories-calculator",
                         text_origin: Synapse.TextOrigin.UNKNOWN
                 );
@@ -87,69 +87,30 @@ namespace Synapse {
         }
 
         public async ResultSet? search (Query query) throws SearchError {
-            string input = query.query_string.replace (" ", "").replace (",", ".");
-            // Mark characters not allowed in simple bc expressions
-            bool matched = true;
-            if (base_regex.match (input)) {
-                // If a number base is set, the expression may include hexadecimals
-                // or be doing a conversion, in which there is no expression
-                // so omit regex test and instead limit to certain characters for simple expressions
-                input.canon ("1234567890ABCDEF();%^&|!*/-+iobase=.", '@');
+            ResultSet? results = null;
+            try {
+                double d = yield CalculatorPluginBackend.get_instance ().get_solution (
+                    query.query_string,
+                    query.cancellable
+                ); // throws error if no valid solution found
 
-            } else {
-                // Disallow capitals and test for possible mathematical expression
-                input = input.down ();
-                matched = express_regex.match (input);
-            }
+                Result result = new Result (d, query.query_string);
+                result.description = "%s\n%s".printf (
+                    "%s = %g".printf (query.query_string, d),
+                    Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
+                );  // Used for search item tooltip
 
-            if (input.contains ("@")) {
-               matched = false;
-            }
+                results = new ResultSet ();
 
-            if (matched) {
-                // Pass the input into `bc` which will return a solution if it is valid bc syntax.
-                Pid pid;
-                int read_fd, write_fd;
-                /* Must include math library to get non-integer results and to access standard math functions */
-                string[] argv = {"bc", "-l"};
-                string? solution = null;
-
-                try {
-                    Process.spawn_async_with_pipes (null, argv, null,
-                    SpawnFlags.SEARCH_PATH,
-                    null, out pid, out write_fd, out read_fd);
-                    UnixInputStream read_stream = new UnixInputStream (read_fd, true);
-                    DataInputStream bc_output = new DataInputStream (read_stream);
-
-                    UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
-                    DataOutputStream bc_input = new DataOutputStream (write_stream);
-
-                    bc_input.put_string (input + "\n", query.cancellable);
-                    yield bc_input.close_async (Priority.DEFAULT, query.cancellable);
-                    solution = yield bc_output.read_line_async (Priority.DEFAULT_IDLE, query.cancellable);
-
-                    if (solution != null) {
-                        Result result = new Result (solution, query.query_string);
-                        result.description = "%s\n%s".printf (
-                            "%s = %s".printf (query.query_string, solution),
-                            Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
-                        );  // Used for search item tooltip
-
-                        ResultSet results = new ResultSet ();
-                        results.add (result, Match.Score.AVERAGE);
-                        query.check_cancellable ();
-
-                        return results;
-                    }
-                } catch (Error err) {
-                    if (!query.is_cancelled ()) {
-                        warning ("Calculator error: %s", err.message);
-                    }
+                results.add (result, Match.Score.AVERAGE);
+            } catch (Error e) {
+                if (!(e is IOError.FAILED_HANDLED)) {
+                    warning ("Error processing %s with bc: %s", query.query_string, e.message);
                 }
             }
 
             query.check_cancellable ();
-            return null;
+            return results;
         }
     }
 }
