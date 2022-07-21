@@ -40,52 +40,72 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("1440 / 15", 96);
         assert_equal ("14400 / 12", 1200); // https://github.com/elementary/calculator/issues/48
         assert_equal ("144000 / 12", 12000); // https://github.com/elementary/calculator/issues/48
+        assert_equal ("2 + 2 * 2.2", 6.4);
+        assert_equal ("(2 + 2) * 2.2", 8.8);
+        assert_equal ("3.141592654*3.141592654", 9.869604403666763716); // Full precision
 
-        assert_equal ("2^5", 32);
-        assert_throw ("3456^0.5 - sqrt(3456)", 0);
-        assert_throw ("3456^-0.5 * sqrt(3456)", 1);
-        assert_throw ("723 mod 5", 3);
-        assert_throw ("2%", 0.02);
-        assert_throw ("(2 + 2)% - 0.04", 0); // https://github.com/elementary/calculator/issues/59
-
+        // Formatting
+        assert_equal ("-.25^2", 0.0625); //https://github.com/elementary/calculator/issues/153
+        assert_equal ("-.25*.25", -0.0625); //https://github.com/elementary/calculator/issues/153
+        assert_equal ("-.2 - -.3", 0.1); // Best not expect 0 result
+        assert_equal ("-.2+-.2", -0.4);
         assert_throw ("14E-2", 0.14); // https://github.com/elementary/calculator/issues/16
         assert_throw ("1.1E2 - 1E1", 100);
+        assert_equal ("25,123 - 234,2", -209.077); // Commas always treated as decimal point
+        assert_throw ("25.000,123 - 234000,2", -209.000077); // Commas always treated as decimal point valid - so in
 
+        // Roots
+        assert_throw ("3456^0.5", 0); // 'bc' exponent must be integer
+        assert_throw ("sqrt(-2)", 0); // 'bc' cannot handle imaginary numbers
+        assert_equal ("sqrt(5.25) * sqrt(5.25)", 5.25); //
+        assert_equal ("sqrt(144)", 12);
+        assert_throw ("√423", 20.566963801); // square root sign not recognised
+        assert_equal ("sqrt(5^2 - 4^2)", 3);
+        assert_throw ("sqrt(423) + (3.23 * 8.56) - 1E2", -51.784236199); // "1E2" not handled
+        assert_equal ("sqrt(423) + (3.23 * 8.56) - 100", -51.784236199);
+        assert_equal ("sqrt(-1 + 423 + 1) + (3.23 * 8.56) - s(90 + 0.2)", 47.428606036);
+
+        // Modulos and percentages
+        assert_throw ("723 mod 5", 3); // 'bc' does not handle 'mod'
+        assert_throw ("2%", 0.02); // 'bc' treats '%' as 'mod'
+        assert_throw ("(2.0 + 2.0)% -3.0", 1.0); //equiv "4 - (4 / 3 *3)" for doubles (essentially 0)
+        assert_equal ("scale=0;(2 + 2)% - 3", 1); //equiv "4mod(-3)" for integers
+        assert_throw ("10 + 5 - 10%", 14.9); // https://github.com/elementary/calculator/issues/44
+        assert_equal ("10 - 10/100 + 5", 14.9); // https://github.com/elementary/calculator/issues/44
+
+        // Math constants
         assert_throw ("pi", 3.141592654);
         assert_throw ("pi - 2", 1.141592654); // https://github.com/elementary/calculator/issues/59
         assert_throw ("(π)", 3.141592654);
         assert_throw ("e", 2.718281828);
 
-        assert_throw ("sqrt(144)", 12);
-        assert_throw ("√423", 20.566963801);
-        assert_throw ("sin(pi ÷ 2)", 1);
+        // Trigonometry
+        assert_throw ("sin(pi / 2)", 1);
         assert_throw ("sin(-pi)", 0); // https://github.com/elementary/calculator/issues/1
         assert_throw ("cos(90)", -0.448073616);
         assert_throw ("sinh(2)", 3.626860408);
         assert_throw ("cosh(2)", 3.762195691);
-
-        assert_equal ("2 + 2 * 2.2", 6.4);
-        assert_equal ("(2 + 2) * 2.2", 8.8);
-        assert_throw ("sin(0.123)^2 + cos(0.123)^2", 1);
-        assert_throw ("tan(0.245) - sin(0.245) / cos(0.245)", 0);
-        assert_throw ("asin(0.532) + acos(0.532)", 1.570796327);
-        assert_throw ("exp(ln(2.2))", 2.2);
+        assert_equal ("s(0)", 0); // Equiv "sin(0)"
+        assert_equal ("c(0)", 1); // Equiv "cos(0)"
+        assert_equal ("a(1)*4", 3.14159265358979323844); // Equiv "arctangent (1 radian) * 4" which equals pi
+        assert_equal ("pi=a(1)*4; c(pi)", -1); // Equiv "cosine (pi / 2)"
+        assert_equal ("pi=a(1)*4; s(pi / 2)", 1); // Equiv "sine (pi / 2)"
+        assert_throw ("sinh(2)", 3.626860408);
+        assert_throw ("cosh(2)", 3.762195691);
+        assert_equal ("s(0.123)^2 + c(0.123)^2", 1); //Equiv "sin^2(x) + cos^2(x) = 1"
+        assert_throw ("sin(0.123)^2 + cos(0.123)^2", 1); //function names not recognised by `bc`
+        assert_throw ("tan(0.245) - sin(0.245) / cos(0.245)", 0);//function names not recognised by `bc`
+        assert_throw ("asin(0.532) + acos(0.532)", 1.570796327);//function names not recognised by `bc`
         assert_throw ("atan(1)", 0.785398163);
-        assert_throw ("sqrt(5^2 - 4^2)", 3);
-        assert_throw ("sqrt(423) + (3.23 * 8.56) - 1E2", -51.784236199);
-        assert_throw ("sqrt(-1 + 423 + 1) + (3.23 * 8.56) - sin(90 + 0.2)", 47.428606036);
-        assert_throw ("e^5.25 / exp(5.25)", 1);
-        assert_throw ("10^(log(2.2))", 2.2);
-        assert_equal ("3.141592654*3.141592654", 9.869604); // Lower precision
-        assert_throw ("10 + 5 - 10%", 14.9); // https://github.com/elementary/calculator/issues/44
-        assert_throw ("10 - 10% + 5", 14.9); // https://github.com/elementary/calculator/issues/44
 
-        assert_equal ("25,123 - 234,2", -209.077); // Commas always treated as decimal point
-        assert_throw ("25.000,123 - 234000,2", -209.000077); // Commas always treated as decimal point valid - so in
-        assert_equal ("-.25^2", 0.0625); //https://github.com/elementary/calculator/issues/153
-        assert_equal ("-.25*.25", -0.0625); //https://github.com/elementary/calculator/issues/153
-        assert_equal ("-.2 - -.2", 0);
-        assert_equal ("-.2+-.2", -0.4);
+        //Exponents and logarithms
+        assert_equal ("2^5", 32);
+        assert_throw ("exp(ln(2.2))", 2.2); //function names not recognised by `bc`
+        assert_equal ("e(l(2.2))", 2.2); //function names recognised by `bc`
+        assert_throw ("e^5.25 / exp(5.25)", 1);
+        assert_equal ("e(1)^5 / e(5)", 1); // integer exponent only
+        assert_throw ("10^(log(2.2))", 2.2);
+
         return 0;
     }
 
@@ -94,7 +114,7 @@ class Synapse.CalculatorPluginTest : Object {
     }
 
     static void assert_throw (string input, double result) {
-        run_calculation (input, 0, false);
+        run_calculation (input, result, false);
     }
 
     static void run_calculation (string input, double result, bool expect_pass) {

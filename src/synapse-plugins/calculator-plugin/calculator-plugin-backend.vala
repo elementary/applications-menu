@@ -41,7 +41,7 @@ namespace Synapse {
                 <opening parenthesis><number expression><closing parenthesis) e.g. sqrt (0.5)
                 */
                 express_regex = new Regex (
-                    """^.*(\w+[\/\+\-\*\^\%\!\&\|]{1,2}\.?\w+|\(\d+.*\))+.*$""",
+                    """^.*(\w+[\/\+\-\*\^\%\!\&\|]{1,2}\.?\w+|\(-?\d+.*\))+.*$""",
                     RegexCompileFlags.OPTIMIZE
                 );
                 /* The base_regex describes a string which starts with a bc number base expression */
