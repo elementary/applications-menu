@@ -139,6 +139,9 @@ namespace Synapse {
         // Length units
         {UnitType.DIMENSION, UnitSystem.SI, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental for length, area, volume
         {UnitType.DIMENSION, UnitSystem.SI, "click", "", NC_(LENGTH, "kilometer"), "1000", "meter"},
+        {UnitType.DIMENSION, UnitSystem.SI, "astronomicalunit", "au", NC_(LENGTH, "astronomical unit"), "49597870700", "meter"},
+        {UnitType.DIMENSION, UnitSystem.SI, "parsec", "pc", NC_(LENGTH, "parsec"), "206264.806247096", "astronomicalunit"}, // wikipedia
+        {UnitType.DIMENSION, UnitSystem.SI, "lightyear", "ly", NC_(LENGTH, "light year"), "9.46073047258E15", "meter"}, // Google
 
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "inch", "in", NC_(LENGTH, "International inch"), "0.0254", "meter"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "yard", "yd", NC_(LENGTH, "International yard"), "3", "foot"},
