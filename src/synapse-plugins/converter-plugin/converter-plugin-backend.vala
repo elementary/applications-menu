@@ -321,15 +321,15 @@ namespace Synapse {
             }
         }
 
-        private Unit? find_parent_unit (string uid, out int dimension) {
+        private Unit? find_parent_unit (string link, out int dimension) {
             dimension = 1;
-            var base_uid = uid;
-            var length = uid.length;
+            var base_uid = link;
+            var length = link.length;
             if (length > 1) {
-                char last_c = uid.@get (length - 1);
+                char last_c = link.@get (length - 1);
                 if (last_c.isdigit ()) {
                     dimension = last_c.digit_value ();
-                    base_uid = uid[0 : -1];
+                    base_uid = link[0 : -1];
                 }
             }
 
@@ -339,7 +339,7 @@ namespace Synapse {
                 }
             }
 
-            critical ("Unable to find parent for %s - data error", uid);
+            critical ("Unable to find parent for %s - data error", link);
             return null;
         }
     }

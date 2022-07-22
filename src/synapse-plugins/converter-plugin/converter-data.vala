@@ -50,7 +50,7 @@ namespace Synapse {
 
     enum UnitSystem {
         SI,
-        IMPERIAL, // Where definition same in US and UK
+        IMPERIAL, // Where definition same in US and UK or there is no equivalent in other country
         IMPERIAL_UK, // Where definition differs from US
         IMPERIAL_US, // Where definition differs from UK
     }
@@ -75,6 +75,19 @@ namespace Synapse {
                 default:
                     return 0.0;
             }
+        }
+
+        public bool is_valid () {
+            double size = size ();
+            bool valid = (uid != "" && size_s != "" && description != "" &&
+                   size > 0.0 && (base_unit != "" || size == 1.0));
+
+            if (valid) {
+                char last_c = uid.@get (uid.length - 1);
+                valid = valid && !last_c.isdigit ();
+            }
+
+            return valid;
         }
     }
 
@@ -118,6 +131,8 @@ namespace Synapse {
         {UnitSystem.IMPERIAL, "fathom", "", NC_(LENGTH, "fathom"), "6", "foot"},
         {UnitSystem.IMPERIAL, "chain", "ch", NC_(LENGTH, "chain"), "66", "foot"},
         {UnitSystem.IMPERIAL, "link", "", NC_(LENGTH, "link"), "1/100", "chain"},
+        {UnitSystem.IMPERIAL, "furlong", "", NC_(LENGTH, "furlong"), "1/8", "imile"},
+
         {UnitSystem.IMPERIAL, "imile", "mi|mile", NC_(LENGTH, "mile"), "1760", "yard"},
         {UnitSystem.IMPERIAL, "nmile", "mi|nmi|mile", NC_(LENGTH, "nautical mile"), "1852", "yard"},
         {UnitSystem.IMPERIAL, "cmile", "mi|cmi|mile", NC_(LENGTH, "country mile"), "2200", "yard"},

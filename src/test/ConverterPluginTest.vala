@@ -17,6 +17,7 @@
 
 class Synapse.CalculatorPluginTest : Object {
     public static int main (string[] args) {
+        validate_data ();
         // 1st parameter is user input string, second result is expected conversion factor
         // For simplicity, only unambiguous conversions are tested, with only one result.
         // For simplicity, we only test the conversion factor, not the accompanying description
@@ -35,8 +36,19 @@ class Synapse.CalculatorPluginTest : Object {
         assert_ambiguous ("gal=>liter", 2); // Gallon can be either US or UK size.
         assert_ambiguous ("y=>d", 2); // year may be a leap year.
         assert_ambiguous ("hr=>m", 1); // 'm' could be meter but that would not be a valid conversion.
+        assert_ambiguous ("mile=>in", 3); // mile could also be nautical or country mile
 
         return 0;
+    }
+
+    static void validate_data () {
+        int index = 0;
+        foreach (Unit u in UNITS) {
+            // Give index as well in case of error as uid could be blank.
+            stderr.printf ("Unit index %i, uid %s\n", index, u.uid);
+            index++;
+            assert (u.is_valid ());
+        }
     }
 
     static void assert_equal (string input, double result) {
@@ -45,6 +57,13 @@ class Synapse.CalculatorPluginTest : Object {
 
     static void assert_throw (string input, double result) {
         run_conversion (input, 0, false);
+    }
+
+    static void assert_ambiguous (string input, int n_results) {
+        var backend = ConverterPluginBackend.get_instance ();
+        stderr.printf ("\n%s = ", input);
+        var results = backend.get_conversion_data (input);
+        assert (results.length == n_results);
     }
 
     static void run_conversion (string input, double result, bool expect_pass) {
@@ -62,12 +81,5 @@ class Synapse.CalculatorPluginTest : Object {
                 (!expect_pass && diff > 1E-06)
             );
         }
-    }
-
-    static void assert_ambiguous (string input, int n_results) {
-        var backend = ConverterPluginBackend.get_instance ();
-        stderr.printf ("\n%s = ", input);
-        var results = backend.get_conversion_data (input);
-        assert (results.length == n_results);
     }
 }
