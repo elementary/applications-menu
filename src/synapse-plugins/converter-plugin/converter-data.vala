@@ -55,7 +55,7 @@ namespace Synapse {
 
     struct Unit {
         public UnitSystem system; // e.g. SI, Imperial, Chinese
-        public string uid; // Unique identifier
+        public string uid; // Unique identifier for the purposes of the converter - not official
         public string abbreviations; // Vala does not support arrays in structs? Use strings concatenated with "|"
         public string description; // Translatable specific description
         public string size_s; // Size as proportion of base unit (or 1 if fundamental)
@@ -123,9 +123,9 @@ namespace Synapse {
         // Volume Units
         {UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
 
-        {UnitSystem.IMPERIAL, "igal", "gal|gallon", NC_(VOLUME, "UK gallon"), "4.54609", "liter"},
-        {UnitSystem.IMPERIAL, "iqt", "qt|quart", NC_(VOLUME, "UK quart"), "1/4", "igal"},
-        {UnitSystem.IMPERIAL, "ipint", "pt|pint", NC_(VOLUME, "UK pint"), "1/8", "igal"},
+        {UnitSystem.IMPERIAL, "ukgal", "gal|gallon", NC_(VOLUME, "UK gallon"), "4.54609", "liter"},
+        {UnitSystem.IMPERIAL, "ukqt", "qt|quart", NC_(VOLUME, "UK quart"), "1/4", "ukgal"},
+        {UnitSystem.IMPERIAL, "ukpint", "pt|pint", NC_(VOLUME, "UK pint"), "1/8", "ukgal"},
         {UnitSystem.IMPERIAL, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
         {UnitSystem.IMPERIAL, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
         {UnitSystem.IMPERIAL, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
