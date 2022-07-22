@@ -40,7 +40,7 @@ namespace Synapse {
 
         public double factor () { // Taking into account size, prefix and dimension
             double factor = 1.0;
-            double size = unit.size ();
+            double size = unit.get_factor ();
             for (int i = 0; i < dimension; i++) {
                 factor *= prefix.factor;
                 factor *= size;
@@ -96,6 +96,7 @@ namespace Synapse {
             ResultData [] results = {};
 
             if (matched) {
+                message ("Matched %s", input);
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
                 var parts = input.split ("=>", 2);
@@ -118,8 +119,10 @@ namespace Synapse {
 
                 // Try and find matching unit(s) in data table, indicating whether match includes prefix and/or dimension
                 // Match could be with uid, and abbreviation or the description
+                // Matches could be in incompatible system - these are rejected later
                 foreach (Unit u in UNITS) {
                     if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix, out use_dimension)) {
+                        debug ("Found unit1 matches with %s", u.uid);
                         match_arr1 += UnitMatch () {
                             unit = u,
                             prefix = use_prefix ? prefix1 : SIPrefix.get_default (),
@@ -128,6 +131,7 @@ namespace Synapse {
                     }
 
                     if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix, out use_dimension)) {
+                        debug ("Found unit2 matches with %s", u.uid);
                         match_arr2 += UnitMatch () {
                             unit = u,
                             prefix = use_prefix ? prefix2 : SIPrefix.get_default (),
@@ -139,12 +143,14 @@ namespace Synapse {
 
             debug ("Expect %u results", match_arr1.length * match_arr2.length);
             if (num != 0.0) {
-                // Get conversion data for each combination of input and output units
+                // Get conversion data for each combination of input and output units of same type
                 foreach (var match1 in match_arr1) {
                     foreach (var match2 in match_arr2) {
-                        var result = calculate_conversion_data (num, match1, match2);
-                        if (result != null) {
-                            results += result;
+                        if (match1.unit.type == match2.unit.type) {
+                            var result = calculate_conversion_data (num, match1, match2);
+                            if (result != null) {
+                                results += result;
+                            }
                         }
                     }
                 }
@@ -158,34 +164,34 @@ namespace Synapse {
             UnitMatch match1,
             UnitMatch match2) {
 
-            // Result? result = null;
             Unit u1 = match1.unit, u2 = match2.unit;
             int dim1 = match1.dimension, dim2 = match2.dimension;
             double factor1 = match1.factor (), factor2 = match2.factor (); // Takes into account dimension
             string descr1 = match1.description (), descr2 = match2.description ();
             bool same_system = u1.system == u2.system;
 
-            debug ("Unit1 - %s: dimension %i, factor %g", descr1, dim1, factor1);
-            debug ("Unit2 - %s: dimension %i, factor %g", descr2, dim2, factor2);
-
             // Find factor for each unit to a common base unit (taking into account dimensionality and prefixes)
             // If both given units are in the same system stop at the base unit for that system, otherwise
             // convert to SI.
             Unit? parent = u1; // Parent should only be null in the case of an error in the data structure.
             int parent_dimension = 1;
+            debug ("finding root of %s - start dimension %i, start factor %f", u1.uid, dim1, factor1);
             while (parent != null &&
                    parent.base_unit != "" &&
                    (!same_system || parent.system == u1.system)) {
 
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
+                var pfactor = parent.get_factor ();
                 debug ("parent1 %s parent_dimension1 %i, parent_factor1 %f",
-                       parent.uid, parent_dimension, parent.size ()
+                       parent.uid, parent_dimension, pfactor
                 );
-                for (int i = 0; i < parent_dimension; i++) {
-                    factor1 *= parent.size ();
-                }
 
                 dim1 *= parent_dimension;
+                debug ("Dim1 now %i", dim1);
+                for (int i = 0; i < dim1; i++) {
+                    factor1 *= pfactor;
+                    debug ("Factor1 now %f", factor1);
+                }
             }
 
             if (parent == null) {
@@ -195,19 +201,22 @@ namespace Synapse {
             parent_dimension = 1;
             var ultimate_parent1 = parent.uid;
             parent = u2;
+            debug ("finding root of %s - start dimension %i, start factor2 %f", u2.uid, dim2, factor2);
             while (parent != null &&
                    parent.base_unit != "" &&
                    (!same_system || parent.system == u2.system)) {
 
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
+                var pfactor = parent.get_factor ();
                 debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
-                        parent.uid, parent_dimension, parent.size ()
+                    parent.uid, parent_dimension, pfactor
                 );
-                 for (int i = 0; i < parent_dimension; i++) {
-                     factor2 *= parent.size ();
-                 }
-
-                 dim2 *= parent_dimension;
+                dim2 *= parent_dimension;
+                debug ("Dim2 now %i", dim2);
+                for (int i = 0; i < dim2; i++) {
+                    factor2 *= pfactor;
+                    debug ("Factor2 now %f", factor2);
+                }
             }
 
             // The two given units must be traceable to the same root with the same dimensionality.
@@ -215,7 +224,7 @@ namespace Synapse {
                 ultimate_parent1 == parent.uid &&
                 factor1 > 0 && factor2 > 0 &&
                 dim1 == dim2) {
-
+                debug ("Final factors %g, %g", factor1, factor2);
                 var d = num * factor1 / factor2;
 
                 return ResultData () {
@@ -250,6 +259,7 @@ namespace Synapse {
             // Test match whole unit
             foreach (string id in ids) {
                 if (match == id) {
+                    debug ("whole unit matches");
                     return true;
                 }
             }
@@ -259,6 +269,7 @@ namespace Synapse {
                 match = unit_s[prefix.length : unit_s.length];
                 foreach (string id in ids) {
                     if (match == id) {
+                        debug ("unit less prefix matches");
                         use_prefix = true;
                         return true;
                     }
@@ -270,6 +281,7 @@ namespace Synapse {
                 match = unit_s[0 : -1];
                 foreach (string id in ids) {
                     if (match == id) {
+                        debug ("unit less dimension matches");
                         use_dimension = true;
                         return true;
                     }
@@ -281,6 +293,7 @@ namespace Synapse {
                 match = unit_s[prefix.length : -1];
                 foreach (string id in ids) {
                     if (match == id) {
+                        debug ("unit less both matches");
                         use_prefix = use_dimension = true;
                         return true;
                     }
@@ -321,15 +334,16 @@ namespace Synapse {
             }
         }
 
-        private Unit? find_parent_unit (string link, out int dimension) {
-            dimension = 1;
+        private Unit? find_parent_unit (string link, out int link_dimension) {
+            link_dimension = 1;
             var base_uid = link;
             var length = link.length;
             if (length > 1) {
                 char last_c = link.@get (length - 1);
                 if (last_c.isdigit ()) {
-                    dimension = last_c.digit_value ();
+                    link_dimension = last_c.digit_value ();
                     base_uid = link[0 : -1];
+                    debug ("Link dimension %i, base_uid %s", link_dimension, base_uid);
                 }
             }
 

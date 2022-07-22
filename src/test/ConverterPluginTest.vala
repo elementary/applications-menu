@@ -17,17 +17,23 @@
 
 class Synapse.CalculatorPluginTest : Object {
     public static int main (string[] args) {
+
         validate_data ();
         // 1st parameter is user input string, second result is expected conversion factor
         // For simplicity, only unambiguous conversions are tested, with only one result.
         // For simplicity, we only test the conversion factor, not the accompanying description
+        // Non-simple factors are taken from Google
+
         assert_equal ("1kg=>g", 1000);
         assert_equal ("2m=>km", 0.002);
         assert_equal ("gram=>metricgrain", 20);
         assert_equal ("uston=>ukton", 0.892857);
         assert_equal ("ukgal=>ukpint", 8);
         assert_equal ("usgal=>in3", 231);
-        assert_equal ("123456 sec => year", 0.00391476);
+        assert_equal ("usacre=>in2", 6272665);
+        assert_equal ("iacre=>foot2", 43560);
+        assert_equal ("iacre=>m2", 4046.8564224);
+        assert_equal ("123456 sec => year", 0.00391476408);
         assert_equal ("leapyear => min", 527040);
         assert_throw ("1kg=>foot", 0);
         assert_throw ("1kg=>xxx", 0);
@@ -39,7 +45,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert_ambiguous ("y=>d", 2); // year may be a leap year.
         assert_ambiguous ("hr=>m", 1); // 'm' could be meter but that would not be a valid conversion.
         assert_ambiguous ("mile=>in", 3); // mile could also be nautical or country mile
-        assert_ambiguous ("ton=>ton", 4); // mile could also be nautical or country mile
+        assert_ambiguous ("ton=>ton", 9); // ton could be US, UK or metric
 
         return 0;
     }
@@ -77,11 +83,12 @@ class Synapse.CalculatorPluginTest : Object {
             stderr.printf ("No result");
             assert (!expect_pass);
         } else {
-            stderr.printf ("Result %g, expected %g", results[0].factor, result);
-            var diff = (results[0].factor - result).abs ();
+
+            var diff = (results[0].factor - result).abs () / result;
+            stderr.printf ("Result %f, expected %f Diff %g", results[0].factor, result, diff);
             assert (
-                (expect_pass && diff <= 1E-06) ||
-                (!expect_pass && diff > 1E-06)
+                (expect_pass && diff <= 1E-05) ||
+                (!expect_pass && diff > 1E-05)
             );
         }
     }

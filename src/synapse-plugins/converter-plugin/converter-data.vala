@@ -50,12 +50,19 @@ namespace Synapse {
 
     enum UnitSystem {
         SI,
-        IMPERIAL, // Where definition same in US and UK or there is no equivalent in other country
-        IMPERIAL_UK, // Where definition differs from US
-        IMPERIAL_US, // Where definition differs from UK
+        IMPERIAL, // Where definition same in US and UK or there is no equivalent in other country and defined in terms of an IMPERIAL measure
+        IMPERIAL_UK, // Where definition differs from US or not defined in IMPERIAL measure
+        IMPERIAL_US, // Where definition differs from UK or not defined in IMPERIAL measure
+    }
+
+    enum UnitType { // UnitTypes are not interconvertible with dimensions
+        MASS,
+        DIMENSION, // Length, Area, Volume are interconvertible with dimensions (L^1, L^2, L^3) 
+        TIME
     }
 
     struct Unit {
+        public UnitType type; // Units of different types cannot be interconverted
         public UnitSystem system; // e.g. SI, Imperial, Chinese
         public string uid; // Unique identifier for the purposes of the converter - not official
         public string abbreviations; // Vala does not support arrays in structs? Use strings concatenated with "|"
@@ -63,7 +70,7 @@ namespace Synapse {
         public string size_s; // Size as proportion of base unit (or 1 if fundamental)
         public string base_unit; // The uid of the unit this is based on (or "" if fundamental)
 
-        public double size () {
+        public double get_factor () {
             var parts = size_s.split ("/");  // Deal with possible fraction
 
             switch (parts.length) {
@@ -78,7 +85,7 @@ namespace Synapse {
         }
 
         public bool is_valid () {
-            double size = size ();
+            double size = get_factor ();
             bool valid = (uid != "" && size_s != "" && description != "" &&
                    size > 0.0 && (base_unit != "" || size == 1.0));
 
@@ -114,57 +121,62 @@ namespace Synapse {
     // TEMPLATE:         {UnitSystem., "", "", NC_("", ""), "", ""},
     const Unit[] UNITS = {
         // Mass and weight units
-        {UnitSystem.SI, "gram", "gm|g", NC_(MASS, "gram"), "1", ""}, // Fundamental
-        {UnitSystem.SI, "tonne", "t", NC_(MASS, "SI tonne"), "1E6", "gram"},
-        {UnitSystem.SI, "metriccarat", "carat|ct", NC_(MASS, "metric carat"), "0.2", "gram"},
-        {UnitSystem.SI, "metricgrain", "grain|gr", NC_(MASS, "metric grain"), "1/4", "metriccarat"},
+        {UnitType.MASS, UnitSystem.SI, "gram", "g|gm|gramme", NC_(MASS, "SI gram"), "1", ""},
+        {UnitType.MASS, UnitSystem.SI, "tonne", "t|ton", NC_(MASS, "SI tonne"), "1E6", "gram"},
+        {UnitType.MASS, UnitSystem.SI, "metriccarat", "carat|ct", NC_(MASS, "metric carat"), "0.2", "gram"},
+        {UnitType.MASS, UnitSystem.SI, "metricgrain", "grain|gr", NC_(MASS, "metric grain"), "1/4", "metriccarat"},
 
-        {UnitSystem.IMPERIAL, "pound", "lb", NC_(MASS, "pound"), "454", "gram"}, // Local root
-        {UnitSystem.IMPERIAL, "stone", "st", NC_(MASS, "stone"), "14", "pound"},
-        {UnitSystem.IMPERIAL, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
-        {UnitSystem.IMPERIAL, "dram", "dr", NC_(MASS, "dram"), "1/16", "ounce"},
-        {UnitSystem.IMPERIAL, "grain", "gr", NC_(MASS, "grain"), "1/7000", "pound"},
-        {UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight", NC_(MASS, "British hundredweight"), "8", "stone"},
-        {UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight", NC_(MASS, "US hundredweight"), "100", "pound"},
-        {UnitSystem.IMPERIAL_US, "ukton", "t|ton|longton", NC_(MASS, "British ton"), "20", "brhundredweight"},
-        {UnitSystem.IMPERIAL_UK, "uston", "t|ton|shortton", NC_(MASS, "US ton"), "2000", "pound"},
+        {UnitType.MASS, UnitSystem.IMPERIAL, "pound", "lb", NC_(MASS, "pound"), "454", "gram"}, // Local root
+        {UnitType.MASS, UnitSystem.IMPERIAL, "stone", "st", NC_(MASS, "stone"), "14", "pound"},
+        {UnitType.MASS, UnitSystem.IMPERIAL, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
+        {UnitType.MASS, UnitSystem.IMPERIAL, "dram", "dr", NC_(MASS, "dram"), "1/16", "ounce"},
+        {UnitType.MASS, UnitSystem.IMPERIAL, "grain", "gr", NC_(MASS, "grain"), "1/7000", "pound"},
+        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight", NC_(MASS, "British hundredweight"), "8", "stone"},
+        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight", NC_(MASS, "US hundredweight"), "100", "pound"},
+        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ukton", "t|ton|longton", NC_(MASS, "British ton"), "20", "brhundredweight"},
+        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "uston", "t|ton|shortton", NC_(MASS, "US ton"), "2000", "pound"},
 
         // Length units
-        {UnitSystem.SI, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental for length, area, volume
-        {UnitSystem.SI, "click", "", NC_(LENGTH, "kilometer"), "1000", "meter"},
+        {UnitType.DIMENSION, UnitSystem.SI, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental for length, area, volume
+        {UnitType.DIMENSION, UnitSystem.SI, "click", "", NC_(LENGTH, "kilometer"), "1000", "meter"},
 
-        {UnitSystem.IMPERIAL, "inch", "in", NC_(LENGTH, "inch"), "0.0254", "meter"},
-        {UnitSystem.IMPERIAL, "yard", "yd", NC_(LENGTH, "yard"), "3", "foot"},
-        {UnitSystem.IMPERIAL, "foot", "ft", NC_(LENGTH, "foot"), "12", "inch"},
-        {UnitSystem.IMPERIAL, "fathom", "", NC_(LENGTH, "fathom"), "6", "foot"},
-        {UnitSystem.IMPERIAL, "chain", "ch", NC_(LENGTH, "chain"), "66", "foot"},
-        {UnitSystem.IMPERIAL, "link", "", NC_(LENGTH, "link"), "1/100", "chain"},
-        {UnitSystem.IMPERIAL, "furlong", "", NC_(LENGTH, "furlong"), "1/8", "imile"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "inch", "in", NC_(LENGTH, "International inch"), "0.0254", "meter"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "yard", "yd", NC_(LENGTH, "International yard"), "3", "foot"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "foot", "ft", NC_(LENGTH, "International foot"), "12", "inch"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "fathom", "", NC_(LENGTH, "fathom"), "6", "foot"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "chain", "ch", NC_(LENGTH, "chain"), "66", "foot"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "surveyorschain", "surveyorchain|ch", NC_(LENGTH, "US surveyors chain"), "66", "surveyfoot"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "surveyfoot", "surveyft|ft", NC_(LENGTH, "US survey foot"), "1200/3937", "meter"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "link", "", NC_(LENGTH, "link"), "1/100", "chain"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "furlong", "", NC_(LENGTH, "furlong"), "1/8", "imile"},
 
-        {UnitSystem.IMPERIAL, "imile", "mi|mile", NC_(LENGTH, "mile"), "1760", "yard"},
-        {UnitSystem.IMPERIAL, "nmile", "mi|nmi|mile", NC_(LENGTH, "nautical mile"), "1852", "yard"},
-        {UnitSystem.IMPERIAL, "cmile", "mi|cmi|mile", NC_(LENGTH, "country mile"), "2200", "yard"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "imile", "mi|mile", NC_(LENGTH, "mile"), "1760", "yard"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "nmile", "mi|nmi|mile", NC_(LENGTH, "nautical mile"), "1852", "yard"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "cmile", "mi|cmi|mile", NC_(LENGTH, "country mile"), "2200", "yard"},
 
+        // Area units
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "iacre", "acre", NC_(LENGTH, "International acre"), "10", "chain2"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usacre", "acre", NC_(LENGTH, "US acre"), "10", "surveyorschain2"},
         // Volume Units
-        {UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
+        {UnitType.DIMENSION, UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
 
-        {UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "British gallon"), "4.54609", "liter"},
-        {UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "British quart"), "1/4", "ukgal"},
-        {UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "British pint"), "1/8", "ukgal"},
-        {UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
-        {UnitSystem.IMPERIAL_US, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
-        {UnitSystem.IMPERIAL_US, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "British gallon"), "4.54609", "liter"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "British quart"), "1/4", "ukgal"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "British pint"), "1/8", "ukgal"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
 
         //Time units
-        {UnitSystem.SI, "second", "sec|s", NC_(TIME, "second"), "1", ""}, // Fundamental
-        {UnitSystem.SI, "minute", "min|m", NC_(TIME, "minute"), "60", "second"},
-        {UnitSystem.SI, "hour", "hr|h", NC_(TIME, "hour"), "60", "minute"},
-        {UnitSystem.SI, "day", "da|d", NC_(TIME, "day"), "24", "hour"},
-        {UnitSystem.SI, "week", "wk", NC_(TIME, "week"), "7", "day"},
-        {UnitSystem.SI, "fortnight", "", NC_(TIME, "fortnight"), "14", "day"},
-        {UnitSystem.SI, "year", "yr|y", NC_(TIME, "year"), "365", "day"},
-        {UnitSystem.SI, "leapyear", "yr|y", NC_(TIME, "leap year"), "366", "day"},
-        {UnitSystem.SI, "century", "", NC_(TIME, "century"), "100", "year"},
-        {UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "year"},
+        {UnitType.TIME, UnitSystem.SI, "second", "sec|s", NC_(TIME, "second"), "1", ""}, // Fundamental
+        {UnitType.TIME, UnitSystem.SI, "minute", "min|m", NC_(TIME, "minute"), "60", "second"},
+        {UnitType.TIME, UnitSystem.SI, "hour", "hr|h", NC_(TIME, "hour"), "60", "minute"},
+        {UnitType.TIME, UnitSystem.SI, "day", "da|d", NC_(TIME, "day"), "24", "hour"},
+        {UnitType.TIME, UnitSystem.SI, "week", "wk", NC_(TIME, "week"), "7", "day"},
+        {UnitType.TIME, UnitSystem.SI, "fortnight", "", NC_(TIME, "fortnight"), "14", "day"},
+        {UnitType.TIME, UnitSystem.SI, "year", "yr|y", NC_(TIME, "year"), "365", "day"},
+        {UnitType.TIME, UnitSystem.SI, "leapyear", "yr|y", NC_(TIME, "leap year"), "366", "day"},
+        {UnitType.TIME, UnitSystem.SI, "century", "", NC_(TIME, "century"), "100", "year"},
+        {UnitType.TIME, UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "year"},
     };
 }
