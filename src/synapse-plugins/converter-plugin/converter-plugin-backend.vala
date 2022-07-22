@@ -75,7 +75,7 @@ namespace Synapse {
              */
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d*[a-zA-Z ]+(2|3)?=>[a-zA-Z ]+(2|3)?$""",
+                    """^\d*.?\d*[a-zA-Z\/ ]+(2|3)?=>[a-zA-Z\/ ]+(2|3)?$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -96,7 +96,7 @@ namespace Synapse {
             ResultData [] results = {};
 
             if (matched) {
-                message ("Matched %s", input);
+                // message ("Matched %s", input);
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
                 var parts = input.split ("=>", 2);

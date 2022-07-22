@@ -57,8 +57,9 @@ namespace Synapse {
 
     enum UnitType { // UnitTypes are not interconvertible with dimensions
         MASS,
-        DIMENSION, // Length, Area, Volume are interconvertible with dimensions (L^1, L^2, L^3) 
-        TIME
+        DIMENSION, // Length, Area, Volume are interconvertible with dimensions (L^1, L^2, L^3)
+        TIME,
+        VELOCITY
     }
 
     struct Unit {
@@ -193,9 +194,21 @@ namespace Synapse {
         {UnitType.TIME, UnitSystem.SI, "day", "da|d", NC_(TIME, "day"), "24", "hour"},
         {UnitType.TIME, UnitSystem.SI, "week", "wk", NC_(TIME, "week"), "7", "day"},
         {UnitType.TIME, UnitSystem.SI, "fortnight", "", NC_(TIME, "fortnight"), "14", "day"},
-        {UnitType.TIME, UnitSystem.SI, "year", "yr|y", NC_(TIME, "year"), "365", "day"},
+        {UnitType.TIME, UnitSystem.SI, "commonyear", "yr|y|calendaryear", NC_(TIME, "Common year"), "365", "day"},
         {UnitType.TIME, UnitSystem.SI, "leapyear", "yr|y", NC_(TIME, "leap year"), "366", "day"},
+        {UnitType.TIME, UnitSystem.SI, "julianyear", "yr|y", NC_(TIME, "Julian year"), "365.25", "day"},
+        {UnitType.TIME, UnitSystem.SI, "gregorianyear", "yr|y", NC_(TIME, "Gregorian year"), "366.2425", "day"},
+        {UnitType.TIME, UnitSystem.SI, "islamicyear", "yr|y", NC_(TIME, "Islamic year"), "354", "day"},
+        {UnitType.TIME, UnitSystem.SI, "islamicleapyear", "yr|y", NC_(TIME, "Islamic leap year"), "354", "day"},
+        {UnitType.TIME, UnitSystem.SI, "decade", "", NC_(TIME, "decade"), "10", "year"},
         {UnitType.TIME, UnitSystem.SI, "century", "", NC_(TIME, "century"), "100", "year"},
-        {UnitType.TIME, UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "year"},
+        {UnitType.TIME, UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "commonyear"},
+
+        // Velocity units  - at present treated as separate unit system although could be calculated from components
+        {UnitType.VELOCITY, UnitSystem.SI, "meterpersecond", "m/s", NC_(TIME, "meters per second"), "1", ""}, // Fundamental
+        {UnitType.VELOCITY, UnitSystem.SI, "lightspeed", "c", NC_(TIME, "speed of light"), "299792458", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "kilometersperhour", "kph", NC_(TIME, "kilometers per hour"), "1000/3600", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "mph", NC_(TIME, "miles per hour"), "0.44704", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "mach", "", NC_(TIME, "Mach (speed of sound)"), "331.46", "meterpersecond"},
     };
 }
