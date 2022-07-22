@@ -50,7 +50,9 @@ namespace Synapse {
 
     enum UnitSystem {
         SI,
-        IMPERIAL,
+        IMPERIAL, // Where definition same in US and UK
+        IMPERIAL_UK, // Where definition differs from US
+        IMPERIAL_US, // Where definition differs from UK
     }
 
     struct Unit {
@@ -123,12 +125,12 @@ namespace Synapse {
         // Volume Units
         {UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
 
-        {UnitSystem.IMPERIAL, "ukgal", "gal|gallon", NC_(VOLUME, "UK gallon"), "4.54609", "liter"},
-        {UnitSystem.IMPERIAL, "ukqt", "qt|quart", NC_(VOLUME, "UK quart"), "1/4", "ukgal"},
-        {UnitSystem.IMPERIAL, "ukpint", "pt|pint", NC_(VOLUME, "UK pint"), "1/8", "ukgal"},
-        {UnitSystem.IMPERIAL, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
-        {UnitSystem.IMPERIAL, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
-        {UnitSystem.IMPERIAL, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
+        {UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "UK gallon"), "4.54609", "liter"},
+        {UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "UK quart"), "1/4", "ukgal"},
+        {UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "UK pint"), "1/8", "ukgal"},
+        {UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
+        {UnitSystem.IMPERIAL_US, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
+        {UnitSystem.IMPERIAL_US, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
 
         //Time units
         {UnitSystem.SI, "second", "sec|s", NC_(TIME, "second"), "1", ""}, // Fundamental

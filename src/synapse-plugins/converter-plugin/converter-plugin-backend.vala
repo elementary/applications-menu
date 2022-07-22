@@ -163,7 +163,7 @@ namespace Synapse {
             int dim1 = match1.dimension, dim2 = match2.dimension;
             double factor1 = match1.factor (), factor2 = match2.factor (); // Takes into account dimension
             string descr1 = match1.description (), descr2 = match2.description ();
-            // bool same_system = u1.system == u2.system;
+            bool same_system = u1.system == u2.system;
 
             debug ("Unit1 - %s: dimension %i, factor %g", descr1, dim1, factor1);
             debug ("Unit2 - %s: dimension %i, factor %g", descr2, dim2, factor2);
@@ -174,7 +174,8 @@ namespace Synapse {
             Unit? parent = u1; // Parent should only be null in the case of an error in the data structure.
             int parent_dimension = 1;
             while (parent != null &&
-                   parent.base_unit != "") {
+                   parent.base_unit != "" &&
+                   (!same_system || parent.system == u1.system)) {
 
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
                 debug ("parent1 %s parent_dimension1 %i, parent_factor1 %f",
@@ -194,7 +195,9 @@ namespace Synapse {
             parent_dimension = 1;
             var ultimate_parent1 = parent.uid;
             parent = u2;
-            while (parent != null && parent.base_unit != "") {
+            while (parent != null &&
+                   parent.base_unit != "" &&
+                   (!same_system || parent.system == u2.system)) {
 
                 parent = find_parent_unit (parent.base_unit, out parent_dimension);
                 debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
