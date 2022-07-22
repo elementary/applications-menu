@@ -56,9 +56,10 @@ sources = [
     zeitgeist_backend_source,
 
     'synapse-plugins/worker-link.vala',
-    'synapse-plugins/calculator-plugin.vala',
     'synapse-plugins/converter-plugin/converter-plugin.vala',
     'synapse-plugins/converter-plugin/converter-data.vala',
+    'synapse-plugins/calculator-plugin/calculator-plugin.vala',
+    'synapse-plugins/calculator-plugin/calculator-plugin-backend.vala',
     'synapse-plugins/command-plugin.vala',
     'synapse-plugins/desktop-file-plugin.vala',
     'synapse-plugins/file-bookmarks-plugin.vala',
@@ -117,3 +118,5 @@ executable(
     install: true,
     install_dir: pluginsdir
 )
+
+subdir ('test')
