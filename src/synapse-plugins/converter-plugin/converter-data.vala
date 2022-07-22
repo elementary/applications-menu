@@ -131,8 +131,8 @@ namespace Synapse {
         {UnitType.MASS, UnitSystem.IMPERIAL, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
         {UnitType.MASS, UnitSystem.IMPERIAL, "dram", "dr", NC_(MASS, "dram"), "1/16", "ounce"},
         {UnitType.MASS, UnitSystem.IMPERIAL, "grain", "gr", NC_(MASS, "grain"), "1/7000", "pound"},
-        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight", NC_(MASS, "British hundredweight"), "8", "stone"},
-        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight", NC_(MASS, "US hundredweight"), "100", "pound"},
+        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight|cwt", NC_(MASS, "British hundredweight"), "8", "stone"},
+        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight|cwt", NC_(MASS, "US hundredweight"), "100", "pound"},
         {UnitType.MASS, UnitSystem.IMPERIAL_US, "ukton", "t|ton|longton", NC_(MASS, "British ton"), "20", "brhundredweight"},
         {UnitType.MASS, UnitSystem.IMPERIAL_UK, "uston", "t|ton|shortton", NC_(MASS, "US ton"), "2000", "pound"},
 
@@ -163,9 +163,25 @@ namespace Synapse {
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "British gallon"), "4.54609", "liter"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "British quart"), "1/4", "ukgal"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "British pint"), "1/8", "ukgal"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukfluidounce", "ukflozfloz", NC_(VOLUME, "British fluid ounce"), "1/20", "ukpint"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "gill", "", NC_(VOLUME, "gill"), "1/4", "ukpint"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukcup", "cup", NC_(VOLUME, "British cup"), "1/2", "ukpint"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukteacup", "teacup", NC_(VOLUME, "British teacup"), "1/3", "ukpint"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uktbsp", "tbsp", NC_(VOLUME, "British tablespoon"), "15/1000", "liter"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uktsp", "tsp", NC_(VOLUME, "British teaspoon"), "1/3", "uktbsp"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uksmalltsp", "tsp", NC_(VOLUME, "British small teaspoon"), "1/4", "uktbsp"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukdessertspoon", "dsp", NC_(VOLUME, "British dessertspoon"), "2", "ukteaspoon"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usfluidounce", "usfloz|floz", NC_(VOLUME, "US fluid ounce"), "1/16", "uspint"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uscup", "cup", NC_(VOLUME, "US cup"), "8", "usfluidounce"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegalcup", "legalcup|cup", NC_(VOLUME, "US legal cup"), "240/1000", "liter"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "metriccup", "cup", NC_(VOLUME, "US metric cup"), "250/1000", "liter"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "ustablespoon", "ustbsp|tbsp", NC_(VOLUME, "US tablespoon"), "1/16", "uscup"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegaltablespoon", "legaltbsp|tbsp", NC_(VOLUME, "US legal tablespoon"), "1/16", "uslegalcup"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usteaspoon", "ustsp|tsp", NC_(VOLUME, "US teaspoon"), "1/3", "ustablespoon"},
+
 
         //Time units
         {UnitType.TIME, UnitSystem.SI, "second", "sec|s", NC_(TIME, "second"), "1", ""}, // Fundamental
