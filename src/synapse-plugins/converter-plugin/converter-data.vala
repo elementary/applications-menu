@@ -95,6 +95,7 @@ namespace Synapse {
     // equivalents with a non-standard name are included e.g. "click".
     // All links must use the target unit's uid (possibly followed by a dimension)
     // Abbreviations must be separated by |, without whitespace
+    // UIDs never have a prefix or dimension
     // TEMPLATE:         {UnitSystem., "", "", NC_("", ""), "", ""},
     const Unit[] UNITS = {
         // Mass and weight units

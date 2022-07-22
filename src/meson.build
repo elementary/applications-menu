@@ -57,6 +57,7 @@ sources = [
 
     'synapse-plugins/worker-link.vala',
     'synapse-plugins/converter-plugin/converter-plugin.vala',
+    'synapse-plugins/converter-plugin/converter-plugin-backend.vala',
     'synapse-plugins/converter-plugin/converter-data.vala',
     'synapse-plugins/calculator-plugin/calculator-plugin.vala',
     'synapse-plugins/calculator-plugin/calculator-plugin-backend.vala',
