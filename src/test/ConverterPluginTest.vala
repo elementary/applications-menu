@@ -23,6 +23,8 @@ class Synapse.CalculatorPluginTest : Object {
         // For simplicity, we only test the conversion factor, not the accompanying description
         assert_equal ("1kg=>g", 1000);
         assert_equal ("2m=>km", 0.002);
+        assert_equal ("gram=>metricgrain", 20);
+        assert_equal ("uston=>ukton", 0.892857);
         assert_equal ("ukgal=>ukpint", 8);
         assert_equal ("usgal=>in3", 231);
         assert_equal ("123456 sec => year", 0.00391476);
@@ -37,6 +39,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert_ambiguous ("y=>d", 2); // year may be a leap year.
         assert_ambiguous ("hr=>m", 1); // 'm' could be meter but that would not be a valid conversion.
         assert_ambiguous ("mile=>in", 3); // mile could also be nautical or country mile
+        assert_ambiguous ("ton=>ton", 4); // mile could also be nautical or country mile
 
         return 0;
     }

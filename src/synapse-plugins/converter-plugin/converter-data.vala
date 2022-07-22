@@ -116,10 +116,18 @@ namespace Synapse {
         // Mass and weight units
         {UnitSystem.SI, "gram", "gm|g", NC_(MASS, "gram"), "1", ""}, // Fundamental
         {UnitSystem.SI, "tonne", "t", NC_(MASS, "SI tonne"), "1E6", "gram"},
+        {UnitSystem.SI, "metriccarat", "carat|ct", NC_(MASS, "metric carat"), "0.2", "gram"},
+        {UnitSystem.SI, "metricgrain", "grain|gr", NC_(MASS, "metric grain"), "1/4", "metriccarat"},
 
         {UnitSystem.IMPERIAL, "pound", "lb", NC_(MASS, "pound"), "454", "gram"}, // Local root
-        {UnitSystem.IMPERIAL, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
         {UnitSystem.IMPERIAL, "stone", "st", NC_(MASS, "stone"), "14", "pound"},
+        {UnitSystem.IMPERIAL, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
+        {UnitSystem.IMPERIAL, "dram", "dr", NC_(MASS, "dram"), "1/16", "ounce"},
+        {UnitSystem.IMPERIAL, "grain", "gr", NC_(MASS, "grain"), "1/7000", "pound"},
+        {UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight", NC_(MASS, "British hundredweight"), "8", "stone"},
+        {UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight", NC_(MASS, "US hundredweight"), "100", "pound"},
+        {UnitSystem.IMPERIAL_US, "ukton", "t|ton|longton", NC_(MASS, "British ton"), "20", "brhundredweight"},
+        {UnitSystem.IMPERIAL_UK, "uston", "t|ton|shortton", NC_(MASS, "US ton"), "2000", "pound"},
 
         // Length units
         {UnitSystem.SI, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental for length, area, volume
@@ -140,9 +148,9 @@ namespace Synapse {
         // Volume Units
         {UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
 
-        {UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "UK gallon"), "4.54609", "liter"},
-        {UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "UK quart"), "1/4", "ukgal"},
-        {UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "UK pint"), "1/8", "ukgal"},
+        {UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "British gallon"), "4.54609", "liter"},
+        {UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "British quart"), "1/4", "ukgal"},
+        {UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "British pint"), "1/8", "ukgal"},
         {UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
         {UnitSystem.IMPERIAL_US, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
         {UnitSystem.IMPERIAL_US, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
