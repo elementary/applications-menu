@@ -33,8 +33,9 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("usacre=>in2", 6272665);
         assert_equal ("iacre=>foot2", 43560);
         assert_equal ("iacre=>m2", 4046.8564224);
-        assert_equal ("123456 sec => year", 0.00391476408);
+        assert_equal ("123456 sec => commonyear", 0.00391476408);
         assert_equal ("leapyear => min", 527040);
+        assert_equal ("mph=>kph", 1.60934);
         assert_throw ("1kg=>foot", 0);
         assert_throw ("1kg=>xxx", 0);
 
@@ -42,7 +43,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert_ambiguous ("gallon=>pint", 4); // Gallon and pint can each be either US or UK size.
         assert_ambiguous ("gal=>in3", 2); // Gallon can be either US or UK size.
         assert_ambiguous ("gal=>liter", 2); // Gallon can be either US or UK size.
-        assert_ambiguous ("y=>d", 2); // year may be a leap year.
+        assert_ambiguous ("y=>d", 6); // year may also be a leap, Julian, Gregorian, Islamic, Islamic leap.
         assert_ambiguous ("hr=>m", 1); // 'm' could be meter but that would not be a valid conversion.
         assert_ambiguous ("mile=>in", 3); // mile could also be nautical or country mile
         assert_ambiguous ("ton=>ton", 9); // ton could be US, UK or metric
