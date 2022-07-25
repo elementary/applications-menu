@@ -85,6 +85,11 @@ namespace Synapse {
         }
 
         public ResultData[] get_conversion_data (string query_string) {
+            ResultData [] results = {};
+            if (!query_string.contains ("=>")) {
+                return results;
+            }
+
             var input = query_string.replace (" ", "").replace (",", ".").replace ("|", "");
             var matched = convert_regex.match (input);
             var num = 1.0;
