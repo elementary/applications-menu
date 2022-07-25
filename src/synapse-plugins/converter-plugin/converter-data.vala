@@ -208,7 +208,7 @@ namespace Synapse {
         {UnitType.VELOCITY, UnitSystem.SI, "meterpersecond", "m/s", NC_(TIME, "meters per second"), "1", ""}, // Fundamental
         {UnitType.VELOCITY, UnitSystem.SI, "lightspeed", "c", NC_(TIME, "speed of light"), "299792458", "meterpersecond"},
         {UnitType.VELOCITY, UnitSystem.SI, "kilometersperhour", "km/h|kph", NC_(TIME, "kilometers per hour"), "1000/3600", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "mph", NC_(TIME, "miles per hour"), "1609.34/3600", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "m/h|mph", NC_(TIME, "miles per hour"), "1609.34/3600", "meterpersecond"},
         {UnitType.VELOCITY, UnitSystem.SI, "mach", "", NC_(TIME, "Mach (speed of sound)"), "331.46", "meterpersecond"},
     };
 }
