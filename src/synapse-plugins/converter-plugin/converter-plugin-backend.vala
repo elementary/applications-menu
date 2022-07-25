@@ -76,7 +76,7 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d*[a-zA-Z\/ ]+[23]?=>[a-zA-Z\/ ]+[23]?$""",
+                    """\d*[a-zA-Z\/ ]+[23]?=>[a-zA-Z\/ ]+[23]?""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -90,8 +90,8 @@ namespace Synapse {
                 return results;
             }
 
-            var input = query_string.replace (" ", "").replace (",", ".").replace ("|", "");
-            var matched = convert_regex.match (input);
+            var input = query_string.replace (",", ".").replace ("|", "").strip ();
+            var matched = convert_regex.match_all (input);
             var num = 1.0;
             UnitMatch[] match_arr1 = {}, match_arr2 = {};
             SIPrefix prefix1 = SIPrefix.get_default (), prefix2 = SIPrefix.get_default ();
@@ -101,18 +101,26 @@ namespace Synapse {
 
             if (matched) {
                 // message ("Matched %s", input);
+
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
-                var parts = input.split ("=>", 2);
 
+                var parts = input.split ("=>", 2);
                 var num_s = parts[0];
+                // Isolate leading number (First \0 truncates string)
                 num_s.canon ("1234567890.", '\0');
+                if (num_s.contains ("..")) { // Multiple decimal points are incorrectly parsed to double
+                    return results;
+                }
+
                 if (num_s.length > 0) { // If leading number omitted, assume it to be 1.0
                     num = double.parse (num_s);
                 }
 
-                string unit1_s = parts[0].slice (num_s.length, parts[0].length);
-                string unit2_s = parts[1];
+                // Get user input units; cleanup excess whitespace. Note: more than two consecutive embedded spaces
+                // will prevent a match.
+                string unit1_s = (parts[0].slice (num_s.length, parts[0].length)).strip ().replace ("  ", " ");
+                string unit2_s = parts[1].strip ().replace ("  ", " ");
 
                 // Split each unit into prefix, base and dimension
                 get_prefix_and_dimension (unit1_s, out prefix1_s, out prefix1, out dimension1);
@@ -122,7 +130,7 @@ namespace Synapse {
                 );
 
                 // Try and find matching unit(s) in data table, indicating whether match includes prefix and/or dimension
-                // Match could be with uid, and abbreviation or the description
+                // Match could be with uid, an abbreviation or the description
                 // Matches could be in incompatible system - these are rejected later
                 foreach (Unit u in UNITS) {
                     if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix, out use_dimension)) {

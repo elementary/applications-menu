@@ -25,6 +25,7 @@ class Synapse.CalculatorPluginTest : Object {
         // Non-simple factors are taken from Google
 
         assert_equal ("1kg=>g", 1000);
+        assert_equal ("21.45kg=>g", 21450);
         assert_equal ("2m=>km", 0.002);
         assert_equal ("gram=>metricgrain", 20);
         assert_equal ("uston=>ukton", 0.892857);
@@ -36,8 +37,10 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("123456 sec => commonyear", 0.00391476408);
         assert_equal ("leapyear => min", 527040);
         assert_equal ("mph=>kph", 1.60934);
+        assert_equal ("3 US cup => ml", 709.765);
         assert_throw ("1kg=>foot", 0);
         assert_throw ("1kg=>xxx", 0);
+        assert_throw ("1..5kg=>g", 0);
 
         // Test how many results are expected from a (possibly) ambiguous conversion.
         assert_ambiguous ("gallon=>pint", 4); // Gallon and pint can each be either US or UK size.
