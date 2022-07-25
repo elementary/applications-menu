@@ -73,9 +73,10 @@ namespace Synapse {
              * <number> <unit> => <unit>.
              * Some restrictions are placed on the form of <unit> (letters maybe followed by a 2 or 3).
              */
+
             try {
                 convert_regex = new Regex (
-                    """^\d*.?\d*[a-zA-Z\/ ]+(2|3)?=>[a-zA-Z\/ ]+(2|3)?$""",
+                    """^\d*.?\d*[a-zA-Z\/ ]+[23]?=>[a-zA-Z\/ ]+[23]?$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -92,8 +93,6 @@ namespace Synapse {
             string prefix1_s = "", prefix2_s = "";
             int dimension1 = 1, dimension2 = 1;
             bool use_prefix = false, use_dimension = false;
-
-            ResultData [] results = {};
 
             if (matched) {
                 // message ("Matched %s", input);
