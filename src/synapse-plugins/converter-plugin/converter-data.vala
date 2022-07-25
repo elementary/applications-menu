@@ -123,6 +123,7 @@ namespace Synapse {
     const Unit[] UNITS = {
         // Mass and weight units
         {UnitType.MASS, UnitSystem.SI, "gram", "g|gm|gramme", NC_(MASS, "SI gram"), "1", ""},
+        {UnitType.MASS, UnitSystem.SI, "kilogram", "kilo", NC_(MASS, "kilogram"), "1000", "gram"},
         {UnitType.MASS, UnitSystem.SI, "tonne", "t|ton", NC_(MASS, "SI tonne"), "1E6", "gram"},
         {UnitType.MASS, UnitSystem.SI, "metriccarat", "carat|ct", NC_(MASS, "metric carat"), "0.2", "gram"},
         {UnitType.MASS, UnitSystem.SI, "metricgrain", "grain|gr", NC_(MASS, "metric grain"), "1/4", "metriccarat"},
