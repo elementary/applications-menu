@@ -43,7 +43,7 @@ namespace Synapse {
         {"nano", "n", 1E-9},
         {"pico", "p", 1E-12},
         {"femto", "f", 1E-15},
-        {"atto", "a", 1E-24},
+        {"atto", "a", 1E-18},
         {"zepto", "z", 1E-21},
         {"yocto", "y", 1E-24}
     };
