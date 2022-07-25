@@ -85,18 +85,6 @@ namespace Synapse {
             }
         }
 
-        public bool is_valid () {
-            double size = get_factor ();
-            bool valid = (uid != "" && size_s != "" && description != "" &&
-                   size > 0.0 && (base_unit != "" || size == 1.0));
-
-            if (valid) {
-                char last_c = uid.@get (uid.length - 1);
-                valid = valid && !last_c.isdigit ();
-            }
-
-            return valid;
-        }
     }
 
     struct SIPrefix {
@@ -123,6 +111,7 @@ namespace Synapse {
     const Unit[] UNITS = {
         // Mass and weight units
         {UnitType.MASS, UnitSystem.SI, "gram", "g|gm|gramme", NC_(MASS, "SI gram"), "1", ""},
+        {UnitType.MASS, UnitSystem.SI, "kilogram", "kilo", NC_(MASS, "kilogram"), "1000", "gram"},
         {UnitType.MASS, UnitSystem.SI, "tonne", "t|ton", NC_(MASS, "SI tonne"), "1E6", "gram"},
         {UnitType.MASS, UnitSystem.SI, "metriccarat", "carat|ct", NC_(MASS, "metric carat"), "0.2", "gram"},
         {UnitType.MASS, UnitSystem.SI, "metricgrain", "grain|gr", NC_(MASS, "metric grain"), "1/4", "metriccarat"},
