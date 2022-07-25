@@ -194,7 +194,7 @@ namespace Synapse {
         {UnitType.TIME, UnitSystem.SI, "day", "da|d", NC_(TIME, "day"), "24", "hour"},
         {UnitType.TIME, UnitSystem.SI, "week", "wk", NC_(TIME, "week"), "7", "day"},
         {UnitType.TIME, UnitSystem.SI, "fortnight", "", NC_(TIME, "fortnight"), "14", "day"},
-        {UnitType.TIME, UnitSystem.SI, "commonyear", "yr|y|calendaryear", NC_(TIME, "Common year"), "365", "day"},
+        {UnitType.TIME, UnitSystem.SI, "commonyear", "calendaryear|year|yr|y", NC_(TIME, "Common year"), "365", "day"},
         {UnitType.TIME, UnitSystem.SI, "leapyear", "yr|y", NC_(TIME, "leap year"), "366", "day"},
         {UnitType.TIME, UnitSystem.SI, "julianyear", "yr|y", NC_(TIME, "Julian year"), "365.25", "day"},
         {UnitType.TIME, UnitSystem.SI, "gregorianyear", "yr|y", NC_(TIME, "Gregorian year"), "366.2425", "day"},
