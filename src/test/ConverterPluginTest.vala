@@ -57,7 +57,18 @@ class Synapse.CalculatorPluginTest : Object {
             // Give index as well in case of error as uid could be blank.
             stderr.printf ("Unit index %i, uid %s\n", index, u.uid);
             index++;
-            assert (u.is_valid ());
+
+            double size = u.get_factor ();
+            var uid = u.uid;
+            bool valid = (uid != "" && u.size_s != "" && u.description != "" &&
+                   size > 0.0 && (u.base_unit != "" || size == 1.0));
+
+            if (valid) {
+                char last_c = uid.@get (uid.length - 1);
+                valid = valid && !last_c.isdigit ();
+            }
+
+            assert (valid);
         }
     }
 

@@ -85,18 +85,6 @@ namespace Synapse {
             }
         }
 
-        public bool is_valid () {
-            double size = get_factor ();
-            bool valid = (uid != "" && size_s != "" && description != "" &&
-                   size > 0.0 && (base_unit != "" || size == 1.0));
-
-            if (valid) {
-                char last_c = uid.@get (uid.length - 1);
-                valid = valid && !last_c.isdigit ();
-            }
-
-            return valid;
-        }
     }
 
     struct SIPrefix {
