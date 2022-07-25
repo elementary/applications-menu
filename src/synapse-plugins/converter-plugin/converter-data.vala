@@ -200,8 +200,8 @@ namespace Synapse {
         {UnitType.TIME, UnitSystem.SI, "gregorianyear", "yr|y", NC_(TIME, "Gregorian year"), "366.2425", "day"},
         {UnitType.TIME, UnitSystem.SI, "islamicyear", "yr|y", NC_(TIME, "Islamic year"), "354", "day"},
         {UnitType.TIME, UnitSystem.SI, "islamicleapyear", "yr|y", NC_(TIME, "Islamic leap year"), "354", "day"},
-        {UnitType.TIME, UnitSystem.SI, "decade", "", NC_(TIME, "decade"), "10", "year"},
-        {UnitType.TIME, UnitSystem.SI, "century", "", NC_(TIME, "century"), "100", "year"},
+        {UnitType.TIME, UnitSystem.SI, "decade", "", NC_(TIME, "decade"), "10", "commonyear"},
+        {UnitType.TIME, UnitSystem.SI, "century", "", NC_(TIME, "century"), "100", "commonyear"},
         {UnitType.TIME, UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "commonyear"},
 
         // Velocity units  - at present treated as separate unit system although could be calculated from components
