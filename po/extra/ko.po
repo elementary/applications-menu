@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2022-08-04 00:55+0000\n"
+"PO-Revision-Date: 2022-08-05 09:01+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ko/>\n"
@@ -25,7 +25,7 @@ msgstr "애플리케이션 메뉴"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
-msgstr ""
+msgstr "앱 실행 및 검색"
 
 #: data/applications-menu.appdata.xml.in:11
 #: data/applications-menu.appdata.xml.in:23
@@ -163,8 +163,8 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:130
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr ""
+msgstr "\"앱센터에서 보기\" 메뉴 추가"
 
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
