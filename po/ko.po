@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2022-08-05 13:40+0000\n"
+"PO-Revision-Date: 2022-08-06 10:54+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ko/>\n"
@@ -46,33 +46,31 @@ msgstr "검색어 삭제"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "액세서리"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "손 쉬운 사용"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "프로그래밍"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "동작"
+msgstr "교육"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "과학"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "게임"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "그래픽"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
@@ -80,15 +78,15 @@ msgstr "인터넷"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "사운드 & 비디오"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "오피스"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "시스템 도구"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
@@ -100,7 +98,7 @@ msgstr "명령문 실행…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "기본"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -112,10 +110,9 @@ msgid "No Results for “%s”"
 msgstr "“%s”에 대한 검색 결과가 없습니다"
 
 #: src/Widgets/AppContextMenu.vala:78
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "%s 에서 열기"
+msgstr "%s 그래픽으로 열기"
 
 #: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
@@ -163,7 +160,7 @@ msgstr "애플리케이션 작동"
 
 #: src/Widgets/SearchItem.vala:56
 msgid "Bookmarks"
-msgstr ""
+msgstr "책갈피"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -225,10 +222,8 @@ msgid "bc is not installed"
 msgstr "bc를 설치하지 않았습니다"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "선택한것을 클립보드로 복사"
+msgstr "클릭하여 결과를 클립보드에 복사"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
