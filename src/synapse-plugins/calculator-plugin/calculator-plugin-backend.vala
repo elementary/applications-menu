@@ -30,18 +30,23 @@ namespace Synapse {
             return instance;
         }
 
-        private Regex? regex = null;
+        private Regex? express_regex = null;
+        private Regex? base_regex = null;
         private static CalculatorPluginBackend instance = null;
 
         construct {
-            /* The regex describes a strigitng which *resembles* a mathematical expression. It does not
-            check for pairs of parantheses to be used correctly and only whitespace-stripped strings
-            will match. Basically it matches strings of the form:
-            "paratheses_open* number (operator paratheses_open* number paratheses_close*)+"
-            */
             try {
-                regex = new Regex (
-                    "^\\(*(-?([.,]\\d+)?)([*/+-^]\\(*(-?([.,]\\d+)?)\\)*)+$",
+                /* The express_regex describes a string which *resembles* a mathematical expression in one of two forms:
+                <alphanum><operator><alphanum> e.g. 2 + 2
+                <opening parenthesis><number expression><closing parenthesis) e.g. sqrt (0.5)
+                */
+                express_regex = new Regex (
+                    """^.*(\w+[\/\+\-\*\^\%\!\&\|]{1,2}\.?\w+|\(-?\d+.*\))+.*$""",
+                    RegexCompileFlags.OPTIMIZE
+                );
+                /* The base_regex describes a string which starts with a bc number base expression */
+                base_regex = new Regex (
+                    """^.base=\d+;.*$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -53,11 +58,22 @@ namespace Synapse {
         public async double get_solution (string query_string, Cancellable cancellable) throws Error {
             string? solution = null;
             string input = query_string.replace (" ", "").replace (",", ".").replace ("x", "*");
-            bool matched = regex.match (input);
+            // Mark characters not allowed in simple bc expressions
+            bool matched = true;
+            if (base_regex.match (input)) {
+                // If a number base is set, the expression may include hexadecimals
+                // or be doing a conversion, in which there is no expression
+                // so omit regex test and instead limit to certain characters for simple expressions
+                input.canon ("1234567890ABCDEF();%^&|!*/-+iobase=.", '@');
 
-            if (!matched && input.length > 1) {
-                input = input[0 : input.length - 1];
-                matched = regex.match (input);
+            } else {
+                // Disallow capitals and test for possible mathematical expression
+                input = input.down ();
+                matched = express_regex.match (input);
+            }
+
+            if (input.contains ("@")) {
+               matched = false;
             }
 
             if (matched) {
