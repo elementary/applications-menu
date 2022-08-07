@@ -55,31 +55,8 @@ namespace Synapse {
             );
         }
 
-        private Regex express_regex;
-        private Regex base_regex;
-
         static construct {
             register_plugin ();
-        }
-
-        construct {
-            try {
-                /* The express_regex describes a string which *resembles* a mathematical expression in one of two forms:
-                <alphanum><operator><alphanum> e.g. 2 + 2
-                <opening parenthesis><number expression><closing parenthesis) e.g. sqrt (0.5)
-                */
-                express_regex = new Regex (
-                    """^.*(\w+[\/\+\-\*\^\%\!\&\|]{1,2}\.?\w+|\(\d+.*\))+.*$""",
-                    RegexCompileFlags.OPTIMIZE
-                );
-                /* The base_regex describes a string which starts with a bc number base expression */
-                base_regex = new Regex (
-                    """^.base=\d+;.*$""",
-                    RegexCompileFlags.OPTIMIZE
-                );
-            } catch (Error e) {
-                critical ("Error creating regexp: %s", e.message);
-            }
         }
 
         public bool handles_query (Query query) {
