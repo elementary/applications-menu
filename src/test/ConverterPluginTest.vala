@@ -38,9 +38,9 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("leapyear => min", 527040);
         assert_equal ("mph=>kph", 1.60934);
         assert_equal ("3 US cup => ml", 709.765);
-        assert_throw ("1kg=>foot", 0);
-        assert_throw ("1kg=>xxx", 0);
-        assert_throw ("1..5kg=>g", 0);
+        assert_throw ("1kg=>foot");
+        assert_throw ("1kg=>xxx");
+        assert_throw ("1..5kg=>g");
 
         // Test how many results are expected from a (possibly) ambiguous conversion.
         assert_ambiguous ("gallon=>pint", 4); // Gallon and pint can each be either US or UK size.
@@ -79,7 +79,7 @@ class Synapse.CalculatorPluginTest : Object {
         run_conversion (input, result, true);
     }
 
-    static void assert_throw (string input, double result) {
+    static void assert_throw (string input) {
         run_conversion (input, 0, false);
     }
 
