@@ -38,6 +38,11 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("leapyear => min", 527040);
         assert_equal ("mph=>kph", 1.60934);
         assert_equal ("3 US cup => ml", 709.765);
+        assert_equal ("Fortnight=>day", 14);
+        assert_equal ("fortnight=>Day", 14);
+        assert_equal ("fortnight=>Day", 14);
+
+        assert_throw ("british gallon=>US liquid pint"); // Translatable descriptions are case sensitive
         assert_throw ("1kg=>foot");
         assert_throw ("1kg=>xxx");
         assert_throw ("1..5kg=>g");
@@ -46,7 +51,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert_ambiguous ("gallon=>pint", 4); // Gallon and pint can each be either US or UK size.
         assert_ambiguous ("gal=>in3", 2); // Gallon can be either US or UK size.
         assert_ambiguous ("gal=>liter", 2); // Gallon can be either US or UK size.
-        assert_ambiguous ("y=>d", 6); // year may also be a leap, Julian, Gregorian, Islamic, Islamic leap.
+        assert_ambiguous ("yr=>d", 6); // year may also be a leap, Julian, Gregorian, Islamic, Islamic leap.
         assert_ambiguous ("hr=>m", 1); // 'm' could be meter but that would not be a valid conversion.
         assert_ambiguous ("mile=>in", 3); // mile could also be nautical or country mile
         assert_ambiguous ("ton=>ton", 9); // ton could be US, UK or metric
