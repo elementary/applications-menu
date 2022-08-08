@@ -186,50 +186,17 @@ namespace Synapse {
             // If both given units are in the same system stop at the base unit for that system, otherwise
             // convert to SI.
             Unit? parent = u1; // Parent should only be null in the case of an error in the data structure.
-            int parent_dimension = 1;
+
             debug ("finding root of %s - start dimension %i, start factor %f", u1.uid, dim1, factor1);
-            while (parent != null &&
-                   parent.base_unit != "" &&
-                   (!same_system || parent.system == u1.system)) {
-
-                parent = find_parent_unit (parent.base_unit, out parent_dimension);
-                var pfactor = parent.get_factor ();
-                debug ("parent1 %s parent_dimension1 %i, parent_factor1 %f",
-                       parent.uid, parent_dimension, pfactor
-                );
-
-                dim1 *= parent_dimension;
-                debug ("Dim1 now %i", dim1);
-                for (int i = 0; i < dim1; i++) {
-                    factor1 *= pfactor;
-                    debug ("Factor1 now %f", factor1);
-                }
-            }
-
+            find_root (ref parent, ref dim1, ref factor1, same_system, u1.system);
             if (parent == null) {
                 return null;
             }
 
-            parent_dimension = 1;
             var ultimate_parent1 = parent.uid;
             parent = u2;
             debug ("finding root of %s - start dimension %i, start factor2 %f", u2.uid, dim2, factor2);
-            while (parent != null &&
-                   parent.base_unit != "" &&
-                   (!same_system || parent.system == u2.system)) {
-
-                parent = find_parent_unit (parent.base_unit, out parent_dimension);
-                var pfactor = parent.get_factor ();
-                debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
-                    parent.uid, parent_dimension, pfactor
-                );
-                dim2 *= parent_dimension;
-                debug ("Dim2 now %i", dim2);
-                for (int i = 0; i < dim2; i++) {
-                    factor2 *= pfactor;
-                    debug ("Factor2 now %f", factor2);
-                }
-            }
+            find_root (ref parent, ref dim2, ref factor2, same_system, u2.system);
 
             // The two given units must be traceable to the same root with the same dimensionality.
             if (parent != null &&
@@ -247,6 +214,26 @@ namespace Synapse {
             }
 
             return null;
+        }
+
+        private void find_root (ref Unit? parent, ref int dim, ref double factor, bool same_system, UnitSystem match_unit_system) {
+            int parent_dimension = 1;
+            while (parent != null &&
+                   parent.base_unit != "" &&
+                   (!same_system || parent.system == match_unit_system)) {
+
+                parent = find_parent_unit (parent.base_unit, out parent_dimension);
+                var pfactor = parent.get_factor ();
+                debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
+                    parent.uid, parent_dimension, pfactor
+                );
+                dim *= parent_dimension;
+                debug ("Dim now %i", dim);
+                for (int i = 0; i < dim; i++) {
+                    factor *= pfactor;
+                    debug ("Factor2 now %f", factor);
+                }
+            }
         }
 
         private bool check_match (
