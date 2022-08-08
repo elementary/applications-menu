@@ -76,7 +76,7 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
-                    """\d*[a-zA-Z\/ ]+[23]?=>[a-zA-Z\/ ]+[23]?""",
+                    """(\d*) ?([a-zA-Z\/ ]+?)([23]?) ?=> ?([a-zA-Z\/ ]+)([23]?)""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {

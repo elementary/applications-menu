@@ -22,8 +22,10 @@
 namespace Synapse {
     const string MASS = "unit of mass";
     const string LENGTH = "unit of length";
+    const string AREA = "unit of area";
     const string VOLUME = "unit of volume";
     const string TIME = "unit of time";
+    const string VELOCITY = "unit of velocity";
 
     const SIPrefix [] PREFIXES = {
         {"yotta", "Y", 1E24},
@@ -64,7 +66,7 @@ namespace Synapse {
 
     struct Unit {
         public UnitType type; // Units of different types cannot be interconverted
-        public UnitSystem system; // e.g. SI, Imperial, Chinese
+        public UnitSystem system; // e.g. SI, Imperial
         public string uid; // Unique identifier for the purposes of the converter - not official
         public string abbreviations; // Vala does not support arrays in structs? Use strings concatenated with "|"
         public string description; // Translatable specific description
@@ -142,14 +144,14 @@ namespace Synapse {
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "surveyfoot", "surveyft|ft", NC_(LENGTH, "US survey foot"), "1200/3937", "meter"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "link", "", NC_(LENGTH, "link"), "1/100", "chain"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "furlong", "", NC_(LENGTH, "furlong"), "1/8", "imile"},
-
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "imile", "mi|mile", NC_(LENGTH, "mile"), "1760", "yard"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "nmile", "mi|nmi|mile", NC_(LENGTH, "nautical mile"), "1852", "yard"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL, "cmile", "mi|cmi|mile", NC_(LENGTH, "country mile"), "2200", "yard"},
 
         // Area units
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "iacre", "acre", NC_(LENGTH, "International acre"), "10", "chain2"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usacre", "acre", NC_(LENGTH, "US acre"), "10", "surveyorschain2"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "iacre", "acre", NC_(AREA, "International acre"), "10", "chain2"},
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usacre", "acre", NC_(AREA, "US acre"), "10", "surveyorschain2"},
+
         // Volume Units
         {UnitType.DIMENSION, UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
 
@@ -175,7 +177,6 @@ namespace Synapse {
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegaltablespoon", "legaltbsp|tbsp", NC_(VOLUME, "US legal tablespoon"), "1/16", "uslegalcup"},
         {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usteaspoon", "ustsp|tsp", NC_(VOLUME, "US teaspoon"), "1/3", "ustablespoon"},
 
-
         //Time units
         {UnitType.TIME, UnitSystem.SI, "second", "sec|s", NC_(TIME, "second"), "1", ""}, // Fundamental
         {UnitType.TIME, UnitSystem.SI, "minute", "min|m", NC_(TIME, "minute"), "60", "second"},
@@ -194,10 +195,10 @@ namespace Synapse {
         {UnitType.TIME, UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "commonyear"},
 
         // Velocity units  - at present treated as separate unit system although could be calculated from components
-        {UnitType.VELOCITY, UnitSystem.SI, "meterpersecond", "m/s", NC_(TIME, "meters per second"), "1", ""}, // Fundamental
-        {UnitType.VELOCITY, UnitSystem.SI, "lightspeed", "c", NC_(TIME, "speed of light"), "299792458", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "kilometersperhour", "km/h|kph", NC_(TIME, "kilometers per hour"), "1000/3600", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "m/h|mph", NC_(TIME, "miles per hour"), "1609.34/3600", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "mach", "", NC_(TIME, "Mach (speed of sound)"), "331.46", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "meterpersecond", "m/s", NC_(VELOCITY, "meters per second"), "1", ""}, // Fundamental
+        {UnitType.VELOCITY, UnitSystem.SI, "lightspeed", "c", NC_(VELOCITY, "speed of light"), "299792458", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "kilometersperhour", "km/h|kph", NC_(VELOCITY, "kilometers per hour"), "1000/3600", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "m/h|mph", NC_(VELOCITY, "miles per hour"), "1609.34/3600", "meterpersecond"},
+        {UnitType.VELOCITY, UnitSystem.SI, "mach", "", NC_(VELOCITY, "Mach (speed of sound)"), "331.46", "meterpersecond"},
     };
 }
