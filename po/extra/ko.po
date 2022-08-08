@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2022-08-05 09:01+0000\n"
+"PO-Revision-Date: 2022-08-08 11:31+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ko/>\n"
@@ -58,7 +58,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:123
 #: data/applications-menu.appdata.xml.in:132
 msgid "Updated translations"
-msgstr ""
+msgstr "최신 번역"
 
 #: data/applications-menu.appdata.xml.in:31
 #: data/applications-menu.appdata.xml.in:56
@@ -81,7 +81,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:100
 #: data/applications-menu.appdata.xml.in:108
 msgid "Minor updates:"
-msgstr ""
+msgstr "소소한 업데이트:"
 
 #: data/applications-menu.appdata.xml.in:49
 msgid "Show secondary click menu for search results"
@@ -125,7 +125,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:122
 #: data/applications-menu.appdata.xml.in:131
 msgid "Performance improvements"
-msgstr ""
+msgstr "성능 개선"
 
 #: data/applications-menu.appdata.xml.in:110
 msgid ""
