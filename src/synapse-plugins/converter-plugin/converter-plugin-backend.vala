@@ -252,12 +252,12 @@ namespace Synapse {
                 ids += s;
             }
 
-            ids += _(u.description);
+            ids += _(u.description).down ();
 
-            var match = unit_s;
+            var match = unit_s.down ();
             // Test match whole unit
             foreach (string id in ids) {
-                if (match == id || match.down () == id) {
+                if (match == id) {
                     debug ("whole unit matches");
                     return true;
                 }
@@ -265,9 +265,9 @@ namespace Synapse {
 
             if (prefix != "") {
                 //Test match without prefix
-                match = unit_s[prefix.length : unit_s.length];
+                match = unit_s[prefix.length : unit_s.length].down ();
                 foreach (string id in ids) {
-                    if (match == id || match.down () == id) {
+                    if (match == id) {
                         debug ("unit less prefix matches");
                         use_prefix = true;
                         return true;
@@ -277,9 +277,9 @@ namespace Synapse {
 
             if (dimension > 1) {
                 //Test match without dimension
-                match = unit_s[0 : -1];
+                match = unit_s[0 : -1].down ();
                 foreach (string id in ids) {
-                    if (match == id || match.down () == id) {
+                    if (match == id) {
                         debug ("unit less dimension matches");
                         use_dimension = true;
                         return true;
@@ -289,9 +289,9 @@ namespace Synapse {
 
             if (prefix != "" && dimension > 1) {
                 //Test match without either prefix or dimension
-                match = unit_s[prefix.length : -1];
+                match = unit_s[prefix.length : -1].down ();
                 foreach (string id in ids) {
-                    if (match == id || match.down () == id) {
+                    if (match == id) {
                         debug ("unit less both matches");
                         use_prefix = use_dimension = true;
                         return true;

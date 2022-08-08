@@ -103,7 +103,6 @@ class Synapse.CalculatorPluginTest : Object {
             stderr.printf ("No result");
             assert (!expect_pass);
         } else {
-
             var diff = (results[0].factor - result).abs () / result;
             stderr.printf ("Result %f, expected %f Diff %g", results[0].factor, result, diff);
             assert (
