@@ -41,8 +41,8 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("Fortnight=>day", 14);
         assert_equal ("fortnight=>Day", 14);
         assert_equal ("fortnight=>Day", 14);
+        assert_equal ("british gallon=>US liquid pint", 9.6076); // Translatable descriptions are case sensitive
 
-        assert_throw ("british gallon=>US liquid pint"); // Translatable descriptions are case sensitive
         assert_throw ("1kg=>foot");
         assert_throw ("1kg=>xxx");
         assert_throw ("1..5kg=>g");
@@ -85,7 +85,7 @@ class Synapse.CalculatorPluginTest : Object {
     }
 
     static void assert_throw (string input) {
-        run_conversion (input, 0, false);
+        run_conversion (input, int.MIN, false);
     }
 
     static void assert_ambiguous (string input, int n_results) {
@@ -95,7 +95,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert (results.length == n_results);
     }
 
-    static void run_conversion (string input, double result, bool expect_pass) {
+    static void run_conversion (string input, double result, bool expect_pass) requires (result > 0) {
         var backend = ConverterPluginBackend.get_instance ();
         stderr.printf ("\n%s = ", input);
         var results = backend.get_conversion_data (input);
