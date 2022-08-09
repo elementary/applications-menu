@@ -100,8 +100,6 @@ namespace Synapse {
             bool use_prefix = false;
 
             if (matched) {
-                // message ("Matched %s", input);
-
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
 
@@ -222,17 +220,40 @@ namespace Synapse {
         }
 
         private void find_root (ref Unit? parent, ref int dim, ref double factor, bool same_system, UnitSystem match_unit_system) {
-            int parent_dimension = 1;
             while (parent != null &&
                    parent.base_unit != "" &&
                    (!same_system || parent.system == match_unit_system)) {
 
-                parent = find_parent_unit (parent.base_unit, out parent_dimension);
+                int link_dimension = 1;
+                var base_uid = parent.base_unit;
+                var length = base_uid.length;
+                if (length > 1) {
+                    char last_c = base_uid.@get (length - 1);
+                    if (last_c.isdigit ()) {
+                        link_dimension = last_c.digit_value ();
+                        base_uid = base_uid[0 : -1];
+                        debug ("Link dimension %i, base_uid %s", link_dimension, base_uid);
+                    }
+                }
+
+                parent = null;
+                foreach (Unit u in UNITS) {
+                    if (u.uid == base_uid) {
+                        parent = u;
+                        break;
+                    }
+                }
+
+                if (parent == null) {
+                    critical ("Unable to find parent for %s - data error", base_uid);
+                    return;
+                }
+
                 var pfactor = parent.get_factor ();
                 debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
-                    parent.uid, parent_dimension, pfactor
+                    parent.uid, link_dimension, pfactor
                 );
-                dim *= parent_dimension;
+                dim *= link_dimension;
                 debug ("Dim now %i", dim);
                 for (int i = 0; i < dim; i++) {
                     factor *= pfactor;
@@ -302,29 +323,6 @@ namespace Synapse {
                     break;
                 }
             }
-        }
-
-        private Unit? find_parent_unit (string link, out int link_dimension) {
-            link_dimension = 1;
-            var base_uid = link;
-            var length = link.length;
-            if (length > 1) {
-                char last_c = link.@get (length - 1);
-                if (last_c.isdigit ()) {
-                    link_dimension = last_c.digit_value ();
-                    base_uid = link[0 : -1];
-                    debug ("Link dimension %i, base_uid %s", link_dimension, base_uid);
-                }
-            }
-
-            foreach (Unit u in UNITS) {
-                if (u.uid == base_uid) {
-                    return u;
-                }
-            }
-
-            critical ("Unable to find parent for %s - data error", link);
-            return null;
         }
     }
 }
