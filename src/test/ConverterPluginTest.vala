@@ -46,6 +46,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert_throw ("1kg=>foot");
         assert_throw ("1kg=>xxx");
         assert_throw ("1..5kg=>g");
+        assert_throw ("kg2=>g2");
 
         // Test how many results are expected from a (possibly) ambiguous conversion.
         assert_ambiguous ("gallon=>pint", 4); // Gallon and pint can each be either US or UK size.

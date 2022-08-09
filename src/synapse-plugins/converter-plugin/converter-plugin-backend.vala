@@ -161,10 +161,15 @@ namespace Synapse {
                 // Get conversion data for each combination of input and output units of same type
                 foreach (var match1 in match_arr1) {
                     foreach (var match2 in match_arr2) {
+                        // Can only square or cube dimension type
                         if (match1.unit.type == match2.unit.type) {
-                            var result = calculate_conversion_data (num, match1, match2);
-                            if (result != null) {
-                                results += result;
+                            if (match1.unit.type == UnitType.DIMENSION ||
+                                (match1.dimension == 1 && match2.dimension == 1)) {
+
+                                var result = calculate_conversion_data (num, match1, match2);
+                                if (result != null) {
+                                    results += result;
+                                }
                             }
                         }
                     }
