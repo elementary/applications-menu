@@ -97,7 +97,7 @@ namespace Synapse {
             SIPrefix prefix1 = SIPrefix.get_default (), prefix2 = SIPrefix.get_default ();
             string prefix1_s = "", prefix2_s = "";
             int dimension1 = 1, dimension2 = 1;
-            bool use_prefix = false, use_dimension = false;
+            bool use_prefix = false;
 
             if (matched) {
                 // message ("Matched %s", input);
@@ -138,21 +138,21 @@ namespace Synapse {
                 // Match could be with uid, an abbreviation or the description
                 // Matches could be in incompatible system - these are rejected later
                 foreach (Unit u in UNITS) {
-                    if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix, out use_dimension)) {
+                    if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix)) {
                         debug ("Found unit1 matches with %s", u.uid);
                         match_arr1 += UnitMatch () {
                             unit = u,
                             prefix = use_prefix ? prefix1 : SIPrefix.get_default (),
-                            dimension = use_dimension ? dimension1 : 1
+                            dimension = dimension1
                         };
                     }
 
-                    if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix, out use_dimension)) {
+                    if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix)) {
                         debug ("Found unit2 matches with %s", u.uid);
                         match_arr2 += UnitMatch () {
                             unit = u,
                             prefix = use_prefix ? prefix2 : SIPrefix.get_default (),
-                            dimension = use_dimension ? dimension2 : 1
+                            dimension = dimension2
                         };
                     }
                 }
@@ -246,11 +246,9 @@ namespace Synapse {
             string unit_s,
             string prefix,
             int dimension,
-            out bool use_prefix,
-            out bool use_dimension) {
+            out bool use_prefix) {
 
             use_prefix = false;
-            use_dimension = false;
             string[] ids = {u.uid};
             string[] abbreviations = u.abbreviations.split ("|");
             foreach (string s in abbreviations) {
@@ -259,48 +257,16 @@ namespace Synapse {
 
             ids += _(u.description).down ();
 
-            var match = unit_s.down ();
-            // Test match whole unit
+            var match = unit_s[0 : unit_s.length - (dimension > 1 ? 1 : 0)].down ();
+            var match_no_prefix = match[prefix.length : match.length];
             foreach (string id in ids) {
                 if (match == id) {
-                    debug ("whole unit matches");
+                    debug ("unit less dimension (if any) matches");
                     return true;
-                }
-            }
-
-            if (prefix != "") {
-                //Test match without prefix
-                match = unit_s[prefix.length : unit_s.length].down ();
-                foreach (string id in ids) {
-                    if (match == id) {
-                        debug ("unit less prefix matches");
-                        use_prefix = true;
-                        return true;
-                    }
-                }
-            }
-
-            if (dimension > 1) {
-                //Test match without dimension
-                match = unit_s[0 : -1].down ();
-                foreach (string id in ids) {
-                    if (match == id) {
-                        debug ("unit less dimension matches");
-                        use_dimension = true;
-                        return true;
-                    }
-                }
-            }
-
-            if (prefix != "" && dimension > 1) {
-                //Test match without either prefix or dimension
-                match = unit_s[prefix.length : -1].down ();
-                foreach (string id in ids) {
-                    if (match == id) {
-                        debug ("unit less both matches");
-                        use_prefix = use_dimension = true;
-                        return true;
-                    }
+                } else if (match_no_prefix == id) { // If prefix == "" already matched
+                    debug ("unit less dimension (if any) and less prefix matches");
+                    use_prefix = true;
+                    return true;
                 }
             }
 
