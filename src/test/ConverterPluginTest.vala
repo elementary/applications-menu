@@ -25,7 +25,7 @@ class Synapse.CalculatorPluginTest : Object {
         // Non-simple factors are taken from Google
 
         assert_equal ("1kg=>g", 1000);
-        assert_equal ("21.45kg=>g", 21450);
+        assert_equal ("21.45kg->g", 21450);
         assert_equal ("2m=>km", 0.002);
         assert_equal ("gram=>metricgrain", 20);
         assert_equal ("uston=>ukton", 0.892857);

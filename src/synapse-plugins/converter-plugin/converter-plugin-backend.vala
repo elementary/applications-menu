@@ -76,7 +76,7 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
-                    """(\d*) ?([a-zA-Z\/ ]+?)([23]?) ?=> ?([a-zA-Z\/ ]+)([23]?)""",
+                    """(\d*) ?([a-zA-Z\/ ]+?)([23]?) ?[=\-]> ?([a-zA-Z\/ ]+)([23]?)""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -86,7 +86,7 @@ namespace Synapse {
 
         public ResultData[] get_conversion_data (string query_string) {
             ResultData [] results = {};
-            if (!query_string.contains ("=>")) {
+            if (!(query_string.contains ("=>") || query_string.contains ("->"))) {
                 return results;
             }
 
@@ -105,7 +105,12 @@ namespace Synapse {
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
 
-                var parts = input.split ("=>", 2);
+                string[] parts;
+                if (input.contains ("=>")) {
+                    parts = input.split ("=>", 2);
+                } else {
+                    parts = input.split ("->", 2);
+                }
                 var num_s = parts[0];
                 // Isolate leading number (First \0 truncates string)
                 num_s.canon ("1234567890.", '\0');
