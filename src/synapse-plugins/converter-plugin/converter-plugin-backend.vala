@@ -76,6 +76,7 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
+                    //  Number? - space? - unit1 - dimension1 - space? => - space? - unit2 - dimension 
                     """^(\d*\.?\d*)\s*([[:alpha:]\/ ]+)([23]?)\s?[=\-]>\s*([[:alpha:]\/ ]+?)([23]?)$""",
                     RegexCompileFlags.OPTIMIZE
                 );

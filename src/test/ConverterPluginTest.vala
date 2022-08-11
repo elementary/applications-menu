@@ -45,6 +45,7 @@ class Synapse.CalculatorPluginTest : Object {
 
         assert_throw ("1kg=>foot");
         assert_throw ("1kg=>xxx");
+        assert_throw ("1kg/ =>g"); //Passes regex but no unit match
         assert_throw ("1..5kg=>g");
         assert_throw ("kg2=>g2");
 
