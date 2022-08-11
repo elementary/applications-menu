@@ -76,7 +76,7 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
-                    //  Number? - space? - unit1 - dimension1 - space? => - space? - unit2 - dimension 
+                    //  Number? - space? - unit1 - dimension1 - space? => - space? - unit2 - dimension
                     """^([[:digit:]]*\.?[[:digit:]]*)\s*([[:alpha:]\/ ]+)([23]?)\s?[=\-]>\s*([[:alpha:]\/ ]+?)([23]?)$""",
                     RegexCompileFlags.OPTIMIZE
                 );
@@ -244,7 +244,7 @@ namespace Synapse {
                 for (int i = 0; i < dim; i++) {
                     factor *= pfactor;
                 }
-                            }
+            }
         }
 
         private bool check_match (
