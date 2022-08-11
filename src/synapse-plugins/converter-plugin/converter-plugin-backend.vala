@@ -76,8 +76,7 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
-                    """^(\d*\.?\d*)\s*([\w\/ ]+?)([23]?)\s?[=\-]>\s*([\w\/ ]+)([23]?)$""",
-                    // """(\d*) ?([a-zA-Z\/ ]+?)([23]?) ?[=\-]> ?([a-zA-Z\/ ]+)([23]?)""",
+                    """^(\d*\.?\d*)\s*([[:alpha:]\/ ]+)([23]?)\s?[=\-]>\s*([[:alpha:]\/ ]+?)([23]?)$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -103,7 +102,6 @@ namespace Synapse {
             if (matched) {
                 // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
-
                 string[] parts;
                 if (input.contains ("=>")) {
                     parts = input.split ("=>", 2);
