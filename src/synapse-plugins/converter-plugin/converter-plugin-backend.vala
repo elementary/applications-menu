@@ -76,7 +76,8 @@ namespace Synapse {
 
             try {
                 convert_regex = new Regex (
-                    """(\d*) ?([a-zA-Z\/ ]+?)([23]?) ?[=\-]> ?([a-zA-Z\/ ]+)([23]?)""",
+                    //  Number? - space? - unit1 - dimension1 - space? => - space? - unit2 - dimension
+                    """^([[:digit:]]*\.?[[:digit:]]*)\s*([[:alpha:]\/ ]+?)([23]?)\s*[=\-]>\s*([[:alpha:]\/ ]+?)([23]?)$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -90,8 +91,9 @@ namespace Synapse {
                 return results;
             }
 
-            var input = query_string.replace (",", ".").replace ("|", "").strip ();
-            var matched = convert_regex.match_all (input);
+            var input = query_string.replace (",", ".");
+            MatchInfo? match_info = null;
+            var matched = convert_regex.match (input, 0, out match_info);
             var num = 1.0;
             UnitMatch[] match_arr1 = {}, match_arr2 = {};
             SIPrefix prefix1 = SIPrefix.get_default (), prefix2 = SIPrefix.get_default ();
@@ -100,36 +102,17 @@ namespace Synapse {
             bool use_prefix = false;
 
             if (matched) {
-                // Parse input into a number and two unit match arrays
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
-
-                string[] parts;
-                if (input.contains ("=>")) {
-                    parts = input.split ("=>", 2);
-                } else {
-                    parts = input.split ("->", 2);
-                }
-                var num_s = parts[0];
-                // Isolate leading number (First \0 truncates string)
-                num_s.canon ("1234567890.", '\0');
-                if (num_s.contains ("..")) { // Multiple decimal points are incorrectly parsed to double
-                    return results;
-                }
-
-                if (num_s.length > 0) { // If leading number omitted, assume it to be 1.0
-                    num = double.parse (num_s);
-                }
-
-                // Get user input units; cleanup excess whitespace. Note: more than two consecutive embedded spaces
-                // will prevent a match.
-                string unit1_s = (parts[0].slice (num_s.length, parts[0].length)).strip ().replace ("  ", " ");
-                string unit2_s = parts[1].strip ().replace ("  ", " ");
-
-                // Split each unit into prefix, base and dimension
-                get_prefix_and_dimension (unit1_s, out prefix1_s, out prefix1, out dimension1);
-                get_prefix_and_dimension (unit2_s, out prefix2_s, out prefix2, out dimension2);
-                debug ("unit1_s %s, unit2_s, %s, prefix1 %s, prefix2 %s, dimension1 %i, dimension2 %i",
-                       unit1_s, unit2_s, prefix1_s, prefix2_s, dimension1, dimension2
+                num = double.parse (match_info.fetch (1));
+                num = num == 0 ? 1.0 : num;
+                var unit1_s = match_info.fetch (2);
+                dimension1 = int.parse (match_info.fetch (3)).clamp (1, 3);
+                var unit2_s = match_info.fetch (4);
+                dimension2 = int.parse (match_info.fetch (5)).clamp (1, 3);
+                get_prefix (unit1_s, out prefix1_s, out prefix1);
+                get_prefix (unit2_s, out prefix2_s, out prefix2);
+                debug ("num %f, unit1_s %s, unit2_s, %s, prefix1 %s, prefix2 %s, dimension1 %i, dimension2 %i",
+                       num, unit1_s, unit2_s, prefix1_s, prefix2_s, dimension1, dimension2
                 );
 
                 // Try and find matching unit(s) in data table, indicating whether match includes prefix and/or dimension
@@ -137,7 +120,6 @@ namespace Synapse {
                 // Matches could be in incompatible system - these are rejected later
                 foreach (Unit u in UNITS) {
                     if (check_match (u, unit1_s, prefix1_s, dimension1, out use_prefix)) {
-                        debug ("Found unit1 matches with %s", u.uid);
                         match_arr1 += UnitMatch () {
                             unit = u,
                             prefix = use_prefix ? prefix1 : SIPrefix.get_default (),
@@ -146,7 +128,6 @@ namespace Synapse {
                     }
 
                     if (check_match (u, unit2_s, prefix2_s, dimension2, out use_prefix)) {
-                        debug ("Found unit2 matches with %s", u.uid);
                         match_arr2 += UnitMatch () {
                             unit = u,
                             prefix = use_prefix ? prefix2 : SIPrefix.get_default (),
@@ -198,6 +179,7 @@ namespace Synapse {
             debug ("finding root of %s - start dimension %i, start factor %f", u1.uid, dim1, factor1);
             find_root (ref parent, ref dim1, ref factor1, same_system, u1.system);
             if (parent == null) {
+                debug ("parent1 is null");
                 return null;
             }
 
@@ -205,13 +187,11 @@ namespace Synapse {
             parent = u2;
             debug ("finding root of %s - start dimension %i, start factor2 %f", u2.uid, dim2, factor2);
             find_root (ref parent, ref dim2, ref factor2, same_system, u2.system);
-
             // The two given units must be traceable to the same root with the same dimensionality.
             if (parent != null &&
                 ultimate_parent1 == parent.uid &&
                 factor1 > 0 && factor2 > 0 &&
                 dim1 == dim2) {
-                debug ("Final factors %g, %g", factor1, factor2);
                 var d = num * factor1 / factor2;
 
                 return ResultData () {
@@ -255,14 +235,14 @@ namespace Synapse {
                 }
 
                 var pfactor = parent.get_factor ();
-                debug ("parent2 %s parent_dimension2 %i, parent_factor2 %f",
+                debug ("Found parent %s parent_dimension %i, parent_factor %f",
                     parent.uid, link_dimension, pfactor
                 );
+
                 dim *= link_dimension;
                 debug ("Dim now %i", dim);
                 for (int i = 0; i < dim; i++) {
                     factor *= pfactor;
-                    debug ("Factor2 now %f", factor);
                 }
             }
         }
@@ -283,14 +263,15 @@ namespace Synapse {
 
             ids += _(u.description).down ();
 
-            var match = unit_s[0 : unit_s.length - (dimension > 1 ? 1 : 0)].down ();
+            var match = unit_s.down (); //Does not include dimension
             var match_no_prefix = match[prefix.length : match.length];
+            debug ("match %s, match no prefix %s", match, match_no_prefix);
             foreach (string id in ids) {
                 if (match == id) {
-                    debug ("unit less dimension (if any) matches");
+                    debug ("unit less dimension (if any) matches %s", id);
                     return true;
                 } else if (match_no_prefix == id) { // If prefix == "" already matched
-                    debug ("unit less dimension (if any) and less prefix matches");
+                    debug ("unit less dimension (if any) and less prefix matches %s", id);
                     use_prefix = true;
                     return true;
                 }
@@ -299,23 +280,14 @@ namespace Synapse {
             return false;
         }
 
-        private void get_prefix_and_dimension (
+        private void get_prefix (
             string unit_s,
             out string prefix_s,
-            out SIPrefix prefix,
-            out int dimension) {
+            out SIPrefix prefix) {
 
             prefix = SIPrefix.get_default ();
             prefix_s = "";
-            dimension = 1;
             var length = unit_s.length;
-            if (length > 1) {
-                char last_c = unit_s.@get (length - 1);
-                if (last_c.isdigit ()) {
-                    dimension = last_c.digit_value ();
-                    length --;
-                }
-            }
 
             foreach (Synapse.SIPrefix p in PREFIXES) {
                 if (length > p.prefix.length && unit_s.has_prefix (p.prefix)) {
