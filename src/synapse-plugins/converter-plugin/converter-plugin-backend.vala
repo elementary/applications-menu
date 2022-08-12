@@ -77,7 +77,7 @@ namespace Synapse {
             try {
                 convert_regex = new Regex (
                     //  Number? - space? - unit1 - dimension1 - space? => - space? - unit2 - dimension
-                    """^([[:digit:]]*\.?[[:digit:]]*)\s*([[:alpha:]\/ ]+)([23]?)\s?[=\-]>\s*([[:alpha:]\/ ]+?)([23]?)$""",
+                    """^([[:digit:]]*\.?[[:digit:]]*)\s*([[:alpha:]\/ ]+?)([23]?)\s*[=\-]>\s*([[:alpha:]\/ ]+?)([23]?)$""",
                     RegexCompileFlags.OPTIMIZE
                 );
             } catch (Error e) {
@@ -91,7 +91,7 @@ namespace Synapse {
                 return results;
             }
 
-            var input = query_string.replace (",", ".").replace ("|", "").strip ();
+            var input = query_string.replace (",", ".");
             MatchInfo? match_info = null;
             var matched = convert_regex.match (input, 0, out match_info);
             var num = 1.0;
@@ -105,9 +105,9 @@ namespace Synapse {
                 // Some abbreviations are ambiguous (used in >1 system) so get all possible matching units
                 num = double.parse (match_info.fetch (1));
                 num = num == 0 ? 1.0 : num;
-                var unit1_s = match_info.fetch (2).strip ();
+                var unit1_s = match_info.fetch (2);
                 dimension1 = int.parse (match_info.fetch (3)).clamp (1, 3);
-                var unit2_s = match_info.fetch (4).strip ();
+                var unit2_s = match_info.fetch (4);
                 dimension2 = int.parse (match_info.fetch (5)).clamp (1, 3);
                 get_prefix (unit1_s, out prefix1_s, out prefix1);
                 get_prefix (unit2_s, out prefix2_s, out prefix2);

@@ -19,11 +19,10 @@ class Synapse.CalculatorPluginTest : Object {
     public static int main (string[] args) {
 
         validate_data ();
+
         // 1st parameter is user input string, second result is expected conversion factor
-        // For simplicity, only unambiguous conversions are tested, with only one result.
         // For simplicity, we only test the conversion factor, not the accompanying description
         // Non-simple factors are taken from Google
-
         assert_equal ("1kg=>g", 1000);
         assert_equal ("21.45kg->g", 21450);
         assert_equal ("2m=>km", 0.002);
@@ -48,6 +47,7 @@ class Synapse.CalculatorPluginTest : Object {
         assert_throw ("1kg/ =>g"); //Passes regex but no unit match
         assert_throw ("1..5kg=>g");
         assert_throw ("kg2=>g2");
+        assert_throw ("kg=>g|gram");
 
         // Test how many results are expected from a (possibly) ambiguous conversion.
         assert_ambiguous ("gallon=>pint", 4); // Gallon and pint can each be either US or UK size.
