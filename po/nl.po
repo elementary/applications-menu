@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 19:15+0000\n"
-"PO-Revision-Date: 2020-01-03 22:07+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
+"PO-Revision-Date: 2022-08-14 04:44+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/nl/>\n"
 "Language: nl\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
 msgid "Applications"
-msgstr "Toepassingen"
+msgstr "Applicaties"
 
 #: src/Indicator.vala:139
 msgid "Open and search apps"
@@ -46,33 +46,31 @@ msgstr "Wis alles"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Accessoires"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Universele Toegang"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Programmeren"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Acties"
+msgstr "Educatie"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Wetenschap"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Games"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Grafisch"
 
 #: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
 msgid "Internet"
@@ -80,15 +78,15 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Geluid & Video"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Kantoor"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Systeemgereedschap"
 
 #: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
 msgid "Other"
@@ -100,7 +98,7 @@ msgstr "Voer deze opdracht uit…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
@@ -112,10 +110,9 @@ msgid "No Results for “%s”"
 msgstr "Geen resultaat voor “%s”"
 
 #: src/Widgets/AppContextMenu.vala:78
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Openen met %s"
+msgstr "Openen met %s Graphics"
 
 #: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
@@ -163,7 +160,7 @@ msgstr "Applicatie Acties"
 
 #: src/Widgets/SearchItem.vala:56
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bladwijzers"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -225,10 +222,8 @@ msgid "bc is not installed"
 msgstr "bc is niet geïnstalleerd"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopieer selectie naar het klembord"
+msgstr "Klik om het resultaat naar het klembord te kopiëren"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -290,7 +285,7 @@ msgstr "Vind switchboard plugs en open ze."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "Vergrendel"
+msgstr "Vergrendelen"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
@@ -300,7 +295,7 @@ msgstr "Vergrendel dit apparaat"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr "vergrendel"
+msgstr "vergrendelen"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"

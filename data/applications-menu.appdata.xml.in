@@ -6,6 +6,26 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
+    <release version="2.10.2" date="2021-12-10" urgency="medium">
+      <description>
+      <p>Improvements:</p>
+      <ul>
+        <li>Searching settings always searches the full title</li>
+      </ul>
+      </description>
+    </release>
+    <release version="2.10.1" date="2021-11-24" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix a regression with settings search</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.10.0" date="2021-11-23" urgency="medium">
       <description>
         <p>New features:</p>

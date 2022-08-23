@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 19:15+0000\n"
-"PO-Revision-Date: 2021-09-11 03:12+0000\n"
+"POT-Creation-Date: 2021-12-11 05:35+0000\n"
+"PO-Revision-Date: 2022-01-04 06:43+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -160,7 +160,7 @@ msgstr "アプリケーションの操作"
 
 #: src/Widgets/SearchItem.vala:56
 msgid "Bookmarks"
-msgstr ""
+msgstr "ブックマーク"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -195,7 +195,7 @@ msgstr "%s を %s で検索"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr "ストアでアプリを検索します"
+msgstr "アプリストアで検索します"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
@@ -331,7 +331,7 @@ msgstr "ハイバーネート"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
-msgstr "コンピューターをバイバーネートモードにします"
+msgstr "コンピューターをハイバーネートモードにします"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
@@ -351,7 +351,7 @@ msgstr "コンピューターの電源を切ります"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr "シャットダウン;電源を切る"
+msgstr "シャットダウン;電源;切る;オフ"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
