@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-11-30 20:22+0000\n"
-"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
+"PO-Revision-Date: 2022-09-30 09:17+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
@@ -47,7 +47,7 @@ msgstr "Очистить всё"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr "Прочее"
+msgstr "Принадлежности"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
