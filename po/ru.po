@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2022-09-30 09:17+0000\n"
+"PO-Revision-Date: 2022-09-30 09:20+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
@@ -200,7 +200,7 @@ msgstr "Поиск в магазине приложений"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr "Центр приложений"
+msgstr "AppCenter"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
@@ -328,21 +328,21 @@ msgstr "ждущий режим"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
-msgstr "Спящий режим"
+msgstr "Гибернация"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
-msgstr "Перейти в режим сна"
+msgstr "Перейти в режим гибернации"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "спящий режим"
+msgstr "гибернация"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr "Выключение"
+msgstr "Выключить"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
@@ -352,11 +352,11 @@ msgstr "Выключить компьютер"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr "выключение"
+msgstr "выключение;выключить"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
-msgstr "Перезагрузка"
+msgstr "Перезагрузить"
 
 #: src/synapse-plugins/system-managment.vala:430
 msgid "Restart your computer"
@@ -378,7 +378,7 @@ msgstr ""
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"
-msgstr "Не найден ConsoleKit"
+msgstr "ConsoleKit не найден"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"
