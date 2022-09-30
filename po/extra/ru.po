@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2022-09-30 09:23+0000\n"
+"PO-Revision-Date: 2022-09-30 09:26+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
@@ -173,7 +173,7 @@ msgstr "Подсветка совпадений, связанных с введ�
 
 #: data/applications-menu.appdata.xml.in:130
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Добавлено элемент меню «Просмотреть в Центре приложений»"
+msgstr "Добавлен пункт меню \"Открыть в AppCenter\""
 
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."
