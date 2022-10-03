@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-11 05:35+0000\n"
+"POT-Creation-Date: 2022-10-03 21:43+0000\n"
 "PO-Revision-Date: 2021-11-24 07:25+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
@@ -209,19 +209,20 @@ msgstr "Etsi sovelluksia"
 msgid "AppCenter is not installed"
 msgstr "Sovelluskeskusta ei ole asennettu"
 
-#: src/synapse-plugins/calculator-plugin.vala:50
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
 msgid "Calculator"
 msgstr "Laskin"
 
-#: src/synapse-plugins/calculator-plugin.vala:51
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
 msgid "Calculate basic expressions."
 msgstr "Suorita laskutoimituksia."
 
-#: src/synapse-plugins/calculator-plugin.vala:55
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
 msgstr "Pakettia bc ei ole asennettu"
 
-#: src/synapse-plugins/calculator-plugin.vala:119
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 msgid "Click to copy result to clipboard"
 msgstr "Napsauta kopioidaksesi tuloksen leikepöydälle"
 
@@ -238,6 +239,40 @@ msgstr "Suorita komento"
 msgid "Find and execute arbitrary commands."
 msgstr "Etsi ja suorita komentoja."
 
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr ""
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
+msgid "Converter"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
+msgid "Convert between units."
+msgstr ""
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "%g (%s to %s)"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#, fuzzy, c-format
+#| msgid "Click to copy result to clipboard"
+msgid "Click to copy %g to clipboard"
+msgstr "Napsauta kopioidaksesi tuloksen leikepöydälle"
+
 #: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Etsi ja suorita koneelle asennettuja sovelluksia."
@@ -252,15 +287,45 @@ msgstr "Avaa sovelluksella %s"
 msgid "Opens current selection using %s"
 msgstr "Avaa nykyisen valinnan sovelluksessa %s"
 
-#: src/synapse-plugins/link-plugin.vala:39
-#, c-format
-msgid "Open %s in default web browser"
-msgstr "Avaa %s oletusverkkoselaimessa"
-
+#: src/synapse-plugins/file-bookmarks-plugin.vala:84
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Avaa %s käyttäen %s"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+msgid "Open the selected directory"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:200
+#, fuzzy
+#| msgid "Bookmarks"
+msgid "Folder Bookmarks"
+msgstr "Kirjanmerkit"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:201
+#, fuzzy
+#| msgid "Bookmarks"
+msgid "Bookmarked Folders"
+msgstr "Kirjanmerkit"
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+msgid "Home"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+msgid "Recent"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+msgid "Trash"
+msgstr ""
+
+#: src/synapse-plugins/link-plugin.vala:39
+#, c-format
+msgid "Open %s in default web browser"
+msgstr "Avaa %s oletusverkkoselaimessa"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
