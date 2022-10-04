@@ -64,8 +64,10 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
             add (menuitem);
 
-            menuitem.activate.connect (() => {
-                app_info.launch_action (action, new AppLaunchContext ());
+            menuitem.activate.connect ((target) => {
+                var context = target.get_display ().get_app_launch_context ();
+                context.set_timestamp (Gtk.get_current_event_time ());
+                app_info.launch_action (action, context);
                 app_launched ();
             });
         }
@@ -80,9 +82,10 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             var menu_item = new Gtk.MenuItem.with_mnemonic (label);
             add (menu_item);
 
-            menu_item.activate.connect (() => {
+            menu_item.activate.connect ((target) => {
                try {
-                   var context = new AppLaunchContext ();
+                   var context = target.get_display ().get_app_launch_context ();
+                   context.set_timestamp (Gtk.get_current_event_time ());
                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
                    app_info.launch (null, context);
                    app_launched ();

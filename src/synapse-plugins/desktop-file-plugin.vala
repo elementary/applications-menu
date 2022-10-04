@@ -61,7 +61,9 @@ namespace Synapse {
             }
 
             public override void execute (Match? match) {
-                ((DesktopAppInfo) app_info).launch_action (action_name, new AppLaunchContext ());
+                var context = Gdk.Display.get_default ().get_app_launch_context ();
+                context.set_timestamp (Gtk.get_current_event_time ());
+                ((DesktopAppInfo) app_info).launch_action (action_name, context);
             }
         }
 
