@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-11 05:35+0000\n"
-"PO-Revision-Date: 2021-12-03 22:02+0000\n"
-"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
+"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"PO-Revision-Date: 2022-09-30 09:41+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
 "Language: ru\n"
@@ -45,7 +45,7 @@ msgstr "Исправления:"
 
 #: data/applications-menu.appdata.xml.in:21
 msgid "Fix a regression with settings search"
-msgstr "Исправлена регрессия с поиском настроек"
+msgstr "Исправлена ошибка поиска настроек"
 
 #: data/applications-menu.appdata.xml.in:25
 #: data/applications-menu.appdata.xml.in:41
@@ -108,7 +108,7 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:88
 msgid "Sort app actions above AppCenter search"
-msgstr "Сортировка действий приложений над поиском Центра Приложений"
+msgstr "Сортировка действий приложений над поиском в AppCEnter"
 
 #: data/applications-menu.appdata.xml.in:89
 msgid "Always hide Terminal-based programs"
@@ -136,7 +136,7 @@ msgstr "Улучшения производительности"
 msgid ""
 "Smoother navigation gesture in grid view and touchscreen gesture support"
 msgstr ""
-"Более плавная работа в режиме просмотра сеткой и поддержка жестов на "
+"Более плавная навигация жестами в режиме сетки и поддержка жестов на "
 "сенсорных экранах"
 
 #: data/applications-menu.appdata.xml.in:111
@@ -150,11 +150,11 @@ msgstr "Фокус не переходит к панели поиска, ког�
 
 #: data/applications-menu.appdata.xml.in:113
 msgid "Ensure categories are sorted alphabetically"
-msgstr "Убедитесь, что категории отсортированы в алфавитном порядке"
+msgstr "Категории теперь всегда отсортированы по алфавиту"
 
 #: data/applications-menu.appdata.xml.in:120
 msgid "Category view is now a list"
-msgstr "Просмотр по категориям, теперь, в виде списка"
+msgstr "Просмотр по категориям теперь представлен в виде списка"
 
 #: data/applications-menu.appdata.xml.in:121
 msgid "Improved keyboard navigation"
@@ -173,7 +173,7 @@ msgstr "Подсветка совпадений, связанных с введ�
 
 #: data/applications-menu.appdata.xml.in:130
 msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Добавлено элемент меню «Просмотреть в Центре приложений»"
+msgstr "Добавлен пункт меню «Открыть в AppCenter»"
 
 #: data/applications-menu.appdata.xml.in:144
 msgid "elementary, Inc."

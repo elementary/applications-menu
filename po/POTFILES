@@ -49,9 +49,15 @@ src/synapse-core/result-set.vala
 src/synapse-core/utils.vala
 
 src/synapse-plugins/appcenter-plugin.vala
-src/synapse-plugins/calculator-plugin.vala
+src/synapse-plugins/calculator-plugin/calculator-plugin-backend.vala
+src/synapse-plugins/calculator-plugin/calculator-plugin.vala
 src/synapse-plugins/command-plugin.vala
+src/synapse-plugins/converter-plugin/converter-data.vala
+src/synapse-plugins/converter-plugin/converter-plugin-backend.vala
+src/synapse-plugins/converter-plugin/converter-plugin.vala
 src/synapse-plugins/desktop-file-plugin.vala
+src/synapse-plugins/file-bookmarks-plugin.vala
 src/synapse-plugins/link-plugin.vala
 src/synapse-plugins/switchboard-plugin.vala
 src/synapse-plugins/system-managment.vala
+src/synapse-plugins/worker-link.vala
