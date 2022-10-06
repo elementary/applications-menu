@@ -20,13 +20,18 @@ jobs:
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y libappstream-dev libgee-0.8-dev libgnome-menu-3-dev libgranite-dev libgtk-3-dev libhandy-1-dev libjson-glib-dev libplank-dev libsoup2.4-dev libswitchboard-2.0-dev libunity-dev libwingpanel-dev libzeitgeist-2.0-dev meson valac
+        apt install -y libappstream-dev libgee-0.8-dev libgnome-menu-3-dev libgranite-dev libgtk-3-dev libhandy-1-dev libjson-glib-dev libplank-dev libsoup2.4-dev libswitchboard-2.0-dev libunity-dev libwingpanel-dev libzeitgeist-2.0-dev meson valac bc
     - name: Build
       env:
         DESTDIR: out
       run: |
         meson build
         ninja -C build install
+    - name: Test
+      env:
+        DESTDIR: out
+      run: |
+        ninja -C build test
 
   lint:
 
