@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2021-11-24 07:25+0000\n"
+"PO-Revision-Date: 2022-10-10 06:08+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/fi/>\n"
@@ -241,11 +241,11 @@ msgstr "Etsi ja suorita komentoja."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "neliömäinen"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "kuutiomainen"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
@@ -255,23 +255,22 @@ msgstr ""
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "Muunnin"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "Muunna eri yksiköiden välillä."
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s yksikköön %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Napsauta kopioidaksesi tuloksen leikepöydälle"
+msgstr "Napsauta kopioidaksesi %g leikepöydälle"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
@@ -295,32 +294,28 @@ msgstr "Avaa %s käyttäen %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Avaa valittu kansio"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "Kirjanmerkit"
+msgstr "Kansiokirjanmerkit"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "Kirjanmerkit"
+msgstr "Kirjanmerkkeihin lisätyt kansiot"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "Koti"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "Viimeisimmät"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "Roskakori"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
