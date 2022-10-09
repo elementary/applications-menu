@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2022-10-05 22:57+0000\n"
+"PO-Revision-Date: 2022-10-10 06:08+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
@@ -221,7 +221,7 @@ msgstr "Вычислить основные выражения."
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
-msgstr "bc не установлена"
+msgstr "bc не установлено"
 
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 msgid "Click to copy result to clipboard"
