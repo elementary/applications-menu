@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2022-01-04 06:43+0000\n"
+"PO-Revision-Date: 2022-10-11 02:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -255,23 +255,22 @@ msgstr ""
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "単位変換"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "単位を変換します。"
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s から %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "結果をクリップボードへコピーするにはクリックしてください"
+msgstr "%g をクリップボードへコピーするにはクリックしてください"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
@@ -295,32 +294,28 @@ msgstr "%s を %s で開く"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "選択したディレクトリを開きます"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "ブックマーク"
+msgstr "フォルダーブックマーク"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "ブックマーク"
+msgstr "ブックマークしたフォルダー"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "ホーム"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "最近使用した項目"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "ゴミ箱"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
