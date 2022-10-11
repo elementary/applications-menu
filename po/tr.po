@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2022-10-11 10:15+0000\n"
+"PO-Revision-Date: 2022-10-11 22:31+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -294,7 +294,7 @@ msgstr "%s klasörünü %s ile aç"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Seçili dizini aç"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
 msgid "Folder Bookmarks"
@@ -307,15 +307,15 @@ msgstr "Yer İmlenen Klasörler"
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "Ana Klasör"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "Son Kullanılan"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "Çöp"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
