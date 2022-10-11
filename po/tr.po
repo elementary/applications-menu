@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2021-12-22 22:04+0000\n"
+"PO-Revision-Date: 2022-10-11 10:15+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -241,37 +241,36 @@ msgstr "İsteğe bağlı komutları bulun ve çalıştırın."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "karesi alınmış"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "küplü"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "Dönüştürücü"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "Birimler arasında dönüştürme."
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s to %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Sonucu panoya kopyalamak için tıklatın"
+msgstr "%g sonucunu panoya kopyalamak için tıklatın"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
@@ -298,16 +297,12 @@ msgid "Open the selected directory"
 msgstr ""
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "Yer İmleri"
+msgstr "Klasör Yer İmleri"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "Yer İmleri"
+msgstr "Yer İmlenen Klasörler"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
