@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2022-10-11 02:10+0000\n"
+"PO-Revision-Date: 2022-10-15 14:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -241,17 +241,17 @@ msgstr "任意のコマンドを検索して実行します。"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "平方"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "立方"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%3$s%1$s%2$s"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
