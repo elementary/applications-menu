@@ -103,7 +103,7 @@ namespace Synapse {
     }
 
     struct SIPrefix {
-        string prefix;
+        public string prefix;
         string abbrev;
         double factor;
 
