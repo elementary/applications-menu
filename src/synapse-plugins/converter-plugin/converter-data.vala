@@ -20,35 +20,47 @@
 */
 
 namespace Synapse {
-    const string MASS = "unit of mass";
-    const string LENGTH = "unit of length";
-    const string AREA = "unit of area";
-    const string VOLUME = "unit of volume";
-    const string TIME = "unit of time";
-    const string VELOCITY = "unit of velocity";
-    const string SIPREFIX = "prefix for S.I. units";
-
     const SIPrefix [] PREFIXES = {
-        {NC_(SIPREFIX, "yotta"), "Y", 1E24},
-        {NC_(SIPREFIX, "zetta"), "Z", 1E21},
-        {NC_(SIPREFIX, "exa"), "E", 1E18},
-        {NC_(SIPREFIX, "peta"), "P", 1E15},
-        {NC_(SIPREFIX, "tera"), "T", 1E12},
-        {NC_(SIPREFIX, "giga"), "G", 1E9},
-        {NC_(SIPREFIX, "mega"), "M", 1E6},
-        {NC_(SIPREFIX, "kilo"), "k", 1000},
-        {NC_(SIPREFIX, "hecto"), "h", 100},
-        {NC_(SIPREFIX, "deca"), "da", 10},
-        {NC_(SIPREFIX, "deci"), "d", 0.1},
-        {NC_(SIPREFIX, "centi"), "c", 0.01},
-        {NC_(SIPREFIX, "milli"), "m", 0.001},
-        {NC_(SIPREFIX, "micro"), "u", 1E-6},
-        {NC_(SIPREFIX, "nano"), "n", 1E-9},
-        {NC_(SIPREFIX, "pico"), "p", 1E-12},
-        {NC_(SIPREFIX, "femto"), "f", 1E-15},
-        {NC_(SIPREFIX, "atto"), "a", 1E-18},
-        {NC_(SIPREFIX, "zepto"), "z", 1E-21},
-        {NC_(SIPREFIX, "yocto"), "y", 1E-24}
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("yotta"), "Y", 1E24},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("zetta"), "Z", 1E21},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("exa"), "E", 1E18},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("peta"), "P", 1E15},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("tera"), "T", 1E12},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("giga"), "G", 1E9},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("mega"), "M", 1E6},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("kilo"), "k", 1000},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("hecto"), "h", 100},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("deca"), "da", 10},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("deci"), "d", 0.1},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("centi"), "c", 0.01},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("milli"), "m", 0.001},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("micro"), "u", 1E-6},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("nano"), "n", 1E-9},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("pico"), "p", 1E-12},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("femto"), "f", 1E-15},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("atto"), "a", 1E-18},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("zepto"), "z", 1E-21},
+// TRANSLATORS: S.I. Unit Prefix
+        {N_("yocto"), "y", 1E-24}
     };
 
     enum UnitSystem {
@@ -113,93 +125,165 @@ namespace Synapse {
     // TEMPLATE:         {UnitSystem., "", "", NC_("", ""), "", ""},
     const Unit[] UNITS = {
         // Mass and weight units
-        {UnitType.MASS, UnitSystem.SI, "gram", "g|gm|gramme", NC_(MASS, "SI gram"), "1", ""},
-        {UnitType.MASS, UnitSystem.SI, "kilogram", "kilo", NC_(MASS, "kilogram"), "1000", "gram"},
-        {UnitType.MASS, UnitSystem.SI, "tonne", "t|ton", NC_(MASS, "SI tonne"), "1E6", "gram"},
-        {UnitType.MASS, UnitSystem.SI, "metriccarat", "carat|ct", NC_(MASS, "metric carat"), "0.2", "gram"},
-        {UnitType.MASS, UnitSystem.SI, "metricgrain", "grain|gr", NC_(MASS, "metric grain"), "1/4", "metriccarat"},
-
-        {UnitType.MASS, UnitSystem.IMPERIAL, "pound", "lb", NC_(MASS, "pound"), "454", "gram"}, // Local root
-        {UnitType.MASS, UnitSystem.IMPERIAL, "stone", "st", NC_(MASS, "stone"), "14", "pound"},
-        {UnitType.MASS, UnitSystem.IMPERIAL, "ounce", "oz", NC_(MASS, "ounce"), "1/16", "pound"},
-        {UnitType.MASS, UnitSystem.IMPERIAL, "dram", "dr", NC_(MASS, "dram"), "1/16", "ounce"},
-        {UnitType.MASS, UnitSystem.IMPERIAL, "grain", "gr", NC_(MASS, "grain"), "1/7000", "pound"},
-        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight|cwt", NC_(MASS, "British hundredweight"), "8", "stone"},
-        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight|cwt", NC_(MASS, "US hundredweight"), "100", "pound"},
-        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ukton", "t|ton|longton", NC_(MASS, "British ton"), "20", "brhundredweight"},
-        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "uston", "t|ton|shortton", NC_(MASS, "US ton"), "2000", "pound"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.SI, "gram", "g|gm|gramme", N_("SI gram"), "1", ""},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.SI, "kilogram", "kilo", N_("kilogram"), "1000", "gram"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.SI, "tonne", "t|ton", N_("SI tonne"), "1E6", "gram"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.SI, "metriccarat", "carat|ct", N_("metric carat"), "0.2", "gram"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.SI, "metricgrain", "grain|gr", N_("metric grain"), "1/4", "metriccarat"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL, "pound", "lb", N_("pound"), "454", "gram"}, // Local root
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL, "stone", "st", N_("stone"), "14", "pound"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL, "ounce", "oz", N_("ounce"), "1/16", "pound"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL, "dram", "dr", N_("dram"), "1/16", "ounce"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL, "grain", "gr", N_("grain"), "1/7000", "pound"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "brhundredweight", "hundredweight|cwt", N_("British hundredweight"), "8", "stone"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ushundredweight", "hundredweight|cwt", N_("US hundredweight"), "100", "pound"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL_US, "ukton", "t|ton|longton", N_("British ton"), "20", "brhundredweight"},
+// TRANSLATORS: Unit of mass
+        {UnitType.MASS, UnitSystem.IMPERIAL_UK, "uston", "t|ton|shortton", N_("US ton"), "2000", "pound"},
 
         // Length units
-        {UnitType.DIMENSION, UnitSystem.SI, "meter", "m", NC_(LENGTH, "meter"), "1", ""}, // Fundamental for length, area, volume
-        {UnitType.DIMENSION, UnitSystem.SI, "click", "", NC_(LENGTH, "kilometer"), "1000", "meter"},
-        {UnitType.DIMENSION, UnitSystem.SI, "astronomicalunit", "au", NC_(LENGTH, "astronomical unit"), "49597870700", "meter"},
-        {UnitType.DIMENSION, UnitSystem.SI, "parsec", "pc", NC_(LENGTH, "parsec"), "206264.806247096", "astronomicalunit"}, // wikipedia
-        {UnitType.DIMENSION, UnitSystem.SI, "lightyear", "ly", NC_(LENGTH, "light year"), "9.46073047258E15", "meter"}, // Google
-
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "inch", "in", NC_(LENGTH, "International inch"), "0.0254", "meter"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "yard", "yd", NC_(LENGTH, "International yard"), "3", "foot"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "foot", "ft", NC_(LENGTH, "International foot"), "12", "inch"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "fathom", "", NC_(LENGTH, "fathom"), "6", "foot"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "chain", "ch", NC_(LENGTH, "chain"), "66", "foot"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "surveyorschain", "surveyorchain|ch", NC_(LENGTH, "US surveyors chain"), "66", "surveyfoot"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "surveyfoot", "surveyft|ft", NC_(LENGTH, "US survey foot"), "1200/3937", "meter"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "link", "", NC_(LENGTH, "link"), "1/100", "chain"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "furlong", "", NC_(LENGTH, "furlong"), "1/8", "imile"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "imile", "mi|mile", NC_(LENGTH, "mile"), "1760", "yard"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "nmile", "mi|nmi|mile", NC_(LENGTH, "nautical mile"), "1852", "yard"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "cmile", "mi|cmi|mile", NC_(LENGTH, "country mile"), "2200", "yard"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.SI, "meter", "m", N_("meter"), "1", ""}, // Fundamental for length, area, volume
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.SI, "click", "", N_("kilometer"), "1000", "meter"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.SI, "astronomicalunit", "au", N_("astronomical unit"), "49597870700", "meter"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.SI, "parsec", "pc", N_("parsec"), "206264.806247096", "astronomicalunit"}, // wikipedia
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.SI, "lightyear", "ly", N_("light year"), "9.46073047258E15", "meter"}, // Google
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "inch", "in", N_("International inch"), "0.0254", "meter"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "yard", "yd", N_("International yard"), "3", "foot"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "foot", "ft", N_("International foot"), "12", "inch"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "fathom", "", N_("fathom"), "6", "foot"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "chain", "ch", N_("chain"), "66", "foot"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "surveyorschain", "surveyorchain|ch", N_("US surveyors chain"), "66", "surveyfoot"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "surveyfoot", "surveyft|ft", N_("US survey foot"), "1200/3937", "meter"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "link", "", N_("link"), "1/100", "chain"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "furlong", "", N_("furlong"), "1/8", "imile"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "imile", "mi|mile", N_("mile"), "1760", "yard"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "nmile", "mi|nmi|mile", N_("nautical mile"), "1852", "yard"},
+// TRANSLATORS: Unit of length
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "cmile", "mi|cmi|mile", N_("country mile"), "2200", "yard"},
 
         // Area units
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "iacre", "acre", NC_(AREA, "International acre"), "10", "chain2"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usacre", "acre", NC_(AREA, "US acre"), "10", "surveyorschain2"},
+// TRANSLATORS: Unit of area
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL, "iacre", "acre", N_("International acre"), "10", "chain2"},
+// TRANSLATORS: Unit of area
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usacre", "acre", N_("US acre"), "10", "surveyorschain2"},
 
         // Volume Units
-        {UnitType.DIMENSION, UnitSystem.SI, "liter", "l", NC_(VOLUME, "liter"), "0.001", "meter3"},
-
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", NC_(VOLUME, "British gallon"), "4.54609", "liter"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", NC_(VOLUME, "British quart"), "1/4", "ukgal"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", NC_(VOLUME, "British pint"), "1/8", "ukgal"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukfluidounce", "ukflozfloz", NC_(VOLUME, "British fluid ounce"), "1/20", "ukpint"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "gill", "", NC_(VOLUME, "gill"), "1/4", "ukpint"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukcup", "cup", NC_(VOLUME, "British cup"), "1/2", "ukpint"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukteacup", "teacup", NC_(VOLUME, "British teacup"), "1/3", "ukpint"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uktbsp", "tbsp", NC_(VOLUME, "British tablespoon"), "15/1000", "liter"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uktsp", "tsp", NC_(VOLUME, "British teaspoon"), "1/3", "uktbsp"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uksmalltsp", "tsp", NC_(VOLUME, "British small teaspoon"), "1/4", "uktbsp"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukdessertspoon", "dsp", NC_(VOLUME, "British dessertspoon"), "2", "ukteaspoon"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", NC_(VOLUME, "US liquid gallon"), "231", "inch3"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usqt", "qt|quart", NC_(VOLUME, "US liquid quart"), "1/4", "usgal"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uspint", "pt|pint", NC_(VOLUME, "US liquid pint"), "1/8", "usgal"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usfluidounce", "usfloz|floz", NC_(VOLUME, "US fluid ounce"), "1/16", "uspint"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uscup", "cup", NC_(VOLUME, "US cup"), "8", "usfluidounce"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegalcup", "legalcup|cup", NC_(VOLUME, "US legal cup"), "240/1000", "liter"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "metriccup", "cup", NC_(VOLUME, "US metric cup"), "250/1000", "liter"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "ustablespoon", "ustbsp|tbsp", NC_(VOLUME, "US tablespoon"), "1/16", "uscup"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegaltablespoon", "legaltbsp|tbsp", NC_(VOLUME, "US legal tablespoon"), "1/16", "uslegalcup"},
-        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usteaspoon", "ustsp|tsp", NC_(VOLUME, "US teaspoon"), "1/3", "ustablespoon"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.SI, "liter", "l", N_("liter"), "0.001", "meter3"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukgal", "gal|gallon", N_("British gallon"), "4.54609", "liter"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukqt", "qt|quart", N_("British quart"), "1/4", "ukgal"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukpint", "pt|pint", N_("British pint"), "1/8", "ukgal"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukfluidounce", "ukflozfloz", N_("British fluid ounce"), "1/20", "ukpint"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "gill", "", N_("gill"), "1/4", "ukpint"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukcup", "cup", N_("British cup"), "1/2", "ukpint"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukteacup", "teacup", N_("British teacup"), "1/3", "ukpint"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uktbsp", "tbsp", N_("British tablespoon"), "15/1000", "liter"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uktsp", "tsp", N_("British teaspoon"), "1/3", "uktbsp"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "uksmalltsp", "tsp", N_("British small teaspoon"), "1/4", "uktbsp"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_UK, "ukdessertspoon", "dsp", N_("British dessertspoon"), "2", "ukteaspoon"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usgal", "gal|gallon", N_("US liquid gallon"), "231", "inch3"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usqt", "qt|quart", N_("US liquid quart"), "1/4", "usgal"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uspint", "pt|pint", N_("US liquid pint"), "1/8", "usgal"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usfluidounce", "usfloz|floz", N_("US fluid ounce"), "1/16", "uspint"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uscup", "cup", N_("US cup"), "8", "usfluidounce"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegalcup", "legalcup|cup", N_("US legal cup"), "240/1000", "liter"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "metriccup", "cup", N_("US metric cup"), "250/1000", "liter"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "ustablespoon", "ustbsp|tbsp", N_("US tablespoon"), "1/16", "uscup"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "uslegaltablespoon", "legaltbsp|tbsp", N_("US legal tablespoon"), "1/16", "uslegalcup"},
+// TRANSLATORS: Unit of volume
+        {UnitType.DIMENSION, UnitSystem.IMPERIAL_US, "usteaspoon", "ustsp|tsp", N_("US teaspoon"), "1/3", "ustablespoon"},
 
         //Time units
-        {UnitType.TIME, UnitSystem.SI, "second", "sec|s", NC_(TIME, "second"), "1", ""}, // Fundamental
-        {UnitType.TIME, UnitSystem.SI, "minute", "min|m", NC_(TIME, "minute"), "60", "second"},
-        {UnitType.TIME, UnitSystem.SI, "hour", "hr|h", NC_(TIME, "hour"), "60", "minute"},
-        {UnitType.TIME, UnitSystem.SI, "day", "da|d", NC_(TIME, "day"), "24", "hour"},
-        {UnitType.TIME, UnitSystem.SI, "week", "wk", NC_(TIME, "week"), "7", "day"},
-        {UnitType.TIME, UnitSystem.SI, "fortnight", "", NC_(TIME, "fortnight"), "14", "day"},
-        {UnitType.TIME, UnitSystem.SI, "commonyear", "calendaryear|year|yr", NC_(TIME, "Common year"), "365", "day"},
-        {UnitType.TIME, UnitSystem.SI, "leapyear", "yr", NC_(TIME, "leap year"), "366", "day"},
-        {UnitType.TIME, UnitSystem.SI, "julianyear", "yr", NC_(TIME, "Julian year"), "365.25", "day"},
-        {UnitType.TIME, UnitSystem.SI, "gregorianyear", "yr", NC_(TIME, "Gregorian year"), "366.2425", "day"},
-        {UnitType.TIME, UnitSystem.SI, "islamicyear", "yr", NC_(TIME, "Islamic year"), "354", "day"},
-        {UnitType.TIME, UnitSystem.SI, "islamicleapyear", "yr", NC_(TIME, "Islamic leap year"), "354", "day"},
-        {UnitType.TIME, UnitSystem.SI, "decade", "", NC_(TIME, "decade"), "10", "commonyear"},
-        {UnitType.TIME, UnitSystem.SI, "century", "", NC_(TIME, "century"), "100", "commonyear"},
-        {UnitType.TIME, UnitSystem.SI, "millenium", "", NC_(TIME, "millenium"), "1000", "commonyear"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "second", "sec|s", N_("second"), "1", ""}, // Fundamental
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "minute", "min|m", N_("minute"), "60", "second"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "hour", "hr|h", N_("hour"), "60", "minute"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "day", "da|d", N_("day"), "24", "hour"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "week", "wk", N_("week"), "7", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "fortnight", "", N_("fortnight"), "14", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "commonyear", "calendaryear|year|yr", N_("Common year"), "365", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "leapyear", "yr", N_("leap year"), "366", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "julianyear", "yr", N_("Julian year"), "365.25", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "gregorianyear", "yr", N_("Gregorian year"), "366.2425", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "islamicyear", "yr", N_("Islamic year"), "354", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "islamicleapyear", "yr", N_("Islamic leap year"), "354", "day"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "decade", "", N_("decade"), "10", "commonyear"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "century", "", N_("century"), "100", "commonyear"},
+// TRANSLATORS: Unit of time
+        {UnitType.TIME, UnitSystem.SI, "millenium", "", N_("millenium"), "1000", "commonyear"},
 
         // Velocity units  - at present treated as separate unit system although could be calculated from components
-        {UnitType.VELOCITY, UnitSystem.SI, "meterpersecond", "m/s", NC_(VELOCITY, "meters per second"), "1", ""}, // Fundamental
-        {UnitType.VELOCITY, UnitSystem.SI, "lightspeed", "c", NC_(VELOCITY, "speed of light"), "299792458", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "kilometersperhour", "km/h|kph", NC_(VELOCITY, "kilometers per hour"), "1000/3600", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "m/h|mph", NC_(VELOCITY, "miles per hour"), "1609.34/3600", "meterpersecond"},
-        {UnitType.VELOCITY, UnitSystem.SI, "mach", "", NC_(VELOCITY, "Mach (speed of sound)"), "331.46", "meterpersecond"},
+// TRANSLATORS: Unit of velocity
+        {UnitType.VELOCITY, UnitSystem.SI, "meterpersecond", "m/s", N_("meters per second"), "1", ""}, // Fundamental
+// TRANSLATORS: Unit of velocity
+        {UnitType.VELOCITY, UnitSystem.SI, "lightspeed", "c", N_("speed of light"), "299792458", "meterpersecond"},
+// TRANSLATORS: Unit of velocity
+        {UnitType.VELOCITY, UnitSystem.SI, "kilometersperhour", "km/h|kph", N_("kilometers per hour"), "1000/3600", "meterpersecond"},
+// TRANSLATORS: Unit of velocity
+        {UnitType.VELOCITY, UnitSystem.SI, "milesperhour", "m/h|mph", N_("miles per hour"), "1609.34/3600", "meterpersecond"},
+// TRANSLATORS: Unit of velocity
+        {UnitType.VELOCITY, UnitSystem.SI, "mach", "", N_("Mach (speed of sound)"), "331.46", "meterpersecond"},
     };
 }
