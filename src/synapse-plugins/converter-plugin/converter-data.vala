@@ -26,28 +26,29 @@ namespace Synapse {
     const string VOLUME = "unit of volume";
     const string TIME = "unit of time";
     const string VELOCITY = "unit of velocity";
+    const string SIPREFIX = "prefix for S.I. units";
 
     const SIPrefix [] PREFIXES = {
-        {"yotta", "Y", 1E24},
-        {"zetta", "Z", 1E21},
-        {"exa", "E", 1E18},
-        {"peta", "P", 1E15},
-        {"tera", "T", 1E12},
-        {"giga", "G", 1E9},
-        {"mega", "M", 1E6},
-        {"kilo", "k", 1000},
-        {"hecto", "h", 100},
-        {"deca", "da", 10},
-        {"deci", "d", 0.1},
-        {"centi", "c", 0.01},
-        {"milli", "m", 0.001},
-        {"micro", "u", 1E-6},
-        {"nano", "n", 1E-9},
-        {"pico", "p", 1E-12},
-        {"femto", "f", 1E-15},
-        {"atto", "a", 1E-18},
-        {"zepto", "z", 1E-21},
-        {"yocto", "y", 1E-24}
+        {NC_(SIPREFIX, "yotta"), "Y", 1E24},
+        {NC_(SIPREFIX, "zetta"), "Z", 1E21},
+        {NC_(SIPREFIX, "exa"), "E", 1E18},
+        {NC_(SIPREFIX, "peta"), "P", 1E15},
+        {NC_(SIPREFIX, "tera"), "T", 1E12},
+        {NC_(SIPREFIX, "giga"), "G", 1E9},
+        {NC_(SIPREFIX, "mega"), "M", 1E6},
+        {NC_(SIPREFIX, "kilo"), "k", 1000},
+        {NC_(SIPREFIX, "hecto"), "h", 100},
+        {NC_(SIPREFIX, "deca"), "da", 10},
+        {NC_(SIPREFIX, "deci"), "d", 0.1},
+        {NC_(SIPREFIX, "centi"), "c", 0.01},
+        {NC_(SIPREFIX, "milli"), "m", 0.001},
+        {NC_(SIPREFIX, "micro"), "u", 1E-6},
+        {NC_(SIPREFIX, "nano"), "n", 1E-9},
+        {NC_(SIPREFIX, "pico"), "p", 1E-12},
+        {NC_(SIPREFIX, "femto"), "f", 1E-15},
+        {NC_(SIPREFIX, "atto"), "a", 1E-18},
+        {NC_(SIPREFIX, "zepto"), "z", 1E-21},
+        {NC_(SIPREFIX, "yocto"), "y", 1E-24}
     };
 
     enum UnitSystem {

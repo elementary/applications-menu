@@ -35,7 +35,7 @@ namespace Synapse {
             }
 
             /// TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
-            return _("%s%s %s").printf (prefix.prefix, unit.description, dim);
+            return _("%s%s %s").printf (_(prefix.prefix), _(unit.description), dim);
         }
 
         public double factor () { // Taking into account size, prefix and dimension
