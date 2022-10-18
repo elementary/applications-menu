@@ -48,6 +48,8 @@ namespace Synapse {
 // TRANSLATORS: S.I. Unit Prefix
         {N_("milli"), "m", 0.001},
 // TRANSLATORS: S.I. Unit Prefix
+        {N_("micro"), "µ", 1E-6},
+// TRANSLATORS: S.I. Unit Prefix
         {N_("micro"), "u", 1E-6},
 // TRANSLATORS: S.I. Unit Prefix
         {N_("nano"), "n", 1E-9},
