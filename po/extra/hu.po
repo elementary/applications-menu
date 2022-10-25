@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2021-12-26 01:10+0000\n"
-"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
+"PO-Revision-Date: 2022-10-26 12:36+0000\n"
+"Last-Translator: Alfika07 <tothalfi07@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/hu/>\n"
 "Language: hu\n"
@@ -107,7 +107,7 @@ msgstr ""
 
 #: data/applications-menu.appdata.xml.in:89
 msgid "Always hide Terminal-based programs"
-msgstr ""
+msgstr "Mindig rejtse el a parancssoros programokat"
 
 #: data/applications-menu.appdata.xml.in:90
 msgid "Remove document viewer from block list"
