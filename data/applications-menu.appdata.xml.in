@@ -6,6 +6,24 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
+    <release version="2.11.0" date="2022-11-14" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>Convert between units of measurement</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/applications-menu/issues/548">Reduce false-positives for focus-stealing prevention</issue>
+        <issue url="https://github.com/elementary/applications-menu/issues/474">Irrelevant results with all-caps search</issue>
+        <issue url="https://github.com/elementary/applications-menu/issues/439">Calculator does not show all available digits in result</issue>
+      </issues>
+    </release>
+
     <release version="2.10.2" date="2021-12-10" urgency="medium">
       <description>
       <p>Improvements:</p>
