@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2022-11-15 18:36+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Albanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -106,25 +106,25 @@ msgstr "Provo të ndryshosh termat e kërkimit."
 msgid "No Results for “%s”"
 msgstr "Asnjë rezultat për “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Hap me %s"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Paraqitje me kategori"
@@ -271,16 +271,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Kërko dhe ekzekuto programe në kompjuterin tënd."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Hap me %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Hap përzgjedhjen e tanishme me %s"

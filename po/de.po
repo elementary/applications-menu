@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2022-11-15 18:36+0000\n"
 "PO-Revision-Date: 2022-10-10 06:08+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
@@ -109,24 +109,24 @@ msgstr "Versuchen Sie es mit anderen Suchbegriffen."
 msgid "No Results for “%s”"
 msgstr "Keine Ergebnisse für »%s«"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Mit %s Grafiken öffnen"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Aus dem _Dock entfernen"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Zum _Dock hinzufügen"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Im AppCenter anzeigen"
 
@@ -249,7 +249,7 @@ msgstr ""
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
@@ -272,16 +272,16 @@ msgstr "%g (%s bis %s)"
 msgid "Click to copy %g to clipboard"
 msgstr "%g mit einem Klick in die Zwischenablage kopieren"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Mit %s öffnen"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Momentane Auswahl wird mittels %s geöffnet"

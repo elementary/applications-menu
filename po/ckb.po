@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2022-11-15 18:36+0000\n"
 "PO-Revision-Date: 2022-09-21 15:25+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -104,24 +104,24 @@ msgstr "هەوڵدە یاساکانی گەڕان بگۆڕیت."
 msgid "No Results for “%s”"
 msgstr "هیچ ئەنجامێک نییە بۆ \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "کردنەوەی بە گرافیکەکانی %s"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "لابردنی لە دۆکدا"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "زیادکردنی بۆ دۆک"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "سڕینەوە"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "بینین لە سەنتەری نەرمەکاڵادا"
 
@@ -268,16 +268,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr "کرتە بکە بۆ کۆپیکردنی ئەنجام بۆ کلیپبۆرد"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "گەڕان بۆ بەرنامەکان و کردنەوەیان لەسەر کۆمپیتەرەکەت."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "کردنەوەی بە %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "کردنەوەی دیاریکراوەکانی ئێستا بە بەکارهێنانی %s"

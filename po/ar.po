@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2022-11-15 18:36+0000\n"
 "PO-Revision-Date: 2021-08-30 15:25+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -110,25 +110,25 @@ msgstr "جرب تغيير عبارات البحث."
 msgid "No Results for “%s”"
 msgstr "لا توجد نتائج ل ”%s“"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "افتح باستخدام %s"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "أزل من المرسى"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "أضف إلى المرسى"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "ألغ التثبيت"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "أظهر في آب سنتر"
 
@@ -275,16 +275,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr "اضغط لنسخ النتيجة للحافظة"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "ابحث عن التطبيقات وشغلها على حاسوبك."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "افتح باستخدام %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "يفتح المحدد باستخدام %s"

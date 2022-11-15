@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2022-11-15 18:36+0000\n"
 "PO-Revision-Date: 2020-01-07 19:53+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/wingpanel/"
@@ -112,25 +112,25 @@ msgstr "Poskusite spremeniti iskalni niz."
 msgid "No Results for “%s”"
 msgstr "Ni rezultatov za “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Odpri z %s"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "O_dstrani s sidrišča"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "_Dodaj v sidrišče"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Odstrani"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Odpri v centru za aplikacije"
 
@@ -279,16 +279,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr "Kopiraj izbrano na odložišče"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Išči in zaženi aplikacije na vašem računalniku."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Odpri z %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Odpre trenutno izbiro z %s"

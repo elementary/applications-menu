@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2022-11-15 18:36+0000\n"
 "PO-Revision-Date: 2018-11-21 18:10+0000\n"
 "Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/wingpanel/"
@@ -112,24 +112,24 @@ msgstr ""
 msgid "No Results for “%s”"
 msgstr "Walang Resulta para sa  “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, c-format
 msgid "Open with %s Graphics"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Tanggalin mula sa _Dock"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Idagdag sa _Dock"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Tignan sa kada Kategorya"
@@ -276,16 +276,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr ""
