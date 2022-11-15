@@ -1,3 +1,28 @@
+slingshot-launcher (2.11.0) bionic; urgency=medium
+
+  * Release 2.11.0 (#555)
+  * Update translation files
+  * Update translation template
+  * Metainfo: add release notes for 2.11.0 (#554)
+  * ci: Run the tests (#551)
+  * Switch to launching with Gdk.AppLaunchContext (#549)
+  * Update POTFILES
+  * Fix Gettext Action (#550)
+  * Use regex to parse conversion plugin input (#545)
+  * Unit conversion plugin (#541)
+  * Improve calculator plugin (#539)
+  * Add unit testing to calculator plugin (#542)
+  * Release 2.10.2 (#526)
+  * switchboard-plugin: match full path in search (#523)
+  * Release 2.10.1 (#522)
+  * switchboard-plugin: Re-add a GLib.MainLoop (#521)
+  * Release 2.10.0 (#515)
+  * Bookmarks Plugin: Get default file browser name (#517)
+  * Add Files bookmarks to search (#514)
+  * Avoid using a MainLoop in Switchboard Plugin (#513)
+
+ -- elementary, Inc. <builds@elementary.io>  Tue, 15 Nov 2022 19:12:13 +0000
+
 slingshot-launcher (2.10.2) bionic; urgency=medium
 
   * Release 2.10.2 (#526)
