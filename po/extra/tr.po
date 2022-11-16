@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 18:36+0000\n"
-"PO-Revision-Date: 2022-11-07 17:58+0000\n"
+"PO-Revision-Date: 2022-11-23 10:41+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -28,10 +28,8 @@ msgid "Open and search for apps"
 msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "New features:"
 msgid "New Features:"
-msgstr "Yeni özellikler:"
+msgstr "Yeni Özellikler:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Convert between units of measurement"
