@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-15 18:36+0000\n"
-"PO-Revision-Date: 2021-12-10 12:53+0000\n"
+"PO-Revision-Date: 2022-11-28 14:25+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -28,14 +28,12 @@ msgid "Open and search for apps"
 msgstr "Obriu-lo i cerqueu aplicacions"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "New features:"
 msgid "New Features:"
 msgstr "Característiques noves:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Convert between units of measurement"
-msgstr ""
+msgstr "Convertir entre unitats de mesura"
 
 #: data/applications-menu.appdata.xml.in:15
 #: data/applications-menu.appdata.xml.in:29
