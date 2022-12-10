@@ -6,6 +6,18 @@
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
   <releases>
+    <release version="2.11.1" date="2022-12-10" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/applications-menu/issues/546">Incorrect shortcuts in a tooltip</issue>
+      </issues>
+    </release>
+
     <release version="2.11.0" date="2022-11-15" urgency="medium">
       <description>
         <p>New Features:</p>
