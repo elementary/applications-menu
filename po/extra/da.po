@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 17:48+0000\n"
+"POT-Creation-Date: 2022-12-10 17:51+0000\n"
 "PO-Revision-Date: 2020-05-27 12:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,167 +27,94 @@ msgstr "Applikations Menu"
 msgid "Open and search for apps"
 msgstr "Åbn og søg efter applikationer"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:27
-#: data/applications-menu.appdata.xml.in:41
-#: data/applications-menu.appdata.xml.in:53
-#: data/applications-menu.appdata.xml.in:77
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
 #, fuzzy
 #| msgid "Performance improvements"
 msgid "Improvements:"
 msgstr "Ydelsesforbedringer"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:29
-#: data/applications-menu.appdata.xml.in:55
-#: data/applications-menu.appdata.xml.in:71
-#: data/applications-menu.appdata.xml.in:80
-#: data/applications-menu.appdata.xml.in:92
-#: data/applications-menu.appdata.xml.in:101
-#: data/applications-menu.appdata.xml.in:110
-#: data/applications-menu.appdata.xml.in:124
-#: data/applications-menu.appdata.xml.in:132
-#: data/applications-menu.appdata.xml.in:144
-#: data/applications-menu.appdata.xml.in:153
-#: data/applications-menu.appdata.xml.in:162
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "Opdaterede oversættelser"
 
-#: data/applications-menu.appdata.xml.in:23
+#: data/applications-menu.appdata.xml.in:24
 msgid "New Features:"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:25
+#: data/applications-menu.appdata.xml.in:26
 msgid "Convert between units of measurement"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:44
 msgid "Searching settings always searches the full title"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:49
-#: data/applications-menu.appdata.xml.in:65
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
 msgid "Fixes:"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:53
 msgid "Fix a regression with settings search"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:61
-#: data/applications-menu.appdata.xml.in:86
+#: data/applications-menu.appdata.xml.in:64
 msgid "New features:"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:63
+#: data/applications-menu.appdata.xml.in:66
 msgid "Show search results for bookmarked folders"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:67
+#: data/applications-menu.appdata.xml.in:70
 msgid "Prevent a potential crash on startup"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:69
-#: data/applications-menu.appdata.xml.in:90
-#: data/applications-menu.appdata.xml.in:98
-#: data/applications-menu.appdata.xml.in:107
-#: data/applications-menu.appdata.xml.in:116
-#: data/applications-menu.appdata.xml.in:130
-#: data/applications-menu.appdata.xml.in:138
+#: data/applications-menu.appdata.xml.in:72
 #, fuzzy
 #| msgid "Minor updates"
 msgid "Minor updates:"
 msgstr "Mindre opdateringer"
 
-#: data/applications-menu.appdata.xml.in:79
-msgid "Show secondary click menu for search results"
-msgstr ""
-
 #: data/applications-menu.appdata.xml.in:88
-msgid ""
-"Launch apps selectively on integrated or dedicated graphics for systems with "
-"hybrid graphics"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:100
-msgid "Show apps with no category under \"Other\""
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:109
-msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:118
-msgid "Sort app actions above AppCenter search"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:119
-msgid "Always hide Terminal-based programs"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:120
-msgid "Remove document viewer from block list"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:121
-msgid "Support fractions without leading number in calculator"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:122
-msgid "Show overlay key in tooltip when set"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:123
-#: data/applications-menu.appdata.xml.in:152
-#: data/applications-menu.appdata.xml.in:161
-msgid "Performance improvements"
-msgstr "Ydelsesforbedringer"
-
-#: data/applications-menu.appdata.xml.in:140
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
-"Jævnere navigationsbevægelse i gittervisning og understøttelse af "
-"berøringsskærmsbevægelse"
-
-#: data/applications-menu.appdata.xml.in:141
-msgid "Focus search when navigating up from the category view"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:142
-msgid "Don't focus search when pressing modifier keys"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:143
-msgid "Ensure categories are sorted alphabetically"
-msgstr "Sørg for, at kategorier sorteres alfabetisk"
-
-#: data/applications-menu.appdata.xml.in:150
-msgid "Category view is now a list"
-msgstr "Kategorivisning er nu en liste"
-
-#: data/applications-menu.appdata.xml.in:151
-msgid "Improved keyboard navigation"
-msgstr "Forbedret tastaturnavigation"
-
-#: data/applications-menu.appdata.xml.in:158
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
-msgstr ""
-"Forbedret tastaturnavigation, inklusive nye værktøjstip og understøttelse af "
-"menutaster"
-
-#: data/applications-menu.appdata.xml.in:159
-msgid "Highlight action matches in the search view"
-msgstr "Fremhæv handlingsmatchninger i søgevisningen"
-
-#: data/applications-menu.appdata.xml.in:160
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Tilføj en \"Se i AppCenteret\" menu knap"
-
-#: data/applications-menu.appdata.xml.in:174
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Performance improvements"
+#~ msgstr "Ydelsesforbedringer"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr ""
+#~ "Jævnere navigationsbevægelse i gittervisning og understøttelse af "
+#~ "berøringsskærmsbevægelse"
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "Sørg for, at kategorier sorteres alfabetisk"
+
+#~ msgid "Category view is now a list"
+#~ msgstr "Kategorivisning er nu en liste"
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "Forbedret tastaturnavigation"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr ""
+#~ "Forbedret tastaturnavigation, inklusive nye værktøjstip og understøttelse "
+#~ "af menutaster"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "Fremhæv handlingsmatchninger i søgevisningen"
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "Tilføj en \"Se i AppCenteret\" menu knap"
 
 #, fuzzy
 #~| msgid "Performance improvements"
