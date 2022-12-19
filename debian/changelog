@@ -1,3 +1,9 @@
+slingshot-launcher (2.11.1) jammy; urgency=medium
+
+  * New upstream release
+
+ -- Danielle Foré <danielle@elementary.io>  Mon, 19 Dec 2022 11:26:34 -0800
+
 slingshot-launcher (2.11.0) bionic; urgency=medium
 
   * Release 2.11.0 (#555)
