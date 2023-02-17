@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-10 17:51+0000\n"
-"PO-Revision-Date: 2022-11-09 14:29+0000\n"
+"PO-Revision-Date: 2023-02-18 13:25+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/en_GB/>\n"
@@ -241,31 +241,31 @@ msgstr "Find and execute arbitrary commands."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "squared"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "cubed"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "Converter"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "Convert between units."
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s to %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
 #, c-format
@@ -294,32 +294,28 @@ msgstr "Open %s in %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Open the selected directory"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "Bookmarks"
+msgstr "Folder Bookmarks"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "Bookmarks"
+msgstr "Bookmarked Folders"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "Recent"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "Rubbish Bin"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
