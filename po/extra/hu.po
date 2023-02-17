@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-10 17:51+0000\n"
-"PO-Revision-Date: 2023-01-08 00:25+0000\n"
+"PO-Revision-Date: 2023-02-18 13:25+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/hu/>\n"
@@ -47,11 +47,11 @@ msgstr "Új funkciók:"
 
 #: data/applications-menu.appdata.xml.in:26
 msgid "Convert between units of measurement"
-msgstr ""
+msgstr "Mértékegységek átváltása"
 
 #: data/applications-menu.appdata.xml.in:44
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "A beállítások keresése mindig a teljes címet keresi"
 
 #: data/applications-menu.appdata.xml.in:51
 #: data/applications-menu.appdata.xml.in:68
