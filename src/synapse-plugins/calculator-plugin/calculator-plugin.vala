@@ -35,13 +35,12 @@ namespace Synapse {
 
             public Result (double result, string match_string) {
                 Object (match_type: MatchType.CALCULATION,
-                        text: "%g".printf (result), //Copied to clipboard
+                        text: "%f".printf (result), //Copied to clipboard
                         title: "%g".printf (result), //Label for search item row
                         icon_name: "accessories-calculator",
                         text_origin: Synapse.TextOrigin.UNKNOWN
                 );
             }
-
         }
 
         static void register_plugin () {
