@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 17:51+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2022-02-18 07:13+0000\n"
 "Last-Translator: Jose Manuel Hernandez Farias <ing.josemhf@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Aplicaciones"
 
@@ -72,7 +72,7 @@ msgstr "Juegos"
 msgid "Graphics"
 msgstr "Imágenes"
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
@@ -88,7 +88,7 @@ msgstr "Oficina"
 msgid "System Tools"
 msgstr "Herramientas de sistema"
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Otro"
 
@@ -100,11 +100,49 @@ msgstr "Ejecutar esta orden…"
 msgid "Default"
 msgstr "Por defecto"
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Texto"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "Calculadora"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Archivos"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Acciones"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Buscar"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Contactos"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Configuración"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Acciones de la aplicación"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "Marcadores"
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Pruebe a cambiar los términos de búsqueda."
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Sin resultados para «%s»"
@@ -129,38 +167,6 @@ msgstr "Desinstalar"
 #: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Ver en el Centro de aplicaciones"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "Texto"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "Archivos"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "Acciones"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "Buscar"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "Contactos"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "Configuración"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr "Acciones de la aplicación"
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr "Marcadores"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

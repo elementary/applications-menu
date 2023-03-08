@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 17:51+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "اطلاقیے"
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "انٹرنیٹ"
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "دیگر"
 
@@ -100,11 +100,49 @@ msgstr "یہ کمانڈ چلائیں:"
 msgid "Default"
 msgstr ""
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "متن"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "کیلکولیٹر"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "فائلز"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "عمل"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "تلاش کریں"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "روابط"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "ترتیبات"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr ""
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "تلاش کے الفاظ تبدیل کر کے دیکھیں۔"
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "تلاش “%s” کے لیے کوئی نتائج نہیں"
@@ -130,38 +168,6 @@ msgstr ""
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "ضمروں میں دیکھیں"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "متن"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "فائلز"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "عمل"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "تلاش کریں"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "روابط"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "ترتیبات"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr ""
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

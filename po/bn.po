@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 17:51+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 #, fuzzy
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "ইন্টারনেট"
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "অন্য"
 
@@ -98,11 +98,49 @@ msgstr "এই কমান্ডটি  রান করুন…"
 msgid "Default"
 msgstr ""
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "অক্ষর"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "গণক"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "ফাইলস"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "ক্রিয়াকলাপ"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "অনুসন্ধান"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "যোগাযোগ"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "বিন্যাস"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "অ্যাপ্লিকেশনের ক্রিয়াকলাপ"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "অনুসন্ধানের জন্য বাক্যগুলি পাল্টে দেখুন।"
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" জন্য কোনো ফলাফল পাওয়া যায়নি"
@@ -129,38 +167,6 @@ msgstr "আনইনস্টল"
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "অ্যাপসেন্টার"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "অক্ষর"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "ফাইলস"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "ক্রিয়াকলাপ"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "অনুসন্ধান"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "যোগাযোগ"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "বিন্যাস"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr "অ্যাপ্লিকেশনের ক্রিয়াকলাপ"
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
