@@ -20,7 +20,56 @@
  *              Giulio Collura
  */
 
+// The first entries of ResultType enum must match those of Synapse.MatchType so that a cast from
+// Synapse.MatchType to ResultType is valid.
+public enum Slingshot.Widgets.ResultType {
+    UNKNOWN = 0,
+    TEXT,
+    CALCULATION,
+    APPLICATION,
+    BOOKMARK,
+    GENERIC_URI,
+    ACTION,
+    SEARCH,
+    APP_ACTIONS, // Extra entries from here
+    CONTACT,
+    INTERNET,
+    SETTINGS,
+    LINK;
+
+    public unowned string to_string () {
+        switch (this) {
+            case TEXT:
+                return _("Text");
+            case CALCULATION:
+                return _("Calculation");
+            case APPLICATION:
+                return _("Applications");
+            case GENERIC_URI:
+                return _("Files");
+            case LINK:
+            case ACTION:
+                return _("Actions");
+            case SEARCH:
+                return _("Search");
+            case CONTACT:
+                return _("Contacts");
+            case INTERNET:
+                return _("Internet");
+            case SETTINGS:
+                return _("Settings");
+            case APP_ACTIONS:
+                return _("Application Actions");
+            case BOOKMARK:
+                return _("Bookmarks");
+            default:
+                return _("Other");
+        }
+    }
+}
+
 public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
+
     const int MAX_RESULTS = 10;
 
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
@@ -28,7 +77,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
 
     private Granite.Widgets.AlertView alert_view;
     private AppListBox list_box;
-    Gee.HashMap<SearchItem.ResultType, uint> limitator;
+    Gee.HashMap<ResultType, uint> limitator;
 
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -37,7 +86,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         alert_view.show_all ();
 
         // list box
-        limitator = new Gee.HashMap<SearchItem.ResultType, uint> ();
+        limitator = new Gee.HashMap<ResultType, uint> ();
         list_box = new AppListBox ();
         list_box.activate_on_single_click = true;
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
@@ -53,10 +102,10 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                 var search_item = row as SearchItem;
                 if (!list_box.dragging) {
                     switch (search_item.result_type) {
-                        case SearchItem.ResultType.APP_ACTIONS:
-                        case SearchItem.ResultType.LINK:
-                        case SearchItem.ResultType.SETTINGS:
-                        case SearchItem.ResultType.BOOKMARK:
+                        case ResultType.APP_ACTIONS:
+                        case ResultType.LINK:
+                        case ResultType.SETTINGS:
+                        case ResultType.BOOKMARK:
                             search_item.app.match.execute (null);
                             break;
                         default:
@@ -103,22 +152,22 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         if (matches.size > 0) {
             foreach (var match in matches) {
                 Backend.App app = new Backend.App.from_synapse_match (match);
-                SearchItem.ResultType result_type = (SearchItem.ResultType) match.match_type;
+                ResultType result_type = (ResultType) match.match_type;
                 if (match is Synapse.DesktopFilePlugin.ActionMatch) {
-                    result_type = SearchItem.ResultType.APP_ACTIONS;
+                    result_type = ResultType.APP_ACTIONS;
                 } else if (match is Synapse.SwitchboardObject) {
-                    result_type = SearchItem.ResultType.SETTINGS;
+                    result_type = ResultType.SETTINGS;
                 } else if (match is Synapse.LinkPlugin.Result) {
-                    result_type = SearchItem.ResultType.INTERNET;
+                    result_type = ResultType.INTERNET;
                 } else if (match is Synapse.FileBookmarkPlugin.Result) {
-                    result_type = SearchItem.ResultType.BOOKMARK;
+                    result_type = ResultType.BOOKMARK;
                 }
 
-                if (result_type == SearchItem.ResultType.UNKNOWN) {
+                if (result_type == ResultType.UNKNOWN) {
                     var actions = Backend.SynapseSearch.find_actions_for_match (match);
                     foreach (var action in actions) {
                         app = new Backend.App.from_synapse_match (action, match);
-                        create_item (app, search_term, (SearchItem.ResultType) app.match.match_type);
+                        create_item (app, search_term, (ResultType) app.match.match_type);
                     }
 
                     continue;
@@ -138,7 +187,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         }
     }
 
-    private void create_item (Backend.App app, string search_term, SearchItem.ResultType result_type) {
+    private void create_item (Backend.App app, string search_term, ResultType result_type) {
         if (limitator.has_key (result_type)) {
             var amount = limitator.get (result_type);
             if (amount >= MAX_RESULTS) {
