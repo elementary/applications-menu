@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-08 10:57+0000\n"
-"PO-Revision-Date: 2023-03-01 03:25+0000\n"
+"PO-Revision-Date: 2023-03-11 12:25+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
@@ -105,10 +105,8 @@ msgid "Text"
 msgstr "Text"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Taschenrechner"
+msgstr "Berechnung"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
