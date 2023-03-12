@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2023-03-12 18:02+0000\n"
-"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
+"Last-Translator: tsitokhtsev2002 <tsitokhtsev2002@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ka/>\n"
 "Language: ka\n"
@@ -202,7 +202,7 @@ msgstr "AppCenter"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr "აპლიკაციების ძებნა"
+msgstr "პროგრამების ძიება"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
