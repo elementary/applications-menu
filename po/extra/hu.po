@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-08 10:57+0000\n"
-"PO-Revision-Date: 2023-02-18 13:25+0000\n"
+"PO-Revision-Date: 2023-04-06 22:59+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.16.4\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -60,7 +60,7 @@ msgstr "Javítások:"
 
 #: data/applications-menu.appdata.xml.in:53
 msgid "Fix a regression with settings search"
-msgstr ""
+msgstr "A beállítások keresése javítva"
 
 #: data/applications-menu.appdata.xml.in:64
 msgid "New features:"
@@ -68,11 +68,11 @@ msgstr "Új funkciók:"
 
 #: data/applications-menu.appdata.xml.in:66
 msgid "Show search results for bookmarked folders"
-msgstr ""
+msgstr "A könyvjelzőzött mappák megjelenítése a keresési találatokban"
 
 #: data/applications-menu.appdata.xml.in:70
 msgid "Prevent a potential crash on startup"
-msgstr ""
+msgstr "Egy induláskor lehetséges összeomlás megelőzése"
 
 #: data/applications-menu.appdata.xml.in:72
 msgid "Minor updates:"
