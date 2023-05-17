@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-08 10:57+0000\n"
-"PO-Revision-Date: 2022-10-11 22:31+0000\n"
+"PO-Revision-Date: 2023-05-18 21:06+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/tr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -105,10 +105,8 @@ msgid "Text"
 msgstr "Metin"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Hesap Makinesi"
+msgstr "Hesaplama"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
