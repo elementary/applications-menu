@@ -66,9 +66,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         var image = new Granite.AsyncImage.from_gicon_async (app.icon, ICON_SIZE);
         image.pixel_size = ICON_SIZE;
-        image.margin_top = 9;
-        image.margin_end = 6;
-        image.margin_start = 6;
 
         badge = new Gtk.Label ("!");
         badge.visible = false;
@@ -85,15 +82,16 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         overlay.add_overlay (badge);
 #endif
 
-        var grid = new Gtk.Grid ();
-        grid.orientation = Gtk.Orientation.VERTICAL;
-        grid.row_spacing = 6;
-        grid.expand = true;
-        grid.halign = Gtk.Align.CENTER;
-        grid.add (overlay);
-        grid.add (app_label);
+        var box = new Gtk.Box (VERTICAL, 6) {
+            hexpand = true,
+            vexpand = true,
+            halign = CENTER,
+            valign = CENTER
+        };
+        box.add (overlay);
+        box.add (app_label);
 
-        add (grid);
+        add (box);
 
         get_style_context ().add_class ("app-button");
         get_style_context ().add_provider (style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
