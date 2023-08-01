@@ -7,5 +7,6 @@
   </gresource>
   <gresource prefix="/io/elementary/desktop/wingpanel/applications-menu">
     <file alias="PageChecker.css" compressed="true">PageChecker.css</file>
+    <file alias="AppButton.css" compressed="true">AppButton.css</file>
   </gresource>
 </gresources>
