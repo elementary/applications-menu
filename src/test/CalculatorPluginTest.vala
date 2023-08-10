@@ -74,33 +74,34 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("10 - 10/100 + 5", 14.9); // https://github.com/elementary/calculator/issues/44
 
         // Math constants
-        assert_throw ("pi", 3.141592654);
-        assert_throw ("pi - 2", 1.141592654); // https://github.com/elementary/calculator/issues/59
-        assert_throw ("(π)", 3.141592654);
+        assert_equal ("pi", 3.141592654); // Constant name converted
+        assert_equal ("pi - 2", 1.141592654);
+        assert_equal ("(π)", 3.141592654); // Constant name converted
         assert_throw ("e", 2.718281828);
 
         // Trigonometry
-        assert_throw ("sin(pi / 2)", 1);
-        assert_throw ("sin(-pi)", 0); // https://github.com/elementary/calculator/issues/1
-        assert_throw ("cos(90)", -0.448073616);
+        assert_equal ("sin(pi / 2)", 1);
+        assert_equal ("sin(-pi)", 0);
+        assert_equal ("cos(90)", -0.448073616); // Function name converted
+        assert_equal ("sin(1)", 0.84147098480);// Function name converted
         assert_throw ("sinh(2)", 3.626860408);
         assert_throw ("cosh(2)", 3.762195691);
         assert_equal ("s(0)", 0); // Equiv "sin(0)"
         assert_equal ("c(0)", 1); // Equiv "cos(0)"
         assert_equal ("a(1)*4", 3.14159265358979323844); // Equiv "arctangent (1 radian) * 4" which equals pi
-        assert_throw ("pi=a(1)*4; c(pi)", -1); // Disallow variables
-        assert_throw ("pi=a(1)*4; s(pi / 2)", 1); // Disallow variables
+        assert_equal ("c(pi)", -1); // Disallow variables
+        assert_equal ("s(pi / 2)", 1); // Disallow variables
         assert_throw ("sinh(2)", 3.626860408);
         assert_throw ("cosh(2)", 3.762195691);
         assert_equal ("s(0.123)^2 + c(0.123)^2", 1); //Equiv "sin^2(x) + cos^2(x) = 1"
-        assert_throw ("sin(0.123)^2 + cos(0.123)^2", 1); //function names not recognised by `bc`
-        assert_throw ("tan(0.245) - sin(0.245) / cos(0.245)", 0);//function names not recognised by `bc`
+        assert_equal ("sin(0.123)^2 + cos(0.123)^2", 1); //function names converted
+        assert_throw ("tan(0.245) - sin(0.245) / cos(0.245)", 0);// tan not recognised by `bc`
         assert_throw ("asin(0.532) + acos(0.532)", 1.570796327);//function names not recognised by `bc`
         assert_throw ("atan(1)", 0.785398163);
 
         //Exponents and logarithms
         assert_equal ("2^5", 32);
-        assert_throw ("exp(ln(2.2))", 2.2); //function names not recognised by `bc`
+        assert_equal ("exp(ln(2.2))", 2.2); //function names not recognised by `bc`
         assert_equal ("e(l(2.2))", 2.2); //function names recognised by `bc`
         assert_throw ("e^5.25 / exp(5.25)", 1);
         assert_equal ("e(1)^5 / e(5)", 1); // integer exponent only

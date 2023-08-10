@@ -39,7 +39,15 @@ namespace Synapse {
             string? solution = null;
             // Assume base 10 unless indicated otherwise
             use_num = VALID_NUM.slice (0, 10);
-            var input = query_string.replace (" ", "").replace (",", ".").replace ("x", "*");
+            var input = query_string.replace (" ", "")
+                        .replace (",", ".")
+                        .replace ("exp(", "e(") // Must do before replacing "x"
+                        .replace ("x", "*")
+                        .replace ("ln(", "l(")
+                        .replace ("sin(", "s(")
+                        .replace ("cos(", "c(")
+                        .replace ("pi", "(a(1)*4)")
+                        .replace ("π", "(a(1)*4)");
             string[] expressions = input.split (";");
             var final_input = "";
             foreach (string expr in expressions) {
