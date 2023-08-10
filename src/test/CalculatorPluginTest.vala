@@ -88,8 +88,8 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("s(0)", 0); // Equiv "sin(0)"
         assert_equal ("c(0)", 1); // Equiv "cos(0)"
         assert_equal ("a(1)*4", 3.14159265358979323844); // Equiv "arctangent (1 radian) * 4" which equals pi
-        assert_equal ("pi=a(1)*4; c(pi)", -1); // Equiv "cosine (pi / 2)"
-        assert_equal ("pi=a(1)*4; s(pi / 2)", 1); // Equiv "sine (pi / 2)"
+        assert_throw ("pi=a(1)*4; c(pi)", -1); // Disallow variables
+        assert_throw ("pi=a(1)*4; s(pi / 2)", 1); // Disallow variables
         assert_throw ("sinh(2)", 3.626860408);
         assert_throw ("cosh(2)", 3.762195691);
         assert_equal ("s(0.123)^2 + c(0.123)^2", 1); //Equiv "sin^2(x) + cos^2(x) = 1"
