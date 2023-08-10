@@ -30,81 +30,59 @@ namespace Synapse {
             return instance;
         }
 
-        private Regex? express_regex = null;
-        private Regex? base_regex = null;
         private static CalculatorPluginBackend instance = null;
-
-        construct {
-            try {
-                /* The express_regex describes a string which *resembles* a mathematical expression in one of two forms:
-                <alphanum><operator><alphanum> e.g. 2 + 2
-                <opening parenthesis><number expression><closing parenthesis) e.g. sqrt (0.5)
-                */
-                express_regex = new Regex (
-                    """^.*(\w+[\/\+\-\*\^\%\!\&\|]{1,2}\.?\w+|\(-?\d+.*\))+.*$""",
-                    RegexCompileFlags.OPTIMIZE
-                );
-                /* The base_regex describes a string which starts with a bc number base expression */
-                base_regex = new Regex (
-                    """^.base=\d+;.*$""",
-                    RegexCompileFlags.OPTIMIZE
-                );
-            } catch (Error e) {
-                critical ("Error creating regexp: %s", e.message);
-                assert_not_reached ();
-            }
-        }
+        private const string VALID_NUM = "0123456789ABCDEF";
+        private const string VALID_OP = ".()%^&|!*/-+";
+        private string use_num;
 
         public async double get_solution (string query_string, Cancellable cancellable) throws Error {
             string? solution = null;
-            string input = query_string.replace (" ", "").replace (",", ".").replace ("x", "*");
-            // Mark characters not allowed in simple bc expressions
-            bool matched = true;
-            if (base_regex.match (input)) {
-                // If a number base is set, the expression may include hexadecimals
-                // or be doing a conversion, in which there is no expression
-                // so omit regex test and instead limit to certain characters for simple expressions
-                input.canon ("1234567890ABCDEF();%^&|!*/-+iobase=.", '@');
-
-            } else {
-                // Disallow capitals and test for possible mathematical expression
-                input = input.down ();
-                matched = express_regex.match (input);
+            // Assume base 10 unless indicated otherwise
+            use_num = VALID_NUM.slice (0, 10);
+            var input = query_string.replace (" ", "").replace (",", ".").replace ("x", "*");
+            string[] expressions = input.split (";");
+            var final_input = "";
+            foreach (string expr in expressions) {
+                bool is_base_expr;
+                if (!allowed_expression (expr, out is_base_expr)) {
+                    critical ("Invalid expression %s", expr);
+                    throw new IOError.FAILED_HANDLED ("Invalid expression");
+                }
+                // Put base expressions first for reliable output by 'bc'
+                if (is_base_expr) {
+                    final_input = string.join (";", expr, final_input);
+                } else {
+                    final_input = string.join (";", final_input, expr);
+                }
             }
 
-            if (input.contains ("@")) {
-               matched = false;
-            }
+            // 'bc' does not like expressions like -5--5
+            final_input = final_input.replace ("--", "- -").replace ("+-", "+ -");
+            // Construction of final_input can result in double semi-colons. Does not affect
+            // result but remove anyway.
+            final_input = final_input.replace (";;", ";");
+            Pid pid;
+            int read_fd, write_fd;
+            /* Must include math library to get non-integer results and to access standard math functions */
+            string[] argv = {"bc", "-l"};
 
-            if (matched) {
-                debug ("Matched");
-                // 'bc' does not like expressions like -5--5
-                input = input.replace ("--", "- -").replace ("+-", "+ -");
-                Pid pid;
-                int read_fd, write_fd;
-                /* Must include math library to get non-integer results and to access standard math functions */
-                string[] argv = {"bc", "-l"};
+            Process.spawn_async_with_pipes (
+                null, argv, null,
+                SpawnFlags.SEARCH_PATH, null,
+                out pid, out write_fd, out read_fd
+            );
 
-                Process.spawn_async_with_pipes (
-                    null, argv, null,
-                    SpawnFlags.SEARCH_PATH, null,
-                    out pid, out write_fd, out read_fd
-                );
+            UnixInputStream read_stream = new UnixInputStream (read_fd, true);
+            DataInputStream bc_output = new DataInputStream (read_stream);
 
-                UnixInputStream read_stream = new UnixInputStream (read_fd, true);
-                DataInputStream bc_output = new DataInputStream (read_stream);
-
-                UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
-                DataOutputStream bc_input = new DataOutputStream (write_stream);
-                debug ("bc input string %s\n", input);
-                bc_input.put_string (input + "\n", cancellable);
-                yield bc_input.close_async (Priority.DEFAULT, cancellable);
-                solution = yield bc_output.read_line_async (
-                    Priority.DEFAULT_IDLE, cancellable
-                );  // May return null without error
-            } else {
-                debug ("Query %s produced input %s, which did not match regex", query_string, input);
-            }
+            UnixOutputStream write_stream = new UnixOutputStream (write_fd, true);
+            DataOutputStream bc_input = new DataOutputStream (write_stream);
+            debug ("bc input string %s\n", final_input);
+            bc_input.put_string (final_input + "\n", cancellable);
+            yield bc_input.close_async (Priority.DEFAULT, cancellable);
+            solution = yield bc_output.read_line_async (
+                Priority.DEFAULT_IDLE, cancellable
+            );  // May return null without error
 
             if (solution == null || solution == "") {
                 // Do not usually want additional warning message for invalid input
@@ -114,6 +92,43 @@ namespace Synapse {
             } else {
                 return double.parse (solution);
             }
+        }
+
+
+        private bool allowed_expression (string expr, out bool is_base_expr) {
+            is_base_expr = false;
+            if (expr.length > 6 &&
+                (expr.has_prefix ("ibase=") || expr.has_prefix ("obase="))
+            ) {
+                var suffix = expr.slice (6, expr.length);
+                var valid = int.parse (suffix) > 1 && int.parse (suffix) <= 16;
+                if (valid && expr.has_prefix ("ibase=")) {
+                    use_num = VALID_NUM.slice (0, int.parse (suffix));
+                }
+
+                is_base_expr = true;
+                return valid;
+            }
+
+            if (expr.length > 6 &&
+                (expr.has_prefix ("scale="))
+            ) {
+                var suffix = expr.slice (6, expr.length);
+                var valid = int.parse (suffix) >= 0;
+                is_base_expr = true;
+                return valid;
+            }
+
+            // Allow operator words to pass
+            var test_expr = expr.replace ("sqrt(", "(") // Square root
+                            .replace ("s(", "(") // Sine
+                            .replace ("c(", "(") // Cosine
+                            .replace ("a(", "(") // Arctangent
+                            .replace ("l(", "(") // Natural log
+                            .replace ("e(", "(") // Natural exponential
+                            .replace ("j(", "("); // Bessel function
+            test_expr.canon (use_num + VALID_OP, '@');
+            return !test_expr.contains ("@");
         }
     }
 }
