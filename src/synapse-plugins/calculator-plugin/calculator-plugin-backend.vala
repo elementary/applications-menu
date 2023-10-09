@@ -121,7 +121,9 @@ namespace Synapse {
 
                 if (expr.has_prefix ("scale=")) {
                     is_base_expr = true;
-                    return suffix_int >= 0;
+                    // bc allows enormous scales but they cannot be shown in the menu so limit to
+                    // a reasonable maximum.
+                    return suffix_int >= 0 && suffix_int < 50;
                 }
             }
 

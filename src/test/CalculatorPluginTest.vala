@@ -127,7 +127,9 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("scale=0;pi", "0");
         assert_equal ("scale=3;pi", "3.140");
         assert_equal ("scale=12;pi", "3.141592653588");
+        assert_equal ("scale=49;pi", "3.1415926535897932384626433832795028841971693993748");
         assert_throw ("scale=-3;pi", "1");
+        assert_throw ("scale=50;pi", "1"); // We impose a limited scale of 50 digits
 
         return 0;
     }
