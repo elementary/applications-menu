@@ -107,6 +107,15 @@ class Synapse.CalculatorPluginTest : Object {
         assert_equal ("e(1)^5 / e(5)", 1); // integer exponent only
         assert_throw ("10^(log(2.2))", 2.2);
 
+        //ibase, obase and scale
+        assert_equal ("ibase=2;11111111", 255);
+        assert_throw ("ibase=2;22", 1); //digits out of range
+        assert_throw ("ibase=1;11", 1); //base out of range
+        assert_throw ("ibase=17;11", 1); //base out of range
+        assert_equal ("ibase=16;FFFF", 65535);
+        assert_throw ("ibase=16;GGGG", 65535); //chars out of range
+
+
         return 0;
     }
 
