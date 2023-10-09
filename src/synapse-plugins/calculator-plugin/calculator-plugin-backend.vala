@@ -39,6 +39,7 @@ namespace Synapse {
             string? solution = null;
             // Assume base 10 unless indicated otherwise
             use_num = VALID_NUM.slice (0, 10);
+            //Replace common math expressions with their bc equivalent
             var input = query_string.replace (" ", "")
                         .replace (",", ".")
                         .replace ("exp(", "e(") // Must do before replacing "x"
