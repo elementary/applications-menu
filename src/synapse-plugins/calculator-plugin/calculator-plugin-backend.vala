@@ -106,26 +106,22 @@ namespace Synapse {
 
         private bool allowed_expression (string expr, out bool is_base_expr) {
             is_base_expr = false;
-            if (expr.length > 6 &&
-                (expr.has_prefix ("ibase=") || expr.has_prefix ("obase="))
-            ) {
-                var suffix = expr.slice (6, expr.length);
-                var valid = int.parse (suffix) > 1 && int.parse (suffix) <= 16;
-                if (valid && expr.has_prefix ("ibase=")) {
-                    use_num = VALID_NUM.slice (0, int.parse (suffix));
+            if (expr.length > 6) {
+                var suffix_int = int.parse (expr.slice (6, expr.length));
+                if (expr.has_prefix ("ibase=") || expr.has_prefix ("obase=")) {
+                    var valid = suffix_int > 1 && suffix_int <= 16;
+                    if (valid && expr.has_prefix ("ibase=")) {
+                        use_num = VALID_NUM.slice (0, suffix_int);
+                    }
+
+                    is_base_expr = true;
+                    return valid;
                 }
 
-                is_base_expr = true;
-                return valid;
-            }
-
-            if (expr.length > 6 &&
-                (expr.has_prefix ("scale="))
-            ) {
-                var suffix = expr.slice (6, expr.length);
-                var valid = int.parse (suffix) >= 0;
-                is_base_expr = true;
-                return valid;
+                if (expr.has_prefix ("scale=")) {
+                    is_base_expr = true;
+                    return suffix_int >= 0;
+                }
             }
 
             // Allow operator words to pass
