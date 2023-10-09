@@ -35,7 +35,7 @@ namespace Synapse {
         private const string VALID_OP = ".()%^&|!*/-+";
         private string use_num;
 
-        public async double get_solution (string query_string, Cancellable cancellable) throws Error {
+        public async string get_solution (string query_string, Cancellable cancellable) throws Error {
             string? solution = null;
             // Assume base 10 unless indicated otherwise
             use_num = VALID_NUM.slice (0, 10);
@@ -99,7 +99,8 @@ namespace Synapse {
                 // Errors with the stream handling will throw different errors
                 throw new IOError.FAILED_HANDLED ("No solution found");
             } else {
-                return double.parse (solution);
+                return solution;
+                // return double.parse (solution);
             }
         }
 

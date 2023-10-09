@@ -33,10 +33,10 @@ namespace Synapse {
             public string text { get; construct set; default = ""; }
             public Synapse.TextOrigin text_origin { get; set; }
 
-            public Result (double result, string match_string) {
+            public Result (string result, string match_string) {
                 Object (match_type: MatchType.CALCULATION,
-                        text: "%f".printf (result), //Copied to clipboard
-                        title: "%g".printf (result), //Label for search item row
+                        text: "%s".printf (result), //Copied to clipboard
+                        title: "%s".printf (result), //Label for search item row
                         icon_name: "accessories-calculator",
                         text_origin: Synapse.TextOrigin.UNKNOWN
                 );
@@ -66,14 +66,14 @@ namespace Synapse {
         public async ResultSet? search (Query query) throws SearchError {
             ResultSet? results = null;
             try {
-                double d = yield CalculatorPluginBackend.get_instance ().get_solution (
+                string d = yield CalculatorPluginBackend.get_instance ().get_solution (
                     query.query_string,
                     query.cancellable
                 ); // throws error if no valid solution found
 
                 Result result = new Result (d, query.query_string);
                 result.description = "%s\n%s".printf (
-                    "%s = %g".printf (query.query_string, d),
+                    "%s = %s".printf (query.query_string, d),
                     Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
                 );  // Used for search item tooltip
 
