@@ -32,3 +32,7 @@ Run `meson` to configure the build environment and then `ninja` to build
 To install, use `ninja install`
 
     sudo ninja install
+
+To run the tests, use `ninja test`
+
+    ninja test
