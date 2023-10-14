@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Applikatiounen"
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Aner"
 
@@ -95,68 +95,74 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Text"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "Rechner"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Dateien"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Aktiounen"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Sichen"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr ""
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr ""
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, c-format
 msgid "Open with %s Graphics"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Kategorien usicht"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "Text"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "Dateien"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "Aktiounen"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "Sichen"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr ""
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr ""
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -271,16 +277,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr "An d'Zwëchenoflag kopéieren"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr ""

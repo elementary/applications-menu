@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Albanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Programet"
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
@@ -85,7 +85,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Tjetër"
 
@@ -97,69 +97,75 @@ msgstr "Ekzekuto këtë komandë..."
 msgid "Default"
 msgstr ""
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Tekst"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "Llogaritëse"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Skedarët"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Veprimet"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Kërko"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Kontaktet"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Parametrat"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Veprimet e programit"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Provo të ndryshosh termat e kërkimit."
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Asnjë rezultat për “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Hap me %s"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Paraqitje me kategori"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "Tekst"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "Skedarët"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "Veprimet"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "Kërko"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "Kontaktet"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "Parametrat"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr "Veprimet e programit"
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -271,16 +277,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr ""
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Kërko dhe ekzekuto programe në kompjuterin tënd."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Hap me %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Hap përzgjedhjen e tanishme me %s"

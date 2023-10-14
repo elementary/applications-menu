@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2022-05-24 18:54+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-04-15 00:59+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/pt/>\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Aplicações"
 
@@ -72,7 +72,7 @@ msgstr "Jogos"
 msgid "Graphics"
 msgstr "Gráficos"
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
@@ -88,7 +88,7 @@ msgstr "Escritório"
 msgid "System Tools"
 msgstr "Ferramentas do Sistema"
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Outros"
 
@@ -100,67 +100,71 @@ msgstr "Executar este comando…"
 msgid "Default"
 msgstr "Predefinição"
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Texto"
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr "Cálculo"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Ficheiros"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Ações"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Procurar"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Contactos"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Definições"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Ações de aplicações"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "Marcadores"
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Tente mudar os termos de pesquisa."
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Sem resultados para \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Abrir com %s Gráficos"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Remover da _Doca"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Adicionar à _Doca"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Ver no Centro de Aplicações"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "Texto"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "Ficheiros"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "Ações"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "Procurar"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "Contactos"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "Definições"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr "Ações de aplicações"
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr "Marcadores"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -241,48 +245,47 @@ msgstr "Encontre e execute comandos arbitrários."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "quadrangular"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "ao cubo"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "Conversor"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "Converter entre unidades."
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s para %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Clicar para copiar resultado para a área de transferência"
+msgstr "Clicar para copiar %g para a área de transferência"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Procure e execute aplicações no seu computador."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir com %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Abre a seleção actual com %s"
@@ -295,32 +298,28 @@ msgstr "Abrir %s em %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Abrir o diretório selecionado"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "Marcadores"
+msgstr "Pasta de Marcadores"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "Marcadores"
+msgstr "Pastas de Marcadores"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "Pasta Pessoal"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "Recentes"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "Lixo"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format

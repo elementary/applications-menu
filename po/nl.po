@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
-"PO-Revision-Date: 2022-08-14 04:44+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-05-30 04:07+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/nl/>\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Applicaties"
 
@@ -30,7 +30,7 @@ msgstr "Open en zoek apps"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr "Bekijk als rooster"
+msgstr "Bekijk in raster"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
@@ -72,7 +72,7 @@ msgstr "Games"
 msgid "Graphics"
 msgstr "Grafisch"
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
@@ -88,7 +88,7 @@ msgstr "Kantoor"
 msgid "System Tools"
 msgstr "Systeemgereedschap"
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Overige"
 
@@ -100,67 +100,71 @@ msgstr "Voer deze opdracht uit…"
 msgid "Default"
 msgstr "Standaard"
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Tekst"
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr "Berekening"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Bestanden"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Acties"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Zoeken"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Contacten"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Instellingen"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Applicatie Acties"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "Bladwijzers"
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Probeer nog een keer met een ander zoekterm."
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Geen resultaat voor “%s”"
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Openen met %s Graphics"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Verwijderen uit _dock"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Toevoegen aan _dock"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Verwijderen"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Bekijk in AppCenter"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "Tekst"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "Bestanden"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "Acties"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "Zoeken"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "Contacten"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "Instellingen"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr "Applicatie Acties"
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr "Bladwijzers"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -241,48 +245,47 @@ msgstr "Zoek en voer willekeurige opdrachten uit."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "in het kwadraat"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "exponent"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "Converteren"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "Converteren tussen eenheden."
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s tot %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Klik om het resultaat naar het klembord te kopiëren"
+msgstr "Klik om %g naar het klembord te kopiëren"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Zoek naar applicaties en voer deze uit op uw computer."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Openen met %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Open huidige selectie met %s"
@@ -295,32 +298,28 @@ msgstr "Open %s in %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Open de geselecteerde map"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "Bladwijzers"
+msgstr "Favoriete map"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "Bladwijzers"
+msgstr "Favoriete mappen"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "Persoonlijke map"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "Recent"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "Prullenbak"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format

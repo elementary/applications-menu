@@ -151,7 +151,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     private static int category_sort_func (CategoryRow row1, CategoryRow row2) {
-        return row1.translated_name.collate (row2.translated_name);
+        return row1.cat_name.collate (row2.cat_name);
     }
 
     private bool create_context_menu (Gdk.Event event) {
@@ -278,18 +278,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private class CategoryRow : Gtk.ListBoxRow {
         public string cat_name { get; construct; }
-        public string translated_name {
-            get {
-                return GLib.dgettext ("gnome-menus-3.0", cat_name);
-            }
-        }
 
         public CategoryRow (string cat_name) {
             Object (cat_name: cat_name);
         }
 
         construct {
-            var label = new Gtk.Label (translated_name);
+            var label = new Gtk.Label (cat_name);
             label.halign = Gtk.Align.START;
             label.margin_start = 3;
 

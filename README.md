@@ -8,6 +8,7 @@ Lightweight and stylish app launcher.
 ## Building and Installation
 
 You'll need the following dependencies:
+* bc
 * libgee-0.8-dev
 * libgranite-dev >= 6.1.0
 * libgtk-3-dev
@@ -32,3 +33,7 @@ Run `meson` to configure the build environment and then `ninja` to build
 To install, use `ninja install`
 
     sudo ninja install
+
+To run the tests, use `ninja test`
+
+    ninja test

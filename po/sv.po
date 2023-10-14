@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:43+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:39
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Program"
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:50
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "System Tools"
 msgstr ""
 
-#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:58
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Övrigt"
 
@@ -103,69 +103,75 @@ msgstr "Kör detta kommando…"
 msgid "Default"
 msgstr ""
 
-#: src/Views/SearchView.vala:36
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Text"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "Kalkylator"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Filer"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Sök"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Inställningar"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Programfunktioner"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Försök med att ändra söktermer."
 
-#: src/Views/SearchView.vala:131
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Inga resultat för \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:78
+#: src/Widgets/AppContextMenu.vala:80
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Öppna med %s"
 
-#: src/Widgets/AppContextMenu.vala:109
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Ta bort från _dockan"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Lägg till i _dockan"
 
-#: src/Widgets/AppContextMenu.vala:125
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Avinstallera"
 
-#: src/Widgets/AppContextMenu.vala:130
+#: src/Widgets/AppContextMenu.vala:133
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "AppCenter"
-
-#: src/Widgets/SearchItem.vala:37
-msgid "Text"
-msgstr "Text"
-
-#: src/Widgets/SearchItem.vala:41
-msgid "Files"
-msgstr "Filer"
-
-#: src/Widgets/SearchItem.vala:44
-msgid "Actions"
-msgstr "Åtgärder"
-
-#: src/Widgets/SearchItem.vala:46
-msgid "Search"
-msgstr "Sök"
-
-#: src/Widgets/SearchItem.vala:48
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: src/Widgets/SearchItem.vala:52
-msgid "Settings"
-msgstr "Inställningar"
-
-#: src/Widgets/SearchItem.vala:54
-msgid "Application Actions"
-msgstr "Programfunktioner"
-
-#: src/Widgets/SearchItem.vala:56
-msgid "Bookmarks"
-msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -280,16 +286,16 @@ msgstr ""
 msgid "Click to copy %g to clipboard"
 msgstr "Kopiera markeringen till urklipp"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:116
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Sök efter och kör program på din dator."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:319
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Öppna med %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Öppna det markerade objektet med %s"
