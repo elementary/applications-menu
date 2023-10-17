@@ -101,7 +101,7 @@ class Synapse.CalculatorPluginTest : Object {
 
         //Exponents and logarithms
         assert_equal ("2^5", "32");
-        assert_equal ("exp(ln(2.2))", "2.2"); //function names not recognised by `bc`
+        assert_equal ("exp(ln(2.2))", "2.2"); //function names not recognised by `bc` made recognizable
         assert_equal ("e(l(2.2))", "2.2"); //function names recognised by `bc`
         assert_throw ("e^5.25 / exp(5.25)", "1");
         assert_equal ("e(1)^5 / e(5)", "1"); // integer exponent only
