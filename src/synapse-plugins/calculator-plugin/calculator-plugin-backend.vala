@@ -100,7 +100,7 @@ namespace Synapse {
                 throw new IOError.FAILED_HANDLED ("No solution found");
             } else {
                 return solution;
-                // return double.parse (solution);
+``
             }
         }
 
