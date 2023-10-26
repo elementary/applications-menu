@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-08 10:57+0000\n"
-"PO-Revision-Date: 2021-11-30 20:22+0000\n"
+"PO-Revision-Date: 2023-10-27 11:10+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/sk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -106,10 +106,8 @@ msgid "Text"
 msgstr "Text"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Kalkulačka"
+msgstr "Výpočet"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
@@ -248,37 +246,36 @@ msgstr "Vyhľadať a spustiť ľubovoľné príkazy."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "štvorcový"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "kubický"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
 msgid "Converter"
-msgstr ""
+msgstr "Prevodník"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
 msgid "Convert between units."
-msgstr ""
+msgstr "Premieňajte jednotky."
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s na %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Kliknutím kopírovať výsledok do schránky"
+msgstr "Kliknutím skopírujte %g do schránky"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
@@ -302,32 +299,28 @@ msgstr "Otvoriť %s v %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:88
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Otvorte vybrané umiestnenie"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Folder Bookmarks"
-msgstr "Záložky"
+msgstr "Záložky priečinkov"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
 msgid "Bookmarked Folders"
-msgstr "Záložky"
+msgstr "Priečinky pridané do záložiek"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:219
 msgid "Home"
-msgstr ""
+msgstr "Domov"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:223
 msgid "Recent"
-msgstr ""
+msgstr "Nedávne"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:227
 msgid "Trash"
-msgstr ""
+msgstr "Kôš"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
