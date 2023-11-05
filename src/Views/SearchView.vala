@@ -75,15 +75,51 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
     public signal void app_launched ();
 
-    private Granite.Widgets.AlertView alert_view;
     private AppListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
 
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
-        alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
-        alert_view.show_all ();
+        var placeholder_title = new Gtk.Label (_("Search apps, actions, and more"));
+        placeholder_title.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+
+        var suggest_apps = new SuggestionGrid (
+            "application-default-icon",
+            _("Installed Apps"),
+            _("“Videos”")
+        );
+
+        var suggest_actions = new SuggestionGrid (
+            "system-run",
+            _("Actions"),
+            _("“Check for updates”")
+        );
+
+        var suggest_settings = new SuggestionGrid (
+            "preferences-desktop",
+            _("System Settings"),
+            _("“Text size”")
+        );
+
+        var suggest_bookmarks = new SuggestionGrid (
+            "user-bookmarks",
+            _("Bookmarked Folders"),
+            _("“Pictures”")
+        );
+
+        var placeholder = new Gtk.Grid () {
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.CENTER,
+            row_spacing = 12,
+            orientation = Gtk.Orientation.VERTICAL
+        };
+        placeholder.add (placeholder_title);
+        placeholder.add (suggest_apps);
+        placeholder.add (suggest_actions);
+        placeholder.add (suggest_settings);
+        placeholder.add (suggest_bookmarks);
+        placeholder.show_all ();
 
         // list box
         limitator = new Gee.HashMap<ResultType, uint> ();
@@ -91,7 +127,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         list_box.activate_on_single_click = true;
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
-        list_box.set_placeholder (alert_view);
+        list_box.set_placeholder (placeholder);
 
         list_box.close_request.connect (() => {
             app_launched ();
@@ -176,8 +212,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                 create_item (app, search_term, result_type);
             }
 
-        } else {
-            alert_view.title = _("No Results for “%s”").printf (search_term);
         }
 
 
@@ -240,5 +274,26 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         var header = new Granite.HeaderLabel (row.result_type.to_string ());
 
         row.set_header (header);
+    }
+
+    private class SuggestionGrid : Gtk.Grid {
+        public SuggestionGrid (string icon_name, string title, string description) {
+            var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DND);
+
+            var title_label = new Gtk.Label (title) {
+                xalign = 0
+            };
+            title_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+            var description_label = new Gtk.Label (description) {
+                xalign = 0
+            };
+            description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+            column_spacing = 12;
+            attach (icon, 0, 0, 1, 2);
+            attach (title_label, 1, 0);
+            attach (description_label, 1, 1);
+        }
     }
 }
