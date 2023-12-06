@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2020-06-18 15:11+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-09-14 19:08+0000\n"
+"Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/nl/>\n"
 "Language: nl\n"
@@ -17,77 +17,112 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
-msgstr "Toepassingen menu"
+msgstr "Applicatiemenu"
 
 #: data/applications-menu.appdata.xml.in:7
 msgid "Open and search for apps"
 msgstr "Open en zoek apps"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
-msgid "Minor updates"
-msgstr "Kleine updates"
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
+#, fuzzy
+#| msgid "Performance improvements"
+msgid "Improvements:"
+msgstr "Prestatieverbeteringen"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
-#: data/applications-menu.appdata.xml.in:21
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
-"Vloeiender navigatie gebaar in rooster weergave en ondersteuning voor "
-"gebaren via touchscreen"
-
-#: data/applications-menu.appdata.xml.in:22
-msgid "Focus search when navigating up from the category view"
-msgstr ""
-"Verplaats de focus naar zoeken bij het naar boven navigeren vanaf de "
-"categorie weergave"
-
-#: data/applications-menu.appdata.xml.in:23
-msgid "Don't focus search when pressing modifier keys"
-msgstr "Focus niet op het zoekveld bij het drukken op aanpas knoppen"
-
 #: data/applications-menu.appdata.xml.in:24
-msgid "Ensure categories are sorted alphabetically"
-msgstr "Zorg ervoor dat categorieën alfabetisch worden gesorteerd"
+msgid "New Features:"
+msgstr "Nieuwe functies:"
 
-#: data/applications-menu.appdata.xml.in:31
-msgid "Category view is now a list"
-msgstr "Categorie weergave is nu een lijst"
-
-#: data/applications-menu.appdata.xml.in:32
-msgid "Improved keyboard navigation"
-msgstr "Verbeterde navigatie door middel van het toetsenbord"
-
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "Prestatieverbeteringen"
-
-#: data/applications-menu.appdata.xml.in:39
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
+#: data/applications-menu.appdata.xml.in:26
+msgid "Convert between units of measurement"
 msgstr ""
-"Verbeterde toetsenbord navigatie, met nieuwe helpteksten en menu toets "
-"ondersteuning"
 
-#: data/applications-menu.appdata.xml.in:40
-msgid "Highlight action matches in the search view"
-msgstr "Highlight matchende acties in de zoek weergave"
+#: data/applications-menu.appdata.xml.in:44
+msgid "Searching settings always searches the full title"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:41
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Een “Toon in AppCenter” menu item toegevoegd"
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
+msgid "Fixes:"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:53
+msgid "Fix a regression with settings search"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:64
+msgid "New features:"
+msgstr "Nieuwe functionaliteit:"
+
+#: data/applications-menu.appdata.xml.in:66
+msgid "Show search results for bookmarked folders"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:70
+msgid "Prevent a potential crash on startup"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:72
+msgid "Minor updates:"
+msgstr "Kleine updates:"
+
+#: data/applications-menu.appdata.xml.in:88
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Performance improvements"
+#~ msgstr "Prestatieverbeteringen"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr ""
+#~ "Vloeiender navigatie gebaar in rooster weergave en ondersteuning voor "
+#~ "gebaren via touchscreen"
+
+#~ msgid "Focus search when navigating up from the category view"
+#~ msgstr ""
+#~ "Verplaats de focus naar zoeken bij het naar boven navigeren vanaf de "
+#~ "categorie weergave"
+
+#~ msgid "Don't focus search when pressing modifier keys"
+#~ msgstr "Focus niet op het zoekveld bij het drukken op aanpas knoppen"
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "Zorg ervoor dat categorieën alfabetisch worden gesorteerd"
+
+#~ msgid "Category view is now a list"
+#~ msgstr "Categorie weergave is nu een lijst"
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "Verbeterde navigatie door middel van het toetsenbord"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr ""
+#~ "Verbeterde toetsenbord navigatie, met nieuwe helpteksten en menu toets "
+#~ "ondersteuning"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "Highlight matchende acties in de zoek weergave"
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "Een “Toon in AppCenter” menu item toegevoegd"
+
+#, fuzzy
+#~| msgid "Performance improvements"
+#~ msgid "Improvements"
+#~ msgstr "Prestatieverbeteringen"

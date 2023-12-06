@@ -9,12 +9,14 @@ sources = [
     'Indicator.vala',
     'SlingshotView.vala',
 
+    'Backend/AppCenter.vala',
     'Backend/AppSystem.vala',
-    'Backend/DBusService.vala',
     'Backend/App.vala',
+    'Backend/Category.vala',
+    'Backend/DBusService.vala',
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
-    'Backend/AppCenter.vala',
+    'Backend/SwitcherooControl.vala',
 
     'Views/CategoryView.vala',
     'Views/GridView.vala',
@@ -54,9 +56,14 @@ sources = [
     zeitgeist_backend_source,
 
     'synapse-plugins/worker-link.vala',
-    'synapse-plugins/calculator-plugin.vala',
+    'synapse-plugins/converter-plugin/converter-plugin.vala',
+    'synapse-plugins/converter-plugin/converter-plugin-backend.vala',
+    'synapse-plugins/converter-plugin/converter-data.vala',
+    'synapse-plugins/calculator-plugin/calculator-plugin.vala',
+    'synapse-plugins/calculator-plugin/calculator-plugin-backend.vala',
     'synapse-plugins/command-plugin.vala',
     'synapse-plugins/desktop-file-plugin.vala',
+    'synapse-plugins/file-bookmarks-plugin.vala',
     'synapse-plugins/switchboard-plugin.vala',
     'synapse-plugins/system-managment.vala',
     'synapse-plugins/link-plugin.vala',
@@ -74,9 +81,7 @@ dependencies = [
     gtk_dep,
     json_glib_dep,
     zeitgeist_dep,
-    libgnome_menu_dep,
     libsoup_dep,
-    appstream_dep,
     plank_dep,
     wingpanel_dep,
     libhandy_dep,
@@ -86,13 +91,13 @@ dependencies = [
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
 
 c_args = [
-    '-DGMENU_I_KNOW_THIS_IS_UNSTABLE',
     '-DHANDY_USE_UNSTABLE_API',
 ]
 
 shared_module(
     meson.project_name(),
     sources,
+    config_file,
     dependencies: dependencies,
     c_args : c_args,
     install: true,
@@ -102,6 +107,7 @@ shared_module(
 executable(
     'switchboard-plugin',
     'synapse-plugins/switchboard-plugin/plugin.vala',
+    config_file,
     dependencies: [
         glib_dep,
         gobject_dep,
@@ -113,3 +119,5 @@ executable(
     install: true,
     install_dir: pluginsdir
 )
+
+subdir ('test')

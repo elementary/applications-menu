@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-10 01:34+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-03-11 12:25+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/de/>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Anwendungen"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "Anwendungen öffnen und suchen"
+msgstr "Anwendungen suchen und öffnen"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -44,70 +44,127 @@ msgstr "Anwendungen durchsuchen"
 msgid "Clear all"
 msgstr "Alles entfernen"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Zubehör"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Bedienungshilfen"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programmentwicklung"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Ausbildung"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Wissenschaft"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Spiele"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafik"
+
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Multimedia"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Büro"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Systemwerkzeuge"
+
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
+msgid "Other"
+msgstr "Andere"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Befehl ausführen …"
 
-#: src/Views/SearchView.vala:36
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Standard"
+
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Text"
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr "Berechnung"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Dateien"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Aktionen"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Suchen"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Kontakte"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Anwendungsaktionen"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "Lesezeichen"
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Versuchen Sie es mit anderen Suchbegriffen."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Keine Ergebnisse für »%s«"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:80
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Mit %s Grafiken öffnen"
+
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Aus dem _Dock entfernen"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Zum _Dock hinzufügen"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Im AppCenter anzeigen"
-
-#: src/Widgets/SearchItem.vala:36
-msgid "Text"
-msgstr "Text"
-
-#: src/Widgets/SearchItem.vala:40
-msgid "Files"
-msgstr "Dateien"
-
-#: src/Widgets/SearchItem.vala:43
-msgid "Actions"
-msgstr "Aktionen"
-
-#: src/Widgets/SearchItem.vala:45
-msgid "Search"
-msgstr "Suchen"
-
-#: src/Widgets/SearchItem.vala:47
-msgid "Contacts"
-msgstr "Kontakte"
-
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
-#: src/Widgets/SearchItem.vala:51
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: src/Widgets/SearchItem.vala:53
-msgid "Application Actions"
-msgstr "Aktionen der Anwendung"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Andere"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +174,11 @@ msgstr "In die Zwischenablage kopieren"
 msgid "Copy selection to clipboard"
 msgstr "Auswahl in die Zwischenablage kopieren"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Ausführen"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Anwendung, Aktion oder Skript ausführen"
 
@@ -156,19 +213,20 @@ msgstr "Nach Anwendungen suchen"
 msgid "AppCenter is not installed"
 msgstr "AppCenter ist nicht installiert"
 
-#: src/synapse-plugins/calculator-plugin.vala:50
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
 msgid "Calculator"
 msgstr "Taschenrechner"
 
-#: src/synapse-plugins/calculator-plugin.vala:51
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
 msgid "Calculate basic expressions."
 msgstr "Grundrechenarten."
 
-#: src/synapse-plugins/calculator-plugin.vala:55
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
 msgstr "bc ist nicht installiert"
 
-#: src/synapse-plugins/calculator-plugin.vala:119
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 msgid "Click to copy result to clipboard"
 msgstr "Ergebnis mit einem Klick in die Zwischenablage kopieren"
 
@@ -185,29 +243,88 @@ msgstr "Befehl ausführen"
 msgid "Find and execute arbitrary commands."
 msgstr "Beliebige Befehle suchen und ausführen."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr "hoch 2"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr "hoch 3"
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr "%s%s %s"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
+msgid "Converter"
+msgstr "Umrechner"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
+msgid "Convert between units."
+msgstr "Rechnet Einheiten um."
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "%g (%s to %s)"
+msgstr "%g (%s bis %s)"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#, c-format
+msgid "Click to copy %g to clipboard"
+msgstr "%g mit einem Klick in die Zwischenablage kopieren"
+
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Mit %s öffnen"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Momentane Auswahl wird mittels %s geöffnet"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/link-plugin.vala:44
+#, c-format
+msgid "Open %s in %s"
+msgstr "%s in %s öffnen"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+msgid "Open the selected directory"
+msgstr "Gewähltes Verzeichnis öffnen"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:200
+msgid "Folder Bookmarks"
+msgstr "Ordnerlesezeichen"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:201
+msgid "Bookmarked Folders"
+msgstr "Als Lesezeichen gespeicherte Ordner"
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+msgid "Home"
+msgstr "Persönlicher Ordner"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+msgid "Recent"
+msgstr "Letzte"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+msgid "Trash"
+msgstr "Papierkorb"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
 msgstr "%s im Standard-Webbrowser öffnen"
-
-#: src/synapse-plugins/link-plugin.vala:44
-#, c-format
-msgid "Open %s in %s"
-msgstr "%s in %s öffnen"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
@@ -312,7 +429,7 @@ msgstr "Rechner neu starten"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr "neustarten;Neustart"
+msgstr "restart;reboot;neustarten;Neustart;starten"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2022-11-28 14:25+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -27,65 +27,132 @@ msgstr "Menú d'aplicacions"
 msgid "Open and search for apps"
 msgstr "Obriu-lo i cerqueu aplicacions"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
-msgid "Minor updates"
-msgstr "Actualitzacions menors"
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
+msgid "Improvements:"
+msgstr "Millores:"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "Traduccions actualitzades"
 
-#: data/applications-menu.appdata.xml.in:21
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
-"Gest de navegació més suau a la vista de la graella i suport per a pantalla "
-"tàctil"
-
-#: data/applications-menu.appdata.xml.in:22
-msgid "Focus search when navigating up from the category view"
-msgstr "Focus a la cerca quan es navegui des de la vista de categories"
-
-#: data/applications-menu.appdata.xml.in:23
-msgid "Don't focus search when pressing modifier keys"
-msgstr "No es focalitza la cerca en prémer les tecles modificadores."
-
 #: data/applications-menu.appdata.xml.in:24
-msgid "Ensure categories are sorted alphabetically"
-msgstr "S'assegura que les categories estan ordenades alfabèticament."
+msgid "New Features:"
+msgstr "Característiques noves:"
 
-#: data/applications-menu.appdata.xml.in:31
-msgid "Category view is now a list"
-msgstr "La vista de categories ara és una llista."
+#: data/applications-menu.appdata.xml.in:26
+msgid "Convert between units of measurement"
+msgstr "Convertir entre unitats de mesura"
 
-#: data/applications-menu.appdata.xml.in:32
-msgid "Improved keyboard navigation"
-msgstr "Millora de la navegació per teclat"
+#: data/applications-menu.appdata.xml.in:44
+msgid "Searching settings always searches the full title"
+msgstr "La configuració de la cerca sempre cerca el títol complet."
 
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "Millores de rendiment"
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
+msgid "Fixes:"
+msgstr "Correccions:"
 
-#: data/applications-menu.appdata.xml.in:39
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
-msgstr ""
-"Navegació del teclat millorada, inclosos nous consells d’informació i suport "
-"de tecles de menú"
+#: data/applications-menu.appdata.xml.in:53
+msgid "Fix a regression with settings search"
+msgstr "Correcció d'una regressió amb la cerca de paràmetres"
 
-#: data/applications-menu.appdata.xml.in:40
-msgid "Highlight action matches in the search view"
-msgstr "L'acció de realçament coincideix amb la vista de cerca."
+#: data/applications-menu.appdata.xml.in:64
+msgid "New features:"
+msgstr "Característiques noves:"
 
-#: data/applications-menu.appdata.xml.in:41
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Addició d'un element del menú per veure-ho al Centre d'aplicacions"
+#: data/applications-menu.appdata.xml.in:66
+msgid "Show search results for bookmarked folders"
+msgstr "Mostra els resultats de la cerca de les carpetes marcades."
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:70
+msgid "Prevent a potential crash on startup"
+msgstr "Evita una fallada possible a l'inici."
+
+#: data/applications-menu.appdata.xml.in:72
+msgid "Minor updates:"
+msgstr "Actualitzacions menors:"
+
+#: data/applications-menu.appdata.xml.in:88
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Show secondary click menu for search results"
+#~ msgstr "Es mostra el menú de clic secundari per als resultats de la cerca."
+
+#~ msgid ""
+#~ "Launch apps selectively on integrated or dedicated graphics for systems "
+#~ "with hybrid graphics"
+#~ msgstr ""
+#~ "S'obren les aplicacions selectivament en gràfiques integrades o dedicades "
+#~ "per a sistemes amb gràfics híbrids."
+
+#~ msgid "Show apps with no category under \"Other\""
+#~ msgstr "Es mostren aplicacions sense categoria a Altres"
+
+#~ msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+#~ msgstr ""
+#~ "Correcció de les aplicacions de Flatpak que no es mostren fins després de "
+#~ "reiniciar"
+
+#~ msgid "Sort app actions above AppCenter search"
+#~ msgstr ""
+#~ "Ordena les accions de l'aplicació sobre la cerca del Centre d'aplicacions"
+
+#~ msgid "Always hide Terminal-based programs"
+#~ msgstr "Amaga sempre els programes basats en Terminal"
+
+#~ msgid "Remove document viewer from block list"
+#~ msgstr "Suprimeix el visualitzador de documents de la llista de blocatge"
+
+#~ msgid "Support fractions without leading number in calculator"
+#~ msgstr "Admet fraccions sense número inicial a la calculadora"
+
+#~ msgid "Show overlay key in tooltip when set"
+#~ msgstr ""
+#~ "Mostra la tecla de superposició a la descripció emergent quan estigui "
+#~ "configurada"
+
+#~ msgid "Performance improvements"
+#~ msgstr "Millores de rendiment"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr ""
+#~ "Gest de navegació més suau a la vista de la graella i suport per a "
+#~ "pantalla tàctil"
+
+#~ msgid "Focus search when navigating up from the category view"
+#~ msgstr "Focus a la cerca quan es navegui des de la vista de categories"
+
+#~ msgid "Don't focus search when pressing modifier keys"
+#~ msgstr "No es focalitza la cerca en prémer les tecles modificadores."
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "S'assegura que les categories estan ordenades alfabèticament."
+
+#~ msgid "Category view is now a list"
+#~ msgstr "La vista de categories ara és una llista."
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "Millora de la navegació per teclat"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr ""
+#~ "Navegació del teclat millorada, amb descripcions emergents noves i suport "
+#~ "de tecles de menú"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "L'acció de realçament coincideix amb la vista de cerca."
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "Addició d'un element del menú per veure-ho al Centre d'aplicacions"
+
+#~ msgid "Improvements"
+#~ msgstr "Millores"

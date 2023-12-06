@@ -24,7 +24,9 @@
 public enum Synapse.MatchType {
     UNKNOWN = 0,
     TEXT,
+    CALCULATION,
     APPLICATION,
+    BOOKMARK,
     GENERIC_URI,
     ACTION,
     SEARCH,

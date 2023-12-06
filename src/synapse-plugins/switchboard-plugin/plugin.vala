@@ -17,9 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-[CCode (cname = "GETTEXT_PACKAGE")]
-private extern const string GETTEXT_PACKAGE;
-
 private static string? dbus_address = null;
 private const GLib.OptionEntry[] OPTIONS = {
     { "dbus-address", 0, 0, OptionArg.STRING, ref dbus_address, "D-Bus server address", "ADDRESS" },
@@ -34,19 +31,26 @@ public struct PlugInfo {
 }
 
 public class SwitchboardPlugin : GLib.Object {
-    private GLib.MainLoop main_loop;
     private GLib.DBusConnection connection;
-
+    private SourceFunc callback;
     const string DBUS_INTERFACE = "io.elementary.ApplicationsMenu.Switchboard";
     const string DBUS_PATH = "/io/elementary/applicationsmenu";
 
     construct {
-        main_loop = new GLib.MainLoop ();
+        var loop = new GLib.MainLoop (null, true);
+        run_dbus.begin ((obj, res) => {
+            run_dbus.end (res);
+            loop.quit ();
+        });
+        loop.run ();
+    }
 
+    private async void run_dbus () {
+        callback = run_dbus.callback;
         debug ("Connecting to %s", dbus_address);
 
         try {
-            connection = new DBusConnection.for_address_sync (
+            connection = yield new DBusConnection.for_address (
                 dbus_address,
                 GLib.DBusConnectionFlags.AUTHENTICATION_CLIENT | GLib.DBusConnectionFlags.DELAY_MESSAGE_PROCESSING
             );
@@ -54,9 +58,8 @@ public class SwitchboardPlugin : GLib.Object {
         } catch (Error e) {
             error ("D-Bus failure: %s", e.message);
         }
-
-        load_plugs.begin ();
-        main_loop.run ();
+        yield load_plugs ();
+        yield;
     }
 
     private async void load_plugs () {
@@ -109,18 +112,22 @@ public class SwitchboardPlugin : GLib.Object {
 
         var parameters = new Variant.tuple ({new Variant.array (new GLib.VariantType ("(sssas)"), children)});
         try {
-            connection.call_sync (null, DBUS_PATH, DBUS_INTERFACE, "SetPlugs", parameters, null, GLib.DBusCallFlags.NO_AUTO_START, -1);
+            yield connection.call (null, DBUS_PATH, DBUS_INTERFACE, "SetPlugs", parameters, null, GLib.DBusCallFlags.NO_AUTO_START, -1);
         } catch (GLib.Error e) {
             critical (e.message);
         }
 
-        main_loop.quit ();
+        if (callback != null) {
+            Idle.add ((owned)callback);
+        }
     }
 }
 
 public static int main (string[] args) {
     Intl.setlocale (LocaleCategory.ALL, "");
     Intl.textdomain (GETTEXT_PACKAGE);
+    Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+    Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
     try {
         var opt_context = new GLib.OptionContext ("Plugin options");

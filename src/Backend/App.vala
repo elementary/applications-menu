@@ -2,6 +2,7 @@
  * Copyright 2019 elementary, Inc. (https://elementary.io)
  *           2013-2014 Akshay Shekher
  *           2011-2012 Giulio Collura
+ *           2020-2021 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -37,6 +38,7 @@ public class Slingshot.Backend.App : Object {
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
+    public bool prefers_default_gpu { get; private set; default = false; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
 #if HAS_PLANK
@@ -48,18 +50,26 @@ public class Slingshot.Backend.App : Object {
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
 
-    public App (GMenu.TreeEntry entry) {
+    private Slingshot.Backend.SwitcherooControl switcheroo_control;
+
+    construct {
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
+    }
+
+    public App (GLib.DesktopAppInfo info) {
+
         app_type = AppType.APP;
 
-        unowned GLib.DesktopAppInfo info = entry.get_app_info ();
         name = info.get_display_name ();
         description = info.get_description () ?? name;
         exec = info.get_commandline ();
-        desktop_id = entry.get_desktop_file_id ();
-        desktop_path = entry.get_desktop_file_path ();
+        desktop_id = info.get_id ();
+        desktop_path = info.get_filename ();
         keywords = info.get_keywords ();
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
+        prefers_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
+
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
             icon = desktop_icon;
@@ -86,6 +96,7 @@ public class Slingshot.Backend.App : Object {
 
         name = match.title;
         description = match.description;
+
         if (match.match_type == Synapse.MatchType.CONTACT && match.has_thumbnail) {
             var file = File.new_for_path (match.thumbnail_path);
             icon = new FileIcon (file);
@@ -96,6 +107,21 @@ public class Slingshot.Backend.App : Object {
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
         if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
             icon = new ThemedIcon ("application-default-icon");
+        }
+
+        if (match is Synapse.ApplicationMatch) {
+
+            var app_match = (Synapse.ApplicationMatch) match;
+
+            var app_info = app_match.app_info;
+
+            this.desktop_id = app_info.get_id ();
+
+            if (app_info is DesktopAppInfo) {
+                var desktop_app_info = (DesktopAppInfo) app_info;
+                this.desktop_path = desktop_app_info.get_filename ();
+                this.prefers_default_gpu = !desktop_app_info.get_boolean ("PrefersNonDefaultGPU");
+            }
         }
 
         this.match = match;
@@ -111,7 +137,13 @@ public class Slingshot.Backend.App : Object {
                     break;
                 case AppType.APP:
                     launched (this); // Emit launched signal
-                    new DesktopAppInfo (desktop_id).launch (null, null);
+
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    context.set_timestamp (Gtk.get_current_event_time ());
+                    switcheroo_control.apply_gpu_environment (context, prefers_default_gpu);
+
+                    new DesktopAppInfo (desktop_id).launch (null, context);
+
                     debug (@"Launching application: $name");
                     break;
                 case AppType.SYNAPSE:

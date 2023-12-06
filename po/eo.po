@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Aplikaĵoj"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Malfermi kaj serĉi aplikaĵojn"
 
@@ -44,70 +44,132 @@ msgstr "Serĉi aplikaĵojn"
 msgid "Clear all"
 msgstr "Forviŝi ĉion"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+#, fuzzy
+#| msgid "Actions"
+msgid "Education"
+msgstr "Agoj"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
+msgid "Internet"
+msgstr "Interreto"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
+msgid "Other"
+msgstr "Aliaj"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Lanĉi ĉi komandon…"
 
-#: src/Views/SearchView.vala:36
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
+
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Teksto"
+
+#: src/Views/SearchView.vala:45
+#, fuzzy
+#| msgid "Calculator"
+msgid "Calculation"
+msgstr "Kalkulilo"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Dosieroj"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Agoj"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Serĉi"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Kontaktoj"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "Agordoj"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "Aplikaĵaj agoj"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
 msgstr "Provu ŝangi la serĉatajn vortojn."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:180
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Neniu rezultato por „%s“"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:80
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Malfermi per %s"
+
+#: src/Widgets/AppContextMenu.vala:112
 msgid "Remove from _Dock"
 msgstr "Forigi el _Butonbreto"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:114
 msgid "Add to _Dock"
 msgstr "Aldoni al _Butonbreto"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:128
 msgid "Uninstall"
 msgstr "Malinstali"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:133
 msgid "View in AppCenter"
 msgstr "Vidi en la Aplikaĵa Centro"
-
-#: src/Widgets/SearchItem.vala:36
-msgid "Text"
-msgstr "Teksto"
-
-#: src/Widgets/SearchItem.vala:40
-msgid "Files"
-msgstr "Dosieroj"
-
-#: src/Widgets/SearchItem.vala:43
-msgid "Actions"
-msgstr "Agoj"
-
-#: src/Widgets/SearchItem.vala:45
-msgid "Search"
-msgstr "Serĉi"
-
-#: src/Widgets/SearchItem.vala:47
-msgid "Contacts"
-msgstr "Kontaktoj"
-
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Interreto"
-
-#: src/Widgets/SearchItem.vala:51
-msgid "Settings"
-msgstr "Agordoj"
-
-#: src/Widgets/SearchItem.vala:53
-msgid "Application Actions"
-msgstr "Aplikaĵaj agoj"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Aliaj"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +179,11 @@ msgstr "Kopii en la tondujo"
 msgid "Copy selection to clipboard"
 msgstr "Kopii elektaĵon en la tondujo"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Lanĉi"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Lanĉi aplikaĵon, agon aŭ komandon"
 
@@ -156,19 +218,20 @@ msgstr "Serĉi aplikaĵojn"
 msgid "AppCenter is not installed"
 msgstr "La Aplikaĵa Centro ne estis instalita"
 
-#: src/synapse-plugins/calculator-plugin.vala:50
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
 msgid "Calculator"
 msgstr "Kalkulilo"
 
-#: src/synapse-plugins/calculator-plugin.vala:51
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
 msgid "Calculate basic expressions."
 msgstr "Kalkuli simplajn esprimojn."
 
-#: src/synapse-plugins/calculator-plugin.vala:55
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
 msgstr "bc ne estas instalita"
 
-#: src/synapse-plugins/calculator-plugin.vala:119
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -187,29 +250,89 @@ msgstr "Lanĉi komandon"
 msgid "Find and execute arbitrary commands."
 msgstr "Trovi kaj lanĉi arbitran komandon."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr ""
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
+msgid "Converter"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
+msgid "Convert between units."
+msgstr ""
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "%g (%s to %s)"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#, fuzzy, c-format
+#| msgid "Copy selection to clipboard"
+msgid "Click to copy %g to clipboard"
+msgstr "Kopii elektaĵon en la tondujo"
+
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Serĉi kaj lanĉi aplikaĵojn ĉe via komputilo."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Malfermi per %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Malfermi la aktivan elektaĵon per %s"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/link-plugin.vala:44
+#, c-format
+msgid "Open %s in %s"
+msgstr "Malfermi %s en %s"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+msgid "Open the selected directory"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:200
+msgid "Folder Bookmarks"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:201
+msgid "Bookmarked Folders"
+msgstr ""
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+msgid "Home"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+msgid "Recent"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+msgid "Trash"
+msgstr ""
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
 msgstr "Malfermi %s en la apriora foliumilo"
-
-#: src/synapse-plugins/link-plugin.vala:44
-#, c-format
-msgid "Open %s in %s"
-msgstr "Malfermi %s en %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"

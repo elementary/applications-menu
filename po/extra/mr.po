@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2020-10-11 18:14+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,61 +27,98 @@ msgstr "अनुप्रयोग मेनू"
 msgid "Open and search for apps"
 msgstr "अ‍ॅप्स उघडा आणि शोधा"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
-msgid "Minor updates"
-msgstr "किरकोळ अद्यतने"
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
+#, fuzzy
+#| msgid "Performance improvements"
+msgid "Improvements:"
+msgstr "कामगिरी सुधारणा"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "अद्ययावत भाषांतर"
 
-#: data/applications-menu.appdata.xml.in:21
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr "ग्रिड व्यू आणि टचस्क्रीन जेश्चर समर्थनामधील नितळ नेव्हिगेशन जेश्चर"
-
-#: data/applications-menu.appdata.xml.in:22
-msgid "Focus search when navigating up from the category view"
-msgstr "श्रेणी दृश्यातून नॅव्हिगेट करताना शोधावर लक्ष केंद्रित करा"
-
-#: data/applications-menu.appdata.xml.in:23
-msgid "Don't focus search when pressing modifier keys"
-msgstr "सुधारक की दाबताना शोधाकडे लक्ष देऊ नका"
-
 #: data/applications-menu.appdata.xml.in:24
-msgid "Ensure categories are sorted alphabetically"
-msgstr "श्रेण्या वर्णमाला क्रमवारीनुसार लावल्या आहेत याची खात्री करा"
+msgid "New Features:"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:31
-msgid "Category view is now a list"
-msgstr "श्रेणी दृश्य आता एक यादी आहे"
+#: data/applications-menu.appdata.xml.in:26
+msgid "Convert between units of measurement"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:32
-msgid "Improved keyboard navigation"
-msgstr "सुधारित कीबोर्ड नेव्हिगेशन"
+#: data/applications-menu.appdata.xml.in:44
+msgid "Searching settings always searches the full title"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "कामगिरी सुधारणा"
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
+msgid "Fixes:"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:39
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
-msgstr "नवीन टूलटिप्स आणि मेनू की समर्थनासह सुधारित कीबोर्ड नेव्हिगेशन"
+#: data/applications-menu.appdata.xml.in:53
+msgid "Fix a regression with settings search"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:40
-msgid "Highlight action matches in the search view"
-msgstr "शोध दृश्यात कृती जुळण्या हायलाइट करा"
+#: data/applications-menu.appdata.xml.in:64
+msgid "New features:"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:41
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "\"अ‍ॅप सेंटरमध्ये पहा\" असा मेनू आयटम जोडा"
+#: data/applications-menu.appdata.xml.in:66
+msgid "Show search results for bookmarked folders"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:70
+msgid "Prevent a potential crash on startup"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:72
+#, fuzzy
+#| msgid "Minor updates"
+msgid "Minor updates:"
+msgstr "किरकोळ अद्यतने"
+
+#: data/applications-menu.appdata.xml.in:88
 msgid "elementary, Inc."
 msgstr "एलिमेंटरी, Inc."
+
+#~ msgid "Performance improvements"
+#~ msgstr "कामगिरी सुधारणा"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr "ग्रिड व्यू आणि टचस्क्रीन जेश्चर समर्थनामधील नितळ नेव्हिगेशन जेश्चर"
+
+#~ msgid "Focus search when navigating up from the category view"
+#~ msgstr "श्रेणी दृश्यातून नॅव्हिगेट करताना शोधावर लक्ष केंद्रित करा"
+
+#~ msgid "Don't focus search when pressing modifier keys"
+#~ msgstr "सुधारक की दाबताना शोधाकडे लक्ष देऊ नका"
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "श्रेण्या वर्णमाला क्रमवारीनुसार लावल्या आहेत याची खात्री करा"
+
+#~ msgid "Category view is now a list"
+#~ msgstr "श्रेणी दृश्य आता एक यादी आहे"
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "सुधारित कीबोर्ड नेव्हिगेशन"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr "नवीन टूलटिप्स आणि मेनू की समर्थनासह सुधारित कीबोर्ड नेव्हिगेशन"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "शोध दृश्यात कृती जुळण्या हायलाइट करा"
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "\"अ‍ॅप सेंटरमध्ये पहा\" असा मेनू आयटम जोडा"
+
+#, fuzzy
+#~| msgid "Performance improvements"
+#~ msgid "Improvements"
+#~ msgstr "कामगिरी सुधारणा"

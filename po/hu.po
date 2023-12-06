@@ -7,27 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2018-06-15 00:13+0000\n"
-"Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
-"Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel/"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-03-15 09:25+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Alkalmazások"
 
-#: src/Indicator.vala:116
-#, fuzzy
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "Alkalmazások megnyitása és keresése (%s)"
+msgstr "Alkalmazások megnyitása és keresése"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -35,7 +34,7 @@ msgstr "Rácsnézet"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
-msgstr "Kategória nézet"
+msgstr "Kategórianézet"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
@@ -43,73 +42,129 @@ msgstr "Alkalmazások keresése"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "Összes törlése"
 
-#: src/Backend/App.vala:78
-msgid "Run this command…"
-msgstr "Parancs futtatása…"
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Kiegészítők"
 
-#: src/Views/SearchView.vala:36
-msgid "Try changing search terms."
-msgstr "Próbálja megváltoztatni a keresési kifejezéseket."
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Kisegítő lehetőségek"
 
-#: src/Views/SearchView.vala:104
-#, c-format
-msgid "No Results for “%s”"
-msgstr "Nincsenek találatok erre “%s”"
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programozás"
 
-#: src/Widgets/AppContextMenu.vala:81
-msgid "Remove from _Dock"
-msgstr "Eltávolítás a dokkról"
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Oktatás"
 
-#: src/Widgets/AppContextMenu.vala:83
-msgid "Add to _Dock"
-msgstr "Hozzáadás a dokkhoz"
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Tudomány"
 
-#: src/Widgets/AppContextMenu.vala:97
-msgid "Uninstall"
-msgstr "Eltávolítás"
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Játékok"
 
-#: src/Widgets/AppContextMenu.vala:102
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "AppKözpont"
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafika"
 
-#: src/Widgets/SearchItem.vala:36
-msgid "Text"
-msgstr "Szöveg"
-
-#: src/Widgets/SearchItem.vala:40
-msgid "Files"
-msgstr "Fájlkezelő"
-
-#: src/Widgets/SearchItem.vala:43
-msgid "Actions"
-msgstr "Műveletek"
-
-#: src/Widgets/SearchItem.vala:45
-msgid "Search"
-msgstr "Keresés"
-
-#: src/Widgets/SearchItem.vala:47
-msgid "Contacts"
-msgstr "Kapcsolatok"
-
-#: src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "Internet"
 
-#: src/Widgets/SearchItem.vala:51
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Hang és kép"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Iroda"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Rendszereszközök"
+
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
+msgid "Other"
+msgstr "Egyéb"
+
+#: src/Backend/App.vala:88
+msgid "Run this command…"
+msgstr "Parancs futtatása…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "Szöveg"
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr "Számolás"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "Fájlkezelő"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "Műveletek"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "Keresés"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "Kapcsolatok"
+
+#: src/Views/SearchView.vala:60
 msgid "Settings"
 msgstr "Beállítások"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Views/SearchView.vala:62
 msgid "Application Actions"
-msgstr "Alkalmazás műveletek"
+msgstr "Alkalmazásműveletek"
 
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Egyéb"
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "Könyvjelzők"
+
+#: src/Views/SearchView.vala:85
+msgid "Try changing search terms."
+msgstr "Próbálja megváltoztatni a keresési kifejezéseket."
+
+#: src/Views/SearchView.vala:180
+#, c-format
+msgid "No Results for “%s”"
+msgstr "Nincsenek találatok erre: “%s”"
+
+#: src/Widgets/AppContextMenu.vala:80
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Megnyitás %s grafikus feldolgozóegységgel"
+
+#: src/Widgets/AppContextMenu.vala:112
+msgid "Remove from _Dock"
+msgstr "Eltávolítás a dokkról"
+
+#: src/Widgets/AppContextMenu.vala:114
+msgid "Add to _Dock"
+msgstr "Hozzáadás a dokkhoz"
+
+#: src/Widgets/AppContextMenu.vala:128
+msgid "Uninstall"
+msgstr "Eltávolítás"
+
+#: src/Widgets/AppContextMenu.vala:133
+msgid "View in AppCenter"
+msgstr "Megjelenítés az Appközpontban"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -119,11 +174,11 @@ msgstr "Másolás a vágólapra"
 msgid "Copy selection to clipboard"
 msgstr "Kijelölés másolása a vágólapra"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Futtatás"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Egy alkalmazás, művelet vagy parancsfájl futtatása"
 
@@ -140,15 +195,15 @@ msgstr "Alkalmazás vagy parancs futtatása terminálban"
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr "%s keresése a következőben: %s"
+msgstr "%s keresése az %sban"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr "Keresés az alkalmazás üzletben"
+msgstr "Keresés az alkalmazásüzletben"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr "AppKözpont"
+msgstr "Appközpont"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
@@ -156,25 +211,24 @@ msgstr "Alkalmazások keresése"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr "Az AppKözpont nincs telepítve"
+msgstr "Az Appközpont nincs telepítve"
 
-#: src/synapse-plugins/calculator-plugin.vala:50
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
 msgid "Calculator"
 msgstr "Számológép"
 
-#: src/synapse-plugins/calculator-plugin.vala:51
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
 msgid "Calculate basic expressions."
 msgstr "Alap kifejezések számítása."
 
-#: src/synapse-plugins/calculator-plugin.vala:55
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
 msgstr "bc nincs telepítve"
 
-#: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 msgid "Click to copy result to clipboard"
-msgstr "Kijelölés másolása a vágólapra"
+msgstr "Kattintson az eredmény vágólapra való másolásához"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -189,29 +243,88 @@ msgstr "Parancs futtatása"
 msgid "Find and execute arbitrary commands."
 msgstr "Tetszőleges parancsok keresése és futtatása."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr "négyzeten"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr "köbön"
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr "%s%s %s"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
+msgid "Converter"
+msgstr "Átváltó"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
+msgid "Convert between units."
+msgstr "Mértékegységek közti átváltás."
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "%g (%s to %s)"
+msgstr "%g (%s ➡ %s)"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#, c-format
+msgid "Click to copy %g to clipboard"
+msgstr "Kattintson %g vágólapra másolásához"
+
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "Alkalmazások keresése és indítása a számítógépen."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "Megnyitás ezzel: %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "A kijelöltek megnyitása ezzel: %s"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/link-plugin.vala:44
+#, c-format
+msgid "Open %s in %s"
+msgstr "%s megnyitása ebben: %s"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+msgid "Open the selected directory"
+msgstr "Kiválasztott könyvtár megnyitása"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:200
+msgid "Folder Bookmarks"
+msgstr "Mappákban lévő könyvjelzők"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:201
+msgid "Bookmarked Folders"
+msgstr "Könyvjelzőzött mappák"
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+msgid "Home"
+msgstr "Saját mappa"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+msgid "Recent"
+msgstr "Előzmények"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+msgid "Trash"
+msgstr "Kuka"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
 msgstr "A(z) %s megnyitása az alapértelmezett webböngészőben"
-
-#: src/synapse-plugins/link-plugin.vala:44
-#, c-format
-msgid "Open %s in %s"
-msgstr "%s megnyitása ebben %s"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
@@ -232,21 +345,21 @@ msgstr "A(z) %s beállításainak megnyitása"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Keressen a kapcsolótáblák között és nyissa meg őket."
+msgstr "Keressen a beállításokban és nyissa meg őket."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "Zár"
+msgstr "Zárolás"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr "Zárolja az eszközt"
+msgstr "Az eszköz zárolása"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "zárolás"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -260,7 +373,7 @@ msgstr "Minden megnyitott alkalmazás bezárása és kilépés"
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "kijelentkezés"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -272,10 +385,9 @@ msgstr "Számítógép felfüggesztése"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Felfüggesztés"
+msgstr "felfüggesztés"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -287,10 +399,9 @@ msgstr "Számítógép hibernálása"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Hibernálás"
+msgstr "hibernálás"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -304,7 +415,7 @@ msgstr "A számítógép leállítása"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "kikapcsolás;leállítás"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -318,7 +429,7 @@ msgstr "A számítógép újraindítása"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "újraindítás;restartolás"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
 "PO-Revision-Date: 2020-12-19 12:16+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,64 +28,102 @@ msgstr "Изборник програма"
 msgid "Open and search for apps"
 msgstr "Отварање и претрага за програмима"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
-msgid "Minor updates"
-msgstr "Мања освежења"
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
+#, fuzzy
+#| msgid "Performance improvements"
+msgid "Improvements:"
+msgstr "Побољшања учинковитости"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "Освежени преводи"
 
-#: data/applications-menu.appdata.xml.in:21
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
-"Мекши покрети навигације у прегледу мрежом и подршка покрета екрана на додир"
-
-#: data/applications-menu.appdata.xml.in:22
-msgid "Focus search when navigating up from the category view"
-msgstr "Фокусира претрагу приликом навигације из прегледа категоријом"
-
-#: data/applications-menu.appdata.xml.in:23
-msgid "Don't focus search when pressing modifier keys"
-msgstr "Не фокусира претрагу приликом притиска тастера измењивача"
-
 #: data/applications-menu.appdata.xml.in:24
-msgid "Ensure categories are sorted alphabetically"
-msgstr "Осигурава да су категорије поређане азбучно"
-
-#: data/applications-menu.appdata.xml.in:31
-msgid "Category view is now a list"
-msgstr "Преглед категоријама је сада списак"
-
-#: data/applications-menu.appdata.xml.in:32
-msgid "Improved keyboard navigation"
-msgstr "Побољшана навигација тастатуром"
-
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "Побољшања учинковитости"
-
-#: data/applications-menu.appdata.xml.in:39
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
+msgid "New Features:"
 msgstr ""
-"Побољшана навигација тастатуром, укључујући нову подршку облачића и тастер "
-"изборника"
 
-#: data/applications-menu.appdata.xml.in:40
-msgid "Highlight action matches in the search view"
-msgstr "Поклапања радње истицања у прегледу претраге"
+#: data/applications-menu.appdata.xml.in:26
+msgid "Convert between units of measurement"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:41
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Додаје ставку изборника „Погледај у Програмском центру“"
+#: data/applications-menu.appdata.xml.in:44
+msgid "Searching settings always searches the full title"
+msgstr ""
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
+msgid "Fixes:"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:53
+msgid "Fix a regression with settings search"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:64
+msgid "New features:"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:66
+msgid "Show search results for bookmarked folders"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:70
+msgid "Prevent a potential crash on startup"
+msgstr ""
+
+#: data/applications-menu.appdata.xml.in:72
+#, fuzzy
+#| msgid "Minor updates"
+msgid "Minor updates:"
+msgstr "Мања освежења"
+
+#: data/applications-menu.appdata.xml.in:88
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Performance improvements"
+#~ msgstr "Побољшања учинковитости"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr ""
+#~ "Мекши покрети навигације у прегледу мрежом и подршка покрета екрана на "
+#~ "додир"
+
+#~ msgid "Focus search when navigating up from the category view"
+#~ msgstr "Фокусира претрагу приликом навигације из прегледа категоријом"
+
+#~ msgid "Don't focus search when pressing modifier keys"
+#~ msgstr "Не фокусира претрагу приликом притиска тастера измењивача"
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "Осигурава да су категорије поређане азбучно"
+
+#~ msgid "Category view is now a list"
+#~ msgstr "Преглед категоријама је сада списак"
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "Побољшана навигација тастатуром"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr ""
+#~ "Побољшана навигација тастатуром, укључујући нову подршку облачића и "
+#~ "тастер изборника"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "Поклапања радње истицања у прегледу претраге"
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "Додаје ставку изборника „Погледај у Програмском центру“"
+
+#, fuzzy
+#~| msgid "Performance improvements"
+#~ msgid "Improvements"
+#~ msgstr "Побољшања учинковитости"

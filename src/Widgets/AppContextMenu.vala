@@ -1,5 +1,6 @@
 /*
  * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2020-2021 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -25,6 +26,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private bool has_system_item = false;
     private string appstream_comp_id = "";
 
+    private Slingshot.Backend.SwitcherooControl switcheroo_control;
     private Gtk.MenuItem uninstall_menuitem;
     private Gtk.MenuItem appcenter_menuitem;
 
@@ -53,15 +55,44 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 #endif
 
     construct {
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
+
         app_info = new DesktopAppInfo (desktop_id);
+
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
             add (menuitem);
 
-            menuitem.activate.connect (() => {
-                app_info.launch_action (action, new AppLaunchContext ());
+            menuitem.activate.connect ((target) => {
+                var context = target.get_display ().get_app_launch_context ();
+                context.set_timestamp (Gtk.get_current_event_time ());
+                app_info.launch_action (action, context);
                 app_launched ();
+            });
+        }
+
+        if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
+            bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
+
+            string gpu_name = switcheroo_control.get_gpu_name (prefers_non_default_gpu);
+
+            string label = _("Open with %s Graphics").printf (gpu_name);
+
+            var menu_item = new Gtk.MenuItem.with_mnemonic (label);
+            add (menu_item);
+
+            menu_item.activate.connect ((target) => {
+               try {
+                   var context = target.get_display ().get_app_launch_context ();
+                   context.set_timestamp (Gtk.get_current_event_time ());
+                   switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
+                   app_info.launch (null, context);
+                   app_launched ();
+               } catch (Error e) {
+                   warning ("Failed to launch %s: %s", name, e.message);
+               }
+
             });
         }
 

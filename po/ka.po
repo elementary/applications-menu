@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-01-19 22:56+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-10-23 05:10+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ka/>\n"
 "Language: ka\n"
@@ -12,20 +12,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
-msgstr "პროგრამები"
+msgstr "აპლიკაციები"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr ""
+msgstr "გახსნა და აპების ძებნა"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr "ბადედ ჩვენება"
+msgstr "როგორც ბადის ჩვენება"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
@@ -37,93 +37,149 @@ msgstr "აპების ძებნა"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr ""
+msgstr "ყველას გასუფთავება"
 
-#: src/Backend/App.vala:78
-msgid "Run this command…"
-msgstr "ამ ბრძანების გაშვება..."
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "აქსესუარები"
 
-#: src/Views/SearchView.vala:36
-msgid "Try changing search terms."
-msgstr ""
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "უნივერსალური წვდომა"
 
-#: src/Views/SearchView.vala:104
-#, c-format
-msgid "No Results for “%s”"
-msgstr ""
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "პროგრამირება"
 
-#: src/Widgets/AppContextMenu.vala:81
-msgid "Remove from _Dock"
-msgstr "_დოკიდან წაშლა"
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "განათლება"
 
-#: src/Widgets/AppContextMenu.vala:83
-msgid "Add to _Dock"
-msgstr "_დოკზე დამატება"
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "მეცნიერება"
 
-#: src/Widgets/AppContextMenu.vala:97
-msgid "Uninstall"
-msgstr ""
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "თამაშები"
 
-#: src/Widgets/AppContextMenu.vala:102
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "კატეგორიებად ჩვენება"
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "გრაფიკა"
 
-#: src/Widgets/SearchItem.vala:36
-msgid "Text"
-msgstr "ტექსტი"
-
-#: src/Widgets/SearchItem.vala:40
-msgid "Files"
-msgstr "ფაილები"
-
-#: src/Widgets/SearchItem.vala:43
-msgid "Actions"
-msgstr "მოქმედებები"
-
-#: src/Widgets/SearchItem.vala:45
-msgid "Search"
-msgstr "ძებნა"
-
-#: src/Widgets/SearchItem.vala:47
-msgid "Contacts"
-msgstr "კონტაქტები"
-
-#: src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "ინტერნეტი"
 
-#: src/Widgets/SearchItem.vala:51
-msgid "Settings"
-msgstr "პარამეტრები"
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "ხმა და ვიდეო"
 
-#: src/Widgets/SearchItem.vala:53
-msgid "Application Actions"
-msgstr "პროგრამის მოქმედებები"
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "ოფისი"
 
-#: src/Widgets/SearchItem.vala:55
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "სისტემური ხელსაწყოები"
+
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "სხვა"
 
+#: src/Backend/App.vala:88
+msgid "Run this command…"
+msgstr "ამ ბრძანების გაშვება…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "ნაგულისხმები"
+
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "ტექსტი"
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr "გამოთვლა"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "ფაილები"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "ქმედებები"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "ძებნა"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "კონტაქტები"
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr "მორგება"
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr "პროგრამის ქმედებები"
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "სანიშნები"
+
+#: src/Views/SearchView.vala:85
+msgid "Try changing search terms."
+msgstr "სცადეთ შეცვალოთ ძებნის პირობები."
+
+#: src/Views/SearchView.vala:180
+#, c-format
+msgid "No Results for “%s”"
+msgstr "\"%s\"-სთვის შედეგების გარეშე"
+
+#: src/Widgets/AppContextMenu.vala:80
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "%s-ის Graphics-ით გახსნა"
+
+#: src/Widgets/AppContextMenu.vala:112
+msgid "Remove from _Dock"
+msgstr "_დოკიდან წაშლა"
+
+#: src/Widgets/AppContextMenu.vala:114
+msgid "Add to _Dock"
+msgstr "_დოკზე დამატება"
+
+#: src/Widgets/AppContextMenu.vala:128
+msgid "Uninstall"
+msgstr "წაშლა"
+
+#: src/Widgets/AppContextMenu.vala:133
+msgid "View in AppCenter"
+msgstr "AppCenter-ში ნახვა"
+
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
-msgstr "ბუფერში ჩასმა"
+msgstr "ბუფერში კოპირება"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
 msgstr "მონიშნულის ბუფერში კოპირება"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "გაშვება"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
-msgstr "პროგრამის, მოქმედებისა ან სცენარის გაშვება"
+msgstr "პროგრამის, მოქმედებისა ან სკრიპტის გაშვება"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr "გაშვება ტერმინალში"
+msgstr "ტერმინალში გაშვება"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
@@ -134,46 +190,45 @@ msgstr "პროგრამის ან ბრძანების ტერ
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "%s-ის მოძებნა %s-ში"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr ""
+msgstr "აპების მაღაზიაში მოძებნა"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
-msgstr ""
+msgstr "AppCenter"
 
 #: src/synapse-plugins/appcenter-plugin.vala:89
 msgid "Search for applications"
-msgstr ""
+msgstr "აპლიკაციების ძებნა"
 
 #: src/synapse-plugins/appcenter-plugin.vala:93
 msgid "AppCenter is not installed"
-msgstr ""
+msgstr "AppCenter-ი დაყენებული არაა"
 
-#: src/synapse-plugins/calculator-plugin.vala:50
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
 msgid "Calculator"
 msgstr "კალკულატორი"
 
-#: src/synapse-plugins/calculator-plugin.vala:51
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
 msgid "Calculate basic expressions."
 msgstr "მარტივი გამოსახულებების გამოთვლა."
 
-#: src/synapse-plugins/calculator-plugin.vala:55
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
-msgstr "bc არ არის დაყენებული."
+msgstr "bc დაყენებული არაა"
 
-#: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 msgid "Click to copy result to clipboard"
-msgstr "მონიშნულის ბუფერში კოპირება"
+msgstr "შედეგის ბუფერში დასაკოპირებლად დააწკაპუნეთ"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "განხორციელდეს '%s'"
+msgstr "'%s'-ის შესრულება"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -183,41 +238,100 @@ msgstr "ბრძანების გაშვება"
 msgid "Find and execute arbitrary commands."
 msgstr "მოძებნეთ და გაუშვით პირობითი ბრძანებები."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
-msgid "Search for and run applications on your computer."
-msgstr "მოძებნეთ და გაუშვით თქვენს კომპიტერში არსებული პროგრამები"
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr "კვადრატში"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr "კუბში"
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr "%s%s %s"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
+msgid "Converter"
+msgstr "გადამყვანი"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
+msgid "Convert between units."
+msgstr "ერთეულებს შორის გადაყვანა."
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "%g (%s to %s)"
+msgstr "%g (%s-დან %s-მდე)"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#, c-format
+msgid "Click to copy %g to clipboard"
+msgstr "%g-ის ბუფერში დასაკოპირებლად დააწკაპუნეთ"
+
+#: src/synapse-plugins/desktop-file-plugin.vala:118
+msgid "Search for and run applications on your computer."
+msgstr "მოძებნეთ და გაუშვით თქვენს კომპიუტერში არსებული პროგრამები."
+
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
-msgstr "%s-ის მეშვეობით გახსნა"
+msgstr "%s-ით გახსნა"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "არჩეულის %s-ის მეშვეობით გახსნა"
 
-#: src/synapse-plugins/link-plugin.vala:39
-#, c-format
-msgid "Open %s in default web browser"
-msgstr ""
-
+#: src/synapse-plugins/file-bookmarks-plugin.vala:84
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
-msgstr ""
+msgstr "%s-ის გახსნა %s-ში"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+msgid "Open the selected directory"
+msgstr "მონიშნული საქაღალდის გახსნა"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:200
+msgid "Folder Bookmarks"
+msgstr "საქაღალდის სანიშნები"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:201
+msgid "Bookmarked Folders"
+msgstr "ჩანიშნული საქაღალდეები"
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+msgid "Home"
+msgstr "მთავარი"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+msgid "Recent"
+msgstr "ახლახანს"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+msgid "Trash"
+msgstr "ნაგავი"
+
+#: src/synapse-plugins/link-plugin.vala:39
+#, c-format
+msgid "Open %s in default web browser"
+msgstr "%s-ის ნაგულისხმებ ბრაუზერში გახსნა"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr ""
+msgstr "ამ ბმულის ნაგულისხმებ ბრაუზერში გახსნა"
 
 #: src/synapse-plugins/link-plugin.vala:72
 msgid "Link"
-msgstr ""
+msgstr "ბმული"
 
 #: src/synapse-plugins/link-plugin.vala:73
 msgid "Open link in default browser"
-msgstr ""
+msgstr "ბმულის ნაგულისხმებ ბრაუზერში გახსნა"
 
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
@@ -226,35 +340,35 @@ msgstr "%s პარამეტრების გახსნა"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "მოძებნეთ კომუტატორის შტეფსელები და გახსენით ისინი"
+msgstr "მოძებნეთ Switchboard-ის დამატებები და გახსენით ისინი."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
-msgstr "ჩაკეტვა"
+msgstr "დაბლოკვა"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr ""
+msgstr "ამ მოწყობილობს დაბლოკბა"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "ჩაკეტვა"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr "გამოსვლა"
+msgstr "გასვლა"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr ""
+msgstr "ყველა ღია აპლიკაციის დახურვა და გასვლა"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "გასვლა"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -266,14 +380,13 @@ msgstr "თქვენი კომპიტერის შეჩერებ�
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
 msgstr "შეჩერება"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
-msgstr "ძილის რეჟიმი"
+msgstr "პროგრამული ძილი"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
@@ -281,10 +394,9 @@ msgstr "თქვენი კომპიუტერის ძილის რ
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "ძილის რეჟიმი"
+msgstr "პროგრამული ძილი"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -298,7 +410,7 @@ msgstr "თქვენი კომპიუტერის გამორთ�
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "გამორთვა;გადატვირვა"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -312,13 +424,15 @@ msgstr "თქვენი კომპიუტერის გადატვ�
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "რესტარტი;გადატვირთვა"
 
 #: src/synapse-plugins/system-managment.vala:507
 msgid ""
 "Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
 "your computer."
 msgstr ""
+"დაბლოკეთ სესია, ან გადით. დააძინეთ, შეაჩერეთ, გადატვირთეთ ან გამორთეთ თქვენი "
+"კომპიუტერი."
 
 #: src/synapse-plugins/system-managment.vala:512
 msgid "ConsoleKit wasn't found"

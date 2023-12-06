@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-09 11:08+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-10-15 08:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "開いてアプリを検索します"
+msgstr "アプリを開いたり検索したりします"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -44,70 +44,127 @@ msgstr "アプリを検索"
 msgid "Clear all"
 msgstr "すべて消去"
 
-#: src/Backend/App.vala:78
-msgid "Run this command…"
-msgstr "このコマンドを実行…"
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "アクセサリー"
 
-#: src/Views/SearchView.vala:36
-msgid "Try changing search terms."
-msgstr "検索用語を変更してみてください。"
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "ユニバーサルアクセス"
 
-#: src/Views/SearchView.vala:104
-#, c-format
-msgid "No Results for “%s”"
-msgstr "“%s” という検索結果はありません"
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "プログラミング"
 
-#: src/Widgets/AppContextMenu.vala:81
-msgid "Remove from _Dock"
-msgstr "ドックから削除(_D)"
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "教育"
 
-#: src/Widgets/AppContextMenu.vala:83
-msgid "Add to _Dock"
-msgstr "ドックに追加(_D)"
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "科学"
 
-#: src/Widgets/AppContextMenu.vala:97
-msgid "Uninstall"
-msgstr "アンインストール"
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "ゲーム"
 
-#: src/Widgets/AppContextMenu.vala:102
-msgid "View in AppCenter"
-msgstr "AppCenter で表示"
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "グラフィックス"
 
-#: src/Widgets/SearchItem.vala:36
-msgid "Text"
-msgstr "テキスト"
-
-#: src/Widgets/SearchItem.vala:40
-msgid "Files"
-msgstr "ファイル"
-
-#: src/Widgets/SearchItem.vala:43
-msgid "Actions"
-msgstr "操作"
-
-#: src/Widgets/SearchItem.vala:45
-msgid "Search"
-msgstr "検索"
-
-#: src/Widgets/SearchItem.vala:47
-msgid "Contacts"
-msgstr "連絡先"
-
-#: src/Widgets/SearchItem.vala:49
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
 msgstr "インターネット"
 
-#: src/Widgets/SearchItem.vala:51
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "サウンドとビデオ"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "オフィス"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "システムツール"
+
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
+msgid "Other"
+msgstr "そのほか"
+
+#: src/Backend/App.vala:88
+msgid "Run this command…"
+msgstr "このコマンドを実行…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "デフォルト"
+
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr "テキスト"
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr "計算結果"
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr "ファイル"
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr "操作"
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr "検索"
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr "連絡先"
+
+#: src/Views/SearchView.vala:60
 msgid "Settings"
 msgstr "設定"
 
-#: src/Widgets/SearchItem.vala:53
+#: src/Views/SearchView.vala:62
 msgid "Application Actions"
 msgstr "アプリケーションの操作"
 
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "そのほか"
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr "ブックマーク"
+
+#: src/Views/SearchView.vala:85
+msgid "Try changing search terms."
+msgstr "検索用語を変更してみてください。"
+
+#: src/Views/SearchView.vala:180
+#, c-format
+msgid "No Results for “%s”"
+msgstr "“%s” の検索結果はありません"
+
+#: src/Widgets/AppContextMenu.vala:80
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "%s グラフィックスを使用して開く"
+
+#: src/Widgets/AppContextMenu.vala:112
+msgid "Remove from _Dock"
+msgstr "ドックから削除(_D)"
+
+#: src/Widgets/AppContextMenu.vala:114
+msgid "Add to _Dock"
+msgstr "ドックに追加(_D)"
+
+#: src/Widgets/AppContextMenu.vala:128
+msgid "Uninstall"
+msgstr "アンインストール"
+
+#: src/Widgets/AppContextMenu.vala:133
+msgid "View in AppCenter"
+msgstr "AppCenter で表示"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +174,11 @@ msgstr "クリップボードへコピー"
 msgid "Copy selection to clipboard"
 msgstr "選択範囲をクリップボードへコピーします"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "実行"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "アプリケーション、アクションやスクリプトを実行します"
 
@@ -142,7 +199,7 @@ msgstr "%s を %s で検索"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
-msgstr "ストアでアプリを検索します"
+msgstr "アプリストアで検索します"
 
 #: src/synapse-plugins/appcenter-plugin.vala:88
 msgid "AppCenter"
@@ -156,19 +213,20 @@ msgstr "アプリケーションを検索します"
 msgid "AppCenter is not installed"
 msgstr "AppCenter がインストールされていません"
 
-#: src/synapse-plugins/calculator-plugin.vala:50
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
 msgid "Calculator"
 msgstr "電卓"
 
-#: src/synapse-plugins/calculator-plugin.vala:51
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
 msgid "Calculate basic expressions."
 msgstr "基本的な式を計算します。"
 
-#: src/synapse-plugins/calculator-plugin.vala:55
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
 msgid "bc is not installed"
 msgstr "bc がインストールされていません"
 
-#: src/synapse-plugins/calculator-plugin.vala:119
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
 msgid "Click to copy result to clipboard"
 msgstr "結果をクリップボードへコピーするにはクリックしてください"
 
@@ -185,29 +243,88 @@ msgstr "コマンドを実行します"
 msgid "Find and execute arbitrary commands."
 msgstr "任意のコマンドを検索して実行します。"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr "平方"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr "立方"
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr "%3$s%1$s%2$s"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
+msgid "Converter"
+msgstr "単位変換"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
+msgid "Convert between units."
+msgstr "単位を変換します。"
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "%g (%s to %s)"
+msgstr "%g (%s から %s)"
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#, c-format
+msgid "Click to copy %g to clipboard"
+msgstr "%g をクリップボードへコピーするにはクリックしてください"
+
+#: src/synapse-plugins/desktop-file-plugin.vala:118
 msgid "Search for and run applications on your computer."
 msgstr "コンピューター上のアプリケーションを検索して実行します。"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Open with %s"
 msgstr "%s で開く"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:323
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "現在選択しているものを %s で開きます"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/link-plugin.vala:44
+#, c-format
+msgid "Open %s in %s"
+msgstr "%s を %s で開く"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+msgid "Open the selected directory"
+msgstr "選択したディレクトリを開きます"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:200
+msgid "Folder Bookmarks"
+msgstr "フォルダーブックマーク"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:201
+msgid "Bookmarked Folders"
+msgstr "ブックマークしたフォルダー"
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+msgid "Home"
+msgstr "ホーム"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+msgid "Recent"
+msgstr "最近使用した項目"
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+msgid "Trash"
+msgstr "ゴミ箱"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
 msgstr "デフォルトの Web ブラウザーで %s を開きます"
-
-#: src/synapse-plugins/link-plugin.vala:44
-#, c-format
-msgid "Open %s in %s"
-msgstr "%s を %s で開く"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
@@ -278,7 +395,7 @@ msgstr "ハイバーネート"
 
 #: src/synapse-plugins/system-managment.vala:266
 msgid "Put your computer into hibernation mode"
-msgstr "コンピューターをバイバーネートモードにします"
+msgstr "コンピューターをハイバーネートモードにします"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
@@ -298,7 +415,7 @@ msgstr "コンピューターの電源を切ります"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr "シャットダウン;電源を切る"
+msgstr "シャットダウン;電源;切る;オフ"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"

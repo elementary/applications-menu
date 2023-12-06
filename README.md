@@ -8,10 +8,9 @@ Lightweight and stylish app launcher.
 ## Building and Installation
 
 You'll need the following dependencies:
-* libappstream-dev
+* bc
 * libgee-0.8-dev
-* libgnome-menu-3-dev
-* libgranite-dev >= 5.2.1
+* libgranite-dev >= 6.1.0
 * libgtk-3-dev
 * libhandy-1-dev >= 0.83.0
 * libjson-glib-dev
@@ -34,3 +33,7 @@ Run `meson` to configure the build environment and then `ninja` to build
 To install, use `ninja install`
 
     sudo ninja install
+
+To run the tests, use `ninja test`
+
+    ninja test

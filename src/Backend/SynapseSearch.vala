@@ -22,12 +22,14 @@ namespace Slingshot.Backend {
 
         private static Type[] plugins = {
             typeof (Synapse.CalculatorPlugin),
+            typeof (Synapse.ConverterPlugin),
             typeof (Synapse.CommandPlugin),
             typeof (Synapse.DesktopFilePlugin),
             typeof (Synapse.SwitchboardPlugin),
             typeof (Synapse.SystemManagementPlugin),
             typeof (Synapse.LinkPlugin),
-            typeof (Synapse.AppcenterPlugin)
+            typeof (Synapse.AppcenterPlugin),
+            typeof (Synapse.FileBookmarkPlugin)
         };
 
         private static Synapse.DataSink? sink = null;

@@ -5,48 +5,84 @@
   <extends>io.elementary.wingpanel</extends>
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
+
   <releases>
-    <release version="2.7.1" date="2020-05-28" urgency="medium">
+    <release version="2.11.1" date="2022-12-11" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/applications-menu/issues/546">Incorrect shortcuts in a tooltip</issue>
+      </issues>
+    </release>
+
+    <release version="2.11.0" date="2022-11-15" urgency="medium">
+      <description>
+        <p>New Features:</p>
+        <ul>
+          <li>Convert between units of measurement</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/applications-menu/issues/548">Reduce false-positives for focus-stealing prevention</issue>
+        <issue url="https://github.com/elementary/applications-menu/issues/474">Irrelevant results with all-caps search</issue>
+        <issue url="https://github.com/elementary/applications-menu/issues/439">Calculator does not show all available digits in result</issue>
+      </issues>
+    </release>
+
+    <release version="2.10.2" date="2021-12-10" urgency="medium">
+      <description>
+      <p>Improvements:</p>
+      <ul>
+        <li>Searching settings always searches the full title</li>
+      </ul>
+      </description>
+    </release>
+
+    <release version="2.10.1" date="2021-11-24" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix a regression with settings search</li>
+        </ul>
+        <p>Improvements:</p>
         <ul>
           <li>Updated translations</li>
         </ul>
       </description>
     </release>
-    <release version="2.7.0" date="2020-04-29" urgency="medium">
+
+    <release version="2.10.0" date="2021-11-23" urgency="medium">
       <description>
-        <p>Minor updates</p>
+        <p>New features:</p>
         <ul>
-          <li>Smoother navigation gesture in grid view and touchscreen gesture support</li>
-          <li>Focus search when navigating up from the category view</li>
-          <li>Don't focus search when pressing modifier keys</li>
-          <li>Ensure categories are sorted alphabetically</li>
+          <li>Show search results for bookmarked folders</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Prevent a potential crash on startup</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
           <li>Updated translations</li>
         </ul>
-      </description>
-    </release>
-    <release version="2.6.0" date="2020-04-09" urgency="medium">
-      <description>
-        <p>Category view is now a list</p>
-        <p>Improved keyboard navigation</p>
-        <p>Performance improvements</p>
-        <p>Updated translations</p>
-      </description>
-    </release>
-    <release version="2.5.0" date="2019-11-25" urgency="medium">
-      <description>
-        <p>Improved keyboard navigation, including new tooltips and menu key support</p>
-        <p>Highlight action matches in the search view</p>
-        <p>Add a "View in AppCenter" menu item</p>
-        <p>Performance improvements</p>
-        <p>Updated translations</p>
       </description>
     </release>
   </releases>
+
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
   <developer_name>elementary, Inc.</developer_name>

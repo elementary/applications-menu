@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2020-06-07 20:11+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2022-11-23 10:41+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -27,64 +27,132 @@ msgstr "アプリケーションメニュー"
 msgid "Open and search for apps"
 msgstr "アプリを開いたり検索したりします"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
-msgid "Minor updates"
-msgstr "軽微なアップデート:"
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
+msgid "Improvements:"
+msgstr "改善点:"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/applications-menu.appdata.xml.in:21
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
-"グリッド表示でのよりスムーズなジェスチャーと、タッチスクリーンでのジェス"
-"チャーに対応"
-
-#: data/applications-menu.appdata.xml.in:22
-msgid "Focus search when navigating up from the category view"
-msgstr "カテゴリー表示で上キーを押した際に検索欄にフォーカスするように修正"
-
-#: data/applications-menu.appdata.xml.in:23
-msgid "Don't focus search when pressing modifier keys"
-msgstr "修飾キーを押すと検索欄にフォーカスが移動する不具合を修正"
-
 #: data/applications-menu.appdata.xml.in:24
-msgid "Ensure categories are sorted alphabetically"
-msgstr "カテゴリー表示でも正しくアルファベット順に表示されるように修正"
+msgid "New Features:"
+msgstr "新機能:"
 
-#: data/applications-menu.appdata.xml.in:31
-msgid "Category view is now a list"
-msgstr "カテゴリー表示のリスト化"
+#: data/applications-menu.appdata.xml.in:26
+msgid "Convert between units of measurement"
+msgstr "単位変換機能を追加"
 
-#: data/applications-menu.appdata.xml.in:32
-msgid "Improved keyboard navigation"
-msgstr "キーボード操作を改善"
+#: data/applications-menu.appdata.xml.in:44
+msgid "Searching settings always searches the full title"
+msgstr "“システム設定”の項目のフルタイトルを検索できるように修正"
 
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "パフォーマンスの改善"
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
+msgid "Fixes:"
+msgstr "修正点:"
 
-#: data/applications-menu.appdata.xml.in:39
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
-msgstr ""
-"新しいツールチップの追加とメニューキーへの対応などの、キーボード操作の改善"
+#: data/applications-menu.appdata.xml.in:53
+msgid "Fix a regression with settings search"
+msgstr "“システム設定”の項目を検索できないリグレッションを修正"
 
-#: data/applications-menu.appdata.xml.in:40
-msgid "Highlight action matches in the search view"
-msgstr "検索ビューの一致する操作をハイライトするように修正"
+#: data/applications-menu.appdata.xml.in:64
+msgid "New features:"
+msgstr "新機能:"
 
-#: data/applications-menu.appdata.xml.in:41
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "\"AppCenter で表示\" メニュー項目を追加"
+#: data/applications-menu.appdata.xml.in:66
+msgid "Show search results for bookmarked folders"
+msgstr "ブックマークされたフォルダーの検索結果を表示"
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:70
+msgid "Prevent a potential crash on startup"
+msgstr "起動時にクラッシュすることがある不具合を修正"
+
+#: data/applications-menu.appdata.xml.in:72
+msgid "Minor updates:"
+msgstr "そのほかのアップデート:"
+
+#: data/applications-menu.appdata.xml.in:88
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Show secondary click menu for search results"
+#~ msgstr "検索結果の項目にも副クリックメニューを表示するように修正"
+
+#~ msgid ""
+#~ "Launch apps selectively on integrated or dedicated graphics for systems "
+#~ "with hybrid graphics"
+#~ msgstr ""
+#~ "ハイブリッドグラフィックスを利用可能なシステムでは、統合グラフィックスと単"
+#~ "体グラフィックスのどちらを使用してアプリを起動するか選択できる機能を追加"
+
+#~ msgid "Show apps with no category under \"Other\""
+#~ msgstr ""
+#~ "カテゴリーが設定されていないアプリを\"そのほか\"に表示するように修正"
+
+#~ msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+#~ msgstr ""
+#~ "Flatpak アプリのインストール後、デバイスを再起動するまでアプリのアイコンが"
+#~ "表示されない不具合を修正"
+
+#~ msgid "Sort app actions above AppCenter search"
+#~ msgstr ""
+#~ "アプリのアクションを AppCenter の検索結果よりも上に表示するように変更"
+
+#~ msgid "Always hide Terminal-based programs"
+#~ msgstr "CUI アプリを常に表示しないように修正"
+
+#~ msgid "Remove document viewer from block list"
+#~ msgstr "ドキュメントビューアーを非表示リストから除外"
+
+#~ msgid "Support fractions without leading number in calculator"
+#~ msgstr ".5 などの、整数部分を省略した小数に対応"
+
+#~ msgid "Show overlay key in tooltip when set"
+#~ msgstr ""
+#~ "⌘ キーでアプリケーションメニューを開くように設定されている場合に、ツール"
+#~ "チップに表示するように修正"
+
+#~ msgid "Performance improvements"
+#~ msgstr "パフォーマンスの改善"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr ""
+#~ "グリッド表示でのよりスムーズなジェスチャーと、タッチスクリーンでのジェス"
+#~ "チャーに対応"
+
+#~ msgid "Focus search when navigating up from the category view"
+#~ msgstr "カテゴリー表示で上キーを押した際に検索欄にフォーカスするように修正"
+
+#~ msgid "Don't focus search when pressing modifier keys"
+#~ msgstr "修飾キーを押すと検索欄にフォーカスが移動する不具合を修正"
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "カテゴリー表示でも正しくアルファベット順に表示されるように修正"
+
+#~ msgid "Category view is now a list"
+#~ msgstr "カテゴリー表示のリスト化"
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "キーボード操作を改善"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr ""
+#~ "新しいツールチップの追加とメニューキーへの対応などの、キーボード操作の改善"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "検索ビューの一致する操作をハイライトするように修正"
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "\"AppCenter で表示\"メニュー項目を追加"
+
+#~ msgid "Improvements"
+#~ msgstr "改善点"

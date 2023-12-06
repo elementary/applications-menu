@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-01-23 17:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -27,65 +27,132 @@ msgstr "Menu de Aplicações"
 msgid "Open and search for apps"
 msgstr "Abrir e pesquisar aplicações"
 
-#: data/applications-menu.appdata.xml.in:11
-#: data/applications-menu.appdata.xml.in:19
-msgid "Minor updates"
-msgstr "Pequenas atualizações"
+#: data/applications-menu.appdata.xml.in:12
+#: data/applications-menu.appdata.xml.in:28
+#: data/applications-menu.appdata.xml.in:42
+#: data/applications-menu.appdata.xml.in:55
+msgid "Improvements:"
+msgstr "Melhorias:"
 
-#: data/applications-menu.appdata.xml.in:13
-#: data/applications-menu.appdata.xml.in:25
-#: data/applications-menu.appdata.xml.in:34
-#: data/applications-menu.appdata.xml.in:43
+#: data/applications-menu.appdata.xml.in:14
+#: data/applications-menu.appdata.xml.in:30
+#: data/applications-menu.appdata.xml.in:57
+#: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
-#: data/applications-menu.appdata.xml.in:21
-msgid ""
-"Smoother navigation gesture in grid view and touchscreen gesture support"
-msgstr ""
-"Gesto de navegação mais suave na vista por grelha e suporte de gestos no "
-"ecrã tátil"
-
-#: data/applications-menu.appdata.xml.in:22
-msgid "Focus search when navigating up from the category view"
-msgstr "Concentre a pesquisa ao navegar a partir da visualização por categoria"
-
-#: data/applications-menu.appdata.xml.in:23
-msgid "Don't focus search when pressing modifier keys"
-msgstr "Não focar a pesquisa ao pressionar as teclas modificadoras"
-
 #: data/applications-menu.appdata.xml.in:24
-msgid "Ensure categories are sorted alphabetically"
-msgstr "Assegurar que as categorias sejam ordenadas alfabeticamente"
+msgid "New Features:"
+msgstr "Novas funcionalidades:"
 
-#: data/applications-menu.appdata.xml.in:31
-msgid "Category view is now a list"
-msgstr "A vista de categoria é agora uma lista"
+#: data/applications-menu.appdata.xml.in:26
+msgid "Convert between units of measurement"
+msgstr "Converter entre unidades de medida"
 
-#: data/applications-menu.appdata.xml.in:32
-msgid "Improved keyboard navigation"
-msgstr "Melhoria da navegação por teclado"
+#: data/applications-menu.appdata.xml.in:44
+msgid "Searching settings always searches the full title"
+msgstr "As definições de pesquisa pesquisam sempre o título completo"
 
-#: data/applications-menu.appdata.xml.in:33
-#: data/applications-menu.appdata.xml.in:42
-msgid "Performance improvements"
-msgstr "Melhorias de desempenho"
+#: data/applications-menu.appdata.xml.in:51
+#: data/applications-menu.appdata.xml.in:68
+msgid "Fixes:"
+msgstr "Correções:"
 
-#: data/applications-menu.appdata.xml.in:39
-msgid ""
-"Improved keyboard navigation, including new tooltips and menu key support"
-msgstr ""
-"Navegação pelo teclado melhorada, incluindo novas dicas de ferramentas e "
-"suporte a teclas de menu"
+#: data/applications-menu.appdata.xml.in:53
+msgid "Fix a regression with settings search"
+msgstr "Corrige uma regressão com pesquisa de definições"
 
-#: data/applications-menu.appdata.xml.in:40
-msgid "Highlight action matches in the search view"
-msgstr "Realçar correspondências de ação na visualização de pesquisa"
+#: data/applications-menu.appdata.xml.in:64
+msgid "New features:"
+msgstr "Novas funcionalidades:"
 
-#: data/applications-menu.appdata.xml.in:41
-msgid "Add a \"View in AppCenter\" menu item"
-msgstr "Adicione um item de menu \"Ver no Centro de Aplicações\""
+#: data/applications-menu.appdata.xml.in:66
+msgid "Show search results for bookmarked folders"
+msgstr "Mostra resultados de pesquisa de pastas marcadas como marcadores"
 
-#: data/applications-menu.appdata.xml.in:52
+#: data/applications-menu.appdata.xml.in:70
+msgid "Prevent a potential crash on startup"
+msgstr "Previne uma potencial falha no arranque"
+
+#: data/applications-menu.appdata.xml.in:72
+msgid "Minor updates:"
+msgstr "Pequenas atualizações:"
+
+#: data/applications-menu.appdata.xml.in:88
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Show secondary click menu for search results"
+#~ msgstr "Mostrar menu de clique secundário para resultados de pesquisa"
+
+#~ msgid ""
+#~ "Launch apps selectively on integrated or dedicated graphics for systems "
+#~ "with hybrid graphics"
+#~ msgstr ""
+#~ "Lança aplicações seletivamente em gráficos integrados ou dedicados para "
+#~ "sistemas com gráficos híbridos"
+
+#~ msgid "Show apps with no category under \"Other\""
+#~ msgstr "Mostra aplicações sem categoria em \"Outros\""
+
+#~ msgid "Fix an issue where Flatpak apps wouldn't show until after a restart"
+#~ msgstr ""
+#~ "Corrige um problema em que as aplicações Flatpak só apareceriam após um "
+#~ "reinício"
+
+#~ msgid "Sort app actions above AppCenter search"
+#~ msgstr "Ordena ações de aplicação acima da pesquisa da Loja de Aplicações"
+
+#~ msgid "Always hide Terminal-based programs"
+#~ msgstr "Oculta sempre programas baseados em terminal"
+
+#~ msgid "Remove document viewer from block list"
+#~ msgstr "Remove o visualizador de documentos da lista de bloqueio"
+
+#~ msgid "Support fractions without leading number in calculator"
+#~ msgstr "Suporte a frações sem número inicial na calculadora"
+
+#~ msgid "Show overlay key in tooltip when set"
+#~ msgstr "Mostrar tecla de sobreposição na dica quando definida"
+
+#~ msgid "Performance improvements"
+#~ msgstr "Melhorias de desempenho"
+
+#~ msgid ""
+#~ "Smoother navigation gesture in grid view and touchscreen gesture support"
+#~ msgstr ""
+#~ "Gesto de navegação mais suave na vista por grelha e suporte de gestos no "
+#~ "ecrã tátil"
+
+#~ msgid "Focus search when navigating up from the category view"
+#~ msgstr ""
+#~ "Concentre a pesquisa ao navegar a partir da visualização por categoria"
+
+#~ msgid "Don't focus search when pressing modifier keys"
+#~ msgstr "Não focar a pesquisa ao pressionar as teclas modificadoras"
+
+#~ msgid "Ensure categories are sorted alphabetically"
+#~ msgstr "Assegurar que as categorias sejam ordenadas alfabeticamente"
+
+#~ msgid "Category view is now a list"
+#~ msgstr "A vista de categoria é agora uma lista"
+
+#~ msgid "Improved keyboard navigation"
+#~ msgstr "Melhoria da navegação por teclado"
+
+#~ msgid ""
+#~ "Improved keyboard navigation, including new tooltips and menu key support"
+#~ msgstr ""
+#~ "Navegação pelo teclado melhorada, incluindo novas dicas de ferramentas e "
+#~ "suporte a teclas de menu"
+
+#~ msgid "Highlight action matches in the search view"
+#~ msgstr "Realçar correspondências de ação na visualização de pesquisa"
+
+#~ msgid "Add a \"View in AppCenter\" menu item"
+#~ msgstr "Adicione um item de menu \"Ver no Centro de Aplicações\""
+
+#, fuzzy
+#~| msgid "Performance improvements"
+#~ msgid "Improvements"
+#~ msgstr "Melhorias de desempenho"
