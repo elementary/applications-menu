@@ -254,7 +254,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private void move_right (Gdk.EventKey event) {
         if ((event.state & Gdk.ModifierType.SHIFT_MASK) > 0) {
             current_page_number++;
-        } else if (focused_column == page.columns && current_page_number < paginator.n_pages {
+        } else if (focused_column == page.columns && current_page_number < paginator.n_pages) {
             current_page_number++;
             focused_column = 1;
         } else {
