@@ -37,7 +37,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             if (target != null && target is Widgets.AppButton) {
                 _focused_column = target_column;
                 target.grab_focus ();
-                warning ("focus column %u", _focused_column);
             }
         }
 
@@ -54,7 +53,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             if (target != null && target is Widgets.AppButton) {
                 _focused_row = target_row;
                 target.grab_focus ();
-                warning ("focus row %u", _focused_row);
             }
         }
 
