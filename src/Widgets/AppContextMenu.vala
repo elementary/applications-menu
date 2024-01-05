@@ -29,16 +29,9 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
     private Gtk.MenuItem uninstall_menuitem;
     private Gtk.MenuItem appcenter_menuitem;
+    private Gtk.MenuItem dock_menuitem;
 
-#if HAS_PLANK
-    private static Plank.DBusClient plank_client;
     private bool docked = false;
-    private string desktop_uri {
-        owned get {
-            return File.new_for_path (desktop_path).get_uri ();
-        }
-    }
-#endif
 
     public AppContextMenu (string desktop_id, string desktop_path) {
         Object (
@@ -46,13 +39,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             desktop_path: desktop_path
         );
     }
-
-#if HAS_PLANK
-    static construct {
-        Plank.Paths.initialize ("plank", PKGDATADIR);
-        plank_client = Plank.DBusClient.get_instance ();
-    }
-#endif
 
     construct {
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
@@ -96,30 +82,27 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             });
         }
 
-#if HAS_PLANK
-        if (plank_client != null && plank_client.is_connected) {
+        if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
             }
 
             has_system_item = true;
 
-            var plank_menuitem = new Gtk.MenuItem ();
-            plank_menuitem.use_underline = true;
+            dock_menuitem = new Gtk.MenuItem () {
+                label = _("Add to _Dock"),
+                sensitive = false,
+                use_underline = true
+            };
+            dock_menuitem.activate.connect (dock_menuitem_activate);
 
-            docked = (desktop_uri in plank_client.get_persistent_applications ());
-            if (docked) {
-                plank_menuitem.label = _("Remove from _Dock");
-            } else {
-                plank_menuitem.label = _("Add to _Dock");
-            }
+            add (dock_menuitem );
 
-            plank_menuitem.activate.connect (plank_menuitem_activate);
-
-
-            add (plank_menuitem );
+            var dock = Backend.Dock.get_default ();
+            dock.notify["dbus"].connect (() => on_dock_dbus_changed.begin (dock));
+            on_dock_dbus_changed.begin (dock);
         }
-#endif
+
         if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
             if (!has_system_item && get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
@@ -199,17 +182,37 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         appcenter_menuitem.sensitive = appstream_comp_id != "";
     }
 
-#if HAS_PLANK
-    private void plank_menuitem_activate () {
-        if (plank_client == null || !plank_client.is_connected) {
+    private async void on_dock_dbus_changed (Backend.Dock dock) {
+        if (dock.dbus != null) {
+            dock_menuitem.sensitive = true;
+
+            try {
+                docked = desktop_id in dock.dbus.list_launchers ();
+                if (docked) {
+                    dock_menuitem.label = _("Remove from _Dock");
+                } else {
+                    dock_menuitem.label = _("Add to _Dock");
+                }
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+        }
+    }
+
+    private void dock_menuitem_activate () {
+        var dock = Backend.Dock.get_default ();
+        if (dock.dbus == null) {
             return;
         }
 
-        if (docked) {
-            plank_client.remove_item (desktop_uri);
-        } else {
-            plank_client.add_item (desktop_uri);
+        try {
+            if (docked) {
+                dock.dbus.remove_launcher (desktop_id);
+            } else {
+                dock.dbus.add_launcher (desktop_id);
+            }
+        } catch (GLib.Error e) {
+            critical (e.message);
         }
     }
-#endif
 }
