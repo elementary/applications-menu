@@ -96,7 +96,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             };
             dock_menuitem.activate.connect (dock_menuitem_activate);
 
-            add (dock_menuitem );
+            add (dock_menuitem);
 
             dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
             on_dock_dbus_changed (dock);
