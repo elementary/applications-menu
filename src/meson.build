@@ -14,6 +14,7 @@ sources = [
     'Backend/App.vala',
     'Backend/Category.vala',
     'Backend/DBusService.vala',
+    'Backend/Dock.vala',
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
     'Backend/SwitcherooControl.vala',
