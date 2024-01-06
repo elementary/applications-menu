@@ -92,7 +92,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             dock_menuitem = new Gtk.MenuItem () {
                 label = _("Add to _Dock"),
-                sensitive = false,
                 use_underline = true
             };
             dock_menuitem.activate.connect (dock_menuitem_activate);
@@ -184,8 +183,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     private void on_dock_dbus_changed (Backend.Dock dock) {
         if (dock.dbus != null) {
-            dock_menuitem.sensitive = true;
-
             try {
                 docked = desktop_id in dock.dbus.list_launchers ();
                 if (docked) {
