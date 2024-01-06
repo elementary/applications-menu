@@ -82,7 +82,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             });
         }
 
-        if (Environment.find_program_in_path ("io.elementary.dock") != null) {
+        var dock = Backend.Dock.get_default ();
+        if (dock.dbus != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
             }
@@ -98,9 +99,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             add (dock_menuitem );
 
-            var dock = Backend.Dock.get_default ();
-            dock.notify["dbus"].connect (() => on_dock_dbus_changed.begin (dock));
-            on_dock_dbus_changed.begin (dock);
+            dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
+            on_dock_dbus_changed (dock);
         }
 
         if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
@@ -182,7 +182,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         appcenter_menuitem.sensitive = appstream_comp_id != "";
     }
 
-    private async void on_dock_dbus_changed (Backend.Dock dock) {
+    private void on_dock_dbus_changed (Backend.Dock dock) {
         if (dock.dbus != null) {
             dock_menuitem.sensitive = true;
 
