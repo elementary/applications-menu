@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-01-06 20:31+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -147,26 +147,26 @@ msgstr "尝试更改搜索内容。"
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "用 %s 图形打开"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "从程序坞移除"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "固定至程序坞"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "卸载"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "在应用中心内查看"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "从程序坞移除"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

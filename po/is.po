@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-01-06 20:31+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Icelandic <is@li.org>\n"
@@ -147,28 +147,28 @@ msgstr ""
 msgid "No Results for “%s”"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Opna með %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Raða eftir flokkum"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-01-06 20:31+0000\n"
 "PO-Revision-Date: 2023-10-27 11:10+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
@@ -146,26 +146,26 @@ msgstr "Skúste zmeniť vyhľadávaný výraz."
 msgid "No Results for “%s”"
 msgstr "Žiadne výsledky pre „%s“"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Otvoriť pomocou grafiky %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Odstrániť z _Doku"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Pridať do _Doku"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Odinštalovať"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "Zobraziť v AppCentre"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Odstrániť z _Doku"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

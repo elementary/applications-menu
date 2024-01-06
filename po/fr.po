@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-01-06 20:31+0000\n"
 "PO-Revision-Date: 2023-03-15 09:25+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
@@ -145,26 +145,26 @@ msgstr "Essayez de modifier les termes de la recherche."
 msgid "No Results for “%s”"
 msgstr "Aucun résultat pour « %s »"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Ouvrir avec la carte graphique %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Retirer du _Dock"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Ajouter au _Dock"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Désinstaller"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "Voir dans le Centre d'Applications"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Retirer du _Dock"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
