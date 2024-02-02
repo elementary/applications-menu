@@ -66,8 +66,6 @@ public class Synapse.SwitchboardPlugin : Object, Activatable, ItemProvider {
     static void register_plugin () {
         DataSink.PluginRegistry.get_default ().register_plugin (
             typeof (SwitchboardPlugin),
-            "Switchboard Search",
-            _("Find switchboard plugs and open them."),
             "preferences-desktop",
             register_plugin
         );
