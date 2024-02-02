@@ -69,8 +69,6 @@ namespace Synapse {
 
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (LinkPlugin),
-                                                                    _("Link"),
-                                                                    _("Open link in default browser"),
                                                                     "web-browser",
                                                                     register_plugin);
         }

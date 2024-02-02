@@ -85,12 +85,9 @@ namespace Synapse {
             }
 
             DataSink.PluginRegistry.get_default ().register_plugin (typeof (AppcenterPlugin),
-                                            _("AppCenter"),
-                                            _("Search for applications"),
                                             "system-software-install",
                                             register_plugin,
-                                            appcenter_installed,
-                                            _("AppCenter is not installed"));
+                                            appcenter_installed);
         }
 
         static construct {
