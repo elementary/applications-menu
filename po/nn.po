@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2020-07-16 21:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
@@ -206,32 +206,7 @@ msgstr "Søk etter %s i %s"
 msgid "Search the app store"
 msgstr "Søk i appbutikken"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Søk etter applikasjonar"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "AppCenter er ikkje installert"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Kalkulator"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Kalkuler enkle uttrykk."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc er ikkje installert"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -245,10 +220,6 @@ msgstr "Køyr '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Køyr kommando"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Finn og køyr vilkårlege kommandoar."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -264,36 +235,24 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "Kopier utvalet til utklippstavla"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Søk etter og køyr applikasjonar på datamaskina."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Opne med %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Opnar utvalet med %s"
@@ -308,24 +267,16 @@ msgstr "Opne %s i %s"
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr ""
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -338,22 +289,10 @@ msgstr "Opne %s i standard nettlesar"
 msgid "Open this link in default browser"
 msgstr "Opne denne lenka i standard nettlesar"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Lenke"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Opne lenka i standard nettlesar"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Opne %s-innstillingar"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Finn Switchboard-modular og opne dei."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -439,17 +378,48 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "omstart;start på nytt"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Lås økta eller logg ut. Sett maskina di i kvilemodus, dvalemodus, omstart, "
-"eller slå den av."
+#~ msgid "AppCenter"
+#~ msgstr "AppCenter"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit vart ikkje funne"
+#~ msgid "Search for applications"
+#~ msgstr "Søk etter applikasjonar"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "AppCenter er ikkje installert"
+
+#~ msgid "Calculator"
+#~ msgstr "Kalkulator"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Kalkuler enkle uttrykk."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc er ikkje installert"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Finn og køyr vilkårlege kommandoar."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Søk etter og køyr applikasjonar på datamaskina."
+
+#~ msgid "Link"
+#~ msgstr "Lenke"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Opne lenka i standard nettlesar"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Finn Switchboard-modular og opne dei."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Lås økta eller logg ut. Sett maskina di i kvilemodus, dvalemodus, "
+#~ "omstart, eller slå den av."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit vart ikkje funne"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

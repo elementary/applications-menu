@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -207,32 +207,7 @@ msgstr "Ieškoti %s, programoje %s"
 msgid "Search the app store"
 msgstr "Ieškoti programų parduotuvėje"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Programų centras"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Ieškoti programų"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Programų centras nėra įdiegtas"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Skaičiuotuvas"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Apskaičiuoti pagrindinius reiškinius."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc nėra įdiegta"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -246,10 +221,6 @@ msgstr "Vykdyti \"%s\""
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Vykdyti komandą"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Rasti ir vykdyti pasirinktines komandas."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -265,36 +236,24 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "Kopijuoti žymėjimą į iškarpinę"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Ieškoti ir vykdyti programas jūsų kompiuteryje."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Atverti, naudojant %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Atveria esamą pasirinkimą, naudojant %s"
@@ -309,24 +268,16 @@ msgstr "Atverti %s, naudojant %s"
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr ""
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -339,22 +290,10 @@ msgstr "Atverti %s numatytojoje saityno naršyklėje"
 msgid "Open this link in default browser"
 msgstr "Atverti šią nuorodą numatytojoje naršyklėje"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Nuoroda"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Atverti nuorodą numatytojoje naršyklėje"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Atverti %s nustatymus"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Rasti Switchboard kištukus ir juos atverti."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -440,17 +379,48 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "paleisti iš naujo;restartuoti;perkrauti"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Užrakinti seansą arba atsijungti nuo jo. Pristabdyti, užmigdyti, paleisti iš "
-"naujo ar išjungti savo kompiuterį."
+#~ msgid "AppCenter"
+#~ msgstr "Programų centras"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit nebuvo rasta"
+#~ msgid "Search for applications"
+#~ msgstr "Ieškoti programų"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Programų centras nėra įdiegtas"
+
+#~ msgid "Calculator"
+#~ msgstr "Skaičiuotuvas"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Apskaičiuoti pagrindinius reiškinius."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc nėra įdiegta"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Rasti ir vykdyti pasirinktines komandas."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Ieškoti ir vykdyti programas jūsų kompiuteryje."
+
+#~ msgid "Link"
+#~ msgstr "Nuoroda"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Atverti nuorodą numatytojoje naršyklėje"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Rasti Switchboard kištukus ir juos atverti."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Užrakinti seansą arba atsijungti nuo jo. Pristabdyti, užmigdyti, paleisti "
+#~ "iš naujo ar išjungti savo kompiuterį."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit nebuvo rasta"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

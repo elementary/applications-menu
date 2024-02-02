@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2022-09-21 15:25+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -198,32 +198,7 @@ msgstr "بگەڕێ بۆ %s لە %s"
 msgid "Search the app store"
 msgstr "لە سەنتەری نەرمەکاڵادا بگەڕێ"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "سەنتەری نەرمەکاڵا"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "گەڕان بەدوای بەرنامەدا"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "سەنتەری نەرمەکاڵا دانەمەزراوە"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "بژمێر"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "دەربڕینە سەرەتاییەکان بژمێرە."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "بی-سی دانەمەزراوە"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "کرتە بکە بۆ کۆپیکردنی ئەنجام بۆ کلیپبۆرد"
 
@@ -235,10 +210,6 @@ msgstr "کردنەوەی '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "ناردنی فەرمان"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "دۆزینەوەی و ناردنی فەرمانە هەڕەمەکییەکان."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -254,36 +225,24 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Click to copy result to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "کرتە بکە بۆ کۆپیکردنی ئەنجام بۆ کلیپبۆرد"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "گەڕان بۆ بەرنامەکان و کردنەوەیان لەسەر کۆمپیتەرەکەت."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "کردنەوەی بە %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "کردنەوەی دیاریکراوەکانی ئێستا بە بەکارهێنانی %s"
@@ -298,28 +257,16 @@ msgstr "کردنەوەی %s لە %s"
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-#, fuzzy
-#| msgid "Bookmarks"
-msgid "Folder Bookmarks"
-msgstr "جێدۆزەکان"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-#, fuzzy
-#| msgid "Bookmarks"
-msgid "Bookmarked Folders"
-msgstr "جێدۆزەکان"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -332,22 +279,10 @@ msgstr "کردنەوەی %s لە وێبگەڕی بنەڕەتدا"
 msgid "Open this link in default browser"
 msgstr "ئەم بەستەرە لە وێبگەڕی بنەڕەتدا بکەوە"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "بەستەر"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "کردنەوەی بەستەر لە وێبگەڕی بنەڕەتدا"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "کردنەوەی ڕێکخستنەکانی %s"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "دۆزینەوەی پلەگەکانی سویچبۆرد و کردنەوەیان."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -433,14 +368,55 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "پێکردنەوە؛بووتکردنەوە"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"قوفڵکردنی ئەم سێشنە یان چوونەدەر لێی. کۆمپیتەرەکەت خامۆش بکە، یان پێیبکەوە، "
-"هایبەرنەیتی بکە، بیوەستێنە."
+#~ msgid "AppCenter"
+#~ msgstr "سەنتەری نەرمەکاڵا"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "کۆنسوڵکیت نەدۆزرایەوە"
+#~ msgid "Search for applications"
+#~ msgstr "گەڕان بەدوای بەرنامەدا"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "سەنتەری نەرمەکاڵا دانەمەزراوە"
+
+#~ msgid "Calculator"
+#~ msgstr "بژمێر"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "دەربڕینە سەرەتاییەکان بژمێرە."
+
+#~ msgid "bc is not installed"
+#~ msgstr "بی-سی دانەمەزراوە"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "دۆزینەوەی و ناردنی فەرمانە هەڕەمەکییەکان."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "گەڕان بۆ بەرنامەکان و کردنەوەیان لەسەر کۆمپیتەرەکەت."
+
+#, fuzzy
+#~| msgid "Bookmarks"
+#~ msgid "Folder Bookmarks"
+#~ msgstr "جێدۆزەکان"
+
+#, fuzzy
+#~| msgid "Bookmarks"
+#~ msgid "Bookmarked Folders"
+#~ msgstr "جێدۆزەکان"
+
+#~ msgid "Link"
+#~ msgstr "بەستەر"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "کردنەوەی بەستەر لە وێبگەڕی بنەڕەتدا"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "دۆزینەوەی پلەگەکانی سویچبۆرد و کردنەوەیان."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "قوفڵکردنی ئەم سێشنە یان چوونەدەر لێی. کۆمپیتەرەکەت خامۆش بکە، یان "
+#~ "پێیبکەوە، هایبەرنەیتی بکە، بیوەستێنە."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "کۆنسوڵکیت نەدۆزرایەوە"

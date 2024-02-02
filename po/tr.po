@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2023-05-18 21:06+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -201,32 +201,7 @@ msgstr "%s metnini %s içinde ara"
 msgid "Search the app store"
 msgstr "Uygulama merkezinde ara"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Uygulama Merkezi"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Uygulama ara"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Uygulama merkezi kurulu değil"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Hesap Makinesi"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Basit ifadeleri hesapla."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc kurulu değil"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Sonucu panoya kopyalamak için tıklatın"
 
@@ -238,10 +213,6 @@ msgstr "'%s' komutunu çalıştır"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Komut çalıştır"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "İsteğe bağlı komutları bulun ve çalıştırın."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -257,35 +228,23 @@ msgstr "küplü"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Dönüştürücü"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Birimler arasında dönüştürme."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s to %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "%g sonucunu panoya kopyalamak için tıklatın"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Bilgisayarınızdaki uygulamaları arayın ve çalıştırın."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s ile Aç"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Seçili ögeyi %s kullanarak açar"
@@ -300,24 +259,16 @@ msgstr "%s klasörünü %s ile aç"
 msgid "Open the selected directory"
 msgstr "Seçili dizini aç"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Klasör Yer İmleri"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Yer İmlenen Klasörler"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Ana Klasör"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Son Kullanılan"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Çöp"
 
@@ -330,22 +281,10 @@ msgstr "%s adresini varsayılan web tarayıcısında aç"
 msgid "Open this link in default browser"
 msgstr "Bu bağlantıyı varsayılan tarayıcıda aç"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Bağlantı"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Bağlantıyı varsayılan tarayıcıda aç"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s ayarlarını aç"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Switchboard eklentilerini bulun ve açın."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -431,17 +370,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;yeniden başlat"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Oturumu kilitleyin veya oturumu kapatın. Bilgisayarınızı askıya alın, "
-"hazırda bekletin, yeniden başlatın veya kapatın."
+#~ msgid "AppCenter"
+#~ msgstr "Uygulama Merkezi"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit bulunamadı"
+#~ msgid "Search for applications"
+#~ msgstr "Uygulama ara"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Uygulama merkezi kurulu değil"
+
+#~ msgid "Calculator"
+#~ msgstr "Hesap Makinesi"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Basit ifadeleri hesapla."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc kurulu değil"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "İsteğe bağlı komutları bulun ve çalıştırın."
+
+#~ msgid "Converter"
+#~ msgstr "Dönüştürücü"
+
+#~ msgid "Convert between units."
+#~ msgstr "Birimler arasında dönüştürme."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Bilgisayarınızdaki uygulamaları arayın ve çalıştırın."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Klasör Yer İmleri"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Yer İmlenen Klasörler"
+
+#~ msgid "Link"
+#~ msgstr "Bağlantı"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Bağlantıyı varsayılan tarayıcıda aç"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Switchboard eklentilerini bulun ve açın."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Oturumu kilitleyin veya oturumu kapatın. Bilgisayarınızı askıya alın, "
+#~ "hazırda bekletin, yeniden başlatın veya kapatın."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit bulunamadı"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2023-03-11 12:25+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
@@ -201,32 +201,7 @@ msgstr "Nach %s in %s suchen"
 msgid "Search the app store"
 msgstr "App-Store durchsuchen"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Nach Anwendungen suchen"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "AppCenter ist nicht installiert"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Taschenrechner"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Grundrechenarten."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc ist nicht installiert"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Ergebnis mit einem Klick in die Zwischenablage kopieren"
 
@@ -238,10 +213,6 @@ msgstr "»%s« ausführen"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Befehl ausführen"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Beliebige Befehle suchen und ausführen."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -257,35 +228,23 @@ msgstr "hoch 3"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Umrechner"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Rechnet Einheiten um."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s bis %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "%g mit einem Klick in die Zwischenablage kopieren"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Mit %s öffnen"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Momentane Auswahl wird mittels %s geöffnet"
@@ -300,24 +259,16 @@ msgstr "%s in %s öffnen"
 msgid "Open the selected directory"
 msgstr "Gewähltes Verzeichnis öffnen"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Ordnerlesezeichen"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Als Lesezeichen gespeicherte Ordner"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Persönlicher Ordner"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Letzte"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Papierkorb"
 
@@ -330,22 +281,10 @@ msgstr "%s im Standard-Webbrowser öffnen"
 msgid "Open this link in default browser"
 msgstr "Diesen Verweis im Standard-Browser öffnen"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Verweis"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Verweis im Standard-Browser öffnen"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s Einstellungen öffnen"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Einstellungserweiterungen suchen und öffnen."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -431,17 +370,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;neustarten;Neustart;starten"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Sitzung sperren oder beenden. Rechner in den Bereitschaftsmodus oder in den "
-"Ruhezustand versetzen, neu starten oder ausschalten."
+#~ msgid "AppCenter"
+#~ msgstr "AppCenter"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit wurde nicht gefunden"
+#~ msgid "Search for applications"
+#~ msgstr "Nach Anwendungen suchen"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "AppCenter ist nicht installiert"
+
+#~ msgid "Calculator"
+#~ msgstr "Taschenrechner"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Grundrechenarten."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc ist nicht installiert"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Beliebige Befehle suchen und ausführen."
+
+#~ msgid "Converter"
+#~ msgstr "Umrechner"
+
+#~ msgid "Convert between units."
+#~ msgstr "Rechnet Einheiten um."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Anwendungen auf Ihrem Rechner suchen und starten."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Ordnerlesezeichen"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Als Lesezeichen gespeicherte Ordner"
+
+#~ msgid "Link"
+#~ msgstr "Verweis"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Verweis im Standard-Browser öffnen"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Einstellungserweiterungen suchen und öffnen."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Sitzung sperren oder beenden. Rechner in den Bereitschaftsmodus oder in "
+#~ "den Ruhezustand versetzen, neu starten oder ausschalten."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit wurde nicht gefunden"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

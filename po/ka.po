@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2023-10-23 05:10+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
@@ -196,32 +196,7 @@ msgstr "%s-ის მოძებნა %s-ში"
 msgid "Search the app store"
 msgstr "აპების მაღაზიაში მოძებნა"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "აპლიკაციების ძებნა"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "AppCenter-ი დაყენებული არაა"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "კალკულატორი"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "მარტივი გამოსახულებების გამოთვლა."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc დაყენებული არაა"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "შედეგის ბუფერში დასაკოპირებლად დააწკაპუნეთ"
 
@@ -233,10 +208,6 @@ msgstr "'%s'-ის შესრულება"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "ბრძანების გაშვება"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "მოძებნეთ და გაუშვით პირობითი ბრძანებები."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -252,35 +223,23 @@ msgstr "კუბში"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "გადამყვანი"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "ერთეულებს შორის გადაყვანა."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s-დან %s-მდე)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "%g-ის ბუფერში დასაკოპირებლად დააწკაპუნეთ"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "მოძებნეთ და გაუშვით თქვენს კომპიუტერში არსებული პროგრამები."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s-ით გახსნა"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "არჩეულის %s-ის მეშვეობით გახსნა"
@@ -295,24 +254,16 @@ msgstr "%s-ის გახსნა %s-ში"
 msgid "Open the selected directory"
 msgstr "მონიშნული საქაღალდის გახსნა"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "საქაღალდის სანიშნები"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "ჩანიშნული საქაღალდეები"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "მთავარი"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "ახლახანს"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "ნაგავი"
 
@@ -325,22 +276,10 @@ msgstr "%s-ის ნაგულისხმებ ბრაუზერში 
 msgid "Open this link in default browser"
 msgstr "ამ ბმულის ნაგულისხმებ ბრაუზერში გახსნა"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "ბმული"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "ბმულის ნაგულისხმებ ბრაუზერში გახსნა"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s პარამეტრების გახსნა"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "მოძებნეთ Switchboard-ის დამატებები და გახსენით ისინი."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -426,17 +365,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "რესტარტი;გადატვირთვა"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"დაბლოკეთ სესია, ან გადით. დააძინეთ, შეაჩერეთ, გადატვირთეთ ან გამორთეთ თქვენი "
-"კომპიუტერი."
+#~ msgid "AppCenter"
+#~ msgstr "AppCenter"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit ვერ მოიძებნა"
+#~ msgid "Search for applications"
+#~ msgstr "აპლიკაციების ძებნა"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "AppCenter-ი დაყენებული არაა"
+
+#~ msgid "Calculator"
+#~ msgstr "კალკულატორი"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "მარტივი გამოსახულებების გამოთვლა."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc დაყენებული არაა"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "მოძებნეთ და გაუშვით პირობითი ბრძანებები."
+
+#~ msgid "Converter"
+#~ msgstr "გადამყვანი"
+
+#~ msgid "Convert between units."
+#~ msgstr "ერთეულებს შორის გადაყვანა."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "მოძებნეთ და გაუშვით თქვენს კომპიუტერში არსებული პროგრამები."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "საქაღალდის სანიშნები"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "ჩანიშნული საქაღალდეები"
+
+#~ msgid "Link"
+#~ msgstr "ბმული"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "ბმულის ნაგულისხმებ ბრაუზერში გახსნა"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "მოძებნეთ Switchboard-ის დამატებები და გახსენით ისინი."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "დაბლოკეთ სესია, ან გადით. დააძინეთ, შეაჩერეთ, გადატვირთეთ ან გამორთეთ "
+#~ "თქვენი კომპიუტერი."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit ვერ მოიძებნა"
 
 #~ msgid "Slingshot"
 #~ msgstr "პროგრამების მენიუ Slingshot"

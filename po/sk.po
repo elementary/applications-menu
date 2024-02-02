@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2023-10-27 11:10+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
@@ -202,32 +202,7 @@ msgstr "Hľadať %s v %s"
 msgid "Search the app store"
 msgstr "Hľadať v obchode s aplikáciami"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "AppCentrum"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Hľadať aplikácie"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "AppCentrum nie je nainštalované"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Kalkulačka"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Umožňuje vypočítať základné matematické výrazy."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc nie je nainštalované"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Kliknutím kopírovať výsledok do schránky"
 
@@ -239,10 +214,6 @@ msgstr "Spustiť „%s“"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Spustiť príkaz"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Vyhľadať a spustiť ľubovoľné príkazy."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -258,35 +229,23 @@ msgstr "kubický"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Prevodník"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Premieňajte jednotky."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s na %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "Kliknutím skopírujte %g do schránky"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Vyhľadať a spustiť aplikácie na vašom počítači."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Otvoriť pomocou %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Otvoriť aktuálny výber pomocou %s"
@@ -301,24 +260,16 @@ msgstr "Otvoriť %s v %s"
 msgid "Open the selected directory"
 msgstr "Otvorte vybrané umiestnenie"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Záložky priečinkov"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Priečinky pridané do záložiek"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Domov"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Nedávne"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Kôš"
 
@@ -331,22 +282,10 @@ msgstr "Otvoriť %s v predvolenom webovom prehliadači"
 msgid "Open this link in default browser"
 msgstr "Otvoriť tento odkaz v predvolenom prehliadači"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Odkaz"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Otvoriť odkaz v predvolenom prehliadači"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Otvoriť %s nastavenia"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Nájsť moduly ovládacích panelov a otvoriť ich."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -432,17 +371,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reštartovať"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Uzamknúť reláciu alebo sa z nej odhlásiť. Uspať, hibernovať, reštartovať "
-"alebo vypnúť váš počítač."
+#~ msgid "AppCenter"
+#~ msgstr "AppCentrum"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit nebol nájdený"
+#~ msgid "Search for applications"
+#~ msgstr "Hľadať aplikácie"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "AppCentrum nie je nainštalované"
+
+#~ msgid "Calculator"
+#~ msgstr "Kalkulačka"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Umožňuje vypočítať základné matematické výrazy."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc nie je nainštalované"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Vyhľadať a spustiť ľubovoľné príkazy."
+
+#~ msgid "Converter"
+#~ msgstr "Prevodník"
+
+#~ msgid "Convert between units."
+#~ msgstr "Premieňajte jednotky."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Vyhľadať a spustiť aplikácie na vašom počítači."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Záložky priečinkov"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Priečinky pridané do záložiek"
+
+#~ msgid "Link"
+#~ msgstr "Odkaz"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Otvoriť odkaz v predvolenom prehliadači"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Nájsť moduly ovládacích panelov a otvoriť ich."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Uzamknúť reláciu alebo sa z nej odhlásiť. Uspať, hibernovať, reštartovať "
+#~ "alebo vypnúť váš počítač."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit nebol nájdený"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

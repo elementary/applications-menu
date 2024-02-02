@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 20:31+0000\n"
+"POT-Creation-Date: 2024-02-02 19:19+0000\n"
 "PO-Revision-Date: 2023-03-15 09:25+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
@@ -201,32 +201,7 @@ msgstr "%s keresése az %sban"
 msgid "Search the app store"
 msgstr "Keresés az alkalmazásüzletben"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Appközpont"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Alkalmazások keresése"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Az Appközpont nincs telepítve"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Számológép"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Alap kifejezések számítása."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc nincs telepítve"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Kattintson az eredmény vágólapra való másolásához"
 
@@ -238,10 +213,6 @@ msgstr "A(z) '%s' futtatása"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Parancs futtatása"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Tetszőleges parancsok keresése és futtatása."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -257,35 +228,23 @@ msgstr "köbön"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Átváltó"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Mértékegységek közti átváltás."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s ➡ %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "Kattintson %g vágólapra másolásához"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Alkalmazások keresése és indítása a számítógépen."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Megnyitás ezzel: %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "A kijelöltek megnyitása ezzel: %s"
@@ -300,24 +259,16 @@ msgstr "%s megnyitása ebben: %s"
 msgid "Open the selected directory"
 msgstr "Kiválasztott könyvtár megnyitása"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Mappákban lévő könyvjelzők"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Könyvjelzőzött mappák"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Saját mappa"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Előzmények"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Kuka"
 
@@ -330,22 +281,10 @@ msgstr "A(z) %s megnyitása az alapértelmezett webböngészőben"
 msgid "Open this link in default browser"
 msgstr "Hivatkozás megnyitása az alapértelmezett böngészőben"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Hivatkozás"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Hivatkozás megnyitása az alapértelmezett böngészőben"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "A(z) %s beállításainak megnyitása"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Keressen a beállításokban és nyissa meg őket."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -431,17 +370,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "újraindítás;restartolás"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Munkamenet zárolása vagy kijelentkezés. Az eszköz felfüggesztése, "
-"hibernálása, újraindítása vagy kikapcsolása."
+#~ msgid "AppCenter"
+#~ msgstr "Appközpont"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "A ConsoleKit nem található"
+#~ msgid "Search for applications"
+#~ msgstr "Alkalmazások keresése"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Az Appközpont nincs telepítve"
+
+#~ msgid "Calculator"
+#~ msgstr "Számológép"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Alap kifejezések számítása."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc nincs telepítve"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Tetszőleges parancsok keresése és futtatása."
+
+#~ msgid "Converter"
+#~ msgstr "Átváltó"
+
+#~ msgid "Convert between units."
+#~ msgstr "Mértékegységek közti átváltás."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Alkalmazások keresése és indítása a számítógépen."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Mappákban lévő könyvjelzők"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Könyvjelzőzött mappák"
+
+#~ msgid "Link"
+#~ msgstr "Hivatkozás"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Hivatkozás megnyitása az alapértelmezett böngészőben"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Keressen a beállításokban és nyissa meg őket."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Munkamenet zárolása vagy kijelentkezés. Az eszköz felfüggesztése, "
+#~ "hibernálása, újraindítása vagy kikapcsolása."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "A ConsoleKit nem található"
 
 #~ msgid "Slingshot"
 #~ msgstr "Csúzli"
