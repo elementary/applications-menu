@@ -71,12 +71,15 @@ namespace Synapse {
                             FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null
                         );
 
-                        if (info.has_attribute (FileAttribute.STANDARD_CONTENT_TYPE)) {
-                            appinfo = AppInfo.get_default_for_type (
-                                info.get_attribute_string (FileAttribute.STANDARD_CONTENT_TYPE), true
-                            );
+                        unowned string? content_type = info.get_content_type ();
+                        if (content_type != null) {
+                            appinfo = AppInfo.get_default_for_type (content_type, true);
                         }
                     } catch (Error e) {
+                        debug (e.message);
+                    }
+
+                    if (appinfo == null) {
                         appinfo = new DesktopAppInfo ("io.elementary.files.desktop");
                     }
                 }
@@ -148,13 +151,10 @@ namespace Synapse {
                 FileInfo? info = null;
 
                 try {
-                    info = location.query_info ("", FileQueryInfoFlags.NONE);
+                    info = location.query_info (GLib.FileAttribute.STANDARD_TARGET_URI, FileQueryInfoFlags.NONE);
+                    target_uri = info.get_attribute_string (GLib.FileAttribute.STANDARD_TARGET_URI);
                 } catch (GLib.Error err) {
                     warning ("%s", err.message);
-                }
-
-                if (info != null) {
-                    target_uri = info.get_attribute_string (GLib.FileAttribute.STANDARD_TARGET_URI);
                 }
 
                 if (target_uri == null) {
@@ -233,7 +233,7 @@ namespace Synapse {
 
             var file = GLib.File.new_for_path (filename);
 
-            if (yield query_exists_async (file)) {
+            if (yield Utils.query_exists_async (file)) {
                 uint8[] contents_bytes;
 
                 q.check_cancellable ();
@@ -293,7 +293,7 @@ namespace Synapse {
             bool is_hidden = false;
 
             try {
-                var location_info = yield location.query_info_async ("", FileQueryInfoFlags.NONE);
+                var location_info = yield location.query_info_async (GLib.FileAttribute.STANDARD_IS_HIDDEN + "," + GLib.FileAttribute.STANDARD_IS_BACKUP, FileQueryInfoFlags.NONE);
 
                 is_hidden = location_info.get_is_hidden () || location_info.get_is_backup ();
             } catch (GLib.Error err) {
@@ -335,16 +335,6 @@ namespace Synapse {
             debug ("relevancy for %s: %d", uri, r);
 
             return r;
-        }
-
-        private static async bool query_exists_async (File file) {
-
-            try {
-                var info = yield file.query_info_async (FileAttribute.STANDARD_TYPE, FileQueryInfoFlags.NONE);
-                return info != null;
-            } catch (Error e) {
-                return false;
-            }
         }
     }
 }
