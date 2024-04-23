@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-02 19:19+0000\n"
-"PO-Revision-Date: 2021-03-12 20:18+0000\n"
-"Last-Translator: Leonardo <leonardo@elementary.io>\n"
+"PO-Revision-Date: 2024-04-23 17:55+0000\n"
+"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -242,10 +242,9 @@ msgid "%g (%s to %s)"
 msgstr ""
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
-#, fuzzy, c-format
-#| msgid "Copy selection to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Copiar seleção para a área de transferência"
+msgstr "Clique para copiar %g para a área de transferência"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
