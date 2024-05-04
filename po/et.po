@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 19:19+0000\n"
+"POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2018-03-18 20:27+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <https://weblate.elementary.io/projects/wingpanel/"
@@ -259,13 +259,13 @@ msgstr "Ava rakendusega %s"
 msgid "Opens current selection using %s"
 msgstr "Valiku avamine rakendusega %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "%s avamine kasutades %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 

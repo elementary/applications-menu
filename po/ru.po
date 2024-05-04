@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 19:19+0000\n"
+"POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-02-14 03:04+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -250,13 +250,13 @@ msgstr "Открыть в %s"
 msgid "Opens current selection using %s"
 msgstr "Открыть выделенное с помощью %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Открыть %s в %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr "Открыть выбранную директорию"
 

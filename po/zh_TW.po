@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 19:19+0000\n"
+"POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2018-03-13 02:52+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -259,13 +259,13 @@ msgstr "以 %s 開啟"
 msgid "Opens current selection using %s"
 msgstr "以 %s 開啟目前的選項"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "在 %2$s 中開啟 %1$s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 

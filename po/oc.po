@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 19:19+0000\n"
+"POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -250,13 +250,13 @@ msgstr "Dobrir amb %s"
 msgid "Opens current selection using %s"
 msgstr "Dobrir la seleccion actuala en utilizant %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Dobrir %s dins %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 

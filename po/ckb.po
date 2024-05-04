@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 19:19+0000\n"
+"POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2022-09-21 15:25+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -247,13 +247,13 @@ msgstr "کردنەوەی بە %s"
 msgid "Opens current selection using %s"
 msgstr "کردنەوەی دیاریکراوەکانی ئێستا بە بەکارهێنانی %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "کردنەوەی %s لە %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 
