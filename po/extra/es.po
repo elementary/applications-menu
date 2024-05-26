@@ -51,7 +51,7 @@ msgstr "Se puede convertir entre unidades de medida"
 
 #: data/applications-menu.appdata.xml.in:44
 msgid "Searching settings always searches the full title"
-msgstr "La búsqueda de configuraciones siempre busca el título completo"
+msgstr "Buscar configuraciones siempre busca el titulo completo"
 
 #: data/applications-menu.appdata.xml.in:51
 #: data/applications-menu.appdata.xml.in:68
