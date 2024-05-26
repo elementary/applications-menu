@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2024-05-26 16:14+0000\n"
+"Last-Translator: lain <grandmaxy@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 5.5\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -31,10 +31,8 @@ msgstr "Abra y busque aplicaciones"
 #: data/applications-menu.appdata.xml.in:28
 #: data/applications-menu.appdata.xml.in:42
 #: data/applications-menu.appdata.xml.in:55
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Mejoras de rendimiento"
+msgstr "Mejoras :"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:30
