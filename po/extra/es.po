@@ -47,7 +47,7 @@ msgstr "Novedades:"
 
 #: data/applications-menu.appdata.xml.in:26
 msgid "Convert between units of measurement"
-msgstr ""
+msgstr "Convertir entre unidades de medida"
 
 #: data/applications-menu.appdata.xml.in:44
 msgid "Searching settings always searches the full title"
