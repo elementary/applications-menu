@@ -43,7 +43,7 @@ msgstr "Traducciones actualizadas"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "New Features:"
-msgstr ""
+msgstr "Novedades:"
 
 #: data/applications-menu.appdata.xml.in:26
 msgid "Convert between units of measurement"
