@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-05-26 16:14+0000\n"
-"Last-Translator: lain <grandmaxy@gmail.com>\n"
+"Last-Translator: Lucas Cesa <lucascesa455@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
 "Language: es\n"
@@ -32,7 +32,7 @@ msgstr "Abra y busque aplicaciones"
 #: data/applications-menu.appdata.xml.in:42
 #: data/applications-menu.appdata.xml.in:55
 msgid "Improvements:"
-msgstr "Mejoras :"
+msgstr "Mejoras:"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:30
