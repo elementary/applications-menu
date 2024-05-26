@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2024-02-18 17:57+0000\n"
+"PO-Revision-Date: 2024-05-26 15:52+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -138,7 +138,7 @@ msgstr "ブックマーク"
 
 #: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
-msgstr "検索用語を変更してみてください。"
+msgstr "検索語句を変更してみてください。"
 
 #: src/Views/SearchView.vala:180
 #, c-format
