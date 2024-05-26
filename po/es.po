@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-05-26 16:09+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Last-Translator: Lucas Cesa <lucascesa455@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -262,7 +262,7 @@ msgstr "Abrir el directorio seleccionado"
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
