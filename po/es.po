@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2022-02-18 07:13+0000\n"
-"Last-Translator: Jose Manuel Hernandez Farias <ing.josemhf@gmail.com>\n"
+"PO-Revision-Date: 2024-05-26 15:52+0000\n"
+"Last-Translator: Lucas Cesa <lucascesa455@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -105,10 +105,8 @@ msgid "Text"
 msgstr "Texto"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Calculadora"
+msgstr "Cálculo"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
