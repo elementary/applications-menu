@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-05-26 15:52+0000\n"
-"Last-Translator: Lucas Cesa <lucascesa455@gmail.com>\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -42,7 +42,7 @@ msgstr "Buscar aplicaciones"
 
 #: src/SlingshotView.vala:78
 msgid "Clear all"
-msgstr "Vaciar"
+msgstr "Limpiar"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -70,7 +70,7 @@ msgstr "Juegos"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr "Imágenes"
+msgstr "Gráficos"
 
 #: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
@@ -78,7 +78,7 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr "Sonido y vídeo"
+msgstr "Sonido y video"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
@@ -86,19 +86,19 @@ msgstr "Oficina"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr "Herramientas de sistema"
+msgstr "Herramientas de Sistema"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
-msgstr "Otro"
+msgstr "Otros"
 
 #: src/Backend/App.vala:88
 msgid "Run this command…"
-msgstr "Ejecutar esta orden…"
+msgstr "Ejecutar este comando…"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr "Por defecto"
+msgstr "Predeterminado"
 
 #: src/Views/SearchView.vala:43
 msgid "Text"
