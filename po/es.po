@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-05-26 16:11+0000\n"
-"Last-Translator: haggen svastian <h2gn@openmailbox.org>\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -275,7 +275,7 @@ msgstr "Papelera"
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
 msgid "Open %s in default web browser"
-msgstr "Abrir %s en el navegador predeterminado"
+msgstr "Abrir %s en el navegador web predeterminado"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
@@ -292,7 +292,7 @@ msgstr "Bloquear"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr "Bloquear este dispositivo"
+msgstr "Bloquear este equipo"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
