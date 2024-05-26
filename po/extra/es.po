@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-05-26 16:17+0000\n"
-"Last-Translator: 13AM <covs538@gmail.com>\n"
+"Last-Translator: Pr-TheQuiet <fm8q1q8yi@mozmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
 "Language: es\n"
@@ -56,7 +56,7 @@ msgstr "La configuración de búsqueda siempre busca el título completo"
 #: data/applications-menu.appdata.xml.in:51
 #: data/applications-menu.appdata.xml.in:68
 msgid "Fixes:"
-msgstr "Arreglos:"
+msgstr "Correcciones"
 
 #: data/applications-menu.appdata.xml.in:53
 msgid "Fix a regression with settings search"
