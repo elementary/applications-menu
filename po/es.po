@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2024-05-26 15:52+0000\n"
+"PO-Revision-Date: 2024-05-26 16:01+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
@@ -130,7 +130,7 @@ msgstr "Configuración"
 
 #: src/Views/SearchView.vala:62
 msgid "Application Actions"
-msgstr "Acciones de la aplicación"
+msgstr "Acciones de aplicaciones"
 
 #: src/Views/SearchView.vala:64
 msgid "Bookmarks"
@@ -138,7 +138,7 @@ msgstr "Marcadores"
 
 #: src/Views/SearchView.vala:85
 msgid "Try changing search terms."
-msgstr "Pruebe a cambiar los términos de búsqueda."
+msgstr "Intente cambiar los términos de búsqueda."
 
 #: src/Views/SearchView.vala:180
 #, c-format
@@ -148,11 +148,11 @@ msgstr "Sin resultados para «%s»"
 #: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
-msgstr "Abrir con los gráficos %s"
+msgstr "Ejecutar con el procesador gráfico %s"
 
 #: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
-msgstr "Añadir al _dock"
+msgstr "Agregar al _Dock"
 
 #: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
@@ -160,11 +160,11 @@ msgstr "Desinstalar"
 
 #: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
-msgstr "Ver en el Centro de aplicaciones"
+msgstr "Ver en el Centro de Aplicaciones"
 
 #: src/Widgets/AppContextMenu.vala:189
 msgid "Remove from _Dock"
-msgstr "Quitar del _dock"
+msgstr "Quitar del _Dock"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -180,22 +180,22 @@ msgstr "Ejecutar"
 
 #: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
-msgstr "Ejecutar una aplicación, acción o secuencia de órdenes"
+msgstr "Ejecutar una aplicación, acción o secuencia de comandos"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr "Ejecutar en un terminal"
+msgstr "Ejecutar en Terminal"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
-msgstr "Ejecutar una aplicación u orden en un terminal"
+msgstr "Ejecutar una aplicación o comando en Terminal"
 
 #. TRANSLATORS: The first %s is what the user searched for,
 #. the second will be replaced with the localized name of AppCenter
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr "Buscar %s en %s"
+msgstr "Buscar por %s en el %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
@@ -203,7 +203,7 @@ msgstr "Buscar en la tienda"
 
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
-msgstr "Pulse para copiar el resultado en el portapapeles"
+msgstr "Haga clic para copiar el resultado en el portapapeles"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -212,7 +212,7 @@ msgstr "Ejecutar «%s»"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
-msgstr "Ejecutar orden"
+msgstr "Ejecutar comando"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
