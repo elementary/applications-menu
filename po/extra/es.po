@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2024-05-26 16:18+0000\n"
-"Last-Translator: Pr-TheQuiet <fm8q1q8yi@mozmail.com>\n"
+"PO-Revision-Date: 2024-05-26 16:19+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
 "Language: es\n"
@@ -68,11 +68,11 @@ msgstr "Nuevas características:"
 
 #: data/applications-menu.appdata.xml.in:66
 msgid "Show search results for bookmarked folders"
-msgstr "Mostrar los resultados de búsqueda de las carpetas seleccionadas"
+msgstr "Se muestran los resultados de búsqueda para carpetas marcadas"
 
 #: data/applications-menu.appdata.xml.in:70
 msgid "Prevent a potential crash on startup"
-msgstr ""
+msgstr "Prevenir un posible fallo al iniciar"
 
 #: data/applications-menu.appdata.xml.in:72
 #, fuzzy
