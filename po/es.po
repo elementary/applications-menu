@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
 "PO-Revision-Date: 2024-05-26 16:09+0000\n"
-"Last-Translator: Lucas Cesa <lucascesa455@gmail.com>\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -168,11 +168,11 @@ msgstr "Quitar del _Dock"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
-msgstr "Copiar en el portapapeles"
+msgstr "Copiar al portapapeles"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:26
 msgid "Copy selection to clipboard"
-msgstr "Copiar selección en el portapapeles"
+msgstr "Copiar selección al portapapeles"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -203,7 +203,7 @@ msgstr "Buscar en la tienda"
 
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
-msgstr "Haga clic para copiar el resultado en el portapapeles"
+msgstr "Haga clic para copiar el resultado al portapapeles"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -237,7 +237,7 @@ msgstr "%g (%s a %s)"
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Click para copiar %g al portapapeles"
+msgstr "Haga clic para copiar %g al portapapeles"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
