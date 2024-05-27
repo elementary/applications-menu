@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2024-05-26 16:14+0000\n"
+"PO-Revision-Date: 2024-05-28 02:13+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
@@ -302,7 +302,7 @@ msgstr "bloquear"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
-msgstr "Cerrar sesión"
+msgstr "Cerrar la sesión"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
