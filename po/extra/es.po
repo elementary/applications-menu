@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2024-05-29 16:13+0000\n"
+"PO-Revision-Date: 2024-06-12 19:40+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -72,7 +72,7 @@ msgstr "Se muestran los resultados de búsqueda para carpetas marcadas"
 
 #: data/applications-menu.appdata.xml.in:70
 msgid "Prevent a potential crash on startup"
-msgstr "Se corrigió una posible falla al iniciar"
+msgstr "Se corrigió una posible falla grave al iniciar"
 
 #: data/applications-menu.appdata.xml.in:72
 msgid "Minor updates:"
