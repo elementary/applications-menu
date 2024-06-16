@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2022-10-09 05:15+0000\n"
+"PO-Revision-Date: 2024-06-16 15:16+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -156,7 +156,7 @@ msgstr "Åpne med %s-grafikk"
 
 #: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
-msgstr "Legg til _dokken"
+msgstr "Legg til i _dokken"
 
 #: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
@@ -241,10 +241,9 @@ msgid "%g (%s to %s)"
 msgstr "%g (%s til %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
-#, fuzzy, c-format
-#| msgid "Click to copy result to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Klikk for å kopiere resultatet til utklippstavlen"
+msgstr "Klikk for å kopiere %g til utklippstavlen"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
