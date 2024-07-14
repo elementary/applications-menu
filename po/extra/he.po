@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:05+0000\n"
-"PO-Revision-Date: 2022-11-23 10:41+0000\n"
+"PO-Revision-Date: 2024-07-14 09:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/he/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/applications-menu.appdata.xml.in:6
 msgid "Applications Menu"
@@ -39,7 +39,7 @@ msgstr "שיפורים:"
 #: data/applications-menu.appdata.xml.in:57
 #: data/applications-menu.appdata.xml.in:74
 msgid "Updated translations"
-msgstr "עודכנו התרגומים"
+msgstr "תרגומים עודכנו"
 
 #: data/applications-menu.appdata.xml.in:24
 msgid "New Features:"
