@@ -61,15 +61,16 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
     }
 
-    private uint _current_page_number = 0;
-    public uint current_page_number {
+    private uint _current_grid_key = 0;
+    public uint current_grid_key {
         get {
-            return _current_page_number;
+            return _current_grid_key;
         }
 
         set {
-            _current_page_number = value.clamp (0, paginator.n_pages);
-            var grid = grids.@get (_current_page_number);
+            // Clamp to valid values for keyboard navigation
+            _current_grid_key = value.clamp (1, paginator.n_pages);
+            var grid = grids.@get (_current_grid_key);
             if (grid == null) {
                 return;
             }
@@ -111,34 +112,35 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
 
         grids.clear ();
-        current_page_number = 0;
-        var row_index = 0;
-        var col_index = 0;
-        add_new_grid (); // Increments current_page_number
+        _current_grid_key = 0; // Avoids clamp
+        add_new_grid (); // Increments current_grid_key to 1
 
+        // Where to insert new app button
+        var next_row_index = 0;
+        var next_col_index = 0;
 
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
             var app_button = new Widgets.AppButton (app);
             app_button.app_launched.connect (() => app_launched ());
 
-            if (col_index == page.columns) {
-                col_index = 0;
-                row_index++;
+            if (next_col_index == page.columns) {
+                next_col_index = 0;
+                next_row_index++;
             }
 
-            if (row_index == page.rows) {
+            if (next_row_index == page.rows) {
                 add_new_grid ();
-                row_index = 0;
-                col_index = 0;
+                next_row_index = 0;
+                next_col_index = 0;
             }
 
-            current_grid.attach (app_button, (int)col_index, (int)row_index);
-            col_index++;
+            current_grid.attach (app_button, (int)next_col_index, (int)next_row_index);
+            next_col_index++;
         }
 
         show_all ();
         // Show first page after populating the carousel
-        current_page_number = 1;
+        current_grid_key = 1;
     }
 
     private void add_new_grid () {
@@ -160,8 +162,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
 
         paginator.add (current_grid);
-        current_page_number = current_page_number + 1;
-        grids.set (current_page_number, current_grid);
+        current_grid_key = current_grid_key + 1;
+        grids.set (current_grid_key, current_grid);
     }
 
 
@@ -180,26 +182,26 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public void go_to_next () {
-        current_page_number++;
+        current_grid_key++;
     }
 
     public void go_to_previous () {
-        current_page_number--;
+        current_grid_key--;
     }
 
     public void go_to_last () {
-        current_page_number = paginator.n_pages;
+        current_grid_key = paginator.n_pages;
     }
 
     public void go_to_number (int number) {
-        current_page_number = number;
+        current_grid_key = number;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
         switch (event.keyval) {
             case Gdk.Key.Home:
             case Gdk.Key.KP_Home:
-                current_page_number = 1;
+                current_grid_key = 1;
                 return Gdk.EVENT_STOP;
 
             case Gdk.Key.Left:
@@ -242,9 +244,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     private void move_left (Gdk.EventKey event) {
         if ((event.state & Gdk.ModifierType.SHIFT_MASK) > 0) {
-            current_page_number--;
-        } else if (focused_column == 1 && current_page_number > 1) {
-            current_page_number--;
+            current_grid_key--;
+        } else if (focused_column == 1 && current_grid_key > 1) {
+            current_grid_key--;
             focused_column = page.columns;
         } else {
             focused_column--;
@@ -253,9 +255,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     private void move_right (Gdk.EventKey event) {
         if ((event.state & Gdk.ModifierType.SHIFT_MASK) > 0) {
-            current_page_number++;
-        } else if (focused_column == page.columns && current_page_number < paginator.n_pages) {
-            current_page_number++;
+            current_grid_key++;
+        } else if (focused_column == page.columns && current_grid_key < paginator.n_pages) {
+            current_grid_key++;
             focused_column = 1;
         } else {
             focused_column++;
