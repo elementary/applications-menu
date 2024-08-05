@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2019 elementary, Inc. <contact@elementary.io> -->
+<!-- Copyright 2019-2024 elementary, Inc. <contact@elementary.io> -->
 <component type="addon">
   <id>io.elementary.wingpanel.applications-menu</id>
+  <translation type="gettext">slingshot</translation>
   <extends>io.elementary.wingpanel</extends>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
+
+  <icon type="stock">preferences-desktop-applications</icon>
   <name>Applications Menu</name>
   <summary>Open and search for apps</summary>
 
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot-dark.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="bugtracker">https://github.com/elementary/applications-menu/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://github.com/elementary/applications-menu/discussions/categories/q-a</url>
+  <url type="homepage">https://elementary.io/</url>
+  <url type="translate">https://l10n.elementary.io/projects/wingpanel/applications-menu/</url>
+
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
+  <project_group>elementary</project_group>
+  <update_contact>contact_at_elementary.io</update_contact>
+
   <releases>
+    <release version="8.0.0" date="2024-18-07" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/applications-menu/issues/498">Incorrectly named instant answer</issue>
+        <issue url="https://github.com/elementary/applications-menu/issues/566">Searching "next" shows calculated 0 as result</issue>
+      </issues>
+    </release>
+
     <release version="2.11.1" date="2022-12-11" urgency="medium">
       <description>
         <p>Improvements:</p>
@@ -59,40 +99,6 @@
       </description>
     </release>
 
-    <release version="2.10.0" date="2021-11-23" urgency="medium">
-      <description>
-        <p>New features:</p>
-        <ul>
-          <li>Show search results for bookmarked folders</li>
-        </ul>
-        <p>Fixes:</p>
-        <ul>
-          <li>Prevent a potential crash on startup</li>
-        </ul>
-        <p>Minor updates:</p>
-        <ul>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
+    <release version="2.10.0" date="2021-11-23" urgency="medium" />
   </releases>
-
-  <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot-dark.png</image>
-    </screenshot>
-  </screenshots>
-  <developer_name>elementary, Inc.</developer_name>
-  <url type="homepage">https://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/applications-menu/issues</url>
-  <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/applications-menu</url>
-  <url type="translate">https://l10n.elementary.io/projects/wingpanel/applications-menu/</url>
-  <update_contact>contact_AT_elementary.io</update_contact>
-  <metadata_license>CC0-1.0</metadata_license>
-  <project_group>elementary</project_group>
-  <project_license>GPL-3.0+</project_license>
 </component>

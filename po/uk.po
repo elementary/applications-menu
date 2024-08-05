@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2023-03-11 12:25+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
@@ -146,26 +146,26 @@ msgstr "Спробуйте змінити пошукові терміни."
 msgid "No Results for “%s”"
 msgstr "Результати для «%s» відсутні"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Відкрити за допомогою графічного процесора %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Вилучити з _доку"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Додати в д_ок"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Видалити"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "Переглянути в центрі застосунків"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Вилучити з _доку"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -202,32 +202,7 @@ msgstr "Шукати %s у %s"
 msgid "Search the app store"
 msgstr "Шукати у центрі застосунків"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Центр застосунків"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Шукати застосунки"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Центр застосунків не встановлено"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Калькулятор"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Обчислення простих виразів."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "Програму bc не встановлено"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Клацніть, щоб скопіювати результат у буфер обміну"
 
@@ -239,10 +214,6 @@ msgstr "Виконати «%s»"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Виконати команду"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Пошук та виконання довільних команд."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -258,67 +229,47 @@ msgstr "у кубі"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Конвертер"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Конвертація між одиницями виміру."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s в %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "Клацніть, щоб скопіювати %g у буфер обміну"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Пошук та запуск застосунків на вашому комп’ютері."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Відкрити за допомогою %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Відкриває поточне виділення в %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Відкрити %s в %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr "Відкрити вибраний каталог"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Тека закладок"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Додані до закладок теки"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Домівка"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Недавні"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Смітник"
 
@@ -331,22 +282,10 @@ msgstr "Відкрити %s у веб-браузері за замовчуван
 msgid "Open this link in default browser"
 msgstr "Відкрити це посилання у веб-браузері за замовчуванням"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Посилання"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Відкрити посилання у веб-браузері за замовчуванням"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Відкрити %s налаштування"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Знайти додатки налаштувань та відкрити їх."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -432,17 +371,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "перезапустити;перезавантажити; restart;reboot"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Заблокувати сеанс або вийти з нього. Призупинити, перевести у режим сну, "
-"перезапустити або вимкнути комп'ютер."
+#~ msgid "AppCenter"
+#~ msgstr "Центр застосунків"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit не знайдено"
+#~ msgid "Search for applications"
+#~ msgstr "Шукати застосунки"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Центр застосунків не встановлено"
+
+#~ msgid "Calculator"
+#~ msgstr "Калькулятор"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Обчислення простих виразів."
+
+#~ msgid "bc is not installed"
+#~ msgstr "Програму bc не встановлено"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Пошук та виконання довільних команд."
+
+#~ msgid "Converter"
+#~ msgstr "Конвертер"
+
+#~ msgid "Convert between units."
+#~ msgstr "Конвертація між одиницями виміру."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Пошук та запуск застосунків на вашому комп’ютері."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Тека закладок"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Додані до закладок теки"
+
+#~ msgid "Link"
+#~ msgstr "Посилання"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Відкрити посилання у веб-браузері за замовчуванням"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Знайти додатки налаштувань та відкрити їх."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Заблокувати сеанс або вийти з нього. Призупинити, перевести у режим сну, "
+#~ "перезапустити або вимкнути комп'ютер."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit не знайдено"
 
 #~ msgid "Slingshot"
 #~ msgstr "Рогатка"

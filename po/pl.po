@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2023-03-11 12:25+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
@@ -146,26 +146,26 @@ msgstr "Spróbuj zmienić kryteria wyszukiwania."
 msgid "No Results for “%s”"
 msgstr "Brak wyników dla zapytania “%s”"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Otwórz przy pomocy grafiki %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Usuń z _doku"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Dodaj do _doku"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Odinstaluj"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "Zobacz w AppCenter"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Usuń z _doku"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -202,32 +202,7 @@ msgstr "Szukaj %s w %s"
 msgid "Search the app store"
 msgstr "Szukaj w sklepie z programami"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Centrum programów"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Szukaj programów"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Centrum programów nie jest zainstalowane"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Kalkulator"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Obliczaj podstawowe działania."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc nie jest zainstalowane"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Kliknij, aby skopiować wynik do schowka"
 
@@ -239,10 +214,6 @@ msgstr "Uruchom '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Wykonaj polecenie"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Wyszukaj i wykonaj dowolne polecenia."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -258,67 +229,47 @@ msgstr "sześcian"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Przelicznik"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Przelicz jednostki."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s na %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "Kliknij, aby skopiować %g do schowka"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Wyszukaj i uruchom programy na tym komputerze."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Otwórz przy pomocy %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Otwiera obecnie wybrane przy pomocy %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Otwórz %s w %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr "Otwórz wybrany folder"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Folder Zakładek"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Zakładki Folderów"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Katalog domowy"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Ostatnie"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Kosz"
 
@@ -331,22 +282,10 @@ msgstr "Otwórz %s w domyślnej przeglądarce internetowej"
 msgid "Open this link in default browser"
 msgstr "Otwórz ten odnośnik w domyślnej przeglądarce"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Odnośnik"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Otwórz odnośnik w domyślnej przeglądarce"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Otwórz ustawienia %s"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Znajdź wtyczki Switchboarda i otwórz je."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -432,17 +371,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "uruchom;ponownie;restart; zrestartować;restartowanie"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Zablokuj sesję lub wyloguj ją. Wstrzymaj, zahibernuj, uruchom ponownie lub "
-"wyłącz komputer."
+#~ msgid "AppCenter"
+#~ msgstr "Centrum programów"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "Nie odnaleziono ConsoleKit"
+#~ msgid "Search for applications"
+#~ msgstr "Szukaj programów"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Centrum programów nie jest zainstalowane"
+
+#~ msgid "Calculator"
+#~ msgstr "Kalkulator"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Obliczaj podstawowe działania."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc nie jest zainstalowane"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Wyszukaj i wykonaj dowolne polecenia."
+
+#~ msgid "Converter"
+#~ msgstr "Przelicznik"
+
+#~ msgid "Convert between units."
+#~ msgstr "Przelicz jednostki."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Wyszukaj i uruchom programy na tym komputerze."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Folder Zakładek"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Zakładki Folderów"
+
+#~ msgid "Link"
+#~ msgstr "Odnośnik"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Otwórz odnośnik w domyślnej przeglądarce"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Znajdź wtyczki Switchboarda i otwórz je."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Zablokuj sesję lub wyloguj ją. Wstrzymaj, zahibernuj, uruchom ponownie "
+#~ "lub wyłącz komputer."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "Nie odnaleziono ConsoleKit"
 
 #~ msgid "Slingshot"
 #~ msgstr "Menu programów Slingshot"

@@ -114,8 +114,6 @@ namespace Synapse {
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (
                 typeof (DesktopFilePlugin),
-                "Application Search",
-                _("Search for and run applications on your computer."),
                 "system-run",
                 register_plugin
             );

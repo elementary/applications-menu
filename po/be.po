@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,28 +142,28 @@ msgstr ""
 msgid "No Results for “%s”"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Адкрыць у %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Выдаліце з _Дока"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Дадаць у _Док"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Катэгорыямі"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Выдаліце з _Дока"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -200,32 +200,7 @@ msgstr ""
 msgid "Search the app store"
 msgstr ""
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr ""
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr ""
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr ""
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Калькулятар"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Вылічыць асноўныя выразы."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc не ўсталяваны"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -239,10 +214,6 @@ msgstr "Выканаць '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Выканаць  каманду"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Знайдзіце і выканайце адвольныя каманды."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -258,68 +229,48 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "Капіяваць вылучанае ў буфэр абмену"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Шукаць прыкладанні на кампутары"
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Адкрыць у %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Адкрыць бягучы выбар, выкарыстоўваючы %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr ""
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -332,22 +283,10 @@ msgstr ""
 msgid "Open this link in default browser"
 msgstr ""
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr ""
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr ""
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Адкрыць налады %s"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Знайдзіце падключэннікамутатара і адкрыйце іх."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -435,15 +374,26 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
+#~ msgid "Calculator"
+#~ msgstr "Калькулятар"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit не знойдзены"
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Вылічыць асноўныя выразы."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc не ўсталяваны"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Знайдзіце і выканайце адвольныя каманды."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Шукаць прыкладанні на кампутары"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Знайдзіце падключэннікамутатара і адкрыйце іх."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit не знойдзены"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

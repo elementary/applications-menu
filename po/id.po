@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
@@ -145,26 +145,26 @@ msgstr "Coba ubah istilah pencarian."
 msgid "No Results for “%s”"
 msgstr "Tidak Ada Hasil untuk “%s”"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Buka dengan %s Grafis"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Hapus dari _Dok"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Tambah ke _Dok"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Hapus Pemasangan"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "Perlihatkan di AppCenter"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Hapus dari _Dok"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -201,32 +201,7 @@ msgstr "Cari %s di %s"
 msgid "Search the app store"
 msgstr "Cari toko aplikasi"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Cari aplikasi"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "AppCenter tidak terpasang"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Kalkulator"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Hitung ekspresi dasar."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc tidak terpasang"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Klik untuk menyalin hasil ke papan klip"
 
@@ -238,10 +213,6 @@ msgstr "Eksekusi '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Jalankan perintah"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Temukan dan jalankan perintah semaunya."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -257,67 +228,47 @@ msgstr "dadu"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Pengonversi"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Konversi antara unit."
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s ke %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "Klik untuk menyalin %g ke papan klip"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Cari dan jalankan aplikasi di komputer Anda."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Buka dengan %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Buka pilihan saat ini menggunakan %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Buka %s di %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr "Membuka direktori yang dipilih"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Folder Penanda"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -330,22 +281,10 @@ msgstr "Buka %s di peramban web default"
 msgid "Open this link in default browser"
 msgstr "Buka tautan ini di peramban bawaan"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Tautan"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Buka tautan di peramban bawaan"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Buka pengaturan %s"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Temukan colokan switchboard dan buka."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -433,17 +372,57 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "mulai ulang;but ulang"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Kunci sesi atau Log Keluar dari itu. Suspen, hibernasi, nyalakan ulang atau "
-"matikan komputer Anda."
+#~ msgid "AppCenter"
+#~ msgstr "AppCenter"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit tidak ditemukan"
+#~ msgid "Search for applications"
+#~ msgstr "Cari aplikasi"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "AppCenter tidak terpasang"
+
+#~ msgid "Calculator"
+#~ msgstr "Kalkulator"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Hitung ekspresi dasar."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc tidak terpasang"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Temukan dan jalankan perintah semaunya."
+
+#~ msgid "Converter"
+#~ msgstr "Pengonversi"
+
+#~ msgid "Convert between units."
+#~ msgstr "Konversi antara unit."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Cari dan jalankan aplikasi di komputer Anda."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Folder Penanda"
+
+#~ msgid "Link"
+#~ msgstr "Tautan"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Buka tautan di peramban bawaan"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Temukan colokan switchboard dan buka."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Kunci sesi atau Log Keluar dari itu. Suspen, hibernasi, nyalakan ulang "
+#~ "atau matikan komputer Anda."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit tidak ditemukan"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

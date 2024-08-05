@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/wingpanel/"
@@ -149,28 +149,28 @@ msgstr ""
 msgid "No Results for “%s”"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "%s के साथ खोलें"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "_डॉक से निकालें"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "_डॉक में जोड़े"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "श्रेणी के आधार पर देखें"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "_डॉक से निकालें"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -207,32 +207,7 @@ msgstr ""
 msgid "Search the app store"
 msgstr ""
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr ""
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr ""
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr ""
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "गणक"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "बुनियादी भाव की गणना।"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc उपस्थित नहीं है"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -246,10 +221,6 @@ msgstr "'%s' निष्पादित"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "कमांड चलाएँ"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "पता है और मनमाना आदेश पर अमल।"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -265,68 +236,48 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "चुने हुए की प्रति क्लिपबोर्ड पर बनाएँ"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "खोजें और अपने कंप्यूटर पर अनुप्रयोग चलाए"
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s के साथ खोलें"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "%s का उपयोग करके वर्तमान चयन को खोले"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr ""
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -339,22 +290,10 @@ msgstr ""
 msgid "Open this link in default browser"
 msgstr ""
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr ""
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr ""
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s सेटिंग खोले"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "स्विचबोर्ड के प्लगिन्स खोले और चयन करे"
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -442,15 +381,26 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
+#~ msgid "Calculator"
+#~ msgstr "गणक"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit नहीं पाया गया"
+#~ msgid "Calculate basic expressions."
+#~ msgstr "बुनियादी भाव की गणना।"
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc उपस्थित नहीं है"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "पता है और मनमाना आदेश पर अमल।"
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "खोजें और अपने कंप्यूटर पर अनुप्रयोग चलाए"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "स्विचबोर्ड के प्लगिन्स खोले और चयन करे"
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit नहीं पाया गया"
 
 #~ msgid "Open"
 #~ msgstr "खोलें"

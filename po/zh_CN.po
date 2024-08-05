@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -147,26 +147,26 @@ msgstr "尝试更改搜索内容。"
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "用 %s 图形打开"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "从程序坞移除"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "固定至程序坞"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "卸载"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "在应用中心内查看"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "从程序坞移除"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -203,32 +203,7 @@ msgstr "关键词 %s 搜索位置 %s"
 msgid "Search the app store"
 msgstr "搜索应用中心"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "应用中心"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "搜索应用程序"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "应用中心尚未安装"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "计算器"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "计算基本的数学表达式。"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "计算插件尚未安装"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "点击复制结果至剪贴板"
 
@@ -240,10 +215,6 @@ msgstr "执行 '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "运行命令"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "查找或执行任意命令。"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -259,67 +230,47 @@ msgstr "立方"
 msgid "%s%s %s"
 msgstr "%s%s %s"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "转换器"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "在单元间转换。"
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (从%s 到 %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "点击复制 %g 至剪贴板"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "搜索和运行应用程序。"
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "使用 %s 打开"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "使用 %s 打开选中项"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "将 %s 发送到 %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr "打开选中的目录"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "文件夹书签"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "已添加书签的文件夹"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "主目录"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "最近"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "回收站"
 
@@ -332,22 +283,10 @@ msgstr "在浏览器中打开 %s"
 msgid "Open this link in default browser"
 msgstr "用浏览器打开"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "链接"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "用浏览器打链接"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "打开 %s 设置"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "找到对应设置界面并打开。"
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -433,15 +372,58 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "重启"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr "锁定或注销会话；挂起、休眠、重启及关闭电脑。"
+#~ msgid "AppCenter"
+#~ msgstr "应用中心"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "未发现控制台"
+#~ msgid "Search for applications"
+#~ msgstr "搜索应用程序"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "应用中心尚未安装"
+
+#~ msgid "Calculator"
+#~ msgstr "计算器"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "计算基本的数学表达式。"
+
+#~ msgid "bc is not installed"
+#~ msgstr "计算插件尚未安装"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "查找或执行任意命令。"
+
+#~ msgid "Converter"
+#~ msgstr "转换器"
+
+#~ msgid "Convert between units."
+#~ msgstr "在单元间转换。"
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "搜索和运行应用程序。"
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "文件夹书签"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "已添加书签的文件夹"
+
+#~ msgid "Link"
+#~ msgstr "链接"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "用浏览器打链接"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "找到对应设置界面并打开。"
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr "锁定或注销会话；挂起、休眠、重启及关闭电脑。"
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "未发现控制台"
 
 #~ msgid "Slingshot"
 #~ msgstr "应用程序"

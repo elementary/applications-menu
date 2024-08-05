@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Hải Hồ <hochihai1997@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel/"
@@ -149,28 +149,28 @@ msgstr "Hãy thử thay đổi cụm từ tìm kiếm."
 msgid "No Results for “%s”"
 msgstr "Không có kết quả cho “%s”"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Mở với %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Xóa khỏi _Dock"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Thêm vào _Dock"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Gỡ cài đặt"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Trung tâm ứng dụng"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Xóa khỏi _Dock"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -207,32 +207,7 @@ msgstr "Tìm %s trong %s"
 msgid "Search the app store"
 msgstr "Tìm kiếm trong cửa hàng ứng dụng"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Trung tâm ứng dụng"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Tìm kiếm ứng dụng"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Trung tâm ứng dụng không được cài đặt"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Máy tính"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Tính toán các biểu thức cơ bản."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc không được cài đặt"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -246,10 +221,6 @@ msgstr "Thực thi '%s'"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Chạy lệnh"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Tìm và thực thi các lệnh tùy ý."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -265,68 +236,48 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "Sao chép mục đã chọn đến clipboard"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Tìm kiếm và chạy các ứng dụng trên máy tính của bạn."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Mở với %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Mở lựa chọn hiện tại bằng %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Mở %s trong %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr ""
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -339,23 +290,10 @@ msgstr "Mở %s trong trình duyệt mặc định"
 msgid "Open this link in default browser"
 msgstr "Mở liên kết này trong trình duyệt mặc định"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Liên kết"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Mở liên kết trong trình duyệt mặc định"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Mở cài đặt %s"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-#, fuzzy
-msgid "Find switchboard plugs and open them."
-msgstr "Tìm các bảng tổng và mở chúng."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -443,17 +381,49 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Khóa phiên hoặc Đăng xuất khỏi nó. Tạm dừng, ngủ đông, khởi động lại hoặc "
-"tắt máy tính của bạn."
+#~ msgid "AppCenter"
+#~ msgstr "Trung tâm ứng dụng"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "Không tìm thấy ConsoleKit"
+#~ msgid "Search for applications"
+#~ msgstr "Tìm kiếm ứng dụng"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Trung tâm ứng dụng không được cài đặt"
+
+#~ msgid "Calculator"
+#~ msgstr "Máy tính"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Tính toán các biểu thức cơ bản."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc không được cài đặt"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Tìm và thực thi các lệnh tùy ý."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Tìm kiếm và chạy các ứng dụng trên máy tính của bạn."
+
+#~ msgid "Link"
+#~ msgstr "Liên kết"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Mở liên kết trong trình duyệt mặc định"
+
+#, fuzzy
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Tìm các bảng tổng và mở chúng."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Khóa phiên hoặc Đăng xuất khỏi nó. Tạm dừng, ngủ đông, khởi động lại hoặc "
+#~ "tắt máy tính của bạn."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "Không tìm thấy ConsoleKit"
 
 #~ msgid "The app-menu indicator"
 #~ msgstr "Chỉ thị menu ứng dụng"

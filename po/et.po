@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
 "PO-Revision-Date: 2018-03-18 20:27+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <https://weblate.elementary.io/projects/wingpanel/"
@@ -150,28 +150,28 @@ msgstr "Proovi otsingut muuta."
 msgid "No Results for “%s”"
 msgstr "Otsing \"%s\" ei andnud tulemusi"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Ava rakendusega %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Eemalda _dokilt"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Lisa _dokile"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Eemalda"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Tarkvara keskus"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Eemalda _dokilt"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -208,32 +208,7 @@ msgstr "%s otsimine rakendusega %s"
 msgid "Search the app store"
 msgstr "Tarkvarakeskusest otsimine"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "Tarkvara keskus"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Rakenduse otsimine"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "Tarkvarakeskust pole paigaldatud"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Kalkulaator"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Põhilised arvutused."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc ei ole paigaldatud"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 #, fuzzy
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
@@ -247,10 +222,6 @@ msgstr "Käivita toiming \"%s\""
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Käsu käivitamine"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Otsi ja käivita arbitray käske."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -266,68 +237,48 @@ msgstr ""
 msgid "%s%s %s"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr ""
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr ""
-
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr ""
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
 #| msgid "Copy selection to clipboard"
 msgid "Click to copy %g to clipboard"
 msgstr "Valiku kopeerimine mällu"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Rakenduste otsimine ja käivitamine."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Ava rakendusega %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Valiku avamine rakendusega %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "%s avamine kasutades %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr ""
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr ""
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr ""
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr ""
 
@@ -340,22 +291,10 @@ msgstr "Ava %s vaikimisi kasutatavas veebibrauseris"
 msgid "Open this link in default browser"
 msgstr "Selle lingi avamine vaikimisi kasutatavas veebibrauseris"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Link"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Lingi avamine vaikimisi kasutatavas veebibrauseris"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "%s seadete avamine"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Süsteemi seadete lisade leidmine ja nende avamine."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -443,17 +382,48 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Seansi lukustamine või sellest väljalogimine. Unerežiim, taaskävitamine või "
-"masina väljalülitamine."
+#~ msgid "AppCenter"
+#~ msgstr "Tarkvara keskus"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit puudub"
+#~ msgid "Search for applications"
+#~ msgstr "Rakenduse otsimine"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "Tarkvarakeskust pole paigaldatud"
+
+#~ msgid "Calculator"
+#~ msgstr "Kalkulaator"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Põhilised arvutused."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc ei ole paigaldatud"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Otsi ja käivita arbitray käske."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Rakenduste otsimine ja käivitamine."
+
+#~ msgid "Link"
+#~ msgstr "Link"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Lingi avamine vaikimisi kasutatavas veebibrauseris"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Süsteemi seadete lisade leidmine ja nende avamine."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Seansi lukustamine või sellest väljalogimine. Unerežiim, taaskävitamine "
+#~ "või masina väljalülitamine."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit puudub"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

@@ -41,29 +41,17 @@ namespace Synapse {
         public class PluginRegistry : Object {
             public class PluginInfo {
                 public Type plugin_type;
-                public string title;
-                public string description;
-                public string icon_name;
                 public PluginRegisterFunc register_func;
                 public bool runnable;
-                public string runnable_error;
 
                 public PluginInfo (
                     Type type,
-                    string title,
-                    string desc,
-                    string icon_name,
                     PluginRegisterFunc reg_func,
-                    bool runnable,
-                    string runnable_error
+                    bool runnable
                 ) {
                     this.plugin_type = type;
-                    this.title = title;
-                    this.description = desc;
-                    this.icon_name = icon_name;
                     this.register_func = reg_func;
                     this.runnable = runnable;
-                    this.runnable_error = runnable_error;
                 }
             }
 
@@ -86,12 +74,9 @@ namespace Synapse {
 
             public void register_plugin (
                 Type plugin_type,
-                string title,
-                string description,
                 string icon_name,
                 PluginRegisterFunc reg_func,
-                bool runnable = true,
-                string runnable_error = ""
+                bool runnable = true
             ) {
                 // FIXME: how about a frickin Type -> PluginInfo map?!
                 int index = -1;
@@ -105,7 +90,7 @@ namespace Synapse {
                     plugins.remove_at (index);
                 }
 
-                var p = new PluginInfo (plugin_type, title, description, icon_name, reg_func, runnable, runnable_error);
+                var p = new PluginInfo (plugin_type, reg_func, runnable);
                 plugins.add (p);
             }
 

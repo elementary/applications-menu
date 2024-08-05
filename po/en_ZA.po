@@ -1,0 +1,367 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the slingshot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: slingshot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+msgid "Applications"
+msgstr ""
+
+#: src/Indicator.vala:139
+msgid "Open and search apps"
+msgstr ""
+
+#: src/SlingshotView.vala:60
+msgid "View as Grid"
+msgstr ""
+
+#: src/SlingshotView.vala:63
+msgid "View by Category"
+msgstr ""
+
+#: src/SlingshotView.vala:75
+msgid "Search Apps"
+msgstr ""
+
+#: src/SlingshotView.vala:78
+msgid "Clear all"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
+msgid "Internet"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
+msgid "Other"
+msgstr ""
+
+#: src/Backend/App.vala:88
+msgid "Run this command…"
+msgstr ""
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
+
+#: src/Views/SearchView.vala:43
+msgid "Text"
+msgstr ""
+
+#: src/Views/SearchView.vala:45
+msgid "Calculation"
+msgstr ""
+
+#: src/Views/SearchView.vala:49
+msgid "Files"
+msgstr ""
+
+#: src/Views/SearchView.vala:52
+msgid "Actions"
+msgstr ""
+
+#: src/Views/SearchView.vala:54
+msgid "Search"
+msgstr ""
+
+#: src/Views/SearchView.vala:56
+msgid "Contacts"
+msgstr ""
+
+#: src/Views/SearchView.vala:60
+msgid "Settings"
+msgstr ""
+
+#: src/Views/SearchView.vala:62
+msgid "Application Actions"
+msgstr ""
+
+#: src/Views/SearchView.vala:64
+msgid "Bookmarks"
+msgstr ""
+
+#: src/Views/SearchView.vala:85
+msgid "Try changing search terms."
+msgstr ""
+
+#: src/Views/SearchView.vala:180
+#, c-format
+msgid "No Results for “%s”"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:66
+#, c-format
+msgid "Open with %s Graphics"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+msgid "Add to _Dock"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:110
+msgid "Uninstall"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:115
+msgid "View in AppCenter"
+msgstr ""
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr ""
+
+#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
+msgid "Copy selection to clipboard"
+msgstr ""
+
+#: src/synapse-core/Actions/RunnerAction.vala:33
+msgid "Run"
+msgstr ""
+
+#: src/synapse-core/Actions/RunnerAction.vala:34
+msgid "Run an application, action or script"
+msgstr ""
+
+#: src/synapse-core/Actions/TerminalRunnerAction.vala:25
+msgid "Run in Terminal"
+msgstr ""
+
+#: src/synapse-core/Actions/TerminalRunnerAction.vala:26
+msgid "Run application or command in terminal"
+msgstr ""
+
+#. TRANSLATORS: The first %s is what the user searched for,
+#. the second will be replaced with the localized name of AppCenter
+#: src/synapse-plugins/appcenter-plugin.vala:48
+#, c-format
+msgid "Search for %s in %s"
+msgstr ""
+
+#: src/synapse-plugins/appcenter-plugin.vala:54
+msgid "Search the app store"
+msgstr ""
+
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
+msgid "Click to copy result to clipboard"
+msgstr ""
+
+#: src/synapse-plugins/command-plugin.vala:39
+#, c-format
+msgid "Execute '%s'"
+msgstr ""
+
+#: src/synapse-plugins/command-plugin.vala:39
+msgid "Run command"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
+msgid "squared"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
+msgid "cubed"
+msgstr ""
+
+#. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
+#: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
+#, c-format
+msgid "%s%s %s"
+msgstr ""
+
+#. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
+#, c-format
+msgid "%g (%s to %s)"
+msgstr ""
+
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#, c-format
+msgid "Click to copy %g to clipboard"
+msgstr ""
+
+#: src/synapse-plugins/desktop-file-plugin.vala:319
+#, c-format
+msgid "Open with %s"
+msgstr ""
+
+#: src/synapse-plugins/desktop-file-plugin.vala:321
+#, c-format
+msgid "Opens current selection using %s"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
+#: src/synapse-plugins/link-plugin.vala:44
+#, c-format
+msgid "Open %s in %s"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
+msgid "Open the selected directory"
+msgstr ""
+
+#. Check for Special Directories
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
+msgid "Home"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
+msgid "Recent"
+msgstr ""
+
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
+msgid "Trash"
+msgstr ""
+
+#: src/synapse-plugins/link-plugin.vala:39
+#, c-format
+msgid "Open %s in default web browser"
+msgstr ""
+
+#: src/synapse-plugins/link-plugin.vala:50
+msgid "Open this link in default browser"
+msgstr ""
+
+#: src/synapse-plugins/switchboard-plugin.vala:49
+#, c-format
+msgid "Open %s settings"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:110
+msgid "Lock"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:111
+msgid "Lock this device"
+msgstr ""
+
+#. ; seperated list of keywords
+#: src/synapse-plugins/system-managment.vala:114
+msgctxt "system_management_action_keyword"
+msgid "lock"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:143
+msgid "Log Out"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:144
+msgid "Close all open applications and quit"
+msgstr ""
+
+#. ; seperated list of keywords
+#: src/synapse-plugins/system-managment.vala:147
+msgctxt "system_management_action_keyword"
+msgid "logout"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:176
+msgid "Suspend"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:177
+msgid "Put your computer into suspend mode"
+msgstr ""
+
+#. ; seperated list of keywords
+#: src/synapse-plugins/system-managment.vala:180
+msgctxt "system_management_action_keyword"
+msgid "suspend"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:265
+msgid "Hibernate"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:266
+msgid "Put your computer into hibernation mode"
+msgstr ""
+
+#. ; seperated list of keywords
+#: src/synapse-plugins/system-managment.vala:269
+msgctxt "system_management_action_keyword"
+msgid "hibernate"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:353
+msgid "Shut Down"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:354
+msgid "Turn your computer off"
+msgstr ""
+
+#. ; seperated list of keywords
+#: src/synapse-plugins/system-managment.vala:357
+msgctxt "system_management_action_keyword"
+msgid "shutdown;turn off"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:429
+msgid "Restart"
+msgstr ""
+
+#: src/synapse-plugins/system-managment.vala:430
+msgid "Restart your computer"
+msgstr ""
+
+#. ; seperated list of keywords
+#: src/synapse-plugins/system-managment.vala:433
+msgctxt "system_management_action_keyword"
+msgid "restart;reboot"
+msgstr ""

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
-"PO-Revision-Date: 2023-03-11 12:25+0000\n"
+"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"PO-Revision-Date: 2024-02-14 03:04+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ru/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:82 src/Views/SearchView.vala:47
@@ -27,15 +27,15 @@ msgstr "Приложения"
 
 #: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "Открыть и искать приложения"
+msgstr "Запуск и поиск приложений"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr "В виде таблицы"
+msgstr "Сетка"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
-msgstr "В виде категорий"
+msgstr "Категории"
 
 #: src/SlingshotView.vala:75
 msgid "Search Apps"
@@ -91,7 +91,7 @@ msgstr "Системные инструменты"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
-msgstr "Прочие"
+msgstr "Прочее"
 
 #: src/Backend/App.vala:88
 msgid "Run this command…"
@@ -146,26 +146,26 @@ msgstr "Попробуйте изменить запрос."
 msgid "No Results for “%s”"
 msgstr "Нет результатов по запросу «%s»"
 
-#: src/Widgets/AppContextMenu.vala:80
+#: src/Widgets/AppContextMenu.vala:66
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Открыть с графикой %s"
 
-#: src/Widgets/AppContextMenu.vala:112
-msgid "Remove from _Dock"
-msgstr "Убрать из _Дока"
-
-#: src/Widgets/AppContextMenu.vala:114
+#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
 msgid "Add to _Dock"
 msgstr "Добавить в _Док"
 
-#: src/Widgets/AppContextMenu.vala:128
+#: src/Widgets/AppContextMenu.vala:110
 msgid "Uninstall"
 msgstr "Удалить"
 
-#: src/Widgets/AppContextMenu.vala:133
+#: src/Widgets/AppContextMenu.vala:115
 msgid "View in AppCenter"
 msgstr "Открыть в AppCenter"
+
+#: src/Widgets/AppContextMenu.vala:189
+msgid "Remove from _Dock"
+msgstr "Убрать из _Дока"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -202,32 +202,7 @@ msgstr "Поиск %s в %s"
 msgid "Search the app store"
 msgstr "Поиск в магазине приложений"
 
-#: src/synapse-plugins/appcenter-plugin.vala:88
-msgid "AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-plugins/appcenter-plugin.vala:89
-msgid "Search for applications"
-msgstr "Поиск приложений"
-
-#: src/synapse-plugins/appcenter-plugin.vala:93
-msgid "AppCenter is not installed"
-msgstr "AppCenter не установлен"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:49
-msgid "Calculator"
-msgstr "Калькулятор"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:50
-msgid "Calculate basic expressions."
-msgstr "Вычислить основные выражения."
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:54
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:51
-msgid "bc is not installed"
-msgstr "bc не установлено"
-
-#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:77
+#: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
 msgid "Click to copy result to clipboard"
 msgstr "Нажмите, чтобы скопировать результат в буфер обмена"
 
@@ -239,10 +214,6 @@ msgstr "Выполнить «%s»"
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
 msgstr "Выполнить команду"
-
-#: src/synapse-plugins/command-plugin.vala:60
-msgid "Find and execute arbitrary commands."
-msgstr "Найти и выполнить произвольную команду."
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
@@ -256,69 +227,49 @@ msgstr "в кубе"
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr "%s%s%s"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:46
-msgid "Converter"
-msgstr "Конвертер"
-
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:47
-msgid "Convert between units."
-msgstr "Конвертируйте единицы."
+msgstr "%s%s %s"
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
 msgstr "%g (%s в %s)"
 
-#: src/synapse-plugins/converter-plugin/converter-plugin.vala:76
+#: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
 msgid "Click to copy %g to clipboard"
 msgstr "Нажмите, чтобы скопировать %g в буфер обмена"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:118
-msgid "Search for and run applications on your computer."
-msgstr "Найти и запустить приложения на этом компьютере."
-
-#: src/synapse-plugins/desktop-file-plugin.vala:321
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Открыть в %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:323
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Открыть выделенное с помощью %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:84
+#: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
 #, c-format
 msgid "Open %s in %s"
 msgstr "Открыть %s в %s"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:88
+#: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
 msgstr "Открыть выбранную директорию"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:200
-msgid "Folder Bookmarks"
-msgstr "Закладки"
-
-#: src/synapse-plugins/file-bookmarks-plugin.vala:201
-msgid "Bookmarked Folders"
-msgstr "Закладки"
-
 #. Check for Special Directories
-#: src/synapse-plugins/file-bookmarks-plugin.vala:219
+#: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
 msgstr "Home"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:223
+#: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
 msgstr "Недавние"
 
-#: src/synapse-plugins/file-bookmarks-plugin.vala:227
+#: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
 msgstr "Корзина"
 
@@ -331,22 +282,10 @@ msgstr "Открыть %s в браузере по умолчанию"
 msgid "Open this link in default browser"
 msgstr "Открыть эту ссылку в браузере по умолчанию"
 
-#: src/synapse-plugins/link-plugin.vala:72
-msgid "Link"
-msgstr "Ссылка"
-
-#: src/synapse-plugins/link-plugin.vala:73
-msgid "Open link in default browser"
-msgstr "Открыть ссылку в браузере по умолчанию"
-
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
 msgstr "Открыть настройки %s"
-
-#: src/synapse-plugins/switchboard-plugin.vala:70
-msgid "Find switchboard plugs and open them."
-msgstr "Найти плагины Switchboard и открыть их."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -432,17 +371,60 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;перезагрузка;перезагрузить"
 
-#: src/synapse-plugins/system-managment.vala:507
-msgid ""
-"Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown "
-"your computer."
-msgstr ""
-"Заблокируйте сеанс или выйдите из него. Усыпите, перезагрузите или выключите "
-"ваш компьютер."
+#~ msgid "AppCenter"
+#~ msgstr "AppCenter"
 
-#: src/synapse-plugins/system-managment.vala:512
-msgid "ConsoleKit wasn't found"
-msgstr "ConsoleKit не найден"
+#~ msgid "Search for applications"
+#~ msgstr "Поиск приложений"
+
+#~ msgid "AppCenter is not installed"
+#~ msgstr "AppCenter не установлен"
+
+#~ msgid "Calculator"
+#~ msgstr "Калькулятор"
+
+#~ msgid "Calculate basic expressions."
+#~ msgstr "Вычислить основные выражения."
+
+#~ msgid "bc is not installed"
+#~ msgstr "bc не установлено"
+
+#~ msgid "Find and execute arbitrary commands."
+#~ msgstr "Найти и выполнить произвольную команду."
+
+#~ msgid "Converter"
+#~ msgstr "Конвертер"
+
+#~ msgid "Convert between units."
+#~ msgstr "Конвертируйте единицы."
+
+#~ msgid "Search for and run applications on your computer."
+#~ msgstr "Найти и запустить приложения на этом компьютере."
+
+#~ msgid "Folder Bookmarks"
+#~ msgstr "Закладки"
+
+#~ msgid "Bookmarked Folders"
+#~ msgstr "Закладки"
+
+#~ msgid "Link"
+#~ msgstr "Ссылка"
+
+#~ msgid "Open link in default browser"
+#~ msgstr "Открыть ссылку в браузере по умолчанию"
+
+#~ msgid "Find switchboard plugs and open them."
+#~ msgstr "Найти плагины Switchboard и открыть их."
+
+#~ msgid ""
+#~ "Lock the session or Log Out from it. Suspend, hibernate, restart or "
+#~ "shutdown your computer."
+#~ msgstr ""
+#~ "Заблокируйте сеанс или выйдите из него. Усыпите, перезагрузите или "
+#~ "выключите ваш компьютер."
+
+#~ msgid "ConsoleKit wasn't found"
+#~ msgstr "ConsoleKit не найден"
 
 #~ msgid "Slingshot"
 #~ msgstr "Slingshot"

@@ -503,13 +503,10 @@ namespace Synapse {
         static void register_plugin () {
             DataSink.PluginRegistry.get_default ().register_plugin (
                 typeof (SystemManagementPlugin),
-                "System Management",
-                _("Lock the session or Log Out from it. Suspend, hibernate, restart or shutdown your computer."),
                 "system-restart",
                 register_plugin,
                 DBusService.get_default ().service_is_available (SystemdObject.UNIQUE_NAME) ||
-                DBusService.get_default ().service_is_available (ConsoleKitObject.UNIQUE_NAME),
-                _("ConsoleKit wasn't found")
+                DBusService.get_default ().service_is_available (ConsoleKitObject.UNIQUE_NAME)
             );
         }
 

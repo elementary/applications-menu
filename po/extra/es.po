@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 10:57+0000\n"
-"PO-Revision-Date: 2020-05-02 12:10+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"POT-Creation-Date: 2024-07-18 21:43+0000\n"
+"PO-Revision-Date: 2024-06-16 15:16+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/es/>\n"
 "Language: es\n"
@@ -17,74 +17,65 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 5.5.5\n"
 
-#: data/applications-menu.appdata.xml.in:6
+#: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
-msgstr "Menú de aplicaciones"
+msgstr "Menú de Aplicaciones"
 
-#: data/applications-menu.appdata.xml.in:7
+#: data/applications-menu.metainfo.xml.in:13
 msgid "Open and search for apps"
 msgstr "Abra y busque aplicaciones"
 
-#: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:28
-#: data/applications-menu.appdata.xml.in:42
-#: data/applications-menu.appdata.xml.in:55
-#, fuzzy
-#| msgid "Performance improvements"
+#: data/applications-menu.metainfo.xml.in:39
+#: data/applications-menu.metainfo.xml.in:52
+#: data/applications-menu.metainfo.xml.in:68
+#: data/applications-menu.metainfo.xml.in:82
+#: data/applications-menu.metainfo.xml.in:95
 msgid "Improvements:"
-msgstr "Mejoras de rendimiento"
+msgstr "Mejoras:"
 
-#: data/applications-menu.appdata.xml.in:14
-#: data/applications-menu.appdata.xml.in:30
-#: data/applications-menu.appdata.xml.in:57
-#: data/applications-menu.appdata.xml.in:74
+#: data/applications-menu.metainfo.xml.in:41
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:70
+#: data/applications-menu.metainfo.xml.in:97
 msgid "Updated translations"
 msgstr "Traducciones actualizadas"
 
-#: data/applications-menu.appdata.xml.in:24
+#: data/applications-menu.metainfo.xml.in:64
 msgid "New Features:"
-msgstr ""
+msgstr "Nuevas características:"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.metainfo.xml.in:66
 msgid "Convert between units of measurement"
-msgstr ""
+msgstr "Se puede convertir entre unidades de medida"
 
-#: data/applications-menu.appdata.xml.in:44
+#: data/applications-menu.metainfo.xml.in:84
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "La configuración de búsqueda siempre busca el título completo"
 
-#: data/applications-menu.appdata.xml.in:51
-#: data/applications-menu.appdata.xml.in:68
+#: data/applications-menu.metainfo.xml.in:91
 msgid "Fixes:"
-msgstr ""
+msgstr "Correcciones:"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.metainfo.xml.in:93
 msgid "Fix a regression with settings search"
-msgstr ""
+msgstr "Corregida una regresión con la búsqueda de configuraciones"
 
-#: data/applications-menu.appdata.xml.in:64
-msgid "New features:"
-msgstr ""
+#~ msgid "New features:"
+#~ msgstr "Nuevas características:"
 
-#: data/applications-menu.appdata.xml.in:66
-msgid "Show search results for bookmarked folders"
-msgstr ""
+#~ msgid "Show search results for bookmarked folders"
+#~ msgstr "Se muestran los resultados de búsqueda para carpetas marcadas"
 
-#: data/applications-menu.appdata.xml.in:70
-msgid "Prevent a potential crash on startup"
-msgstr ""
+#~ msgid "Prevent a potential crash on startup"
+#~ msgstr "Se corrigió una posible falla grave al iniciar"
 
-#: data/applications-menu.appdata.xml.in:72
-#, fuzzy
-#| msgid "Minor updates"
-msgid "Minor updates:"
-msgstr "Actualizaciones menores"
+#~ msgid "Minor updates:"
+#~ msgstr "Actualizaciones menores:"
 
-#: data/applications-menu.appdata.xml.in:88
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "Performance improvements"
 #~ msgstr "Mejoras de rendimiento"
