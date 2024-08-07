@@ -1,7 +1,7 @@
 project(
   'slingshot',
   'vala', 'c',
-  version : '2.11.1',
+  version : '8.0.0',
   meson_version: '>=0.58.0'
 )
 

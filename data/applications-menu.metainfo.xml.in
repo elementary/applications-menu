@@ -14,10 +14,10 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/8.0.0/data/screenshot.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/elementary/applications-menu/master/data/screenshot-dark.png</image>
+      <image>https://raw.githubusercontent.com/elementary/applications-menu/8.0.0/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -34,7 +34,7 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
-    <release version="8.0.0" date="2024-18-07" urgency="medium">
+    <release version="8.0.0" date="2024-07-18" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
