@@ -42,8 +42,10 @@
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/applications-menu/issues/388">Grid view: erratic keyboard navigation</issue>
         <issue url="https://github.com/elementary/applications-menu/issues/498">Incorrectly named instant answer</issue>
         <issue url="https://github.com/elementary/applications-menu/issues/566">Searching "next" shows calculated 0 as result</issue>
+        <issue url="https://github.com/elementary/applications-menu/issues/584">Focused item does not change after changing pages using <Shift><Arrow> or <PgUp>/<PgDn> or Home</issue>
       </issues>
     </release>
 
