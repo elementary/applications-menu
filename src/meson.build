@@ -89,7 +89,7 @@ dependencies = [
     posix_dep,
 ]
 
-wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
+wingpanel_indicatorsdir = wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
 
 c_args = [
     '-DHANDY_USE_UNSTABLE_API',
