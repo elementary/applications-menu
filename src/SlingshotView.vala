@@ -16,11 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if HAS_PLANK
-public class Slingshot.SlingshotView : Gtk.Grid, Plank.UnityClient {
-#else
-public class Slingshot.SlingshotView : Gtk.Grid {
-#endif
+public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
@@ -168,7 +164,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         });
     }
 
-#if HAS_PLANK
     public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
         if (!is_retry) {
             // Wait to let further update requests come in to catch the case where one application
@@ -197,7 +192,6 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             app.remove_launcher_entry (sender_name);
         }
     }
-#endif
 
     private void search_entry_activated () {
         if (modality == Modality.SEARCH_VIEW) {
