@@ -20,15 +20,15 @@ asresources = gnome.compile_resources(
 )
 
 prefix = get_option('prefix')
-datadir = join_paths(prefix, get_option('datadir'))
-libdir = join_paths(prefix, get_option('libdir'))
+datadir = prefix / get_option('datadir')
+libdir = prefix / get_option('libdir')
 
 add_project_arguments(
-    '-DPKGDATADIR="@0@"'.format(join_paths(get_option('prefix'), get_option('libdir'), 'wingpanel')),
+    '-DPKGDATADIR="@0@"'.format(libdir / 'wingpanel'),
     language: 'c'
 )
 
-pluginsdir = join_paths(prefix, get_option('libdir'), 'io.elementary.wingpanel.applications-menu')
+pluginsdir = libdir / 'io.elementary.wingpanel.applications-menu'
 add_project_arguments(
     '-DPLUGINSDIR="@0@"'.format(pluginsdir),
     language: 'c'
@@ -56,7 +56,7 @@ if get_option('with-zeitgeist')
 endif
 
 config_data = configuration_data()
-config_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+config_data.set_quoted('LOCALEDIR', prefix / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 config_file = configure_file(
     input: 'src/Config.vala.in',
