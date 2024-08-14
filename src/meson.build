@@ -18,6 +18,7 @@ sources = [
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
     'Backend/SwitcherooControl.vala',
+    'Backend/Unity.vala',
 
     'Views/CategoryView.vala',
     'Views/GridView.vala',
@@ -83,7 +84,6 @@ dependencies = [
     json_glib_dep,
     zeitgeist_dep,
     libsoup_dep,
-    plank_dep,
     wingpanel_dep,
     libhandy_dep,
     posix_dep,

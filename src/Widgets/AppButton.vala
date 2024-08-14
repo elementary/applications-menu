@@ -21,9 +21,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     public Backend.App app { get; construct; }
 
-#if HAS_PLANK
-    private static Plank.DBusClient plank_client;
-#endif
     private static Slingshot.AppContextMenu menu;
 
     private const int ICON_SIZE = 64;
@@ -33,13 +30,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     public AppButton (Backend.App app) {
         Object (app: app);
-    }
-
-    static construct {
-#if HAS_PLANK
-        Plank.Paths.initialize ("plank", PKGDATADIR);
-        plank_client = Plank.DBusClient.get_instance ();
-#endif
     }
 
     construct {
@@ -77,9 +67,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         var overlay = new Gtk.Overlay ();
         overlay.halign = Gtk.Align.CENTER;
         overlay.add (image);
-#if HAS_PLANK
         overlay.add_overlay (badge);
-#endif
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
@@ -123,12 +111,10 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
         });
 
-#if HAS_PLANK
         app.notify["current-count"].connect (update_badge_count);
         app.notify["count-visible"].connect (update_badge_visibility);
 
         update_badge_count ();
-#endif
 
         app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
     }
@@ -137,7 +123,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         app.launch ();
         app_launched ();
     }
-#if HAS_PLANK
+
     private void update_badge_count () {
         badge.label = "%lld".printf (app.current_count);
         update_badge_visibility ();
@@ -152,7 +138,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             badge.hide ();
         }
     }
-#endif
 
     private bool create_context_menu (Gdk.Event e) {
         menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);

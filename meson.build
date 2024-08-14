@@ -48,11 +48,6 @@ libhandy_dep = dependency('libhandy-1', version: '>= 0.83.0')
 wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
-plank_dep = dependency('plank', required: false)
-if plank_dep.version().version_compare('>=0.10.9')
-    add_project_arguments('--define=HAS_PLANK', language: 'vala')
-endif
-
 zeitgeist_dep = []
 
 if get_option('with-zeitgeist')

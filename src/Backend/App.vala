@@ -41,11 +41,9 @@ public class Slingshot.Backend.App : Object {
     public bool prefers_default_gpu { get; private set; default = false; }
     public AppType app_type { get; private set; default = AppType.APP; }
 
-#if HAS_PLANK
     private string? unity_sender_name = null;
     public bool count_visible { get; private set; default = false; }
     public int64 current_count { get; private set; default = 0; }
-#endif
 
     public Synapse.Match? match { get; private set; default = null; }
     public Synapse.Match? target { get; private set; default = null; }
@@ -165,7 +163,6 @@ public class Slingshot.Backend.App : Object {
         return true;
     }
 
-#if HAS_PLANK
     public void perform_unity_update (string sender_name, VariantIter prop_iter) {
         unity_sender_name = sender_name;
 
@@ -187,5 +184,4 @@ public class Slingshot.Backend.App : Object {
             current_count = 0;
         }
     }
-#endif
 }

@@ -16,11 +16,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if HAS_PLANK
-[CCode (cname = "PKGDATADIR")]
-private extern const string PKGDATADIR;
-#endif
-
 public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "org.pantheon.desktop.gala.keybindings";
     private const string GALA_BEHAVIOR_SCHEMA = "org.pantheon.desktop.gala.behavior";
@@ -62,10 +57,8 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         if (view == null) {
             view = new SlingshotView ();
 
-#if HAS_PLANK
-            unowned Plank.Unity client = Plank.Unity.get_default ();
-            client.add_client (view);
-#endif
+            unowned var unity_client = Unity.get_default ();
+            unity_client.add_client (view);
 
             view.close_indicator.connect (on_close_indicator);
 
