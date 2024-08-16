@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 21:43+0000\n"
-"PO-Revision-Date: 2023-09-14 19:08+0000\n"
+"PO-Revision-Date: 2024-08-17 10:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
@@ -32,10 +32,8 @@ msgstr "Open en zoek apps"
 #: data/applications-menu.metainfo.xml.in:68
 #: data/applications-menu.metainfo.xml.in:82
 #: data/applications-menu.metainfo.xml.in:95
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Prestatieverbeteringen"
+msgstr "Verbeteringen:"
 
 #: data/applications-menu.metainfo.xml.in:41
 #: data/applications-menu.metainfo.xml.in:54
