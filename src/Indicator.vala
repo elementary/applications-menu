@@ -17,7 +17,7 @@
  */
 
 public class Slingshot.Indicator : Wingpanel.Indicator {
-    private const string KEYBINDING_SCHEMA = "org.pantheon.desktop.gala.keybindings";
+    private const string KEYBINDING_SCHEMA = "io.elementary.desktop.wm.keybindings";
     private const string GALA_BEHAVIOR_SCHEMA = "org.pantheon.desktop.gala.behavior";
 
     private DBusService? dbus_service = null;
