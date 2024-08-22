@@ -16,7 +16,6 @@ You'll need the following dependencies:
 * libjson-glib-dev
 * libsoup2.4-dev
 * libswitchboard-3-dev
-* libunity-dev
 * libwingpanel-dev
 * libzeitgeist-2.0-dev
 * meson
