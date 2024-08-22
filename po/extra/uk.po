@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 04:05+0000\n"
+"POT-Creation-Date: 2024-07-18 21:43+0000\n"
 "PO-Revision-Date: 2022-11-23 10:41+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,64 +20,60 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14.2\n"
 
-#: data/applications-menu.appdata.xml.in:6
+#: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
 msgstr "Меню застосунків"
 
-#: data/applications-menu.appdata.xml.in:7
+#: data/applications-menu.metainfo.xml.in:13
 msgid "Open and search for apps"
 msgstr "Відкривайте та знаходьте застосунки"
 
-#: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:28
-#: data/applications-menu.appdata.xml.in:42
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.metainfo.xml.in:39
+#: data/applications-menu.metainfo.xml.in:52
+#: data/applications-menu.metainfo.xml.in:68
+#: data/applications-menu.metainfo.xml.in:82
+#: data/applications-menu.metainfo.xml.in:95
 msgid "Improvements:"
 msgstr "Удосконалення:"
 
-#: data/applications-menu.appdata.xml.in:14
-#: data/applications-menu.appdata.xml.in:30
-#: data/applications-menu.appdata.xml.in:57
-#: data/applications-menu.appdata.xml.in:74
+#: data/applications-menu.metainfo.xml.in:41
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:70
+#: data/applications-menu.metainfo.xml.in:97
 msgid "Updated translations"
 msgstr "Оновлено переклади"
 
-#: data/applications-menu.appdata.xml.in:24
+#: data/applications-menu.metainfo.xml.in:64
 msgid "New Features:"
 msgstr "Нові функції:"
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.metainfo.xml.in:66
 msgid "Convert between units of measurement"
 msgstr "Конвертація між одиницями виміру"
 
-#: data/applications-menu.appdata.xml.in:44
+#: data/applications-menu.metainfo.xml.in:84
 msgid "Searching settings always searches the full title"
 msgstr "Налаштування пошуку завжди шукати повну назву"
 
-#: data/applications-menu.appdata.xml.in:51
-#: data/applications-menu.appdata.xml.in:68
+#: data/applications-menu.metainfo.xml.in:91
 msgid "Fixes:"
 msgstr "Виправлення:"
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.metainfo.xml.in:93
 msgid "Fix a regression with settings search"
 msgstr "Виправлено регрес пошуку налаштувань"
 
-#: data/applications-menu.appdata.xml.in:64
-msgid "New features:"
-msgstr "Нові функції:"
+#~ msgid "New features:"
+#~ msgstr "Нові функції:"
 
-#: data/applications-menu.appdata.xml.in:66
-msgid "Show search results for bookmarked folders"
-msgstr "Показ результатів пошуку у теках із закладок"
+#~ msgid "Show search results for bookmarked folders"
+#~ msgstr "Показ результатів пошуку у теках із закладок"
 
-#: data/applications-menu.appdata.xml.in:70
-msgid "Prevent a potential crash on startup"
-msgstr "Запобігання можливих збоїв під час запуску"
+#~ msgid "Prevent a potential crash on startup"
+#~ msgstr "Запобігання можливих збоїв під час запуску"
 
-#: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates:"
-msgstr "Незначні оновлення:"
+#~ msgid "Minor updates:"
+#~ msgstr "Незначні оновлення:"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

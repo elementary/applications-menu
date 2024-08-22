@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 04:05+0000\n"
+"POT-Creation-Date: 2024-07-18 21:43+0000\n"
 "PO-Revision-Date: 2019-11-07 13:26-0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,65 +17,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/applications-menu.appdata.xml.in:6
+#: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
 msgstr "Applications Menu"
 
-#: data/applications-menu.appdata.xml.in:7
+#: data/applications-menu.metainfo.xml.in:13
 msgid "Open and search for apps"
 msgstr "Open and search for apps"
 
-#: data/applications-menu.appdata.xml.in:12
-#: data/applications-menu.appdata.xml.in:28
-#: data/applications-menu.appdata.xml.in:42
-#: data/applications-menu.appdata.xml.in:55
+#: data/applications-menu.metainfo.xml.in:39
+#: data/applications-menu.metainfo.xml.in:52
+#: data/applications-menu.metainfo.xml.in:68
+#: data/applications-menu.metainfo.xml.in:82
+#: data/applications-menu.metainfo.xml.in:95
 #, fuzzy
 #| msgid "Performance improvements"
 msgid "Improvements:"
 msgstr "Performance improvements"
 
-#: data/applications-menu.appdata.xml.in:14
-#: data/applications-menu.appdata.xml.in:30
-#: data/applications-menu.appdata.xml.in:57
-#: data/applications-menu.appdata.xml.in:74
+#: data/applications-menu.metainfo.xml.in:41
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:70
+#: data/applications-menu.metainfo.xml.in:97
 msgid "Updated translations"
 msgstr "Updated translations"
 
-#: data/applications-menu.appdata.xml.in:24
+#: data/applications-menu.metainfo.xml.in:64
 msgid "New Features:"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:26
+#: data/applications-menu.metainfo.xml.in:66
 msgid "Convert between units of measurement"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:44
+#: data/applications-menu.metainfo.xml.in:84
 msgid "Searching settings always searches the full title"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:51
-#: data/applications-menu.appdata.xml.in:68
+#: data/applications-menu.metainfo.xml.in:91
 msgid "Fixes:"
 msgstr ""
 
-#: data/applications-menu.appdata.xml.in:53
+#: data/applications-menu.metainfo.xml.in:93
 msgid "Fix a regression with settings search"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:64
-msgid "New features:"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:66
-msgid "Show search results for bookmarked folders"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:70
-msgid "Prevent a potential crash on startup"
-msgstr ""
-
-#: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates:"
 msgstr ""
 
 #~ msgid "elementary, Inc."

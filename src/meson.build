@@ -18,6 +18,7 @@ sources = [
     'Backend/RelevancyService.vala',
     'Backend/SynapseSearch.vala',
     'Backend/SwitcherooControl.vala',
+    'Backend/Unity.vala',
 
     'Views/CategoryView.vala',
     'Views/GridView.vala',
@@ -83,13 +84,12 @@ dependencies = [
     json_glib_dep,
     zeitgeist_dep,
     libsoup_dep,
-    plank_dep,
     wingpanel_dep,
     libhandy_dep,
     posix_dep,
 ]
 
-wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
+wingpanel_indicatorsdir = wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
 
 c_args = [
     '-DHANDY_USE_UNSTABLE_API',
