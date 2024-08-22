@@ -1,3 +1,9 @@
+slingshot-launcher (8.0.0) jammy; urgency=medium
+
+  * Release 8.0.0 (#600)
+
+ -- elementary, Inc. <builds@elementary.io>  Thu, 22 Aug 2024 19:12:56 +0000
+
 slingshot-launcher (2.11.1) jammy; urgency=medium
 
   * New upstream release
