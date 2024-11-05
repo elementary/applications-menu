@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 21:43+0000\n"
-"PO-Revision-Date: 2021-03-12 20:18+0000\n"
-"Last-Translator: Leonardo <leonardo@elementary.io>\n"
+"PO-Revision-Date: 2024-11-05 19:01+0000\n"
+"Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
@@ -46,23 +46,23 @@ msgstr "Traduções atualizadas"
 
 #: data/applications-menu.metainfo.xml.in:64
 msgid "New Features:"
-msgstr ""
+msgstr "Novos Recursos:"
 
 #: data/applications-menu.metainfo.xml.in:66
 msgid "Convert between units of measurement"
-msgstr ""
+msgstr "Converter entre unidades de medida"
 
 #: data/applications-menu.metainfo.xml.in:84
 msgid "Searching settings always searches the full title"
-msgstr ""
+msgstr "A pesquisa nas configurações sempre pesquisa o título completo"
 
 #: data/applications-menu.metainfo.xml.in:91
 msgid "Fixes:"
-msgstr ""
+msgstr "Correções:"
 
 #: data/applications-menu.metainfo.xml.in:93
 msgid "Fix a regression with settings search"
-msgstr ""
+msgstr "Corrija uma regressão com pesquisa de configurações"
 
 #, fuzzy
 #~| msgid "Minor updates"
