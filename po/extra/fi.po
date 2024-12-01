@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-18 21:43+0000\n"
-"PO-Revision-Date: 2021-10-08 17:10+0000\n"
+"PO-Revision-Date: 2024-12-02 15:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/fi/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
@@ -32,10 +32,8 @@ msgstr "Avaa ja etsi sovelluksia"
 #: data/applications-menu.metainfo.xml.in:68
 #: data/applications-menu.metainfo.xml.in:82
 #: data/applications-menu.metainfo.xml.in:95
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Parannuksia suorituskykyyn"
+msgstr "Parannukset:"
 
 #: data/applications-menu.metainfo.xml.in:41
 #: data/applications-menu.metainfo.xml.in:54
@@ -45,10 +43,8 @@ msgid "Updated translations"
 msgstr "Päivitetyt kielikäännökset"
 
 #: data/applications-menu.metainfo.xml.in:64
-#, fuzzy
-#| msgid "New features"
 msgid "New Features:"
-msgstr "Uudet ominaisuudet"
+msgstr "Uudet ominaisuudet:"
 
 #: data/applications-menu.metainfo.xml.in:66
 msgid "Convert between units of measurement"
@@ -60,7 +56,7 @@ msgstr ""
 
 #: data/applications-menu.metainfo.xml.in:91
 msgid "Fixes:"
-msgstr ""
+msgstr "Korjaukset:"
 
 #: data/applications-menu.metainfo.xml.in:93
 msgid "Fix a regression with settings search"
