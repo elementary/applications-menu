@@ -31,8 +31,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private Gtk.MenuItem appcenter_menuitem;
     private Gtk.CheckMenuItem dock_menuitem;
 
-    private bool docked = false;
-
     public AppContextMenu (string desktop_id, string desktop_path) {
         Object (
             desktop_id: desktop_id,
@@ -94,20 +92,19 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             }
 
             has_system_item = true;
-            
-            // Try to get docked state
-            try {
-                docked = desktop_id in dock.dbus.list_launchers ();
-            } catch (GLib.Error e) {
-                critical (e.message);
-            }
-            
+
             // Create menu item
             dock_menuitem = new Gtk.CheckMenuItem () {
                 label = _("Add to _Dock"),
-                use_underline = true,
-                active = docked
+                use_underline = true
             };
+            
+            // Try to get docked state
+            try {
+                dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
 
             // Connect and display
             dock_menuitem.activate.connect (dock_menuitem_activate);
@@ -205,8 +202,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private void on_dock_dbus_changed (Backend.Dock dock) {
         if (dock.dbus != null) {
             try {
-                docked = desktop_id in dock.dbus.list_launchers ();
-                dock_menuitem.set_active(docked);
+                dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
             } catch (GLib.Error e) {
                 critical (e.message);
             }
@@ -220,10 +216,11 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             return;
         }
         try {
-            if (docked) {
-                dock.dbus.remove_launcher (desktop_id);
-            } else {
+            if (dock_menuitem.active) {
                 dock.dbus.add_launcher (desktop_id);
+
+            } else {
+                dock.dbus.remove_launcher (desktop_id);
             }
         } catch (GLib.Error e) {
             critical (e.message);
