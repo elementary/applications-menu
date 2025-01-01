@@ -85,34 +85,41 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         }
 
         // "Add To Dock" item. We check first whether dock is there
-        var dock = Backend.Dock.get_default ();
-        if (dock.dbus != null) {
+        if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
             }
-
             has_system_item = true;
 
             // Create menu item
             dock_menuitem = new Gtk.CheckMenuItem () {
                 label = _("Add to _Dock"),
-                use_underline = true
+                use_underline = true,
+                sensitive = false
             };
 
-            // Try to get docked state
-            try {
-                dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
-            } catch (GLib.Error e) {
-                critical (e.message);
+            // Dock is enabled on dbus
+            var dock = Backend.Dock.get_default ();
+            if (dock.dbus != null) {
+                dock_menuitem.sensitive = true;
+
+                // Try to get docked state
+                try {
+                    dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
+                } catch (GLib.Error e) {
+                    critical (e.message);
+                }
+
+                // Connect and display
+                dock_menuitem.activate.connect (dock_menuitem_activate);
+
+                // Listen to changes
+                dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
+                on_dock_dbus_changed (dock);
             }
 
-            // Connect and display
-            dock_menuitem.activate.connect (dock_menuitem_activate);
             add (dock_menuitem);
 
-            // Listen to changes
-            dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
-            on_dock_dbus_changed (dock);
         }
 
         // App management capabilities. Depends on 
