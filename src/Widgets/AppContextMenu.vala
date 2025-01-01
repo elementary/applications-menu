@@ -98,7 +98,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                 label = _("Add to _Dock"),
                 use_underline = true
             };
-            
+
             // Try to get docked state
             try {
                 dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
