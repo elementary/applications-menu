@@ -29,7 +29,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
     private Gtk.MenuItem uninstall_menuitem;
     private Gtk.MenuItem appcenter_menuitem;
-    private Gtk.MenuItem dock_menuitem;
+    private Gtk.CheckMenuItem dock_menuitem;
 
     private bool docked = false;
 
@@ -40,11 +40,14 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         );
     }
 
+    // Context menu construction
     construct {
-        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
 
+        // GPU Switching capabilities ("Switcheroo")
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
         app_info = new DesktopAppInfo (desktop_id);
 
+        // Quick app actions
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -58,6 +61,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             });
         }
 
+        // GPU Switching capabilities ("Switcheroo")
         if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
             bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
 
@@ -82,6 +86,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             });
         }
 
+        // "Add To Dock" item. We check first whether dock is there
         var dock = Backend.Dock.get_default ();
         if (dock.dbus != null) {
             if (get_children ().length () > 0) {
@@ -89,19 +94,31 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             }
 
             has_system_item = true;
-
-            dock_menuitem = new Gtk.MenuItem () {
+            
+            // Try to get docked state
+            try {
+                docked = desktop_id in dock.dbus.list_launchers ();
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+            
+            // Create menu item
+            dock_menuitem = new Gtk.CheckMenuItem () {
                 label = _("Add to _Dock"),
-                use_underline = true
+                use_underline = true,
+                active = docked
             };
-            dock_menuitem.activate.connect (dock_menuitem_activate);
 
+            // Connect and display
+            dock_menuitem.activate.connect (dock_menuitem_activate);
             add (dock_menuitem);
 
+            // Listen to changes
             dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
             on_dock_dbus_changed (dock);
         }
 
+        // App management capabilities. Depends on 
         if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
             if (!has_system_item && get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
@@ -128,6 +145,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         show_all ();
     }
 
+    // When user clicks on Uninstall
     private void uninstall_menuitem_activate () {
         var appcenter = Backend.AppCenter.get_default ();
         if (appcenter.dbus == null || appstream_comp_id == "") {
@@ -145,6 +163,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         });
     }
 
+    // When user clicks on "Open in appcenter"
     private void open_in_appcenter () {
         AppInfo.launch_default_for_uri_async.begin ("appstream://" + appstream_comp_id, null, null, (obj, res) => {
             try {
@@ -165,6 +184,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         });
     }
 
+    // React to changes in app status
     private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
         if (appcenter.dbus != null) {
             try {
@@ -181,27 +201,24 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         appcenter_menuitem.sensitive = appstream_comp_id != "";
     }
 
+    // React to changes in pinned dock list to keep the item in sync
     private void on_dock_dbus_changed (Backend.Dock dock) {
         if (dock.dbus != null) {
             try {
                 docked = desktop_id in dock.dbus.list_launchers ();
-                if (docked) {
-                    dock_menuitem.label = _("Remove from _Dock");
-                } else {
-                    dock_menuitem.label = _("Add to _Dock");
-                }
+                dock_menuitem.set_active(docked);
             } catch (GLib.Error e) {
                 critical (e.message);
             }
         }
     }
 
+    // When user clicks on "Add to Dock" (Checked or not)
     private void dock_menuitem_activate () {
         var dock = Backend.Dock.get_default ();
         if (dock.dbus == null) {
             return;
         }
-
         try {
             if (docked) {
                 dock.dbus.remove_launcher (desktop_id);
