@@ -19,6 +19,7 @@
 public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "io.elementary.desktop.wm.keybindings";
     private const string GALA_BEHAVIOR_SCHEMA = "io.elementary.desktop.wm.behavior";
+    private const string DOCK_SCHEMA = "io.elementary.dock";
 
     private DBusService? dbus_service = null;
     private Gtk.Grid? indicator_grid = null;
@@ -26,6 +27,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
     private static GLib.Settings? keybinding_settings;
     private static GLib.Settings? gala_behavior_settings;
+    private static GLib.Settings? dock_settings;
 
     public Indicator () {
         Object (code_name: Wingpanel.Indicator.APP_LAUNCHER);
@@ -38,6 +40,10 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
         if (SettingsSchemaSource.get_default ().lookup (GALA_BEHAVIOR_SCHEMA, true) != null) {
             gala_behavior_settings = new GLib.Settings (GALA_BEHAVIOR_SCHEMA);
+        }
+
+        if (SettingsSchemaSource.get_default ().lookup (DOCK_SCHEMA, true) != null) {
+            dock_settings = new GLib.Settings (DOCK_SCHEMA);
         }
     }
 
@@ -97,6 +103,15 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
                     }
                 });
             }
+
+            if (dock_settings != null) {
+                dock_settings.changed.connect ((key) => {
+                    if (key == "launchers") {
+                        update_favorites (dock_settings.get_strv ("launchers"));
+                    }
+                });
+                update_favorites (dock_settings.get_strv ("launchers"));
+            }
         }
 
         visible = true;
@@ -130,6 +145,12 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         }
 
         indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
+    }
+
+    private void update_favorites (string[] dock_launchers) {
+       if (view != null) {
+           view.update_favorites (dock_launchers);
+       }
     }
 }
 

@@ -25,6 +25,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private string? drag_uri = null;
     private NavListBox category_switcher;
     private NavListBox listbox;
+    private Gee.ArrayList<string> favorites;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
@@ -35,6 +36,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     construct {
         set_visible_window (false);
         hexpand = true;
+
+        favorites = new Gee.ArrayList<string> ();
 
         category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
@@ -204,14 +207,25 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
             listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
         }
-        listbox.show_all ();
+
 
         // Fill the sidebar
         unowned Gtk.ListBoxRow? new_selected = null;
-        // Add Favorite category
-        var row = new CategoryRow (_("Favorites"));
-        category_switcher.add (row);
-        int n_rows = 1;
+        CategoryRow row;
+        int n_rows = 0;
+        if (favorites.size > 0) {
+            // Add Favorite category
+            row = new CategoryRow (_("Favorites"));
+            category_switcher.add (row);
+            n_rows++;
+
+            foreach (string app_id in favorites) {
+                listbox.add (new AppListRow (app_id, ""));
+            }
+        }
+
+        listbox.show_all ();
+
         foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
                 continue;
@@ -237,10 +251,24 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         category_switcher.select_row (new_selected ?? category_switcher.get_row_at_index (0));
     }
 
+    public void update_favorites (string[] favs) {
+        favorites.clear ();
+        foreach (string s in favs) {
+            favorites.add (s);
+        }
+
+        listbox.invalidate_filter ();
+        setup_sidebar ();
+    }
+
     [CCode (instance_pos = -1)]
     private bool filter_function (AppListRow row) {
         unowned CategoryRow category_row = (CategoryRow) category_switcher.get_selected_row ();
         if (category_row != null) {
+            if (category_row.cat_name == _("Favorites")) {
+                return favorites.contains (row.app_id);
+            }
+
             foreach (Backend.App app in view.app_system.apps[category_row.cat_name]) {
                 if (row.app_id == app.desktop_id) {
                     return true;
