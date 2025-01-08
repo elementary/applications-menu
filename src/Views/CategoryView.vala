@@ -208,15 +208,28 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         // Fill the sidebar
         unowned Gtk.ListBoxRow? new_selected = null;
+        // Add Favorite category
+        var row = new CategoryRow (_("Favorites"));
+        category_switcher.add (row);
+        int n_rows = 1;
         foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
                 continue;
             }
 
-            var row = new CategoryRow (cat_name);
+            row = new CategoryRow (cat_name);
             category_switcher.add (row);
-            if (old_selected != null && old_selected.cat_name == cat_name) {
-                new_selected = row;
+            n_rows++;
+        }
+
+
+        if (old_selected != null) {
+            for (int i = 0; i < n_rows; i++) {
+                row = (CategoryRow) category_switcher.get_row_at_index (i);
+                if (old_selected.cat_name == row.cat_name) {
+                    new_selected = row;
+                    break;
+                }
             }
         }
 
