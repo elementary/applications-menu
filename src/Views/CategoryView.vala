@@ -19,6 +19,7 @@
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public signal void search_focus_request ();
 
+    public const string FAVORITE_CATEGORY = N_("Favorites");
     public SlingshotView view { get; construct; }
 
     private bool dragging = false;
@@ -208,23 +209,18 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
         }
 
+        listbox.show_all ();
 
         // Fill the sidebar
         unowned Gtk.ListBoxRow? new_selected = null;
         CategoryRow row;
+        // Add Favorites category if there are any pinned apps
         int n_rows = 0;
         if (favorites.size > 0) {
-            // Add Favorite category
-            row = new CategoryRow (_("Favorites"));
+            row = new CategoryRow (_(FAVORITE_CATEGORY));
             category_switcher.add (row);
             n_rows++;
-
-            foreach (string app_id in favorites) {
-                listbox.add (new AppListRow (app_id, ""));
-            }
         }
-
-        listbox.show_all ();
 
         foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
@@ -235,7 +231,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             category_switcher.add (row);
             n_rows++;
         }
-
 
         if (old_selected != null) {
             for (int i = 0; i < n_rows; i++) {
@@ -253,19 +248,19 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public void update_favorites (string[] favs) {
         favorites.clear ();
-        foreach (string s in favs) {
-            favorites.add (s);
+        foreach (string app_id in favs) {
+            favorites.add (app_id);
         }
 
-        listbox.invalidate_filter ();
         setup_sidebar ();
+        listbox.invalidate_filter ();
     }
 
     [CCode (instance_pos = -1)]
     private bool filter_function (AppListRow row) {
         unowned CategoryRow category_row = (CategoryRow) category_switcher.get_selected_row ();
         if (category_row != null) {
-            if (category_row.cat_name == _("Favorites")) {
+            if (category_row.cat_name == _(FAVORITE_CATEGORY)) {
                 return favorites.contains (row.app_id);
             }
 

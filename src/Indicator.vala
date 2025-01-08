@@ -71,6 +71,15 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             if (dbus_service == null) {
                 dbus_service = new DBusService (view);
             }
+
+            if (dock_settings != null) {
+                dock_settings.changed.connect ((key) => {
+                    if (key == "launchers") {
+                        view.update_favorites (dock_settings.get_strv ("launchers"));
+                    }
+                });
+                view.update_favorites (dock_settings.get_strv ("launchers"));
+            }
         }
 
         return view;
@@ -102,15 +111,6 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
                         update_tooltip ();
                     }
                 });
-            }
-
-            if (dock_settings != null) {
-                dock_settings.changed.connect ((key) => {
-                    if (key == "launchers") {
-                        update_favorites (dock_settings.get_strv ("launchers"));
-                    }
-                });
-                update_favorites (dock_settings.get_strv ("launchers"));
             }
         }
 
@@ -145,12 +145,6 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         }
 
         indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
-    }
-
-    private void update_favorites (string[] dock_launchers) {
-       if (view != null) {
-           view.update_favorites (dock_launchers);
-       }
     }
 }
 
