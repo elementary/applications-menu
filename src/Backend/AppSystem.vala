@@ -220,4 +220,30 @@ public class Slingshot.Backend.AppSystem : Object {
     private static int sort_apps_by_name (Backend.App a, Backend.App b) {
         return a.name.collate (b.name);
     }
+
+#if HAVE_ZEITGEIST
+    public SList<App> get_apps_by_popularity () {
+        var sorted_apps = new SList<App> ();
+        string[] sorted_apps_execs = {};
+
+        foreach (Gee.ArrayList<App> category in apps.values) {
+            foreach (App app in category) {
+                if (!(app.exec in sorted_apps_execs)) {
+                    sorted_apps.insert_sorted_with_data (app, sort_apps_by_popularity);
+                    sorted_apps_execs += app.exec;
+                }
+            }
+        }
+
+        return sorted_apps;
+    }
+
+    private static int sort_apps_by_popularity (Backend.App a, Backend.App b) {
+        if (a.popularity == b.popularity) {
+            return a.name.collate (b.name);
+        }
+
+        return a.popularity > b.popularity ? 1 : -1;
+    }
+#endif
 }

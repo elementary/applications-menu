@@ -26,8 +26,6 @@ public class Slingshot.Backend.RelevancyService : Object {
     private bool has_datahub_gio_module = false;
     private bool refreshing = false;
 
-    private const float MULTIPLIER = 65535.0f;
-
     public signal void update_complete ();
 
     public RelevancyService () {
@@ -104,7 +102,6 @@ public class Slingshot.Backend.RelevancyService : Object {
 
         var ptr_arr = new GLib.GenericArray<Zeitgeist.Event> ();
         ptr_arr.add (event);
-
         try {
             Zeitgeist.ResultSet rs = yield zg_log.find_events (tr, ptr_arr,
                     Zeitgeist.StorageState.ANY,
@@ -119,13 +116,15 @@ public class Slingshot.Backend.RelevancyService : Object {
             // Zeitgeist (0.6) doesn't have any stats API, so let's approximate
 
             foreach (Zeitgeist.Event e in rs) {
+                if (e.num_subjects () <= 0) {
+                    continue;
+                }
 
-                if (e.num_subjects () <= 0) continue;
                 Zeitgeist.Subject s = e.get_subject (0);
 
-                float power = index / (size * 2) + 0.5f; // linearly <0.5, 1.0>
-                float relevancy = 1.0f / Math.powf (index + 1, power);
-                app_popularity[s.uri] = (int)(relevancy * MULTIPLIER);
+                // Simply use the (inverted) order of the app in the result set as 
+                // measure of popularity for now.  Suffices for the applications menu.
+                app_popularity[s.uri] = (int) (size - index);
                 index++;
             }
             update_complete ();
@@ -137,15 +136,15 @@ public class Slingshot.Backend.RelevancyService : Object {
         }
     }
 
-    public float get_app_popularity (string desktop_id) {
-
+    public int get_app_popularity (string desktop_id) {
         var id = "application://" + desktop_id;
 
         if (app_popularity.has_key (id)) {
-            return app_popularity[id] / MULTIPLIER;
+            // return app_popularity[id] / MULTIPLIER;
+            return app_popularity[id];
         }
 
-        return 0.0f;
+        return 0;
     }
 
     public void app_launched (App app) {
