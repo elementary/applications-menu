@@ -19,13 +19,16 @@
 
 public class AppListRow : Gtk.ListBoxRow {
     public string app_id { get; construct; }
+    public string display_name { get; construct; }
+    public int popularity { get; construct; }
     public string desktop_path { get; construct; }
     public GLib.DesktopAppInfo app_info { get; private set; }
 
-    public AppListRow (string app_id, string desktop_path) {
+    public AppListRow (string app_id, string desktop_path, int popularity) {
         Object (
             app_id: app_id,
-            desktop_path: desktop_path
+            desktop_path: desktop_path,
+            popularity: popularity
         );
     }
 
@@ -42,7 +45,8 @@ public class AppListRow : Gtk.ListBoxRow {
         image.gicon = icon;
         image.pixel_size = 32;
 
-        var name_label = new Gtk.Label (app_info.get_display_name ());
+        display_name = app_info.get_display_name () + " " + popularity.to_string ();
+        var name_label = new Gtk.Label (display_name);
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
         name_label.xalign = 0;
 

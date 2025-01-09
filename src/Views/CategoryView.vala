@@ -19,15 +19,23 @@
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public signal void search_focus_request ();
 
-    public const string FAVORITE_CATEGORY = N_("Favorites");
+    public const string PINNED_CATEGORY = N_("Pinned");
+    public const string RECENT_CATEGORY = N_("Recent");
+    public const int N_POPULAR = 12;
+    public const double MIN_POPULARITY = 1;
+
     public SlingshotView view { get; construct; }
 
     private bool dragging = false;
     private string? drag_uri = null;
     private NavListBox category_switcher;
     private NavListBox listbox;
-    private Gee.ArrayList<string> favorites;
+    private Gee.ArrayList<string> pinned;
+    private bool show_pinned = false;
 
+#if HAVE_ZEITGEIST
+    private Gee.ArrayList<string> popular_apps;
+#endif
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
     public CategoryView (SlingshotView view) {
@@ -38,8 +46,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        favorites = new Gee.ArrayList<string> ();
-
+        pinned = new Gee.ArrayList<string> ();
+#if HAVE_ZEITGEIST
+        popular_apps = new Gee.ArrayList<string> ();
+#endif
         category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
         category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
@@ -69,7 +79,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         add (container);
 
-        category_switcher.row_selected.connect (() => {
+        category_switcher.row_selected.connect ((row) => {
+            if (((CategoryRow) row).cat_name == _(RECENT_CATEGORY)) {
+                listbox.set_sort_func ((Gtk.ListBoxSortFunc) recent_sort_func);
+            } else {
+                listbox.set_sort_func (null);
+            }
             listbox.invalidate_filter ();
         });
 
@@ -158,6 +173,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return row1.cat_name.collate (row2.cat_name);
     }
 
+    private static int recent_sort_func (AppListRow row1, AppListRow row2) {
+        if (row1.popularity == row2.popularity) {
+            return row1.display_name.collate (row2.display_name);
+        }
+
+        return row1.popularity > row2.popularity ? -1 : 1;
+    }
+
     private bool create_context_menu (Gdk.Event event) {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
@@ -206,18 +229,39 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.foreach ((app_list_row) => listbox.remove (app_list_row));
 
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
-            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
+            listbox.add (new AppListRow (app.desktop_id, app.desktop_path, app.popularity));
         }
 
+#if HAVE_ZEITGEIST
+        popular_apps.clear ();
+        var popularity = view.app_system.get_apps_by_popularity ();
+        int found = 0;
+        uint index = 0;
+        uint limit = popularity.length ();
+        while (found < N_POPULAR && index < limit) {
+            var app = popularity.nth_data (index);
+            if (app.popularity > MIN_POPULARITY) {
+                popular_apps.add (app.desktop_id);
+                found++;
+            }
+
+            index++;
+        }
+#endif
         listbox.show_all ();
 
         // Fill the sidebar
         unowned Gtk.ListBoxRow? new_selected = null;
         CategoryRow row;
-        // Add Favorites category if there are any pinned apps
+        // Add pinned category if there are any pinned apps
         int n_rows = 0;
-        if (favorites.size > 0) {
-            row = new CategoryRow (_(FAVORITE_CATEGORY));
+        if (pinned.size > 0) {
+            row = new CategoryRow (_(PINNED_CATEGORY));
+            category_switcher.add (row);
+            n_rows++;
+        }
+        if (popular_apps.size > 0) {
+            row = new CategoryRow (_(RECENT_CATEGORY));
             category_switcher.add (row);
             n_rows++;
         }
@@ -246,10 +290,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         category_switcher.select_row (new_selected ?? category_switcher.get_row_at_index (0));
     }
 
-    public void update_favorites (string[] favs) {
-        favorites.clear ();
-        foreach (string app_id in favs) {
-            favorites.add (app_id);
+    public void update_pinned (string[] pinned_apps) {
+        pinned.clear ();
+        foreach (string app_id in pinned_apps) {
+            pinned.add (app_id);
         }
 
         setup_sidebar ();
@@ -260,8 +304,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private bool filter_function (AppListRow row) {
         unowned CategoryRow category_row = (CategoryRow) category_switcher.get_selected_row ();
         if (category_row != null) {
-            if (category_row.cat_name == _(FAVORITE_CATEGORY)) {
-                return favorites.contains (row.app_id);
+            if (category_row.cat_name == _(PINNED_CATEGORY)) {
+                return pinned.contains (row.app_id);
+            }
+
+            if (category_row.cat_name == _(RECENT_CATEGORY)) {
+                return popular_apps.contains (row.app_id);
             }
 
             foreach (Backend.App app in view.app_system.apps[category_row.cat_name]) {

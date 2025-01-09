@@ -164,8 +164,8 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         });
     }
 
-    public void update_favorites (string[] favs) {
-        category_view.update_favorites (favs);
+    public void update_pinned (string[] pinned) {
+        category_view.update_pinned (pinned);
     }
 
     public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {

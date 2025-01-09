@@ -75,10 +75,10 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             if (dock_settings != null) {
                 dock_settings.changed.connect ((key) => {
                     if (key == "launchers") {
-                        view.update_favorites (dock_settings.get_strv ("launchers"));
+                        view.update_pinned (dock_settings.get_strv ("launchers"));
                     }
                 });
-                view.update_favorites (dock_settings.get_strv ("launchers"));
+                view.update_pinned (dock_settings.get_strv ("launchers"));
             }
         }
 
