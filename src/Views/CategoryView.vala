@@ -31,11 +31,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private NavListBox category_switcher;
     private NavListBox listbox;
     private Gee.ArrayList<string> pinned;
-    private bool show_pinned = false;
-
-#if HAVE_ZEITGEIST
+    private bool show_pinned = true;
     private Gee.ArrayList<string> popular_apps;
-#endif
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
     public CategoryView (SlingshotView view) {
@@ -46,9 +43,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
+        popular_apps = new Gee.ArrayList<string> ();
         pinned = new Gee.ArrayList<string> ();
 #if HAVE_ZEITGEIST
-        popular_apps = new Gee.ArrayList<string> ();
+        show_pinned = false;
 #endif
         category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
@@ -80,7 +78,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         add (container);
 
         category_switcher.row_selected.connect ((row) => {
-            if (((CategoryRow) row).cat_name == _(RECENT_CATEGORY)) {
+            if (row != null && ((CategoryRow) row).cat_name == _(RECENT_CATEGORY)) {
                 listbox.set_sort_func ((Gtk.ListBoxSortFunc) recent_sort_func);
             } else {
                 listbox.set_sort_func (null);
@@ -170,6 +168,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     private static int category_sort_func (CategoryRow row1, CategoryRow row2) {
+        if (row1.cat_name == _(RECENT_CATEGORY)) {
+            return -1;
+        }
+
+        if (row1.cat_name == _(PINNED_CATEGORY)) {
+            return row2.cat_name != _(RECENT_CATEGORY) ? -1 : 1;
+        }
+
         return row1.cat_name.collate (row2.cat_name);
     }
 
@@ -220,7 +226,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
     }
 
-    public void setup_sidebar () {
+    private CategoryRow? setup_sidebar () {
         CategoryRow? old_selected = (CategoryRow) category_switcher.get_selected_row ();
         foreach (unowned Gtk.Widget child in category_switcher.get_children ()) {
             child.destroy ();
@@ -232,37 +238,24 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             listbox.add (new AppListRow (app.desktop_id, app.desktop_path, app.popularity));
         }
 
-#if HAVE_ZEITGEIST
-        popular_apps.clear ();
-        var popularity = view.app_system.get_apps_by_popularity ();
-        int found = 0;
-        uint index = 0;
-        uint limit = popularity.length ();
-        while (found < N_POPULAR && index < limit) {
-            var app = popularity.nth_data (index);
-            if (app.popularity > MIN_POPULARITY) {
-                popular_apps.add (app.desktop_id);
-                found++;
-            }
-
-            index++;
-        }
-#endif
         listbox.show_all ();
 
         // Fill the sidebar
-        unowned Gtk.ListBoxRow? new_selected = null;
-        CategoryRow row;
-        // Add pinned category if there are any pinned apps
+        CategoryRow? new_selected = null;
+        CategoryRow? recent_row = null;
+        CategoryRow? pinned_row = null;
         int n_rows = 0;
-        if (pinned.size > 0) {
-            row = new CategoryRow (_(PINNED_CATEGORY));
-            category_switcher.add (row);
+
+        // Add pinned/recent category if there are any pinned/recent apps
+        if (popular_apps.size > 0) {
+            recent_row = new CategoryRow (_(RECENT_CATEGORY));
+            category_switcher.add (recent_row);
             n_rows++;
         }
-        if (popular_apps.size > 0) {
-            row = new CategoryRow (_(RECENT_CATEGORY));
-            category_switcher.add (row);
+
+        if (pinned.size > 0) {
+            pinned_row = new CategoryRow (_(PINNED_CATEGORY));
+            category_switcher.add (pinned_row);
             n_rows++;
         }
 
@@ -271,14 +264,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 continue;
             }
 
-            row = new CategoryRow (cat_name);
+            var row = new CategoryRow (cat_name);
             category_switcher.add (row);
             n_rows++;
         }
 
         if (old_selected != null) {
             for (int i = 0; i < n_rows; i++) {
-                row = (CategoryRow) category_switcher.get_row_at_index (i);
+                var row = (CategoryRow) category_switcher.get_row_at_index (i);
                 if (old_selected.cat_name == row.cat_name) {
                     new_selected = row;
                     break;
@@ -287,17 +280,37 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         category_switcher.show_all ();
-        category_switcher.select_row (new_selected ?? category_switcher.get_row_at_index (0));
+        return new_selected ?? (recent_row ?? pinned_row);
     }
 
-    public void update_pinned (string[] pinned_apps) {
-        pinned.clear ();
-        foreach (string app_id in pinned_apps) {
-            pinned.add (app_id);
+    public void update (string[]? pinned_apps) {
+        if (pinned_apps != null && show_pinned) {
+            pinned.clear ();
+            foreach (string app_id in pinned_apps) {
+                pinned.add (app_id);
+            }
         }
 
-        setup_sidebar ();
+#if HAVE_ZEITGEIST
+        popular_apps.clear ();
+        var popularity = view.app_system.get_apps_by_popularity ();
+        int found = 0;
+        uint index = 0;
+        uint limit = popularity.length ();
+        while (found < N_POPULAR && index < limit) {
+            var app = popularity.nth_data (index);
+            if (app.popularity >= MIN_POPULARITY) {
+                popular_apps.add (app.desktop_id);
+                found++;
+            }
+
+            index++;
+        }
+#endif
+        var selected = setup_sidebar ();
         listbox.invalidate_filter ();
+        listbox.invalidate_sort ();
+        category_switcher.select_row (selected);
     }
 
     [CCode (instance_pos = -1)]

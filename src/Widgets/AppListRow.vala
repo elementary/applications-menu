@@ -45,7 +45,7 @@ public class AppListRow : Gtk.ListBoxRow {
         image.gicon = icon;
         image.pixel_size = 32;
 
-        display_name = app_info.get_display_name () + " " + popularity.to_string ();
+        display_name = app_info.get_display_name ();
         var name_label = new Gtk.Label (display_name);
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
         name_label.xalign = 0;

@@ -159,13 +159,12 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         // Auto-update applications grid
         app_system.changed.connect (() => {
             grid_view.populate (app_system);
-
-            category_view.setup_sidebar ();
+            category_view.update (null);
         });
     }
 
-    public void update_pinned (string[] pinned) {
-        category_view.update_pinned (pinned);
+    public void update (string[] pinned) {
+        category_view.update (pinned);
     }
 
     public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
@@ -327,6 +326,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
 
     public void show_slingshot () {
         search_entry.text = "";
+        category_view.update (null);
 
     /* TODO
         set_focus (null);

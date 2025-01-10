@@ -75,12 +75,17 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             if (dock_settings != null) {
                 dock_settings.changed.connect ((key) => {
                     if (key == "launchers") {
-                        view.update_pinned (dock_settings.get_strv ("launchers"));
+                        view.update (dock_settings.get_strv ("launchers"));
                     }
                 });
-                view.update_pinned (dock_settings.get_strv ("launchers"));
             }
         }
+
+        // Wait for AppSystem to initialize
+        Idle.add (() => {
+            view.update (dock_settings != null ? dock_settings.get_strv ("launchers") : null);
+            return Source.REMOVE;
+        });
 
         return view;
     }
@@ -120,8 +125,9 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     public override void opened () {
-        if (view != null)
+        if (view != null) {
             view.show_slingshot ();
+        }
     }
 
     public override void closed () {
