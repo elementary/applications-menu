@@ -60,33 +60,6 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget? get_widget () {
-        if (view == null) {
-            view = new SlingshotView ();
-
-            unowned var unity_client = Unity.get_default ();
-            unity_client.add_client (view);
-
-            view.close_indicator.connect (on_close_indicator);
-
-            if (dbus_service == null) {
-                dbus_service = new DBusService (view);
-            }
-
-            if (dock_settings != null) {
-                dock_settings.changed.connect ((key) => {
-                    if (key == "launchers") {
-                        view.update (dock_settings.get_strv ("launchers"));
-                    }
-                });
-            }
-        }
-
-        // Wait for AppSystem to initialize
-        Idle.add (() => {
-            view.update (dock_settings != null ? dock_settings.get_strv ("launchers") : null);
-            return Source.REMOVE;
-        });
-
         return view;
     }
 
@@ -120,6 +93,35 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         }
 
         visible = true;
+
+        // Create the view now so that there is time for app popularities to initialise
+        // before the view is shown for the first time.
+        if (view == null) {
+            view = new SlingshotView ();
+
+            unowned var unity_client = Unity.get_default ();
+            unity_client.add_client (view);
+
+            view.close_indicator.connect (on_close_indicator);
+
+            if (dbus_service == null) {
+                dbus_service = new DBusService (view);
+            }
+
+            if (dock_settings != null) {
+                dock_settings.changed.connect ((key) => {
+                    if (key == "launchers") {
+                        view.update (dock_settings.get_strv ("launchers"));
+                    }
+                });
+            }
+        }
+
+        // Wait for AppSystem to initialize
+        Idle.add (() => {
+            view.update (dock_settings != null ? dock_settings.get_strv ("launchers") : null);
+            return Source.REMOVE;
+        });
 
         return indicator_grid;
     }

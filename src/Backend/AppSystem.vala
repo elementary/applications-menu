@@ -63,11 +63,17 @@ public class Slingshot.Backend.AppSystem : Object {
     private void update_app_system () {
         debug ("Updating Applications menu tree…");
 #if HAVE_ZEITGEIST
-        rl_service.refresh_popularity ();
+        rl_service.refresh_popularity.begin ();
 #endif
 
         update_categories_index ();
         changed ();
+    }
+
+    public async void update_popularities () {
+#if HAVE_ZEITGEIST
+        yield rl_service.refresh_popularity ();
+#endif
     }
 
     private void update_categories_index () {

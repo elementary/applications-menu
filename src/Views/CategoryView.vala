@@ -21,7 +21,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     public const string PINNED_CATEGORY = N_("Pinned");
     public const string RECENT_CATEGORY = N_("Recent");
-    public const int N_POPULAR = 12;
     public const double MIN_POPULARITY = 1;
 
     public SlingshotView view { get; construct; }
@@ -138,7 +137,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 var drag_item = (AppListRow) selected_row;
                 drag_uri = "file://" + drag_item.desktop_path;
                 if (drag_uri != null) {
-                    Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
+                    Gtk.drag_set_icon_gicon (ctx, drag_item.icon, 32, 32);
                 }
 
                 view.close_indicator ();
@@ -235,7 +234,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.foreach ((app_list_row) => listbox.remove (app_list_row));
 
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
-            listbox.add (new AppListRow (app.desktop_id, app.desktop_path, app.popularity));
+            listbox.add (new AppListRow (app));
         }
 
         listbox.show_all ();
@@ -245,7 +244,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         CategoryRow? recent_row = null;
         CategoryRow? pinned_row = null;
         int n_rows = 0;
-
         // Add pinned/recent category if there are any pinned/recent apps
         if (popular_apps.size > 0) {
             recent_row = new CategoryRow (_(RECENT_CATEGORY));
@@ -292,25 +290,22 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
 #if HAVE_ZEITGEIST
-        popular_apps.clear ();
-        var popularity = view.app_system.get_apps_by_popularity ();
-        int found = 0;
-        uint index = 0;
-        uint limit = popularity.length ();
-        while (found < N_POPULAR && index < limit) {
-            var app = popularity.nth_data (index);
-            if (app.popularity >= MIN_POPULARITY) {
+        view.app_system.update_popularities.begin ((obj, res) => {
+            view.app_system.update_popularities.end (res);
+            popular_apps.clear ();
+            var popularity = view.app_system.get_apps_by_popularity ();
+            popularity.@foreach ((app) => {
                 popular_apps.add (app.desktop_id);
-                found++;
-            }
-
-            index++;
-        }
+            });
+            // Any new entries will not appear until next showing, but
+            // at lease resort the existing entries.
+            listbox.invalidate_filter ();
+            listbox.invalidate_sort ();
+        });
 #endif
         var selected = setup_sidebar ();
-        listbox.invalidate_filter ();
-        listbox.invalidate_sort ();
         category_switcher.select_row (selected);
+
     }
 
     [CCode (instance_pos = -1)]

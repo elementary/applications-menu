@@ -33,10 +33,13 @@ public class Slingshot.Backend.RelevancyService : Object {
         zg_log = new Zeitgeist.Log ();
         app_popularity = new Gee.HashMap<string, int> ();
 
-        refresh_popularity ();
+        refresh_popularity.begin ();
         check_data_sources.begin ();
 
-        Timeout.add_seconds (60*30, refresh_popularity);
+        Timeout.add_seconds (60*30, () => {
+            refresh_popularity.begin ();
+            return Source.CONTINUE;
+        });
 
     }
 
@@ -62,12 +65,12 @@ public class Slingshot.Backend.RelevancyService : Object {
         }
     }
 
-    public bool refresh_popularity () {
-
-        load_application_relevancies.begin ();
+    public async bool refresh_popularity () {
+        yield load_application_relevancies ();
         return true;
 
     }
+
     private void reload_relevancies () {
 
         Idle.add_full (Priority.LOW, () => {
@@ -122,7 +125,7 @@ public class Slingshot.Backend.RelevancyService : Object {
 
                 Zeitgeist.Subject s = e.get_subject (0);
 
-                // Simply use the (inverted) order of the app in the result set as 
+                // Simply use the (inverted) order of the app in the result set as
                 // measure of popularity for now.  Suffices for the applications menu.
                 app_popularity[s.uri] = (int) (size - index);
                 index++;
