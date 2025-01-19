@@ -43,7 +43,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
         app_info = new DesktopAppInfo (desktop_id);
 
-        // Quick app actions
         foreach (unowned string _action in app_info.list_actions ()) {
             string action = _action.dup ();
             var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
@@ -81,7 +80,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             });
         }
 
-        // "Add To Dock" item. We check first whether dock is there
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
@@ -104,10 +102,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                     critical (e.message);
                 }
 
-                // Connect and display
                 dock_menuitem.activate.connect (dock_menuitem_activate);
 
-                // Listen to changes
                 dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
                 on_dock_dbus_changed (dock);
             }
@@ -116,7 +112,6 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
         }
 
-        // App management capabilities
         if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
             if (!has_system_item && get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
