@@ -39,8 +39,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     construct {
-
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
+
         app_info = new DesktopAppInfo (desktop_id);
 
         foreach (unowned string _action in app_info.list_actions ()) {
@@ -83,7 +83,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
-            }
+            };
+
             has_system_item = true;
 
             dock_menuitem = new Gtk.CheckMenuItem () {
