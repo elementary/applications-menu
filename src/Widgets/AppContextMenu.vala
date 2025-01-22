@@ -83,7 +83,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
-            };
+            }
 
             has_system_item = true;
 
