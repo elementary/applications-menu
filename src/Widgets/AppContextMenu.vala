@@ -207,6 +207,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         if (dock.dbus == null) {
             return;
         }
+
         try {
             if (dock_menuitem.active) {
                 dock.dbus.add_launcher (desktop_id);
