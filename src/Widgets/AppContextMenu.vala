@@ -87,31 +87,22 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             has_system_item = true;
 
+            var dock = Backend.Dock.get_default ();
+
             dock_menuitem = new Gtk.CheckMenuItem () {
                 label = _("Add to _Dock"),
                 use_underline = true,
                 sensitive = false
             };
 
-            var dock = Backend.Dock.get_default ();
-            if (dock.dbus != null) {
-                dock_menuitem.sensitive = true;
-
-                try {
-                    dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
-                } catch (GLib.Error e) {
-                    critical (e.message);
-                }
-
-                dock_menuitem.activate.connect (dock_menuitem_activate);
-
-                dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
-                on_dock_dbus_changed (dock);
-            }
+            dock_menuitem.activate.connect (dock_menuitem_activate);
 
             add (dock_menuitem);
 
+            dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
+            on_dock_dbus_changed (dock);
         }
+
 
         if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
             if (!has_system_item && get_children ().length () > 0) {
@@ -194,11 +185,15 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     private void on_dock_dbus_changed (Backend.Dock dock) {
         if (dock.dbus != null) {
+            dock_menuitem.sensitive = true;
+
             try {
                 dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
             } catch (GLib.Error e) {
                 critical (e.message);
             }
+        } else {
+            dock_menuitem.sensitive = false;
         }
     }
 
