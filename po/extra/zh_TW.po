@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:43+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2024-09-05 16:16+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -28,36 +28,36 @@ msgid "Open and search for apps"
 msgstr "開啟並搜尋應用程式"
 
 #: data/applications-menu.metainfo.xml.in:39
-#: data/applications-menu.metainfo.xml.in:52
-#: data/applications-menu.metainfo.xml.in:68
-#: data/applications-menu.metainfo.xml.in:82
-#: data/applications-menu.metainfo.xml.in:95
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:70
+#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:97
 msgid "Improvements:"
 msgstr "改善項目："
 
 #: data/applications-menu.metainfo.xml.in:41
-#: data/applications-menu.metainfo.xml.in:54
-#: data/applications-menu.metainfo.xml.in:70
-#: data/applications-menu.metainfo.xml.in:97
+#: data/applications-menu.metainfo.xml.in:56
+#: data/applications-menu.metainfo.xml.in:72
+#: data/applications-menu.metainfo.xml.in:99
 msgid "Updated translations"
 msgstr "翻譯更新"
 
-#: data/applications-menu.metainfo.xml.in:64
+#: data/applications-menu.metainfo.xml.in:66
 msgid "New Features:"
 msgstr "新功能："
 
-#: data/applications-menu.metainfo.xml.in:66
+#: data/applications-menu.metainfo.xml.in:68
 msgid "Convert between units of measurement"
 msgstr "新增單位轉換功能"
 
-#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:86
 msgid "Searching settings always searches the full title"
 msgstr "搜尋設定值時總是搜尋完整標題"
 
-#: data/applications-menu.metainfo.xml.in:91
+#: data/applications-menu.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr "修正："
 
-#: data/applications-menu.metainfo.xml.in:93
+#: data/applications-menu.metainfo.xml.in:95
 msgid "Fix a regression with settings search"
 msgstr "修正設定值搜尋的功能退化"

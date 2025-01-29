@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:43+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2023-01-23 17:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,37 +28,37 @@ msgid "Open and search for apps"
 msgstr "Abrir e pesquisar aplicações"
 
 #: data/applications-menu.metainfo.xml.in:39
-#: data/applications-menu.metainfo.xml.in:52
-#: data/applications-menu.metainfo.xml.in:68
-#: data/applications-menu.metainfo.xml.in:82
-#: data/applications-menu.metainfo.xml.in:95
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:70
+#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:97
 msgid "Improvements:"
 msgstr "Melhorias:"
 
 #: data/applications-menu.metainfo.xml.in:41
-#: data/applications-menu.metainfo.xml.in:54
-#: data/applications-menu.metainfo.xml.in:70
-#: data/applications-menu.metainfo.xml.in:97
+#: data/applications-menu.metainfo.xml.in:56
+#: data/applications-menu.metainfo.xml.in:72
+#: data/applications-menu.metainfo.xml.in:99
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
-#: data/applications-menu.metainfo.xml.in:64
+#: data/applications-menu.metainfo.xml.in:66
 msgid "New Features:"
 msgstr "Novas funcionalidades:"
 
-#: data/applications-menu.metainfo.xml.in:66
+#: data/applications-menu.metainfo.xml.in:68
 msgid "Convert between units of measurement"
 msgstr "Converter entre unidades de medida"
 
-#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:86
 msgid "Searching settings always searches the full title"
 msgstr "As definições de pesquisa pesquisam sempre o título completo"
 
-#: data/applications-menu.metainfo.xml.in:91
+#: data/applications-menu.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr "Correções:"
 
-#: data/applications-menu.metainfo.xml.in:93
+#: data/applications-menu.metainfo.xml.in:95
 msgid "Fix a regression with settings search"
 msgstr "Corrige uma regressão com pesquisa de definições"
 

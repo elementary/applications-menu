@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:43+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2020-10-11 18:14+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,39 +28,39 @@ msgid "Open and search for apps"
 msgstr "अ‍ॅप्स उघडा आणि शोधा"
 
 #: data/applications-menu.metainfo.xml.in:39
-#: data/applications-menu.metainfo.xml.in:52
-#: data/applications-menu.metainfo.xml.in:68
-#: data/applications-menu.metainfo.xml.in:82
-#: data/applications-menu.metainfo.xml.in:95
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:70
+#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:97
 #, fuzzy
 #| msgid "Performance improvements"
 msgid "Improvements:"
 msgstr "कामगिरी सुधारणा"
 
 #: data/applications-menu.metainfo.xml.in:41
-#: data/applications-menu.metainfo.xml.in:54
-#: data/applications-menu.metainfo.xml.in:70
-#: data/applications-menu.metainfo.xml.in:97
+#: data/applications-menu.metainfo.xml.in:56
+#: data/applications-menu.metainfo.xml.in:72
+#: data/applications-menu.metainfo.xml.in:99
 msgid "Updated translations"
 msgstr "अद्ययावत भाषांतर"
 
-#: data/applications-menu.metainfo.xml.in:64
+#: data/applications-menu.metainfo.xml.in:66
 msgid "New Features:"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:66
+#: data/applications-menu.metainfo.xml.in:68
 msgid "Convert between units of measurement"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:86
 msgid "Searching settings always searches the full title"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:91
+#: data/applications-menu.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:93
+#: data/applications-menu.metainfo.xml.in:95
 msgid "Fix a regression with settings search"
 msgstr ""
 
