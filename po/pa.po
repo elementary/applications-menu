@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2021-08-01 17:35+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/wingpanel/"
@@ -13,27 +13,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "ਐਪਾਂ"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr "ਐਪਾਂ ਨੂੰ ਖੋਲ੍ਹੋ ਅਤੇ ਖੋਜੋ"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "ਇੱਕ ਜਾਲ਼ ਵਜੋਂ ਵੇਖੋ"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "ਵਰਗ ਮੁਤਾਬਕ ਵੇਖੋ"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "ਐਪਾਂ ਖੋਜੋ"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr "ਸਾਰਾ ਸਾਫ਼ ਕਰੋ"
 
@@ -85,7 +85,7 @@ msgstr ""
 msgid "Other"
 msgstr "ਹੋਰ"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "ਇਹ ਕਮਾਂਡ ਚਲਾਓ…"
 
@@ -140,25 +140,21 @@ msgstr "ਖੋਜ ਸ਼ਬਦ ਬਦਲ ਕੇ ਕੋਸ਼ਿਸ਼ ਕਰੋ�
 msgid "No Results for “%s”"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, c-format
 msgid "Open with %s Graphics"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 msgid "View in AppCenter"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
 msgstr ""
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2017-03-01 16:05+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Aplikacije"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "Prikaz ikona"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "Prikaz kategorija"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "Pretraži aplikacije"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "Other"
 msgstr "Ostalo"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "Pokreni naredbu..."
 
@@ -147,28 +147,24 @@ msgstr "Pokušaj promijeniti izraz pretrage."
 msgid "No Results for “%s”"
 msgstr "Nema rezultata za “%s”"
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Otvori s %s"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "Dodaj na _dok"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Centar aplikacija"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "Ukloni s _doka"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -378,6 +374,9 @@ msgstr "Ponovno pokrenite svoje računalo"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "Ukloni s _doka"
 
 #~ msgid "AppCenter"
 #~ msgstr "Centar aplikacija"

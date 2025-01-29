@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2023-10-23 05:10+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,27 +15,27 @@ msgstr ""
 "X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "აპლიკაციები"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr "გახსნა და აპების ძებნა"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "როგორც ბადის ჩვენება"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "კატეგორიებად ჩვენება"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "აპების ძებნა"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr "ყველას გასუფთავება"
 
@@ -87,7 +87,7 @@ msgstr "სისტემური ხელსაწყოები"
 msgid "Other"
 msgstr "სხვა"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "ამ ბრძანების გაშვება…"
 
@@ -140,26 +140,22 @@ msgstr "სცადეთ შეცვალოთ ძებნის პირ
 msgid "No Results for “%s”"
 msgstr "\"%s\"-სთვის შედეგების გარეშე"
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "%s-ის Graphics-ით გახსნა"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "_დოკზე დამატება"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr "წაშლა"
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 msgid "View in AppCenter"
 msgstr "AppCenter-ში ნახვა"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "_დოკიდან წაშლა"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -364,6 +360,9 @@ msgstr "თქვენი კომპიუტერის გადატვ�
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "რესტარტი;გადატვირთვა"
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "_დოკიდან წაშლა"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

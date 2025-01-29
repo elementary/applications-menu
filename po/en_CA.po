@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2018-03-22 13:44+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
@@ -20,28 +20,28 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Applications"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 #, fuzzy
 msgid "Open and search apps"
 msgstr "Open and search apps (%s)"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "View as Grid"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "View by Category"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "Search Apps"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Other"
 msgstr "Other"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "Run this command…"
 
@@ -150,28 +150,24 @@ msgstr "Try changing search terms."
 msgid "No Results for “%s”"
 msgstr "No Results for “%s”"
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "Open with %s"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "Add to _Dock"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr "Uninstall"
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "AppCenter"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "Remove from _Dock"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -381,6 +377,9 @@ msgstr "Restart your computer"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "Remove from _Dock"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

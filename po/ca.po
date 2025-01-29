@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2023-03-11 12:25+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,27 +20,27 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "Aplicacions"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr "Cerqueu i obriu aplicacions"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "Visualitza com a graella"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "Visualitza per categories"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "Cerca aplicacions"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr "Neteja-ho tot"
 
@@ -92,7 +92,7 @@ msgstr "Eines del sistema"
 msgid "Other"
 msgstr "Altres"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "Executa aquesta ordre…"
 
@@ -145,26 +145,22 @@ msgstr "Proveu de canviar els termes de la cerca."
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Obre amb els gràfics %s"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "Afegeix-la a l'acobla_dor"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr "Desinstal·la"
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 msgid "View in AppCenter"
 msgstr "Mostra-ho al Centre d'aplicacions"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "Suprimeix-la de l'acobla_dor"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -369,6 +365,9 @@ msgstr "Reinicia l'ordinador"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reinicia"
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "Suprimeix-la de l'acobla_dor"
 
 #~ msgid "AppCenter"
 #~ msgstr "Centre d'aplicacions"

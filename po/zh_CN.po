@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -20,27 +20,27 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "应用程序"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr "打开并搜索应用"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "网格视图"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "分类视图"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "搜索应用"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr "清除所有"
 
@@ -92,7 +92,7 @@ msgstr "系统工具"
 msgid "Other"
 msgstr "其它"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "运行命令…"
 
@@ -147,26 +147,22 @@ msgstr "尝试更改搜索内容。"
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "用 %s 图形打开"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "固定至程序坞"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr "卸载"
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 msgid "View in AppCenter"
 msgstr "在应用中心内查看"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "从程序坞移除"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -371,6 +367,9 @@ msgstr "重新启动计算机"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "重启"
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "从程序坞移除"
 
 #~ msgid "AppCenter"
 #~ msgstr "应用中心"

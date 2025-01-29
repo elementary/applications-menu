@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2022-09-21 15:25+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -15,27 +15,27 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "بەرنامەکان"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr "کردنەوە و، گەڕان بەدوای بەرنامەکاندا"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "پشاندان بە شێوەی خشتەیی"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "بینین بەپێی پۆل"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "گەڕان بەدوای بەرنامەدا"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr "سڕینەوە"
 
@@ -87,7 +87,7 @@ msgstr "ئامرازەکانی سیستەم"
 msgid "Other"
 msgstr "هیتر"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "ناردنی ئەم فەرمانە…"
 
@@ -142,26 +142,22 @@ msgstr "هەوڵدە یاساکانی گەڕان بگۆڕیت."
 msgid "No Results for “%s”"
 msgstr "هیچ ئەنجامێک نییە بۆ \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "کردنەوەی بە گرافیکەکانی %s"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "زیادکردنی بۆ دۆک"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr "سڕینەوە"
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 msgid "View in AppCenter"
 msgstr "بینین لە سەنتەری نەرمەکاڵادا"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "لابردنی لە دۆکدا"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -367,6 +363,9 @@ msgstr "کۆمپیتەرەکەت پێبکەوە"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "پێکردنەوە؛بووتکردنەوە"
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "لابردنی لە دۆکدا"
 
 #~ msgid "AppCenter"
 #~ msgstr "سەنتەری نەرمەکاڵا"

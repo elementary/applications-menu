@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 21:44+0000\n"
+"POT-Creation-Date: 2025-01-29 21:24+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,27 +15,27 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:82 src/Views/SearchView.vala:47
+#: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
 msgstr "अनुप्रयोग"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:132
 msgid "Open and search apps"
 msgstr "उघडा आणि अॅप्स शोधा"
 
-#: src/SlingshotView.vala:60
+#: src/SlingshotView.vala:56
 msgid "View as Grid"
 msgstr "ग्रिड म्हणून पहा"
 
-#: src/SlingshotView.vala:63
+#: src/SlingshotView.vala:59
 msgid "View by Category"
 msgstr "श्रेणीनुसार पहा"
 
-#: src/SlingshotView.vala:75
+#: src/SlingshotView.vala:71
 msgid "Search Apps"
 msgstr "अनुप्रयोग शोधा"
 
-#: src/SlingshotView.vala:78
+#: src/SlingshotView.vala:74
 msgid "Clear all"
 msgstr "सर्व हटवा"
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Other"
 msgstr "इतर"
 
-#: src/Backend/App.vala:88
+#: src/Backend/App.vala:86
 msgid "Run this command…"
 msgstr "हा आदेश चालवा …"
 
@@ -144,27 +144,23 @@ msgstr "शोध संज्ञा बदलण्याचा प्रयत
 msgid "No Results for “%s”"
 msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
 
-#: src/Widgets/AppContextMenu.vala:66
+#: src/Widgets/AppContextMenu.vala:64
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "%s वापरून उघडा"
 
-#: src/Widgets/AppContextMenu.vala:94 src/Widgets/AppContextMenu.vala:191
+#: src/Widgets/AppContextMenu.vala:93
 msgid "Add to _Dock"
 msgstr "(_D)डॉकमध्ये जोडा"
 
-#: src/Widgets/AppContextMenu.vala:110
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
 msgstr "विस्थापित (अनइंस्टॉल) करा"
 
-#: src/Widgets/AppContextMenu.vala:115
+#: src/Widgets/AppContextMenu.vala:116
 msgid "View in AppCenter"
 msgstr "अ‍ॅप सेंटरमध्ये पहा"
-
-#: src/Widgets/AppContextMenu.vala:189
-msgid "Remove from _Dock"
-msgstr "(_D)डॉकमधून काढा"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -372,6 +368,9 @@ msgstr "आपला संगणक पुन्हा सुरू करा"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "पुन्हा सुरु करा"
+
+#~ msgid "Remove from _Dock"
+#~ msgstr "(_D)डॉकमधून काढा"
 
 #~ msgid "AppCenter"
 #~ msgstr "अॅपसेंटर"
