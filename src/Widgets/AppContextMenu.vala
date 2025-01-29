@@ -29,9 +29,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
     private Gtk.MenuItem uninstall_menuitem;
     private Gtk.MenuItem appcenter_menuitem;
-    private Gtk.MenuItem dock_menuitem;
-
-    private bool docked = false;
+    private Gtk.CheckMenuItem dock_menuitem;
 
     public AppContextMenu (string desktop_id, string desktop_path) {
         Object (
@@ -82,18 +80,21 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             });
         }
 
-        var dock = Backend.Dock.get_default ();
-        if (dock.dbus != null) {
+        if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             if (get_children ().length () > 0) {
                 add (new Gtk.SeparatorMenuItem ());
             }
 
             has_system_item = true;
 
-            dock_menuitem = new Gtk.MenuItem () {
+            var dock = Backend.Dock.get_default ();
+
+            dock_menuitem = new Gtk.CheckMenuItem () {
                 label = _("Add to _Dock"),
-                use_underline = true
+                use_underline = true,
+                sensitive = false
             };
+
             dock_menuitem.activate.connect (dock_menuitem_activate);
 
             add (dock_menuitem);
@@ -183,16 +184,15 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     private void on_dock_dbus_changed (Backend.Dock dock) {
         if (dock.dbus != null) {
+            dock_menuitem.sensitive = true;
+
             try {
-                docked = desktop_id in dock.dbus.list_launchers ();
-                if (docked) {
-                    dock_menuitem.label = _("Remove from _Dock");
-                } else {
-                    dock_menuitem.label = _("Add to _Dock");
-                }
+                dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
             } catch (GLib.Error e) {
                 critical (e.message);
             }
+        } else {
+            dock_menuitem.sensitive = false;
         }
     }
 
@@ -203,10 +203,10 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         }
 
         try {
-            if (docked) {
-                dock.dbus.remove_launcher (desktop_id);
-            } else {
+            if (dock_menuitem.active) {
                 dock.dbus.add_launcher (desktop_id);
+            } else {
+                dock.dbus.remove_launcher (desktop_id);
             }
         } catch (GLib.Error e) {
             critical (e.message);
