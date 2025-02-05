@@ -14,7 +14,6 @@ You'll need the following dependencies:
 * libgtk-3-dev
 * libhandy-1-dev >= 0.83.0
 * libjson-glib-dev
-* libsoup2.4-dev
 * libswitchboard-3-dev
 * libwingpanel-dev
 * libzeitgeist-2.0-dev
