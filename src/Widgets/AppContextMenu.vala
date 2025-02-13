@@ -90,7 +90,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             var dock = Backend.Dock.get_default ();
 
             dock_menuitem = new Gtk.CheckMenuItem () {
-                label = _("Add to _Dock"),
+                label = _("Keep in _Dock"),
                 use_underline = true,
                 sensitive = false
             };
