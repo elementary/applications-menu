@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2017-07-19 14:08+0000\n"
 "Last-Translator: Mattias Ezequiel Mignone <memignone@gmail.com>\n"
 "Language-Team: English (Australia) <https://weblate.elementary.io/projects/"
@@ -156,8 +156,10 @@ msgid "Open with %s Graphics"
 msgstr "Open with %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Add to _Dock"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Remove from _Dock"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -377,8 +379,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Remove from _Dock"
+#~ msgid "Add to _Dock"
+#~ msgstr "Add to _Dock"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

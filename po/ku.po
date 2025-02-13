@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2018-02-11 00:08+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/wingpanel/"
@@ -156,7 +156,7 @@ msgid "Open with %s Graphics"
 msgstr "Bi %s veke"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
+msgid "Keep in _Dock"
 msgstr ""
 
 #: src/Widgets/AppContextMenu.vala:111

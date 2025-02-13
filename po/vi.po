@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Hải Hồ <hochihai1997@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel/"
@@ -156,8 +156,10 @@ msgid "Open with %s Graphics"
 msgstr "Mở với %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Thêm vào _Dock"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Xóa khỏi _Dock"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -377,8 +379,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Xóa khỏi _Dock"
+#~ msgid "Add to _Dock"
+#~ msgstr "Thêm vào _Dock"
 
 #~ msgid "AppCenter"
 #~ msgstr "Trung tâm ứng dụng"

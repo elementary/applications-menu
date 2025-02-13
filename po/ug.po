@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Uyghur <https://l10n.elementary.io/projects/wingpanel/"
@@ -156,8 +156,10 @@ msgid "Open with %s Graphics"
 msgstr "%s بىلەن ئىچىڭ"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Dock قا قىتىش"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Dock تىن چىقىرىۋىتىش"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -377,8 +379,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Dock تىن چىقىرىۋىتىش"
+#~ msgid "Add to _Dock"
+#~ msgstr "Dock قا قىتىش"
 
 #~ msgid "Calculator"
 #~ msgstr "ھىسابلىغۇچ"

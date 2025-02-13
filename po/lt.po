@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,8 +157,10 @@ msgid "Open with %s Graphics"
 msgstr "Atverti, naudojant %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Pridėti į sky_delį"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Šalinti iš sky_delio"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -375,8 +377,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "paleisti iš naujo;restartuoti;perkrauti"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Šalinti iš sky_delio"
+#~ msgid "Add to _Dock"
+#~ msgstr "Pridėti į sky_delį"
 
 #~ msgid "AppCenter"
 #~ msgstr "Programų centras"

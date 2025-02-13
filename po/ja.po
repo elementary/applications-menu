@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2024-06-20 12:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -151,8 +151,10 @@ msgid "Open with %s Graphics"
 msgstr "%s グラフィックスを使用して開く"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "ドックに追加(_D)"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "ドックから削除(_D)"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -366,8 +368,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "再起動;リブート"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "ドックから削除(_D)"
+#~ msgid "Add to _Dock"
+#~ msgstr "ドックに追加(_D)"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

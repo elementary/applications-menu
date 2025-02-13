@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -150,8 +150,10 @@ msgid "Open with %s Graphics"
 msgstr "Ôtwōrz ze %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Przidej do _doku"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Skasuj z _doku"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -368,8 +370,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "sztartnij;zaś;resztart; zresztartować;resztartowanie"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Skasuj z _doku"
+#~ msgid "Add to _Dock"
+#~ msgstr "Przidej do _doku"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2023-03-15 09:25+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
@@ -151,8 +151,10 @@ msgid "Open with %s Graphics"
 msgstr "Megnyitás %s grafikus feldolgozóegységgel"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Hozzáadás a dokkhoz"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Eltávolítás a dokkról"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -366,8 +368,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "újraindítás;restartolás"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Eltávolítás a dokkról"
+#~ msgid "Add to _Dock"
+#~ msgstr "Hozzáadás a dokkhoz"
 
 #~ msgid "AppCenter"
 #~ msgstr "Appközpont"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
@@ -151,8 +151,10 @@ msgid "Open with %s Graphics"
 msgstr "Buka dengan %s Grafis"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Tambah ke _Dok"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Hapus dari _Dok"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -368,8 +370,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "mulai ulang;but ulang"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Hapus dari _Dok"
+#~ msgid "Add to _Dock"
+#~ msgstr "Tambah ke _Dok"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

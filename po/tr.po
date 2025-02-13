@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2023-05-18 21:06+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -151,8 +151,10 @@ msgid "Open with %s Graphics"
 msgstr "%s Grafik Kartı ile aç"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "_Dock'a Ekle"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "_Dock'tan Kaldır"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -366,8 +368,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;yeniden başlat"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "_Dock'tan Kaldır"
+#~ msgid "Add to _Dock"
+#~ msgstr "_Dock'a Ekle"
 
 #~ msgid "AppCenter"
 #~ msgstr "Uygulama Merkezi"

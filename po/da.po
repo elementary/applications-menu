@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2020-05-25 15:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/wingpanel/"
@@ -156,8 +156,10 @@ msgid "Open with %s Graphics"
 msgstr "Åbn med %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Tilføj til _dok"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Fjern fra _dok"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -374,8 +376,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "genstart"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Fjern fra _dok"
+#~ msgid "Add to _Dock"
+#~ msgstr "Tilføj til _dok"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

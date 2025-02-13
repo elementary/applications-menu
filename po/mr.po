@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -151,8 +151,10 @@ msgid "Open with %s Graphics"
 msgstr "%s वापरून उघडा"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "(_D)डॉकमध्ये जोडा"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "(_D)डॉकमधून काढा"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -369,8 +371,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "पुन्हा सुरु करा"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "(_D)डॉकमधून काढा"
+#~ msgid "Add to _Dock"
+#~ msgstr "(_D)डॉकमध्ये जोडा"
 
 #~ msgid "AppCenter"
 #~ msgstr "अॅपसेंटर"

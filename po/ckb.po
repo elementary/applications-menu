@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2022-09-21 15:25+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -148,8 +148,10 @@ msgid "Open with %s Graphics"
 msgstr "کردنەوەی بە گرافیکەکانی %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "زیادکردنی بۆ دۆک"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "لابردنی لە دۆکدا"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -364,8 +366,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "پێکردنەوە؛بووتکردنەوە"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "لابردنی لە دۆکدا"
+#~ msgid "Add to _Dock"
+#~ msgstr "زیادکردنی بۆ دۆک"
 
 #~ msgid "AppCenter"
 #~ msgstr "سەنتەری نەرمەکاڵا"

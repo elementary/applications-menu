@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2020-01-07 19:53+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,8 +157,10 @@ msgid "Open with %s Graphics"
 msgstr "Odpri z %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "_Dodaj v sidrišče"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "O_dstrani s sidrišča"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -375,8 +377,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reset;zagon;ponovni zagon"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "O_dstrani s sidrišča"
+#~ msgid "Add to _Dock"
+#~ msgstr "_Dodaj v sidrišče"
 
 #~ msgid "AppCenter"
 #~ msgstr "Center za aplikacije"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
@@ -156,8 +156,10 @@ msgid "Open with %s Graphics"
 msgstr "Malfermi per %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Aldoni al _Butonbreto"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Forigi el _Butonbreto"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -374,8 +376,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restartigi"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Forigi el _Butonbreto"
+#~ msgid "Add to _Dock"
+#~ msgstr "Aldoni al _Butonbreto"
 
 #~ msgid "AppCenter"
 #~ msgstr "Aplikaĵa Centro"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2023-10-23 05:10+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
@@ -146,8 +146,10 @@ msgid "Open with %s Graphics"
 msgstr "%s-ის Graphics-ით გახსნა"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "_დოკზე დამატება"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "_დოკიდან წაშლა"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -361,8 +363,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "რესტარტი;გადატვირთვა"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "_დოკიდან წაშლა"
+#~ msgid "Add to _Dock"
+#~ msgstr "_დოკზე დამატება"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"

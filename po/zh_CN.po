@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -153,8 +153,10 @@ msgid "Open with %s Graphics"
 msgstr "用 %s 图形打开"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "固定至程序坞"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "从程序坞移除"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -368,8 +370,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "重启"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "从程序坞移除"
+#~ msgid "Add to _Dock"
+#~ msgstr "固定至程序坞"
 
 #~ msgid "AppCenter"
 #~ msgstr "应用中心"

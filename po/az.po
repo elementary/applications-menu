@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2017-12-20 00:10+0000\n"
 "Last-Translator: Вагиф Кязым <vaqif134@gmail.com>\n"
 "Language-Team: Azerbaijani <https://weblate.elementary.io/projects/wingpanel/"
@@ -146,7 +146,7 @@ msgid "Open with %s Graphics"
 msgstr ""
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
+msgid "Keep in _Dock"
 msgstr ""
 
 #: src/Widgets/AppContextMenu.vala:111

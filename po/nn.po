@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 21:24+0000\n"
+"POT-Creation-Date: 2025-02-13 20:49+0000\n"
 "PO-Revision-Date: 2020-07-16 21:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
@@ -156,8 +156,10 @@ msgid "Open with %s Graphics"
 msgstr "Opne med %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-msgid "Add to _Dock"
-msgstr "Legg til i _dokken"
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Fjern frå _dokken"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
@@ -374,8 +376,8 @@ msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "omstart;start på nytt"
 
-#~ msgid "Remove from _Dock"
-#~ msgstr "Fjern frå _dokken"
+#~ msgid "Add to _Dock"
+#~ msgstr "Legg til i _dokken"
 
 #~ msgid "AppCenter"
 #~ msgstr "AppCenter"
