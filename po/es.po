@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-13 20:49+0000\n"
-"PO-Revision-Date: 2024-05-28 02:13+0000\n"
+"PO-Revision-Date: 2025-02-14 08:00+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
@@ -151,10 +151,8 @@ msgid "Open with %s Graphics"
 msgstr "Ejecutar con el procesador gráfico %s"
 
 #: src/Widgets/AppContextMenu.vala:93
-#, fuzzy
-#| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
-msgstr "Quitar del _Dock"
+msgstr "Mantener en el _Dock"
 
 #: src/Widgets/AppContextMenu.vala:111
 msgid "Uninstall"
