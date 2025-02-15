@@ -19,6 +19,7 @@
 public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string KEYBINDING_SCHEMA = "io.elementary.desktop.wm.keybindings";
     private const string GALA_BEHAVIOR_SCHEMA = "io.elementary.desktop.wm.behavior";
+    private const string DOCK_SCHEMA = "io.elementary.dock";
 
     private DBusService? dbus_service = null;
     private Gtk.Grid? indicator_grid = null;
@@ -26,6 +27,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
     private static GLib.Settings? keybinding_settings;
     private static GLib.Settings? gala_behavior_settings;
+    private static GLib.Settings? dock_settings;
 
     public Indicator () {
         Object (code_name: Wingpanel.Indicator.APP_LAUNCHER);
@@ -38,6 +40,10 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
         if (SettingsSchemaSource.get_default ().lookup (GALA_BEHAVIOR_SCHEMA, true) != null) {
             gala_behavior_settings = new GLib.Settings (GALA_BEHAVIOR_SCHEMA);
+        }
+
+        if (SettingsSchemaSource.get_default ().lookup (DOCK_SCHEMA, true) != null) {
+            dock_settings = new GLib.Settings (DOCK_SCHEMA);
         }
     }
 
@@ -54,19 +60,6 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget? get_widget () {
-        if (view == null) {
-            view = new SlingshotView ();
-
-            unowned var unity_client = Unity.get_default ();
-            unity_client.add_client (view);
-
-            view.close_indicator.connect (on_close_indicator);
-
-            if (dbus_service == null) {
-                dbus_service = new DBusService (view);
-            }
-        }
-
         return view;
     }
 
@@ -101,12 +94,42 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
         visible = true;
 
+        // Create the view now so that there is time for app popularities to initialise
+        // before the view is shown for the first time.
+        if (view == null) {
+            view = new SlingshotView ();
+
+            unowned var unity_client = Unity.get_default ();
+            unity_client.add_client (view);
+
+            view.close_indicator.connect (on_close_indicator);
+
+            if (dbus_service == null) {
+                dbus_service = new DBusService (view);
+            }
+
+            if (dock_settings != null) {
+                dock_settings.changed.connect ((key) => {
+                    if (key == "launchers") {
+                        view.update (dock_settings.get_strv ("launchers"));
+                    }
+                });
+            }
+        }
+
+        // Wait for AppSystem to initialize
+        Idle.add (() => {
+            view.update (dock_settings != null ? dock_settings.get_strv ("launchers") : null);
+            return Source.REMOVE;
+        });
+
         return indicator_grid;
     }
 
     public override void opened () {
-        if (view != null)
+        if (view != null) {
             view.show_slingshot ();
+        }
     }
 
     public override void closed () {
