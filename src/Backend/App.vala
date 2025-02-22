@@ -34,7 +34,7 @@ public class Slingshot.Backend.App : Object {
     public string exec { get; private set; }
     public string[] keywords { get; private set;}
     public Icon icon { get; private set; default = new ThemedIcon ("application-default-icon"); }
-    public double popularity { get; set; }
+    public int popularity { get; set; }
     public string desktop_path { get; private set; }
     public string categories { get; private set; }
     public string generic_name { get; private set; default = ""; }
