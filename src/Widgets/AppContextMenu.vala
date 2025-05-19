@@ -21,9 +21,11 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     private const string ACTION_GROUP_PREFIX = "app-actions";
     private const string ACTION_PREFIX = ACTION_GROUP_PREFIX + ".";
+    private const string APP_ACTION = "action.%s";
     private const string PINNED_ACTION = "pinned";
     private const string SWITCHEROO_ACTION = "switcheroo";
-    private const string APP_ACTION = "action.%s";
+    private const string UNINSTALL_ACTION = "uninstall";
+    private const string VIEW_ACTION = "view-in-appcenter";
 
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
@@ -34,8 +36,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
     private GLib.SimpleAction pinned_action;
-    private Gtk.MenuItem uninstall_menuitem;
-    private Gtk.MenuItem appcenter_menuitem;
+    private GLib.SimpleAction uninstall_action;
+    private GLib.SimpleAction view_action;
 
     public AppContextMenu (string desktop_id, string desktop_path) {
         Object (
@@ -131,15 +133,20 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                 add (new Gtk.SeparatorMenuItem ());
             }
 
-            uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall")) {
-                sensitive = false
-            };
-            uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
+            uninstall_action = new SimpleAction (UNINSTALL_ACTION, null);
+            uninstall_action.activate.connect (action_uninstall);
 
-            appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter")) {
-                sensitive = false
-            };
-            appcenter_menuitem.activate.connect (open_in_appcenter);
+            view_action = new SimpleAction (VIEW_ACTION, null);
+            view_action.activate.connect (open_in_appcenter);
+
+            action_group.add_action (uninstall_action);
+            action_group.add_action (view_action);
+
+            var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
+            uninstall_menuitem.set_detailed_action_name (ACTION_PREFIX + UNINSTALL_ACTION);
+
+            var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
+            appcenter_menuitem.set_detailed_action_name (ACTION_PREFIX + VIEW_ACTION);
 
             add (uninstall_menuitem);
             add (appcenter_menuitem);
@@ -152,7 +159,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         show_all ();
     }
 
-    private void uninstall_menuitem_activate () {
+    private void action_uninstall () {
         var appcenter = Backend.AppCenter.get_default ();
         if (appcenter.dbus == null || appstream_comp_id == "") {
             return;
@@ -201,33 +208,29 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             appstream_comp_id = "";
         }
 
-        uninstall_menuitem.sensitive = appstream_comp_id != "";
-        appcenter_menuitem.sensitive = appstream_comp_id != "";
+        uninstall_action.set_enabled (appstream_comp_id != "");
+        view_action.set_enabled (appstream_comp_id != "");
     }
 
     private void on_dock_dbus_changed (Backend.Dock dock) {
         pinned_action.set_enabled (dock.dbus != null);
-
-        if (dock.dbus != null) {
-            try {
-                pinned_action.change_state (new Variant.boolean (desktop_id in dock.dbus.list_launchers ()));
-            } catch (GLib.Error e) {
-                critical (e.message);
-            }
-        }
-    }
-
-    private void pinned_action_change_state (Variant? value) {
-        var dock = Backend.Dock.get_default ();
-
-        pinned_action.set_enabled (dock.dbus != null);
-        pinned_action.set_state (value);
 
         if (dock.dbus == null) {
             return;
         }
 
         try {
+            pinned_action.change_state (new Variant.boolean (desktop_id in dock.dbus.list_launchers ()));
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
+    }
+
+    private void pinned_action_change_state (Variant? value) {
+        pinned_action.set_state (value);
+
+        try {
+            var dock = Backend.Dock.get_default ();
             if (value.get_boolean ()) {
                 dock.dbus.add_launcher (desktop_id);
             } else {
