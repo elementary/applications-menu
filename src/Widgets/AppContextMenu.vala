@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2019-2025 elementary, Inc. (https://elementary.io)
  * Copyright 2020-2021 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
