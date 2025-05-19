@@ -19,6 +19,12 @@
 public class Slingshot.AppContextMenu : Gtk.Menu {
     public signal void app_launched ();
 
+    private const string ACTION_GROUP_PREFIX = "app-actions";
+    private const string ACTION_PREFIX = ACTION_GROUP_PREFIX + ".";
+    private const string PINNED_ACTION = "pinned";
+    private const string SWITCHEROO_ACTION = "switcheroo";
+    private const string APP_ACTION = "action.%s";
+
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
     private DesktopAppInfo app_info;
@@ -39,45 +45,53 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     construct {
-        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
+        var action_group = new SimpleActionGroup ();
+        insert_action_group (ACTION_GROUP_PREFIX, action_group);
 
         app_info = new DesktopAppInfo (desktop_id);
+        foreach (unowned var action in app_info.list_actions ()) {
+            var simple_action = new SimpleAction (APP_ACTION.printf (action), null);
+            simple_action.activate.connect (() => {
+                var context = Gdk.Display.get_default ().get_app_launch_context ();
+                context.set_timestamp (Gdk.CURRENT_TIME);
 
-        foreach (unowned string _action in app_info.list_actions ()) {
-            string action = _action.dup ();
-            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
-            add (menuitem);
-
-            menuitem.activate.connect ((target) => {
-                var context = target.get_display ().get_app_launch_context ();
-                context.set_timestamp (Gtk.get_current_event_time ());
                 app_info.launch_action (action, context);
                 app_launched ();
             });
+            action_group.add_action (simple_action);
+
+            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
+            menuitem.set_detailed_action_name (ACTION_PREFIX + APP_ACTION.printf (action));
+
+            add (menuitem);
         }
 
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
         if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
             bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
 
-            string gpu_name = switcheroo_control.get_gpu_name (prefers_non_default_gpu);
+            var switcheroo_action = new SimpleAction (SWITCHEROO_ACTION, null);
+            switcheroo_action.activate.connect (() => {
+                try {
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    context.set_timestamp (Gdk.CURRENT_TIME);
 
-            string label = _("Open with %s Graphics").printf (gpu_name);
+                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
 
-            var menu_item = new Gtk.MenuItem.with_mnemonic (label);
-            add (menu_item);
-
-            menu_item.activate.connect ((target) => {
-               try {
-                   var context = target.get_display ().get_app_launch_context ();
-                   context.set_timestamp (Gtk.get_current_event_time ());
-                   switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
-                   app_info.launch (null, context);
-                   app_launched ();
-               } catch (Error e) {
-                   warning ("Failed to launch %s: %s", name, e.message);
-               }
-
+                    app_info.launch (null, context);
+                    app_launched ();
+                } catch (Error e) {
+                    warning ("Failed to launch %s: %s", name, e.message);
+                }
             });
+            action_group.add_action (switcheroo_action);
+
+            var menu_item = new Gtk.MenuItem.with_mnemonic (
+                _("Open with %s Graphics").printf (switcheroo_control.get_gpu_name (prefers_non_default_gpu))
+            );
+            menu_item.set_detailed_action_name (ACTION_PREFIX + SWITCHEROO_ACTION);
+
+            add (menu_item);
         }
 
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
