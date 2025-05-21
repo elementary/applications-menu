@@ -33,8 +33,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
 
     private Backend.SynapseSearch synapse;
     private Gdk.Screen screen;
-    private Gtk.RadioButton grid_view_btn;
-    private Gtk.RadioButton category_view_btn;
     private Gtk.Revealer view_selector_revealer;
     private Modality modality;
     private Widgets.Grid grid_view;
@@ -53,22 +51,19 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
 
         screen = get_screen ();
 
-        grid_view_btn = new Gtk.RadioButton (null) {
+        var grid_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
             action_target = new Variant.string ("grid"),
             image = new Gtk.Image.from_icon_name ("view-grid-symbolic", BUTTON),
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"))
         };
-        grid_view_btn.set_mode (false);
 
-        category_view_btn = new Gtk.RadioButton (null) {
+        var category_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
             action_target = new Variant.string ("category"),
-            group = grid_view_btn,
             image = new Gtk.Image.from_icon_name ("view-filter-symbolic", BUTTON),
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"))
         };
-        category_view_btn.set_mode (false);
 
         var view_selector = new Gtk.Box (HORIZONTAL, 0) {
             margin_end = 12
@@ -184,8 +179,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
          */
         if (settings.get_boolean ("use-category")) {
             settings.set_boolean ("use-category", false);
-            // If we try to touch the setting directly we get caught in a loop
-            category_view_btn.active = true;
+            settings.set_string ("view-mode", "category");
         };
     }
 
@@ -253,10 +247,10 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
             switch (key) {
                 case "1":
-                    grid_view_btn.active = true;
+                    settings.set_string ("view-mode", "grid");
                     return Gdk.EVENT_STOP;
                 case "2":
-                    category_view_btn.active = true;
+                    settings.set_string ("view-mode", "category");
                     return Gdk.EVENT_STOP;
             }
         }
