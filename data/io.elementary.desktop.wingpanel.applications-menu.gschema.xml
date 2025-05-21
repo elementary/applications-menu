@@ -6,9 +6,15 @@
   </enum>
 
   <schema path="/io/elementary/desktop/wingpanel/applications-menu/" id="io.elementary.desktop.wingpanel.applications-menu">
-    <key enum="ViewMode" name="use-category">
+    <key name="use-category" type="b">
+      <default>false</default>
+      <summary>DEPRECATED: Show the category view by default</summary>
+      <description>DEPRECATED: Save the current view of the launcher.</description>
+    </key>
+
+    <key enum="ViewMode" name="view-mode">
       <default>'grid'</default>
-      <summary>Show the category view by default</summary>
+      <summary>Whether to show the app list as a grid or in categories</summary>
       <description>Save the current view of the launcher.</description>
     </key>
   </schema>
