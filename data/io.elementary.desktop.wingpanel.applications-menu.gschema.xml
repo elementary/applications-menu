@@ -1,9 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<schema path="/io/elementary/desktop/wingpanel/applications-menu/" id="io.elementary.desktop.wingpanel.applications-menu">
-        <key name="use-category" type="b">
-            <default>false</default>
-            <summary>Show the category view by default</summary>
-            <description>Save the current view of the launcher.</description>
-        </key>
-	</schema>
+  <enum id="ViewMode">
+    <value nick='grid' value='0'/>
+    <value nick='category' value='1'/>
+  </enum>
+
+  <schema path="/io/elementary/desktop/wingpanel/applications-menu/" id="io.elementary.desktop.wingpanel.applications-menu">
+    <key name="use-category" type="b">
+      <default>false</default>
+      <summary>DEPRECATED: Show the category view by default</summary>
+      <description>DEPRECATED: Save the current view of the launcher.</description>
+    </key>
+
+    <key enum="ViewMode" name="view-mode">
+      <default>'grid'</default>
+      <summary>Whether to show the app list as a grid or in categories</summary>
+      <description>Save the current view of the launcher.</description>
+    </key>
+  </schema>
 </schemalist>
