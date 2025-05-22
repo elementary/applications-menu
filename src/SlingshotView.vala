@@ -22,7 +22,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     public Backend.AppSystem app_system;
     public Gtk.SearchEntry search_entry;
     public Gtk.Stack stack;
-    public Granite.Widgets.ModeButton view_selector;
 
     private enum Modality {
         NORMAL_VIEW = 0,
@@ -52,16 +51,26 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
 
         screen = get_screen ();
 
-        var grid_image = new Gtk.Image.from_icon_name ("view-grid-symbolic", Gtk.IconSize.MENU);
-        grid_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"));
+        var grid_view_btn = new Gtk.ToggleButton () {
+            action_name = "view.view-mode",
+            action_target = new Variant.string ("grid"),
+            image = new Gtk.Image.from_icon_name ("view-grid-symbolic", BUTTON),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"))
+        };
 
-        var category_image = new Gtk.Image.from_icon_name ("view-filter-symbolic", Gtk.IconSize.MENU);
-        category_image.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"));
+        var category_view_btn = new Gtk.ToggleButton () {
+            action_name = "view.view-mode",
+            action_target = new Variant.string ("category"),
+            image = new Gtk.Image.from_icon_name ("view-filter-symbolic", BUTTON),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"))
+        };
 
-        view_selector = new Granite.Widgets.ModeButton ();
-        view_selector.margin_end = 12;
-        view_selector.append (grid_image);
-        view_selector.append (category_image);
+        var view_selector = new Gtk.Box (HORIZONTAL, 0) {
+            margin_end = 12
+        };
+        view_selector.add (grid_view_btn);
+        view_selector.add (category_view_btn);
+        view_selector.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         view_selector_revealer = new Gtk.Revealer ();
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
@@ -109,13 +118,16 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         // Add the container to the dialog's content area
         this.add (event_box);
 
-        if (settings.get_boolean ("use-category")) {
-            view_selector.selected = 1;
-            set_modality (Modality.CATEGORY_VIEW);
-        } else {
-            view_selector.selected = 0;
-            set_modality (Modality.NORMAL_VIEW);
-        }
+        var category_action = settings.create_action ("view-mode");
+
+        var action_group = new SimpleActionGroup ();
+        action_group.add_action (category_action);
+
+        insert_action_group ("view", action_group);
+
+        settings.changed["view-mode"].connect (() => {
+            set_modality ((Modality) settings.get_enum ("view-mode"));
+        });
 
         search_view.start_search.connect ((match, target) => {
             search.begin (search_entry.text, match, target);
@@ -152,16 +164,23 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             close_indicator ();
         });
 
-        view_selector.mode_changed.connect (() => {
-            set_modality ((Modality) view_selector.selected);
-        });
-
         // Auto-update applications grid
         app_system.changed.connect (() => {
             grid_view.populate (app_system);
 
             category_view.setup_sidebar ();
         });
+
+        /*
+         * Migrate old gsettings
+         *
+         * We only have to migrate it if it's not set to the default (false)
+         * Once we migrate, we don't want to do it again, so set it to default (true)
+         */
+        if (settings.get_boolean ("use-category")) {
+            settings.set_boolean ("use-category", false);
+            settings.set_string ("view-mode", "category");
+        };
     }
 
     public void update_launcher_entry (string sender_name, GLib.Variant parameters, bool is_retry = false) {
@@ -228,10 +247,10 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
             switch (key) {
                 case "1":
-                    view_selector.selected = 0;
+                    settings.set_string ("view-mode", "grid");
                     return Gdk.EVENT_STOP;
                 case "2":
-                    view_selector.selected = 1;
+                    settings.set_string ("view-mode", "category");
                     return Gdk.EVENT_STOP;
             }
         }
@@ -327,12 +346,11 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     /* TODO
         set_focus (null);
     */
-
         search_entry.grab_focus ();
         // This is needed in order to not animate if the previous view was the search view.
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
         stack.transition_type = Gtk.StackTransitionType.NONE;
-        set_modality ((Modality) view_selector.selected);
+        set_modality ((Modality) settings.get_enum ("view-mode"));
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
         stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
     }
@@ -342,10 +360,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
 
         switch (modality) {
             case Modality.NORMAL_VIEW:
-                if (settings.get_boolean ("use-category")) {
-                    settings.set_boolean ("use-category", false);
-                }
-
                 view_selector_revealer.set_reveal_child (true);
                 stack.set_visible_child_name ("normal");
 
@@ -353,10 +367,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
                 break;
 
             case Modality.CATEGORY_VIEW:
-                if (!settings.get_boolean ("use-category")) {
-                    settings.set_boolean ("use-category", true);
-                }
-
                 view_selector_revealer.set_reveal_child (true);
                 stack.set_visible_child_name ("category");
 
@@ -385,7 +395,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             // empty before switching, this problem is gone.
             Idle.add (() => {
                 if (search_entry.text.strip () == "")
-                    set_modality ((Modality) view_selector.selected);
+                    set_modality ((Modality) settings.get_enum ("view-mode"));
                 return false;
             });
             return;
