@@ -112,11 +112,8 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
 
-        var event_box = new Gtk.EventBox ();
-        event_box.add (container);
-
         // Add the container to the dialog's content area
-        this.add (event_box);
+        this.add (container);
 
         var category_action = settings.create_action ("view-mode");
 
@@ -138,7 +135,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        event_box.key_press_event.connect (on_event_box_key_press);
+        key_press_event.connect (on_key_press);
         search_entry.key_press_event.connect (on_search_view_key_press);
 
         // Showing a menu reverts the effect of the grab_device function.
@@ -242,7 +239,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         return Gdk.EVENT_PROPAGATE;
     }
 
-    public bool on_event_box_key_press (Gdk.EventKey event) {
+    public bool on_key_press (Gdk.EventKey event) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
         if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
             switch (key) {
@@ -337,7 +334,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
 
         }
 
-        return Gdk.EVENT_STOP;
+        return search_entry.handle_event (event);
     }
 
     public void show_slingshot () {
