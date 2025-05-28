@@ -125,7 +125,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     }
 
     private void update_badge_count () {
-        badge.label = "%lld".printf (app.current_count);
+        if (app.current_count > 1000) {
+            badge.label = "∞";
+        } else {
+            badge.label = "%lld".printf (app.current_count);
+        }
+
         update_badge_visibility ();
     }
 
