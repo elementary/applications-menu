@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
+ * Copyright 2019-2025 elementary, Inc. (https://elementary.io)
  * Copyright 2020-2021 Justin Haygood
  *
  * This program is free software; you can redistribute it and/or
@@ -19,6 +19,14 @@
 public class Slingshot.AppContextMenu : Gtk.Menu {
     public signal void app_launched ();
 
+    private const string ACTION_GROUP_PREFIX = "app-actions";
+    private const string ACTION_PREFIX = ACTION_GROUP_PREFIX + ".";
+    private const string APP_ACTION = "action.%s";
+    private const string PINNED_ACTION = "pinned";
+    private const string SWITCHEROO_ACTION = "switcheroo";
+    private const string UNINSTALL_ACTION = "uninstall";
+    private const string VIEW_ACTION = "view-in-appcenter";
+
     public string desktop_id { get; construct; }
     public string desktop_path { get; construct; }
     private DesktopAppInfo app_info;
@@ -27,9 +35,9 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private string appstream_comp_id = "";
 
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
-    private Gtk.MenuItem uninstall_menuitem;
-    private Gtk.MenuItem appcenter_menuitem;
-    private Gtk.CheckMenuItem dock_menuitem;
+    private GLib.SimpleAction pinned_action;
+    private GLib.SimpleAction uninstall_action;
+    private GLib.SimpleAction view_action;
 
     public AppContextMenu (string desktop_id, string desktop_path) {
         Object (
@@ -39,45 +47,53 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     }
 
     construct {
-        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
+        var action_group = new SimpleActionGroup ();
+        insert_action_group (ACTION_GROUP_PREFIX, action_group);
 
         app_info = new DesktopAppInfo (desktop_id);
+        foreach (unowned var action in app_info.list_actions ()) {
+            var simple_action = new SimpleAction (APP_ACTION.printf (action), null);
+            simple_action.activate.connect (() => {
+                var context = Gdk.Display.get_default ().get_app_launch_context ();
+                context.set_timestamp (Gdk.CURRENT_TIME);
 
-        foreach (unowned string _action in app_info.list_actions ()) {
-            string action = _action.dup ();
-            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
-            add (menuitem);
-
-            menuitem.activate.connect ((target) => {
-                var context = target.get_display ().get_app_launch_context ();
-                context.set_timestamp (Gtk.get_current_event_time ());
                 app_info.launch_action (action, context);
                 app_launched ();
             });
+            action_group.add_action (simple_action);
+
+            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
+            menuitem.set_detailed_action_name (ACTION_PREFIX + APP_ACTION.printf (action));
+
+            add (menuitem);
         }
 
+        switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
         if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
             bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
 
-            string gpu_name = switcheroo_control.get_gpu_name (prefers_non_default_gpu);
+            var switcheroo_action = new SimpleAction (SWITCHEROO_ACTION, null);
+            switcheroo_action.activate.connect (() => {
+                try {
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    context.set_timestamp (Gdk.CURRENT_TIME);
 
-            string label = _("Open with %s Graphics").printf (gpu_name);
+                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
 
-            var menu_item = new Gtk.MenuItem.with_mnemonic (label);
-            add (menu_item);
-
-            menu_item.activate.connect ((target) => {
-               try {
-                   var context = target.get_display ().get_app_launch_context ();
-                   context.set_timestamp (Gtk.get_current_event_time ());
-                   switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
-                   app_info.launch (null, context);
-                   app_launched ();
-               } catch (Error e) {
-                   warning ("Failed to launch %s: %s", name, e.message);
-               }
-
+                    app_info.launch (null, context);
+                    app_launched ();
+                } catch (Error e) {
+                    warning ("Failed to launch %s: %s", name, e.message);
+                }
             });
+            action_group.add_action (switcheroo_action);
+
+            var menu_item = new Gtk.MenuItem.with_mnemonic (
+                _("Open with %s Graphics").printf (switcheroo_control.get_gpu_name (prefers_non_default_gpu))
+            );
+            menu_item.set_detailed_action_name (ACTION_PREFIX + SWITCHEROO_ACTION);
+
+            add (menu_item);
         }
 
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
@@ -88,16 +104,25 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             has_system_item = true;
 
             var dock = Backend.Dock.get_default ();
+            var pinned_variant = new Variant.boolean (false);
+            try {
+                pinned_variant = new Variant.boolean (desktop_id in dock.dbus.list_launchers ());
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
 
-            dock_menuitem = new Gtk.CheckMenuItem () {
+            pinned_action = new SimpleAction.stateful (PINNED_ACTION, null, pinned_variant);
+            pinned_action.change_state.connect (pinned_action_change_state);
+
+            action_group.add_action (pinned_action);
+
+            var menuitem = new Gtk.CheckMenuItem () {
                 label = _("Keep in _Dock"),
-                use_underline = true,
-                sensitive = false
+                use_underline = true
             };
+            menuitem.set_detailed_action_name (ACTION_PREFIX + PINNED_ACTION);
 
-            dock_menuitem.activate.connect (dock_menuitem_activate);
-
-            add (dock_menuitem);
+            add (menuitem);
 
             dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
             on_dock_dbus_changed (dock);
@@ -108,15 +133,20 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
                 add (new Gtk.SeparatorMenuItem ());
             }
 
-            uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall")) {
-                sensitive = false
-            };
-            uninstall_menuitem.activate.connect (uninstall_menuitem_activate);
+            uninstall_action = new SimpleAction (UNINSTALL_ACTION, null);
+            uninstall_action.activate.connect (action_uninstall);
 
-            appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter")) {
-                sensitive = false
-            };
-            appcenter_menuitem.activate.connect (open_in_appcenter);
+            view_action = new SimpleAction (VIEW_ACTION, null);
+            view_action.activate.connect (open_in_appcenter);
+
+            action_group.add_action (uninstall_action);
+            action_group.add_action (view_action);
+
+            var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
+            uninstall_menuitem.set_detailed_action_name (ACTION_PREFIX + UNINSTALL_ACTION);
+
+            var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
+            appcenter_menuitem.set_detailed_action_name (ACTION_PREFIX + VIEW_ACTION);
 
             add (uninstall_menuitem);
             add (appcenter_menuitem);
@@ -129,7 +159,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         show_all ();
     }
 
-    private void uninstall_menuitem_activate () {
+    private void action_uninstall () {
         var appcenter = Backend.AppCenter.get_default ();
         if (appcenter.dbus == null || appstream_comp_id == "") {
             return;
@@ -178,32 +208,30 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             appstream_comp_id = "";
         }
 
-        uninstall_menuitem.sensitive = appstream_comp_id != "";
-        appcenter_menuitem.sensitive = appstream_comp_id != "";
+        uninstall_action.set_enabled (appstream_comp_id != "");
+        view_action.set_enabled (appstream_comp_id != "");
     }
 
     private void on_dock_dbus_changed (Backend.Dock dock) {
-        if (dock.dbus != null) {
-            dock_menuitem.sensitive = true;
+        pinned_action.set_enabled (dock.dbus != null);
 
-            try {
-                dock_menuitem.active = desktop_id in dock.dbus.list_launchers ();
-            } catch (GLib.Error e) {
-                critical (e.message);
-            }
-        } else {
-            dock_menuitem.sensitive = false;
-        }
-    }
-
-    private void dock_menuitem_activate () {
-        var dock = Backend.Dock.get_default ();
         if (dock.dbus == null) {
             return;
         }
 
         try {
-            if (dock_menuitem.active) {
+            pinned_action.change_state (new Variant.boolean (desktop_id in dock.dbus.list_launchers ()));
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
+    }
+
+    private void pinned_action_change_state (Variant? value) {
+        pinned_action.set_state (value);
+
+        try {
+            var dock = Backend.Dock.get_default ();
+            if (value.get_boolean ()) {
                 dock.dbus.add_launcher (desktop_id);
             } else {
                 dock.dbus.remove_launcher (desktop_id);
