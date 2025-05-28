@@ -130,11 +130,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             search.begin (search_entry.text, match, target);
         });
 
-        focus_in_event.connect (() => {
-            search_entry.grab_focus ();
-            return Gdk.EVENT_PROPAGATE;
-        });
-
         key_press_event.connect (on_key_press);
         search_entry.key_press_event.connect (on_search_view_key_press);
 
@@ -146,12 +141,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             search.begin (search_entry.text);
         });
 
-        search_entry.grab_focus ();
         search_entry.activate.connect (search_entry_activated);
-
-        category_view.search_focus_request.connect (() => {
-            search_entry.grab_focus ();
-        });
 
         grid_view.app_launched.connect (() => {
             close_indicator ();
@@ -278,24 +268,11 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
                         }
                     }
 
-                    // FIXME: Workaround to avoid losing focus completely
-                    search_entry.grab_focus ();
                     return Gdk.EVENT_STOP;
             }
         }
 
         switch (key) {
-            case "Down":
-            case "Enter": // "KP_Enter"
-            case "Home":
-            case "KP_Enter":
-            case "Left":
-            case "Return":
-            case "Right":
-            case "Tab":
-            case "Up":
-                return Gdk.EVENT_PROPAGATE;
-
             case "Page_Up":
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_previous ();
@@ -312,38 +289,27 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
                 }
                 break;
 
-            case "BackSpace":
-                if (!search_entry.has_focus) {
-                    search_entry.grab_focus ();
-                    search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
-                }
-                return Gdk.EVENT_PROPAGATE;
             case "End":
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_last ();
                 }
 
                 return Gdk.EVENT_PROPAGATE;
-            default:
-                if (!search_entry.has_focus && event.is_modifier != 1) {
-                    search_entry.grab_focus ();
-                    search_entry.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 0, false);
-                    search_entry.key_press_event (event);
-                }
-                return Gdk.EVENT_PROPAGATE;
-
         }
 
-        return search_entry.handle_event (event);
+        var search_handles_event = search_entry.handle_event (event);
+        if (search_handles_event && !search_entry.has_focus) {
+            search_entry.grab_focus ();
+            search_entry.move_cursor (BUFFER_ENDS, 0, false);
+        }
+
+        return search_handles_event;
     }
 
     public void show_slingshot () {
         search_entry.text = "";
-
-    /* TODO
-        set_focus (null);
-    */
         search_entry.grab_focus ();
+
         // This is needed in order to not animate if the previous view was the search view.
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.NONE;
         stack.transition_type = Gtk.StackTransitionType.NONE;
@@ -359,15 +325,11 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             case Modality.NORMAL_VIEW:
                 view_selector_revealer.set_reveal_child (true);
                 stack.set_visible_child_name ("normal");
-
-                search_entry.grab_focus ();
                 break;
 
             case Modality.CATEGORY_VIEW:
                 view_selector_revealer.set_reveal_child (true);
                 stack.set_visible_child_name ("category");
-
-                search_entry.grab_focus ();
                 break;
 
             case Modality.SEARCH_VIEW:
