@@ -17,21 +17,23 @@
  * Boston, MA 02110-1301 USA.
  */
 
-public class AppListRow : Gtk.ListBoxRow {
-    public string app_id { get; construct; }
-    public string desktop_path { get; construct; }
-    public GLib.DesktopAppInfo app_info { get; private set; }
+public class Slingshot.AppListRow : Gtk.ListBoxRow {
+    public Backend.App app {get; construct; }
+    public string app_id { get { return app.desktop_id; }}
+    public int popularity { get { return app.popularity; }}
+    public string desktop_path { get { return app.desktop_path; }}
+    public string display_name { get; private set; }
+    public Icon icon { get { return app_info.get_icon (); }}
+    private GLib.DesktopAppInfo app_info;
 
-    public AppListRow (string app_id, string desktop_path) {
+    public AppListRow (Backend.App app) {
         Object (
-            app_id: app_id,
-            desktop_path: desktop_path
+            app: app
         );
     }
 
     construct {
         app_info = new GLib.DesktopAppInfo (app_id);
-
         var icon = app_info.get_icon ();
         weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
         if (icon == null || theme.lookup_by_gicon (icon, 32, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
@@ -42,7 +44,8 @@ public class AppListRow : Gtk.ListBoxRow {
         image.gicon = icon;
         image.pixel_size = 32;
 
-        var name_label = new Gtk.Label (app_info.get_display_name ());
+        display_name = app_info.get_display_name ();
+        var name_label = new Gtk.Label (display_name);
         name_label.set_ellipsize (Pango.EllipsizeMode.END);
         name_label.xalign = 0;
 

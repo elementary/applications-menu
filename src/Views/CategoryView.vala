@@ -19,13 +19,19 @@
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public signal void search_focus_request ();
 
+    public const string PINNED_CATEGORY = N_("Pinned");
+    public const string RECENT_CATEGORY = N_("Recent");
+    public const double MIN_POPULARITY = 1;
+
     public SlingshotView view { get; construct; }
 
     private bool dragging = false;
     private string? drag_uri = null;
     private NavListBox category_switcher;
     private NavListBox listbox;
-
+    private Gee.ArrayList<string> pinned;
+    private bool show_pinned = true;
+    private Gee.ArrayList<string> popular_apps;
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
     public CategoryView (SlingshotView view) {
@@ -36,6 +42,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
+        popular_apps = new Gee.ArrayList<string> ();
+        pinned = new Gee.ArrayList<string> ();
+#if HAVE_ZEITGEIST
+        show_pinned = false;
+#endif
         category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
         category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
@@ -65,7 +76,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         add (container);
 
-        category_switcher.row_selected.connect (() => {
+        category_switcher.row_selected.connect ((row) => {
+            if (row != null && ((CategoryRow) row).cat_name == _(RECENT_CATEGORY)) {
+                listbox.set_sort_func ((Gtk.ListBoxSortFunc) recent_sort_func);
+            } else {
+                listbox.set_sort_func (null);
+            }
             listbox.invalidate_filter ();
         });
 
@@ -121,7 +137,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 var drag_item = (AppListRow) selected_row;
                 drag_uri = "file://" + drag_item.desktop_path;
                 if (drag_uri != null) {
-                    Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
+                    Gtk.drag_set_icon_gicon (ctx, drag_item.icon, 32, 32);
                 }
 
                 view.close_indicator ();
@@ -151,7 +167,23 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     private static int category_sort_func (CategoryRow row1, CategoryRow row2) {
+        if (row1.cat_name == _(RECENT_CATEGORY)) {
+            return -1;
+        }
+
+        if (row1.cat_name == _(PINNED_CATEGORY)) {
+            return row2.cat_name != _(RECENT_CATEGORY) ? -1 : 1;
+        }
+
         return row1.cat_name.collate (row2.cat_name);
+    }
+
+    private static int recent_sort_func (AppListRow row1, AppListRow row2) {
+        if (row1.popularity == row2.popularity) {
+            return row1.display_name.collate (row2.display_name);
+        }
+
+        return row1.popularity > row2.popularity ? -1 : 1;
     }
 
     private bool create_context_menu (Gdk.Event event) {
@@ -193,7 +225,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
     }
 
-    public void setup_sidebar () {
+    private CategoryRow? setup_sidebar () {
         CategoryRow? old_selected = (CategoryRow) category_switcher.get_selected_row ();
         foreach (unowned Gtk.Widget child in category_switcher.get_children ()) {
             child.destroy ();
@@ -202,12 +234,29 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.foreach ((app_list_row) => listbox.remove (app_list_row));
 
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
-            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
+            listbox.add (new AppListRow (app));
         }
+
         listbox.show_all ();
 
         // Fill the sidebar
-        unowned Gtk.ListBoxRow? new_selected = null;
+        CategoryRow? new_selected = null;
+        CategoryRow? recent_row = null;
+        CategoryRow? pinned_row = null;
+        int n_rows = 0;
+        // Add pinned/recent category if there are any pinned/recent apps
+        if (popular_apps.size > 0) {
+            recent_row = new CategoryRow (_(RECENT_CATEGORY));
+            category_switcher.add (recent_row);
+            n_rows++;
+        }
+
+        if (pinned.size > 0) {
+            pinned_row = new CategoryRow (_(PINNED_CATEGORY));
+            category_switcher.add (pinned_row);
+            n_rows++;
+        }
+
         foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
                 continue;
@@ -215,19 +264,62 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
             var row = new CategoryRow (cat_name);
             category_switcher.add (row);
-            if (old_selected != null && old_selected.cat_name == cat_name) {
-                new_selected = row;
+            n_rows++;
+        }
+
+        if (old_selected != null) {
+            for (int i = 0; i < n_rows; i++) {
+                var row = (CategoryRow) category_switcher.get_row_at_index (i);
+                if (old_selected.cat_name == row.cat_name) {
+                    new_selected = row;
+                    break;
+                }
             }
         }
 
         category_switcher.show_all ();
-        category_switcher.select_row (new_selected ?? category_switcher.get_row_at_index (0));
+        return new_selected ?? (recent_row ?? pinned_row);
+    }
+
+    public void update (string[]? pinned_apps) {
+        if (pinned_apps != null && show_pinned) {
+            pinned.clear ();
+            foreach (string app_id in pinned_apps) {
+                pinned.add (app_id);
+            }
+        }
+
+#if HAVE_ZEITGEIST
+        view.app_system.update_popularities.begin ((obj, res) => {
+            view.app_system.update_popularities.end (res);
+            popular_apps.clear ();
+            var popularity = view.app_system.get_apps_by_popularity ();
+            popularity.@foreach ((app) => {
+                popular_apps.add (app.desktop_id);
+            });
+            // Any new entries will not appear until next showing, but
+            // at lease resort the existing entries.
+            listbox.invalidate_filter ();
+            listbox.invalidate_sort ();
+        });
+#endif
+        var selected = setup_sidebar ();
+        category_switcher.select_row (selected);
+
     }
 
     [CCode (instance_pos = -1)]
     private bool filter_function (AppListRow row) {
         unowned CategoryRow category_row = (CategoryRow) category_switcher.get_selected_row ();
         if (category_row != null) {
+            if (category_row.cat_name == _(PINNED_CATEGORY)) {
+                return pinned.contains (row.app_id);
+            }
+
+            if (category_row.cat_name == _(RECENT_CATEGORY)) {
+                return popular_apps.contains (row.app_id);
+            }
+
             foreach (Backend.App app in view.app_system.apps[category_row.cat_name]) {
                 if (row.app_id == app.desktop_id) {
                     return true;
