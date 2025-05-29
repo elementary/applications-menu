@@ -50,11 +50,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         app_label.set_ellipsize (Pango.EllipsizeMode.END);
 
-        var image = new Granite.AsyncImage.from_gicon_async (app.icon, ICON_SIZE);
-        image.pixel_size = ICON_SIZE;
-        image.margin_top = 9;
-        image.margin_end = 6;
-        image.margin_start = 6;
+        var image = new Gtk.Image.from_gicon (app.icon, ICON_SIZE) {
+            margin_top = 9,
+            margin_end = 6,
+            margin_start = 6,
+            pixel_size = ICON_SIZE
+        };
 
         badge = new Gtk.Label ("!");
         badge.visible = false;
@@ -116,7 +117,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         update_badge_count ();
 
-        app.notify["icon"].connect (() => image.set_from_gicon_async.begin (app.icon, ICON_SIZE));
+        app.bind_property ("icon", image, "gicon");
     }
 
     public void launch_app () {
