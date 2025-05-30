@@ -21,12 +21,13 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     public Backend.App app { get; construct; }
 
-    private static Slingshot.AppContextMenu menu;
-
     private const int ICON_SIZE = 64;
 
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
+
+    private Gtk.GestureMultiPress click_controller;
+    private Gtk.EventControllerKey menu_key_controller;
 
     public AppButton (Backend.App app) {
         Object (app: app);
@@ -80,22 +81,45 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         add (grid);
 
-        this.clicked.connect (launch_app);
-
-        this.button_press_event.connect ((e) => {
-            if (e.button != Gdk.BUTTON_SECONDARY) {
-                return Gdk.EVENT_PROPAGATE;
-            }
-
-            return create_context_menu (e);
+        var context_menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
+        context_menu.app_launched.connect (() => {
+            app_launched ();
         });
 
-        this.key_press_event.connect ((e) => {
-            if (e.keyval == Gdk.Key.Menu) {
-                return create_context_menu (e);
-            }
+        this.clicked.connect (launch_app);
 
-            return Gdk.EVENT_PROPAGATE;
+        click_controller = new Gtk.GestureMultiPress (this) {
+            button = 0,
+            exclusive = true
+        };
+        click_controller.pressed.connect ((n_press, x, y) => {
+            var sequence = click_controller.get_current_sequence ();
+            var event = click_controller.get_last_event (sequence);
+
+            if (event.triggers_context_menu ()) {
+                context_menu.popup_at_pointer ();
+
+                click_controller.set_state (CLAIMED);
+                click_controller.reset ();
+            }
+        });
+
+        menu_key_controller = new Gtk.EventControllerKey (this);
+        menu_key_controller.key_released.connect ((keyval, keycode, state) => {
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            switch (keyval) {
+                case Gdk.Key.F10:
+                    if (mods == Gdk.ModifierType.SHIFT_MASK) {
+                        context_menu.popup_at_widget (this, EAST, CENTER);
+                    }
+                    break;
+                case Gdk.Key.Menu:
+                case Gdk.Key.MenuKB:
+                    context_menu.popup_at_widget (this, EAST, CENTER);
+                    break;
+                default:
+                    return;
+            }
         });
 
         this.drag_begin.connect ((ctx) => {
@@ -143,24 +167,5 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         } else {
             badge.hide ();
         }
-    }
-
-    private bool create_context_menu (Gdk.Event e) {
-        menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
-        menu.app_launched.connect (() => {
-            app_launched ();
-        });
-
-        if (menu.get_children () != null) {
-            if (e.type == Gdk.EventType.KEY_PRESS) {
-                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                return Gdk.EVENT_STOP;
-            } else if (e.type == Gdk.EventType.BUTTON_PRESS) {
-                menu.popup_at_pointer (e);
-                return Gdk.EVENT_STOP;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
     }
 }
