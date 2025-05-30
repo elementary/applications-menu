@@ -26,7 +26,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
         }
     }
 
-    private Hdy.Carousel paginator;
+    private Adw.Carousel paginator;
 
     construct {
         halign = Gtk.Align.CENTER;
@@ -36,7 +36,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
         show_all ();
     }
 
-    public void set_paginator (Hdy.Carousel paginator) {
+    public void set_paginator (Adw.Carousel paginator) {
         if (this.paginator != null) {
             get_children ().foreach ((child) => {
                 child.destroy ();
