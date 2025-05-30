@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2022-09-21 06:14+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -27,40 +27,43 @@ msgstr ""
 msgid "Open and search for apps"
 msgstr ""
 
+#: data/applications-menu.metainfo.xml.in:31
+msgid "elementary, Inc."
+msgstr "کۆمپانیای هاوبەشی ئێلیمێنتری."
+
 #: data/applications-menu.metainfo.xml.in:39
-#: data/applications-menu.metainfo.xml.in:54
-#: data/applications-menu.metainfo.xml.in:70
-#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:52
+#: data/applications-menu.metainfo.xml.in:67
+#: data/applications-menu.metainfo.xml.in:83
 #: data/applications-menu.metainfo.xml.in:97
+#: data/applications-menu.metainfo.xml.in:110
 msgid "Improvements:"
 msgstr ""
 
 #: data/applications-menu.metainfo.xml.in:41
-#: data/applications-menu.metainfo.xml.in:56
-#: data/applications-menu.metainfo.xml.in:72
-#: data/applications-menu.metainfo.xml.in:99
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:69
+#: data/applications-menu.metainfo.xml.in:85
+#: data/applications-menu.metainfo.xml.in:112
 msgid "Updated translations"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:66
+#: data/applications-menu.metainfo.xml.in:79
 msgid "New Features:"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:68
+#: data/applications-menu.metainfo.xml.in:81
 msgid "Convert between units of measurement"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:86
+#: data/applications-menu.metainfo.xml.in:99
 msgid "Searching settings always searches the full title"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:93
+#: data/applications-menu.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr ""
 
-#: data/applications-menu.metainfo.xml.in:95
+#: data/applications-menu.metainfo.xml.in:108
 msgid "Fix a regression with settings search"
 msgstr ""
-
-#~ msgid "elementary, Inc."
-#~ msgstr "کۆمپانیای هاوبەشی ئێلیمێنتری."
