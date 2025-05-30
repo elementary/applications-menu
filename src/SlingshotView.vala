@@ -32,7 +32,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     public const int DEFAULT_ROWS = 3;
 
     private Backend.SynapseSearch synapse;
-    private Gdk.Screen screen;
     private Gtk.Revealer view_selector_revealer;
     private Modality modality;
     private Widgets.Grid grid_view;
@@ -48,8 +47,6 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     construct {
         app_system = new Backend.AppSystem ();
         synapse = new Backend.SynapseSearch ();
-
-        screen = get_screen ();
 
         var grid_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
