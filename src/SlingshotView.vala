@@ -205,7 +205,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         }
     }
 
-    public bool on_search_view_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+    private bool on_search_view_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
         switch (keyval) {
             case Gdk.Key.Down:
                 search_entry.move_focus (TAB_FORWARD);
