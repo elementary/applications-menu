@@ -25,6 +25,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private NavListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
+    private Gtk.EventControllerKey listbox_key_controller;
+    private Gtk.EventControllerKey category_switcher_key_controller;
 
     public CategoryView (SlingshotView view) {
         Object (view: view);
@@ -94,8 +96,11 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             return Gdk.EVENT_PROPAGATE;
         });
 
-        listbox.key_press_event.connect (on_key_press);
-        category_switcher.key_press_event.connect (on_key_press);
+        listbox_key_controller = new Gtk.EventControllerKey (listbox);
+        listbox_key_controller.key_pressed.connect (on_key_press);
+
+        category_switcher_key_controller = new Gtk.EventControllerKey (category_switcher);
+        category_switcher_key_controller.key_pressed.connect (on_key_press);
 
         Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
@@ -228,8 +233,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return false;
     }
 
-    private bool on_key_press (Gdk.EventKey event) {
-        switch (event.keyval) {
+    private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+        switch (keyval) {
             case Gdk.Key.Page_Up:
             case Gdk.Key.KP_Page_Up:
                 page_up ();
@@ -248,7 +253,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 return Gdk.EVENT_STOP;
             case Gdk.Key.KP_Up:
             case Gdk.Key.Up:
-                if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+                if (state == Gdk.ModifierType.SHIFT_MASK) {
                     page_up ();
                     return Gdk.EVENT_STOP;
                 }
@@ -256,7 +261,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 break;
             case Gdk.Key.KP_Down:
             case Gdk.Key.Down:
-                if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+                if (state == Gdk.ModifierType.SHIFT_MASK) {
                     page_down ();
                     return Gdk.EVENT_STOP;
                 }
