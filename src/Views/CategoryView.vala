@@ -17,8 +17,6 @@
  */
 
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
-    public signal void search_focus_request ();
-
     public SlingshotView view { get; construct; }
 
     private bool dragging = false;
@@ -67,10 +65,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         category_switcher.row_selected.connect (() => {
             listbox.invalidate_filter ();
-        });
-
-        category_switcher.search_focus_request.connect (() => {
-            search_focus_request ();
         });
 
         listbox.row_activated.connect ((row) => {
@@ -141,10 +135,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             if (drag_uri != null) {
                 sel.set_uris ({drag_uri});
             }
-        });
-
-        listbox.search_focus_request.connect (() => {
-            search_focus_request ();
         });
 
         setup_sidebar ();
@@ -293,8 +283,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     }
 
     private class NavListBox : Gtk.ListBox {
-        public signal void search_focus_request ();
-
         public override void move_cursor (Gtk.MovementStep step, int count) {
             unowned Gtk.ListBoxRow selected = get_selected_row ();
             if (
@@ -303,7 +291,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 step == DISPLAY_LINES &&
                 count == -1
             ) {
-                search_focus_request ();
+                move_focus (Gtk.DirectionType.TAB_BACKWARD);
             } else {
                 base.move_cursor (step, count);
             }
