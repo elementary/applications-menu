@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2023-03-31 15:59+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,19 +28,19 @@ msgstr "Sovellukset"
 msgid "Open and search apps"
 msgstr "Avaa ja etsi sovelluksia"
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "Näytä ruudukkona"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "Näytä luokittain"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "Etsi sovelluksia"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr "Tyhjennä kaikki"
 
@@ -145,22 +145,22 @@ msgstr "Yritä käyttää eri hakuehtoja."
 msgid "No Results for “%s”"
 msgstr "Ei tuloksia haulle “%s”"
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Avaa käyttäen \"%s\"-grafiikkaa"
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 #, fuzzy
 #| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
 msgstr "Poista t_elakasta"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr "Poista asennus"
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 msgid "View in AppCenter"
 msgstr "Näytä sovelluskeskuksessa"
 

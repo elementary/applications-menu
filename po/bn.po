@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -24,19 +24,19 @@ msgstr "অ্যাপ্লিকেশন"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "গ্রিড হিসাবে দেখুন"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "বিভাগ দ্বারা দেখুন"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "এপ্স অনুসন্ধান করুন"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr ""
 
@@ -145,23 +145,23 @@ msgstr "অনুসন্ধানের জন্য বাক্যগুল�
 msgid "No Results for “%s”"
 msgstr "\"%s\" জন্য কোনো ফলাফল পাওয়া যায়নি"
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, fuzzy, c-format
 #| msgid "Open with %s"
 msgid "Open with %s Graphics"
 msgstr "%s_এর দ্বারা খুলুন"
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 #, fuzzy
 #| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
 msgstr "_ডক থেকে অপসারণ করুন"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr "আনইনস্টল"
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "অ্যাপসেন্টার"

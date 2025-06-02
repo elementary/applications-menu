@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2018-11-21 18:10+0000\n"
 "Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/wingpanel/"
@@ -29,19 +29,19 @@ msgstr "Mga Application"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "Tignan bilang Grid"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "Tignan sa kada Kategorya"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "Maghanap ng mga App"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr ""
 
@@ -150,22 +150,22 @@ msgstr ""
 msgid "No Results for “%s”"
 msgstr "Walang Resulta para sa  “%s”"
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, c-format
 msgid "Open with %s Graphics"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 #, fuzzy
 #| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
 msgstr "Tanggalin mula sa _Dock"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "Tignan sa kada Kategorya"

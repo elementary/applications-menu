@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2025-03-20 07:55+0000\n"
 "Last-Translator: Carmina16 <mistresssilvara@hotmail.com>\n"
 "Language-Team: Occidental <https://l10n.elementaryos.org/projects/wingpanel/"
@@ -27,37 +27,43 @@ msgstr "Menú de applicationes"
 msgid "Open and search for apps"
 msgstr "Aperter e serchar por applicationes"
 
+#: data/applications-menu.metainfo.xml.in:31
+msgid "elementary, Inc."
+msgstr ""
+
 #: data/applications-menu.metainfo.xml.in:39
-#: data/applications-menu.metainfo.xml.in:54
-#: data/applications-menu.metainfo.xml.in:70
-#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:52
+#: data/applications-menu.metainfo.xml.in:67
+#: data/applications-menu.metainfo.xml.in:83
 #: data/applications-menu.metainfo.xml.in:97
+#: data/applications-menu.metainfo.xml.in:110
 msgid "Improvements:"
 msgstr "Ameliorationes:"
 
 #: data/applications-menu.metainfo.xml.in:41
-#: data/applications-menu.metainfo.xml.in:56
-#: data/applications-menu.metainfo.xml.in:72
-#: data/applications-menu.metainfo.xml.in:99
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:69
+#: data/applications-menu.metainfo.xml.in:85
+#: data/applications-menu.metainfo.xml.in:112
 msgid "Updated translations"
 msgstr "Actualisat traductiones"
 
-#: data/applications-menu.metainfo.xml.in:66
+#: data/applications-menu.metainfo.xml.in:79
 msgid "New Features:"
 msgstr "Nov caracteristicas:"
 
-#: data/applications-menu.metainfo.xml.in:68
+#: data/applications-menu.metainfo.xml.in:81
 msgid "Convert between units of measurement"
 msgstr "Converter unités de mesura"
 
-#: data/applications-menu.metainfo.xml.in:86
+#: data/applications-menu.metainfo.xml.in:99
 msgid "Searching settings always searches the full title"
 msgstr "Serchar li complet titul de parametres"
 
-#: data/applications-menu.metainfo.xml.in:93
+#: data/applications-menu.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "Corectiones:"
 
-#: data/applications-menu.metainfo.xml.in:95
+#: data/applications-menu.metainfo.xml.in:108
 msgid "Fix a regression with settings search"
 msgstr "Correctet un regression de sercha por parametres"

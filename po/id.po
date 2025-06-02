@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
-"io>\n"
+"Last-Translator: Faisal Rachmadin "
+"<frachmadin@users.noreply.l10n.elementary.io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/id/>\n"
 "Language: id\n"
@@ -28,19 +28,19 @@ msgstr "Aplikasi"
 msgid "Open and search apps"
 msgstr "Buka dan cari aplikasi"
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "Tampilkan sebagai Kisi"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "Tampilkan berdasarkan Kategori"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "Cari Aplikasi"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr "Bersihkan semua"
 
@@ -145,22 +145,22 @@ msgstr "Coba ubah istilah pencarian."
 msgid "No Results for “%s”"
 msgstr "Tidak Ada Hasil untuk “%s”"
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Buka dengan %s Grafis"
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 #, fuzzy
 #| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
 msgstr "Hapus dari _Dok"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr "Hapus Pemasangan"
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 msgid "View in AppCenter"
 msgstr "Perlihatkan di AppCenter"
 
