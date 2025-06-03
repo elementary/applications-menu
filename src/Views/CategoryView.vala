@@ -24,7 +24,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
     private NavListBox category_switcher;
     private NavListBox listbox;
 
-    private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
+    // private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
     private Gtk.EventControllerKey listbox_key_controller;
     private Gtk.EventControllerKey category_switcher_key_controller;
 

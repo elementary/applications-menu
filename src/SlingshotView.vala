@@ -224,7 +224,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         return Gdk.EVENT_PROPAGATE;
     }
 
-    public bool on_key_press (Gdk.EventKey event) {
+    public bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
         var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
         if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
             switch (key) {
