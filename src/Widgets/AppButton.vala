@@ -1,19 +1,7 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
 public class Slingshot.Widgets.AppButton : Gtk.Button {
@@ -42,14 +30,15 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-        var app_label = new Gtk.Label (app.name);
-        app_label.halign = Gtk.Align.CENTER;
-        app_label.justify = Gtk.Justification.CENTER;
-        app_label.lines = 2;
-        app_label.max_width_chars = 16;
-        app_label.width_chars = 16;
-        app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
-        app_label.set_ellipsize (Pango.EllipsizeMode.END);
+        var app_label = new Gtk.Label (app.name) {
+            halign = CENTER,
+            ellipsize = END,
+            justify = CENTER,
+            lines = 2,
+            max_width_chars = 16,
+            width_chars = 16,
+            wrap_mode = WORD_CHAR
+        };
 
         var image = new Gtk.Image.from_gicon (app.icon, ICON_SIZE) {
             margin_top = 9,
@@ -58,28 +47,28 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             pixel_size = ICON_SIZE
         };
 
-        badge = new Gtk.Label ("!");
-        badge.visible = false;
-        badge.halign = Gtk.Align.END;
-        badge.valign = Gtk.Align.START;
+        badge = new Gtk.Label ("!") {
+            halign = END,
+            valign = START,
+            visible = false
+        };
+        badge.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
-        unowned Gtk.StyleContext badge_style_context = badge.get_style_context ();
-        badge_style_context.add_class (Granite.STYLE_CLASS_BADGE);
-
-        var overlay = new Gtk.Overlay ();
-        overlay.halign = Gtk.Align.CENTER;
-        overlay.add (image);
+        var overlay = new Gtk.Overlay () {
+            child = image,
+            halign = CENTER
+        };
         overlay.add_overlay (badge);
 
-        var grid = new Gtk.Grid ();
-        grid.orientation = Gtk.Orientation.VERTICAL;
-        grid.row_spacing = 6;
-        grid.expand = true;
-        grid.halign = Gtk.Align.CENTER;
-        grid.add (overlay);
-        grid.add (app_label);
+        var box = new Gtk.Box (VERTICAL, 6) {
+            halign = CENTER,
+            hexpand = true,
+            vexpand = true
+        };
+        box.add (overlay);
+        box.add (app_label);
 
-        add (grid);
+        child = box;
 
         var context_menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
         context_menu.app_launched.connect (() => {
