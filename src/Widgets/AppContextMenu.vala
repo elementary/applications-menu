@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Slingshot.AppContextMenu : Gtk.Menu {
+public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
     public signal void app_launched ();
 
     private const string ACTION_GROUP_PREFIX = "app-actions";

@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
+public class Slingshot.Widgets.CategoryView : Granite.Bin {
     public SlingshotView view { get; construct; }
 
     private bool dragging = false;

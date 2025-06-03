@@ -75,14 +75,14 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
     public signal void app_launched ();
 
-    private Granite.Widgets.AlertView alert_view;
+    private Granite.Placeholder alert_view;
     private AppListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
 
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
-        alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
+        alert_view = new Granite.Placeholder ("", _("Try changing search terms."), "edit-find-symbolic");
         alert_view.show_all ();
 
         // list box

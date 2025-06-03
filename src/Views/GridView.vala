@@ -26,7 +26,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     private Gtk.Grid current_grid;
     private Gee.HashMap<uint, Gtk.Grid> grids;
-    private Hdy.Carousel paginator;
+    private Adw.Carousel paginator;
     private Page page;
 
     private Gtk.EventControllerKey key_controller;

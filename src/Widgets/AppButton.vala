@@ -26,7 +26,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
 
-    private Gtk.GestureMultiPress click_controller;
+    private Gtk.GestureClick click_controller;
     private Gtk.EventControllerKey menu_key_controller;
 
     public AppButton (Backend.App app) {
@@ -88,7 +88,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.clicked.connect (launch_app);
 
-        click_controller = new Gtk.GestureMultiPress (this) {
+        click_controller = new Gtk.GestureClick (this) {
             button = 0,
             exclusive = true
         };
