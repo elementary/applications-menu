@@ -37,6 +37,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     private Widgets.Grid grid_view;
     private Widgets.SearchView search_view;
     private Widgets.CategoryView category_view;
+    private Gtk.EventControllerKey search_key_controller;
 
     private static GLib.Settings settings { get; private set; default = null; }
 
@@ -128,7 +129,9 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         });
 
         key_press_event.connect (on_key_press);
-        search_entry.key_press_event.connect (on_search_view_key_press);
+
+        search_key_controller = new Gtk.EventControllerKey (search_entry);
+        search_key_controller.key_pressed.connect (on_search_view_key_press);
 
         // Showing a menu reverts the effect of the grab_device function.
         search_entry.search_changed.connect (() => {
@@ -202,18 +205,13 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         }
     }
 
-    /* These keys do not work if connect_after used; the rest of the key events
-     * are dealt with after the default handler in order that CJK input methods
-     * work properly */
-    public bool on_search_view_key_press (Gdk.EventKey event) {
-        var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
-
-        switch (key) {
-            case "Down":
-                search_entry.move_focus (Gtk.DirectionType.TAB_FORWARD);
+    private bool on_search_view_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+        switch (keyval) {
+            case Gdk.Key.Down:
+                search_entry.move_focus (TAB_FORWARD);
                 return Gdk.EVENT_STOP;
 
-            case "Escape":
+            case Gdk.Key.Escape:
                 if (search_entry.text.length > 0) {
                     search_entry.text = "";
                 } else {
