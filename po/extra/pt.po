@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2023-01-23 17:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,38 +27,44 @@ msgstr "Menu de Aplicações"
 msgid "Open and search for apps"
 msgstr "Abrir e pesquisar aplicações"
 
+#: data/applications-menu.metainfo.xml.in:31
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
 #: data/applications-menu.metainfo.xml.in:39
-#: data/applications-menu.metainfo.xml.in:54
-#: data/applications-menu.metainfo.xml.in:70
-#: data/applications-menu.metainfo.xml.in:84
+#: data/applications-menu.metainfo.xml.in:52
+#: data/applications-menu.metainfo.xml.in:67
+#: data/applications-menu.metainfo.xml.in:83
 #: data/applications-menu.metainfo.xml.in:97
+#: data/applications-menu.metainfo.xml.in:110
 msgid "Improvements:"
 msgstr "Melhorias:"
 
 #: data/applications-menu.metainfo.xml.in:41
-#: data/applications-menu.metainfo.xml.in:56
-#: data/applications-menu.metainfo.xml.in:72
-#: data/applications-menu.metainfo.xml.in:99
+#: data/applications-menu.metainfo.xml.in:54
+#: data/applications-menu.metainfo.xml.in:69
+#: data/applications-menu.metainfo.xml.in:85
+#: data/applications-menu.metainfo.xml.in:112
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
-#: data/applications-menu.metainfo.xml.in:66
+#: data/applications-menu.metainfo.xml.in:79
 msgid "New Features:"
 msgstr "Novas funcionalidades:"
 
-#: data/applications-menu.metainfo.xml.in:68
+#: data/applications-menu.metainfo.xml.in:81
 msgid "Convert between units of measurement"
 msgstr "Converter entre unidades de medida"
 
-#: data/applications-menu.metainfo.xml.in:86
+#: data/applications-menu.metainfo.xml.in:99
 msgid "Searching settings always searches the full title"
 msgstr "As definições de pesquisa pesquisam sempre o título completo"
 
-#: data/applications-menu.metainfo.xml.in:93
+#: data/applications-menu.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "Correções:"
 
-#: data/applications-menu.metainfo.xml.in:95
+#: data/applications-menu.metainfo.xml.in:108
 msgid "Fix a regression with settings search"
 msgstr "Corrige uma regressão com pesquisa de definições"
 
@@ -73,9 +79,6 @@ msgstr "Corrige uma regressão com pesquisa de definições"
 
 #~ msgid "Minor updates:"
 #~ msgstr "Pequenas atualizações:"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Show secondary click menu for search results"
 #~ msgstr "Mostrar menu de clique secundário para resultados de pesquisa"

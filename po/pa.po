@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2021-08-01 17:35+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,19 +21,19 @@ msgstr "ਐਪਾਂ"
 msgid "Open and search apps"
 msgstr "ਐਪਾਂ ਨੂੰ ਖੋਲ੍ਹੋ ਅਤੇ ਖੋਜੋ"
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "ਇੱਕ ਜਾਲ਼ ਵਜੋਂ ਵੇਖੋ"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "ਵਰਗ ਮੁਤਾਬਕ ਵੇਖੋ"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "ਐਪਾਂ ਖੋਜੋ"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr "ਸਾਰਾ ਸਾਫ਼ ਕਰੋ"
 
@@ -140,20 +140,20 @@ msgstr "ਖੋਜ ਸ਼ਬਦ ਬਦਲ ਕੇ ਕੋਸ਼ਿਸ਼ ਕਰੋ�
 msgid "No Results for “%s”"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, c-format
 msgid "Open with %s Graphics"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 msgid "Keep in _Dock"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr ""
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 msgid "View in AppCenter"
 msgstr ""
 
