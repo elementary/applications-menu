@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -28,19 +28,19 @@ msgstr "应用程序"
 msgid "Open and search apps"
 msgstr "打开并搜索应用"
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "网格视图"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "分类视图"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "搜索应用"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr "清除所有"
 
@@ -147,22 +147,22 @@ msgstr "尝试更改搜索内容。"
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "用 %s 图形打开"
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 #, fuzzy
 #| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
 msgstr "从程序坞移除"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr "卸载"
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 msgid "View in AppCenter"
 msgstr "在应用中心内查看"
 

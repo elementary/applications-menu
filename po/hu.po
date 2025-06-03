@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 20:49+0000\n"
+"POT-Creation-Date: 2025-05-30 19:37+0000\n"
 "PO-Revision-Date: 2025-02-21 19:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,19 +28,19 @@ msgstr "Alkalmazások"
 msgid "Open and search apps"
 msgstr "Alkalmazások megnyitása és keresése"
 
-#: src/SlingshotView.vala:56
+#: src/SlingshotView.vala:55
 msgid "View as Grid"
 msgstr "Rácsnézet"
 
-#: src/SlingshotView.vala:59
+#: src/SlingshotView.vala:62
 msgid "View by Category"
 msgstr "Kategórianézet"
 
-#: src/SlingshotView.vala:71
+#: src/SlingshotView.vala:77
 msgid "Search Apps"
 msgstr "Alkalmazások keresése"
 
-#: src/SlingshotView.vala:74
+#: src/SlingshotView.vala:80
 msgid "Clear all"
 msgstr "Összes törlése"
 
@@ -145,20 +145,20 @@ msgstr "Próbálja megváltoztatni a keresési kifejezéseket."
 msgid "No Results for “%s”"
 msgstr "Nincsenek találatok erre: “%s”"
 
-#: src/Widgets/AppContextMenu.vala:64
+#: src/Widgets/AppContextMenu.vala:92
 #, c-format
 msgid "Open with %s Graphics"
 msgstr "Megnyitás %s grafikus feldolgozóegységgel"
 
-#: src/Widgets/AppContextMenu.vala:93
+#: src/Widgets/AppContextMenu.vala:120
 msgid "Keep in _Dock"
 msgstr "Megtartás a _dokkon"
 
-#: src/Widgets/AppContextMenu.vala:111
+#: src/Widgets/AppContextMenu.vala:145
 msgid "Uninstall"
 msgstr "Eltávolítás"
 
-#: src/Widgets/AppContextMenu.vala:116
+#: src/Widgets/AppContextMenu.vala:148
 msgid "View in AppCenter"
 msgstr "Megjelenítés az Appközpontban"
 
