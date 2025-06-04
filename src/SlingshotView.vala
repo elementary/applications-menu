@@ -4,7 +4,7 @@
  *                         2011-2012 Giulio Collura
  */
 
-public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
+public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;

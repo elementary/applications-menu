@@ -25,7 +25,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
     private NavListBox listbox;
 
     // private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
-    private Gtk.GestureMultiPress click_controller;
+    private Gtk.GestureClick click_controller;
     private Gtk.EventControllerKey listbox_key_controller;
     private Gtk.EventControllerKey category_switcher_key_controller;
 
@@ -168,7 +168,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         return row1.cat_name.collate (row2.cat_name);
     }
 
-    private Gtk.Menu create_context_menu () {
+    private Gtk.PopoverMenu create_context_menu () {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
         var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
