@@ -25,6 +25,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private NavListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
+    private Gtk.GestureMultiPress click_controller;
     private Gtk.EventControllerKey listbox_key_controller;
     private Gtk.EventControllerKey category_switcher_key_controller;
 
@@ -80,24 +81,42 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             });
         });
 
-        listbox.button_press_event.connect ((event) => {
-            if (event.button == Gdk.BUTTON_SECONDARY) {
-                return create_context_menu (event);
+        click_controller = new Gtk.GestureMultiPress (listbox) {
+            button = 0,
+            exclusive = true
+        };
+        click_controller.pressed.connect ((n_press, x, y) => {
+            var sequence = click_controller.get_current_sequence ();
+            var event = click_controller.get_last_event (sequence);
+
+            if (event.triggers_context_menu ()) {
+                create_context_menu ().popup_at_pointer ();
+
+                click_controller.set_state (CLAIMED);
+                click_controller.reset ();
             }
-
-            return Gdk.EVENT_PROPAGATE;
-        });
-
-        listbox.key_press_event.connect ((event) => {
-            if (event.keyval == Gdk.Key.Menu) {
-                return create_context_menu (event);
-            }
-
-            return Gdk.EVENT_PROPAGATE;
         });
 
         listbox_key_controller = new Gtk.EventControllerKey (listbox);
         listbox_key_controller.key_pressed.connect (on_key_press);
+        listbox_key_controller.key_released.connect ((keyval, keycode, state) => {
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            switch (keyval) {
+                case Gdk.Key.F10:
+                    if (mods == Gdk.ModifierType.SHIFT_MASK) {
+                        var selected_row = (AppListRow) listbox.get_selected_row ();
+                        create_context_menu ().popup_at_widget (selected_row , EAST, CENTER);
+                    }
+                    break;
+                case Gdk.Key.Menu:
+                case Gdk.Key.MenuKB:
+                    var selected_row = (AppListRow) listbox.get_selected_row ();
+                    create_context_menu ().popup_at_widget (selected_row, EAST, CENTER);
+                    break;
+                default:
+                    return;
+            }
+        });
 
         category_switcher_key_controller = new Gtk.EventControllerKey (category_switcher);
         category_switcher_key_controller.key_pressed.connect (on_key_press);
@@ -149,7 +168,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return row1.cat_name.collate (row2.cat_name);
     }
 
-    private bool create_context_menu (Gdk.Event event) {
+    private Gtk.Menu create_context_menu () {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
         var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
@@ -157,17 +176,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             view.close_indicator ();
         });
 
-        if (menu.get_children () != null) {
-            if (event.type == Gdk.EventType.KEY_PRESS) {
-                menu.popup_at_widget (selected_row, Gdk.Gravity.CENTER, Gdk.Gravity.CENTER, event);
-                return Gdk.EVENT_STOP;
-            } else if (event.type == Gdk.EventType.BUTTON_PRESS) {
-                menu.popup_at_pointer (event);
-                return Gdk.EVENT_STOP;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
+        return menu;
     }
 
     public void page_down () {

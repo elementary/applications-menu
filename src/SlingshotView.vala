@@ -1,22 +1,10 @@
 /*
- * Copyright 2019–2021 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
-public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
+public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
@@ -70,22 +58,22 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         view_selector.add (category_view_btn);
         view_selector.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
-        view_selector_revealer = new Gtk.Revealer ();
-        view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-        view_selector_revealer.add (view_selector);
+        view_selector_revealer = new Gtk.Revealer () {
+            child = view_selector,
+            transition_type = SLIDE_RIGHT
+        };
 
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.placeholder_text = _("Search Apps");
-        search_entry.hexpand = true;
-        search_entry.secondary_icon_tooltip_markup = Granite.markup_accel_tooltip (
-            {"<Ctrl>BackSpace"}, _("Clear all")
-        );
+        search_entry = new Gtk.SearchEntry () {
+            hexpand = true,
+            placeholder_text = _("Search Apps")
+        };
 
-        var top = new Gtk.Grid ();
-        top.margin_start = 12;
-        top.margin_end = 12;
-        top.add (view_selector_revealer);
-        top.add (search_entry);
+        var top_box = new Gtk.Box (HORIZONTAL, 0) {
+            margin_start = 12,
+            margin_end = 12
+        };
+        top_box.add (view_selector_revealer);
+        top_box.add (search_entry);
 
         grid_view = new Widgets.Grid ();
 
@@ -101,17 +89,16 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         stack.add_named (category_view, "category");
         stack.add_named (search_view, "search");
 
-        var container = new Gtk.Grid ();
-        container.row_spacing = 12;
-        container.margin_top = 12;
-        container.attach (top, 0, 0);
-        container.attach (stack, 0, 1);
+        var container = new Gtk.Box (VERTICAL, 12) {
+            margin_top = 12
+        };
+        container.add (top_box);
+        container.add (stack);
 
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
 
-        // Add the container to the dialog's content area
-        this.add (container);
+        child = container;
 
         var category_action = settings.create_action ("view-mode");
 
