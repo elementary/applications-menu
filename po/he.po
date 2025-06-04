@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2025-03-02 10:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "יישומים"
 msgid "Open and search apps"
 msgstr "פתיחה וחיפוש יישומים"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "הצגה כרשת"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "הצגה על פי קטגוריות"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "חיפוש יישומים"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "לפנות הכול"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -365,6 +361,9 @@ msgstr "הפעלת המחשב מחדש"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "הפעלה מחדש;ריבוט;ריסטארט;אתחול"
+
+#~ msgid "Clear all"
+#~ msgstr "לפנות הכול"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "הוספה ל_מעגן"

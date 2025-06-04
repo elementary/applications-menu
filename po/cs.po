@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2022-01-12 19:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "Aplikace"
 msgid "Open and search apps"
 msgstr "Otevřít a hledat aplikace"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Zobrazit v mřížce"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Zobrazit dle kategorie"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Hledat aplikace"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Vyčistit vše"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -370,6 +366,9 @@ msgstr "Restartovat počítač"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restartovat;reboot"
+
+#~ msgid "Clear all"
+#~ msgstr "Vyčistit vše"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Přidat na Dok"
