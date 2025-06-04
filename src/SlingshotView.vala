@@ -63,12 +63,10 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
             transition_type = SLIDE_RIGHT
         };
 
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.placeholder_text = _("Search Apps");
-        search_entry.hexpand = true;
-        search_entry.secondary_icon_tooltip_markup = Granite.markup_accel_tooltip (
-            {"<Ctrl>BackSpace"}, _("Clear all")
-        );
+        search_entry = new Gtk.SearchEntry () {
+            hexpand = true,
+            placeholder_text = _("Search Apps")
+        };
 
         var top_box = new Gtk.Box (HORIZONTAL, 0) {
             margin_start = 12,
