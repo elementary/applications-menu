@@ -40,23 +40,23 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
         var grid_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
             action_target = new Variant.string ("grid"),
-            image = new Gtk.Image.from_icon_name ("view-grid-symbolic", BUTTON),
+            icon_name = "view-grid-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"))
         };
 
         var category_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
             action_target = new Variant.string ("category"),
-            image = new Gtk.Image.from_icon_name ("view-filter-symbolic", BUTTON),
+            icon_name = "view-filter-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"))
         };
 
         var view_selector = new Gtk.Box (HORIZONTAL, 0) {
             margin_end = 12
         };
-        view_selector.add (grid_view_btn);
-        view_selector.add (category_view_btn);
-        view_selector.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        view_selector.append (grid_view_btn);
+        view_selector.append (category_view_btn);
+        view_selector.append_css_class (Gtk.STYLE_CLASS_LINKED);
 
         view_selector_revealer = new Gtk.Revealer () {
             child = view_selector,
@@ -72,8 +72,8 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
             margin_start = 12,
             margin_end = 12
         };
-        top_box.add (view_selector_revealer);
-        top_box.add (search_entry);
+        top_box.append (view_selector_revealer);
+        top_box.append (search_entry);
 
         grid_view = new Widgets.Grid ();
 
@@ -92,8 +92,8 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
         var container = new Gtk.Box (VERTICAL, 12) {
             margin_top = 12
         };
-        container.add (top_box);
-        container.add (stack);
+        container.append (top_box);
+        container.append (stack);
 
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
