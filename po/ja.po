@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2025-03-01 14:45+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "アプリケーション"
 msgid "Open and search apps"
 msgstr "アプリを開いたり検索したりします"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "グリット表示"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "カテゴリー表示"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "アプリを検索"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "すべて消去"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -365,6 +361,9 @@ msgstr "コンピューターを再起動します"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "再起動;リブート"
+
+#~ msgid "Clear all"
+#~ msgstr "すべて消去"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "ドックに追加(_D)"

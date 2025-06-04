@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2025-05-02 03:55+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/wingpanel/"
@@ -23,21 +23,17 @@ msgstr "აპლიკაციები"
 msgid "Open and search apps"
 msgstr "გახსნა და აპების ძებნა"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "როგორც ბადის ჩვენება"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "კატეგორიებად ჩვენება"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "აპების ძებნა"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "ყველას გასუფთავება"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -360,6 +356,9 @@ msgstr "თქვენი კომპიუტერის გადატვ�
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "რესტარტი;გადატვირთვა"
+
+#~ msgid "Clear all"
+#~ msgstr "ყველას გასუფთავება"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "_დოკზე დამატება"

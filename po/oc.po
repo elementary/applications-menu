@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,21 +21,17 @@ msgstr "Aplicacions"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Veire per grasilha"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Veire per categoria"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Cercar aplicacions"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Tot escafar"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -368,6 +364,9 @@ msgstr "Reaviar l'ordenador"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reaviar;reboot"
+
+#~ msgid "Clear all"
+#~ msgstr "Tot escafar"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Ajustar al _Dock"

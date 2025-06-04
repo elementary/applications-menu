@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2024-04-23 17:55+0000\n"
 "Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -28,21 +28,17 @@ msgstr "Aplicativos"
 msgid "Open and search apps"
 msgstr "Abrir e pesquisar aplicativos"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Visualizar em grade"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Visualizar por categoria"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Procurar aplicativos"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Limpar tudo"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -374,6 +370,9 @@ msgstr "Reinicie seu computador"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reiniciar;reinicializar"
+
+#~ msgid "Clear all"
+#~ msgstr "Limpar tudo"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Adicionar ao _dock"

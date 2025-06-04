@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin "
 "<frachmadin@users.noreply.l10n.elementary.io>\n"
@@ -28,21 +28,17 @@ msgstr "Aplikasi"
 msgid "Open and search apps"
 msgstr "Buka dan cari aplikasi"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Tampilkan sebagai Kisi"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Tampilkan berdasarkan Kategori"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Cari Aplikasi"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Bersihkan semua"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -369,6 +365,9 @@ msgstr "Nyalakan ulang komputer Anda"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "mulai ulang;but ulang"
+
+#~ msgid "Clear all"
+#~ msgstr "Bersihkan semua"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Tambah ke _Dok"

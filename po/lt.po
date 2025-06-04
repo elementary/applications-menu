@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,21 +29,17 @@ msgstr "Programos"
 msgid "Open and search apps"
 msgstr "Atverti ir ieškoti programų"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Rodyti kaip tinklelį"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Rodyti pagal kategorijas"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Ieškoti programų"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Išvalyti viską"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -376,6 +372,9 @@ msgstr "Paleisti jūsų kompiuterį iš naujo"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "paleisti iš naujo;restartuoti;perkrauti"
+
+#~ msgid "Clear all"
+#~ msgstr "Išvalyti viską"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Pridėti į sky_delį"

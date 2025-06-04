@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -28,21 +28,17 @@ msgstr "应用程序"
 msgid "Open and search apps"
 msgstr "打开并搜索应用"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "网格视图"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "分类视图"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "搜索应用"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "清除所有"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -369,6 +365,9 @@ msgstr "重新启动计算机"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "重启"
+
+#~ msgid "Clear all"
+#~ msgstr "清除所有"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "固定至程序坞"
