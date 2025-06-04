@@ -45,7 +45,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
-        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
         default_theme.add_resource_path ("/io/elementary/desktop/wingpanel/applications-menu/icons");
     }
 
@@ -75,7 +75,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             var indicator_label = new Gtk.Label (_("Applications"));
             indicator_label.vexpand = true;
 
-            var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic", Gtk.IconSize.MENU);
+            var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic");
 
             indicator_grid = new Gtk.Grid ();
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
