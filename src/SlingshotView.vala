@@ -4,7 +4,7 @@
  *                         2011-2012 Giulio Collura
  */
 
-public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
+public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
@@ -69,11 +69,12 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             {"<Ctrl>BackSpace"}, _("Clear all")
         );
 
-        var top = new Gtk.Grid ();
-        top.margin_start = 12;
-        top.margin_end = 12;
-        top.add (view_selector_revealer);
-        top.add (search_entry);
+        var top_box = new Gtk.Box (HORIZONTAL, 0) {
+            margin_start = 12,
+            margin_end = 12
+        };
+        top_box.add (view_selector_revealer);
+        top_box.add (search_entry);
 
         grid_view = new Widgets.Grid ();
 
@@ -89,17 +90,16 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         stack.add_named (category_view, "category");
         stack.add_named (search_view, "search");
 
-        var container = new Gtk.Grid ();
-        container.row_spacing = 12;
-        container.margin_top = 12;
-        container.attach (top, 0, 0);
-        container.attach (stack, 0, 1);
+        var container = new Gtk.Box (VERTICAL, 12) {
+            margin_top = 12
+        };
+        container.add (top_box);
+        container.add (stack);
 
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
 
-        // Add the container to the dialog's content area
-        this.add (container);
+        child = container;
 
         var category_action = settings.create_action ("view-mode");
 
