@@ -58,9 +58,10 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
         view_selector.add (category_view_btn);
         view_selector.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
-        view_selector_revealer = new Gtk.Revealer ();
-        view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-        view_selector_revealer.add (view_selector);
+        view_selector_revealer = new Gtk.Revealer () {
+            child = view_selector,
+            transition_type = SLIDE_RIGHT
+        };
 
         search_entry = new Gtk.SearchEntry ();
         search_entry.placeholder_text = _("Search Apps");
