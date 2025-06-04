@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2018-11-21 18:10+0000\n"
 "Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/wingpanel/"
@@ -29,21 +29,17 @@ msgstr "Mga Application"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Tignan bilang Grid"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Tignan sa kada Kategorya"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Maghanap ng mga App"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"

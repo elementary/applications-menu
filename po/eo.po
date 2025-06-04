@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "Aplikaĵoj"
 msgid "Open and search apps"
 msgstr "Malfermi kaj serĉi aplikaĵojn"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Prezenti laŭ krado"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Prezenti laŭ kategorioj"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Serĉi aplikaĵojn"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Forviŝi ĉion"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -375,6 +371,9 @@ msgstr "Restartigi vian komputilon"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restartigi"
+
+#~ msgid "Clear all"
+#~ msgstr "Forviŝi ĉion"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Aldoni al _Butonbreto"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2022-08-06 10:54+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "애플리케이션"
 msgid "Open and search apps"
 msgstr "실행 및 앱 검색"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "그리드로 보기"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "카테고리로 보기"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "앱 검색"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "검색어 삭제"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -370,6 +366,9 @@ msgstr "컴퓨터를 다시 시작합니다"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "다시 시작;다시 시작"
+
+#~ msgid "Clear all"
+#~ msgstr "검색어 삭제"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "플랭크에 올리기"

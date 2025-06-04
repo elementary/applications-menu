@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -23,21 +23,17 @@ msgstr "अनुप्रयोग"
 msgid "Open and search apps"
 msgstr "उघडा आणि अॅप्स शोधा"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "ग्रिड म्हणून पहा"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "श्रेणीनुसार पहा"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "अनुप्रयोग शोधा"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "सर्व हटवा"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -370,6 +366,9 @@ msgstr "आपला संगणक पुन्हा सुरू करा"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "पुन्हा सुरु करा"
+
+#~ msgid "Clear all"
+#~ msgstr "सर्व हटवा"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "(_D)डॉकमध्ये जोडा"

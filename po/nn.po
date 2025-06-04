@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-04 19:03+0000\n"
 "PO-Revision-Date: 2020-07-16 21:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/"
@@ -28,21 +28,17 @@ msgstr "Applikasjonar"
 msgid "Open and search apps"
 msgstr "Opne og søk i appar"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:44
 msgid "View as Grid"
 msgstr "Vis som rutenett"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:51
 msgid "View by Category"
 msgstr "Vis etter kategori"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:68
 msgid "Search Apps"
 msgstr "Søk etter appar"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Fjern alle"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -375,6 +371,9 @@ msgstr "Start datamaskina på nytt"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "omstart;start på nytt"
+
+#~ msgid "Clear all"
+#~ msgstr "Fjern alle"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Legg til i _dokken"
