@@ -282,11 +282,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         construct {
-            var label = new Gtk.Label (cat_name);
-            label.halign = Gtk.Align.START;
-            label.margin_start = 3;
+            var label = new Gtk.Label (cat_name) {
+                halign = START,
+                margin_start = 3
+            };
 
-            add (label);
+            child = label;
         }
     }
 
