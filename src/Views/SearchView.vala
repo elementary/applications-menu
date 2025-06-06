@@ -203,13 +203,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             return;
         }
 
-        int n_children = 0;
-        for (int i = 0; list_box.get_row_at_index (i) != null; i++) {
-            n_children++;
-        };
-
         // Wrap to the searchbar
-        if (selected.get_index () + count >= n_children) {
+        if (list_box.get_row_at_index (selected.get_index () + count) == null) {
             list_box.select_row (list_box.get_row_at_index (0));
             move_focus (TAB_FORWARD);
         }
