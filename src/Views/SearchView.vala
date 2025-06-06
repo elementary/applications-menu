@@ -79,6 +79,9 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     private AppListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
 
+    private Gtk.GestureMultiPress click_controller;
+    private Gtk.EventControllerKey menu_key_controller;
+
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
@@ -120,28 +123,42 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             });
         });
 
-        list_box.button_press_event.connect ((e) => {
+        click_controller = new Gtk.GestureMultiPress (list_box) {
+            button = 0,
+            exclusive = true
+        };
+        click_controller.pressed.connect ((n_press, x, y) => {
+            var search_item = (SearchItem) list_box.get_selected_row ();
 
-            var row = list_box.get_row_at_y ((int)e.y);
-            var search_item = row as SearchItem;
+            var sequence = click_controller.get_current_sequence ();
+            var event = click_controller.get_last_event (sequence);
 
-            if (e.button != Gdk.BUTTON_SECONDARY) {
-                return Gdk.EVENT_PROPAGATE;
+            if (event.triggers_context_menu ()) {
+                search_item.create_context_menu ()?.popup_at_pointer ();
+
+                click_controller.set_state (CLAIMED);
+                click_controller.reset ();
             }
-
-            return search_item.create_context_menu (e);
         });
 
-        list_box.key_press_event.connect ((e) => {
+        menu_key_controller = new Gtk.EventControllerKey (list_box);
+        menu_key_controller.key_released.connect ((keyval, keycode, state) => {
+            var search_item = (SearchItem) list_box.get_selected_row ();
 
-            var row = list_box.get_selected_row ();
-            var search_item = row as SearchItem;
-
-            if (e.keyval == Gdk.Key.Menu) {
-                return search_item.create_context_menu (e);
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            switch (keyval) {
+                case Gdk.Key.F10:
+                    if (mods == Gdk.ModifierType.SHIFT_MASK) {
+                        search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    }
+                    break;
+                case Gdk.Key.Menu:
+                case Gdk.Key.MenuKB:
+                    search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    break;
+                default:
+                    return;
             }
-
-            return Gdk.EVENT_PROPAGATE;
         });
 
         add (list_box);
