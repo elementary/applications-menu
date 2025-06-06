@@ -28,8 +28,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
     public Gtk.Image icon { public get; private set; }
     public string? app_uri { get; private set; }
 
-    private Slingshot.AppContextMenu menu;
-
     private Gtk.Label name_label;
     private Cancellable? cancellable = null;
 
@@ -144,24 +142,11 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             cancellable.cancel ();
     }
 
-    public bool create_context_menu (Gdk.Event e) {
-
+    public Gtk.Menu? create_context_menu () {
         if (result_type != APPLICATION) {
-            return Gdk.EVENT_PROPAGATE;
+            return null;
         }
 
-        menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
-
-        if (menu.get_children () != null) {
-            if (e.type == Gdk.EventType.KEY_PRESS) {
-                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                return Gdk.EVENT_STOP;
-            } else if (e.type == Gdk.EventType.BUTTON_PRESS) {
-                menu.popup_at_pointer (e);
-                return Gdk.EVENT_STOP;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
+        return new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
     }
 }
