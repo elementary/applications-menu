@@ -1,19 +1,7 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
 public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
@@ -27,8 +15,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
 
     public Gtk.Image icon { public get; private set; }
     public string? app_uri { get; private set; }
-
-    private Slingshot.AppContextMenu menu;
 
     private Gtk.Label name_label;
     private Cancellable? cancellable = null;
@@ -51,14 +37,16 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             markup = markup_string_with_search (app.name, search_term);
         }
 
-        name_label = new Gtk.Label (markup);
-        name_label.set_ellipsize (Pango.EllipsizeMode.END);
-        name_label.use_markup = true;
-        name_label.xalign = 0;
+        name_label = new Gtk.Label (markup) {
+            ellipsize = END,
+            use_markup = true,
+            xalign = 0
+        };
 
-        icon = new Gtk.Image ();
-        icon.gicon = app.icon;
-        icon.pixel_size = ICON_SIZE;
+        icon = new Gtk.Image () {
+            gicon = app.icon,
+            pixel_size = ICON_SIZE
+        };
 
         tooltip_markup = app.description;
 
@@ -69,14 +57,16 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             }
         }
 
-        var grid = new Gtk.Grid ();
-        grid.column_spacing = 12;
-        grid.add (icon);
-        grid.add (name_label);
-        grid.margin = 6;
-        grid.margin_start = 18;
+        var box = new Gtk.Box (HORIZONTAL, 12) {
+            margin_top = 6,
+            margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 18
+        };
+        box.add (icon);
+        box.add (name_label);
 
-        add (grid);
+        child = box;
 
         if (result_type != ResultType.APP_ACTIONS) {
             launch_app.connect (app.launch);
@@ -144,24 +134,11 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             cancellable.cancel ();
     }
 
-    public bool create_context_menu (Gdk.Event e) {
-
+    public Gtk.Menu? create_context_menu () {
         if (result_type != APPLICATION) {
-            return Gdk.EVENT_PROPAGATE;
+            return null;
         }
 
-        menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
-
-        if (menu.get_children () != null) {
-            if (e.type == Gdk.EventType.KEY_PRESS) {
-                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                return Gdk.EVENT_STOP;
-            } else if (e.type == Gdk.EventType.BUTTON_PRESS) {
-                menu.popup_at_pointer (e);
-                return Gdk.EVENT_STOP;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
+        return new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
     }
 }
