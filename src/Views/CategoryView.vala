@@ -1,19 +1,7 @@
 /*
- * Copyright 2019-2020 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
 public class Slingshot.Widgets.CategoryView : Granite.Bin {
@@ -37,34 +25,40 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new NavListBox ();
-        category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher = new NavListBox () {
+            selection_mode = BROWSE,
+            width_request = 120
+        };
         category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
-        category_switcher.width_request = 120;
 
-        var scrolled_category = new Gtk.ScrolledWindow (null, null);
+        var scrolled_category = new Gtk.ScrolledWindow (null, null) {
+            child = category_switcher,
+            hscrollbar_policy = NEVER
+        };
         scrolled_category.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        scrolled_category.add (category_switcher);
 
-        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+        var separator = new Gtk.Separator (VERTICAL);
 
-        listbox = new NavListBox ();
-        listbox.expand = true;
-        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox = new NavListBox () {
+            hexpand = true,
+            vexpand = true,
+            selection_mode = BROWSE
+        };
         listbox.set_filter_func ((Gtk.ListBoxFilterFunc) filter_function);
 
-        var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
-        listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        listbox_scrolled.add (listbox);
+        var listbox_scrolled = new Gtk.ScrolledWindow (null, null) {
+            child = listbox,
+            hscrollbar_policy = NEVER
+        };
 
-        var container = new Gtk.Grid ();
-        container.hexpand = true;
+        var container = new Gtk.Box (HORIZONTAL, 0) {
+            hexpand = true
+        };
         container.add (scrolled_category);
         container.add (separator);
         container.add (listbox_scrolled);
 
-        add (container);
+        child = container;
 
         category_switcher.row_selected.connect (() => {
             listbox.invalidate_filter ();
@@ -288,11 +282,12 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         }
 
         construct {
-            var label = new Gtk.Label (cat_name);
-            label.halign = Gtk.Align.START;
-            label.margin_start = 3;
+            var label = new Gtk.Label (cat_name) {
+                halign = START,
+                margin_start = 3
+            };
 
-            add (label);
+            child = label;
         }
     }
 
