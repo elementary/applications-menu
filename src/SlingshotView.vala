@@ -25,8 +25,6 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
     private Widgets.Grid grid_view;
     private Widgets.SearchView search_view;
     private Widgets.CategoryView category_view;
-    private Gtk.EventControllerKey key_controller;
-    private Gtk.EventControllerKey search_key_controller;
 
     private static GLib.Settings settings { get; private set; default = null; }
 
@@ -57,7 +55,7 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
         };
         view_selector.append (grid_view_btn);
         view_selector.append (category_view_btn);
-        view_selector.append_css_class (Gtk.STYLE_CLASS_LINKED);
+        view_selector.add_css_class (Granite.STYLE_CLASS_LINKED);
 
         view_selector_revealer = new Gtk.Revealer () {
             child = view_selector,
@@ -116,21 +114,25 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
             search.begin (search_entry.text, match, target);
         });
 
-        key_press_event.connect ((event) => {
-            var search_handles_event = search_entry.handle_event (event);
-            if (search_handles_event && !search_entry.has_focus) {
-                search_entry.grab_focus ();
-                search_entry.move_cursor (BUFFER_ENDS, 0, false);
-            }
+        // key_press_event.connect ((event) => {
+        //     var search_handles_event = search_entry.handle_event (event);
+        //     if (search_handles_event && !search_entry.has_focus) {
+        //         search_entry.grab_focus ();
+        //         search_entry.move_cursor (BUFFER_ENDS, 0, false);
+        //     }
 
-            return search_handles_event;
-        });
+        //     return search_handles_event;
+        // });
 
-        key_controller = new Gtk.EventControllerKey (this);
+        var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
 
-        search_key_controller = new Gtk.EventControllerKey (search_entry);
+        add_controller (key_controller);
+
+        var search_key_controller = new Gtk.EventControllerKey ();
         search_key_controller.key_pressed.connect (on_search_view_key_press);
+
+        search_entry.add_controller (search_key_controller);
 
         // Showing a menu reverts the effect of the grab_device function.
         search_entry.search_changed.connect (() => {
@@ -234,8 +236,8 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
                     return Gdk.EVENT_STOP;
             }
         }
-        // Alt accelerators
-        if ((state & Gdk.ModifierType.MOD1_MASK) != 0) {
+
+        if ((state & Gdk.ModifierType.ALT_MASK) != 0) {
             switch (keyval) {
                 case Gdk.Key.F4:
                     close_indicator ();
