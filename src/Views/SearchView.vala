@@ -158,8 +158,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             }
         });
 
-        list_box.add (click_controller);
-        list_box.add (menu_key_controller);
+        list_box.add_controller (click_controller);
+        list_box.add_controller (menu_key_controller);
 
         add (list_box);
     }
