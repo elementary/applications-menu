@@ -39,14 +39,16 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             markup = markup_string_with_search (app.name, search_term);
         }
 
-        name_label = new Gtk.Label (markup);
-        name_label.set_ellipsize (Pango.EllipsizeMode.END);
-        name_label.use_markup = true;
-        name_label.xalign = 0;
+        name_label = new Gtk.Label (markup) {
+            ellipsize = END,
+            use_markup = true,
+            xalign = 0
+        };
 
-        icon = new Gtk.Image ();
-        icon.gicon = app.icon;
-        icon.pixel_size = ICON_SIZE;
+        icon = new Gtk.Image () {
+            gicon = app.icon,
+            pixel_size = ICON_SIZE
+        };
 
         tooltip_markup = app.description;
 
@@ -57,14 +59,16 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             }
         }
 
-        var grid = new Gtk.Grid ();
-        grid.column_spacing = 12;
-        grid.add (icon);
-        grid.add (name_label);
-        grid.margin = 6;
-        grid.margin_start = 18;
+        var box = new Gtk.Box (HORIZONTAL, 12) {
+            margin_top = 6,
+            margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 18
+        };
+        box.add (icon);
+        box.add (name_label);
 
-        add (grid);
+        child = box;
 
         if (result_type != ResultType.APP_ACTIONS) {
             launch_app.connect (app.launch);
