@@ -14,7 +14,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
 
-    private Gtk.GestureMultiPress click_controller;
+    private Gtk.GestureClick click_controller;
     private Gtk.EventControllerKey menu_key_controller;
 
     public AppButton (Backend.App app) {
@@ -22,7 +22,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     }
 
     construct {
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
+        // Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
 
@@ -77,7 +77,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.clicked.connect (launch_app);
 
-        click_controller = new Gtk.GestureMultiPress (this) {
+        click_controller = new Gtk.GestureClick (this) {
             button = 0,
             exclusive = true
         };

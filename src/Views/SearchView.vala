@@ -75,18 +75,17 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
     public signal void app_launched ();
 
-    private Granite.Widgets.AlertView alert_view;
+    private Granite.Placeholder alert_view;
     private AppListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
-
-    private Gtk.GestureMultiPress click_controller;
-    private Gtk.EventControllerKey menu_key_controller;
 
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
-        alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
-        alert_view.show_all ();
+        alert_view = new Granite.Placeholder ("") {
+            icon = new ThemedIcon ("edit-find-symbolic"),
+            description = _("Try changing search terms.")
+        };
 
         // list box
         limitator = new Gee.HashMap<ResultType, uint> ();
@@ -123,7 +122,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             });
         });
 
-        click_controller = new Gtk.GestureMultiPress (list_box) {
+        var click_controller = new Gtk.GestureClick () {
             button = 0,
             exclusive = true
         };
@@ -141,7 +140,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             }
         });
 
-        menu_key_controller = new Gtk.EventControllerKey (list_box);
+        var menu_key_controller = new Gtk.EventControllerKey ();
         menu_key_controller.key_released.connect ((keyval, keycode, state) => {
             var search_item = (SearchItem) list_box.get_selected_row ();
 
@@ -160,6 +159,9 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                     return;
             }
         });
+
+        list_box.add_controller (click_controller);
+        list_box.add_controller (menu_key_controller);
 
         add (list_box);
     }
@@ -219,15 +221,12 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         var search_item = new SearchItem (app, search_term, result_type);
         app.start_search.connect ((search, target) => start_search (search, target));
 
-        list_box.add (search_item);
-        search_item.show_all ();
+        list_box.append (search_item);
     }
 
     public void clear () {
         limitator.clear ();
-        list_box.get_children ().foreach ((child) => {
-            child.destroy ();
-        });
+        list_box.remove_all ();
     }
 
     public void activate_selection () {
