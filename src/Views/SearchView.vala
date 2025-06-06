@@ -79,9 +79,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     private AppListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
 
-    private Gtk.GestureMultiPress click_controller;
-    private Gtk.EventControllerKey menu_key_controller;
-
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
@@ -123,7 +120,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             });
         });
 
-        click_controller = new Gtk.GestureMultiPress (list_box) {
+        var click_controller = new Gtk.GestureMultiPress () {
             button = 0,
             exclusive = true
         };
@@ -141,7 +138,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             }
         });
 
-        menu_key_controller = new Gtk.EventControllerKey (list_box);
+        var menu_key_controller = new Gtk.EventControllerKey ();
         menu_key_controller.key_released.connect ((keyval, keycode, state) => {
             var search_item = (SearchItem) list_box.get_selected_row ();
 
@@ -160,6 +157,9 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                     return;
             }
         });
+
+        list_box.add (click_controller);
+        list_box.add (menu_key_controller);
 
         add (list_box);
     }
