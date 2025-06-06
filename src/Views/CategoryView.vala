@@ -25,34 +25,40 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new NavListBox ();
-        category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher = new NavListBox () {
+            selection_mode = BROWSE,
+            width_request = 120
+        };
         category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
-        category_switcher.width_request = 120;
 
-        var scrolled_category = new Gtk.ScrolledWindow (null, null);
+        var scrolled_category = new Gtk.ScrolledWindow (null, null) {
+            child = category_switcher,
+            hscrollbar_policy = NEVER
+        };
         scrolled_category.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        scrolled_category.add (category_switcher);
 
-        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+        var separator = new Gtk.Separator (VERTICAL);
 
-        listbox = new NavListBox ();
-        listbox.expand = true;
-        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox = new NavListBox () {
+            hexpand = true,
+            vexpand = true,
+            selection_mode = BROWSE
+        };
         listbox.set_filter_func ((Gtk.ListBoxFilterFunc) filter_function);
 
-        var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
-        listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        listbox_scrolled.add (listbox);
+        var listbox_scrolled = new Gtk.ScrolledWindow (null, null) {
+            child = listbox,
+            hscrollbar_policy = NEVER
+        };
 
-        var container = new Gtk.Grid ();
-        container.hexpand = true;
+        var container = new Gtk.Box (HORIZONTAL, 0) {
+            hexpand = true
+        };
         container.add (scrolled_category);
         container.add (separator);
         container.add (listbox_scrolled);
 
-        add (container);
+        child = container;
 
         category_switcher.row_selected.connect (() => {
             listbox.invalidate_filter ();
