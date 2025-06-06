@@ -29,8 +29,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private Adw.Carousel paginator;
     private Page page;
 
-    private Gtk.EventControllerKey key_controller;
-
     private uint _focused_column = 1;
     public uint focused_column {
         set {
@@ -107,8 +105,10 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             return Gdk.EVENT_STOP;
         });
 
-        key_controller = new Gtk.EventControllerKey (this);
+        var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
+
+        add_controller (key_controller);
     }
 
     public void populate (Backend.AppSystem app_system) {

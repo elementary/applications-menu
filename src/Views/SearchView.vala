@@ -82,8 +82,10 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
 
-        alert_view = new Granite.Placeholder ("", _("Try changing search terms."), "edit-find-symbolic");
-        alert_view.show_all ();
+        alert_view = new Granite.Placeholder ("") {
+            icon = new ThemedIcon ("edit-find-symbolic"),
+            description = _("Try changing search terms.")
+        };
 
         // list box
         limitator = new Gee.HashMap<ResultType, uint> ();
@@ -120,7 +122,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             });
         });
 
-        var click_controller = new Gtk.GestureMultiPress () {
+        var click_controller = new Gtk.GestureClick () {
             button = 0,
             exclusive = true
         };
@@ -219,15 +221,12 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         var search_item = new SearchItem (app, search_term, result_type);
         app.start_search.connect ((search, target) => start_search (search, target));
 
-        list_box.add (search_item);
-        search_item.show_all ();
+        list_box.append (search_item);
     }
 
     public void clear () {
         limitator.clear ();
-        list_box.get_children ().foreach ((child) => {
-            child.destroy ();
-        });
+        list_box.remove_all ();
     }
 
     public void activate_selection () {

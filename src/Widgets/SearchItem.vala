@@ -63,8 +63,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             margin_bottom = 6,
             margin_start = 18
         };
-        box.add (icon);
-        box.add (name_label);
+        box.append (icon);
+        box.append (name_label);
 
         child = box;
 
