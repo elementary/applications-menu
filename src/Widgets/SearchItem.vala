@@ -13,7 +13,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
     public string search_term { get; construct; }
     public ResultType result_type { public get; construct; }
 
-    public Gtk.Image icon { public get; private set; }
+    public Gtk.Image image { public get; private set; }
     public string? app_uri { get; private set; }
 
     private Gtk.Label name_label;
@@ -43,8 +43,14 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             xalign = 0
         };
 
-        icon = new Gtk.Image () {
-            gicon = app.icon,
+        var icon = app.icon;
+        unowned var theme = Gtk.IconTheme.get_default ();
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
+        }
+
+        image = new Gtk.Image () {
+            gicon = icon,
             pixel_size = ICON_SIZE
         };
 
@@ -53,7 +59,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         if (app.match != null && app.match.icon_name.has_prefix (Path.DIR_SEPARATOR_S)) {
             var pixbuf = Backend.SynapseSearch.get_pathicon_for_match (app.match, ICON_SIZE);
             if (pixbuf != null) {
-                icon.set_from_pixbuf (pixbuf);
+                image.set_from_pixbuf (pixbuf);
             }
         }
 
@@ -63,7 +69,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             margin_bottom = 6,
             margin_start = 18
         };
-        box.add (icon);
+        box.add (image);
         box.add (name_label);
 
         child = box;
