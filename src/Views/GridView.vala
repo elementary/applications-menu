@@ -88,8 +88,10 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         paginator = new Hdy.Carousel ();
         paginator.expand = true;
 
-        var page_switcher = new Widgets.Switcher ();
-        page_switcher.set_paginator (paginator);
+        var page_switcher = new Widgets.Switcher () {
+            carousel = paginator,
+            halign = CENTER
+        };
 
         orientation = Gtk.Orientation.VERTICAL;
         row_spacing = 24;

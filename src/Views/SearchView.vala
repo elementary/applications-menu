@@ -76,8 +76,10 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void app_launched ();
 
     private Granite.Placeholder alert_view;
-    private AppListBox list_box;
+    private Gtk.ListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
+    private bool dragging { get; private set; default = false; }
+    private string? drag_uri = null;
 
     construct {
         hscrollbar_policy = Gtk.PolicyType.NEVER;
@@ -89,20 +91,62 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
 
         // list box
         limitator = new Gee.HashMap<ResultType, uint> ();
-        list_box = new AppListBox ();
-        list_box.activate_on_single_click = true;
+
+        // const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
+        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
+
+        list_box = new Gtk.ListBox () {
+            activate_on_single_click = true,
+            selection_mode = BROWSE
+        };
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
         list_box.set_placeholder (alert_view);
 
-        list_box.close_request.connect (() => {
-            app_launched ();
+        list_box.motion_notify_event.connect ((event) => {
+            if (!dragging) {
+                list_box.select_row (list_box.get_row_at_y ((int) event.y));
+            }
+
+            return Gdk.EVENT_PROPAGATE;
         });
+
+        list_box.drag_begin.connect ((ctx) => {
+            var selected_row = list_box.get_selected_row ();
+            if (selected_row != null) {
+                dragging = true;
+
+                var drag_item = (Slingshot.Widgets.SearchItem) selected_row;
+                drag_uri = drag_item.app_uri;
+                if (drag_uri != null) {
+                    Gtk.drag_set_icon_gicon (ctx, drag_item.icon.gicon, 32, 32);
+                }
+
+                app_launched ();
+            }
+        });
+
+        list_box.drag_end.connect (() => {
+            if (drag_uri != null) {
+                app_launched ();
+            }
+
+            dragging = false;
+            drag_uri = null;
+        });
+
+        list_box.drag_data_get.connect ((ctx, sel, info, time) => {
+            if (drag_uri != null) {
+                sel.set_uris ({drag_uri});
+            }
+        });
+
+        list_box.move_cursor.connect (move_cursor);
 
         list_box.row_activated.connect ((row) => {
             Idle.add (() => {
                 var search_item = row as SearchItem;
-                if (!list_box.dragging) {
+                if (!dragging) {
                     switch (search_item.result_type) {
                         case ResultType.APP_ACTIONS:
                         case ResultType.LINK:
@@ -164,6 +208,25 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         list_box.add_controller (menu_key_controller);
 
         add (list_box);
+    }
+
+    private void move_cursor (Gtk.MovementStep step, int count) {
+        unowned var selected = list_box.get_selected_row ();
+        if (step != DISPLAY_LINES || selected == null) {
+            return;
+        }
+
+        // Move up to the searchbar
+        if (selected == list_box.get_row_at_index (0) && count == -1) {
+            move_focus (TAB_BACKWARD);
+            return;
+        }
+
+        // Wrap to the searchbar
+        if (list_box.get_row_at_index (selected.get_index () + count) == null) {
+            list_box.select_row (list_box.get_row_at_index (0));
+            move_focus (TAB_FORWARD);
+        }
     }
 
     public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
