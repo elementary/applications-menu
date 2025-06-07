@@ -41,12 +41,11 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
     }
 
     construct {
-        unowned Gtk.StyleContext style_context = get_style_context ();
-        style_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        style_context.add_class ("switcher");
-        style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        add_css_class ("switcher");
+        get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        add (new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU));
+        child = new Gtk.Image.from_icon_name ("pager-checked-symbolic");
+        has_frame = false;
 
         page_number = paginator.get_children ().index (page);
         update_opacity ();

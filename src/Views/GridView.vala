@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Slingshot.Widgets.Grid : Gtk.Grid {
+public class Slingshot.Widgets.Grid : Gtk.Box {
     public signal void app_launched ();
 
     private struct Page {
@@ -85,19 +85,21 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         page.rows = 3;
         page.columns = 5;
 
-        paginator = new Hdy.Carousel ();
-        paginator.expand = true;
+        paginator = new Adw.Carousel () {
+            hexpand = true,
+            vexpand = true
+        };
 
         var page_switcher = new Widgets.Switcher () {
             carousel = paginator,
             halign = CENTER
         };
 
-        orientation = Gtk.Orientation.VERTICAL;
-        row_spacing = 24;
+        orientation = VERTICAL;
+        spacing = 24;
         margin_bottom = 12;
-        add (paginator);
-        add (page_switcher);
+        append (paginator);
+        append (page_switcher);
 
         grids = new Gee.HashMap<uint, Gtk.Grid> (null, null);
 
@@ -145,14 +147,14 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             next_col_index++;
         }
 
-        show_all ();
         // Show first page after populating the carousel
         current_grid_key = 1;
     }
 
     private void add_new_grid () {
         current_grid = new Gtk.Grid () {
-            expand = true,
+            hexpand = true,
+            vexpand = true,
             row_homogeneous = true,
             column_homogeneous = true,
             margin_start = 12,

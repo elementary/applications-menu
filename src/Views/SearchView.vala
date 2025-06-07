@@ -207,7 +207,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         list_box.add_controller (click_controller);
         list_box.add_controller (menu_key_controller);
 
-        add (list_box);
+        child = list_box;
     }
 
     private void move_cursor (Gtk.MovementStep step, int count) {

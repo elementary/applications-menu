@@ -73,8 +73,8 @@ public class Slingshot.Backend.App : Object {
             icon = desktop_icon;
         }
 
-        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        weak Gtk.IconTheme theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+        if (theme.lookup_by_gicon (icon, 64, 64, get_direction (), 0) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
     }

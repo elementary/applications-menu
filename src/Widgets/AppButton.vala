@@ -14,9 +14,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
 
-    private Gtk.GestureClick click_controller;
-    private Gtk.EventControllerKey menu_key_controller;
-
     public AppButton (Backend.App app) {
         Object (app: app);
     }
@@ -65,8 +62,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             hexpand = true,
             vexpand = true
         };
-        box.add (overlay);
-        box.add (app_label);
+        box.append (overlay);
+        box.append (app_label);
 
         child = box;
 
@@ -77,7 +74,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.clicked.connect (launch_app);
 
-        click_controller = new Gtk.GestureClick (this) {
+        var click_controller = new Gtk.GestureClick () {
             button = 0,
             exclusive = true
         };
@@ -93,7 +90,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             }
         });
 
-        menu_key_controller = new Gtk.EventControllerKey (this);
+        var menu_key_controller = new Gtk.EventControllerKey ();
         menu_key_controller.key_released.connect ((keyval, keycode, state) => {
             var mods = state & Gtk.accelerator_get_default_mod_mask ();
             switch (keyval) {
@@ -110,6 +107,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                     return;
             }
         });
+
+        add_controller (click_controller);
+        add_controller (menu_key_controller);
 
         this.drag_begin.connect ((ctx) => {
             this.dragging = true;
