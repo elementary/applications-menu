@@ -48,7 +48,13 @@ public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
 
     construct {
         var action_group = new SimpleActionGroup ();
-        insert_action_group (ACTION_GROUP_PREFIX, action_group);
+
+        var actions_section = new GLib.Menu ();
+        var shell_section = new GLib.Menu ();
+
+        menu_model = new GLib.Menu ();
+        ((GLib.Menu) menu_model).append_section (null, actions_section);
+        ((GLib.Menu) menu_model).append_section (null, shell_section);
 
         app_info = new DesktopAppInfo (desktop_id);
         foreach (unowned var action in app_info.list_actions ()) {
@@ -62,10 +68,10 @@ public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
             });
             action_group.add_action (simple_action);
 
-            var menuitem = new Gtk.MenuItem.with_mnemonic (app_info.get_action_name (action));
-            menuitem.set_detailed_action_name (ACTION_PREFIX + APP_ACTION.printf (action));
-
-            add (menuitem);
+            actions_section.append (
+                app_info.get_action_name (action),
+                ACTION_PREFIX + APP_ACTION.printf (action)
+            );
         }
 
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
@@ -88,19 +94,13 @@ public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
             });
             action_group.add_action (switcheroo_action);
 
-            var menu_item = new Gtk.MenuItem.with_mnemonic (
-                _("Open with %s Graphics").printf (switcheroo_control.get_gpu_name (prefers_non_default_gpu))
+            actions_section.append (
+                _("Open with %s Graphics").printf (switcheroo_control.get_gpu_name (prefers_non_default_gpu)),
+                ACTION_PREFIX + SWITCHEROO_ACTION
             );
-            menu_item.set_detailed_action_name (ACTION_PREFIX + SWITCHEROO_ACTION);
-
-            add (menu_item);
         }
 
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
-            if (get_children ().length () > 0) {
-                add (new Gtk.SeparatorMenuItem ());
-            }
-
             has_system_item = true;
 
             var dock = Backend.Dock.get_default ();
@@ -116,23 +116,16 @@ public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
 
             action_group.add_action (pinned_action);
 
-            var menuitem = new Gtk.CheckMenuItem () {
-                label = _("Keep in _Dock"),
-                use_underline = true
-            };
-            menuitem.set_detailed_action_name (ACTION_PREFIX + PINNED_ACTION);
-
-            add (menuitem);
+            shell_section.append (
+                _("Keep in _Dock"),
+                ACTION_PREFIX + PINNED_ACTION
+            );
 
             dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
             on_dock_dbus_changed (dock);
         }
 
         if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
-            if (!has_system_item && get_children ().length () > 0) {
-                add (new Gtk.SeparatorMenuItem ());
-            }
-
             uninstall_action = new SimpleAction (UNINSTALL_ACTION, null);
             uninstall_action.activate.connect (action_uninstall);
 
@@ -142,21 +135,20 @@ public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
             action_group.add_action (uninstall_action);
             action_group.add_action (view_action);
 
-            var uninstall_menuitem = new Gtk.MenuItem.with_label (_("Uninstall"));
-            uninstall_menuitem.set_detailed_action_name (ACTION_PREFIX + UNINSTALL_ACTION);
+            shell_section.append (
+                _("Uninstall"),
+                ACTION_PREFIX + UNINSTALL_ACTION
+            );
 
-            var appcenter_menuitem = new Gtk.MenuItem.with_label (_("View in AppCenter"));
-            appcenter_menuitem.set_detailed_action_name (ACTION_PREFIX + VIEW_ACTION);
-
-            add (uninstall_menuitem);
-            add (appcenter_menuitem);
+            shell_section.append (
+                _("View in AppCenter"),
+                ACTION_PREFIX + VIEW_ACTION
+            );
 
             var appcenter = Backend.AppCenter.get_default ();
             appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
             on_appcenter_dbus_changed.begin (appcenter);
         }
-
-        show_all ();
     }
 
     private void action_uninstall () {
