@@ -72,11 +72,6 @@ public class Slingshot.Backend.App : Object {
         if (desktop_icon != null) {
             icon = desktop_icon;
         }
-
-        weak Gtk.IconTheme theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
-        if (theme.lookup_by_gicon (icon, 64, 64, get_direction (), 0) == null) {
-            icon = new ThemedIcon ("application-default-icon");
-        }
     }
 
     public App.from_command (string command) {
@@ -100,11 +95,6 @@ public class Slingshot.Backend.App : Object {
             icon = new FileIcon (file);
         } else if (match.icon_name != null) {
             icon = new ThemedIcon (match.icon_name);
-        }
-
-        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
-            icon = new ThemedIcon ("application-default-icon");
         }
 
         if (match is Synapse.ApplicationMatch) {

@@ -37,7 +37,13 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             wrap_mode = WORD_CHAR
         };
 
-        var image = new Gtk.Image.from_gicon (app.icon, ICON_SIZE) {
+        var icon = app.icon;
+        unowned var theme = Gtk.IconTheme.get_default ();
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
+        }
+
+        var image = new Gtk.Image.from_gicon (icon, ICON_SIZE) {
             margin_top = 9,
             margin_end = 6,
             margin_start = 6,
