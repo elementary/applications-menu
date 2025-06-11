@@ -75,7 +75,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
                 return;
             }
 
-            paginator.scroll_to (grid);
+            paginator.scroll_to (grid, true);
             current_grid = grid;
             refocus ();
         }
@@ -170,7 +170,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             }
         }
 
-        paginator.add (current_grid);
+        paginator.append (current_grid);
         current_grid_key = current_grid_key + 1;
         grids.set (current_grid_key, current_grid);
     }

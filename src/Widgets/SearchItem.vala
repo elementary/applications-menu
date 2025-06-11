@@ -44,8 +44,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         };
 
         var icon = app.icon;
-        unowned var theme = Gtk.IconTheme.get_default ();
-        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        unowned var theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, ICON_SIZE, get_direction (), 0) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 

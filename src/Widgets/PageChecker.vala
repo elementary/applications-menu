@@ -51,7 +51,7 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
         update_opacity ();
 
         clicked.connect (() => {
-            paginator.scroll_to (page);
+            paginator.scroll_to (page, true);
         });
 
         paginator.notify["position"].connect (() => {

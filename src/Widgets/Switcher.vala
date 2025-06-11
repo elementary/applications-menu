@@ -10,9 +10,9 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
     public Adw.Carousel carousel {
         set {
             if (_carousel != null) {
-                get_children ().foreach ((child) => {
-                    child.destroy ();
-                });
+                while (get_first_child () != null) {
+                    remove (get_first_child ());
+                }
             }
 
             _carousel = value;
@@ -22,11 +22,11 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
                 return;
             }
 
-            foreach (unowned var child in _carousel.get_children ()) {
-                add_child (child);
+            for (int i = 1; i <= _carousel.n_pages; i++) {
+                add_child (carousel.get_nth_page (i));
             }
 
-            _carousel.add.connect_after (add_child);
+            _carousel.append.connect_after (add_child);
         }
     }
 
