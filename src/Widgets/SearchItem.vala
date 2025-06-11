@@ -140,11 +140,11 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             cancellable.cancel ();
     }
 
-    public Gtk.Menu? create_context_menu () {
+    public AppContextMenu? create_context_menu () {
         if (result_type != APPLICATION) {
             return null;
         }
 
-        return new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
+        return new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path, this);
     }
 }
