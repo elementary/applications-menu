@@ -9,8 +9,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private bool dragging = false;
     private string? drag_uri = null;
-    private NavListBox category_switcher;
-    private NavListBox listbox;
+    private Gtk.ListBox category_switcher;
+    private Gtk.ListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
     private Gtk.GestureMultiPress click_controller;
@@ -25,7 +25,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new NavListBox () {
+        category_switcher = new Gtk.ListBox () {
             selection_mode = BROWSE,
             width_request = 120
         };
@@ -39,7 +39,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         var separator = new Gtk.Separator (VERTICAL);
 
-        listbox = new NavListBox () {
+        listbox = new Gtk.ListBox () {
             hexpand = true,
             vexpand = true,
             selection_mode = BROWSE
@@ -60,9 +60,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         child = container;
 
+        category_switcher.move_cursor.connect (move_cursor);
+
         category_switcher.row_selected.connect (() => {
             listbox.invalidate_filter ();
         });
+
+        listbox.move_cursor.connect (move_cursor);
 
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
@@ -274,6 +278,19 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return Gdk.EVENT_PROPAGATE;
     }
 
+    private void move_cursor (Gtk.ListBox list_box, Gtk.MovementStep step, int count) {
+        unowned var selected = list_box.get_selected_row ();
+        if (step != DISPLAY_LINES || selected == null) {
+            return;
+        }
+
+        // Move up to the searchbar
+        if (selected == list_box.get_row_at_index (0) && count == -1) {
+            move_focus (TAB_BACKWARD);
+            return;
+        }
+    }
+
     private class CategoryRow : Gtk.ListBoxRow {
         public string cat_name { get; construct; }
 
@@ -288,22 +305,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             };
 
             child = label;
-        }
-    }
-
-    private class NavListBox : Gtk.ListBox {
-        public override void move_cursor (Gtk.MovementStep step, int count) {
-            unowned Gtk.ListBoxRow selected = get_selected_row ();
-            if (
-                selected != null &&
-                selected == get_row_at_index (0) &&
-                step == DISPLAY_LINES &&
-                count == -1
-            ) {
-                move_focus (Gtk.DirectionType.TAB_BACKWARD);
-            } else {
-                base.move_cursor (step, count);
-            }
         }
     }
 }
