@@ -25,8 +25,6 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
     public unowned Hdy.Carousel carousel { get; construct; }
     public int index { get; construct; }
 
-    private static Gtk.CssProvider provider;
-
     public PageChecker (Hdy.Carousel carousel, int index) {
         Object (
             carousel: carousel,
@@ -34,18 +32,21 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
         );
     }
 
-    static construct {
-        provider = new Gtk.CssProvider ();
+    class construct {
+        var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/io/elementary/desktop/wingpanel/applications-menu/PageChecker.css");
+
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
     }
 
     construct {
-        unowned Gtk.StyleContext style_context = get_style_context ();
-        style_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        style_context.add_class ("switcher");
-        style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        get_style_context ().add_class ("switcher");
 
-        add (new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU));
+        child = new Gtk.Image.from_icon_name ("pager-checked-symbolic", MENU);
 
         update_opacity ();
 
