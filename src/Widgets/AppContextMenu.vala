@@ -180,8 +180,8 @@ public class Slingshot.AppContextMenu : Gtk.PopoverMenu {
                     Gtk.ButtonsType.CLOSE
                 );
                 message_dialog.show_error_details (error.message);
-                message_dialog.run ();
-                message_dialog.destroy ();
+                message_dialog.response.connect (message_dialog.destroy);
+                message_dialog.present ();
             } finally {
                 app_launched ();
             }
