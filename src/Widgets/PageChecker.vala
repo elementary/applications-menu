@@ -22,16 +22,15 @@
 public class Slingshot.Widgets.PageChecker : Gtk.Button {
     public const double MIN_OPACITY = 0.4;
 
-    public unowned Hdy.Carousel paginator { get; construct; }
-    public unowned Gtk.Widget page { get; construct; }
+    public unowned Hdy.Carousel carousel { get; construct; }
+    public int index { get; construct; }
 
     private static Gtk.CssProvider provider;
-    private int page_number;
 
-    public PageChecker (Hdy.Carousel paginator, Gtk.Widget page) {
+    public PageChecker (Hdy.Carousel carousel, int index) {
         Object (
-            paginator: paginator,
-            page: page
+            carousel: carousel,
+            index: index
         );
     }
 
@@ -48,24 +47,15 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
 
         add (new Gtk.Image.from_icon_name ("pager-checked-symbolic", Gtk.IconSize.MENU));
 
-        page_number = paginator.get_children ().index (page);
         update_opacity ();
 
-        clicked.connect (() => {
-            paginator.scroll_to (page);
-        });
-
-        paginator.notify["position"].connect (() => {
+        carousel.notify["position"].connect (() => {
             update_opacity ();
-        });
-
-        page.destroy.connect (() => {
-            destroy ();
         });
     }
 
     private void update_opacity () {
-        double progress = double.max (1 - (paginator.position - page_number).abs (), 0);
+        double progress = double.max (1 - (carousel.position - index).abs (), 0);
 
         opacity = MIN_OPACITY + (1 - MIN_OPACITY) * progress;
     }
