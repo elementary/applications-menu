@@ -84,7 +84,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                create_context_menu ().popup_at_pointer ();
+                create_context_menu ().popup_at_pointer (x, y);
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -99,13 +99,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
                         var selected_row = (AppListRow) listbox.get_selected_row ();
-                        create_context_menu ().popup_at_widget (selected_row , EAST, CENTER);
+                        create_context_menu ().popup_at_widget ();
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
                     var selected_row = (AppListRow) listbox.get_selected_row ();
-                    create_context_menu ().popup_at_widget (selected_row, EAST, CENTER);
+                    create_context_menu ().popup_at_widget ();
                     break;
                 default:
                     return;
@@ -162,10 +162,10 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return row1.cat_name.collate (row2.cat_name);
     }
 
-    private Gtk.Menu create_context_menu () {
+    private AppContextMenu create_context_menu () {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
-        var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
+        var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path, selected_row);
         menu.app_launched.connect (() => {
             view.close_indicator ();
         });

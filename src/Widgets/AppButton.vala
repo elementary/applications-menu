@@ -76,7 +76,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         child = box;
 
-        var context_menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
+        var context_menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path, this);
         context_menu.app_launched.connect (() => {
             app_launched ();
         });
@@ -92,7 +92,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                context_menu.popup_at_pointer ();
+                context_menu.halign = START;
+                context_menu.popup_at_pointer (x, y);
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -105,12 +106,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        context_menu.popup_at_widget (this, EAST, CENTER);
+                        context_menu.popup_at_widget ();
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    context_menu.popup_at_widget (this, EAST, CENTER);
+                    context_menu.popup_at_widget ();
                     break;
                 default:
                     return;

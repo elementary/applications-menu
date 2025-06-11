@@ -178,7 +178,14 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                search_item.create_context_menu ()?.popup_at_pointer ();
+                var context_menu = search_item.create_context_menu ();
+
+                if (context_menu == null) {
+                    return;
+                }
+
+                context_menu.halign = START;
+                context_menu.popup_at_pointer (x, y);
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -193,12 +200,12 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                        search_item.create_context_menu ()?.popup_at_widget ();
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    search_item.create_context_menu ()?.popup_at_widget ();
                     break;
                 default:
                     return;
