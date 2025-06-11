@@ -17,7 +17,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
     public string? app_uri { get; private set; }
 
     private Gtk.Label name_label;
-    private Cancellable? cancellable = null;
 
     public SearchItem (Backend.App app, string search_term = "", ResultType result_type = ResultType.UNKNOWN) {
         Object (
@@ -132,12 +131,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         } else {
             return MARKUP.printf (Markup.escape_text (text));
         }
-    }
-
-    public override void destroy () {
-        base.destroy ();
-        if (cancellable != null)
-            cancellable.cancel ();
     }
 
     public Gtk.Menu? create_context_menu () {
