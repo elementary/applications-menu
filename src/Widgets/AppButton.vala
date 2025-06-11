@@ -14,21 +14,17 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
 
-    private Gtk.GestureMultiPress click_controller;
-    private Gtk.EventControllerKey menu_key_controller;
-
     public AppButton (Backend.App app) {
         Object (app: app);
     }
 
     construct {
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
+        // Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
 
+        has_frame = false;
         tooltip_text = app.description;
-
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         var app_label = new Gtk.Label (app.name) {
             halign = CENTER,
@@ -41,12 +37,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         };
 
         var icon = app.icon;
-        unowned var theme = Gtk.IconTheme.get_default ();
-        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        unowned var theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, ICON_SIZE, get_direction (), 0) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 
-        var image = new Gtk.Image.from_gicon (icon, ICON_SIZE) {
+        var image = new Gtk.Image.from_gicon (icon) {
             margin_top = 9,
             margin_end = 6,
             margin_start = 6,
@@ -58,7 +54,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             valign = START,
             visible = false
         };
-        badge.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
+        badge.add_css_class (Granite.STYLE_CLASS_BADGE);
 
         var overlay = new Gtk.Overlay () {
             child = image,
@@ -71,8 +67,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             hexpand = true,
             vexpand = true
         };
-        box.add (overlay);
-        box.add (app_label);
+        box.append (overlay);
+        box.append (app_label);
 
         child = box;
 
@@ -83,7 +79,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.clicked.connect (launch_app);
 
-        click_controller = new Gtk.GestureMultiPress (this) {
+        var click_controller = new Gtk.GestureClick () {
             button = 0,
             exclusive = true
         };
@@ -99,7 +95,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             }
         });
 
-        menu_key_controller = new Gtk.EventControllerKey (this);
+        var menu_key_controller = new Gtk.EventControllerKey ();
         menu_key_controller.key_released.connect ((keyval, keycode, state) => {
             var mods = state & Gtk.accelerator_get_default_mod_mask ();
             switch (keyval) {
@@ -116,6 +112,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                     return;
             }
         });
+
+        add_controller (click_controller);
+        add_controller (menu_key_controller);
 
         this.drag_begin.connect ((ctx) => {
             this.dragging = true;
@@ -156,11 +155,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     private void update_badge_visibility () {
         var count_visible = app.count_visible && app.current_count > 0;
-        badge.no_show_all = !count_visible;
-        if (count_visible) {
-            badge.show_all ();
-        } else {
-            badge.hide ();
-        }
+        badge.visible = count_visible;
     }
 }

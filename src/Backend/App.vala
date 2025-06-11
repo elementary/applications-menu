@@ -127,7 +127,7 @@ public class Slingshot.Backend.App : Object {
                     launched (this); // Emit launched signal
 
                     var context = Gdk.Display.get_default ().get_app_launch_context ();
-                    context.set_timestamp (Gtk.get_current_event_time ());
+                    context.set_timestamp (Gdk.CURRENT_TIME);
                     switcheroo_control.apply_gpu_environment (context, prefers_default_gpu);
 
                     new DesktopAppInfo (desktop_id).launch (null, context);
