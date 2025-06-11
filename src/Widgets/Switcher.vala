@@ -42,7 +42,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
 
             button.clicked.connect (() => {
                 unowned var page = _carousel.get_nth_page (i);
-                _carousel.scroll_to (page);
+                _carousel.scroll_to (page, true);
             });
         }
     }

@@ -179,12 +179,12 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
     }
 
     public void page_down () {
-        category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1);
+        category_switcher.move_cursor (DISPLAY_LINES, 1, false, true);
         focus_select_first_row ();
     }
 
     public void page_up () {
-        category_switcher.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
+        category_switcher.move_cursor (DISPLAY_LINES, -1, false, true);
         focus_select_first_row ();
     }
 
@@ -248,11 +248,11 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
                 page_down ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.Home:
-                category_switcher.move_cursor (Gtk.MovementStep.PAGES, -1);
+                category_switcher.move_cursor (PAGES, -1, false, true);;
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.End:
-                category_switcher.move_cursor (Gtk.MovementStep.PAGES, 1);
+                category_switcher.move_cursor (PAGES, 1, false, true);;
                 focus_select_first_row ();
                 return Gdk.EVENT_STOP;
             case Gdk.Key.KP_Up:
@@ -275,7 +275,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         return Gdk.EVENT_PROPAGATE;
     }
 
-    private void move_cursor (Gtk.ListBox list_box, Gtk.MovementStep step, int count) {
+    private void move_cursor (Gtk.ListBox list_box, Gtk.MovementStep step, int count, bool extend, bool modify) {
         unowned var selected = list_box.get_selected_row ();
         if (step != DISPLAY_LINES || selected == null) {
             return;
