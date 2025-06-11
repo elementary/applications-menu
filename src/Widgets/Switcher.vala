@@ -36,8 +36,17 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
     }
 
     private void add_child (Gtk.Widget widget) {
-        var button = new PageChecker (_carousel, widget);
+        var button = new PageChecker (_carousel, _carousel.get_children ().index (widget));
+        button.show ();
 
-        append (button);
+        add (button);
+
+        button.clicked.connect (() => {
+            _carousel.scroll_to (widget);
+        });
+
+        widget.destroy.connect (() => {
+            button.destroy ();
+        });
     }
 }
