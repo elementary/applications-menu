@@ -10,23 +10,13 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
     public Adw.Carousel carousel {
         set {
             if (_carousel != null) {
-                while (get_first_child () != null) {
-                    remove (get_first_child ());
-                }
+                _carousel.notify["n-pages"].disconnect (update_pages);
             }
 
             _carousel = value;
 
-            if (_carousel.n_pages == 1) {
-                hide ();
-                return;
-            }
-
-            for (int i = 1; i <= _carousel.n_pages; i++) {
-                add_child (carousel.get_nth_page (i));
-            }
-
-            _carousel.append.connect_after (add_child);
+            update_pages ();
+            _carousel.notify["n-pages"].connect (update_pages);
         }
     }
 
@@ -35,18 +25,25 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
         can_focus = false;
     }
 
-    private void add_child (Gtk.Widget widget) {
-        var button = new PageChecker (_carousel, _carousel.get_children ().index (widget));
-        button.show ();
+    private void update_pages () {
+        while (get_first_child () != null) {
+            remove (get_first_child ());
+        }
 
-        add (button);
+        if (_carousel.n_pages == 1) {
+            hide ();
+            return;
+        }
 
-        button.clicked.connect (() => {
-            _carousel.scroll_to (widget);
-        });
+        for (int i = 0; i < _carousel.get_n_pages (); i++) {
+            var button = new PageChecker (_carousel, i);
 
-        widget.destroy.connect (() => {
-            button.destroy ();
-        });
+            append (button);
+
+            button.clicked.connect (() => {
+                unowned var page = _carousel.get_nth_page (i);
+                _carousel.scroll_to (page);
+            });
+        }
     }
 }
