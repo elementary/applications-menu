@@ -30,26 +30,26 @@ private class Synapse.ClipboardCopyAction: Synapse.BaseAction {
     }
 
     public override void do_execute (Match? match, Match? target = null) {
-        var cb = Gtk.Clipboard.get (Gdk.Atom.NONE);
-        if (match.match_type == MatchType.GENERIC_URI) {
-            UriMatch uri_match = match as UriMatch;
-            return_if_fail (uri_match != null);
+        // var cb = Gtk.Clipboard.get (Gdk.Atom.NONE);
+        // if (match.match_type == MatchType.GENERIC_URI) {
+        //     UriMatch uri_match = match as UriMatch;
+        //     return_if_fail (uri_match != null);
 
-            /*  Just wow, Gtk and also Vala are trying really hard to make this hard to do...
-                Gtk.TargetEntry[] no_entries = {};
-                Gtk.TargetList l = new Gtk.TargetList (no_entries);
-                l.add_uri_targets (0);
-                l.add_text_targets (0);
-                Gtk.TargetEntry te = Gtk.target_table_new_from_list (l, 2);
-                cb.set_with_data ();
-            */
-            cb.set_text (uri_match.uri, -1);
-        } else if (match.match_type == MatchType.TEXT) {
-            TextMatch? text_match = match as TextMatch;
-            unowned string content = text_match != null ? text_match.text : match.title;
+        //     /*  Just wow, Gtk and also Vala are trying really hard to make this hard to do...
+        //         Gtk.TargetEntry[] no_entries = {};
+        //         Gtk.TargetList l = new Gtk.TargetList (no_entries);
+        //         l.add_uri_targets (0);
+        //         l.add_text_targets (0);
+        //         Gtk.TargetEntry te = Gtk.target_table_new_from_list (l, 2);
+        //         cb.set_with_data ();
+        //     */
+        //     cb.set_text (uri_match.uri, -1);
+        // } else if (match.match_type == MatchType.TEXT) {
+        //     TextMatch? text_match = match as TextMatch;
+        //     unowned string content = text_match != null ? text_match.text : match.title;
 
-            cb.set_text (content, -1);
-        }
+        //     cb.set_text (content, -1);
+        // }
     }
 
     public override bool valid_for_match (Match match) {

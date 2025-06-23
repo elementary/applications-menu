@@ -20,8 +20,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     construct {
         // Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-                             Gdk.DragAction.COPY);
+        // Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
+        //                      Gdk.DragAction.COPY);
 
         has_frame = false;
         tooltip_text = app.description;
@@ -88,7 +88,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                context_menu.popup_at_pointer ();
+                // context_menu.popup_at_pointer ();
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -101,12 +101,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        context_menu.popup_at_widget (this, EAST, CENTER);
+                        // context_menu.popup_at_widget (this, EAST, CENTER);
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    context_menu.popup_at_widget (this, EAST, CENTER);
+                    // context_menu.popup_at_widget (this, EAST, CENTER);
                     break;
                 default:
                     return;
@@ -116,19 +116,19 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         add_controller (click_controller);
         add_controller (menu_key_controller);
 
-        this.drag_begin.connect ((ctx) => {
-            this.dragging = true;
-            Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
-            app_launched ();
-        });
+        // this.drag_begin.connect ((ctx) => {
+        //     this.dragging = true;
+        //     Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
+        //     app_launched ();
+        // });
 
-        this.drag_end.connect ( () => {
-            this.dragging = false;
-        });
+        // this.drag_end.connect ( () => {
+        //     this.dragging = false;
+        // });
 
-        this.drag_data_get.connect ( (ctx, sel, info, time) => {
-            sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
-        });
+        // this.drag_data_get.connect ( (ctx, sel, info, time) => {
+        //     sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
+        // });
 
         app.notify["current-count"].connect (update_badge_count);
         app.notify["count-visible"].connect (update_badge_visibility);

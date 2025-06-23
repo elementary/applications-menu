@@ -84,7 +84,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                create_context_menu ().popup_at_pointer ();
+                // create_context_menu ().popup_at_pointer ();
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -99,13 +99,13 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
                         var selected_row = (AppListRow) listbox.get_selected_row ();
-                        create_context_menu ().popup_at_widget (selected_row , EAST, CENTER);
+                        // create_context_menu ().popup_at_widget (selected_row , EAST, CENTER);
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
                     var selected_row = (AppListRow) listbox.get_selected_row ();
-                    create_context_menu ().popup_at_widget (selected_row, EAST, CENTER);
+                    // create_context_menu ().popup_at_widget (selected_row, EAST, CENTER);
                     break;
                 default:
                     return;
@@ -120,45 +120,45 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
 
         category_switcher.add_controller (category_switcher_key_controller);
 
-        Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
+        // Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
-        listbox.motion_notify_event.connect ((event) => {
-            if (!dragging) {
-                listbox.select_row (listbox.get_row_at_y ((int) event.y));
-            }
+        // listbox.motion_notify_event.connect ((event) => {
+        //     if (!dragging) {
+        //         listbox.select_row (listbox.get_row_at_y ((int) event.y));
+        //     }
 
-            return Gdk.EVENT_PROPAGATE;
-        });
+        //     return Gdk.EVENT_PROPAGATE;
+        // });
 
-        listbox.drag_begin.connect ((ctx) => {
-            unowned Gtk.ListBoxRow? selected_row = listbox.get_selected_row ();
-            if (selected_row != null) {
-                dragging = true;
+        // listbox.drag_begin.connect ((ctx) => {
+        //     unowned Gtk.ListBoxRow? selected_row = listbox.get_selected_row ();
+        //     if (selected_row != null) {
+        //         dragging = true;
 
-                var drag_item = (AppListRow) selected_row;
-                drag_uri = "file://" + drag_item.desktop_path;
-                if (drag_uri != null) {
-                    Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
-                }
+        //         var drag_item = (AppListRow) selected_row;
+        //         drag_uri = "file://" + drag_item.desktop_path;
+        //         if (drag_uri != null) {
+        //             Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
+        //         }
 
-                view.close_indicator ();
-            }
-        });
+        //         view.close_indicator ();
+        //     }
+        // });
 
-        listbox.drag_end.connect (() => {
-            if (drag_uri != null) {
-                view.close_indicator ();
-            }
+        // listbox.drag_end.connect (() => {
+        //     if (drag_uri != null) {
+        //         view.close_indicator ();
+        //     }
 
-            dragging = false;
-            drag_uri = null;
-        });
+        //     dragging = false;
+        //     drag_uri = null;
+        // });
 
-        listbox.drag_data_get.connect ((ctx, sel, info, time) => {
-            if (drag_uri != null) {
-                sel.set_uris ({drag_uri});
-            }
-        });
+        // listbox.drag_data_get.connect ((ctx, sel, info, time) => {
+        //     if (drag_uri != null) {
+        //         sel.set_uris ({drag_uri});
+        //     }
+        // });
 
         setup_sidebar ();
     }

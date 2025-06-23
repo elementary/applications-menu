@@ -93,7 +93,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         limitator = new Gee.HashMap<ResultType, uint> ();
 
         // const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
+        // Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
         list_box = new Gtk.ListBox () {
             activate_on_single_click = true,
@@ -103,43 +103,43 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
         list_box.set_placeholder (alert_view);
 
-        list_box.motion_notify_event.connect ((event) => {
-            if (!dragging) {
-                list_box.select_row (list_box.get_row_at_y ((int) event.y));
-            }
+        // list_box.motion_notify_event.connect ((event) => {
+        //     if (!dragging) {
+        //         list_box.select_row (list_box.get_row_at_y ((int) event.y));
+        //     }
 
-            return Gdk.EVENT_PROPAGATE;
-        });
+        //     return Gdk.EVENT_PROPAGATE;
+        // });
 
-        list_box.drag_begin.connect ((ctx) => {
-            var selected_row = list_box.get_selected_row ();
-            if (selected_row != null) {
-                dragging = true;
+        // list_box.drag_begin.connect ((ctx) => {
+        //     var selected_row = list_box.get_selected_row ();
+        //     if (selected_row != null) {
+        //         dragging = true;
 
-                var drag_item = (Slingshot.Widgets.SearchItem) selected_row;
-                drag_uri = drag_item.app_uri;
-                if (drag_uri != null) {
-                    Gtk.drag_set_icon_gicon (ctx, drag_item.image.gicon, 32, 32);
-                }
+        //         var drag_item = (Slingshot.Widgets.SearchItem) selected_row;
+        //         drag_uri = drag_item.app_uri;
+        //         if (drag_uri != null) {
+        //             Gtk.drag_set_icon_gicon (ctx, drag_item.image.gicon, 32, 32);
+        //         }
 
-                app_launched ();
-            }
-        });
+        //         app_launched ();
+        //     }
+        // });
 
-        list_box.drag_end.connect (() => {
-            if (drag_uri != null) {
-                app_launched ();
-            }
+        // list_box.drag_end.connect (() => {
+        //     if (drag_uri != null) {
+        //         app_launched ();
+        //     }
 
-            dragging = false;
-            drag_uri = null;
-        });
+        //     dragging = false;
+        //     drag_uri = null;
+        // });
 
-        list_box.drag_data_get.connect ((ctx, sel, info, time) => {
-            if (drag_uri != null) {
-                sel.set_uris ({drag_uri});
-            }
-        });
+        // list_box.drag_data_get.connect ((ctx, sel, info, time) => {
+        //     if (drag_uri != null) {
+        //         sel.set_uris ({drag_uri});
+        //     }
+        // });
 
         list_box.move_cursor.connect (move_cursor);
 
@@ -177,7 +177,7 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                search_item.create_context_menu ()?.popup_at_pointer ();
+                // search_item.create_context_menu ()?.popup_at_pointer ();
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -192,12 +192,12 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                        // search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    // search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
                     break;
                 default:
                     return;

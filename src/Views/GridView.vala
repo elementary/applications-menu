@@ -104,10 +104,10 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         grids = new Gee.HashMap<uint, Gtk.Grid> (null, null);
 
         can_focus = true;
-        focus_in_event.connect_after (() => {
-            refocus ();
-            return Gdk.EVENT_STOP;
-        });
+        // focus_in_event.connect_after (() => {
+        //     refocus ();
+        //     return Gdk.EVENT_STOP;
+        // });
 
         var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
