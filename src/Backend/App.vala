@@ -36,6 +36,7 @@ public class Slingshot.Backend.App : Object {
     private const string UNINSTALL_ACTION = "uninstall";
     private const string VIEW_ACTION = "view-in-appcenter";
 
+    public SimpleActionGroup action_group { get; private set; }
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
     public string desktop_id { get; construct set; }
@@ -189,7 +190,7 @@ public class Slingshot.Backend.App : Object {
         }
     }
 
-    public GLib.Menu get_menu_model (out SimpleActionGroup action_group) {
+    public GLib.Menu get_menu_model () {
         var actions_section = new GLib.Menu ();
         var shell_section = new GLib.Menu ();
 

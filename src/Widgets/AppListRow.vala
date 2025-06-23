@@ -3,15 +3,17 @@
  * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
  */
 
-public class AppListRow : Gtk.ListBoxRow {
+public class Slingshot.AppListRow : Gtk.ListBoxRow {
+    public Backend.App app { get; construct; }
     public string app_id { get; construct; }
     public string desktop_path { get; construct; }
     public GLib.DesktopAppInfo app_info { get; private set; }
 
-    public AppListRow (string app_id, string desktop_path) {
+    public AppListRow (Backend.App app) {
         Object (
-            app_id: app_id,
-            desktop_path: desktop_path
+            app: app,
+            app_id: app.desktop_id,
+            desktop_path: app.desktop_path
         );
     }
 

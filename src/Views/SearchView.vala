@@ -282,6 +282,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         var search_item = new SearchItem (app, search_term, result_type);
         app.start_search.connect ((search, target) => start_search (search, target));
 
+        app.launched.connect (() => app_launched ());
+
         list_box.add (search_item);
         search_item.show_all ();
     }
