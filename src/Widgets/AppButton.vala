@@ -10,9 +10,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     public Backend.App app { get; construct; }
 
     private const int ICON_SIZE = 64;
-
     private Gtk.Label badge;
-    private bool dragging = false; //prevent launching
 
     public AppButton (Backend.App app) {
         Object (app: app);
@@ -87,7 +85,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             if (event.triggers_context_menu ()) {
                 var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
                 context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                context_menu.popup_at_pointer ();
+                // context_menu.popup_at_pointer ();
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -102,14 +100,14 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
                         var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
                         context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                        context_menu.popup_at_widget (this, EAST, CENTER);
+                        // context_menu.popup_at_widget (this, EAST, CENTER);
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
                     var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
                     context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                    context_menu.popup_at_widget (this, EAST, CENTER);
+                    // context_menu.popup_at_widget (this, EAST, CENTER);
                     break;
                 default:
                     return;
