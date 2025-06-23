@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 19:03+0000\n"
+"POT-Creation-Date: 2025-06-23 21:19+0000\n"
 "PO-Revision-Date: 2025-03-17 11:10+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -28,15 +28,15 @@ msgstr "應用程式"
 msgid "Open and search apps"
 msgstr "開啟並搜尋應用程式"
 
-#: src/SlingshotView.vala:44
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "格狀檢視"
 
-#: src/SlingshotView.vala:51
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "分類檢視"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "搜尋程式"
 
@@ -88,9 +88,26 @@ msgstr "系統工具"
 msgid "Other"
 msgstr "其他"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "執行此指令…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "以 %s 顯示卡開啟"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "保留在 _Dock 裡"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "解除安裝"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "在《應用程式中心》中檢視"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -132,31 +149,14 @@ msgstr "應用程式動作"
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "嘗試搜尋其他字詞。"
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "找不到「%s」的結果"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "以 %s 顯示卡開啟"
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr "保留在 _Dock 裡"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "解除安裝"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "在《應用程式中心》中檢視"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

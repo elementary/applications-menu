@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 19:03+0000\n"
+"POT-Creation-Date: 2025-06-23 21:19+0000\n"
 "PO-Revision-Date: 2024-04-23 17:55+0000\n"
 "Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -28,15 +28,15 @@ msgstr "Aplicativos"
 msgid "Open and search apps"
 msgstr "Abrir e pesquisar aplicativos"
 
-#: src/SlingshotView.vala:44
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Visualizar em grade"
 
-#: src/SlingshotView.vala:51
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Visualizar por categoria"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Procurar aplicativos"
 
@@ -90,9 +90,29 @@ msgstr ""
 msgid "Other"
 msgstr "Outro"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Executar este comando…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Abrir com %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Remover do _dock"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Desinstalar"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Visualizar na Central de Aplicativos"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -136,34 +156,14 @@ msgstr "Ações de aplicativos"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Tente alterar os termos de pesquisa."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nenhum resultado para \"%s\""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Abrir com %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Remover do _dock"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Desinstalar"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Visualizar na Central de Aplicativos"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

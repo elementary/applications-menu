@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 19:03+0000\n"
+"POT-Creation-Date: 2025-06-23 21:19+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -28,15 +28,15 @@ msgstr "应用程序"
 msgid "Open and search apps"
 msgstr "打开并搜索应用"
 
-#: src/SlingshotView.vala:44
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "网格视图"
 
-#: src/SlingshotView.vala:51
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "分类视图"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "搜索应用"
 
@@ -88,9 +88,28 @@ msgstr "系统工具"
 msgid "Other"
 msgstr "其它"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "运行命令…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "用 %s 图形打开"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "从程序坞移除"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "卸载"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "在应用中心内查看"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -134,33 +153,14 @@ msgstr "应用操作"
 msgid "Bookmarks"
 msgstr "书签"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "尝试更改搜索内容。"
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "用 %s 图形打开"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "从程序坞移除"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "卸载"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "在应用中心内查看"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 19:03+0000\n"
+"POT-Creation-Date: 2025-06-23 21:19+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,15 +29,15 @@ msgstr "Programos"
 msgid "Open and search apps"
 msgstr "Atverti ir ieškoti programų"
 
-#: src/SlingshotView.vala:44
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Rodyti kaip tinklelį"
 
-#: src/SlingshotView.vala:51
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Rodyti pagal kategorijas"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Ieškoti programų"
 
@@ -91,9 +91,29 @@ msgstr ""
 msgid "Other"
 msgstr "Kita"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Vykdyti šią komandą…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Atverti, naudojant %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Šalinti iš sky_delio"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Šalinti programą"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Rodyti Programų centre"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -137,34 +157,14 @@ msgstr "Programų veiksmai"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Pabandykite pakeisti paieškos žodžius."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” negrąžino jokių rezultatų"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Atverti, naudojant %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Šalinti iš sky_delio"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Šalinti programą"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Rodyti Programų centre"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"

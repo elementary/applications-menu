@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 19:03+0000\n"
+"POT-Creation-Date: 2025-06-23 21:19+0000\n"
 "PO-Revision-Date: 2025-02-21 19:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,15 +28,15 @@ msgstr "Alkalmazások"
 msgid "Open and search apps"
 msgstr "Alkalmazások megnyitása és keresése"
 
-#: src/SlingshotView.vala:44
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Rácsnézet"
 
-#: src/SlingshotView.vala:51
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Kategórianézet"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Alkalmazások keresése"
 
@@ -88,9 +88,26 @@ msgstr "Rendszereszközök"
 msgid "Other"
 msgstr "Egyéb"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Parancs futtatása…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Megnyitás %s grafikus feldolgozóegységgel"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "Megtartás a _dokkon"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Eltávolítás"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Megjelenítés az Appközpontban"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -132,31 +149,14 @@ msgstr "Alkalmazásműveletek"
 msgid "Bookmarks"
 msgstr "Könyvjelzők"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Próbálja megváltoztatni a keresési kifejezéseket."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nincsenek találatok erre: “%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "Megnyitás %s grafikus feldolgozóegységgel"
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr "Megtartás a _dokkon"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Eltávolítás"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Megjelenítés az Appközpontban"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
