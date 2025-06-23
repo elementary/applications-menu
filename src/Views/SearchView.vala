@@ -78,7 +78,6 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
     private Granite.Widgets.AlertView alert_view;
     private Gtk.ListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
-    private bool dragging { get; private set; default = false; }
     private string? drag_uri = null;
 
     private Gtk.GestureMultiPress click_controller;
@@ -109,19 +108,9 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
 
         child = scrolled_window;
 
-        list_box.motion_notify_event.connect ((event) => {
-            if (!dragging) {
-                list_box.select_row (list_box.get_row_at_y ((int) event.y));
-            }
-
-            return Gdk.EVENT_PROPAGATE;
-        });
-
         list_box.drag_begin.connect ((ctx) => {
             var selected_row = list_box.get_selected_row ();
             if (selected_row != null) {
-                dragging = true;
-
                 var drag_item = (Slingshot.Widgets.SearchItem) selected_row;
                 drag_uri = drag_item.app_uri;
                 if (drag_uri != null) {
@@ -137,7 +126,6 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
                 app_launched ();
             }
 
-            dragging = false;
             drag_uri = null;
         });
 
@@ -152,21 +140,19 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
         list_box.row_activated.connect ((row) => {
             Idle.add (() => {
                 var search_item = row as SearchItem;
-                if (!dragging) {
-                    switch (search_item.result_type) {
-                        case ResultType.APP_ACTIONS:
-                        case ResultType.LINK:
-                        case ResultType.SETTINGS:
-                        case ResultType.BOOKMARK:
-                            search_item.app.match.execute (null);
-                            break;
-                        default:
-                            search_item.app.launch ();
-                            break;
-                    }
-
-                    app_launched ();
+                switch (search_item.result_type) {
+                    case ResultType.APP_ACTIONS:
+                    case ResultType.LINK:
+                    case ResultType.SETTINGS:
+                    case ResultType.BOOKMARK:
+                        search_item.app.match.execute (null);
+                        break;
+                    default:
+                        search_item.app.launch ();
+                        break;
                 }
+
+                app_launched ();
 
                 return false;
             });
