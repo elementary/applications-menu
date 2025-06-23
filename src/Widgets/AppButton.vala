@@ -76,10 +76,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         child = box;
 
-        var context_menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
-        context_menu.app_launched.connect (() => {
-            app_launched ();
-        });
+        SimpleActionGroup? action_group = null;
+        var context_menu = new Gtk.Menu.from_model (app.get_menu_model (out action_group));
+        insert_action_group (Backend.App.ACTION_GROUP_PREFIX, action_group);
 
         this.clicked.connect (launch_app);
 
