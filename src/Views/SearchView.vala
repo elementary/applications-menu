@@ -68,7 +68,7 @@ public enum Slingshot.Widgets.ResultType {
     }
 }
 
-public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
+public class Slingshot.Widgets.SearchView : Gtk.Bin {
 
     const int MAX_RESULTS = 10;
 
@@ -85,8 +85,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     private Gtk.EventControllerKey menu_key_controller;
 
     construct {
-        hscrollbar_policy = Gtk.PolicyType.NEVER;
-
         alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
         alert_view.show_all ();
 
@@ -103,6 +101,13 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
         list_box.set_placeholder (alert_view);
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+            child = list_box,
+            hscrollbar_policy = NEVER
+        };
+
+        child = scrolled_window;
 
         list_box.motion_notify_event.connect ((event) => {
             if (!dragging) {
@@ -204,8 +209,6 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
                     return;
             }
         });
-
-        add (list_box);
     }
 
     private void move_cursor (Gtk.MovementStep step, int count) {
