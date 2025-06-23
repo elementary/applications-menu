@@ -7,7 +7,6 @@
 public class Slingshot.Widgets.CategoryView : Granite.Bin {
     public SlingshotView view { get; construct; }
 
-    private bool dragging = false;
     private string? drag_uri = null;
     private Gtk.ListBox category_switcher;
     private Gtk.ListBox listbox;
@@ -66,10 +65,8 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
 
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
-                if (!dragging) {
-                    ((AppListRow) row).launch ();
-                    view.close_indicator ();
-                }
+                ((AppListRow) row).launch ();
+                view.close_indicator ();
 
                 return false;
             });
@@ -122,19 +119,9 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
 
         // Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
-        // listbox.motion_notify_event.connect ((event) => {
-        //     if (!dragging) {
-        //         listbox.select_row (listbox.get_row_at_y ((int) event.y));
-        //     }
-
-        //     return Gdk.EVENT_PROPAGATE;
-        // });
-
         // listbox.drag_begin.connect ((ctx) => {
         //     unowned Gtk.ListBoxRow? selected_row = listbox.get_selected_row ();
         //     if (selected_row != null) {
-        //         dragging = true;
-
         //         var drag_item = (AppListRow) selected_row;
         //         drag_uri = "file://" + drag_item.desktop_path;
         //         if (drag_uri != null) {
@@ -150,7 +137,6 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         //         view.close_indicator ();
         //     }
 
-        //     dragging = false;
         //     drag_uri = null;
         // });
 
