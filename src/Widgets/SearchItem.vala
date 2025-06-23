@@ -26,6 +26,10 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         );
     }
 
+    class construct {
+        set_css_name ("modelbutton");
+    }
+
     construct {
         string markup;
         if (result_type == ResultType.TEXT) {
@@ -63,10 +67,7 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         }
 
         var box = new Gtk.Box (HORIZONTAL, 12) {
-            margin_top = 6,
-            margin_end = 6,
-            margin_bottom = 6,
-            margin_start = 18
+            margin_start = 6
         };
         box.add (image);
         box.add (name_label);

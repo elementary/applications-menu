@@ -17,6 +17,10 @@ public class Slingshot.AppListRow : Gtk.ListBoxRow {
         );
     }
 
+    class construct {
+        set_css_name ("modelbutton");
+    }
+
     construct {
         app_info = new GLib.DesktopAppInfo (app_id);
 
@@ -38,12 +42,7 @@ public class Slingshot.AppListRow : Gtk.ListBoxRow {
 
         tooltip_text = app_info.get_description ();
 
-        var box = new Gtk.Box (HORIZONTAL, 12) {
-            margin_top = 6,
-            margin_start = 18,
-            margin_end = 6,
-            margin_bottom = 6
-        };
+        var box = new Gtk.Box (HORIZONTAL, 12);
         box.add (image);
         box.add (name_label);
 
