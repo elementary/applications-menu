@@ -72,10 +72,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         child = box;
 
-        var context_menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
-        context_menu.app_launched.connect (() => {
-            app_launched ();
-        });
+        app.launched.connect (() => app_launched ());
 
         this.clicked.connect (launch_app);
 
@@ -88,7 +85,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                // context_menu.popup_at_pointer ();
+                var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
+                context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                context_menu.popup_at_pointer ();
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -101,12 +100,16 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        // context_menu.popup_at_widget (this, EAST, CENTER);
+                        var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
+                        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                        context_menu.popup_at_widget (this, EAST, CENTER);
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    // context_menu.popup_at_widget (this, EAST, CENTER);
+                    var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
+                    context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                    context_menu.popup_at_widget (this, EAST, CENTER);
                     break;
                 default:
                     return;
@@ -140,7 +143,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     public void launch_app () {
         app.launch ();
-        app_launched ();
     }
 
     private void update_badge_count () {

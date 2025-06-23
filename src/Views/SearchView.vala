@@ -270,6 +270,8 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
         var search_item = new SearchItem (app, search_term, result_type);
         app.start_search.connect ((search, target) => start_search (search, target));
 
+        app.launched.connect (() => app_launched ());
+
         list_box.append (search_item);
     }
 

@@ -156,12 +156,10 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
     private Gtk.PopoverMenu create_context_menu () {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
-        var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
-        menu.app_launched.connect (() => {
-            view.close_indicator ();
-        });
+        var context_menu = new Gtk.PopoverMenu.from_model (selected_row.app.get_menu_model ());
+        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, selected_row.app.action_group);
 
-        return menu;
+        return context_menu;
     }
 
     public void page_down () {
@@ -189,7 +187,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         listbox.remove_all ();
 
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
-            listbox.append (new AppListRow (app.desktop_id, app.desktop_path));
+            listbox.append (new AppListRow (app));
         }
 
         // Fill the sidebar
