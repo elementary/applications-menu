@@ -59,7 +59,8 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
 
         view_selector_revealer = new Gtk.Revealer () {
             child = view_selector,
-            transition_type = SLIDE_RIGHT
+            transition_type = SLIDE_RIGHT,
+            overflow = VISIBLE
         };
 
         search_entry = new Gtk.SearchEntry () {
