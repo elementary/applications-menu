@@ -39,13 +39,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
 
         for (int i = 0; i < _carousel.get_n_pages (); i++) {
             var button = new PageChecker (_carousel, i);
-
             append (button);
-
-            button.clicked.connect (() => {
-                unowned var page = _carousel.get_nth_page (i);
-                _carousel.scroll_to (page, true);
-            });
         }
     }
 }

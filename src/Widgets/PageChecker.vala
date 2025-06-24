@@ -39,6 +39,11 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
         carousel.notify["position"].connect (() => {
             update_opacity ();
         });
+
+        clicked.connect (() => {
+            unowned var page = carousel.get_nth_page (index);
+            carousel.scroll_to (page, true);
+        });
     }
 
     private void update_opacity () {
