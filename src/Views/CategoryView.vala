@@ -7,11 +7,8 @@
 public class Slingshot.Widgets.CategoryView : Granite.Bin {
     public SlingshotView view { get; construct; }
 
-    private string? drag_uri = null;
     private Gtk.ListBox category_switcher;
     private Gtk.ListBox listbox;
-
-    // private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
     public CategoryView (SlingshotView view) {
         Object (view: view);
@@ -111,42 +108,41 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
             }
         });
 
+        var drag_source = new Gtk.DragSource () {
+            actions = COPY
+        };
+        drag_source.prepare.connect ((x, y) => {
+            var drag_item = (AppListRow) listbox.get_row_at_y ((int) y);
+            if (drag_item == null) {
+                return null;
+            }
+
+            drag_source.set_icon (
+                Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).lookup_by_gicon (
+                    drag_item.app_info.get_icon (),
+                    32,
+                    scale_factor,
+                    get_direction (),
+                    PRELOAD
+                ), 0, 0
+            );
+
+            return new Gdk.ContentProvider.union ({
+                new Gdk.ContentProvider.for_value ("file://" + drag_item.desktop_path)
+            });
+        });
+        drag_source.drag_begin.connect ((drag_source, drag) => {
+            view.close_indicator ();
+        });
+
         listbox.add_controller (click_controller);
+        listbox.add_controller (drag_source);
         listbox.add_controller (listbox_key_controller);
 
         var category_switcher_key_controller = new Gtk.EventControllerKey ();
         category_switcher_key_controller.key_pressed.connect (on_key_press);
 
         category_switcher.add_controller (category_switcher_key_controller);
-
-        // Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
-
-        // listbox.drag_begin.connect ((ctx) => {
-        //     unowned Gtk.ListBoxRow? selected_row = listbox.get_selected_row ();
-        //     if (selected_row != null) {
-        //         var drag_item = (AppListRow) selected_row;
-        //         drag_uri = "file://" + drag_item.desktop_path;
-        //         if (drag_uri != null) {
-        //             Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
-        //         }
-
-        //         view.close_indicator ();
-        //     }
-        // });
-
-        // listbox.drag_end.connect (() => {
-        //     if (drag_uri != null) {
-        //         view.close_indicator ();
-        //     }
-
-        //     drag_uri = null;
-        // });
-
-        // listbox.drag_data_get.connect ((ctx, sel, info, time) => {
-        //     if (drag_uri != null) {
-        //         sel.set_uris ({drag_uri});
-        //     }
-        // });
 
         setup_sidebar ();
     }

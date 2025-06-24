@@ -17,10 +17,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     }
 
     construct {
-        // Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        // Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-        //                      Gdk.DragAction.COPY);
-
         has_frame = false;
         tooltip_text = app.description;
 
@@ -111,22 +107,31 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             }
         });
 
+        var drag_source = new Gtk.DragSource () {
+            actions = COPY,
+            content = new Gdk.ContentProvider.union ({
+                new Gdk.ContentProvider.for_value (
+                    File.new_for_path (app.desktop_path).get_uri ()
+                )
+            })
+        };
+        drag_source.drag_begin.connect ((drag_source, drag) => {
+            drag_source.set_icon (
+                Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).lookup_by_gicon (
+                    icon,
+                    32,
+                    scale_factor,
+                    get_direction (),
+                    PRELOAD
+                ), 0, 0
+            );
+
+            app_launched ();
+        });
+
         add_controller (click_controller);
         add_controller (menu_key_controller);
-
-        // this.drag_begin.connect ((ctx) => {
-        //     this.dragging = true;
-        //     Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
-        //     app_launched ();
-        // });
-
-        // this.drag_end.connect ( () => {
-        //     this.dragging = false;
-        // });
-
-        // this.drag_data_get.connect ( (ctx, sel, info, time) => {
-        //     sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
-        // });
+        add_controller (drag_source);
 
         app.notify["current-count"].connect (update_badge_count);
         app.notify["count-visible"].connect (update_badge_visibility);

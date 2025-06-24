@@ -78,7 +78,6 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
     private Granite.Placeholder alert_view;
     private Gtk.ListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
-    private string? drag_uri = null;
 
     construct {
         alert_view = new Granite.Placeholder ("") {
@@ -88,9 +87,6 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
 
         // list box
         limitator = new Gee.HashMap<ResultType, uint> ();
-
-        // const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
-        // Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
 
         list_box = new Gtk.ListBox () {
             activate_on_single_click = true,
@@ -107,29 +103,32 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
 
         child = scrolled_window;
 
-        // list_box.drag_begin.connect ((ctx) => {
-        //     var selected_row = list_box.get_selected_row ();
-        //     if (selected_row != null) {
+        var drag_source = new Gtk.DragSource () {
+            actions = COPY
+        };
+        drag_source.prepare.connect ((x, y) => {
+            var drag_item = (Slingshot.Widgets.SearchItem) list_box.get_row_at_y ((int) y);
+            if (drag_item == null) {
+                return null;
+            }
 
-        //         var drag_item = (Slingshot.Widgets.SearchItem) selected_row;
-        //         drag_uri = drag_item.app_uri;
-        //         if (drag_uri != null) {
-        //             Gtk.drag_set_icon_gicon (ctx, drag_item.image.gicon, 32, 32);
-        //         }
+            drag_source.set_icon (
+                Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).lookup_by_gicon (
+                    drag_item.image.gicon,
+                    32,
+                    scale_factor,
+                    get_direction (),
+                    PRELOAD
+                ), 0, 0
+            );
 
-        // list_box.drag_end.connect (() => {
-        //     if (drag_uri != null) {
-        //         app_launched ();
-        //     }
-
-        //     drag_uri = null;
-        // });
-
-        // list_box.drag_data_get.connect ((ctx, sel, info, time) => {
-        //     if (drag_uri != null) {
-        //         sel.set_uris ({drag_uri});
-        //     }
-        // });
+            return new Gdk.ContentProvider.union ({
+                new Gdk.ContentProvider.for_value (drag_item.app_uri)
+            });
+        });
+        drag_source.drag_begin.connect ((drag_source, drag) => {
+            app_launched ();
+        });
 
         list_box.move_cursor.connect (move_cursor);
 
@@ -202,6 +201,7 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
         });
 
         list_box.add_controller (click_controller);
+        list_box.add_controller (drag_source);
         list_box.add_controller (menu_key_controller);
     }
 
