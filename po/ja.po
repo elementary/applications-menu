@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-03-01 14:45+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "検索語句を変更してみてください。"
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s”の検索結果なし"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "クリップボードへコピー"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "選択範囲をクリップボードへコピーします"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -361,6 +353,12 @@ msgstr "コンピューターを再起動します"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "再起動;リブート"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "クリップボードへコピー"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "選択範囲をクリップボードへコピーします"
 
 #~ msgid "Clear all"
 #~ msgstr "すべて消去"

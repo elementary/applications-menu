@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-02-14 08:00+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -158,14 +158,6 @@ msgstr "Попробуйте изменить запрос."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Нет результатов по запросу «%s»"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Копировать"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Копировать выделенное"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -362,6 +354,12 @@ msgstr "Перезагрузить компьютер"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;перезагрузка;перезагрузить"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Копировать"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Копировать выделенное"
 
 #~ msgid "Clear all"
 #~ msgstr "Очистить всё"

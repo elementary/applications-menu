@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2022-10-13 14:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -161,14 +161,6 @@ msgstr "尝试更改搜索内容。"
 #, c-format
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "复制到剪贴板"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "复制选中内容到剪贴板"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -365,6 +357,12 @@ msgstr "重新启动计算机"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "重启"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "复制到剪贴板"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "复制选中内容到剪贴板"
 
 #~ msgid "Clear all"
 #~ msgstr "清除所有"

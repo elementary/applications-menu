@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2017-02-27 21:32+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -163,14 +163,6 @@ msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζή�
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Κανένα αποτέλεσμα για “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Αντιγραφή στο πρόχειρο"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -372,6 +364,12 @@ msgstr ""
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Αντιγραφή στο πρόχειρο"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Προσθήκη στο _Dock"

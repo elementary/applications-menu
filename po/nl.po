@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-02-16 03:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "Probeer het nog eens met een andere zoekterm."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Geen resultaat voor “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopieer naar klembord"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopieer selectie naar het klembord"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -361,6 +353,12 @@ msgstr "Computer opnieuw opstarten"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "herstarten;opnieuw opstarten"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopieer naar klembord"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopieer selectie naar het klembord"
 
 #~ msgid "Clear all"
 #~ msgstr "Wis alles"

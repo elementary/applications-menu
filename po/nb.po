@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2024-06-16 15:16+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
@@ -163,14 +163,6 @@ msgstr "Prøv å endre søkeord."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopier til utklippstavle"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopier utvalget til utklippstavlen"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -371,6 +363,12 @@ msgstr "Start datamaskinen på nytt"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "omstart;start på ny"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopier til utklippstavle"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopier utvalget til utklippstavlen"
 
 #~ msgid "Clear all"
 #~ msgstr "Tøm alt"

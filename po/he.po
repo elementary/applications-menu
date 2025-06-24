@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-03-02 10:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "נסו לשנות את מונחי החיפוש."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "אין תוצאות עבור „%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "העתקה ללוח הגזירים"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "העתקת הבחירה ללוח הגזירים"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -361,6 +353,12 @@ msgstr "הפעלת המחשב מחדש"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "הפעלה מחדש;ריבוט;ריסטארט;אתחול"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "העתקה ללוח הגזירים"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "העתקת הבחירה ללוח הגזירים"
 
 #~ msgid "Clear all"
 #~ msgstr "לפנות הכול"

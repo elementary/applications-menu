@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2017-07-07 23:24+0000\n"
 "Last-Translator: Lawrence Aberba <karabutaworld@gmail.com>\n"
 "Language-Team: Akan <https://l10n.elementary.io/projects/wingpanel/"
@@ -165,14 +165,6 @@ msgstr "Sesã nsɛm a wobɔ de hwehwɛe no hwɛ."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Biribiara nni hɔ ɛwɔ ɛdin “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Fa bi kɔ Clipboard no mu"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Fa nea woapaw no bi kɔ clipboard no mu"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -374,6 +366,12 @@ msgstr "Dum kɔmputa no na san sɔ"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Fa bi kɔ Clipboard no mu"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Fa nea woapaw no bi kɔ clipboard no mu"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Fa hyɛ _Dock no mu"

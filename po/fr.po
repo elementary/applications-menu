@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-02-20 10:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "Essayez de modifier les termes de la recherche."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Aucun résultat pour « %s »"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Copier dans le presse-papier"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Copier la sélection vers le presse-papier"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -361,6 +353,12 @@ msgstr "Redémarrer votre ordinateur"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "redémarrer"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copier dans le presse-papier"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Copier la sélection vers le presse-papier"
 
 #~ msgid "Clear all"
 #~ msgstr "Tout effacer"

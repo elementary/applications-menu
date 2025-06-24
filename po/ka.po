@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-05-02 03:55+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/wingpanel/"
@@ -152,14 +152,6 @@ msgstr "სცადეთ შეცვალოთ ძებნის პირ
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\"-სთვის შედეგების გარეშე"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "ბუფერში კოპირება"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "მონიშნულის ბუფერში კოპირება"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -356,6 +348,12 @@ msgstr "თქვენი კომპიუტერის გადატვ�
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "რესტარტი;გადატვირთვა"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "ბუფერში კოპირება"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "მონიშნულის ბუფერში კოპირება"
 
 #~ msgid "Clear all"
 #~ msgstr "ყველას გასუფთავება"

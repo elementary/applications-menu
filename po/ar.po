@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2021-08-30 15:25+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -163,14 +163,6 @@ msgstr "جرب تغيير عبارات البحث."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "لا توجد نتائج ل ”%s“"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "انسخ إلى الحافظة"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "انسخ المحدد إلى الحافظة"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -368,6 +360,12 @@ msgstr "أعد تشغيل حاسوبك"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "إعادة التشغيل;إعادة الإقلاع"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "انسخ إلى الحافظة"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "انسخ المحدد إلى الحافظة"
 
 #~ msgid "Clear all"
 #~ msgstr "امسح الكل"

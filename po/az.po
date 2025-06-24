@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2017-12-20 00:10+0000\n"
 "Last-Translator: Вагиф Кязым <vaqif134@gmail.com>\n"
 "Language-Team: Azerbaijani <https://weblate.elementary.io/projects/wingpanel/"
@@ -151,14 +151,6 @@ msgstr ""
 #: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr ""
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
 msgstr ""
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
