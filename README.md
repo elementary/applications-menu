@@ -9,13 +9,13 @@ Lightweight and stylish app launcher.
 
 You'll need the following dependencies:
 * bc
+* libadwaita-1-dev
 * libgee-0.8-dev
-* libgranite-dev >= 6.1.0
-* libgtk-3-dev
-* libhandy-1-dev >= 0.83.0
+* libgranite-7-dev >= 7.6.0
+* libgtk-4-dev
 * libjson-glib-dev
 * libswitchboard-3-dev
-* libwingpanel-dev
+* libwingpanel-8-dev
 * libzeitgeist-2.0-dev
 * meson
 * pkg-config
