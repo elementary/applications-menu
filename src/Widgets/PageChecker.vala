@@ -32,7 +32,7 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
     construct {
         add_css_class ("switcher");
 
-        child = new Gtk.Image.from_icon_name ("pager-checked-symbolic");
+        icon_name = "pager-checked-symbolic";
 
         update_opacity ();
 

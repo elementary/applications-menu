@@ -33,6 +33,8 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
         if (_carousel.n_pages == 1) {
             hide ();
             return;
+        } else {
+            show ();
         }
 
         for (int i = 0; i < _carousel.get_n_pages (); i++) {
