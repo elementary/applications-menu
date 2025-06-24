@@ -28,7 +28,7 @@ public class Slingshot.Backend.App : Object {
         SYNAPSE
     }
 
-    public const string ACTION_GROUP_PREFIX = "app-actions";
+    private const string ACTION_GROUP_PREFIX = "app-actions";
     private const string ACTION_PREFIX = ACTION_GROUP_PREFIX + ".";
     private const string APP_ACTION = "action.%s";
     private const string PINNED_ACTION = "pinned";
@@ -36,7 +36,6 @@ public class Slingshot.Backend.App : Object {
     private const string UNINSTALL_ACTION = "uninstall";
     private const string VIEW_ACTION = "view-in-appcenter";
 
-    public SimpleActionGroup action_group { get; private set; }
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
     public string desktop_id { get; construct set; }
@@ -142,7 +141,7 @@ public class Slingshot.Backend.App : Object {
                     launched (this); // Emit launched signal
 
                     var context = Gdk.Display.get_default ().get_app_launch_context ();
-                    context.set_timestamp (Gtk.get_current_event_time ());
+                    context.set_timestamp (Gdk.CURRENT_TIME);
                     switcheroo_control.apply_gpu_environment (context, prefers_default_gpu);
 
                     new DesktopAppInfo (desktop_id).launch (null, context);
@@ -190,11 +189,11 @@ public class Slingshot.Backend.App : Object {
         }
     }
 
-    public GLib.Menu get_menu_model () {
+    public Gtk.PopoverMenu get_context_menu (Gtk.Widget parent) {
         var actions_section = new GLib.Menu ();
         var shell_section = new GLib.Menu ();
 
-        action_group = new SimpleActionGroup ();
+        var action_group = new SimpleActionGroup ();
 
         var app_info = new DesktopAppInfo (desktop_id);
         foreach (unowned var action in app_info.list_actions ()) {
@@ -293,7 +292,13 @@ public class Slingshot.Backend.App : Object {
         model.append_section (null, actions_section);
         model.append_section (null, shell_section);
 
-        return model;
+        var context_menu = new Gtk.PopoverMenu.from_model (model) {
+            has_arrow = false
+        };
+        context_menu.insert_action_group (ACTION_GROUP_PREFIX, action_group);
+        context_menu.set_parent (parent);
+
+        return context_menu;
     }
 
     private void action_uninstall () {

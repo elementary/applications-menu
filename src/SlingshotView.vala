@@ -4,7 +4,7 @@
  *                         2011-2012 Giulio Collura
  */
 
-public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
+public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
@@ -25,8 +25,6 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
     private Widgets.Grid grid_view;
     private Widgets.SearchView search_view;
     private Widgets.CategoryView category_view;
-    private Gtk.EventControllerKey key_controller;
-    private Gtk.EventControllerKey search_key_controller;
 
     private static GLib.Settings settings { get; private set; default = null; }
 
@@ -41,27 +39,28 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
         var grid_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
             action_target = new Variant.string ("grid"),
-            image = new Gtk.Image.from_icon_name ("view-grid-symbolic", BUTTON),
+            icon_name = "view-grid-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>1"}, _("View as Grid"))
         };
 
         var category_view_btn = new Gtk.ToggleButton () {
             action_name = "view.view-mode",
             action_target = new Variant.string ("category"),
-            image = new Gtk.Image.from_icon_name ("view-filter-symbolic", BUTTON),
+            icon_name = "view-filter-symbolic",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"))
         };
 
         var view_selector = new Gtk.Box (HORIZONTAL, 0) {
             margin_end = 12
         };
-        view_selector.add (grid_view_btn);
-        view_selector.add (category_view_btn);
-        view_selector.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        view_selector.append (grid_view_btn);
+        view_selector.append (category_view_btn);
+        view_selector.add_css_class (Granite.STYLE_CLASS_LINKED);
 
         view_selector_revealer = new Gtk.Revealer () {
             child = view_selector,
-            transition_type = SLIDE_RIGHT
+            transition_type = SLIDE_RIGHT,
+            overflow = VISIBLE
         };
 
         search_entry = new Gtk.SearchEntry () {
@@ -73,8 +72,8 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
             margin_start = 12,
             margin_end = 12
         };
-        top_box.add (view_selector_revealer);
-        top_box.add (search_entry);
+        top_box.append (view_selector_revealer);
+        top_box.append (search_entry);
 
         grid_view = new Widgets.Grid ();
 
@@ -93,8 +92,8 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
         var container = new Gtk.Box (VERTICAL, 12) {
             margin_top = 12
         };
-        container.add (top_box);
-        container.add (stack);
+        container.append (top_box);
+        container.append (stack);
 
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
@@ -116,21 +115,17 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
             search.begin (search_entry.text, match, target);
         });
 
-        key_press_event.connect ((event) => {
-            var search_handles_event = search_entry.handle_event (event);
-            if (search_handles_event && !search_entry.has_focus) {
-                search_entry.grab_focus ();
-                search_entry.move_cursor (BUFFER_ENDS, 0, false);
-            }
+        search_entry.set_key_capture_widget (this);
 
-            return search_handles_event;
-        });
-
-        key_controller = new Gtk.EventControllerKey (this);
+        var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
 
-        search_key_controller = new Gtk.EventControllerKey (search_entry);
+        add_controller (key_controller);
+
+        var search_key_controller = new Gtk.EventControllerKey ();
         search_key_controller.key_pressed.connect (on_search_view_key_press);
+
+        search_entry.add_controller (search_key_controller);
 
         // Showing a menu reverts the effect of the grab_device function.
         search_entry.search_changed.connect (() => {
@@ -234,8 +229,8 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
                     return Gdk.EVENT_STOP;
             }
         }
-        // Alt accelerators
-        if ((state & Gdk.ModifierType.MOD1_MASK) != 0) {
+
+        if ((state & Gdk.ModifierType.ALT_MASK) != 0) {
             switch (keyval) {
                 case Gdk.Key.F4:
                     close_indicator ();

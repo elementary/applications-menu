@@ -37,14 +37,14 @@ add_project_arguments(
 glib_dep = dependency('glib-2.0')
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0')
-gtk_dep = dependency('gtk+-3.0')
-granite_dep = dependency('granite', version: '>=6.1.0')
+gtk_dep = dependency('gtk4')
+granite_dep = dependency('granite-7', version: '>=6.1.0')
 gobject_dep = dependency('gobject-2.0')
 gio_unix_dep = dependency('gio-unix-2.0')
 json_glib_dep = dependency('json-glib-1.0')
 switchboard_dep = dependency('switchboard-3')
-libhandy_dep = dependency('libhandy-1', version: '>= 0.83.0')
-wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
+libhandy_dep = dependency('libadwaita-1', version: '>= 0.83.0')
+wingpanel_dep = dependency('wingpanel-8', version: '>=2.1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
 zeitgeist_dep = []
