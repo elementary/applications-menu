@@ -114,15 +114,7 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
             search.begin (search_entry.text, match, target);
         });
 
-        // key_press_event.connect ((event) => {
-        //     var search_handles_event = search_entry.handle_event (event);
-        //     if (search_handles_event && !search_entry.has_focus) {
-        //         search_entry.grab_focus ();
-        //         search_entry.move_cursor (BUFFER_ENDS, 0, false);
-        //     }
-
-        //     return search_handles_event;
-        // });
+        search_entry.set_key_capture_widget (this);
 
         var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
