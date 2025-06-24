@@ -50,7 +50,6 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
             hexpand = true
         };
         container.append (scrolled_category);
-        container.append (separator);
         container.append (listbox_scrolled);
 
         child = container;
