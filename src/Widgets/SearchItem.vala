@@ -139,9 +139,6 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
             return null;
         }
 
-        var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
-        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-
-        return context_menu;
+        return app.get_context_menu (this);
     }
 }

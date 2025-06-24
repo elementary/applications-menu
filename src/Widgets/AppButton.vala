@@ -83,8 +83,9 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
-                context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                var context_menu = app.get_context_menu (this);
+                context_menu.halign = START;
+
                 Utils.menu_popup_at_pointer (context_menu, x, y);
 
                 click_controller.set_state (CLAIMED);
@@ -98,16 +99,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
-                        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                        Utils.menu_popup_on_keypress (context_menu);
+                        Utils.menu_popup_on_keypress (app.get_context_menu (this));
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    var context_menu = new Gtk.PopoverMenu.from_model (app.get_menu_model ());
-                    context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                    Utils.menu_popup_on_keypress (context_menu);
+                    Utils.menu_popup_on_keypress (app.get_context_menu (this));
                     break;
                 default:
                     return;

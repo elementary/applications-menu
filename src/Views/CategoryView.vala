@@ -81,7 +81,10 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                Utils.menu_popup_at_pointer (create_context_menu (), x, y);
+                var context_menu = ((AppListRow) listbox.get_row_at_y ((int) y)).app.get_context_menu (this);
+                context_menu.halign = START;
+
+                Utils.menu_popup_at_pointer (context_menu, x, y);
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -96,13 +99,13 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
                         var selected_row = (AppListRow) listbox.get_selected_row ();
-                        Utils.menu_popup_on_keypress (create_context_menu ());
+                        Utils.menu_popup_on_keypress (selected_row.app.get_context_menu (selected_row));
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
                     var selected_row = (AppListRow) listbox.get_selected_row ();
-                    Utils.menu_popup_on_keypress (create_context_menu ());
+                    Utils.menu_popup_on_keypress (selected_row.app.get_context_menu (selected_row));
                     break;
                 default:
                     return;
@@ -151,15 +154,6 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
 
     private static int category_sort_func (CategoryRow row1, CategoryRow row2) {
         return row1.cat_name.collate (row2.cat_name);
-    }
-
-    private Gtk.PopoverMenu create_context_menu () {
-        var selected_row = (AppListRow) listbox.get_selected_row ();
-
-        var context_menu = new Gtk.PopoverMenu.from_model (selected_row.app.get_menu_model ());
-        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, selected_row.app.action_group);
-
-        return context_menu;
     }
 
     public void page_down () {
