@@ -165,7 +165,10 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                // search_item.create_context_menu ()?.popup_at_pointer ();
+                var context_menu = search_item.create_context_menu ();
+                if (context_menu != null) {
+                    Utils.menu_popup_at_pointer (context_menu, x, y);
+                }
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -180,12 +183,18 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        // search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                        var context_menu = search_item.create_context_menu ();
+                        if (context_menu != null) {
+                            Utils.menu_popup_on_keypress (context_menu);
+                        }
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    // search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    var context_menu = search_item.create_context_menu ();
+                    if (context_menu != null) {
+                        Utils.menu_popup_on_keypress (context_menu);
+                    }
                     break;
                 default:
                     return;

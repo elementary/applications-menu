@@ -81,7 +81,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                // create_context_menu ().popup_at_pointer ();
+                Utils.menu_popup_at_pointer (create_context_menu (), x, y);
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
@@ -96,13 +96,13 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
                         var selected_row = (AppListRow) listbox.get_selected_row ();
-                        // create_context_menu ().popup_at_widget (selected_row , EAST, CENTER);
+                        Utils.menu_popup_on_keypress (create_context_menu ());
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
                     var selected_row = (AppListRow) listbox.get_selected_row ();
-                    // create_context_menu ().popup_at_widget (selected_row, EAST, CENTER);
+                    Utils.menu_popup_on_keypress (create_context_menu ());
                     break;
                 default:
                     return;
