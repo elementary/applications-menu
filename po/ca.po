@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 19:03+0000\n"
+"POT-Creation-Date: 2025-06-23 21:19+0000\n"
 "PO-Revision-Date: 2025-02-14 19:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,15 +28,15 @@ msgstr "Aplicacions"
 msgid "Open and search apps"
 msgstr "Cerqueu i obriu aplicacions"
 
-#: src/SlingshotView.vala:44
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Visualitza com a graella"
 
-#: src/SlingshotView.vala:51
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Visualitza per categories"
 
-#: src/SlingshotView.vala:68
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Cerca aplicacions"
 
@@ -88,9 +88,26 @@ msgstr "Eines del sistema"
 msgid "Other"
 msgstr "Altres"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Executa aquesta ordre…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Obre amb els gràfics %s"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "Mantén-la a l'acobla_dor"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Desinstal·la"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Mostra-ho al Centre d'aplicacions"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -132,31 +149,14 @@ msgstr "Accions de l'aplicació"
 msgid "Bookmarks"
 msgstr "Marcadors"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Proveu de canviar els termes de la cerca."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "Obre amb els gràfics %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr "Mantén-la a l'acobla_dor"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Desinstal·la"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Mostra-ho al Centre d'aplicacions"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
