@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2025-02-14 08:00+0000\n"
+"PO-Revision-Date: 2025-06-27 14:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
@@ -242,7 +242,7 @@ msgstr "Открыть %s в %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
-msgstr "Открыть выбранную директорию"
+msgstr "Открыть выбранный каталог"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:216
