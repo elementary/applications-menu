@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2025-07-26 22:00+0000\n"
+"PO-Revision-Date: 2025-07-27 22:55+0000\n"
 "Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "wingpanel/applications-menu/pt_BR/>\n"
@@ -82,7 +82,7 @@ msgstr "Escritório"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr "Ferramentas do sistema"
+msgstr "Ferramentas do Sistema"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
@@ -93,16 +93,13 @@ msgid "Run this command…"
 msgstr "Executar este comando…"
 
 #: src/Backend/App.vala:237
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Abrir com %s"
+msgstr "Abrir com %s Gráficos"
 
 #: src/Backend/App.vala:259
-#, fuzzy
-#| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
-msgstr "Remover do _dock"
+msgstr "Manter na _Dock"
 
 #: src/Backend/App.vala:278
 msgid "Uninstall"
@@ -121,10 +118,8 @@ msgid "Text"
 msgstr "Texto"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Calculadora"
+msgstr "Cálculo"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
@@ -191,10 +186,8 @@ msgid "Search the app store"
 msgstr "Pesquisar na loja de aplicativos"
 
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Copiar seleção para a área de transferência"
+msgstr "Clicar para copiar resultado para a área de transferência"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -207,23 +200,23 @@ msgstr "Executar comando"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "Ao quadrado"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "Ao cubo"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s para %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, c-format
@@ -248,20 +241,20 @@ msgstr "Abrir %s em %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Abrir o diretório selecionado"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
-msgstr ""
+msgstr "Pasta Pessoal"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
-msgstr ""
+msgstr "Recente"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
-msgstr ""
+msgstr "Lixeira"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
