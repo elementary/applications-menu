@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-07-26 22:00+0000\n"
-"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "wingpanel/applications-menu/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -53,22 +53,20 @@ msgid "Programming"
 msgstr "Programação"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Ações"
+msgstr "Educação"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Ciência"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Jogos"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Gráficos"
 
 #: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
