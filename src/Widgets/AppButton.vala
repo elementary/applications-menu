@@ -22,10 +22,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     }
 
     construct {
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-                             Gdk.DragAction.COPY);
-
         tooltip_text = app.description;
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
@@ -120,17 +116,20 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             }
         });
 
-        this.drag_begin.connect ((ctx) => {
-            this.dragging = true;
-            Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
+        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
+        Gtk.drag_source_set (this, BUTTON1_MASK, {dnd}, COPY);
+
+        drag_begin.connect ((ctx) => {
+            dragging = true;
+            Gtk.drag_set_icon_gicon (ctx, app.icon, 32, 32);
+        });
+
+        drag_end.connect (() => {
+            dragging = false;
             app_launched ();
         });
 
-        this.drag_end.connect ( () => {
-            this.dragging = false;
-        });
-
-        this.drag_data_get.connect ( (ctx, sel, info, time) => {
+        drag_data_get.connect ((ctx, sel, info, time) => {
             sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
         });
 
