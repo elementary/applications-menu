@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2022-10-13 14:03+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
-"wingpanel/applications-menu/zh_Hans/>\n"
+"PO-Revision-Date: 2025-08-03 12:55+0000\n"
+"Last-Translator: JieXu <xujie0739@qq.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"l10n.elementaryos.org/projects/wingpanel/applications-menu/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:24+0000\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
@@ -98,10 +98,8 @@ msgid "Open with %s Graphics"
 msgstr "用 %s 图形打开"
 
 #: src/Backend/App.vala:259
-#, fuzzy
-#| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
-msgstr "从程序坞移除"
+msgstr "保留在 _Dock 栏里"
 
 #: src/Backend/App.vala:278
 msgid "Uninstall"
@@ -120,10 +118,8 @@ msgid "Text"
 msgstr "文本"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "计算器"
+msgstr "计算"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
