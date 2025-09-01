@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2025-08-30 22:55+0000\n"
+"PO-Revision-Date: 2025-09-02 12:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -151,12 +151,12 @@ msgstr "ブックマーク"
 
 #: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
-msgstr "検索語句を変更してみてください。"
+msgstr "他のキーワードを試してください。"
 
 #: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
-msgstr "“%s”の検索結果なし"
+msgstr "“%s”の結果なし"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
