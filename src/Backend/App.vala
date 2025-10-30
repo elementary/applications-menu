@@ -58,7 +58,8 @@ public class Slingshot.Backend.App : Object {
     public Synapse.Match? target { get; private set; default = null; }
 
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
-    private GLib.SimpleAction pinned_action;
+    private GLib.Menu? menu_model = null;
+    private GLib.SimpleAction? pinned_action = null;
     private GLib.SimpleAction uninstall_action;
     private GLib.SimpleAction view_action;
 
@@ -191,6 +192,10 @@ public class Slingshot.Backend.App : Object {
     }
 
     public GLib.Menu get_menu_model () {
+        if (menu_model != null) {
+            return menu_model;
+        }
+
         var actions_section = new GLib.Menu ();
         var shell_section = new GLib.Menu ();
 
@@ -242,24 +247,12 @@ public class Slingshot.Backend.App : Object {
         if (Environment.find_program_in_path ("io.elementary.dock") != null) {
             has_system_item = true;
 
-            var dock = Backend.Dock.get_default ();
-            var pinned_variant = new Variant.boolean (false);
-            try {
-                pinned_variant = new Variant.boolean (desktop_id in dock.dbus.list_launchers ());
-            } catch (GLib.Error e) {
-                critical (e.message);
-            }
-
-            pinned_action = new SimpleAction.stateful (PINNED_ACTION, null, pinned_variant);
-            pinned_action.change_state.connect (pinned_action_change_state);
-
-            action_group.add_action (pinned_action);
-
             shell_section.append (
                 _("Keep in _Dock"),
                 ACTION_PREFIX + PINNED_ACTION
             );
 
+            var dock = Backend.Dock.get_default ();
             dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
             on_dock_dbus_changed (dock);
         }
@@ -289,11 +282,11 @@ public class Slingshot.Backend.App : Object {
             on_appcenter_dbus_changed.begin (appcenter);
         }
 
-        var model = new GLib.Menu ();
-        model.append_section (null, actions_section);
-        model.append_section (null, shell_section);
+        menu_model = new GLib.Menu ();
+        menu_model.append_section (null, actions_section);
+        menu_model.append_section (null, shell_section);
 
-        return model;
+        return menu_model;
     }
 
     private void action_uninstall () {
@@ -351,16 +344,33 @@ public class Slingshot.Backend.App : Object {
     }
 
     private void on_dock_dbus_changed (Backend.Dock dock) {
-        pinned_action.set_enabled (dock.dbus != null);
+        if (pinned_action != null) {
+            pinned_action.set_enabled (dock.dbus != null);
+        }
 
         if (dock.dbus == null) {
             return;
         }
 
-        try {
-            pinned_action.change_state (new Variant.boolean (desktop_id in dock.dbus.list_launchers ()));
-        } catch (GLib.Error e) {
-            critical (e.message);
+        if (pinned_action == null) {
+            try {
+                pinned_action = new SimpleAction.stateful (
+                    PINNED_ACTION,
+                    null,
+                    new Variant.boolean (desktop_id in dock.dbus.list_launchers ())
+                );
+                pinned_action.change_state.connect (pinned_action_change_state);
+
+                action_group.add_action (pinned_action);
+            } catch (Error e) {
+                critical ("Unable to create pinned launcher action: %s", e.message);
+            }
+        } else {
+            try {
+                pinned_action.change_state (new Variant.boolean (desktop_id in dock.dbus.list_launchers ()));
+            } catch (GLib.Error e) {
+                critical ("Unable to update pinned launcher action state: %s", e.message);
+            }
         }
     }
 
@@ -375,7 +385,7 @@ public class Slingshot.Backend.App : Object {
                 dock.dbus.remove_launcher (desktop_id);
             }
         } catch (GLib.Error e) {
-            critical (e.message);
+            critical ("Unable to change pinned launcher: %s", e.message);
         }
     }
 }
