@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2024-11-05 19:01+0000\n"
+"PO-Revision-Date: 2025-07-26 16:55+0000\n"
 "Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
+"Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "wingpanel/applications-menu-extra/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/applications-menu.metainfo.xml.in:12
 msgid "Applications Menu"
@@ -37,10 +37,8 @@ msgstr "elementary, Inc."
 #: data/applications-menu.metainfo.xml.in:83
 #: data/applications-menu.metainfo.xml.in:97
 #: data/applications-menu.metainfo.xml.in:110
-#, fuzzy
-#| msgid "Performance improvements"
 msgid "Improvements:"
-msgstr "Melhorias de desempenho"
+msgstr "Melhorias:"
 
 #: data/applications-menu.metainfo.xml.in:41
 #: data/applications-menu.metainfo.xml.in:54
