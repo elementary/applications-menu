@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2025-10-22 05:31+0000\n"
+"PO-Revision-Date: 2025-10-31 11:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/sv/>\n"
@@ -26,7 +26,7 @@ msgstr "Program"
 
 #: src/Indicator.vala:132
 msgid "Open and search apps"
-msgstr "Öppna och sök i appar"
+msgstr "Öppna och sök appar"
 
 #: src/SlingshotView.vala:45
 msgid "View as Grid"
@@ -46,7 +46,7 @@ msgstr "Tillbehör"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr "Universell åtkomst"
+msgstr "Allmän åtkomst"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
@@ -95,7 +95,7 @@ msgstr "Kör detta kommando…"
 #: src/Backend/App.vala:237
 #, c-format
 msgid "Open with %s Graphics"
-msgstr "Öppna med %s Grafik"
+msgstr "Öppna med %s-grafik"
 
 #: src/Backend/App.vala:259
 msgid "Keep in _Dock"
@@ -204,7 +204,7 @@ msgstr "kvadrat"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr "kubad"
+msgstr "kubik"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
@@ -250,7 +250,7 @@ msgstr "Hem"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
-msgstr "Nyligen"
+msgstr "Tidigare"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
@@ -268,7 +268,7 @@ msgstr "Öppna denna länk i standardwebbläsaren"
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr "Öppna %s-inställningar"
+msgstr "Öppna inställningar för %s"
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
