@@ -68,10 +68,13 @@ for_wayland = get_option('for-wayland')
 
 if for_wayland == false
     budgie_dep = dependency('budgie-1.0')
+    peas_dep = dependency('libpeas-1.0')
+
 else
-    budgie_dep = dependency('budgie-2.0')
+    budgie_dep = dependency('budgie-3.0')
+    peas_dep = dependency('libpeas-2')
+
 endif
-peas_dep = dependency('libpeas-gtk-1.0')
 
 plank_dep = dependency('plank', required: false)
 if plank_dep.version().version_compare('>=0.10.9')

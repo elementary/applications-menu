@@ -136,7 +136,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             }
         }
 
-        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
+        //indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
     }
 }
 

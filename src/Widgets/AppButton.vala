@@ -31,8 +31,40 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
 
+    private Gtk.Popover? tooltip_popover = null;
+    private string tooltip_text = "";
+
     public AppButton (Backend.App app) {
         Object (app: app);
+
+        this.tooltip_text = app.description;
+
+        this.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK);
+
+        this.enter_notify_event.connect((ev) => {
+            if (tooltip_popover == null) {
+                tooltip_popover = new Gtk.Popover(this);
+                tooltip_popover.set_position(Gtk.PositionType.BOTTOM);
+
+                var msg = new Gtk.Label(this.tooltip_text);
+                tooltip_popover.add(msg);
+                msg.show();
+
+                tooltip_popover.set_modal(false);
+
+                tooltip_popover.show_all();
+            }
+            return false;
+        });
+
+        this.leave_notify_event.connect((ev) => {
+            if (tooltip_popover != null) {
+                tooltip_popover.hide();
+                tooltip_popover.destroy();
+                tooltip_popover = null;
+            }
+            return false;
+        });
     }
 
     static construct {
@@ -47,7 +79,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
                              Gdk.DragAction.COPY);
 
-        tooltip_text = app.description;
+        //tooltip_text = app.description;
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 

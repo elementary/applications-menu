@@ -325,7 +325,7 @@ namespace AppMenuApplet {
                 }
             }
 #if GRANITE5
-            indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
+            //indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
 #endif
         }
 
