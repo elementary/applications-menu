@@ -33,6 +33,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     private Gtk.Popover? tooltip_popover = null;
     private string tooltip_text = "";
+    private uint delay_ms = 500;
+    private uint timeout_id = 0;
 
     public AppButton (Backend.App app) {
         Object (app: app);
@@ -42,22 +44,34 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         this.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK);
 
         this.enter_notify_event.connect((ev) => {
-            if (tooltip_popover == null) {
-                tooltip_popover = new Gtk.Popover(this);
-                tooltip_popover.set_position(Gtk.PositionType.BOTTOM);
+             if (timeout_id == 0) {
+                // schedule a one-shot timeout to show the popover after delay_ms
+                timeout_id = Timeout.add(this.delay_ms, () => {
+                    timeout_id = 0; // clear id, this source will not repeat
+                    // show popover if it's not already shown
+                    if (tooltip_popover == null) {
+                        tooltip_popover = new Gtk.Popover(this);
+                        tooltip_popover.set_position(Gtk.PositionType.BOTTOM);
 
-                var msg = new Gtk.Label(this.tooltip_text);
-                tooltip_popover.add(msg);
-                msg.show();
+                        var msg = new Gtk.Label(this.tooltip_text);
+                        tooltip_popover.add(msg);
+                        msg.show();
 
-                tooltip_popover.set_modal(false);
+                        tooltip_popover.set_modal(false);
 
-                tooltip_popover.show_all();
-            }
-            return false;
+                        tooltip_popover.show_all();
+                    }
+                    return false;
+                });
+             }
+             return false;
         });
 
         this.leave_notify_event.connect((ev) => {
+            if (timeout_id != 0) {
+                Source.remove(timeout_id);
+                timeout_id = 0;
+            }
             if (tooltip_popover != null) {
                 tooltip_popover.hide();
                 tooltip_popover.destroy();
