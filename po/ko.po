@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2022-08-06 10:54+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "애플리케이션"
 msgid "Open and search apps"
 msgstr "실행 및 앱 검색"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "그리드로 보기"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "카테고리로 보기"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "앱 검색"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "검색어 삭제"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,28 @@ msgstr "시스템 도구"
 msgid "Other"
 msgstr "기타"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "명령문 실행…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "%s 그래픽으로 열기"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "플랭크에서 내리기"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "프로그램 제거"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "앱센터에서 보기"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -138,41 +153,14 @@ msgstr "애플리케이션 작동"
 msgid "Bookmarks"
 msgstr "책갈피"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "검색어를 바꿔보세요."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s”에 대한 검색 결과가 없습니다"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "%s 그래픽으로 열기"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "플랭크에서 내리기"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "프로그램 제거"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "앱센터에서 보기"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "클립 보드에 복사"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "선택한것을 클립보드로 복사"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -370,6 +358,15 @@ msgstr "컴퓨터를 다시 시작합니다"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "다시 시작;다시 시작"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "클립 보드에 복사"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "선택한것을 클립보드로 복사"
+
+#~ msgid "Clear all"
+#~ msgstr "검색어 삭제"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "플랭크에 올리기"

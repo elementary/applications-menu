@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2022-09-21 15:25+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -23,21 +23,17 @@ msgstr "بەرنامەکان"
 msgid "Open and search apps"
 msgstr "کردنەوە و، گەڕان بەدوای بەرنامەکاندا"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "پشاندان بە شێوەی خشتەیی"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "بینین بەپێی پۆل"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "گەڕان بەدوای بەرنامەدا"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "سڕینەوە"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -87,9 +83,28 @@ msgstr "ئامرازەکانی سیستەم"
 msgid "Other"
 msgstr "هیتر"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "ناردنی ئەم فەرمانە…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "کردنەوەی بە گرافیکەکانی %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "لابردنی لە دۆکدا"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "سڕینەوە"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "بینین لە سەنتەری نەرمەکاڵادا"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -133,41 +148,14 @@ msgstr "کردارەکانی بەرنامە"
 msgid "Bookmarks"
 msgstr "جێدۆزەکان"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "هەوڵدە یاساکانی گەڕان بگۆڕیت."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "هیچ ئەنجامێک نییە بۆ \"%s\""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "کردنەوەی بە گرافیکەکانی %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "لابردنی لە دۆکدا"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "سڕینەوە"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "بینین لە سەنتەری نەرمەکاڵادا"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "کۆپیکردنی بۆ کلیپبۆرد"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "کۆپیکردنی دیارکراو بۆ کلیپبۆرد"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -365,6 +353,15 @@ msgstr "کۆمپیتەرەکەت پێبکەوە"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "پێکردنەوە؛بووتکردنەوە"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "کۆپیکردنی بۆ کلیپبۆرد"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "کۆپیکردنی دیارکراو بۆ کلیپبۆرد"
+
+#~ msgid "Clear all"
+#~ msgstr "سڕینەوە"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "زیادکردنی بۆ دۆک"

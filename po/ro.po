@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2021-01-19 22:56+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,21 +29,17 @@ msgstr "Aplicații"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Arată ca grilă"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Vizualizează după categorie"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Caută aplicații"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -95,9 +91,30 @@ msgstr ""
 msgid "Other"
 msgstr "Altele"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Rulează această comandă..."
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Deschide cu %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Elimină din _Dock"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Dezinstalează"
+
+#: src/Backend/App.vala:283
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "Vizualizează după categorie"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -141,43 +158,14 @@ msgstr "Acțiunile aplicației"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Schimbă termenii căutării."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nu sunt rezultate pentu \"%s\""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Deschide cu %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Elimină din _Dock"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Dezinstalează"
-
-#: src/Widgets/AppContextMenu.vala:148
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "Vizualizează după categorie"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Copiază în memorie"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Copiază zona selectată în memorie"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -379,6 +367,12 @@ msgstr "Repornește calculatorul"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copiază în memorie"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Copiază zona selectată în memorie"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Adaugă în_Dock"

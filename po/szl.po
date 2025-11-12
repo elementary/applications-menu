@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/wingpanel/"
@@ -22,21 +22,17 @@ msgstr "Programy"
 msgid "Open and search apps"
 msgstr "Ôtwōrz i wyszukej programy"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Pokoż jako nec"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Pokoż jako kategoryje"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Wyszukej program"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Wysnoż wszyjsko"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -88,9 +84,29 @@ msgstr ""
 msgid "Other"
 msgstr "Inksze"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Wykōnej ta kōmynda…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Ôtwōrz ze %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Skasuj z _doku"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Ôdinstaluj"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Pokoż we Cyntrum programōw"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -134,42 +150,14 @@ msgstr "Akcyje programu"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Sprōbuj zmiynić wyszukowane słowa."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Brak wynikōw do „%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Ôtwōrz ze %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Skasuj z _doku"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Ôdinstaluj"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Pokoż we Cyntrum programōw"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Skopiuj do skrytki"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Skopiuj zaznaczynie do skrytki"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -369,6 +357,15 @@ msgstr "Zresztartuj kōmputer"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "sztartnij;zaś;resztart; zresztartować;resztartowanie"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Skopiuj do skrytki"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Skopiuj zaznaczynie do skrytki"
+
+#~ msgid "Clear all"
+#~ msgstr "Wysnoż wszyjsko"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Przidej do _doku"

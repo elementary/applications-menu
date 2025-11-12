@@ -25,8 +25,6 @@ sources = [
     'Views/SearchView.vala',
 
     'Widgets/AppButton.vala',
-    'Widgets/AppContextMenu.vala',
-    'Widgets/AppListBox.vala',
     'Widgets/AppListRow.vala',
     'Widgets/Switcher.vala',
     'Widgets/SearchItem.vala',
@@ -35,7 +33,6 @@ sources = [
     'synapse-core/Actions/TerminalRunnerAction.vala',
     'synapse-core/Actions/RunnerAction.vala',
     'synapse-core/Actions/CommonAction.vala',
-    'synapse-core/Actions/ClipboardCopyAction.vala',
     'synapse-core/Actions/BaseAction.vala',
     'synapse-core/Interfaces/ItemProvider.vala',
     'synapse-core/Interfaces/Configurable.vala',

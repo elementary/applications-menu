@@ -36,7 +36,6 @@ namespace Synapse {
 
             actions.add (new RunnerAction ());
             actions.add (new TerminalRunnerAction ());
-            actions.add (new ClipboardCopyAction ());
         }
 
         public ResultSet? find_for_match (ref Query query, Match match) {

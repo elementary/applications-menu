@@ -68,7 +68,7 @@ public enum Slingshot.Widgets.ResultType {
     }
 }
 
-public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
+public class Slingshot.Widgets.SearchView : Gtk.Bin {
 
     const int MAX_RESULTS = 10;
 
@@ -76,75 +76,144 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
     public signal void app_launched ();
 
     private Granite.Widgets.AlertView alert_view;
-    private AppListBox list_box;
+    private Gtk.ListBox list_box;
     Gee.HashMap<ResultType, uint> limitator;
+    private string? drag_uri = null;
+
+    private Gtk.GestureMultiPress click_controller;
+    private Gtk.EventControllerKey menu_key_controller;
 
     construct {
-        hscrollbar_policy = Gtk.PolicyType.NEVER;
-
         alert_view = new Granite.Widgets.AlertView ("", _("Try changing search terms."), "edit-find-symbolic");
         alert_view.show_all ();
 
         // list box
         limitator = new Gee.HashMap<ResultType, uint> ();
-        list_box = new AppListBox ();
-        list_box.activate_on_single_click = true;
+
+        const Gtk.TargetEntry DND = {"text/uri-list", 0, 0};
+        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
+
+        list_box = new Gtk.ListBox () {
+            activate_on_single_click = true,
+            selection_mode = BROWSE
+        };
         list_box.set_sort_func ((row1, row2) => update_sort (row1, row2));
         list_box.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) update_header);
         list_box.set_placeholder (alert_view);
 
-        list_box.close_request.connect (() => {
-            app_launched ();
+        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+            child = list_box,
+            hscrollbar_policy = NEVER
+        };
+
+        child = scrolled_window;
+
+        list_box.drag_begin.connect ((ctx) => {
+            var selected_row = list_box.get_selected_row ();
+            if (selected_row != null) {
+                var drag_item = (Slingshot.Widgets.SearchItem) selected_row;
+                drag_uri = drag_item.app_uri;
+                if (drag_uri != null) {
+                    Gtk.drag_set_icon_gicon (ctx, drag_item.image.gicon, 32, 32);
+                }
+
+                app_launched ();
+            }
         });
+
+        list_box.drag_end.connect (() => {
+            if (drag_uri != null) {
+                app_launched ();
+            }
+
+            drag_uri = null;
+        });
+
+        list_box.drag_data_get.connect ((ctx, sel, info, time) => {
+            if (drag_uri != null) {
+                sel.set_uris ({drag_uri});
+            }
+        });
+
+        list_box.move_cursor.connect (move_cursor);
 
         list_box.row_activated.connect ((row) => {
             Idle.add (() => {
                 var search_item = row as SearchItem;
-                if (!list_box.dragging) {
-                    switch (search_item.result_type) {
-                        case ResultType.APP_ACTIONS:
-                        case ResultType.LINK:
-                        case ResultType.SETTINGS:
-                        case ResultType.BOOKMARK:
-                            search_item.app.match.execute (null);
-                            break;
-                        default:
-                            search_item.app.launch ();
-                            break;
-                    }
-
-                    app_launched ();
+                switch (search_item.result_type) {
+                    case ResultType.APP_ACTIONS:
+                    case ResultType.LINK:
+                    case ResultType.SETTINGS:
+                    case ResultType.BOOKMARK:
+                        search_item.app.match.execute (null);
+                        break;
+                    default:
+                        search_item.app.launch ();
+                        break;
                 }
+
+                app_launched ();
 
                 return false;
             });
         });
 
-        list_box.button_press_event.connect ((e) => {
+        click_controller = new Gtk.GestureMultiPress (list_box) {
+            button = 0,
+            exclusive = true
+        };
+        click_controller.pressed.connect ((n_press, x, y) => {
+            var search_item = (SearchItem) list_box.get_selected_row ();
 
-            var row = list_box.get_row_at_y ((int)e.y);
-            var search_item = row as SearchItem;
+            var sequence = click_controller.get_current_sequence ();
+            var event = click_controller.get_last_event (sequence);
 
-            if (e.button != Gdk.BUTTON_SECONDARY) {
-                return Gdk.EVENT_PROPAGATE;
+            if (event.triggers_context_menu ()) {
+                search_item.create_context_menu ()?.popup_at_pointer ();
+
+                click_controller.set_state (CLAIMED);
+                click_controller.reset ();
             }
-
-            return search_item.create_context_menu (e);
         });
 
-        list_box.key_press_event.connect ((e) => {
+        menu_key_controller = new Gtk.EventControllerKey (list_box);
+        menu_key_controller.key_released.connect ((keyval, keycode, state) => {
+            var search_item = (SearchItem) list_box.get_selected_row ();
 
-            var row = list_box.get_selected_row ();
-            var search_item = row as SearchItem;
-
-            if (e.keyval == Gdk.Key.Menu) {
-                return search_item.create_context_menu (e);
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            switch (keyval) {
+                case Gdk.Key.F10:
+                    if (mods == Gdk.ModifierType.SHIFT_MASK) {
+                        search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    }
+                    break;
+                case Gdk.Key.Menu:
+                case Gdk.Key.MenuKB:
+                    search_item.create_context_menu ()?.popup_at_widget (this, EAST, CENTER);
+                    break;
+                default:
+                    return;
             }
-
-            return Gdk.EVENT_PROPAGATE;
         });
+    }
 
-        add (list_box);
+    private void move_cursor (Gtk.MovementStep step, int count) {
+        unowned var selected = list_box.get_selected_row ();
+        if (step != DISPLAY_LINES || selected == null) {
+            return;
+        }
+
+        // Move up to the searchbar
+        if (selected == list_box.get_row_at_index (0) && count == -1) {
+            move_focus (TAB_BACKWARD);
+            return;
+        }
+
+        // Wrap to the searchbar
+        if (list_box.get_row_at_index (selected.get_index () + count) == null) {
+            list_box.select_row (list_box.get_row_at_index (0));
+            move_focus (TAB_FORWARD);
+        }
     }
 
     public void set_results (Gee.List<Synapse.Match> matches, string search_term) {
@@ -201,6 +270,8 @@ public class Slingshot.Widgets.SearchView : Gtk.ScrolledWindow {
 
         var search_item = new SearchItem (app, search_term, result_type);
         app.start_search.connect ((search, target) => start_search (search, target));
+
+        app.launched.connect (() => app_launched ());
 
         list_box.add (search_item);
         search_item.show_all ();

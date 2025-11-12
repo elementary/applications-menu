@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2023-05-18 21:06+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "Uygulamalar"
 msgid "Open and search apps"
 msgstr "Uygulama açın ve arayın"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Izgara olarak görüntüle"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Kategoriye göre görüntüle"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Uygulama Ara"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Tümünü temizle"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,28 @@ msgstr "Sistem Araçları"
 msgid "Other"
 msgstr "Diğer"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Bu komutu çalıştır…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "%s Grafik Kartı ile aç"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "_Dock'tan Kaldır"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Kaldır"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Uygulama Merkezinde Görüntüle"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -136,41 +151,14 @@ msgstr "Uygulama Eylemleri"
 msgid "Bookmarks"
 msgstr "Yer İmleri"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Arama terimlerini değiştirmeyi deneyin."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” için sonuç bulunamadı"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "%s Grafik Kartı ile aç"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "_Dock'tan Kaldır"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Kaldır"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Uygulama Merkezinde Görüntüle"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Panoya Kopyala"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Seçimi panoya kopyala"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -367,6 +355,15 @@ msgstr "Bilgisayarınızı yeniden başlatın"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;yeniden başlat"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Panoya Kopyala"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Seçimi panoya kopyala"
+
+#~ msgid "Clear all"
+#~ msgstr "Tümünü temizle"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "_Dock'a Ekle"

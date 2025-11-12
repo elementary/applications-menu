@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
-"PO-Revision-Date: 2018-10-23 19:04+0000\n"
-"Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
-"Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
+"PO-Revision-Date: 2025-10-31 11:55+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
@@ -25,55 +25,48 @@ msgid "Applications"
 msgstr "Program"
 
 #: src/Indicator.vala:132
-#, fuzzy
 msgid "Open and search apps"
-msgstr "Öppna och sök i program (%s)"
+msgstr "Öppna och sök appar"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Visa som rutnät"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
-msgstr "Visa kategorivis"
+msgstr "Visa efter kategorier"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
-msgstr "Sök efter program"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
+msgstr "Sök efter appar"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Tillbehör"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Allmän åtkomst"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Programmering"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Åtgärder"
+msgstr "Utbildning"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Vetenskap"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Spel"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Grafik"
 
 #: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
@@ -81,37 +74,52 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Ljud och video"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Kontor"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Systemverktyg"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
 msgstr "Övrigt"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Kör detta kommando…"
 
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Öppna med %s-grafik"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "Behåll i _docka"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Avinstallera"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Visa i AppCenter"
+
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: src/Views/SearchView.vala:43
 msgid "Text"
 msgstr "Text"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Kalkylator"
+msgstr "Beräkning"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
@@ -135,49 +143,20 @@ msgstr "Inställningar"
 
 #: src/Views/SearchView.vala:62
 msgid "Application Actions"
-msgstr "Programfunktioner"
+msgstr "Programåtgärder"
 
 #: src/Views/SearchView.vala:64
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bokmärken"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Försök med att ändra söktermer."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Inga resultat för \"%s\""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Öppna med %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Ta bort från _dockan"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Avinstallera"
-
-#: src/Widgets/AppContextMenu.vala:148
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopiera till urklipp"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopiera markeringen till urklipp"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -185,11 +164,11 @@ msgstr "Kör"
 
 #: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
-msgstr "Starta program, händelse eller skript"
+msgstr "Kör ett program, åtgärd eller skript"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
-msgstr "Starta i terminalen"
+msgstr "Kör i terminalen"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:26
 msgid "Run application or command in terminal"
@@ -207,10 +186,8 @@ msgid "Search the app store"
 msgstr "Sök i programbutiken"
 
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopiera markeringen till urklipp"
+msgstr "Klicka för att kopiera resultatet till urklipp"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -223,29 +200,28 @@ msgstr "Kör kommando"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "kvadrat"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "kubik"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s till %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
-#, fuzzy, c-format
-#| msgid "Copy selection to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Kopiera markeringen till urklipp"
+msgstr "Klicka för att kopiera %g till urklipp"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
@@ -255,7 +231,7 @@ msgstr "Öppna med %s"
 #: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
-msgstr "Öppna det markerade objektet med %s"
+msgstr "Öppnar det markerade objektet med %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:87
 #: src/synapse-plugins/link-plugin.vala:44
@@ -265,20 +241,20 @@ msgstr "Öppna %s i %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Öppna den valda katalogen"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
-msgstr ""
+msgstr "Hem"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
-msgstr ""
+msgstr "Tidigare"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
-msgstr ""
+msgstr "Papperskorg"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format
@@ -287,12 +263,12 @@ msgstr "Öppna %s i standardwebbläsaren"
 
 #: src/synapse-plugins/link-plugin.vala:50
 msgid "Open this link in default browser"
-msgstr "Öppna den här länken i standardwebbläsaren"
+msgstr "Öppna denna länk i standardwebbläsaren"
 
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr "Öppna %s inställningar"
+msgstr "Öppna inställningar för %s"
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"
@@ -300,13 +276,13 @@ msgstr "Lås"
 
 #: src/synapse-plugins/system-managment.vala:111
 msgid "Lock this device"
-msgstr "Lås den här enheten"
+msgstr "Lås enheten"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "lås"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -314,17 +290,17 @@ msgstr "Logga ut"
 
 #: src/synapse-plugins/system-managment.vala:144
 msgid "Close all open applications and quit"
-msgstr "Stäng alla program och avsluta"
+msgstr "Stäng alla öppna program och avsluta"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "logga ut"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
-msgstr "Försätt i vänteläge"
+msgstr "Vänteläge"
 
 #: src/synapse-plugins/system-managment.vala:177
 msgid "Put your computer into suspend mode"
@@ -332,10 +308,9 @@ msgstr "Försätt din dator i vänteläge"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Försätt i vänteläge"
+msgstr "vänteläge"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -347,14 +322,13 @@ msgstr "Försätt din dator i viloläge"
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Viloläge"
+msgstr "vila"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
-msgstr "Stäng av"
+msgstr "Stäng ner"
 
 #: src/synapse-plugins/system-managment.vala:354
 msgid "Turn your computer off"
@@ -364,7 +338,7 @@ msgstr "Stäng av din dator"
 #: src/synapse-plugins/system-managment.vala:357
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
-msgstr ""
+msgstr "avstängning;stänga av"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -378,7 +352,13 @@ msgstr "Starta om din dator"
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "starta om;starta om"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopiera till urklipp"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopiera markeringen till urklipp"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Lägg till i _dockan"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2022-04-14 22:06+0000\n"
 "Last-Translator: Hossein <yahiceg727@wii999.com>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "اپلیکیشن ها"
 msgid "Open and search apps"
 msgstr "باز کردن و جست و جو برنامه ها"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "نمایش جدولی"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "نمایش دسته‌ای"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "جستجو برنامه ها"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "پاک کردن همه"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,26 @@ msgstr "ابزار های سیستم"
 msgid "Other"
 msgstr "دیگر"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr ""
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr ""
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr ""
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "حذف نصب"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "مشاهده در مرکز برنامه"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -138,38 +151,13 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "حذف نصب"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "مشاهده در مرکز برنامه"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr ""
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
 msgstr ""
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
@@ -367,6 +355,9 @@ msgstr ""
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Clear all"
+#~ msgstr "پاک کردن همه"
 
 #~ msgid "Calculator"
 #~ msgstr "ماشین حساب"

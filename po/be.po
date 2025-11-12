@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2017-01-07 13:03+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,21 +21,17 @@ msgstr "Праграмы"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Сеткай"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Катэгорыямі"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Пошук прыкладанняў"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -87,9 +83,30 @@ msgstr ""
 msgid "Other"
 msgstr "Іншыя"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Кіруйце гэтай камандай …"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Адкрыць у %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Выдаліце з _Дока"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr ""
+
+#: src/Backend/App.vala:283
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "Катэгорыямі"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -133,43 +150,14 @@ msgstr "Дзеянні над прыкладаннем"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Адкрыць у %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Выдаліце з _Дока"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:148
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "Катэгорыямі"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Капіяваць у буфер абмену"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Капіяваць вылучанае ў буфэр абмену"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -371,6 +359,12 @@ msgstr "Перазагрузіць ваш кампутар"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Капіяваць у буфер абмену"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Капіяваць вылучанае ў буфэр абмену"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Дадаць у _Док"

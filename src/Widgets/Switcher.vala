@@ -1,72 +1,52 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-//
-//  Copyright (C) 2011-2012 Giulio Collura
-//  Copyright (C) 2014 Corentin Noël <tintou@mailoo.org>
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ *                         2014 Corentin Noël <tintou@mailoo.org>
+ *                         2011-2012 Giulio Collura
+ */
 
-public class Slingshot.Widgets.Switcher : Gtk.Grid {
-    public signal void on_paginator_changed ();
+public class Slingshot.Widgets.Switcher : Gtk.Box {
+    private Hdy.Carousel _carousel;
+    public Hdy.Carousel carousel {
+        set {
+            if (_carousel != null) {
+                _carousel.notify["n-pages"].disconnect (update_pages);
+            }
 
-    private bool has_enough_children {
-        get {
-            return get_children ().length () > 1;
+            _carousel = value;
+
+            update_pages ();
+            _carousel.notify["n-pages"].connect (update_pages);
         }
     }
-
-    private Hdy.Carousel paginator;
 
     construct {
-        halign = Gtk.Align.CENTER;
-        orientation = Gtk.Orientation.HORIZONTAL;
-        column_spacing = 3;
+        spacing = 3;
         can_focus = false;
-        show_all ();
     }
 
-    public void set_paginator (Hdy.Carousel paginator) {
-        if (this.paginator != null) {
-            get_children ().foreach ((child) => {
-                child.destroy ();
+    private void update_pages () {
+        get_children ().foreach ((child) => {
+            child.destroy ();
+        });
+
+        if (_carousel.n_pages == 1) {
+            hide ();
+            return;
+        }
+
+        for (int i = 0; i < _carousel.get_n_pages (); i++) {
+            // In Adwaita, Carousel has a get_nth_page function
+            unowned var page = _carousel.get_children ().nth_data (i);
+
+            var button = new PageChecker (_carousel, i);
+            button.show ();
+
+            add (button);
+
+            button.clicked.connect (() => {
+                _carousel.scroll_to (page);
             });
-        }
-
-        this.paginator = paginator;
-        foreach (var child in paginator.get_children ()) {
-            add_child (child);
-        }
-
-        paginator.add.connect_after (add_child);
-    }
-
-    private void add_child (Gtk.Widget widget) {
-        var button = new PageChecker (paginator, widget);
-        add (button);
-    }
-
-    public override void show () {
-        base.show ();
-        if (!has_enough_children) {
-            hide ();
-        }
-    }
-
-    public override void show_all () {
-        base.show_all ();
-        if (!has_enough_children) {
-            hide ();
         }
     }
 }

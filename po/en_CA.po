@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2018-03-22 13:44+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
@@ -29,21 +29,17 @@ msgstr "Applications"
 msgid "Open and search apps"
 msgstr "Open and search apps (%s)"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "View as Grid"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "View by Category"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Search Apps"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -95,9 +91,30 @@ msgstr ""
 msgid "Other"
 msgstr "Other"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Run this command…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Open with %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Remove from _Dock"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Uninstall"
+
+#: src/Backend/App.vala:283
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "AppCenter"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -141,43 +158,14 @@ msgstr "Application Actions"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Try changing search terms."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "No Results for “%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Open with %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Remove from _Dock"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Uninstall"
-
-#: src/Widgets/AppContextMenu.vala:148
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "AppCenter"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Copy to Clipboard"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Copy selection to clipboard"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -379,6 +367,12 @@ msgstr "Restart your computer"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copy to Clipboard"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Copy selection to clipboard"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Add to _Dock"

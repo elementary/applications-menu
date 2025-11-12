@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-05-02 03:55+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/wingpanel/"
@@ -23,21 +23,17 @@ msgstr "აპლიკაციები"
 msgid "Open and search apps"
 msgstr "გახსნა და აპების ძებნა"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "როგორც ბადის ჩვენება"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "კატეგორიებად ჩვენება"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "აპების ძებნა"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "ყველას გასუფთავება"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -87,9 +83,26 @@ msgstr "სისტემური ხელსაწყოები"
 msgid "Other"
 msgstr "სხვა"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "ამ ბრძანების გაშვება…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "%s-ის Graphics-ით გახსნა"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "_დოკში დატოვება"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "წაშლა"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "AppCenter-ში ნახვა"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -131,39 +144,14 @@ msgstr "პროგრამის ქმედებები"
 msgid "Bookmarks"
 msgstr "სანიშნები"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "სცადეთ შეცვალოთ ძებნის პირობები."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\"-სთვის შედეგების გარეშე"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "%s-ის Graphics-ით გახსნა"
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr "_დოკში დატოვება"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "წაშლა"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "AppCenter-ში ნახვა"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "ბუფერში კოპირება"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "მონიშნულის ბუფერში კოპირება"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -360,6 +348,15 @@ msgstr "თქვენი კომპიუტერის გადატვ�
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "რესტარტი;გადატვირთვა"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "ბუფერში კოპირება"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "მონიშნულის ბუფერში კოპირება"
+
+#~ msgid "Clear all"
+#~ msgstr "ყველას გასუფთავება"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "_დოკზე დამატება"

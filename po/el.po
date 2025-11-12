@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2017-02-27 21:32+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -26,21 +26,17 @@ msgstr "Εφαρμογές"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Προβολή σε πλέγμα"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Προβολή ανά κατηγορία"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Αναζήτηση εφαρμογών"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,30 @@ msgstr ""
 msgid "Other"
 msgstr "Άλλα"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Εκτέλεση αυτής της εντολής..."
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Άνοιγμα με %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Αφαίρεση από το _Dock"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr ""
+
+#: src/Backend/App.vala:283
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "Κέντρο εφαρμογών"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -138,43 +155,14 @@ msgstr "Ενέργειες εφαρμογών"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Κανένα αποτέλεσμα για “%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Άνοιγμα με %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Αφαίρεση από το _Dock"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr ""
-
-#: src/Widgets/AppContextMenu.vala:148
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "Κέντρο εφαρμογών"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Αντιγραφή στο πρόχειρο"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -376,6 +364,12 @@ msgstr ""
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Αντιγραφή στο πρόχειρο"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Προσθήκη στο _Dock"

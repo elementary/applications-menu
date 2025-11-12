@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2022-01-12 19:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "Aplikace"
 msgid "Open and search apps"
 msgstr "Otevřít a hledat aplikace"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Zobrazit v mřížce"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Zobrazit dle kategorie"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Hledat aplikace"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Vyčistit vše"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,28 @@ msgstr "Systémové nástroje"
 msgid "Other"
 msgstr "Ostatní"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Spustit příkaz…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Spustit pomocí graf. čipu %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Odebrat z _Doku"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Odinstalovat"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Zobrazit v Centru aplikací"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -138,41 +153,14 @@ msgstr "Akce aplikace"
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Zkuste změnit vyhledávaný výraz."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Žádné výsledky pro „%s“"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "Spustit pomocí graf. čipu %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Odebrat z _Doku"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Odinstalovat"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Zobrazit v Centru aplikací"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Zkopírovat do schránky"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Zkopírovat výběr do schránky"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -370,6 +358,15 @@ msgstr "Restartovat počítač"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restartovat;reboot"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Zkopírovat do schránky"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Zkopírovat výběr do schránky"
+
+#~ msgid "Clear all"
+#~ msgstr "Vyčistit vše"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Přidat na Dok"

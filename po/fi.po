@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2023-03-31 15:59+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "Sovellukset"
 msgid "Open and search apps"
 msgstr "Avaa ja etsi sovelluksia"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Näytä ruudukkona"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Näytä luokittain"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Etsi sovelluksia"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Tyhjennä kaikki"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,28 @@ msgstr "Järjestelmätyökalut"
 msgid "Other"
 msgstr "Muu"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Suorita komento…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Avaa käyttäen \"%s\"-grafiikkaa"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Poista t_elakasta"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Poista asennus"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Näytä sovelluskeskuksessa"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -136,41 +151,14 @@ msgstr "Sovellustoiminnot"
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Yritä käyttää eri hakuehtoja."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ei tuloksia haulle “%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "Avaa käyttäen \"%s\"-grafiikkaa"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Poista t_elakasta"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Poista asennus"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Näytä sovelluskeskuksessa"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopioi leikepöydälle"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopioi valinta leikepöydälle"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -367,6 +355,15 @@ msgstr "Käynnistä tietokone uudelleen"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "käynnistä uudelleen"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopioi leikepöydälle"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopioi valinta leikepöydälle"
+
+#~ msgid "Clear all"
+#~ msgstr "Tyhjennä kaikki"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Lisää _telakkaan"

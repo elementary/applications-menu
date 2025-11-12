@@ -28,6 +28,15 @@ public class Slingshot.Backend.App : Object {
         SYNAPSE
     }
 
+    public const string ACTION_GROUP_PREFIX = "app-actions";
+    private const string ACTION_PREFIX = ACTION_GROUP_PREFIX + ".";
+    private const string APP_ACTION = "action.%s";
+    private const string PINNED_ACTION = "pinned";
+    private const string SWITCHEROO_ACTION = "switcheroo";
+    private const string UNINSTALL_ACTION = "uninstall";
+    private const string VIEW_ACTION = "view-in-appcenter";
+
+    public SimpleActionGroup action_group { get; private set; }
     public string name { get; construct set; }
     public string description { get; private set; default = ""; }
     public string desktop_id { get; construct set; }
@@ -49,6 +58,12 @@ public class Slingshot.Backend.App : Object {
     public Synapse.Match? target { get; private set; default = null; }
 
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
+    private GLib.SimpleAction pinned_action;
+    private GLib.SimpleAction uninstall_action;
+    private GLib.SimpleAction view_action;
+
+    private bool has_system_item = false;
+    private string appstream_comp_id = "";
 
     construct {
         switcheroo_control = new Slingshot.Backend.SwitcherooControl ();
@@ -71,11 +86,6 @@ public class Slingshot.Backend.App : Object {
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
             icon = desktop_icon;
-        }
-
-        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
-            icon = new ThemedIcon ("application-default-icon");
         }
     }
 
@@ -100,11 +110,6 @@ public class Slingshot.Backend.App : Object {
             icon = new FileIcon (file);
         } else if (match.icon_name != null) {
             icon = new ThemedIcon (match.icon_name);
-        }
-
-        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (theme.lookup_by_gicon (icon, 64, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
-            icon = new ThemedIcon ("application-default-icon");
         }
 
         if (match is Synapse.ApplicationMatch) {
@@ -182,6 +187,195 @@ public class Slingshot.Backend.App : Object {
             unity_sender_name = null;
             count_visible = false;
             current_count = 0;
+        }
+    }
+
+    public GLib.Menu get_menu_model () {
+        var actions_section = new GLib.Menu ();
+        var shell_section = new GLib.Menu ();
+
+        action_group = new SimpleActionGroup ();
+
+        var app_info = new DesktopAppInfo (desktop_id);
+        foreach (unowned var action in app_info.list_actions ()) {
+            var simple_action = new SimpleAction (APP_ACTION.printf (action), null);
+            simple_action.activate.connect (() => {
+                var context = Gdk.Display.get_default ().get_app_launch_context ();
+                context.set_timestamp (Gdk.CURRENT_TIME);
+
+                app_info.launch_action (action, context);
+                launched (this);
+            });
+            action_group.add_action (simple_action);
+
+            actions_section.append (
+                app_info.get_action_name (action),
+                ACTION_PREFIX + APP_ACTION.printf (action)
+            );
+        }
+
+        if (switcheroo_control != null && switcheroo_control.has_dual_gpu) {
+            bool prefers_non_default_gpu = app_info.get_boolean ("PrefersNonDefaultGPU");
+
+            var switcheroo_action = new SimpleAction (SWITCHEROO_ACTION, null);
+            switcheroo_action.activate.connect (() => {
+                try {
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    context.set_timestamp (Gdk.CURRENT_TIME);
+
+                    switcheroo_control.apply_gpu_environment (context, prefers_non_default_gpu);
+
+                    app_info.launch (null, context);
+                    launched (this);
+                } catch (Error e) {
+                    warning ("Failed to launch %s: %s", name, e.message);
+                }
+            });
+            action_group.add_action (switcheroo_action);
+
+            actions_section.append (
+                _("Open with %s Graphics").printf (switcheroo_control.get_gpu_name (prefers_non_default_gpu)),
+                ACTION_PREFIX + SWITCHEROO_ACTION
+            );
+        }
+
+        if (Environment.find_program_in_path ("io.elementary.dock") != null) {
+            has_system_item = true;
+
+            var dock = Backend.Dock.get_default ();
+            var pinned_variant = new Variant.boolean (false);
+            try {
+                pinned_variant = new Variant.boolean (desktop_id in dock.dbus.list_launchers ());
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+
+            pinned_action = new SimpleAction.stateful (PINNED_ACTION, null, pinned_variant);
+            pinned_action.change_state.connect (pinned_action_change_state);
+
+            action_group.add_action (pinned_action);
+
+            shell_section.append (
+                _("Keep in _Dock"),
+                ACTION_PREFIX + PINNED_ACTION
+            );
+
+            dock.notify["dbus"].connect (() => on_dock_dbus_changed (dock));
+            on_dock_dbus_changed (dock);
+        }
+
+        if (Environment.find_program_in_path ("io.elementary.appcenter") != null) {
+            uninstall_action = new SimpleAction (UNINSTALL_ACTION, null);
+            uninstall_action.activate.connect (action_uninstall);
+
+            view_action = new SimpleAction (VIEW_ACTION, null);
+            view_action.activate.connect (open_in_appcenter);
+
+            action_group.add_action (uninstall_action);
+            action_group.add_action (view_action);
+
+            shell_section.append (
+                _("Uninstall"),
+                ACTION_PREFIX + UNINSTALL_ACTION
+            );
+
+            shell_section.append (
+                _("View in AppCenter"),
+                ACTION_PREFIX + VIEW_ACTION
+            );
+
+            var appcenter = Backend.AppCenter.get_default ();
+            appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
+            on_appcenter_dbus_changed.begin (appcenter);
+        }
+
+        var model = new GLib.Menu ();
+        model.append_section (null, actions_section);
+        model.append_section (null, shell_section);
+
+        return model;
+    }
+
+    private void action_uninstall () {
+        var appcenter = Backend.AppCenter.get_default ();
+        if (appcenter.dbus == null || appstream_comp_id == "") {
+            return;
+        }
+
+        launched (this);
+
+        appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
+            try {
+                appcenter.dbus.uninstall.end (res);
+            } catch (GLib.Error e) {
+                warning (e.message);
+            }
+        });
+    }
+
+    private void open_in_appcenter () {
+        AppInfo.launch_default_for_uri_async.begin ("appstream://" + appstream_comp_id, null, null, (obj, res) => {
+            try {
+                AppInfo.launch_default_for_uri_async.end (res);
+            } catch (Error error) {
+                var app_info = new DesktopAppInfo (desktop_id);
+                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    "Unable to open %s in AppCenter".printf (app_info.get_display_name ()),
+                    "",
+                    "dialog-error",
+                    Gtk.ButtonsType.CLOSE
+                );
+                message_dialog.show_error_details (error.message);
+                message_dialog.response.connect (message_dialog.destroy);
+                message_dialog.present ();
+            } finally {
+                launched (this);
+            }
+        });
+    }
+
+    private async void on_appcenter_dbus_changed (Backend.AppCenter appcenter) {
+        if (appcenter.dbus != null) {
+            try {
+                appstream_comp_id = yield appcenter.dbus.get_component_from_desktop_id (desktop_id);
+            } catch (GLib.Error e) {
+                appstream_comp_id = "";
+                warning (e.message);
+            }
+        } else {
+            appstream_comp_id = "";
+        }
+
+        uninstall_action.set_enabled (appstream_comp_id != "");
+        view_action.set_enabled (appstream_comp_id != "");
+    }
+
+    private void on_dock_dbus_changed (Backend.Dock dock) {
+        pinned_action.set_enabled (dock.dbus != null);
+
+        if (dock.dbus == null) {
+            return;
+        }
+
+        try {
+            pinned_action.change_state (new Variant.boolean (desktop_id in dock.dbus.list_launchers ()));
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
+    }
+
+    private void pinned_action_change_state (Variant? value) {
+        pinned_action.set_state (value);
+
+        try {
+            var dock = Backend.Dock.get_default ();
+            if (value.get_boolean ()) {
+                dock.dbus.add_launcher (desktop_id);
+            } else {
+                dock.dbus.remove_launcher (desktop_id);
+            }
+        } catch (GLib.Error e) {
+            critical (e.message);
         }
     }
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2021-08-30 15:25+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,21 +29,17 @@ msgstr "التطبيقات"
 msgid "Open and search apps"
 msgstr "افتح و ابحث في التطبيقات"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "اعرض كشبكة"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "اعرض حسب الفئة"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "ابحث في التطبيقات"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "امسح الكل"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -93,9 +89,29 @@ msgstr "أدوات النظام"
 msgid "Other"
 msgstr "أخرى"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "شغل هذا الأمر…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "افتح باستخدام %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "أزل من المرسى"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "ألغ التثبيت"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "أظهر في آب سنتر"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -139,42 +155,14 @@ msgstr "أوامر التطبيقات"
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "جرب تغيير عبارات البحث."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "لا توجد نتائج ل ”%s“"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "افتح باستخدام %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "أزل من المرسى"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "ألغ التثبيت"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "أظهر في آب سنتر"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "انسخ إلى الحافظة"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "انسخ المحدد إلى الحافظة"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -372,6 +360,15 @@ msgstr "أعد تشغيل حاسوبك"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "إعادة التشغيل;إعادة الإقلاع"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "انسخ إلى الحافظة"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "انسخ المحدد إلى الحافظة"
+
+#~ msgid "Clear all"
+#~ msgstr "امسح الكل"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "أضف إلى المرسى"

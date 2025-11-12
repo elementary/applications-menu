@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
-"PO-Revision-Date: 2025-02-14 08:00+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
+"PO-Revision-Date: 2025-06-27 14:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
@@ -29,21 +29,17 @@ msgstr "Приложения"
 msgid "Open and search apps"
 msgstr "Запуск и поиск приложений"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Сетка"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Категории"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Поиск приложений"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Очистить всё"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -93,9 +89,26 @@ msgstr "Системные инструменты"
 msgid "Other"
 msgstr "Прочее"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Выполнить команду…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Открыть с графикой %s"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "Закрепить в _доке"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Удалить"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Открыть в AppCenter"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -137,39 +150,14 @@ msgstr "Действия приложения"
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Попробуйте изменить запрос."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Нет результатов по запросу «%s»"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "Открыть с графикой %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr "Закрепить в _доке"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Удалить"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Открыть в AppCenter"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Копировать"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Копировать выделенное"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -254,7 +242,7 @@ msgstr "Открыть %s в %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
-msgstr "Открыть выбранную директорию"
+msgstr "Открыть выбранный каталог"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:216
@@ -366,6 +354,15 @@ msgstr "Перезагрузить компьютер"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;перезагрузка;перезагрузить"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Копировать"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Копировать выделенное"
+
+#~ msgid "Clear all"
+#~ msgstr "Очистить всё"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Добавить в _Док"

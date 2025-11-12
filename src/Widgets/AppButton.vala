@@ -1,19 +1,7 @@
 /*
- * Copyright 2019 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
 public class Slingshot.Widgets.AppButton : Gtk.Button {
@@ -21,12 +9,13 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     public Backend.App app { get; construct; }
 
-    private static Slingshot.AppContextMenu menu;
-
     private const int ICON_SIZE = 64;
 
     private Gtk.Label badge;
     private bool dragging = false; //prevent launching
+
+    private Gtk.GestureMultiPress click_controller;
+    private Gtk.EventControllerKey menu_key_controller;
 
     public AppButton (Backend.App app) {
         Object (app: app);
@@ -37,61 +26,94 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-        var app_label = new Gtk.Label (app.name);
-        app_label.halign = Gtk.Align.CENTER;
-        app_label.justify = Gtk.Justification.CENTER;
-        app_label.lines = 2;
-        app_label.max_width_chars = 16;
-        app_label.width_chars = 16;
-        app_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
-        app_label.set_ellipsize (Pango.EllipsizeMode.END);
+        var app_label = new Gtk.Label (app.name) {
+            halign = CENTER,
+            ellipsize = END,
+            justify = CENTER,
+            lines = 2,
+            max_width_chars = 16,
+            width_chars = 16,
+            wrap_mode = WORD_CHAR
+        };
 
-        var image = new Gtk.Image.from_gicon (app.icon, ICON_SIZE) {
+        var icon = app.icon;
+        unowned var theme = Gtk.IconTheme.get_default ();
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+            icon = new ThemedIcon ("application-default-icon");
+        }
+
+        var image = new Gtk.Image.from_gicon (icon, ICON_SIZE) {
             margin_top = 9,
             margin_end = 6,
             margin_start = 6,
             pixel_size = ICON_SIZE
         };
 
-        badge = new Gtk.Label ("!");
-        badge.visible = false;
-        badge.halign = Gtk.Align.END;
-        badge.valign = Gtk.Align.START;
+        badge = new Gtk.Label ("!") {
+            halign = END,
+            valign = START,
+            visible = false
+        };
+        badge.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
-        unowned Gtk.StyleContext badge_style_context = badge.get_style_context ();
-        badge_style_context.add_class (Granite.STYLE_CLASS_BADGE);
-
-        var overlay = new Gtk.Overlay ();
-        overlay.halign = Gtk.Align.CENTER;
-        overlay.add (image);
+        var overlay = new Gtk.Overlay () {
+            child = image,
+            halign = CENTER
+        };
         overlay.add_overlay (badge);
 
-        var grid = new Gtk.Grid ();
-        grid.orientation = Gtk.Orientation.VERTICAL;
-        grid.row_spacing = 6;
-        grid.expand = true;
-        grid.halign = Gtk.Align.CENTER;
-        grid.add (overlay);
-        grid.add (app_label);
+        var box = new Gtk.Box (VERTICAL, 6) {
+            halign = CENTER,
+            hexpand = true,
+            vexpand = true
+        };
+        box.add (overlay);
+        box.add (app_label);
 
-        add (grid);
+        child = box;
+
+        app.launched.connect (() => app_launched ());
 
         this.clicked.connect (launch_app);
 
-        this.button_press_event.connect ((e) => {
-            if (e.button != Gdk.BUTTON_SECONDARY) {
-                return Gdk.EVENT_PROPAGATE;
-            }
+        click_controller = new Gtk.GestureMultiPress (this) {
+            button = 0,
+            exclusive = true
+        };
+        click_controller.pressed.connect ((n_press, x, y) => {
+            var sequence = click_controller.get_current_sequence ();
+            var event = click_controller.get_last_event (sequence);
 
-            return create_context_menu (e);
+            if (event.triggers_context_menu ()) {
+                var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
+                context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                context_menu.popup_at_pointer ();
+
+                click_controller.set_state (CLAIMED);
+                click_controller.reset ();
+            }
         });
 
-        this.key_press_event.connect ((e) => {
-            if (e.keyval == Gdk.Key.Menu) {
-                return create_context_menu (e);
+        menu_key_controller = new Gtk.EventControllerKey (this);
+        menu_key_controller.key_released.connect ((keyval, keycode, state) => {
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            switch (keyval) {
+                case Gdk.Key.F10:
+                    if (mods == Gdk.ModifierType.SHIFT_MASK) {
+                        var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
+                        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                        context_menu.popup_at_widget (this, EAST, CENTER);
+                    }
+                    break;
+                case Gdk.Key.Menu:
+                case Gdk.Key.MenuKB:
+                    var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
+                    context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
+                    context_menu.popup_at_widget (this, EAST, CENTER);
+                    break;
+                default:
+                    return;
             }
-
-            return Gdk.EVENT_PROPAGATE;
         });
 
         Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
@@ -121,7 +143,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     public void launch_app () {
         app.launch ();
-        app_launched ();
     }
 
     private void update_badge_count () {
@@ -142,24 +163,5 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         } else {
             badge.hide ();
         }
-    }
-
-    private bool create_context_menu (Gdk.Event e) {
-        menu = new Slingshot.AppContextMenu (app.desktop_id, app.desktop_path);
-        menu.app_launched.connect (() => {
-            app_launched ();
-        });
-
-        if (menu.get_children () != null) {
-            if (e.type == Gdk.EventType.KEY_PRESS) {
-                menu.popup_at_widget (this, Gdk.Gravity.EAST, Gdk.Gravity.CENTER, e);
-                return Gdk.EVENT_STOP;
-            } else if (e.type == Gdk.EventType.BUTTON_PRESS) {
-                menu.popup_at_pointer (e);
-                return Gdk.EVENT_STOP;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
     }
 }

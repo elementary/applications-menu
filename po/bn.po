@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -24,21 +24,17 @@ msgstr "অ্যাপ্লিকেশন"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "গ্রিড হিসাবে দেখুন"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "বিভাগ দ্বারা দেখুন"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "এপ্স অনুসন্ধান করুন"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr ""
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -90,9 +86,30 @@ msgstr ""
 msgid "Other"
 msgstr "অন্য"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "এই কমান্ডটি  রান করুন…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "%s_এর দ্বারা খুলুন"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "_ডক থেকে অপসারণ করুন"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "আনইনস্টল"
+
+#: src/Backend/App.vala:283
+#, fuzzy
+msgid "View in AppCenter"
+msgstr "অ্যাপসেন্টার"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -136,43 +153,14 @@ msgstr "অ্যাপ্লিকেশনের ক্রিয়াকল�
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "অনুসন্ধানের জন্য বাক্যগুলি পাল্টে দেখুন।"
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" জন্য কোনো ফলাফল পাওয়া যায়নি"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "%s_এর দ্বারা খুলুন"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "_ডক থেকে অপসারণ করুন"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "আনইনস্টল"
-
-#: src/Widgets/AppContextMenu.vala:148
-#, fuzzy
-msgid "View in AppCenter"
-msgstr "অ্যাপসেন্টার"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "ক্লিপবোর্ডে অনুলিপি করুন"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "ক্লিপবোর্ডে সেলেক্শনটি অনুলিপি করুন"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -375,6 +363,12 @@ msgstr "কম্পিউটারটি পুনরায় চালু কর
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr ""
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "ক্লিপবোর্ডে অনুলিপি করুন"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "ক্লিপবোর্ডে সেলেক্শনটি অনুলিপি করুন"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "_ডকে যোগ করুন"

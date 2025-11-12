@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-03-02 10:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,21 +28,17 @@ msgstr "יישומים"
 msgid "Open and search apps"
 msgstr "פתיחה וחיפוש יישומים"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "הצגה כרשת"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "הצגה על פי קטגוריות"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "חיפוש יישומים"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "לפנות הכול"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -92,9 +88,26 @@ msgstr "כלי מערכת"
 msgid "Other"
 msgstr "אחר"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "הרצת פקודה זו…"
+
+#: src/Backend/App.vala:237
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "פתיחה באמצעות גרפיקת %s"
+
+#: src/Backend/App.vala:259
+msgid "Keep in _Dock"
+msgstr "השארה _במעגן"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "הסרה"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "הצגה במרכז התכנה"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -136,39 +149,14 @@ msgstr "פעולות יישומים"
 msgid "Bookmarks"
 msgstr "סימניות"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "נסו לשנות את מונחי החיפוש."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "אין תוצאות עבור „%s”"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, c-format
-msgid "Open with %s Graphics"
-msgstr "פתיחה באמצעות גרפיקת %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-msgid "Keep in _Dock"
-msgstr "השארה _במעגן"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "הסרה"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "הצגה במרכז התכנה"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "העתקה ללוח הגזירים"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "העתקת הבחירה ללוח הגזירים"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -365,6 +353,15 @@ msgstr "הפעלת המחשב מחדש"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "הפעלה מחדש;ריבוט;ריסטארט;אתחול"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "העתקה ללוח הגזירים"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "העתקת הבחירה ללוח הגזירים"
+
+#~ msgid "Clear all"
+#~ msgstr "לפנות הכול"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "הוספה ל_מעגן"

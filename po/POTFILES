@@ -15,14 +15,11 @@ src/Views/GridView.vala
 src/Views/SearchView.vala
 
 src/Widgets/AppButton.vala
-src/Widgets/AppContextMenu.vala
-src/Widgets/AppListBox.vala
 src/Widgets/PageChecker.vala
 src/Widgets/SearchItem.vala
 src/Widgets/Switcher.vala
 
 src/synapse-core/Actions/BaseAction.vala
-src/synapse-core/Actions/ClipboardCopyAction.vala
 src/synapse-core/Actions/CommonAction.vala
 src/synapse-core/Actions/RunnerAction.vala
 src/synapse-core/Actions/TerminalRunnerAction.vala

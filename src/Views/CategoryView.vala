@@ -1,30 +1,20 @@
 /*
- * Copyright 2019-2020 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
 public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     public SlingshotView view { get; construct; }
 
-    private bool dragging = false;
     private string? drag_uri = null;
-    private NavListBox category_switcher;
-    private NavListBox listbox;
+    private Gtk.ListBox category_switcher;
+    private Gtk.ListBox listbox;
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
+    private Gtk.GestureMultiPress click_controller;
+    private Gtk.EventControllerKey listbox_key_controller;
+    private Gtk.EventControllerKey category_switcher_key_controller;
 
     public CategoryView (SlingshotView view) {
         Object (view: view);
@@ -34,84 +24,103 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         set_visible_window (false);
         hexpand = true;
 
-        category_switcher = new NavListBox ();
-        category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
+        category_switcher = new Gtk.ListBox () {
+            selection_mode = BROWSE,
+            width_request = 120
+        };
         category_switcher.set_sort_func ((Gtk.ListBoxSortFunc) category_sort_func);
-        category_switcher.width_request = 120;
 
-        var scrolled_category = new Gtk.ScrolledWindow (null, null);
+        var scrolled_category = new Gtk.ScrolledWindow (null, null) {
+            child = category_switcher,
+            hscrollbar_policy = NEVER
+        };
         scrolled_category.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        scrolled_category.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        scrolled_category.add (category_switcher);
 
-        var separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+        var separator = new Gtk.Separator (VERTICAL);
 
-        listbox = new NavListBox ();
-        listbox.expand = true;
-        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox = new Gtk.ListBox () {
+            hexpand = true,
+            vexpand = true,
+            selection_mode = BROWSE
+        };
         listbox.set_filter_func ((Gtk.ListBoxFilterFunc) filter_function);
 
-        var listbox_scrolled = new Gtk.ScrolledWindow (null, null);
-        listbox_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        listbox_scrolled.add (listbox);
+        var listbox_scrolled = new Gtk.ScrolledWindow (null, null) {
+            child = listbox,
+            hscrollbar_policy = NEVER
+        };
 
-        var container = new Gtk.Grid ();
-        container.hexpand = true;
+        var container = new Gtk.Box (HORIZONTAL, 0) {
+            hexpand = true
+        };
         container.add (scrolled_category);
         container.add (separator);
         container.add (listbox_scrolled);
 
-        add (container);
+        child = container;
+
+        category_switcher.move_cursor.connect (move_cursor);
 
         category_switcher.row_selected.connect (() => {
             listbox.invalidate_filter ();
         });
 
+        listbox.move_cursor.connect (move_cursor);
+
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
-                if (!dragging) {
-                    ((AppListRow) row).launch ();
-                    view.close_indicator ();
-                }
+                ((AppListRow) row).launch ();
+                view.close_indicator ();
 
                 return false;
             });
         });
 
-        listbox.button_press_event.connect ((event) => {
-            if (event.button == Gdk.BUTTON_SECONDARY) {
-                return create_context_menu (event);
-            }
+        click_controller = new Gtk.GestureMultiPress (listbox) {
+            button = 0,
+            exclusive = true
+        };
+        click_controller.pressed.connect ((n_press, x, y) => {
+            var sequence = click_controller.get_current_sequence ();
+            var event = click_controller.get_last_event (sequence);
 
-            return Gdk.EVENT_PROPAGATE;
+            if (event.triggers_context_menu ()) {
+                create_context_menu ().popup_at_pointer ();
+
+                click_controller.set_state (CLAIMED);
+                click_controller.reset ();
+            }
         });
 
-        listbox.key_press_event.connect ((event) => {
-            if (event.keyval == Gdk.Key.Menu) {
-                return create_context_menu (event);
+        listbox_key_controller = new Gtk.EventControllerKey (listbox);
+        listbox_key_controller.key_pressed.connect (on_key_press);
+        listbox_key_controller.key_released.connect ((keyval, keycode, state) => {
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            switch (keyval) {
+                case Gdk.Key.F10:
+                    if (mods == Gdk.ModifierType.SHIFT_MASK) {
+                        var selected_row = (AppListRow) listbox.get_selected_row ();
+                        create_context_menu ().popup_at_widget (selected_row , EAST, CENTER);
+                    }
+                    break;
+                case Gdk.Key.Menu:
+                case Gdk.Key.MenuKB:
+                    var selected_row = (AppListRow) listbox.get_selected_row ();
+                    create_context_menu ().popup_at_widget (selected_row, EAST, CENTER);
+                    break;
+                default:
+                    return;
             }
-
-            return Gdk.EVENT_PROPAGATE;
         });
 
-        listbox.key_press_event.connect (on_key_press);
-        category_switcher.key_press_event.connect (on_key_press);
+        category_switcher_key_controller = new Gtk.EventControllerKey (category_switcher);
+        category_switcher_key_controller.key_pressed.connect (on_key_press);
 
         Gtk.drag_source_set (listbox, Gdk.ModifierType.BUTTON1_MASK, {DND}, Gdk.DragAction.COPY);
-
-        listbox.motion_notify_event.connect ((event) => {
-            if (!dragging) {
-                listbox.select_row (listbox.get_row_at_y ((int) event.y));
-            }
-
-            return Gdk.EVENT_PROPAGATE;
-        });
 
         listbox.drag_begin.connect ((ctx) => {
             unowned Gtk.ListBoxRow? selected_row = listbox.get_selected_row ();
             if (selected_row != null) {
-                dragging = true;
-
                 var drag_item = (AppListRow) selected_row;
                 drag_uri = "file://" + drag_item.desktop_path;
                 if (drag_uri != null) {
@@ -127,7 +136,6 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 view.close_indicator ();
             }
 
-            dragging = false;
             drag_uri = null;
         });
 
@@ -144,25 +152,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return row1.cat_name.collate (row2.cat_name);
     }
 
-    private bool create_context_menu (Gdk.Event event) {
+    private Gtk.Menu create_context_menu () {
         var selected_row = (AppListRow) listbox.get_selected_row ();
 
-        var menu = new Slingshot.AppContextMenu (selected_row.app_id, selected_row.desktop_path);
-        menu.app_launched.connect (() => {
-            view.close_indicator ();
-        });
+        var context_menu = new Gtk.Menu.from_model (selected_row.app.get_menu_model ());
+        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, selected_row.app.action_group);
 
-        if (menu.get_children () != null) {
-            if (event.type == Gdk.EventType.KEY_PRESS) {
-                menu.popup_at_widget (selected_row, Gdk.Gravity.CENTER, Gdk.Gravity.CENTER, event);
-                return Gdk.EVENT_STOP;
-            } else if (event.type == Gdk.EventType.BUTTON_PRESS) {
-                menu.popup_at_pointer (event);
-                return Gdk.EVENT_STOP;
-            }
-        }
-
-        return Gdk.EVENT_PROPAGATE;
+        return context_menu;
     }
 
     public void page_down () {
@@ -192,7 +188,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.foreach ((app_list_row) => listbox.remove (app_list_row));
 
         foreach (unowned Backend.App app in view.app_system.get_apps_by_name ()) {
-            listbox.add (new AppListRow (app.desktop_id, app.desktop_path));
+            listbox.add (new AppListRow (app));
         }
         listbox.show_all ();
 
@@ -228,8 +224,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         return false;
     }
 
-    private bool on_key_press (Gdk.EventKey event) {
-        switch (event.keyval) {
+    private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+        switch (keyval) {
             case Gdk.Key.Page_Up:
             case Gdk.Key.KP_Page_Up:
                 page_up ();
@@ -248,7 +244,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 return Gdk.EVENT_STOP;
             case Gdk.Key.KP_Up:
             case Gdk.Key.Up:
-                if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+                if (state == Gdk.ModifierType.SHIFT_MASK) {
                     page_up ();
                     return Gdk.EVENT_STOP;
                 }
@@ -256,7 +252,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                 break;
             case Gdk.Key.KP_Down:
             case Gdk.Key.Down:
-                if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+                if (state == Gdk.ModifierType.SHIFT_MASK) {
                     page_down ();
                     return Gdk.EVENT_STOP;
                 }
@@ -264,6 +260,19 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         return Gdk.EVENT_PROPAGATE;
+    }
+
+    private void move_cursor (Gtk.ListBox list_box, Gtk.MovementStep step, int count) {
+        unowned var selected = list_box.get_selected_row ();
+        if (step != DISPLAY_LINES || selected == null) {
+            return;
+        }
+
+        // Move up to the searchbar
+        if (selected == list_box.get_row_at_index (0) && count == -1) {
+            move_focus (TAB_BACKWARD);
+            return;
+        }
     }
 
     private class CategoryRow : Gtk.ListBoxRow {
@@ -274,27 +283,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         }
 
         construct {
-            var label = new Gtk.Label (cat_name);
-            label.halign = Gtk.Align.START;
-            label.margin_start = 3;
+            var label = new Gtk.Label (cat_name) {
+                halign = START,
+                margin_start = 3
+            };
 
-            add (label);
-        }
-    }
-
-    private class NavListBox : Gtk.ListBox {
-        public override void move_cursor (Gtk.MovementStep step, int count) {
-            unowned Gtk.ListBoxRow selected = get_selected_row ();
-            if (
-                selected != null &&
-                selected == get_row_at_index (0) &&
-                step == DISPLAY_LINES &&
-                count == -1
-            ) {
-                move_focus (Gtk.DirectionType.TAB_BACKWARD);
-            } else {
-                base.move_cursor (step, count);
-            }
+            child = label;
         }
     }
 }

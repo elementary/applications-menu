@@ -1,22 +1,10 @@
 /*
- * Copyright 2019–2021 elementary, Inc. (https://elementary.io)
- *           2011-2012 Giulio Collura
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2019-2025 elementary, Inc. (https://elementary.io)
+ *                         2011-2012 Giulio Collura
  */
 
-public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
+public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
     public signal void close_indicator ();
 
     public Backend.AppSystem app_system;
@@ -37,6 +25,8 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
     private Widgets.Grid grid_view;
     private Widgets.SearchView search_view;
     private Widgets.CategoryView category_view;
+    private Gtk.EventControllerKey key_controller;
+    private Gtk.EventControllerKey search_key_controller;
 
     private static GLib.Settings settings { get; private set; default = null; }
 
@@ -69,22 +59,22 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         view_selector.add (category_view_btn);
         view_selector.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
-        view_selector_revealer = new Gtk.Revealer ();
-        view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-        view_selector_revealer.add (view_selector);
+        view_selector_revealer = new Gtk.Revealer () {
+            child = view_selector,
+            transition_type = SLIDE_RIGHT
+        };
 
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.placeholder_text = _("Search Apps");
-        search_entry.hexpand = true;
-        search_entry.secondary_icon_tooltip_markup = Granite.markup_accel_tooltip (
-            {"<Ctrl>BackSpace"}, _("Clear all")
-        );
+        search_entry = new Gtk.SearchEntry () {
+            hexpand = true,
+            placeholder_text = _("Search Apps")
+        };
 
-        var top = new Gtk.Grid ();
-        top.margin_start = 12;
-        top.margin_end = 12;
-        top.add (view_selector_revealer);
-        top.add (search_entry);
+        var top_box = new Gtk.Box (HORIZONTAL, 0) {
+            margin_start = 12,
+            margin_end = 12
+        };
+        top_box.add (view_selector_revealer);
+        top_box.add (search_entry);
 
         grid_view = new Widgets.Grid ();
 
@@ -100,17 +90,16 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         stack.add_named (category_view, "category");
         stack.add_named (search_view, "search");
 
-        var container = new Gtk.Grid ();
-        container.row_spacing = 12;
-        container.margin_top = 12;
-        container.attach (top, 0, 0);
-        container.attach (stack, 0, 1);
+        var container = new Gtk.Box (VERTICAL, 12) {
+            margin_top = 12
+        };
+        container.add (top_box);
+        container.add (stack);
 
         // This function must be after creating the page switcher
         grid_view.populate (app_system);
 
-        // Add the container to the dialog's content area
-        this.add (container);
+        child = container;
 
         var category_action = settings.create_action ("view-mode");
 
@@ -127,8 +116,21 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             search.begin (search_entry.text, match, target);
         });
 
-        key_press_event.connect (on_key_press);
-        search_entry.key_press_event.connect (on_search_view_key_press);
+        key_press_event.connect ((event) => {
+            var search_handles_event = search_entry.handle_event (event);
+            if (search_handles_event && !search_entry.has_focus) {
+                search_entry.grab_focus ();
+                search_entry.move_cursor (BUFFER_ENDS, 0, false);
+            }
+
+            return search_handles_event;
+        });
+
+        key_controller = new Gtk.EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_press);
+
+        search_key_controller = new Gtk.EventControllerKey (search_entry);
+        search_key_controller.key_pressed.connect (on_search_view_key_press);
 
         // Showing a menu reverts the effect of the grab_device function.
         search_entry.search_changed.connect (() => {
@@ -202,18 +204,13 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         }
     }
 
-    /* These keys do not work if connect_after used; the rest of the key events
-     * are dealt with after the default handler in order that CJK input methods
-     * work properly */
-    public bool on_search_view_key_press (Gdk.EventKey event) {
-        var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
-
-        switch (key) {
-            case "Down":
-                search_entry.move_focus (Gtk.DirectionType.TAB_FORWARD);
+    private bool on_search_view_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+        switch (keyval) {
+            case Gdk.Key.Down:
+                search_entry.move_focus (TAB_FORWARD);
                 return Gdk.EVENT_STOP;
 
-            case "Escape":
+            case Gdk.Key.Escape:
                 if (search_entry.text.length > 0) {
                     search_entry.text = "";
                 } else {
@@ -226,37 +223,36 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
         return Gdk.EVENT_PROPAGATE;
     }
 
-    public bool on_key_press (Gdk.EventKey event) {
-        var key = Gdk.keyval_name (event.keyval).replace ("KP_", "");
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-            switch (key) {
-                case "1":
+    private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+        if ((state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+            switch (keyval) {
+                case Gdk.Key.@1:
                     settings.set_string ("view-mode", "grid");
                     return Gdk.EVENT_STOP;
-                case "2":
+                case Gdk.Key.@2:
                     settings.set_string ("view-mode", "category");
                     return Gdk.EVENT_STOP;
             }
         }
-
         // Alt accelerators
-        if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0) {
-            switch (key) {
-                case "F4":
+        if ((state & Gdk.ModifierType.MOD1_MASK) != 0) {
+            switch (keyval) {
+                case Gdk.Key.F4:
                     close_indicator ();
                     return Gdk.EVENT_STOP;
 
-                case "0":
-                case "1":
-                case "2":
-                case "3":
-                case "4":
-                case "5":
-                case "6":
-                case "7":
-                case "8":
-                case "9":
+                case Gdk.Key.@0:
+                case Gdk.Key.@1:
+                case Gdk.Key.@2:
+                case Gdk.Key.@3:
+                case Gdk.Key.@4:
+                case Gdk.Key.@5:
+                case Gdk.Key.@6:
+                case Gdk.Key.@7:
+                case Gdk.Key.@8:
+                case Gdk.Key.@9:
                     if (modality == Modality.NORMAL_VIEW) {
+                        var key = Gdk.keyval_name (keyval).replace ("KP_", "");
                         int page = int.parse (key);
                         if (page < 0 || page == 9) {
                             grid_view.go_to_last ();
@@ -269,8 +265,8 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
             }
         }
 
-        switch (key) {
-            case "Page_Up":
+        switch (keyval) {
+            case Gdk.Key.Page_Up:
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_previous ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
@@ -278,7 +274,7 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
                 }
                 break;
 
-            case "Page_Down":
+            case Gdk.Key.Page_Down:
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_next ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
@@ -286,21 +282,15 @@ public class Slingshot.SlingshotView : Gtk.Grid, UnityClient {
                 }
                 break;
 
-            case "End":
+            case Gdk.Key.End:
                 if (modality == Modality.NORMAL_VIEW) {
                     grid_view.go_to_last ();
                 }
 
-                return Gdk.EVENT_PROPAGATE;
+                break;
         }
 
-        var search_handles_event = search_entry.handle_event (event);
-        if (search_handles_event && !search_entry.has_focus) {
-            search_entry.grab_focus ();
-            search_entry.move_cursor (BUFFER_ENDS, 0, false);
-        }
-
-        return search_handles_event;
+        return Gdk.EVENT_PROPAGATE;
     }
 
     public void show_slingshot () {

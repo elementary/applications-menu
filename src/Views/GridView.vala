@@ -29,6 +29,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private Hdy.Carousel paginator;
     private Page page;
 
+    private Gtk.EventControllerKey key_controller;
+
     private uint _focused_column = 1;
     public uint focused_column {
         set {
@@ -88,8 +90,10 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         paginator = new Hdy.Carousel ();
         paginator.expand = true;
 
-        var page_switcher = new Widgets.Switcher ();
-        page_switcher.set_paginator (paginator);
+        var page_switcher = new Widgets.Switcher () {
+            carousel = paginator,
+            halign = CENTER
+        };
 
         orientation = Gtk.Orientation.VERTICAL;
         row_spacing = 24;
@@ -104,6 +108,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
             refocus ();
             return Gdk.EVENT_STOP;
         });
+
+        key_controller = new Gtk.EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_press);
     }
 
     public void populate (Backend.AppSystem app_system) {
@@ -197,8 +204,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         current_grid_key = number;
     }
 
-    public override bool key_press_event (Gdk.EventKey event) {
-        switch (event.keyval) {
+    private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
+        switch (keyval) {
             case Gdk.Key.Home:
             case Gdk.Key.KP_Home:
                 current_grid_key = 1;
@@ -206,20 +213,20 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
             case Gdk.Key.Left:
             case Gdk.Key.KP_Left:
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    move_left (event);
+                if (get_default_direction () == LTR) {
+                    move_left (state);
                 } else {
-                    move_right (event);
+                    move_right (state);
                 }
 
                 return Gdk.EVENT_STOP;
 
             case Gdk.Key.Right:
             case Gdk.Key.KP_Right:
-                if (get_style_context ().direction == Gtk.TextDirection.LTR) {
-                    move_right (event);
+                if (get_default_direction () == LTR) {
+                    move_right (state);
                 } else {
-                    move_left (event);
+                    move_left (state);
                 }
 
                 return Gdk.EVENT_STOP;
@@ -242,8 +249,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         return Gdk.EVENT_PROPAGATE;
     }
 
-    private void move_left (Gdk.EventKey event) {
-        if ((event.state & Gdk.ModifierType.SHIFT_MASK) > 0) {
+    private void move_left (Gdk.ModifierType state) {
+        if ((state & Gdk.ModifierType.SHIFT_MASK) > 0) {
             current_grid_key--;
         } else if (focused_column == 1 && current_grid_key > 1) {
             current_grid_key--;
@@ -253,8 +260,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         }
     }
 
-    private void move_right (Gdk.EventKey event) {
-        if ((event.state & Gdk.ModifierType.SHIFT_MASK) > 0) {
+    private void move_right (Gdk.ModifierType state) {
+        if ((state & Gdk.ModifierType.SHIFT_MASK) > 0) {
             current_grid_key++;
         } else if (focused_column == page.columns && current_grid_key < paginator.n_pages) {
             current_grid_key++;

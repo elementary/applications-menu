@@ -1,3 +1,7 @@
+modelbutton:focus {
+    background: alpha(@fg_color, 0.1);
+}
+
 .switcher {
     background-color: transparent;
     border: none;

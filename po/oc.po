@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,21 +21,17 @@ msgstr "Aplicacions"
 msgid "Open and search apps"
 msgstr ""
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Veire per grasilha"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Veire per categoria"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Cercar aplicacions"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Tot escafar"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -87,9 +83,29 @@ msgstr ""
 msgid "Other"
 msgstr "Autres"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Executar aquesta comanda…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Dobrir amb %s"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Levar d'al _Dock"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Desinstallar"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Veire dins AppCenter"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -133,42 +149,14 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Ensajatz de cambiar los tèrmes de recèrca."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Cap de resultat per « %s »"
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Dobrir amb %s"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Levar d'al _Dock"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Desinstallar"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Veire dins AppCenter"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Copiar cap al quichapapièrs"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Copiar lo tèxte seleccionat dins lo quichapapièr"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -368,6 +356,15 @@ msgstr "Reaviar l'ordenador"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reaviar;reboot"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copiar cap al quichapapièrs"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Copiar lo tèxte seleccionat dins lo quichapapièr"
+
+#~ msgid "Clear all"
+#~ msgstr "Tot escafar"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Ajustar al _Dock"

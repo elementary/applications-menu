@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 19:37+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2024-06-16 15:16+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
@@ -28,21 +28,17 @@ msgstr "Programmer"
 msgid "Open and search apps"
 msgstr "Åpne og søk i programmer"
 
-#: src/SlingshotView.vala:55
+#: src/SlingshotView.vala:45
 msgid "View as Grid"
 msgstr "Vis som rutenett"
 
-#: src/SlingshotView.vala:62
+#: src/SlingshotView.vala:52
 msgid "View by Category"
 msgstr "Sorter etter kategori"
 
-#: src/SlingshotView.vala:77
+#: src/SlingshotView.vala:69
 msgid "Search Apps"
 msgstr "Programsøk"
-
-#: src/SlingshotView.vala:80
-msgid "Clear all"
-msgstr "Tøm alt"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
@@ -93,9 +89,29 @@ msgstr "Systemverktøy"
 msgid "Other"
 msgstr "Annet"
 
-#: src/Backend/App.vala:86
+#: src/Backend/App.vala:96
 msgid "Run this command…"
 msgstr "Kjør denne kommando…"
+
+#: src/Backend/App.vala:237
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Åpne med %s-grafikk"
+
+#: src/Backend/App.vala:259
+#, fuzzy
+#| msgid "Remove from _Dock"
+msgid "Keep in _Dock"
+msgstr "Fjern fra _dokken"
+
+#: src/Backend/App.vala:278
+msgid "Uninstall"
+msgstr "Avinstaller"
+
+#: src/Backend/App.vala:283
+msgid "View in AppCenter"
+msgstr "Vis i AppSenter"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
@@ -139,42 +155,14 @@ msgstr "Applikasjonshandlinger"
 msgid "Bookmarks"
 msgstr "Bokmerker"
 
-#: src/Views/SearchView.vala:85
+#: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
 msgstr "Prøv å endre søkeord."
 
-#: src/Views/SearchView.vala:180
+#: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
-
-#: src/Widgets/AppContextMenu.vala:92
-#, fuzzy, c-format
-#| msgid "Open with %s"
-msgid "Open with %s Graphics"
-msgstr "Åpne med %s-grafikk"
-
-#: src/Widgets/AppContextMenu.vala:120
-#, fuzzy
-#| msgid "Remove from _Dock"
-msgid "Keep in _Dock"
-msgstr "Fjern fra _dokken"
-
-#: src/Widgets/AppContextMenu.vala:145
-msgid "Uninstall"
-msgstr "Avinstaller"
-
-#: src/Widgets/AppContextMenu.vala:148
-msgid "View in AppCenter"
-msgstr "Vis i AppSenter"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopier til utklippstavle"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopier utvalget til utklippstavlen"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -375,6 +363,15 @@ msgstr "Start datamaskinen på nytt"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "omstart;start på ny"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopier til utklippstavle"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopier utvalget til utklippstavlen"
+
+#~ msgid "Clear all"
+#~ msgstr "Tøm alt"
 
 #~ msgid "Add to _Dock"
 #~ msgstr "Legg til i _dokken"
