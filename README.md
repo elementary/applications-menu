@@ -7,8 +7,9 @@ Lightweight and stylish app launcher.
 
 ## Building and Installation
 
-You'll need the following dependencies:
+You'll need the following dependencies. Use your package manager (apt) to install them:
 * bc
+* gettext
 * libgee-0.8-dev
 * libgranite-dev >= 6.1.0
 * libgtk-3-dev
@@ -20,9 +21,8 @@ You'll need the following dependencies:
 * meson
 * pkg-config
 * valac
-* gettext
 
-Run `meson` to configure the build environment and then `ninja` to build
+To build the application locally, clone this repo to your machine. Then, cd to the directory in terminal and run the following commands to configure the build environment and build the application
 
     meson build --prefix=/usr
     cd build
