@@ -199,9 +199,18 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
     }
 
     private void search_entry_activated () {
-        if (modality == Modality.SEARCH_VIEW) {
-            search_view.activate_selection ();
+        if (modality != Modality.SEARCH_VIEW) {
+            return;
         }
+
+        if (!search_entry.has_focus) {
+            // A row in the search view may have focus instead,
+            // so let the row itself handle the activation and do nothing here
+            // to prevent the selection from being activated twice
+            return;
+        }
+
+        search_view.activate_selection ();
     }
 
     private bool on_search_view_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
