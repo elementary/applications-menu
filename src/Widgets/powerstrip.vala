@@ -74,9 +74,8 @@ class PowerStrip : Gtk.Box
         }
     }
 
-    construct
-    {
-        Gtk.Box? bottom = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
+    public PowerStrip(Gtk.Orientation direction=Gtk.Orientation.HORIZONTAL) {
+        Gtk.Box? bottom = new Gtk.Box(direction, 1);
         //margin_top = 10;
         //get_style_context().add_class("raven-header");
         get_style_context().add_class("powerstrip");
@@ -223,16 +222,3 @@ class PowerStrip : Gtk.Box
 }
 
 } /* End namespace */
-
-/*
- * Editor modelines  -  https://www.wireshark.org/tools/modelines.html
- *
- * Local variables:
- * c-basic-offset: 4
- * tab-width: 4
- * indent-tabs-mode: nil
- * End:
- *
- * vi: set shiftwidth=4 tabstop=4 expandtab:
- * :indentSize=4:tabSize=4:noTabs=true:
- */

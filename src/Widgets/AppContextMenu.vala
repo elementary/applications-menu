@@ -30,6 +30,8 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     //private Gtk.MenuItem uninstall_menuitem;
     //private Gtk.MenuItem appcenter_menuitem;
 
+    private Slingshot.Backend.FavoritesManager favorites_manager;
+
 #if HAS_PLANK
     private static Plank.DBusClient plank_client;
     private bool docked = false;
@@ -128,6 +130,25 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         appcenter.notify["dbus"].connect (() => on_appcenter_dbus_changed.begin (appcenter));
         on_appcenter_dbus_changed.begin (appcenter);
         */
+
+        // Capture desktop_id as a local variable to avoid closure issues
+        string captured_desktop_id = desktop_id;
+
+        favorites_manager = Backend.FavoritesManager.get_default();
+        var is_favorite = favorites_manager.is_favorite (desktop_id);
+        var favorites_item = new Gtk.MenuItem.with_label (
+            is_favorite ? _("Remove from Favorites") : _("Add to Favorites")
+        );
+        favorites_item.activate.connect (() => {
+            // Re-check at execution time
+            if (favorites_manager.is_favorite (captured_desktop_id)) {
+                favorites_manager.remove_favorite (captured_desktop_id);
+            } else {
+                favorites_manager.add_favorite (captured_desktop_id);
+            }
+        });
+        add (favorites_item);
+
         show_all ();
     }
 
