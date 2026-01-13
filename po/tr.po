@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2023-05-18 21:06+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -159,14 +159,6 @@ msgstr "Arama terimlerini değiştirmeyi deneyin."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” için sonuç bulunamadı"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Panoya Kopyala"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Seçimi panoya kopyala"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -363,6 +355,12 @@ msgstr "Bilgisayarınızı yeniden başlatın"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restart;reboot;yeniden başlat"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Panoya Kopyala"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Seçimi panoya kopyala"
 
 #~ msgid "Clear all"
 #~ msgstr "Tümünü temizle"

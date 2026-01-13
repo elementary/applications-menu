@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
@@ -164,14 +164,6 @@ msgstr "Provu ŝangi la serĉatajn vortojn."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Neniu rezultato por „%s“"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopii en la tondujo"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopii elektaĵon en la tondujo"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -371,6 +363,12 @@ msgstr "Restartigi vian komputilon"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "restartigi"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopii en la tondujo"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopii elektaĵon en la tondujo"
 
 #~ msgid "Clear all"
 #~ msgstr "Forviŝi ĉion"

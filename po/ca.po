@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-02-14 19:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "Proveu de canviar els termes de la cerca."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Copia al porta-retalls"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Copia la selecció al porta-retalls"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -361,6 +353,12 @@ msgstr "Reinicia l'ordinador"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reinicia"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copia al porta-retalls"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Copia la selecció al porta-retalls"
 
 #~ msgid "Clear all"
 #~ msgstr "Neteja-ho tot"

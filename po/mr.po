@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -159,14 +159,6 @@ msgstr "शोध संज्ञा बदलण्याचा प्रयत
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "क्लिपबोर्डवर कॉपी करा"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "निवडलेले क्लिपबोर्डवर कॉपी करा"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -366,6 +358,12 @@ msgstr "आपला संगणक पुन्हा सुरू करा"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "पुन्हा सुरु करा"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "क्लिपबोर्डवर कॉपी करा"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "निवडलेले क्लिपबोर्डवर कॉपी करा"
 
 #~ msgid "Clear all"
 #~ msgstr "सर्व हटवा"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2023-03-31 15:59+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
@@ -159,14 +159,6 @@ msgstr "Yritä käyttää eri hakuehtoja."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ei tuloksia haulle “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopioi leikepöydälle"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopioi valinta leikepöydälle"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -363,6 +355,12 @@ msgstr "Käynnistä tietokone uudelleen"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "käynnistä uudelleen"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopioi leikepöydälle"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopioi valinta leikepöydälle"
 
 #~ msgid "Clear all"
 #~ msgstr "Tyhjennä kaikki"

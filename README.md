@@ -9,6 +9,7 @@ Lightweight and stylish app launcher.
 
 You'll need the following dependencies:
 * bc
+* gettext
 * libadwaita-1-dev
 * libgee-0.8-dev
 * libgranite-7-dev >= 7.6.0

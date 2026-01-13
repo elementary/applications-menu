@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2020-01-07 19:53+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/wingpanel/"
@@ -165,14 +165,6 @@ msgstr "Poskusite spremeniti iskalni niz."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ni rezultatov za “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Kopiraj v odložišče"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kopiraj izbrano na odložišče"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -372,6 +364,12 @@ msgstr "Ponovno zaženi računalnik"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reset;zagon;ponovni zagon"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopiraj v odložišče"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kopiraj izbrano na odložišče"
 
 #~ msgid "Clear all"
 #~ msgstr "Počisti vse"

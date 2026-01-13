@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2025-02-21 19:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "Próbálja megváltoztatni a keresési kifejezéseket."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nincsenek találatok erre: “%s”"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Másolás a vágólapra"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Kijelölés másolása a vágólapra"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -361,6 +353,12 @@ msgstr "A számítógép újraindítása"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "újraindítás;restartolás"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Másolás a vágólapra"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Kijelölés másolása a vágólapra"
 
 #~ msgid "Clear all"
 #~ msgstr "Összes törlése"

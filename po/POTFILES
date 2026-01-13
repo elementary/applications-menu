@@ -20,7 +20,6 @@ src/Widgets/SearchItem.vala
 src/Widgets/Switcher.vala
 
 src/synapse-core/Actions/BaseAction.vala
-src/synapse-core/Actions/ClipboardCopyAction.vala
 src/synapse-core/Actions/CommonAction.vala
 src/synapse-core/Actions/RunnerAction.vala
 src/synapse-core/Actions/TerminalRunnerAction.vala

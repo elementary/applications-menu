@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 21:19+0000\n"
+"POT-Creation-Date: 2025-06-24 20:52+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -157,14 +157,6 @@ msgstr "Ensajatz de cambiar los tèrmes de recèrca."
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Cap de resultat per « %s »"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:25
-msgid "Copy to Clipboard"
-msgstr "Copiar cap al quichapapièrs"
-
-#: src/synapse-core/Actions/ClipboardCopyAction.vala:26
-msgid "Copy selection to clipboard"
-msgstr "Copiar lo tèxte seleccionat dins lo quichapapièr"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -364,6 +356,12 @@ msgstr "Reaviar l'ordenador"
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
 msgstr "reaviar;reboot"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copiar cap al quichapapièrs"
+
+#~ msgid "Copy selection to clipboard"
+#~ msgstr "Copiar lo tèxte seleccionat dins lo quichapapièr"
 
 #~ msgid "Clear all"
 #~ msgstr "Tot escafar"
