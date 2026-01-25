@@ -145,6 +145,7 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
                     case ResultType.LINK:
                     case ResultType.SETTINGS:
                     case ResultType.BOOKMARK:
+                    case ResultType.CALCULATION:
                         search_item.app.match.execute (null);
                         break;
                     default:
