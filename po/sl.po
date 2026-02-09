@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2020-01-07 19:53+0000\n"
+"PO-Revision-Date: 2026-01-19 15:55+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/wingpanel/"
+"Language-Team: Slovenian <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
@@ -43,33 +43,31 @@ msgstr "Iskanje aplikacij"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Pripomočki"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Univerzalni dostop"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Programiranje"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Akcije"
+msgstr "Izobraževanje"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Znanost"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Igre"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
@@ -77,15 +75,15 @@ msgstr "Internet"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Zvok in video"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Pisarna"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Sistemska orodja"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
@@ -96,16 +94,13 @@ msgid "Run this command…"
 msgstr "Zaženi…"
 
 #: src/Backend/App.vala:237
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Odpri z %s"
+msgstr "Odpri z %s grafično"
 
 #: src/Backend/App.vala:259
-#, fuzzy
-#| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
-msgstr "O_dstrani s sidrišča"
+msgstr "Ob_drži v sidrišču"
 
 #: src/Backend/App.vala:278
 msgid "Uninstall"
@@ -117,15 +112,13 @@ msgstr "Odpri v centru za aplikacije"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Privzeto"
 
 #: src/Views/SearchView.vala:43
 msgid "Text"
 msgstr "Besedilo"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
 msgstr "Računalo"
 
@@ -155,7 +148,7 @@ msgstr "Akcije v aplikacijah"
 
 #: src/Views/SearchView.vala:64
 msgid "Bookmarks"
-msgstr ""
+msgstr "Zaznamki"
 
 #: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
@@ -194,10 +187,8 @@ msgid "Search the app store"
 msgstr "Išči po trgovini"
 
 #: src/synapse-plugins/calculator-plugin/calculator-plugin.vala:74
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopiraj izbrano na odložišče"
+msgstr "Kliknite za kopiranje rezultata na odložišče"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -210,29 +201,28 @@ msgstr "Zaženi ukaz"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:32
 msgid "squared"
-msgstr ""
+msgstr "²"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:34
 msgid "cubed"
-msgstr ""
+msgstr "³"
 
 #. / TRANSLATORS First %s SI prefix, Second %s unit name, Third %s dimension (blank, squared or cubed);
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s v %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
-#, fuzzy, c-format
-#| msgid "Copy selection to clipboard"
+#, c-format
 msgid "Click to copy %g to clipboard"
-msgstr "Kopiraj izbrano na odložišče"
+msgstr "Kliknite za kopiranje %g na odložišče"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
@@ -252,20 +242,20 @@ msgstr "Odpri %s v %s"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:91
 msgid "Open the selected directory"
-msgstr ""
+msgstr "Odpri v izbrani mapi"
 
 #. Check for Special Directories
 #: src/synapse-plugins/file-bookmarks-plugin.vala:216
 msgid "Home"
-msgstr ""
+msgstr "Domov"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:220
 msgid "Recent"
-msgstr ""
+msgstr "Nedavno"
 
 #: src/synapse-plugins/file-bookmarks-plugin.vala:224
 msgid "Trash"
-msgstr ""
+msgstr "Smeti"
 
 #: src/synapse-plugins/link-plugin.vala:39
 #, c-format

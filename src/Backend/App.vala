@@ -155,10 +155,17 @@ public class Slingshot.Backend.App : Object {
                         start_search (match as Synapse.SearchMatch, target);
                         return false;
                     } else {
-                        if (target == null)
-                            Backend.SynapseSearch.find_actions_for_match (match).get (0).execute_with_target (match);
-                        else
+                        if (target == null) {
+                            var actions = Backend.SynapseSearch.find_actions_for_match (match);
+                            if (actions.is_empty) {
+                                warning ("Unable to find actions for match type '%s'", match.match_type.to_string ());
+                                return false;
+                            }
+
+                            actions.get (0).execute_with_target (match);
+                        } else {
                             match.execute_with_target (target);
+                        }
                     }
                     break;
             }
