@@ -30,7 +30,33 @@ public enum Synapse.MatchType {
     GENERIC_URI,
     ACTION,
     SEARCH,
-    CONTACT
+    CONTACT;
+
+    public unowned string to_string () {
+        switch (this) {
+            case UNKNOWN:
+                return "Unknown";
+            case TEXT:
+                return "Text";
+            case CALCULATION:
+                return "Calculation";
+            case APPLICATION:
+                return "Applications";
+            case BOOKMARK:
+                return "Bookmarks";
+            case GENERIC_URI:
+                return "Files";
+            case ACTION:
+                return "Actions";
+            case SEARCH:
+                return "Search";
+            case CONTACT:
+                return "Contacts";
+            default:
+                warning ("Invalid Synapse.MatchType: %d", this);
+                return "Unknown";
+        }
+    }
 }
 
 public abstract class Synapse.Match: GLib.Object {

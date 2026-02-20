@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2025-09-02 12:55+0000\n"
+"PO-Revision-Date: 2026-01-27 07:44+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -86,7 +86,7 @@ msgstr "システムツール"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
-msgstr "そのほか"
+msgstr "その他"
 
 #: src/Backend/App.vala:96
 msgid "Run this command…"

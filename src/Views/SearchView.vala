@@ -140,6 +140,8 @@ public class Slingshot.Widgets.SearchView : Granite.Bin {
                     case ResultType.LINK:
                     case ResultType.SETTINGS:
                     case ResultType.BOOKMARK:
+                    case ResultType.CALCULATION:
+                    case ResultType.TEXT:
                         search_item.app.match.execute (null);
                         break;
                     default:
