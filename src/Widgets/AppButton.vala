@@ -4,7 +4,7 @@
  *                         2011-2012 Giulio Collura
  */
 
-public class Slingshot.Widgets.AppButton : Gtk.Button {
+public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
     public signal void app_launched ();
 
     public Backend.App app { get; construct; }
@@ -28,7 +28,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         tooltip_text = app.description;
 
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        // get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         var app_label = new Gtk.Label (app.name) {
             halign = CENTER,
@@ -77,8 +77,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         child = box;
 
         app.launched.connect (() => app_launched ());
-
-        this.clicked.connect (launch_app);
 
         click_controller = new Gtk.GestureMultiPress (this) {
             button = 0,
