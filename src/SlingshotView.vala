@@ -264,9 +264,9 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
                         var key = Gdk.keyval_name (keyval).replace ("KP_", "");
                         int page = int.parse (key);
                         if (page < 0 || page == 9) {
-                            grid_view.go_to_last ();
+                            grid_view.last_page ();
                         } else {
-                            grid_view.go_to_number (page);
+                            grid_view.set_page (page - 1);
                         }
                     }
 
@@ -277,7 +277,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
         switch (keyval) {
             case Gdk.Key.Page_Up:
                 if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_previous ();
+                    grid_view.previous_page ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     category_view.page_up ();
                 }
@@ -285,7 +285,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
 
             case Gdk.Key.Page_Down:
                 if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_next ();
+                    grid_view.next_page ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     category_view.page_down ();
                 }
@@ -293,7 +293,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
 
             case Gdk.Key.End:
                 if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_last ();
+                    grid_view.last_page ();
                 }
 
                 break;
