@@ -16,7 +16,7 @@ You'll need the following dependencies:
 * libgtk-4-dev
 * libjson-glib-dev
 * libswitchboard-3-dev
-* libwingpanel-8-dev
+* libwingpanel-9-dev
 * libzeitgeist-2.0-dev
 * meson
 * pkg-config

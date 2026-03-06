@@ -44,7 +44,7 @@ gio_unix_dep = dependency('gio-unix-2.0')
 json_glib_dep = dependency('json-glib-1.0')
 switchboard_dep = dependency('switchboard-3')
 libhandy_dep = dependency('libadwaita-1', version: '>= 0.83.0')
-wingpanel_dep = dependency('wingpanel-8', version: '>=2.1.0')
+wingpanel_dep = dependency('wingpanel-9', version: '>=2.1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
 zeitgeist_dep = []

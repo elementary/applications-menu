@@ -50,12 +50,11 @@ public class Slingshot.SlingshotView : Granite.Bin, UnityClient {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>2"}, _("View by Category"))
         };
 
-        var view_selector = new Gtk.Box (HORIZONTAL, 0) {
+        var view_selector = new Granite.Box (HORIZONTAL, LINKED) {
             margin_end = 12
         };
         view_selector.append (grid_view_btn);
         view_selector.append (category_view_btn);
-        view_selector.add_css_class (Granite.STYLE_CLASS_LINKED);
 
         view_selector_revealer = new Gtk.Revealer () {
             child = view_selector,
