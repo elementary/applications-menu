@@ -43,9 +43,8 @@ namespace Synapse {
             }
 
             public override void execute (Match? match) {
-                unowned var display = Gdk.Display.get_default ();
-                // unowned var clipboard = Gtk.Clipboard.get_default (display);
-                // clipboard.set_text (text, -1);
+                unowned var clipboard = Gdk.Display.get_default ().get_clipboard ();
+                clipboard.set_text (text);
             }
         }
 
