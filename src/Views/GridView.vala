@@ -13,7 +13,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     }
 
     private Gtk.Grid current_grid;
-    private Gee.HashMap<uint, Gtk.Grid> grids;
     private Hdy.Carousel paginator;
     private Page page;
 
@@ -60,7 +59,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         set {
             // Clamp to valid values for keyboard navigation
             _current_grid_key = value.clamp (1, paginator.n_pages);
-            var grid = grids.@get (_current_grid_key);
+            var grid = (Gtk.Grid) paginator.get_children ().nth_data (_current_grid_key - 1);
             if (grid == null) {
                 return;
             }
@@ -91,8 +90,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         add (paginator);
         add (page_switcher);
 
-        grids = new Gee.HashMap<uint, Gtk.Grid> (null, null);
-
         can_focus = true;
         focus_in_event.connect_after (() => {
             refocus ();
@@ -104,11 +101,10 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     }
 
     public void populate (Backend.AppSystem app_system) {
-        foreach (Gtk.Grid grid in grids.values) {
-            grid.destroy ();
+        foreach (unowned var child in paginator.get_children ()) {
+            paginator.remove (child);
         }
 
-        grids.clear ();
         _current_grid_key = 0; // Avoids clamp
         add_new_grid (); // Increments current_grid_key to 1
 
@@ -161,7 +157,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
 
         paginator.add (current_grid);
         current_grid_key = current_grid_key + 1;
-        grids.set (current_grid_key, current_grid);
     }
 
 
