@@ -106,7 +106,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         }
 
         _current_grid_key = 0; // Avoids clamp
-        add_new_grid (); // Increments current_grid_key to 1
+        var grid = add_new_grid (); // Increments current_grid_key to 1
 
         // Where to insert new app button
         var next_row_index = 0;
@@ -122,12 +122,12 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             }
 
             if (next_row_index == page.rows) {
-                add_new_grid ();
+                grid = add_new_grid ();
                 next_row_index = 0;
                 next_col_index = 0;
             }
 
-            current_grid.attach (app_button, (int)next_col_index, (int)next_row_index);
+            grid.attach (app_button, (int)next_col_index, (int)next_row_index);
             next_col_index++;
         }
 
@@ -136,8 +136,8 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         current_grid_key = 1;
     }
 
-    private void add_new_grid () {
-        current_grid = new Gtk.Grid () {
+    private Gtk.Grid add_new_grid () {
+        var grid = new Gtk.Grid () {
             hexpand = true,
             vexpand = true,
             row_homogeneous = true,
@@ -151,14 +151,15 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         // Fake grids in case there are not enough apps to fill the grid
         for (var row = 0; row < page.rows; row++) {
             for (var column = 0; column < page.columns; column++) {
-                current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
+                grid.attach (new Gtk.Grid (), column, row, 1, 1);
             }
         }
 
-        paginator.add (current_grid);
+        paginator.add (grid);
         current_grid_key = current_grid_key + 1;
-    }
 
+        return grid;
+    }
 
     private Gtk.Widget? get_widget_at (uint col, uint row) {
         if (col < 1 || col > page.columns || row < 1 || row > page.rows) {
