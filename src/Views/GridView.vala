@@ -92,7 +92,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     public void populate (Backend.AppSystem app_system) {
-        foreach (Gtk.Widget child in paginator.get_children ()) {
+        foreach (var child in paginator.get_children ()) {
             child.destroy ();
         }
 
