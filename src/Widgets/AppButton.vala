@@ -28,8 +28,6 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
 
         tooltip_text = app.description;
 
-        // get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-
         var app_label = new Gtk.Label (app.name) {
             halign = CENTER,
             ellipsize = END,

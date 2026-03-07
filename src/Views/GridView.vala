@@ -52,10 +52,10 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         add (paginator);
         add (page_switcher);
 
-        // focus_in_event.connect_after (() => {
-        //     refocus ();
-        //     return Gdk.EVENT_PROPAGATE;
-        // });
+        focus_in_event.connect_after (() => {
+            refocus ();
+            return Gdk.EVENT_PROPAGATE;
+        });
 
         key_controller = new Gtk.EventControllerKey (this);
         key_controller.key_pressed.connect (on_key_press);
