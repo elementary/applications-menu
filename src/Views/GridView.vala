@@ -93,7 +93,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     public void populate (Backend.AppSystem app_system) {
         foreach (var child in paginator.get_children ()) {
-            child.destroy ();
+            paginator.remove (child);
         }
 
         var grid = add_new_grid ();
