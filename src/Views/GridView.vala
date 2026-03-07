@@ -169,7 +169,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             return Gdk.EVENT_STOP;
         }
 
-        if (focused_column == page.columns && paginator.get_position () < paginator.n_pages - 1) {
+        if (paginator.get_position () < paginator.n_pages - 1 && focused_column == page.columns) {
             next_page ();
             move_focus (RIGHT);
             return Gdk.EVENT_STOP;
