@@ -31,7 +31,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
             for (int i = 0; i < page.rows * page.columns; i++) {
                 if (flowbox.get_child_at_index (i) == selected_child) {
-                    return i % page.columns  + 1;
+                    return i % page.columns + 1;
                 }
             }
 
@@ -128,7 +128,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     // focus the child with the same coords on the new page
     private void refocus () {
-        
+
     }
 
     private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
