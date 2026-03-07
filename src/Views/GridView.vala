@@ -135,6 +135,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         }
 
         paginator.add (grid);
+
         return grid;
     }
 
