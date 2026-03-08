@@ -70,7 +70,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
                 ((AppListRow) row).launch ();
-                view.close_indicator ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
 
                 return false;
             });
@@ -127,13 +127,13 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
                     Gtk.drag_set_icon_gicon (ctx, drag_item.app_info.get_icon (), 32, 32);
                 }
 
-                view.close_indicator ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
             }
         });
 
         listbox.drag_end.connect (() => {
             if (drag_uri != null) {
-                view.close_indicator ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
             }
 
             drag_uri = null;

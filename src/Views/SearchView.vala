@@ -73,7 +73,6 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
     const int MAX_RESULTS = 10;
 
     public signal void start_search (Synapse.SearchMatch search_match, Synapse.Match? target);
-    public signal void app_launched ();
 
     private Granite.Widgets.AlertView alert_view;
     private Gtk.ListBox list_box;
@@ -117,13 +116,13 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
                     Gtk.drag_set_icon_gicon (ctx, drag_item.image.gicon, 32, 32);
                 }
 
-                app_launched ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
             }
         });
 
         list_box.drag_end.connect (() => {
             if (drag_uri != null) {
-                app_launched ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
             }
 
             drag_uri = null;
@@ -154,7 +153,7 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
                         break;
                 }
 
-                app_launched ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
 
                 return false;
             });
@@ -273,7 +272,7 @@ public class Slingshot.Widgets.SearchView : Gtk.Bin {
         var search_item = new SearchItem (app, search_term, result_type);
         app.start_search.connect ((search, target) => start_search (search, target));
 
-        app.launched.connect (() => app_launched ());
+        app.launched.connect (() => ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ());
 
         list_box.add (search_item);
         search_item.show_all ();
