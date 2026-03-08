@@ -82,7 +82,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     }
 
     public void populate (Backend.AppSystem app_system) {
-        foreach (var child in paginator.get_children ()) {
+        foreach (unowned var child in paginator.get_children ()) {
             paginator.remove (child);
         }
 
@@ -138,7 +138,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
 
         return grid;
     }
-
 
     private Gtk.Widget? get_widget_at (uint col, uint row) {
         if (col < 1 || col > page.columns || row < 1 || row > page.rows) {
