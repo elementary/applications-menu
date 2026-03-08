@@ -12,7 +12,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         public uint columns;
     }
 
-    private Gtk.Grid current_grid;
     private Gee.HashMap<uint, Gtk.Grid> grids;
     private Hdy.Carousel paginator;
     private Page page;
@@ -66,7 +65,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             }
 
             paginator.scroll_to (grid);
-            current_grid = grid;
             refocus ();
         }
     }
@@ -171,7 +169,8 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         if (col < 1 || col > page.columns || row < 1 || row > page.rows) {
             return null;
         } else {
-            return current_grid.get_child_at ((int)col - 1, (int)row - 1);
+            var grid = (Gtk.Grid) paginator.get_children ().nth_data ((int) paginator.get_position ());
+            return grid.get_child_at ((int)col - 1, (int)row - 1);
         }
     }
 
