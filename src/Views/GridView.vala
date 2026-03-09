@@ -10,6 +10,9 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     private const int PAGE_ROWS = 3;
     private const int PAGE_COLUMNS = 5;
 
+    private Hdy.Carousel paginator;
+    private Gtk.EventControllerKey key_controller;
+
     private int focused_column {
         get {
             var flowbox = (Gtk.FlowBox) paginator.get_children ().nth_data ((int) paginator.get_position ());
@@ -24,9 +27,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             return -1;
         }
     }
-
-    private Hdy.Carousel paginator;
-    private Gtk.EventControllerKey key_controller;
 
     construct {
         paginator = new Hdy.Carousel () {
