@@ -17,8 +17,6 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
         SEARCH_VIEW
     }
 
-    public const int DEFAULT_ROWS = 3;
-
     private Backend.SynapseSearch synapse;
     private Gtk.Revealer view_selector_revealer;
     private Modality modality;
