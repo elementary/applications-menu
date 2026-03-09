@@ -251,6 +251,21 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
                     return Gdk.EVENT_STOP;
 
                 case Gdk.Key.@0:
+                    if (modality == Modality.NORMAL_VIEW) {
+                        grid_view.set_page (0);
+                        return Gdk.EVENT_STOP;
+                    }
+
+                    return Gdk.EVENT_PROPAGATE;
+
+                case Gdk.Key.@9:
+                    if (modality == Modality.NORMAL_VIEW) {
+                        grid_view.last_page ();
+                        return Gdk.EVENT_STOP;
+                    }
+
+                    return Gdk.EVENT_PROPAGATE;
+
                 case Gdk.Key.@1:
                 case Gdk.Key.@2:
                 case Gdk.Key.@3:
@@ -259,15 +274,9 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
                 case Gdk.Key.@6:
                 case Gdk.Key.@7:
                 case Gdk.Key.@8:
-                case Gdk.Key.@9:
                     if (modality == Modality.NORMAL_VIEW) {
                         var key = Gdk.keyval_name (keyval).replace ("KP_", "");
-                        int page = int.parse (key);
-                        if (page < 0 || page == 9) {
-                            grid_view.last_page ();
-                        } else {
-                            grid_view.set_page (page - 1);
-                        }
+                        grid_view.set_page (int.parse (key) - 1);
                     }
 
                     return Gdk.EVENT_STOP;
