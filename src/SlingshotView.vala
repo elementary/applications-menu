@@ -254,10 +254,6 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
 
             if (modality == NORMAL_VIEW) {
                 switch (keyval) {
-                    case Gdk.Key.F4:
-                        close_indicator ();
-                        return Gdk.EVENT_STOP;
-
                     case Gdk.Key.@0:
                         grid_view.set_page (0);
                         return Gdk.EVENT_STOP;
