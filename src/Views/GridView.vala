@@ -7,19 +7,17 @@
 public class Slingshot.Widgets.Grid : Gtk.Box {
     public signal void app_launched ();
 
-    private struct Page {
-        public int rows;
-        public int columns;
-    }
+    private const int PAGE_ROWS = 3;
+    private const int PAGE_COLUMNS = 5;
 
     private int focused_column {
         get {
             var flowbox = (Gtk.FlowBox) paginator.get_children ().nth_data ((int) paginator.get_position ());
             var selected_child = flowbox.get_selected_children ().nth_data (0);
 
-            for (int i = 0; i < page.rows * page.columns; i++) {
+            for (int i = 0; i < PAGE_ROWS * PAGE_COLUMNS; i++) {
                 if (flowbox.get_child_at_index (i) == selected_child) {
-                    return i % page.columns + 1;
+                    return i % PAGE_COLUMNS + 1;
                 }
             }
 
@@ -28,14 +26,9 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     }
 
     private Hdy.Carousel paginator;
-    private Page page;
-
     private Gtk.EventControllerKey key_controller;
 
     construct {
-        page.rows = 3;
-        page.columns = 5;
-
         paginator = new Hdy.Carousel () {
             hexpand = true,
             vexpand = true
@@ -75,7 +68,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             var app_button = new Widgets.AppButton (app);
             app_button.app_launched.connect (() => app_launched ());
 
-            if (next_grid_index == page.rows * page.columns) {
+            if (next_grid_index == PAGE_ROWS * PAGE_COLUMNS) {
                 grid = add_new_grid ();
                 next_grid_index = 0;
             }
@@ -85,7 +78,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         }
 
         // Empty children in case there are not enough apps to fill a single page
-        while (next_grid_index < page.rows * page.columns) {
+        while (next_grid_index < PAGE_ROWS * PAGE_COLUMNS) {
             grid.add (new Gtk.FlowBoxChild () { can_focus = false });
             next_grid_index++;
         }
@@ -102,8 +95,8 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             homogeneous = true,
             margin_start = 12,
             margin_end = 12,
-            min_children_per_line = page.columns,
-            max_children_per_line = page.columns,
+            min_children_per_line = PAGE_COLUMNS,
+            max_children_per_line = PAGE_COLUMNS,
             row_spacing = 24,
             column_spacing = 0
         };
@@ -169,7 +162,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             return Gdk.EVENT_STOP;
         }
 
-        if (paginator.get_position () < paginator.n_pages - 1 && focused_column == page.columns) {
+        if (paginator.get_position () < paginator.n_pages - 1 && focused_column == PAGE_COLUMNS) {
             next_page ();
             move_focus (RIGHT);
             return Gdk.EVENT_STOP;
@@ -197,5 +190,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         }
 
         paginator.scroll_to (grid);
+        refocus ();
     }
 }
