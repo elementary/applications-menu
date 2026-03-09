@@ -241,41 +241,45 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
                     return Gdk.EVENT_STOP;
             }
         }
+
         // Alt accelerators
         if ((state & Gdk.ModifierType.MOD1_MASK) != 0) {
             switch (keyval) {
                 case Gdk.Key.F4:
                     close_indicator ();
                     return Gdk.EVENT_STOP;
+            }
 
-                case Gdk.Key.@0:
-                case Gdk.Key.@1:
-                case Gdk.Key.@2:
-                case Gdk.Key.@3:
-                case Gdk.Key.@4:
-                case Gdk.Key.@5:
-                case Gdk.Key.@6:
-                case Gdk.Key.@7:
-                case Gdk.Key.@8:
-                case Gdk.Key.@9:
-                    if (modality == Modality.NORMAL_VIEW) {
+            if (modality == NORMAL_VIEW) {
+                switch (keyval) {
+                    case Gdk.Key.@0:
+                        grid_view.set_page (0);
+                        return Gdk.EVENT_STOP;
+
+                    case Gdk.Key.@9:
+                        grid_view.last_page ();
+                        return Gdk.EVENT_STOP;
+
+                    case Gdk.Key.@1:
+                    case Gdk.Key.@2:
+                    case Gdk.Key.@3:
+                    case Gdk.Key.@4:
+                    case Gdk.Key.@5:
+                    case Gdk.Key.@6:
+                    case Gdk.Key.@7:
+                    case Gdk.Key.@8:
                         var key = Gdk.keyval_name (keyval).replace ("KP_", "");
-                        int page = int.parse (key);
-                        if (page < 0 || page == 9) {
-                            grid_view.go_to_last ();
-                        } else {
-                            grid_view.go_to_number (page);
-                        }
-                    }
+                        grid_view.set_page (int.parse (key) - 1);
 
-                    return Gdk.EVENT_STOP;
+                        return Gdk.EVENT_STOP;
+                }
             }
         }
 
         switch (keyval) {
             case Gdk.Key.Page_Up:
                 if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_previous ();
+                    grid_view.previous_page ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     category_view.page_up ();
                 }
@@ -283,7 +287,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
 
             case Gdk.Key.Page_Down:
                 if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_next ();
+                    grid_view.next_page ();
                 } else if (modality == Modality.CATEGORY_VIEW) {
                     category_view.page_down ();
                 }
@@ -291,7 +295,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
 
             case Gdk.Key.End:
                 if (modality == Modality.NORMAL_VIEW) {
-                    grid_view.go_to_last ();
+                    grid_view.last_page ();
                 }
 
                 break;
