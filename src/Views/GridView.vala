@@ -52,8 +52,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
 
         key_controller = new Gtk.EventControllerKey (this);
         key_controller.key_pressed.connect (on_key_press);
-
-        paginator.page_changed.connect (refocus);
     }
 
     public void populate (Backend.AppSystem app_system) {
