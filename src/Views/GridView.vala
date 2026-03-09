@@ -13,21 +13,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     private Hdy.Carousel paginator;
     private Gtk.EventControllerKey key_controller;
 
-    private int focused_column {
-        get {
-            var flowbox = (Gtk.FlowBox) paginator.get_children ().nth_data ((int) paginator.get_position ());
-            var selected_child = flowbox.get_selected_children ().nth_data (0);
-
-            for (int i = 0; i < PAGE_ROWS * PAGE_COLUMNS; i++) {
-                if (flowbox.get_child_at_index (i) == selected_child) {
-                    return i % PAGE_COLUMNS + 1;
-                }
-            }
-
-            return -1;
-        }
-    }
-
     private bool should_refocus;
     private int focused_index;
 
@@ -175,7 +160,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             return Gdk.EVENT_STOP;
         }
 
-        if (paginator.get_position () > 0 && focused_column == 1) {
+        if (paginator.get_position () > 0 && focused_index % PAGE_COLUMNS == 0) {
             should_refocus = false;
             previous_page ();
             move_focus (LEFT);
@@ -191,7 +176,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             return Gdk.EVENT_STOP;
         }
 
-        if (paginator.get_position () < paginator.n_pages - 1 && focused_column == PAGE_COLUMNS) {
+        if (paginator.get_position () < paginator.n_pages - 1 && focused_index % PAGE_COLUMNS + 1 == PAGE_COLUMNS) {
             should_refocus = false;
             next_page ();
             move_focus (RIGHT);
