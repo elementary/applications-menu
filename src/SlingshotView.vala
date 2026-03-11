@@ -5,8 +5,6 @@
  */
 
 public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
-    public signal void close_indicator ();
-
     public Backend.AppSystem app_system;
     public Gtk.SearchEntry search_entry;
     public Gtk.Stack stack;
@@ -140,14 +138,6 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
 
         search_entry.activate.connect (search_entry_activated);
 
-        grid_view.app_launched.connect (() => {
-            close_indicator ();
-        });
-
-        search_view.app_launched.connect (() => {
-            close_indicator ();
-        });
-
         // Auto-update applications grid
         app_system.changed.connect (() => {
             grid_view.populate (app_system);
@@ -221,7 +211,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
                 if (search_entry.text.length > 0) {
                     search_entry.text = "";
                 } else {
-                    close_indicator ();
+                    ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
                 }
 
                 return Gdk.EVENT_STOP;
@@ -246,7 +236,7 @@ public class Slingshot.SlingshotView : Gtk.Bin, UnityClient {
         if ((state & Gdk.ModifierType.MOD1_MASK) != 0) {
             switch (keyval) {
                 case Gdk.Key.F4:
-                    close_indicator ();
+                    ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
                     return Gdk.EVENT_STOP;
             }
 
