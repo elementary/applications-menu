@@ -13,37 +13,8 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     private Hdy.Carousel paginator;
     private Gtk.EventControllerKey key_controller;
 
-    private uint _focused_column = 1;
-    public uint focused_column {
-        set {
-            var target_column = value.clamp (1, PAGE_COLUMNS);
-            var target = get_widget_at (target_column, _focused_row);
-            if (target != null && target is Widgets.AppButton) {
-                _focused_column = target_column;
-                target.grab_focus ();
-            }
-        }
-
-        get {
-            return _focused_column;
-        }
-    }
-
-    private uint _focused_row = 1;
-    public uint focused_row {
-        set {
-            var target_row = value.clamp (1, PAGE_ROWS);
-            var target = get_widget_at (_focused_column, target_row);
-            if (target != null && target is Widgets.AppButton) {
-                _focused_row = target_row;
-                target.grab_focus ();
-            }
-        }
-
-        get {
-            return _focused_row;
-        }
-    }
+    private bool should_refocus;
+    private int focused_index;
 
     construct {
         paginator = new Hdy.Carousel () {
@@ -62,11 +33,12 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         add (paginator);
         add (page_switcher);
 
-        can_focus = true;
         focus_in_event.connect_after (() => {
             refocus ();
-            return Gdk.EVENT_STOP;
+            return Gdk.EVENT_PROPAGATE;
         });
+
+        paginator.page_changed.connect (refocus);
 
         key_controller = new Gtk.EventControllerKey (this);
         key_controller.key_pressed.connect (on_key_press);
@@ -79,26 +51,24 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
 
         var grid = add_new_grid ();
         // Where to insert new app button
-        var next_row_index = 0;
-        var next_col_index = 0;
-
+        var next_grid_index = 0;
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
             var app_button = new Widgets.AppButton (app);
             app_button.app_launched.connect (() => app_launched ());
 
-            if (next_col_index == PAGE_COLUMNS) {
-                next_col_index = 0;
-                next_row_index++;
-            }
-
-            if (next_row_index == PAGE_ROWS) {
+            if (next_grid_index == PAGE_ROWS * PAGE_COLUMNS) {
                 grid = add_new_grid ();
-                next_row_index = 0;
-                next_col_index = 0;
+                next_grid_index = 0;
             }
 
-            grid.attach (app_button, (int)next_col_index, (int)next_row_index);
-            next_col_index++;
+            grid.add (app_button);
+            next_grid_index++;
+        }
+
+        // Empty children in case there are not enough apps to fill a single page
+        while (next_grid_index < PAGE_ROWS * PAGE_COLUMNS) {
+            grid.add (new Gtk.FlowBoxChild () { can_focus = false });
+            next_grid_index++;
         }
 
         show_all ();
@@ -106,43 +76,55 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         set_page (0);
     }
 
-    private Gtk.Grid add_new_grid () {
-        var grid = new Gtk.Grid () {
+    private Gtk.FlowBox add_new_grid () {
+        var flowbox = new Gtk.FlowBox () {
             hexpand = true,
             vexpand = true,
-            row_homogeneous = true,
-            column_homogeneous = true,
+            homogeneous = true,
             margin_start = 12,
             margin_end = 12,
+            min_children_per_line = PAGE_COLUMNS,
+            max_children_per_line = PAGE_COLUMNS,
             row_spacing = 24,
             column_spacing = 0
         };
 
-        // Fake grids in case there are not enough apps to fill the grid
-        for (var row = 0; row < PAGE_ROWS; row++) {
-            for (var column = 0; column < PAGE_COLUMNS; column++) {
-                grid.attach (new Gtk.Grid (), column, row, 1, 1);
+        flowbox.selected_children_changed.connect (update_focused_index);
+
+        flowbox.child_activated.connect ((child) => {
+            ((AppButton) child).launch_app ();
+        });
+
+        paginator.add (flowbox);
+        return flowbox;
+    }
+
+    private void update_focused_index (Gtk.FlowBox flowbox) {
+        var selected_child = flowbox.get_selected_children ().nth_data (0);
+        if (selected_child == null) {
+            return;
+        }
+
+        for (int i = 0; i < PAGE_ROWS * PAGE_COLUMNS; i++) {
+            if (flowbox.get_child_at_index (i) == selected_child) {
+                focused_index = i;
             }
         }
-
-        paginator.add (grid);
-
-        return grid;
     }
 
-    private Gtk.Widget? get_widget_at (uint col, uint row) {
-        if (col < 1 || col > PAGE_COLUMNS || row < 1 || row > PAGE_ROWS) {
-            return null;
-        } else {
-            var grid = (Gtk.Grid) paginator.get_children ().nth_data ((int) paginator.get_position ());
-            return grid.get_child_at ((int) col - 1, (int) row - 1);
-        }
-    }
-
-    // Refocus an AppButton after a focus out or page change
+    // focus the child with the same coords on the new page
     private void refocus () {
-        focused_row = focused_row;
-        focused_column = focused_column;
+        // FIXME: in GTK4 check for contains focus instead
+        if (should_refocus == false) {
+            should_refocus = true;
+            return;
+        }
+
+        var flowbox = (Gtk.FlowBox) paginator.get_children ().nth_data ((int) paginator.get_position ());
+        var focus_child = flowbox.get_child_at_index (focused_index);
+
+        flowbox.select_child (focus_child);
+        focus_child.grab_focus ();
     }
 
     private bool on_key_press (uint keyval, uint keycode, Gdk.ModifierType state) {
@@ -155,61 +137,53 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             case Gdk.Key.Left:
             case Gdk.Key.KP_Left:
                 if (get_default_direction () == LTR) {
-                    move_left (state);
+                    return move_left (state);
                 } else {
-                    move_right (state);
+                    return move_right (state);
                 }
-
-                return Gdk.EVENT_STOP;
 
             case Gdk.Key.Right:
             case Gdk.Key.KP_Right:
                 if (get_default_direction () == LTR) {
-                    move_right (state);
+                    return move_right (state);
                 } else {
-                    move_left (state);
+                    return move_left (state);
                 }
-
-                return Gdk.EVENT_STOP;
-
-            case Gdk.Key.Up:
-            case Gdk.Key.KP_Up:
-                if (_focused_row == 1) {
-                    break;
-                } else {
-                    focused_row--;
-                    return Gdk.EVENT_STOP;
-                }
-
-            case Gdk.Key.Down:
-            case Gdk.Key.KP_Down:
-                focused_row++;
-                return Gdk.EVENT_STOP;
         }
 
         return Gdk.EVENT_PROPAGATE;
     }
 
-    private void move_left (Gdk.ModifierType state) {
+    private bool move_left (Gdk.ModifierType state) {
         if ((state & Gdk.ModifierType.SHIFT_MASK) > 0) {
             previous_page ();
-        } else if (focused_column == 1 && paginator.get_position () > 0) {
-            previous_page ();
-            focused_column = PAGE_COLUMNS;
-        } else {
-            focused_column--;
+            return Gdk.EVENT_STOP;
         }
+
+        if (paginator.get_position () > 0 && focused_index % PAGE_COLUMNS == 0) {
+            should_refocus = false;
+            previous_page ();
+            move_focus (LEFT);
+            return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 
-    private void move_right (Gdk.ModifierType state) {
+    private bool move_right (Gdk.ModifierType state) {
         if ((state & Gdk.ModifierType.SHIFT_MASK) > 0) {
             next_page ();
-        } else if (focused_column == PAGE_COLUMNS && paginator.get_position () < paginator.n_pages - 1) {
-            next_page ();
-            focused_column = 1;
-        } else {
-            focused_column++;
+            return Gdk.EVENT_STOP;
         }
+
+        if (paginator.get_position () < paginator.n_pages - 1 && focused_index % PAGE_COLUMNS + 1 == PAGE_COLUMNS) {
+            should_refocus = false;
+            next_page ();
+            move_focus (RIGHT);
+            return Gdk.EVENT_STOP;
+        }
+
+        return Gdk.EVENT_PROPAGATE;
     }
 
     public void next_page () {
@@ -231,6 +205,5 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         }
 
         paginator.scroll_to (grid);
-        refocus ();
     }
 }
