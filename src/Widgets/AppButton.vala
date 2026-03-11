@@ -72,11 +72,15 @@ public class Slingshot.Widgets.AppButton : Gtk.FlowBoxChild {
         box.add (overlay);
         box.add (app_label);
 
-        child = box;
+        var event_box = new Gtk.EventBox () {
+            child = box
+        };
+
+        child = event_box;
 
         app.launched.connect (() => app_launched ());
 
-        click_controller = new Gtk.GestureMultiPress (this) {
+        click_controller = new Gtk.GestureMultiPress (event_box) {
             button = 0,
             exclusive = true
         };
