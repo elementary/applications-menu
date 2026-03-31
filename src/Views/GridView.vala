@@ -5,8 +5,6 @@
  */
 
 public class Slingshot.Widgets.Grid : Gtk.Box {
-    public signal void app_launched ();
-
     private const int PAGE_ROWS = 3;
     private const int PAGE_COLUMNS = 5;
 
@@ -54,7 +52,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         var next_grid_index = 0;
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
             var app_button = new Widgets.AppButton (app);
-            app_button.app_launched.connect (() => app_launched ());
+            app_button.app_launched.connect (() => ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ());
 
             if (next_grid_index == PAGE_ROWS * PAGE_COLUMNS) {
                 grid = add_new_grid ();
