@@ -47,8 +47,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         };
 
         var icon = app.icon;
-        unowned var theme = Gtk.IconTheme.get_default ();
-        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        unowned var theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, ICON_SIZE, get_direction (), 0) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 
@@ -69,8 +69,8 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         var box = new Gtk.Box (HORIZONTAL, 12) {
             margin_start = 6
         };
-        box.add (image);
-        box.add (name_label);
+        box.append (image);
+        box.append (name_label);
 
         child = box;
 
@@ -134,14 +134,11 @@ public class Slingshot.Widgets.SearchItem : Gtk.ListBoxRow {
         }
     }
 
-    public Gtk.Menu? create_context_menu () {
+    public Gtk.Popover? create_context_menu () {
         if (result_type != APPLICATION) {
             return null;
         }
 
-        var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
-        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-
-        return context_menu;
+        return app.get_context_menu (this);
     }
 }
