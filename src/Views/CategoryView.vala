@@ -62,7 +62,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
         listbox.row_activated.connect ((row) => {
             Idle.add (() => {
                 ((AppListRow) row).launch ();
-                view.close_indicator ();
+                ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
 
                 return false;
             });
@@ -132,7 +132,7 @@ public class Slingshot.Widgets.CategoryView : Granite.Bin {
             });
         });
         drag_source.drag_begin.connect ((drag_source, drag) => {
-            view.close_indicator ();
+            ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ();
         });
 
         listbox.add_controller (click_controller);

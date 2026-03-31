@@ -49,18 +49,12 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         default_theme.add_resource_path ("/io/elementary/desktop/wingpanel/applications-menu/icons");
     }
 
-    private void on_close_indicator () {
-        close ();
-    }
-
     public override Gtk.Widget? get_widget () {
         if (view == null) {
             view = new SlingshotView ();
 
             unowned var unity_client = Unity.get_default ();
             unity_client.add_client (view);
-
-            view.close_indicator.connect (on_close_indicator);
 
             if (dbus_service == null) {
                 dbus_service = new DBusService (view);
