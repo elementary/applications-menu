@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2026-06-29 09:56+0000\n"
+"PO-Revision-Date: 2026-07-25 21:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/wingpanel/"
 "applications-menu/el/>\n"
@@ -103,12 +103,11 @@ msgstr "Διατήρηση στο _Dock"
 
 #: src/Backend/App.vala:278
 msgid "Uninstall"
-msgstr ""
+msgstr "Κατάργηση"
 
 #: src/Backend/App.vala:283
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Κέντρο εφαρμογών"
+msgstr "Προβολή στο AppCenter"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
