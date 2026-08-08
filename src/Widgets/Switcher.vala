@@ -6,8 +6,8 @@
  */
 
 public class Slingshot.Widgets.Switcher : Gtk.Box {
-    private Hdy.Carousel _carousel;
-    public Hdy.Carousel carousel {
+    private Adw.Carousel _carousel;
+    public Adw.Carousel carousel {
         set {
             if (_carousel != null) {
                 _carousel.notify["n-pages"].disconnect (update_pages);
@@ -26,27 +26,20 @@ public class Slingshot.Widgets.Switcher : Gtk.Box {
     }
 
     private void update_pages () {
-        get_children ().foreach ((child) => {
-            child.destroy ();
-        });
+        while (get_first_child () != null) {
+            remove (get_first_child ());
+        }
 
         if (_carousel.n_pages == 1) {
             hide ();
             return;
+        } else {
+            show ();
         }
 
         for (int i = 0; i < _carousel.get_n_pages (); i++) {
-            // In Adwaita, Carousel has a get_nth_page function
-            unowned var page = _carousel.get_children ().nth_data (i);
-
             var button = new PageChecker (_carousel, i);
-            button.show ();
-
-            add (button);
-
-            button.clicked.connect (() => {
-                _carousel.scroll_to (page);
-            });
+            append (button);
         }
     }
 }

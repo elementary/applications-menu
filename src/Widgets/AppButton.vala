@@ -10,25 +10,15 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
     public Backend.App app { get; construct; }
 
     private const int ICON_SIZE = 64;
-
     private Gtk.Label badge;
-    private bool dragging = false; //prevent launching
-
-    private Gtk.GestureMultiPress click_controller;
-    private Gtk.EventControllerKey menu_key_controller;
 
     public AppButton (Backend.App app) {
         Object (app: app);
     }
 
     construct {
-        Gtk.TargetEntry dnd = {"text/uri-list", 0, 0};
-        Gtk.drag_source_set (this, Gdk.ModifierType.BUTTON1_MASK, {dnd},
-                             Gdk.DragAction.COPY);
-
+        has_frame = false;
         tooltip_text = app.description;
-
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         var app_label = new Gtk.Label (app.name) {
             halign = CENTER,
@@ -41,12 +31,12 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
         };
 
         var icon = app.icon;
-        unowned var theme = Gtk.IconTheme.get_default ();
-        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        unowned var theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+        if (icon == null || theme.lookup_by_gicon (icon, ICON_SIZE, ICON_SIZE, get_direction (), 0) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 
-        var image = new Gtk.Image.from_gicon (icon, ICON_SIZE) {
+        var image = new Gtk.Image.from_gicon (icon) {
             margin_top = 9,
             margin_end = 6,
             margin_start = 6,
@@ -58,7 +48,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             valign = START,
             visible = false
         };
-        badge.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
+        badge.add_css_class (Granite.STYLE_CLASS_BADGE);
 
         var overlay = new Gtk.Overlay () {
             child = image,
@@ -71,8 +61,8 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             hexpand = true,
             vexpand = true
         };
-        box.add (overlay);
-        box.add (app_label);
+        box.append (overlay);
+        box.append (app_label);
 
         child = box;
 
@@ -80,7 +70,7 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
         this.clicked.connect (launch_app);
 
-        click_controller = new Gtk.GestureMultiPress (this) {
+        var click_controller = new Gtk.GestureClick () {
             button = 0,
             exclusive = true
         };
@@ -89,50 +79,59 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
             var event = click_controller.get_last_event (sequence);
 
             if (event.triggers_context_menu ()) {
-                var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
-                context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                context_menu.popup_at_pointer ();
+                var context_menu = app.get_context_menu (this);
+                context_menu.halign = START;
+
+                Utils.menu_popup_at_pointer (context_menu, x, y);
 
                 click_controller.set_state (CLAIMED);
                 click_controller.reset ();
             }
         });
 
-        menu_key_controller = new Gtk.EventControllerKey (this);
+        var menu_key_controller = new Gtk.EventControllerKey ();
         menu_key_controller.key_released.connect ((keyval, keycode, state) => {
             var mods = state & Gtk.accelerator_get_default_mod_mask ();
             switch (keyval) {
                 case Gdk.Key.F10:
                     if (mods == Gdk.ModifierType.SHIFT_MASK) {
-                        var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
-                        context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                        context_menu.popup_at_widget (this, EAST, CENTER);
+                        Utils.menu_popup_on_keypress (app.get_context_menu (this));
                     }
                     break;
                 case Gdk.Key.Menu:
                 case Gdk.Key.MenuKB:
-                    var context_menu = new Gtk.Menu.from_model (app.get_menu_model ());
-                    context_menu.insert_action_group (Backend.App.ACTION_GROUP_PREFIX, app.action_group);
-                    context_menu.popup_at_widget (this, EAST, CENTER);
+                    Utils.menu_popup_on_keypress (app.get_context_menu (this));
                     break;
                 default:
                     return;
             }
         });
 
-        this.drag_begin.connect ((ctx) => {
-            this.dragging = true;
-            Gtk.drag_set_icon_gicon (ctx, app.icon, 16, 16);
+        var drag_source = new Gtk.DragSource () {
+            actions = COPY,
+            content = new Gdk.ContentProvider.union ({
+                new Gdk.ContentProvider.for_value (
+                    File.new_for_path (app.desktop_path).get_uri ()
+                )
+            })
+        };
+        drag_source.drag_begin.connect ((drag_source, drag) => {
+            drag_source.set_icon (
+                Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).lookup_by_gicon (
+                    icon,
+                    32,
+                    scale_factor,
+                    get_direction (),
+                    PRELOAD
+                ), 0, 0
+            );
+
             app_launched ();
         });
 
-        this.drag_end.connect ( () => {
-            this.dragging = false;
-        });
-
-        this.drag_data_get.connect ( (ctx, sel, info, time) => {
-            sel.set_uris ({File.new_for_path (app.desktop_path).get_uri ()});
-        });
+        add_controller (click_controller);
+        add_controller (menu_key_controller);
+        add_controller (drag_source);
 
         app.notify["current-count"].connect (update_badge_count);
         app.notify["count-visible"].connect (update_badge_visibility);
@@ -158,11 +157,6 @@ public class Slingshot.Widgets.AppButton : Gtk.Button {
 
     private void update_badge_visibility () {
         var count_visible = app.count_visible && app.current_count > 0;
-        badge.no_show_all = !count_visible;
-        if (count_visible) {
-            badge.show_all ();
-        } else {
-            badge.hide ();
-        }
+        badge.visible = count_visible;
     }
 }
