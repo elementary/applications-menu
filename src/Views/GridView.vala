@@ -96,6 +96,10 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
                 next_col_index = 0;
             }
 
+            // Remove fake grids
+            unowned var widget = grid.get_child_at ((int)next_col_index, (int)next_row_index);
+            grid.remove (widget);
+
             grid.attach (app_button, (int)next_col_index, (int)next_row_index);
             next_col_index++;
         }
