@@ -60,14 +60,14 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         append (page_switcher);
 
         can_focus = true;
-        // focus_in_event.connect_after (() => {
-        //     refocus ();
-        //     return Gdk.EVENT_STOP;
-        // });
+
+        var focus_controller = new Gtk.EventControllerFocus ();
+        focus_controller.enter.connect (refocus);
 
         var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
 
+        add_controller (focus_controller);
         add_controller (key_controller);
     }
 
