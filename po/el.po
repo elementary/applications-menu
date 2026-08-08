@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-24 20:52+0000\n"
-"PO-Revision-Date: 2017-02-27 21:32+0000\n"
-"Last-Translator: Christos Iatropoulos <Unknown>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2026-07-25 21:01+0000\n"
+"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
+"Language-Team: Greek <https://l10n.elementaryos.org/projects/wingpanel/"
+"applications-menu/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: src/Indicator.vala:75 src/Views/SearchView.vala:47
 msgid "Applications"
@@ -24,7 +26,7 @@ msgstr "Εφαρμογές"
 
 #: src/Indicator.vala:132
 msgid "Open and search apps"
-msgstr ""
+msgstr "Άνοιγμα και αναζήτηση εφαρμογών"
 
 #: src/SlingshotView.vala:45
 msgid "View as Grid"
@@ -40,33 +42,31 @@ msgstr "Αναζήτηση εφαρμογών"
 
 #: src/Backend/AppSystem.vala:77
 msgid "Accessories"
-msgstr ""
+msgstr "Βοηθήματα"
 
 #: src/Backend/AppSystem.vala:87
 msgid "Universal Access"
-msgstr ""
+msgstr "Προσβασιμότητα"
 
 #: src/Backend/AppSystem.vala:96
 msgid "Programming"
-msgstr ""
+msgstr "Προγραμματισμός"
 
 #: src/Backend/AppSystem.vala:102
-#, fuzzy
-#| msgid "Actions"
 msgid "Education"
-msgstr "Ενέργειες"
+msgstr "Εκπαίδευση"
 
 #: src/Backend/AppSystem.vala:109
 msgid "Science"
-msgstr ""
+msgstr "Επιστήμες"
 
 #: src/Backend/AppSystem.vala:115
 msgid "Games"
-msgstr ""
+msgstr "Παιχνίδια"
 
 #: src/Backend/AppSystem.vala:121
 msgid "Graphics"
-msgstr ""
+msgstr "Γραφικά"
 
 #: src/Backend/AppSystem.vala:127 src/Views/SearchView.vala:58
 msgid "Internet"
@@ -74,15 +74,15 @@ msgstr "Διαδίκτυο"
 
 #: src/Backend/AppSystem.vala:133
 msgid "Sound & Video"
-msgstr ""
+msgstr "Ήχος και βίντεο"
 
 #: src/Backend/AppSystem.vala:139
 msgid "Office"
-msgstr ""
+msgstr "Γραφείο"
 
 #: src/Backend/AppSystem.vala:145
 msgid "System Tools"
-msgstr ""
+msgstr "Εργαλεία συστήματος"
 
 #: src/Backend/AppSystem.vala:153 src/Views/SearchView.vala:66
 msgid "Other"
@@ -90,42 +90,36 @@ msgstr "Άλλα"
 
 #: src/Backend/App.vala:96
 msgid "Run this command…"
-msgstr "Εκτέλεση αυτής της εντολής..."
+msgstr "Εκτέλεση εντολής…"
 
 #: src/Backend/App.vala:237
-#, fuzzy, c-format
-#| msgid "Open with %s"
+#, c-format
 msgid "Open with %s Graphics"
-msgstr "Άνοιγμα με %s"
+msgstr "Άνοιγμα με γραφικά %s"
 
 #: src/Backend/App.vala:259
-#, fuzzy
-#| msgid "Remove from _Dock"
 msgid "Keep in _Dock"
-msgstr "Αφαίρεση από το _Dock"
+msgstr "Διατήρηση στο _Dock"
 
 #: src/Backend/App.vala:278
 msgid "Uninstall"
-msgstr ""
+msgstr "Κατάργηση"
 
 #: src/Backend/App.vala:283
-#, fuzzy
 msgid "View in AppCenter"
-msgstr "Κέντρο εφαρμογών"
+msgstr "Προβολή στο AppCenter"
 
 #: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
 msgid "Default"
-msgstr ""
+msgstr "Προεπιλογή"
 
 #: src/Views/SearchView.vala:43
 msgid "Text"
 msgstr "Κείμενο"
 
 #: src/Views/SearchView.vala:45
-#, fuzzy
-#| msgid "Calculator"
 msgid "Calculation"
-msgstr "Αριθμομηχανή"
+msgstr "Υπολογισμός"
 
 #: src/Views/SearchView.vala:49
 msgid "Files"
@@ -153,16 +147,16 @@ msgstr "Ενέργειες εφαρμογών"
 
 #: src/Views/SearchView.vala:64
 msgid "Bookmarks"
-msgstr ""
+msgstr "Σελιδοδείκτες"
 
 #: src/Views/SearchView.vala:87
 msgid "Try changing search terms."
-msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
+msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης."
 
 #: src/Views/SearchView.vala:249
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Κανένα αποτέλεσμα για “%s”"
+msgstr "Κανένα αποτέλεσμα για «%s»"
 
 #: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
@@ -185,7 +179,7 @@ msgstr "Εκτέλεση εφαρμογής ή εντολής στο τερμα�
 #: src/synapse-plugins/appcenter-plugin.vala:48
 #, c-format
 msgid "Search for %s in %s"
-msgstr ""
+msgstr "Αναζήτηση για «%s» στο %s"
 
 #: src/synapse-plugins/appcenter-plugin.vala:54
 msgid "Search the app store"
@@ -218,13 +212,13 @@ msgstr ""
 #: src/synapse-plugins/converter-plugin/converter-plugin-backend.vala:38
 #, c-format
 msgid "%s%s %s"
-msgstr ""
+msgstr "%s%s %s"
 
 #. /TRANSLATORS first %s represents unit converted from, second %s represents unit converted to
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:70
 #, c-format
 msgid "%g (%s to %s)"
-msgstr ""
+msgstr "%g (%s σε %s)"
 
 #: src/synapse-plugins/converter-plugin/converter-plugin.vala:73
 #, fuzzy, c-format
@@ -235,7 +229,7 @@ msgstr "Αντιγραφή επιλογής στο πρόχειρο"
 #: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
-msgstr "Άνοιγμα με %s"
+msgstr "Άνοιγμα με «%s»"
 
 #: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
@@ -291,7 +285,7 @@ msgstr "Κλείδωμα αυτής της συσκευής"
 #: src/synapse-plugins/system-managment.vala:114
 msgctxt "system_management_action_keyword"
 msgid "lock"
-msgstr ""
+msgstr "κλείδωμα;lock"
 
 #: src/synapse-plugins/system-managment.vala:143
 msgid "Log Out"
@@ -305,7 +299,7 @@ msgstr "Κλείσιμο όλων των ανοιχτών εφαρμογών κ�
 #: src/synapse-plugins/system-managment.vala:147
 msgctxt "system_management_action_keyword"
 msgid "logout"
-msgstr ""
+msgstr "αποσύνδεση;έξοδος;logout"
 
 #: src/synapse-plugins/system-managment.vala:176
 msgid "Suspend"
@@ -317,10 +311,9 @@ msgstr ""
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:180
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "suspend"
-msgstr "Αναστολή"
+msgstr "αναστολή λειτουργίας;ύπνος;αναστολή;αδράνεια;suspend"
 
 #: src/synapse-plugins/system-managment.vala:265
 msgid "Hibernate"
@@ -332,10 +325,9 @@ msgstr ""
 
 #. ; seperated list of keywords
 #: src/synapse-plugins/system-managment.vala:269
-#, fuzzy
 msgctxt "system_management_action_keyword"
 msgid "hibernate"
-msgstr "Αδρανοποίηση"
+msgstr "αδρανοποίηση;hibernate"
 
 #: src/synapse-plugins/system-managment.vala:353
 msgid "Shut Down"
@@ -350,6 +342,8 @@ msgstr ""
 msgctxt "system_management_action_keyword"
 msgid "shutdown;turn off"
 msgstr ""
+"τερματισμός λειτουργίας;απενεργοποίηση;κλείσιμο;τερματισμός;shutdown;power "
+"off;turn off"
 
 #: src/synapse-plugins/system-managment.vala:429
 msgid "Restart"
@@ -363,7 +357,7 @@ msgstr ""
 #: src/synapse-plugins/system-managment.vala:433
 msgctxt "system_management_action_keyword"
 msgid "restart;reboot"
-msgstr ""
+msgstr "επανεκκίνηση;restart;reboot"
 
 #~ msgid "Copy to Clipboard"
 #~ msgstr "Αντιγραφή στο πρόχειρο"
