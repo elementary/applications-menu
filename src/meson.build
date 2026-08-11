@@ -82,6 +82,7 @@ dependencies = [
     zeitgeist_dep,
     wingpanel_dep,
     libhandy_dep,
+    math_dep,
     posix_dep,
 ]
 
