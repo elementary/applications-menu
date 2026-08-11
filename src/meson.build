@@ -82,6 +82,7 @@ dependencies = [
     zeitgeist_dep,
     wingpanel_dep,
     libhandy_dep,
+    math_dep,
     posix_dep,
 ]
 
@@ -113,7 +114,6 @@ executable(
         switchboard_dep,
         gee_dep,
     ],
-    link_args: ['-lm'],
     install: true,
     install_dir: pluginsdir
 )

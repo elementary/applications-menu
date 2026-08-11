@@ -45,6 +45,7 @@ json_glib_dep = dependency('json-glib-1.0')
 switchboard_dep = dependency('switchboard-3')
 libhandy_dep = dependency('libhandy-1', version: '>= 0.83.0')
 wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
+math_dep = meson.get_compiler('c').find_library('m')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
 zeitgeist_dep = []
