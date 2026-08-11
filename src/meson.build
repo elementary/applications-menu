@@ -82,7 +82,8 @@ dependencies = [
     json_glib_dep,
     zeitgeist_dep,
     wingpanel_dep,
-    libhandy_dep,
+    adwaita_dep,
+    math_dep,
     posix_dep,
 ]
 
