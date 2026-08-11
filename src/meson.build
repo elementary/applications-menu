@@ -113,6 +113,7 @@ executable(
         switchboard_dep,
         gee_dep,
     ],
+    link_args: ['-lm'],
     install: true,
     install_dir: pluginsdir
 )
