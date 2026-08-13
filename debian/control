@@ -1,18 +1,16 @@
-Source: slingshot-launcher
+Source: io.elementary.applications-menu
 Section: x11
 Priority: optional
-Maintainer: elementary, Inc. <builds@elementary.io>
+Maintainer: elementary <builds@elementary.io>
 Build-Depends: bc,
                debhelper (>= 10.5.1),
                libadwaita-1-dev,
                libgee-0.8-dev,
-               libgranite-dev (>= 5.2.1),
-               libgtk-3-dev (>= 3.14.0),
+               libgranite-7-dev (>= 7.6.0),
                libgtk-4-dev,
-               libhandy-1-dev (>= 0.90.0),
                libjson-glib-dev,
                libswitchboard-3-dev,
-               libwingpanel-dev,
+               libwingpanel-9-dev,
                libzeitgeist-2.0-dev,
                meson (>= 0.46.1),
                pkg-config,
@@ -20,7 +18,7 @@ Build-Depends: bc,
 Standards-Version: 4.1.1
 Homepage: https://github.com/elementary/applications-menu
 
-Package: slingshot-launcher
+Package: io.elementary.applications-menu
 Architecture: any
 Depends: zeitgeist-core, ${misc:Depends}, ${shlibs:Depends}
 Description: Lightweight and stylish app launcher

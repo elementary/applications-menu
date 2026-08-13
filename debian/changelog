@@ -1,40 +1,40 @@
-slingshot-launcher (8.0.4) jammy; urgency=medium
+io.elementary.applications-menu (8.0.4) jammy; urgency=medium
 
   * Release 8.0.4 (#696)
 
- -- elementary, Inc. <builds@elementary.io>  Thu, 05 Feb 2026 20:13:28 +0000
+ -- elementary <builds@elementary.io>  Thu, 05 Feb 2026 20:13:28 +0000
 
-slingshot-launcher (8.0.3) jammy; urgency=medium
+io.elementary.applications-menu (8.0.3) jammy; urgency=medium
 
   * Release 8.0.3 (#692)
 
- -- elementary, Inc. <builds@elementary.io>  Wed, 14 Jan 2026 20:15:10 +0000
+ -- elementary <builds@elementary.io>  Wed, 14 Jan 2026 20:15:10 +0000
 
-slingshot-launcher (8.0.2) jammy; urgency=medium
+io.elementary.applications-menu (8.0.2) jammy; urgency=medium
 
   * Release 8.0.2 (#679)
 
- -- elementary, Inc. <builds@elementary.io>  Tue, 02 Dec 2025 14:12:41 +0000
+ -- elementary <builds@elementary.io>  Tue, 02 Dec 2025 14:12:41 +0000
 
-slingshot-launcher (8.0.1) jammy; urgency=medium
+io.elementary.applications-menu (8.0.1) jammy; urgency=medium
 
   * Release 8.0.1 (#630)
 
- -- elementary, Inc. <builds@elementary.io>  Tue, 18 Feb 2025 16:33:26 +0000
+ -- elementary <builds@elementary.io>  Tue, 18 Feb 2025 16:33:26 +0000
 
-slingshot-launcher (8.0.0) jammy; urgency=medium
+io.elementary.applications-menu (8.0.0) jammy; urgency=medium
 
   * Release 8.0.0 (#600)
 
- -- elementary, Inc. <builds@elementary.io>  Thu, 22 Aug 2024 19:12:56 +0000
+ -- elementary <builds@elementary.io>  Thu, 22 Aug 2024 19:12:56 +0000
 
-slingshot-launcher (2.11.1) jammy; urgency=medium
+io.elementary.applications-menu (2.11.1) jammy; urgency=medium
 
   * New upstream release
 
  -- Danielle Foré <danielle@elementary.io>  Mon, 19 Dec 2022 11:26:34 -0800
 
-slingshot-launcher (2.11.0) bionic; urgency=medium
+io.elementary.applications-menu (2.11.0) bionic; urgency=medium
 
   * Release 2.11.0 (#555)
   * Update translation files
@@ -57,9 +57,9 @@ slingshot-launcher (2.11.0) bionic; urgency=medium
   * Add Files bookmarks to search (#514)
   * Avoid using a MainLoop in Switchboard Plugin (#513)
 
- -- elementary, Inc. <builds@elementary.io>  Tue, 15 Nov 2022 19:12:13 +0000
+ -- elementary <builds@elementary.io>  Tue, 15 Nov 2022 19:12:13 +0000
 
-slingshot-launcher (2.10.2) bionic; urgency=medium
+io.elementary.applications-menu (2.10.2) bionic; urgency=medium
 
   * Release 2.10.2 (#526)
   * Update translation files
@@ -72,9 +72,9 @@ slingshot-launcher (2.10.2) bionic; urgency=medium
   * Add Files bookmarks to search (#514)
   * Avoid using a MainLoop in Switchboard Plugin (#513)
 
- -- elementary, Inc. <builds@elementary.io>  Sat, 11 Dec 2021 05:36:12 +0000
+ -- elementary <builds@elementary.io>  Sat, 11 Dec 2021 05:36:12 +0000
 
-slingshot-launcher (2.10.1) bionic; urgency=medium
+io.elementary.applications-menu (2.10.1) bionic; urgency=medium
 
   * Release 2.10.1 (#522)
   * switchboard-plugin: Re-add a GLib.MainLoop (#521)
@@ -85,9 +85,9 @@ slingshot-launcher (2.10.1) bionic; urgency=medium
   * Add Files bookmarks to search (#514)
   * Avoid using a MainLoop in Switchboard Plugin (#513)
 
- -- elementary, Inc. <builds@elementary.io>  Wed, 24 Nov 2021 22:03:56 +0000
+ -- elementary <builds@elementary.io>  Wed, 24 Nov 2021 22:03:56 +0000
 
-slingshot-launcher (2.10.0) bionic; urgency=medium
+io.elementary.applications-menu (2.10.0) bionic; urgency=medium
 
   * Release 2.10.0 (#515)
   * Bookmarks Plugin: Get default file browser name (#517)
@@ -96,18 +96,18 @@ slingshot-launcher (2.10.0) bionic; urgency=medium
   * Add Files bookmarks to search (#514)
   * Avoid using a MainLoop in Switchboard Plugin (#513)
 
- -- elementary, Inc. <builds@elementary.io>  Tue, 23 Nov 2021 21:04:42 +0000
+ -- elementary <builds@elementary.io>  Tue, 23 Nov 2021 21:04:42 +0000
 
-slingshot-launcher (2.9.1) bionic; urgency=medium
+io.elementary.applications-menu (2.9.1) bionic; urgency=medium
 
   * Release 2.9.1 (#511)
   * Update translation files
   * Update translation template
   * Adds app context menu to search results (#508)
 
- -- elementary, Inc. <builds@elementary.io>  Tue, 26 Oct 2021 18:39:09 +0000
+ -- elementary <builds@elementary.io>  Tue, 26 Oct 2021 18:39:09 +0000
 
-slingshot-launcher (2.9.0) bionic; urgency=medium
+io.elementary.applications-menu (2.9.0) bionic; urgency=medium
 
   * Release 2.9.0 (#505)
   * Remove unused appstream dependency (#506)
@@ -115,18 +115,18 @@ slingshot-launcher (2.9.0) bionic; urgency=medium
   * Update translation template
   * Add support for hybrid graphics (#425)
 
- -- elementary, Inc. <builds@elementary.io>  Mon, 27 Sep 2021 20:31:26 +0000
+ -- elementary <builds@elementary.io>  Mon, 27 Sep 2021 20:31:26 +0000
 
-slingshot-launcher (2.8.2) bionic; urgency=medium
+io.elementary.applications-menu (2.8.2) bionic; urgency=medium
 
   * Release 2.8.2 (#502)
   * Update translation files
   * Update translation template
   * Category: Sort apps without categories in desktop into other
 
- -- elementary, Inc. <builds@elementary.io>  Mon, 30 Aug 2021 17:38:22 +0000
+ -- elementary <builds@elementary.io>  Mon, 30 Aug 2021 17:38:22 +0000
 
-slingshot-launcher (2.8.1) bionic; urgency=medium
+io.elementary.applications-menu (2.8.1) bionic; urgency=medium
 
   * Release 2.8.1 (#499)
   * Update translation files
@@ -134,9 +134,9 @@ slingshot-launcher (2.8.1) bionic; urgency=medium
   * AppSystem: Switch to GLib.AppInfoMonitor (#496)
   * l10n: Correctly setup the locales (#492)
 
- -- elementary, Inc. <builds@elementary.io>  Thu, 26 Aug 2021 20:28:48 +0000
+ -- elementary <builds@elementary.io>  Thu, 26 Aug 2021 20:28:48 +0000
 
-slingshot-launcher (2.8.0) bionic; urgency=medium
+io.elementary.applications-menu (2.8.0) bionic; urgency=medium
 
   * Release 2.8.0 (#485)
   * SlingshotView: Use TRANSITION_DURATION_IN_PLACE (#477)
@@ -176,15 +176,15 @@ slingshot-launcher (2.8.0) bionic; urgency=medium
   * meson: clean up superfluous unity dep and make zeitgeist really
     optional (#392)
 
- -- elementary, Inc. <builds@elementary.io>  Wed, 14 Jul 2021 22:56:28 +0000
+ -- elementary <builds@elementary.io>  Wed, 14 Jul 2021 22:56:28 +0000
 
-slingshot-launcher (2.7.1) bionic; urgency=medium
+io.elementary.applications-menu (2.7.1) bionic; urgency=medium
 
   * Release 2.7.1 (#391)
 
- -- elementary, Inc. <builds@elementary.io>  Thu, 28 May 2020 18:40:19 +0000
+ -- elementary <builds@elementary.io>  Thu, 28 May 2020 18:40:19 +0000
 
-slingshot-launcher (2.7.0) bionic; urgency=medium
+io.elementary.applications-menu (2.7.0) bionic; urgency=medium
 
   * Release 2.7.0 (#382)
   * Update translation files
@@ -216,9 +216,9 @@ slingshot-launcher (2.7.0) bionic; urgency=medium
   * switchboard-plugin: Rename the plugins directory and fix type in
     Applications Menu name (#363)
 
- -- elementary, Inc. <builds@elementary.io>  Wed, 29 Apr 2020 21:59:38 +0000
+ -- elementary <builds@elementary.io>  Wed, 29 Apr 2020 21:59:38 +0000
 
-slingshot-launcher (2.6.0) bionic; urgency=medium
+io.elementary.applications-menu (2.6.0) bionic; urgency=medium
 
   * Release 2.6.0 (#361)
   * SlingshotView: remove check for search length on end key (#359)
@@ -244,9 +244,9 @@ slingshot-launcher (2.6.0) bionic; urgency=medium
   * Update translation template
   * Make CategoryView a list (#264)
 
- -- elementary, Inc. <builds@elementary.io>  Thu, 09 Apr 2020 20:40:13 +0000
+ -- elementary <builds@elementary.io>  Thu, 09 Apr 2020 20:40:13 +0000
 
-slingshot-launcher (2.5.0) bionic; urgency=medium
+io.elementary.applications-menu (2.5.0) bionic; urgency=medium
 
   * Release 2.5.0 (#327)
   * Revert "Release 2.5.0 (#325)" (#326)
@@ -333,153 +333,153 @@ slingshot-launcher (2.5.0) bionic; urgency=medium
   * Don't install static libraries (#231)
   * Remove CMake (#212)
 
- -- elementary, Inc. <builds@elementary.io>  Mon, 25 Nov 2019 17:08:53 +0000
+ -- elementary <builds@elementary.io>  Mon, 25 Nov 2019 17:08:53 +0000
 
-slingshot-launcher (2.4.4) bionic; urgency=medium
+io.elementary.applications-menu (2.4.4) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <codygarver@gmail.com>  Tue, 20 Aug 2019 23:54:30 +0000
 
-slingshot-launcher (2.4.3) bionic; urgency=medium
+io.elementary.applications-menu (2.4.3) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <codygarver@gmail.com>  Thu, 16 May 2019 05:10:37 -0500
 
-slingshot-launcher (2.4.2) bionic; urgency=medium
+io.elementary.applications-menu (2.4.2) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <codygarver@gmail.com>  Tue, 22 Jan 2019 03:51:45 -0600
 
-slingshot-launcher (2.4.1) bionic; urgency=medium
+io.elementary.applications-menu (2.4.1) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Fri, 07 Dec 2018 12:41:24 -0600
 
-slingshot-launcher (2.4.0) bionic; urgency=medium
+io.elementary.applications-menu (2.4.0) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Tue, 18 Sep 2018 10:41:29 -0500
 
-slingshot-launcher (2.3.0) bionic; urgency=medium
+io.elementary.applications-menu (2.3.0) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Wed, 20 Jun 2018 00:30:30 -0500
 
-slingshot-launcher (2.2.0) xenial; urgency=medium
+io.elementary.applications-menu (2.2.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Tue, 26 Sep 2017 10:25:50 -0400
 
-slingshot-launcher (2.1.3) xenial; urgency=medium
+io.elementary.applications-menu (2.1.3) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Mon, 15 May 2017 07:02:55 -0500
 
-slingshot-launcher (2.1.2) xenial; urgency=medium
+io.elementary.applications-menu (2.1.2) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Fri, 12 May 2017 03:56:16 -0500
 
-slingshot-launcher (2.1.1) xenial; urgency=medium
+io.elementary.applications-menu (2.1.1) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Sun, 12 Feb 2017 06:17:07 -0600
 
-slingshot-launcher (2.1.0) xenial; urgency=medium
+io.elementary.applications-menu (2.1.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Wed, 25 Jan 2017 03:04:01 -0600
 
-slingshot-launcher (2.0.1) xenial; urgency=medium
+io.elementary.applications-menu (2.0.1) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Mon, 02 Jan 2017 19:41:52 -0600
 
-slingshot-launcher (2.0) xenial; urgency=medium
+io.elementary.applications-menu (2.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Sun, 14 Aug 2016 14:56:59 -0500
 
-slingshot-launcher (0.8.2) trusty; urgency=medium
+io.elementary.applications-menu (0.8.2) trusty; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Wed, 25 Nov 2015 00:00:58 -0600
 
-slingshot-launcher (0.8.1.1) trusty; urgency=medium
+io.elementary.applications-menu (0.8.1.1) trusty; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Thu, 20 Aug 2015 00:37:36 -0500
 
-slingshot-launcher (0.8.1) trusty; urgency=medium
+io.elementary.applications-menu (0.8.1) trusty; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Sat, 30 May 2015 13:33:10 -0500
 
-slingshot-launcher (0.8) trusty; urgency=medium
+io.elementary.applications-menu (0.8) trusty; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Mon, 06 Apr 2015 18:16:27 -0500
 
-slingshot-launcher (0.7.6.1) precise; urgency=low
+io.elementary.applications-menu (0.7.6.1) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Sat, 07 Dec 2013 02:26:23 -0600
 
-slingshot-launcher (0.7.6) precise; urgency=low
+io.elementary.applications-menu (0.7.6) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Mon, 07 Oct 2013 12:30:52 -0500
 
-slingshot-launcher (0.7.5) precise; urgency=low
+io.elementary.applications-menu (0.7.5) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Sat, 21 Sep 2013 22:17:55 -0500
 
-slingshot-launcher (0.7.4) precise; urgency=low
+io.elementary.applications-menu (0.7.4) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Mon, 19 Aug 2013 22:53:28 -0500
 
-slingshot-launcher (0.7.3) precise; urgency=low
+io.elementary.applications-menu (0.7.3) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Wed, 14 Aug 2013 01:59:17 -0500
 
-slingshot-launcher (0.7.2) precise; urgency=low
+io.elementary.applications-menu (0.7.2) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Mon, 24 Jun 2013 05:35:02 -0500
 
-slingshot-launcher (0.7.1) precise; urgency=low
+io.elementary.applications-menu (0.7.1) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementaryos.org>  Sun, 09 Jun 2013 15:04:52 -0500
 
-slingshot-launcher (0.7) precise; urgency=low
+io.elementary.applications-menu (0.7) precise; urgency=low
 
   * Rewrite
   * Solve focus issues
@@ -488,13 +488,13 @@ slingshot-launcher (0.7) precise; urgency=low
   * Add tooltips to fix bug #1063333
   * Changed from using the released event in the AppEntry to the clicked event to fix bug #956063
   * Properly display Ubuntu One, Ubuntu Tweak and some Wine programs
-  * Changed binary name from slingshot to slingshot-launcher to fix bug #1041200
+  * Changed binary name from slingshot to io.elementary.applications-menu to fix bug #1041200
   * Center page switcher to fix bug #1011851
   * Various other fixes and improvements
 
  -- Cody Garver <cody@elementaryos.org>  Sun, 04 Nov 2012 18:18:32 -0600
 
-slingshot-launcher (0.6) oneiric; urgency=low
+io.elementary.applications-menu (0.6) oneiric; urgency=low
 
   * First Slingshot beta release
   * Lots of fixes
@@ -505,14 +505,14 @@ slingshot-launcher (0.6) oneiric; urgency=low
 
  -- Giulio Collura <random.cpp@gmail.com>  Sun, 30 Oct 2011 17:57:28 +0100
 
-slingshot-launcher (0.5) oneiric; urgency=low
+io.elementary.applications-menu (0.5) oneiric; urgency=low
 
   * Slingshot now sorts application by usage using zeitgeist
   * It can filter apps by category
 
  -- Giulio Collura <random.cpp@gmail.com>  Mon, 12 Sep 2011 16:34:00 +0200
 
-slingshot-launcher (0.4) oneiric; urgency=low
+io.elementary.applications-menu (0.4) oneiric; urgency=low
 
   * New Slingshot version for Elementary OS Luna
 
