@@ -25,8 +25,8 @@ public class Slingshot.AppListRow : Gtk.ListBoxRow {
         app_info = new GLib.DesktopAppInfo (app_id);
 
         var icon = app_info.get_icon ();
-        weak Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        if (icon == null || theme.lookup_by_gicon (icon, 32, Gtk.IconLookupFlags.USE_BUILTIN) == null) {
+        unowned var theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
+        if (icon == null || theme.lookup_by_gicon (icon, 32, 32, get_direction (), 0) == null) {
             icon = new ThemedIcon ("application-default-icon");
         }
 
@@ -43,8 +43,8 @@ public class Slingshot.AppListRow : Gtk.ListBoxRow {
         tooltip_text = app_info.get_description ();
 
         var box = new Gtk.Box (HORIZONTAL, 12);
-        box.add (image);
-        box.add (name_label);
+        box.append (image);
+        box.append (name_label);
 
         child = box;
     }

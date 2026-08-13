@@ -9,8 +9,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     private const int PAGE_COLUMNS = 5;
     private const int MAX_APPS_IN_PAGE = (PAGE_ROWS * PAGE_COLUMNS);
 
-    private Hdy.Carousel paginator;
-    private Gtk.EventControllerKey key_controller;
+    private Adw.Carousel paginator;
 
     private uint _focused_column = 1;
     public uint focused_column {
@@ -45,7 +44,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     }
 
     construct {
-        paginator = new Hdy.Carousel () {
+        paginator = new Adw.Carousel () {
             hexpand = true,
             vexpand = true
         };
@@ -58,22 +57,24 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         orientation = VERTICAL;
         spacing = 24;
         margin_bottom = 12;
-        add (paginator);
-        add (page_switcher);
+        append (paginator);
+        append (page_switcher);
 
         can_focus = true;
-        focus_in_event.connect_after (() => {
-            refocus ();
-            return Gdk.EVENT_STOP;
-        });
 
-        key_controller = new Gtk.EventControllerKey (this);
+        var focus_controller = new Gtk.EventControllerFocus ();
+        focus_controller.enter.connect (refocus);
+
+        var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_press);
+
+        add_controller (focus_controller);
+        add_controller (key_controller);
     }
 
     public void populate (Backend.AppSystem app_system) {
-        foreach (unowned var child in paginator.get_children ()) {
-            paginator.remove (child);
+        while (paginator.n_pages > 0) {
+            paginator.remove (paginator.get_nth_page (0));
         }
 
         var apps = app_system.get_apps_by_name ();
@@ -94,7 +95,6 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             populate_page (apps.nth (page_idx * MAX_APPS_IN_PAGE), num_apps_in_page);
         }
 
-        show_all ();
         // Show first page after populating the carousel
         set_page (0);
     }
@@ -136,7 +136,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
             column_spacing = 0
         };
 
-        paginator.add (grid);
+        paginator.append (grid);
 
         return grid;
     }
@@ -145,7 +145,7 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         if (col < 1 || col > PAGE_COLUMNS || row < 1 || row > PAGE_ROWS) {
             return null;
         } else {
-            var grid = (Gtk.Grid) paginator.get_children ().nth_data ((int) paginator.get_position ());
+            var grid = (Gtk.Grid) paginator.get_nth_page ((int) paginator.get_position ());
             return grid.get_child_at ((int) col - 1, (int) row - 1);
         }
     }
@@ -236,12 +236,12 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
     }
 
     public void set_page (uint pos) {
-        var grid = paginator.get_children ().nth_data (pos);
+        var grid = paginator.get_nth_page (pos);
         if (grid == null) {
             return;
         }
 
-        paginator.scroll_to (grid);
+        paginator.scroll_to (grid, true);
         refocus ();
     }
 }

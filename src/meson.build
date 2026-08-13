@@ -8,6 +8,7 @@ endif
 sources = [
     'Indicator.vala',
     'SlingshotView.vala',
+    'Utils.vala',
 
     'Backend/AppCenter.vala',
     'Backend/AppSystem.vala',
@@ -81,7 +82,7 @@ dependencies = [
     json_glib_dep,
     zeitgeist_dep,
     wingpanel_dep,
-    libhandy_dep,
+    adwaita_dep,
     math_dep,
     posix_dep,
 ]
