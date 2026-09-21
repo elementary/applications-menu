@@ -69,7 +69,18 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             var indicator_label = new Gtk.Label (_("Applications"));
             indicator_label.vexpand = true;
 
-            var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic");
+            var indicator_icon_name = Environment.get_os_info ("LOGO");
+            if (indicator_icon_name != null && indicator_icon_name.length > 0) {
+                indicator_icon_name += "-symbolic";
+            } else {
+                indicator_icon_name = "distributor-logo-symbolic";
+            }
+
+            if (!Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).has_icon (indicator_icon_name)) {
+                indicator_icon_name = "system-search-symbolic";
+            }
+
+            var indicator_icon = new Gtk.Image.from_icon_name (indicator_icon_name);
 
             indicator_grid = new Gtk.Grid ();
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
