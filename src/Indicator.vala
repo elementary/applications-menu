@@ -82,7 +82,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
             var indicator_icon = new Gtk.Image.from_icon_name (indicator_icon_name);
 
-            indicator_box = new Gtk.Box (HORIZONTAL, 6);
+            indicator_box = new Granite.Box (HORIZONTAL, HALF);
             indicator_box.append (indicator_icon);
             indicator_box.append (indicator_label);
             update_tooltip ();
