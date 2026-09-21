@@ -21,7 +21,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     private const string GALA_BEHAVIOR_SCHEMA = "io.elementary.desktop.wm.behavior";
 
     private DBusService? dbus_service = null;
-    private Gtk.Box? indicator_box = null;
+    private Gtk.Grid? indicator_grid = null;
     private SlingshotView? view = null;
 
     private static GLib.Settings? keybinding_settings;
@@ -65,7 +65,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget get_display_widget () {
-        if (indicator_box == null) {
+        if (indicator_grid == null) {
             var indicator_label = new Gtk.Label (_("Applications"));
             indicator_label.vexpand = true;
 
@@ -82,9 +82,9 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
             var indicator_icon = new Gtk.Image.from_icon_name (indicator_icon_name);
 
-            indicator_box = new Gtk.Box (HORIZONTAL, 6);
-            indicator_box.append (indicator_icon);
-            indicator_box.append (indicator_label);
+            indicator_grid = new Gtk.Grid ();
+            indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
+            indicator_grid.attach (indicator_label, 1, 0, 1, 1);
             update_tooltip ();
 
             if (keybinding_settings != null) {
@@ -106,7 +106,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
 
         visible = true;
 
-        return indicator_box;
+        return indicator_grid;
     }
 
     public override void opened () {
@@ -121,7 +121,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
     private void update_tooltip () {
         string[] accels = {};
 
-        if (keybinding_settings != null && indicator_box != null) {
+        if (keybinding_settings != null && indicator_grid != null) {
             var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
             foreach (unowned string raw_accel in raw_accels) {
                 if (raw_accel != "") accels += raw_accel;
@@ -134,7 +134,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             }
         }
 
-        indicator_box.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
+        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip (accels, _("Open and search apps"));
     }
 }
 
