@@ -69,7 +69,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
             var indicator_label = new Gtk.Label (_("Applications"));
             indicator_label.vexpand = true;
 
-            var indicator_icon = new Gtk.Image.from_icon_name ("system-search-symbolic");
+            var indicator_icon = new Gtk.Image.from_icon_name ("start-here-symbolic");
 
             indicator_grid = new Gtk.Grid ();
             indicator_grid.attach (indicator_icon, 0, 0, 1, 1);
