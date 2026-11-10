@@ -27,6 +27,8 @@ namespace Synapse {
         private Gee.Map<string, int> application_popularity;
         private Gee.Map<string, int> uri_popularity;
         private bool has_datahub_gio_module = false;
+        private bool refresh_in_progress = false;
+        private bool refresh_pending = false;
 
         private const float MULTIPLIER = 65535.0f;
 
@@ -58,10 +60,25 @@ namespace Synapse {
         }
 
         private bool refresh_popularity () {
-            load_application_relevancies.begin ();
-            load_uri_relevancies.begin ();
+            if (refresh_in_progress) {
+                refresh_pending = true;
+                return true;
+            }
 
+            refresh_in_progress = true;
+            refresh_popularity_async.begin ();
             return true;
+        }
+
+        private async void refresh_popularity_async () {
+            do {
+                refresh_pending = false;
+
+                yield load_application_relevancies ();
+                yield load_uri_relevancies ();
+            } while (refresh_pending);
+
+            refresh_in_progress = false;
         }
 
         private async void load_application_relevancies () {
@@ -219,7 +236,7 @@ namespace Synapse {
         private void reload_relevancies () {
             Idle.add_full (Priority.LOW, () =>
             {
-                load_application_relevancies.begin ();
+                refresh_popularity ();
                 return false;
             });
         }
