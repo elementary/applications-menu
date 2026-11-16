@@ -68,6 +68,7 @@ public class Slingshot.Indicator : Wingpanel.Indicator {
         if (indicator_grid == null) {
             var indicator_label = new Gtk.Label (_("Applications"));
             indicator_label.vexpand = true;
+            indicator_label.margin_start = 6;
 
             var indicator_icon = new Gtk.Image.from_icon_name ("start-here-symbolic");
 
