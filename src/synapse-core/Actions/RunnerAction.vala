@@ -56,6 +56,7 @@ private class Synapse.RunnerAction: Synapse.BaseAction {
                 weak Gdk.Display display = Gdk.Display.get_default ();
                 var context = display.get_app_launch_context ();
 
+                Slingshot.Backend.App.watch_launch_context (context);
                 if (app_info != null) {
                     bool use_default_gpu = !app_info.get_boolean ("PrefersNonDefaultGPU");
                     switcheroo_control.apply_gpu_environment (context, use_default_gpu);

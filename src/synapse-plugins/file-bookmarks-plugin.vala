@@ -95,7 +95,9 @@ namespace Synapse {
 
             public override void execute (Match? match) {
                 try {
-                    GLib.AppInfo.launch_default_for_uri (location.get_uri (), null);
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    Slingshot.Backend.App.watch_launch_context (context);
+                    GLib.AppInfo.launch_default_for_uri (location.get_uri (), context);
                 } catch (GLib.Error err) {
                     warning ("%s", err.message);
                 }

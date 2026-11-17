@@ -77,8 +77,10 @@ namespace Synapse {
                 var app_info = f.query_default_handler (null);
                 var files = new GLib.List<File> ();
                 files.prepend (f);
-                var display = Gdk.Display.get_default ();
-                app_info.launch (files, display.get_app_launch_context ());
+                var context = Gdk.Display.get_default ().get_app_launch_context ();
+                Slingshot.Backend.App.watch_launch_context (context);
+
+                app_info.launch (files, context);
             } catch (Error err) {
                 critical (err.message);
             }

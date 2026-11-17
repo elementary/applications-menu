@@ -63,6 +63,7 @@ namespace Synapse {
             public override void execute (Match? match) {
                 var context = Gdk.Display.get_default ().get_app_launch_context ();
                 context.set_timestamp (Gdk.CURRENT_TIME);
+                Slingshot.Backend.App.watch_launch_context (context);
                 ((DesktopAppInfo) app_info).launch_action (action_name, context);
             }
         }
@@ -331,7 +332,10 @@ namespace Synapse {
                     var app_info = new DesktopAppInfo.from_filename (desktop_info.filename);
                     List<File> files = new List<File> ();
                     files.prepend (f);
-                    app_info.launch (files, Gdk.Display.get_default ().get_app_launch_context ());
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    Slingshot.Backend.App.watch_launch_context (context);
+
+                    app_info.launch (files, context);
                 } catch (Error err) {
                     warning ("%s", err.message);
                 }

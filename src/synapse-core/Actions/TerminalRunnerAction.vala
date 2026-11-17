@@ -42,7 +42,10 @@ private class Synapse.TerminalRunnerAction: Synapse.BaseAction {
                 original.get_commandline (), original.get_name (),
                 AppInfoCreateFlags.NEEDS_TERMINAL);
                 weak Gdk.Display display = Gdk.Display.get_default ();
-                app.launch (null, display.get_app_launch_context ());
+                var context = display.get_app_launch_context ();
+                Slingshot.Backend.App.watch_launch_context (context);
+
+                app.launch (null, context);
             } catch (Error err) {
                 critical (err.message);
             }
