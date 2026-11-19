@@ -64,12 +64,19 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
 
         var focus_controller = new Gtk.EventControllerFocus ();
         focus_controller.enter.connect (refocus);
-
-        var key_controller = new Gtk.EventControllerKey ();
-        key_controller.key_pressed.connect (on_key_press);
-
+        focus_controller.leave.connect (() => {
+            _focused_column = 1;
+            _focused_row = 1;
+        });
         add_controller (focus_controller);
-        add_controller (key_controller);
+
+        paginator.page_changed.connect (() => {
+            if (paginator.get_position () == 0 && _focused_column == 1) {
+                return;
+            }
+
+            refocus ();
+        });
     }
 
     public void populate (Backend.AppSystem app_system) {
@@ -111,6 +118,9 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
                     unowned var app = apps.nth_data (app_idx);
 
                     var app_button = new Widgets.AppButton (app);
+                    var key_controller = new Gtk.EventControllerKey ();
+                    key_controller.key_pressed.connect (on_key_press);
+                    app_button.add_controller (key_controller);
                     app_button.app_launched.connect (() => ((Gtk.Popover) get_ancestor (typeof (Gtk.Popover))).popdown ());
 
                     widget_to_attach = app_button;
@@ -242,6 +252,5 @@ public class Slingshot.Widgets.Grid : Gtk.Box {
         }
 
         paginator.scroll_to (grid, true);
-        refocus ();
     }
 }
