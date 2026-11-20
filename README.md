@@ -12,6 +12,7 @@ You'll need the following dependencies:
 * gettext
 * libadwaita-1-dev
 * libgee-0.8-dev
+* libgnome-desktop-4-dev
 * libgranite-7-dev >= 7.6.0
 * libgtk-4-dev
 * libjson-glib-dev
