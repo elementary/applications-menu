@@ -75,6 +75,7 @@ dependencies = [
     glib_dep,
     gobject_dep,
     gio_dep,
+    gnome_desktop_dep,
     gio_unix_dep,
     granite_dep,
     gee_dep,

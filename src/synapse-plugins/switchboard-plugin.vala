@@ -55,7 +55,9 @@ public class Synapse.SwitchboardObject: Synapse.Match {
 
     public override void execute (Match? match) {
         try {
-            AppInfo.launch_default_for_uri ("settings://%s".printf (uri), null);
+            var context = Gdk.Display.get_default ().get_app_launch_context ();
+            Slingshot.Backend.App.watch_launch_context (context);
+            AppInfo.launch_default_for_uri ("settings://%s".printf (uri), context);
         } catch (Error e) {
             warning ("Failed to show URI for %s: %s\n".printf (uri, e.message));
         }

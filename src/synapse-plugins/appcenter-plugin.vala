@@ -65,7 +65,10 @@ namespace Synapse {
                 list.append ("appstream://" + Uri.escape_string (search_term));
 
                 try {
-                    appinfo.launch_uris (list, null);
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    Slingshot.Backend.App.watch_launch_context (context);
+
+                    appinfo.launch_uris (list, context);
                 } catch (Error e) {
                     warning ("%s\n", e.message);
                 }

@@ -10,6 +10,7 @@ gnome = import('gnome')
 
 add_project_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+    '-DGNOME_DESKTOP_USE_UNSTABLE_API',
     language: 'c'
 )
 
@@ -40,6 +41,7 @@ gio_dep = dependency('gio-2.0')
 gtk_dep = dependency('gtk4')
 granite_dep = dependency('granite-7', version: '>=6.1.0')
 gobject_dep = dependency('gobject-2.0')
+gnome_desktop_dep = dependency('gnome-desktop-4')
 gio_unix_dep = dependency('gio-unix-2.0')
 json_glib_dep = dependency('json-glib-1.0')
 switchboard_dep = dependency('switchboard-3')

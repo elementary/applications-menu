@@ -60,7 +60,10 @@ namespace Synapse {
                 var list = new List<string> ();
                 list.append (uri);
                 try {
-                    appinfo.launch_uris (list, null);
+                    var context = Gdk.Display.get_default ().get_app_launch_context ();
+                    Slingshot.Backend.App.watch_launch_context (context);
+
+                    appinfo.launch_uris (list, context);
                 } catch (Error e) {
                     warning ("%s\n", e.message);
                 }

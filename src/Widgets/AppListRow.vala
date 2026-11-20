@@ -51,7 +51,10 @@ public class Slingshot.AppListRow : Gtk.ListBoxRow {
 
     public void launch () {
         try {
-            app_info.launch (null, null);
+            var context = Gdk.Display.get_default ().get_app_launch_context ();
+            Backend.App.watch_launch_context (context);
+
+            app_info.launch (null, context);
         } catch (Error error) {
             critical (error.message);
         }
